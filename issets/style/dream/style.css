@@ -1,0 +1,156 @@
+body {
+    font-family: 'Roboto',sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #53ffff !important;
+}
+.container {
+    margin: auto;
+    width: 90%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.body--text {
+    width: 50%;
+    height: 80%;
+    flex: 1;
+    margin-top: 10%;
+}
+.area--text {
+    margin-top: 5%;
+    margin-left: 5%;
+}   
+.titulo--beep {
+    font-size: 30px;
+    color: #000000;
+}
+.titulo--beep h1 {
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+.text--beep {
+    font-size: 18px;
+    width: 80%;
+    word-wrap:break-word;
+    margin-top: -8px;
+}
+.text--beep  p {
+    font-weight: 400;
+    line-height: 25px;
+    
+}
+.body--form {
+    width: 50%;
+    height: 80%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form--body {
+    background-color: #ffffff;
+    width: 70%;
+    height: 78%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px #000000af;
+}
+.form {
+    height: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+.form--titulo {
+    width: 100%;
+    color:#000000;
+    height: auto;
+    text-align: center;
+    font-size: 30px;
+    text-decoration:underline #53ffff 3px;
+    margin-top:5% ;
+}
+
+form {
+    width: 100%;
+    height: auto;   
+}
+.form--input--body {
+    width: 100%;
+    height: auto;
+}
+.form--input {
+    width: 100%;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 5%;
+}
+.form--input--margin {
+    margin-top: 10%;
+    margin-bottom: 7%;
+}
+.form--input input {
+    background-color: #00000000;
+    width: 100%;
+    height: 100%;
+    font-size: 19px;
+    padding-top: 6%;
+    border:none;
+    border-bottom: 2px solid #000000;
+}
+.form--input input::placeholder {
+    font-size: 20px;
+}
+.form--input input:focus {
+    border-bottom:3px solid #00e7e7 ;
+    outline: none;
+    transition: all linear 0.3s;
+}
+.form--input input:hover {
+    background-color: #e9e9e971;
+}
+button {
+    cursor: pointer;
+    margin-top: 5%;
+    margin-left: 4%;
+    border: none;
+    background-color:#00e7e7 ;
+    border-radius: 10px;
+    width: 93%;
+    font-size: 20px;
+    color: #fff;
+    height: 50px;
+}
+button:hover, button:focus {
+    background-color:#00f0f0 ;
+    transition: all linear 0.3s;
+    outline: none;
+}
+.form--add {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 4%;
+}
+.form--add button {
+    background-color: #36a8a8;
+    width: 100%;
+}
+.form--add button:hover, .form--add button:focus  {
+    background-color: #36a8a8c2;
+    transition: all linear 0.3s;
+}
+.Esqueceu-a-senha a{
+    text-decoration: none;
+    color: #000;
+}
+.Esqueceu-a-senha a:hover {
+    color: #1b1b1b;
+    text-decoration: underline 2px;
+}

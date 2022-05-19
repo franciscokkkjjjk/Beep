@@ -1,0 +1,37 @@
+.feed-area {
+    margin-top: 1%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+.menu--pag--area {
+    width: 23%;
+    height: 88.8vh;
+}
+.body--menu-pag {
+    width: 23%;
+    height: 88.8vh;
+    background-color: #53ffff;
+    position: fixed;
+}
+
+.timeline--area {
+    height: 100vh;
+    margin-left: 1%;
+    margin-right: 1%;
+    background-color: #53ffff;
+    flex: 1;
+}
+.area--convite {
+    width: 23%;
+    height: 40vh;
+}
+.convite--body {
+    width: 23%;
+    height: auto;
+    background-color: #00ff80;
+}
+.menu--header--body {
+    position: fixed;
+}
