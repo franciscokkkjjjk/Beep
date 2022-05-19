@@ -1,5 +1,4 @@
 .feed-area {
-    margin-top: 1%;
     width: 100%;
     height: auto;
     display: flex;
@@ -7,13 +6,26 @@
 }
 .menu--pag--area {
     width: 23%;
-    height: 88.8vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.feed-logo-body {
+    background-color: #3dc0c0;
+    height: 9%;
+    margin-bottom: 3%;
+}
+.logo--area {
+    width: 15%;
+}
+.feed-logo-body img {
+    width: 100%;
 }
 .body--menu-pag {
-    width: 23%;
+    width: 100%;
     height: 88.8vh;
     background-color: #53ffff;
-    position: fixed;
+    flex: 1;
 }
 
 .timeline--area {
@@ -28,8 +40,8 @@
     height: 40vh;
 }
 .convite--body {
-    width: 23%;
-    height: auto;
+    width: 100%;
+    height: 85%;
     background-color: #00ff80;
 }
 .menu--header--body {
