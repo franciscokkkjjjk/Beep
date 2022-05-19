@@ -47,3 +47,60 @@
 .menu--header--body {
     position: fixed;
 }
+.menu--pag-perfil--area {
+    width: 80%;
+    height: 10%;
+    margin: auto;
+    background-color: #3ab4b4;
+    border-radius: 30px;
+    margin-top: 15%;
+    cursor: pointer;
+    box-shadow: 1px 2px 3px #0000;
+}
+.menu--pag {
+    width: 100%;
+    height:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-size: 86%;
+    color: #000;
+}
+.menu--pag--img--area {
+    width: 15%;
+    height: 60%;
+    margin-left: 5%;
+    margin-right: 3%;
+    border-radius: 100%;
+    background-color: #ffffff;
+    background-image: url('../../imgs/profile/IMG_20220517_170714.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    border:0.5px solid #020202a4
+}
+.menu--pag--button-menu--area {
+    height: 100%;
+    flex: 1;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.menu--pag--button {
+    width: 30%;
+    height: 50%;
+    margin-right: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu--pag--button div {
+    width: 12px;
+    height: 12px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(314deg);
+    margin-top: -5px;
+}  
