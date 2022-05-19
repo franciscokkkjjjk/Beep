@@ -54,7 +54,6 @@
     background-color: #3ab4b4;
     border-radius: 30px;
     margin-top: 15%;
-    cursor: pointer;
     box-shadow: 1px 2px 3px #0000;
 }
 .menu--pag {
@@ -65,6 +64,7 @@
     flex-direction: row;
     font-size: 86%;
     color: #000;
+    cursor: pointer;
 }
 .menu--pag--img--area {
     width: 15%;
@@ -104,3 +104,21 @@
     transform: rotate(314deg);
     margin-top: -5px;
 }  
+.menu--pag--opt--menu--area {
+    background-color: #3ab4b4;
+    margin-left:-10%;
+    width: 120%;
+    margin-top: -70px;
+    padding-top: 100px;
+    border-radius: 10px;
+}
+.menu--pag--opt {
+    padding: 15px;
+}
+.menu--pag--opt--section {
+    height: 30px;
+    padding: 28px 10px;
+    display: flex;
+    align-items: center;
+    color: #0f0f0f;
+}
