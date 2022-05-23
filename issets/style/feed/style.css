@@ -150,6 +150,14 @@
     margin-left: -6px;
     border-bottom: 0px solid #53ffff !important;
 } 
+.event {
+    width: 30px;
+    height: 30px ;
+    border-radius: 100%;
+    border-left: 3px solid salmon;
+    border-bottom: 3px solid salmon;
+    transition: all ease 0.3s;
+}
 @media screen and (max-width:1605px) {
     .menu--pag--opt--menu--area {
         margin-top: -40%;
