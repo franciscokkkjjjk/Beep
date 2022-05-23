@@ -12,14 +12,12 @@
 }
 .feed-logo-body {
     background-color: #222222;
-
     height: 9%;
     margin-bottom: 3%;
 }
 .logo--area {
     width: 15%;
     height: auto;
-    background: red;
 }
 .logo--area  img {
     width: 80%;
@@ -71,8 +69,8 @@
     cursor: pointer;
 }
 .menu--pag--img--area {
-    width: 15%;
-    height: 60%;
+    width: 45px;
+    height: 45px;
     margin-left: 5%;
     margin-right: 3%;
     border-radius: 100%;
@@ -109,8 +107,8 @@
     color: #e7e7e7;
 }
 .menu--pag--button div {
-    width: 12px;
-    height: 12px;
+    width: 12px; /*width: 18px;*/
+    height: 12px;/*height: 18px;*/
     border-left: 2px solid #53ffff;
     border-bottom: 2px solid #53ffff;
     transform: rotate(314deg);
@@ -143,7 +141,15 @@
     margin: 1px;
     border-radius: 10px;
 }
-
+.eventscript--seta {
+    display: none;
+}
+.seta--x--direita {
+    display: block;
+    border-left: 2px solid #53ffff;
+    margin-left: -6px;
+    border-bottom: 0px solid #53ffff !important;
+} 
 @media screen and (max-width:1605px) {
     .menu--pag--opt--menu--area {
         margin-top: -40%;
@@ -153,9 +159,14 @@
     .menu--pag--opt--menu--area {
         margin-top: -50%;
     }
-    .logo--area  img {
-        width: 80%;
-        margin-top: 20%;
+    .menu--pag--img--area {
+        width: 37px;
+        height: 37px;
+        margin-left: 5%;
+        margin-right: 3%;
+        border-radius: 100%;
+        background-color: #ffffff;
+
     }
 }
 /*versão mobile incia aq*/
