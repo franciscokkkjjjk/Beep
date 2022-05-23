@@ -76,9 +76,9 @@
     background-color: #ffffff;
     background-image: url('../../imgs/profile/IMG_20220517_170714.jpg');
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     background-position: center;
-    border:0.5px solid #020202a4
+
 }
 .menu--pag--button-menu--area {
     height: 100%;
@@ -127,10 +127,16 @@
 .menu--pag--opt {
     padding: 15px;
 }
+.menu--pag--opt--section:hover {
+    background-color: #fdfdfd36;
+    transition: all linear 0.3s;
+}
 .menu--pag--opt--section {
     height: 30px;
-    padding: 28px 10px;
+    padding: 30px 10px;
     display: flex;
     align-items: center;
     color: #0f0f0f;
+    margin: 1px;
+    border-radius: 10px;
 }
