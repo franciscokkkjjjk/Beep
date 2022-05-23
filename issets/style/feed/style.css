@@ -11,7 +11,8 @@
     flex-direction: column;
 }
 .feed-logo-body {
-    background-color: #3dc0c0;
+    background-color: #222222;
+
     height: 9%;
     margin-bottom: 3%;
 }
@@ -24,7 +25,7 @@
 .body--menu-pag {
     width: 100%;
     height: 88.8vh;
-    background-color: #53ffff;
+    background-color: #222222;
     flex: 1;
 }
 
@@ -32,7 +33,7 @@
     height: 100vh;
     margin-left: 1%;
     margin-right: 1%;
-    background-color: #53ffff;
+    background-color: #222222;
     flex: 1;
 }
 .area--convite {
@@ -51,7 +52,7 @@
     width: 80%;
     height: 10%;
     margin: auto;
-    background-color: #3ab4b4;
+    background-color: #050505;
     border-radius: 30px;
     margin-top: 15%;
     box-shadow: 1px 2px 3px #0000;
@@ -96,21 +97,32 @@
     align-items: center;
     justify-content: center;
 }
+.menu--pag--name-perfil {
+    font-size: 18px;
+    color: #ffffff;
+}
+.menu--pag--username-perfil {
+    font-size: 13px;
+    color: #e7e7e7;
+}
 .menu--pag--button div {
     width: 12px;
     height: 12px;
-    border-left: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-left: 2px solid #53ffff;
+    border-bottom: 2px solid #53ffff;
     transform: rotate(314deg);
     margin-top: -5px;
 }  
 .menu--pag--opt--menu--area {
-    background-color: #3ab4b4;
+    background-color: #4e4e4e;
     margin-left:-10%;
     width: 120%;
-    margin-top: -70px;
+    margin-top: -28%;
     padding-top: 100px;
     border-radius: 10px;
+}
+.menu--pag--opt--menu--area div {
+    color: #fff;
 }
 .menu--pag--opt {
     padding: 15px;
