@@ -18,9 +18,12 @@
 }
 .logo--area {
     width: 15%;
+    height: auto;
+    background: red;
 }
-.feed-logo-body img {
-    width: 100%;
+.logo--area  img {
+    width: 80%;
+    margin-top: 20%;
 }
 .body--menu-pag {
     width: 100%;
@@ -139,4 +142,25 @@
     color: #0f0f0f;
     margin: 1px;
     border-radius: 10px;
+}
+
+@media screen and (max-width:1605px) {
+    .menu--pag--opt--menu--area {
+        margin-top: -40%;
+    }
+}
+@media screen and (max-width:1125px) {
+    .menu--pag--opt--menu--area {
+        margin-top: -50%;
+    }
+    .logo--area  img {
+        width: 80%;
+        margin-top: 20%;
+    }
+}
+/*versão mobile incia aq*/
+@media screen and (max-width:828px) {
+    .menu--pag--opt--menu--area {
+        margin-top: -65%;
+    }
 }
