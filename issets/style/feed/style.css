@@ -154,9 +154,10 @@
     width: 30px;
     height: 30px ;
     border-radius: 100%;
-    border-left: 3px solid salmon;
-    border-bottom: 3px solid salmon;
+    border: 3px solid linear-gradient(172deg,#e63333, #690efa);
     transition: all ease 0.3s;
+    border-bottom: 3px solid #00ff80;
+    border-top: 3px solid #00ff80;
 }
 @media screen and (max-width:1605px) {
     .menu--pag--opt--menu--area {

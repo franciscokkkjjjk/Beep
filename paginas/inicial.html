@@ -114,18 +114,15 @@
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
     <script>let a = true;setInterval(()=>{
-        
         if(a == true){
         a = false;
-        document.querySelector('.event').style.borderLeft='0px';
-        document.querySelector('.event').style.borderRight='3px solid salmon';
         document.querySelector('.event').style.transform ='rotate(180deg)';
     } else {
         a = true;
         document.querySelector('.event').style.borderLeft='3px solid salmon';
-        document.querySelector('.event').style.borderRight='0px solid salmon';
+        document.querySelector('.event').style.borderRight='3px solid salmon';
         document.querySelector('.event').style.transform ='rotate(-180deg)';
     }
-    }, 350)</script>
+    }, 500)</script>
 </body>
 </html>
