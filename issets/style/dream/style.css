@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto',sans-serif;
     margin: 0px;
     padding: 0px;
-    background-color: #53ffff !important;
+    background-color: #f1f1f1!important;
 }
 .container {
     margin: auto;
@@ -24,10 +24,10 @@ body {
 }   
 .titulo--beep {
     font-size: 30px;
-    color: #000000;
+    color: #12beca;
 }
 .titulo--beep h1 {
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 2px;
 }
 .text--beep {
@@ -70,7 +70,7 @@ body {
     height: auto;
     text-align: center;
     font-size: 30px;
-    text-decoration:underline #53ffff 3px;
+    text-decoration:underline #12beca 3px;
     margin-top:5% ;
 }
 
@@ -100,13 +100,13 @@ form {
     font-size: 19px;
     padding-top: 6%;
     border:none;
-    border-bottom: 2px solid #000000;
+    border-bottom: 2px solid #00000093;
 }
 .form--input input::placeholder {
     font-size: 20px;
 }
 .form--input input:focus {
-    border-bottom:3px solid #00e7e7 ;
+    border-bottom:2px solid #12beca;
     outline: none;
     transition: all linear 0.3s;
 }
@@ -118,7 +118,7 @@ button {
     margin-top: 5%;
     margin-left: 4%;
     border: none;
-    background-color:#00e7e7 ;
+    background-color:#12beca; 
     border-radius: 10px;
     width: 93%;
     font-size: 20px;
@@ -126,7 +126,7 @@ button {
     height: 50px;
 }
 button:hover, button:focus {
-    background-color:#00f0f0 ;
+    background-color:#12becabe;
     transition: all linear 0.3s;
     outline: none;
 }
@@ -139,11 +139,11 @@ button:hover, button:focus {
     margin-top: 4%;
 }
 .form--add button {
-    background-color: #36a8a8;
+    background-color: #2a8d94;
     width: 100%;
 }
 .form--add button:hover, .form--add button:focus  {
-    background-color: #36a8a8c2;
+    background-color: #12beca;
     transition: all linear 0.3s;
 }
 .Esqueceu-a-senha a{
