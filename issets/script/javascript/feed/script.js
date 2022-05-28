@@ -1,25 +1,31 @@
 let menu ={
     'status':false,
     'event01':'menu--pag--event01',
-    'event02': '',
+    'locationEvent01':'menu--pag',
+    'event02': 'menu--pag--button',
 }
 
 console.log(menu['event01'])
+qs('.'+menu['event01']).addEventListener('click', ()=>{
 if(menu['status'] == false) {
-    qs('.'+menu['event01']).addEventListener('click', ()=>{
-        
-        console.log('teste');
-
         menu['status'] = true;
+        qs('.event--menu-pag').style.opacity = 1;
         qs('.event--menu-pag').style.display = 'block';
-        setTimeout(()=>{//background-color: #4e4e4e;
+        setTimeout(()=>{
             qs('.event--menu-pag').style.backgroundColor = '#4e4e4e';
-            qs('.event--menu-pag').style.opacity = 1;
-            qs('.event--menu-pag').style.paddingBottom = "267px";
-            qs('.menu--pag--button div').classList.add('dimensoes--seta');
-            qs('.'+menu['event01']).classList.remove(menu['event01']);
+            qs('.event--menu-pag').style.paddingBottom = "290px";
+            qs('.eventscript--seta').classList.add('dimensoes--seta');
+
         },30)
-    });
 } else {
-    qs('')
+        menu['status'] = false;
+        qs('.event--menu-pag').style.backgroundColor = '#4e4e4e';
+        qs('.event--menu-pag').style.paddingBottom = "";
+        qs('.eventscript--seta').classList.remove('dimensoes--seta');
+        setTimeout(()=>{
+            qs('.event--menu-pag').style.opacity = 0;
+            qs('.event--menu-pag').style.display = 'none';
+            qs('.'+menu['locationEvent01']).classList.add(menu['event01']);
+        },100)
 }
+}); 
