@@ -159,6 +159,21 @@
     border-bottom: 3px solid #00ff80;
     border-top: 3px solid #00ff80;
 }
+.img--opt-feed {
+    background-position: 5px;
+    background-size: 12%;
+    padding-left: 17%;
+    background-repeat: no-repeat;
+}
+.img--pag--inicial {
+    background-image: url('../../imgs/default/casa.png');
+}
+.img--pag--jogos {
+    background-image: url('../../imgs/default/controle-de-video-game.png');
+}
+.img--pag--solic {
+    background-image: url('../../imgs/default/solicitacao1.png');
+}
 @media screen and (max-width:1605px) {
     .menu--pag--opt--menu--area {
         margin-top: -40%;
