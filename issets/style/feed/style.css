@@ -1,3 +1,6 @@
+* {
+    transition: all 0.3s ease;
+}
 .feed-area {
     width: 100%;
     height: auto;
@@ -153,15 +156,6 @@
     margin-left: -6px;
     border-bottom: 0px solid #53ffff !important;
 } 
-.event { /*Bolinha de carregamento*/
-    width: 30px;
-    height: 30px ;
-    border-radius: 100%;
-    border: 3px solid linear-gradient(172deg,#e63333, #690efa);
-    transition: all ease 0.3s;
-    border-bottom: 3px solid #00ff80;
-    border-top: 3px solid #00ff80;
-}
 .img--opt-feed {
     background-position: 5px;
     background-size: 12%;
@@ -206,4 +200,22 @@
     .menu--pag--opt--menu--area {
         margin-top: -65%;
     }
+}
+
+/*classes de eventos*/
+.event--menu-pag {
+    display:none;
+    height:130px; 
+    overflow-y: hidden;
+    background-color: #00000000;
+    /*para o menu ganhar forma padding-bottom: 267px;*/
+}
+.event { /*Bolinha de carregamento*/
+    width: 30px;
+    height: 30px ;
+    border-radius: 100%;
+    border: 3px solid linear-gradient(172deg,#e63333, #690efa);
+    transition: all ease 0.3s;
+    border-bottom: 3px solid #00ff80;
+    border-top: 3px solid #00ff80;
 }
