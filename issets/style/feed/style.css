@@ -66,6 +66,9 @@
     flex-direction: row;
     font-size: 86%;
     color: #000;
+    
+}
+.menu--pag--event01 {
     cursor: pointer;
 }
 .menu--pag--img--area {
@@ -150,7 +153,7 @@
     margin-left: -6px;
     border-bottom: 0px solid #53ffff !important;
 } 
-.event {
+.event { /*Bolinha de carregamento*/
     width: 30px;
     height: 30px ;
     border-radius: 100%;
@@ -162,7 +165,7 @@
 .img--opt-feed {
     background-position: 5px;
     background-size: 12%;
-    padding-left: 17%;
+    padding-left: 17% ;
     background-repeat: no-repeat;
 }
 .img--pag--inicial {
@@ -173,6 +176,11 @@
 }
 .img--pag--solic {
     background-image: url('../../imgs/default/solicitacao1.png');
+    background-size: 10%;
+}
+.img--pag--perf {
+    background-image: url('../../imgs/default/perfil-de-usuario.png');
+    background-size: 10%;
 }
 @media screen and (max-width:1605px) {
     .menu--pag--opt--menu--area {
