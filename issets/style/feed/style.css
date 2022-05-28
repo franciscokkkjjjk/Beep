@@ -137,6 +137,7 @@
 .menu--pag--opt--section:hover {
     background-color: #fdfdfd36;
     transition: all linear 0.3s;
+    cursor: pointer;
 }
 .menu--pag--opt--section {
     height: 30px;
@@ -147,15 +148,6 @@
     margin: 1px;
     border-radius: 10px;
 }
-.eventscript--seta {
-    display: none;
-}
-.seta--x--direita {
-    display: block;
-    border-left: 2px solid #53ffff;
-    margin-left: -6px;
-    border-bottom: 0px solid #53ffff !important;
-} 
 .img--opt-feed {
     background-position: 5px;
     background-size: 12%;
@@ -218,4 +210,15 @@
     transition: all ease 0.3s;
     border-bottom: 3px solid #00ff80;
     border-top: 3px solid #00ff80;
+}
+
+.dimensoes--seta {
+    width: 14px!important;
+    height: 14px !important;
+    transform: rotate(134deg)!important;
+    margin-bottom: -10px;
+}
+
+.seta--x--esquerda {
+    border-left: 3px solid #000;
 }
