@@ -17,11 +17,11 @@
 .feed-logo-body {
 
     background-color: #222222;
-    height: 9%;
+    height: 8%;
     margin-bottom: 3%;
 }
 .logo--area {
-    width: 15%;
+    width: 14%;
     height: auto;
 }
 .logo--area  img {
@@ -227,10 +227,18 @@
 /*Feed*/
 
 .feed-header-body {
-    background-color: #222222b2;
+    background-color: #333333b2;
+    background-image: linear-gradient(84deg, #1c1c1c78,#43434378,#1c1c1c78,#43434378);
     width: 50%;
-    height: 9%;
+    height: 7.5%;
     position: fixed;
+    color: #fff;
+}
+.feed-header-body h1 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-top:20px ;
+    margin-left: 20px;
 }
 .feed-body-post {
     padding-top: 9%;
