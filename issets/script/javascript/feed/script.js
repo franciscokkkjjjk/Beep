@@ -15,7 +15,7 @@ if(menu['status'] == false) {
         setTimeout(()=>{
 
             qs('.event--menu-pag').style.backgroundColor = '#4e4e4e';
-            qs('.event--menu-pag').style.paddingBottom = "290px";
+            qs('.event--menu-pag').style.paddingBottom = "300px";
             qs('.eventscript--seta').classList.add('dimensoes--seta');
 
         },30)

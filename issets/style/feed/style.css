@@ -199,6 +199,8 @@
 .event--menu-pag {
     display:none;
     height:130px; 
+    width: 114%;
+    margin-left: -8%;
     overflow-y: hidden;
     background-color: #00000000;
     /*para o menu ganhar forma padding-bottom: 267px;*/
@@ -245,3 +247,10 @@
 .feed-body-post {
     padding-top: 9%;
 }
+/*postagens*/
+/*
+border??
+link no nome e @
+
+
+*/
