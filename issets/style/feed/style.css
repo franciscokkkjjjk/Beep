@@ -246,11 +246,13 @@
 }
 .feed-body-post {
     padding-top: 9%;
+    height: 100vh;
 }
 /*postagens*/
 /*
 border??
 link no nome e @
-
+curtir -- sem borda (algo chamativo)
+comenter/compartilhar -- mesmo q o curtir 
 
 */
