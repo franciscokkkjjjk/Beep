@@ -1,6 +1,3 @@
-* {
-    transition: all 0.3s ease;
-}
 .feed-area {
     width: 100%;
     height: auto;
@@ -72,6 +69,7 @@
 }
 .menu--pag--event01 {
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .menu--pag--img--area {
     width: 45px;
@@ -155,6 +153,9 @@
     padding-left: 17% ;
     background-repeat: no-repeat;
 }
+.eventscript--seta {
+    transition: all 0.3s ease;
+}
 .img--pag--inicial {
     background-image: url('../../imgs/default/casa.png');
 }
@@ -203,6 +204,7 @@
     margin-left: -8%;
     overflow-y: hidden;
     background-color: #00000000;
+    transition: all 0.3s ease;
     /*para o menu ganhar forma padding-bottom: 267px;*/
 }
 .event { /*Bolinha de carregamento*/
@@ -213,6 +215,7 @@
     transition: all ease 0.3s;
     border-bottom: 3px solid #00ff80;
     border-top: 3px solid #00ff80;
+    transition: all 0.3s ease;
 }
 
 .dimensoes--seta {
@@ -220,6 +223,7 @@
     height: 14px !important;
     transform: rotate(134deg)!important;
     margin-bottom: -10px;
+    transition: all 0.3s ease;
 }
 .menu--pag--button:hover {
     background-color: #3d3d3d;
@@ -249,6 +253,23 @@
     height: 100vh;
 }
 /*postagens*/
+.post--menu--area {
+    background-color: red;
+    width: 90%;
+    height: auto;
+    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+}
+.header--post--area {
+    background-color: blue;
+    display: flex;
+    justify-content: space-between;
+}
+.post--area--perfil {
+    flex: 1;
+    background-color: #53ffff;
+}
 /*
 border??
 link no nome e @
