@@ -40,7 +40,7 @@
                 </div>
                 <div class="input--area--form">
                     <div class="input--form">
-                        <input placeholder="Email" type="email" name="email--user">
+                        <input id="email" placeholder="Email" type="email" name="email--user">
                     </div>
                     <div class="input--form passoword--form">
                         <input id="passoword--user" placeholder="Senha" type="password" name="senha--user">
