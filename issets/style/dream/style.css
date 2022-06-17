@@ -132,7 +132,22 @@ body {
     color: #0a0a0a;
 }
 .button-e a{
-    text-decoration: none;
+    text-decoration:underline transparent ;
     color: #0a0a0a;
     font-size: 14px;
+}
+.button-e a:hover{
+    text-decoration: underline;
+    transition: all linear 0.3s;
+}
+.button-C a{
+    background-color: #258188;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+}
+.button-C a:hover {
+    background-color: #145b5fe3;
+
 }
