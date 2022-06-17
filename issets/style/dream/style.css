@@ -123,4 +123,16 @@ body {
 .area--button--eC {
     display: flex;
     flex-direction: row;
+    margin-top: 21px;
+    width: 295px;
+    justify-content: space-around;
+}
+.button-e {
+    text-decoration: none;
+    color: #0a0a0a;
+}
+.button-e a{
+    text-decoration: none;
+    color: #0a0a0a;
+    font-size: 14px;
 }
