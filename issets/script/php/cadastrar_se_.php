@@ -1,6 +1,9 @@
 <?php 
     session_start();
-    require_once 'conecta.php'; //567.600.000.000.000 18 anos em milesegundos
+    $date_atual = date("d-m-y");
+    $dat_in = strtotime($date_atual);
+//divisão para chegar nos 18: 213195 24 4 1,2
+    require_once 'conecta.php'; 
     $meses = [
         'Janeiro',//0
         'Fevereiro',
@@ -23,22 +26,39 @@
     $ano_nas = intval($_POST['ano']);
     for($i = 0;$i<12;$i++){
         if($meses[$i] == $mes_nas){
-            echo 'kk finalmente é '.$meses[$i];
             $mesOut = $i+1;
-            echo 'janeiro é o mes '.$mesOut;
             break;
         }
     }
     $datIn = strtotime($mesOut.'/'.$dia_nas.'/'.$ano_nas);
-    var_dump($datIn);
-    die;
     $datOt = date('Y-m-d', $datIn);
-    die;
-    var_dump($dia_nas);
-    var_dump($mes_nas);
-    var_dump($ano_nas);
-    die;
-    $sql_valid = 'SELECT * FROM users';
-    $resultado  = mysqli_query($conexao,$sql_valid);
+    $calc = $dat_in-$datIn;
+    $cal_pross00 = $calc/213195;
+    $cal_pross01 = $cal_pross00/24;
+    $cal_pross02 = $cal_pross01/4;
+    $date_coverti = $cal_pross02/1.2;
+    if($date_coverti >= 18){
+        $sql_valid = 'SELECT email FROM users';
+        $resultado_valid  = mysqli_query($conexao,$sql_valid);
+        $linha_valid = mysqli_fetch_all($resultado_valid,1);
+        foreach($linha_valid as $valid) {
+            if($valid['email'] == $email) {
+                $_SESSION['nome'] = $nome;
+                $_SESSION['email'] = $email;
+                $_SESSION['dia_nas'] = $dia_nas;
+                $_SESSION['mes_nas'] = $mes_nas;
+                $_SESSION['ano_nas'] = $ano_nas;
+                $_SESSION['email'] = $email;
+                $_SESSION['mensagem'] = 'Esse email já esta sendo usado.';
+                $_SESSION['erroEmail'] = true;
+                header('location:../../../paginas/cadastrar_se.php');
+            } else {
+               //...
+            }
+        }
+    } else {
+        $_SESSION['mensagem'] = 'Foi mal baixinho(a), você precisa ser maior de idade para cadastrar-se';
+        header('location:../../../paginas/cadastrar_se.php');
+    }
 
 ?>

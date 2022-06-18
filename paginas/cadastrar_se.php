@@ -1,10 +1,24 @@
 <?php 
     session_start();
-    $erro = '';
-    $errosenha = false;
-    if(isset($_SESSION['mensagem'])) {
-        $errosenha = true;
-        $erro = 'error--login';
+    $erro_form = '';
+    $nome = '';
+    $username ='';
+    $email = '';
+    $erro = false;
+    $errorEmail = false;
+    $dia_nas = '';
+    $mes_nas = '' ;
+    $ano_nas = '';
+    if(isset($_SESSION['mensagem']) and !isset($_SESSION['erroEmail'])) {
+        $erro = true;
+    } elseif(isset($_SESSION['erroEmail'])){
+        $erro_form = 'error--login';
+        $errorEmail = $_SESSION['erroEmail'];
+        $email = $_SESSION['email'];
+        $nome = $_SESSION['nome'];
+        $dia_nas = $_SESSION['dia_nas'];
+        $mes_nas = $_SESSION['mes_nas'] ;
+        $ano_nas = $_SESSION['ano_nas'];
     }
 ?>
 <!DOCTYPE html>
@@ -48,18 +62,38 @@
                 </div>
                 <div class="input--area--form">
                     <div class="input--form">
-                        <input id="nome" required placeholder="Nome" type="text"  name="nome_user">
+                        <input id="nome" value="<?= $nome?>" required placeholder="Nome" type="text"  name="nome_user">
                     </div>
                     <div class="input--form">
-                        <input id="email" required placeholder="Email" type="email" name="email_user">
+                        <input id="username" value="<?= $nome?>" required placeholder="UserName" type="text"  name="username">
+                    </div>
+                    <div class="input--form">
+                        <input id="email" value="<?= $email?>" class="<?= $erro_form?>" required placeholder="Email" type="email" name="email_user">
+                    </div>
+                    
+                        <?php 
+                        if($errorEmail){
+                        ?>
+                    <div class="mensagem--erro">
+                        <?= $_SESSION['mensagem'];?>
+                    </div>
+                    <?php 
+                    session_destroy();
+                    }
+                    ?>
+                    <div class="input--form passoword--form">
+                        <input id="passoword--user" required class='' placeholder="Senha" type="password" name="senha_user">
                     </div>
                     <div class="input--form passoword--form">
-                        <input id="passoword--user" required class='<?= $erro?>' placeholder="Senha" type="password" name="senha_user">
-                    </div>
-                    <div class="input--form passoword--form">
-                        <input id="passoword--user--confirm" required class='<?= $erro?>' placeholder="Confirmar senha" type="password">
+                        <input id="passoword--user--confirm" required class='' placeholder="Confirmar senha" type="password">
                     </div>
                     <div class="mensagem--erro">
+                        <?php 
+                        if($erro){
+                            echo $_SESSION['mensagem'];
+                            session_destroy();
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="input--form date--form--area">
@@ -72,6 +106,13 @@
                                     mês
                                 </label>
                                 <select required id="mes" class="select--sub select--date--mes" name="mes">
+                                    <?php 
+                                       if(!$mes_nas == ''){
+                                    ?>
+                                    <option disabled>Anterior</option>
+                                    <option><?=$mes_nas?></option>
+                                    <option disabled></option>
+                                    <?php }?>
                                     <option></option>
                                 </select>
                             </div>
@@ -80,6 +121,13 @@
                                     dia
                                 </label>
                                 <select required id="dia" class="select--sub select--date--dia" name="dia">
+                                    <?php 
+                                       if(!$dia_nas == ''){
+                                    ?>
+                                    <option disabled>Anterior</option>
+                                    <option><?=$dia_nas?></option>
+                                    <option disabled></option>
+                                    <?php }?>
                                     <option></option>
                                 </select>
                             </div>
@@ -88,6 +136,13 @@
                                     ano
                                 </label>
                                 <select required id="ano" class="select--sub select--date--ano" name="ano">
+                                    <?php 
+                                        if(!$ano_nas == ''){
+                                    ?>
+                                    <option disabled>Anterior</option>
+                                    <option><?=$ano_nas?></option>
+                                    <option disabled></option>
+                                    <?php }?>
                                     <option></option>
                                 </select>
                             </div>
