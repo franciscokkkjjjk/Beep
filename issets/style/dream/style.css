@@ -80,7 +80,7 @@ body {
     margin-left: -39px;
     margin-top: -10px;
     border-radius: 100%;
-    background-image: url(../../imgs/default/olho_mostra.png);
+    background-image: url(../../imgs/default/olho_oculto.png);
     background-position: center;
     background-size: 16px;
     background-repeat: no-repeat;
@@ -183,4 +183,7 @@ main {
 }
 footer {
     background-color: red;
+}
+.show {
+    background-image: url(../../imgs/default/olho_mostra.png);
 }
