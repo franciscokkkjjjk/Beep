@@ -59,15 +59,8 @@
                     <div class="input--form passoword--form">
                         <input id="passoword--user--confirm" required class='<?= $erro?>' placeholder="Confirmar senha" type="password" name="senha_user_confirm">
                     </div>
-                    <?php 
-                        if($errosenha) {
-                    ?>
                     <div class="mensagem--erro">
-                        <?php echo $_SESSION['mensagem'];
-                        session_destroy();
-                        ?>
                     </div>
-                    <?php }?>
                 </div>
                 <div class="input--form date--form--area">
                         <div class="title--form">
@@ -75,18 +68,18 @@
                         </div>
                         <div class="area--selection--date">
                             <div class="select--date">
-                                <label for="dia">
-                                    dia
-                                </label>
-                                <select required id="dia" class="select--sub select--date--dia" name="dia">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="select--date">
                                 <label for="mes">
                                     mês
                                 </label>
                                 <select required id="mes" class="select--sub select--date--mes" name="dia">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="select--date">
+                                <label for="dia">
+                                    dia
+                                </label>
+                                <select required id="dia" class="select--sub select--date--dia" name="dia">
                                     <option></option>
                                 </select>
                             </div>
@@ -124,5 +117,6 @@
     -->
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/date_script.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/valid.js"></script>
 </body>
 </html>

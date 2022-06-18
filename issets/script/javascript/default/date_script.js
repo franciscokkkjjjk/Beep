@@ -22,7 +22,7 @@ mes.forEach(() => {
     i_aux++;
 });
 let mes_op = qs('#mes');
-mes_op.addEventListener('click',()=>{
+mes_op.addEventListener('blur',()=>{
     let value_mes = mes_op.value;
         if(value_mes == mes[0] || value_mes == mes[2] || value_mes == mes[4] || value_mes == mes[6]|| value_mes == mes[7]|| value_mes == mes[9] || value_mes == mes[11]){
             let event_dia = qsAll('.event-dia');
@@ -58,7 +58,7 @@ mes_op.addEventListener('click',()=>{
                 qs('#dia').appendChild(clone);
             }
         }
-})
+}, true)
 for(i=1; i < 32; i++){
     let clone = opt_d.cloneNode(true);
     clone.innerHTML = i;
