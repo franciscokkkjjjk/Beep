@@ -25,6 +25,7 @@
     <title>Cadastra-se | Beep</title>
 </head>
 <body>
+<option class="opcao--date"></option>
     <main>
     <div class="container">
         <div class="body--text">
@@ -67,8 +68,24 @@
                                 <label for="dia">
                                     dia
                                 </label>
-                                <select name="dia">
-                                <option>a</option>
+                                <select required id="dia" class="select--sub" name="dia">
+                                
+                                </select>
+                            </div>
+                            <div class="select--date">
+                                <label for="mes">
+                                    mês
+                                </label>
+                                <select required id="mes" class="select--sub" name="dia">
+                                
+                                </select>
+                            </div>
+                            <div required class="select--date">
+                                <label for="ano">
+                                    ano
+                                </label>
+                                <select required id="ano" class="select--sub" name="dia">
+                                    <option></option>
                                 </select>
                             </div>
                         </div>
