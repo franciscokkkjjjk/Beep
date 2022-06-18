@@ -174,3 +174,9 @@ body {
     font-weight: bold;
     transition: all linear 0.3s;
 }
+main {
+    height: 100vh;
+}
+footer {
+    background-color: red;
+}

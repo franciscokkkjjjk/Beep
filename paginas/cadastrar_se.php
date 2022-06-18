@@ -25,6 +25,7 @@
     <title>Cadastra-se | Beep</title>
 </head>
 <body>
+    <main>
     <div class="container">
         <div class="body--text">
             <div class="area--text">
@@ -46,13 +47,31 @@
                 </div>
                 <div class="input--area--form">
                     <div class="input--form">
-                        <input id="email" required placeholder="Email" type="email" name="email--user" name="email_user">
+                        <input id="nome" required placeholder="Nome" type="text"  name="nome_user">
+                    </div>
+                    <div class="input--form">
+                        <input id="email" required placeholder="Email" type="email" name="nome--user" name="email_user">
                     </div>
                     <div class="input--form passoword--form">
                         <input id="passoword--user" required class='<?= $erro?>' placeholder="Senha" type="password" name="senha_user">
-                        <label for="passoword--user">
-                            <div class="olho--senha"></div>
-                        </label>
+                    </div>
+                    <div class="input--form passoword--form">
+                        <input id="passoword--user--confirm" required class='<?= $erro?>' placeholder="Confirmar senha" type="password" name="senha_user_confirm">
+                    </div>
+                    <div class="input--form">
+                        <div>
+                            data de nascimento
+                        </div>
+                        <div class="area--selection--date">
+                            <div class="select--date">
+                                <label for="dia">
+                                    dia
+                                </label>
+                                <select name="dia">
+                                <option>a</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <?php 
                         if($errosenha) {
@@ -69,11 +88,8 @@
                         <button type="submit">Cadastrar-se</button>
                     </div>
                     <div class="area--button--eC">
-                        <div class="button-e">
-                            <a href="" >Esqueceu a senha?</a>
-                        </div>
                         <div class="button-C">
-                            <a href="">Criar conta</a>
+                            <a href="../">Voltar</a>
                         </div>
                     </div>
                 </div>
@@ -81,9 +97,15 @@
         </div>
     </form>
     </div>
+    </main>
+    <footer>
+        a
+    </footer>
     <!--Materialize
     <script src="issets/style/bibliotecas/materialize/js/materialize.min.js" text="text/javasctipt"></script>
     <script src="issets/style/bibliotecas/materialize/js/materialize.js" text="text/javasctipt"></script> 
     -->
+    <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/date_script.js"></script>
 </body>
 </html>

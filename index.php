@@ -34,6 +34,7 @@
     <title>Inicio | Beep</title>
 </head>
 <body>
+<main>
     <div class="container">
         <div class="body--text">
             <div class="area--text">
@@ -99,6 +100,10 @@
         </div>
     </form>
     </div>
+    </main>
+    <footer>
+        a
+    </footer>
     <!--Materialize
     <script src="issets/style/bibliotecas/materialize/js/materialize.min.js" text="text/javasctipt"></script>
     <script src="issets/style/bibliotecas/materialize/js/materialize.js" text="text/javasctipt"></script> 
