@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <form action="../issets/script/php/cadastrar_se.php" method="POST">
+        <form action="../issets/script/php/cadastrar_se_.php" method="POST">
         <div class="body--form">
             <div class="form--area">
                 <div class="tutulo--area--form">
