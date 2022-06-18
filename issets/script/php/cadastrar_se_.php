@@ -53,7 +53,22 @@
                 $_SESSION['erroEmail'] = true;
                 header('location:../../../paginas/cadastrar_se.php');
             } else {
-               //...
+                $sql_username = 'SELECT username FROM users';
+                $resultado_username  = mysqli_query($conexao, $sql_username);
+                $linha_username = mysqli_fetch_all($resultado_username,1);
+                $nome = 'francisco brum gomes';
+                $noSpaces = explode(' ',$nome);
+                $contagem_user = mb_strlen($noSpaces[0]);
+                $contagem_user00 = $contagem_user/3;
+                for($i = 0; $i < $cal_pross00; $i++) {
+                    
+                }
+                var_dump($a);
+                foreach($linha_username as $usernameV) {
+                    //.
+                }
+                var_dump($linha_username);
+               //$sql_cadastro = "INSERT INTO users(username, email, nome, senha, foto_perfil, bio, data_nas) VALUE (@$nome)";
             }
         }
     } else {

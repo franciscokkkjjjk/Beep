@@ -65,9 +65,6 @@
                         <input id="nome" value="<?= $nome?>" required placeholder="Nome" type="text"  name="nome_user">
                     </div>
                     <div class="input--form">
-                        <input id="username" value="<?= $nome?>" required placeholder="UserName" type="text"  name="username">
-                    </div>
-                    <div class="input--form">
                         <input id="email" value="<?= $email?>" class="<?= $erro_form?>" required placeholder="Email" type="email" name="email_user">
                     </div>
                     
