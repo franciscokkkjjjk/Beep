@@ -51,13 +51,13 @@
                         <input id="nome" required placeholder="Nome" type="text"  name="nome_user">
                     </div>
                     <div class="input--form">
-                        <input id="email" required placeholder="Email" type="email" name="nome--user" name="email_user">
+                        <input id="email" required placeholder="Email" type="email" name="email_user">
                     </div>
                     <div class="input--form passoword--form">
                         <input id="passoword--user" required class='<?= $erro?>' placeholder="Senha" type="password" name="senha_user">
                     </div>
                     <div class="input--form passoword--form">
-                        <input id="passoword--user--confirm" required class='<?= $erro?>' placeholder="Confirmar senha" type="password" name="senha_user_confirm">
+                        <input id="passoword--user--confirm" required class='<?= $erro?>' placeholder="Confirmar senha" type="password">
                     </div>
                     <div class="mensagem--erro">
                     </div>
@@ -71,7 +71,7 @@
                                 <label for="mes">
                                     mês
                                 </label>
-                                <select required id="mes" class="select--sub select--date--mes" name="dia">
+                                <select required id="mes" class="select--sub select--date--mes" name="mes">
                                     <option></option>
                                 </select>
                             </div>
@@ -87,7 +87,7 @@
                                 <label for="ano">
                                     ano
                                 </label>
-                                <select required id="ano" class="select--sub select--date--ano" name="dia">
+                                <select required id="ano" class="select--sub select--date--ano" name="ano">
                                     <option></option>
                                 </select>
                             </div>
