@@ -16,7 +16,7 @@
                 $_SESSION['nome'] = $user_aux['nome'];
                 header('location:../../../paginas/inicial.php');
             } else {
-                $_SESSION['mensagem'] = 'Senha incorreta. <a href="">Por acaso você esqueceu a senha?</a>';
+                $_SESSION['mensagem'] = 'Senha incorreta. <a href="">você esqueceu a senha?</a>';
                 $_SESSION['email'] = $email;
                 header('location:../../../');
             }

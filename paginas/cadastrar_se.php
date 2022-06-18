@@ -59,37 +59,6 @@
                     <div class="input--form passoword--form">
                         <input id="passoword--user--confirm" required class='<?= $erro?>' placeholder="Confirmar senha" type="password" name="senha_user_confirm">
                     </div>
-                    <div class="input--form">
-                        <div>
-                            data de nascimento
-                        </div>
-                        <div class="area--selection--date">
-                            <div class="select--date">
-                                <label for="dia">
-                                    dia
-                                </label>
-                                <select required id="dia" class="select--sub" name="dia">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="select--date">
-                                <label for="mes">
-                                    mês
-                                </label>
-                                <select required id="mes" class="select--sub" name="dia">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div required class="select--date">
-                                <label for="ano">
-                                    ano
-                                </label>
-                                <select required id="ano" class="select--sub" name="dia">
-                                    <option></option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                     <?php 
                         if($errosenha) {
                     ?>
@@ -100,6 +69,37 @@
                     </div>
                     <?php }?>
                 </div>
+                <div class="input--form date--form--area">
+                        <div class="title--form">
+                            data de nascimento
+                        </div>
+                        <div class="area--selection--date">
+                            <div class="select--date">
+                                <label for="dia">
+                                    dia
+                                </label>
+                                <select required id="dia" class="select--sub select--date--dia" name="dia">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div class="select--date">
+                                <label for="mes">
+                                    mês
+                                </label>
+                                <select required id="mes" class="select--sub select--date--mes" name="dia">
+                                    <option></option>
+                                </select>
+                            </div>
+                            <div required class="select--date ">
+                                <label for="ano">
+                                    ano
+                                </label>
+                                <select required id="ano" class="select--sub select--date--ano" name="dia">
+                                    <option></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 <div class="buttons--area">
                     <div class="entrar--area">
                         <button type="submit">Cadastrar-se</button>
