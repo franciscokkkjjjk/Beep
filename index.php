@@ -55,7 +55,7 @@
                 </div>
                 <div class="input--area--form">
                     <div class="input--form">
-                        <input id="email" class="<?= $erro_email_s.' '.$erro?>" value="<?=  $email?>" placeholder="Email" type="email" name="email--user">
+                        <input id="email" required class="<?= $erro_email_s?>" value="<?=  $email?>" placeholder="Email" type="email" name="email--user">
                     </div>
                     <?php 
                         if($erroEmail) {
@@ -67,7 +67,7 @@
                     </div>
                     <?php }?>
                     <div class="input--form passoword--form">
-                        <input id="passoword--user" class='<?= $erro?>' placeholder="Senha" type="password" name="senha--user">
+                        <input id="passoword--user" required class='<?= $erro?>' placeholder="Senha" type="password" name="senha--user">
                         <label for="passoword--user">
                             <div class="olho--senha"></div>
                         </label>

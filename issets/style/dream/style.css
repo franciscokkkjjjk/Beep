@@ -13,14 +13,12 @@ body {
 }
 
 .body--text {
-    width: 50%;
-    height: 80%;
     flex: 1;
-    margin-top: 10%;
+    margin-top: -146px;
 }
 .area--text {
-    margin-top: 9%;
-    margin-left: 5%;
+    margin-top: 52px;
+    margin-left: 42px;
 }   
 .titulo--beep {
     font-size: 30px;
@@ -98,8 +96,12 @@ body {
 .input--form input:focus {
     outline: none;
     border: 1px solid #0fa8b3;
-    transition: all linear 0.3s;
+    transition: all linear 0.2s;
     box-shadow: 0px 0px 3px 0px #0fa8b3;
+}
+.input--form input:hover {
+    background-color: #e0e0e0b6;
+    transition: all linear 0.3s;
 }
 .buttons--area {
     margin-top: 10px;
@@ -160,4 +162,15 @@ body {
     font-size: 13px;
     margin-top: -6px;
     margin-bottom: 12px;
+}
+.mensagem--erro a {
+    color: #cc3a3a ;
+    text-decoration: underline;
+    font-weight: bold;
+}
+.mensagem--erro a:hover {
+    color: #e63737 ;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: all linear 0.3s;
 }
