@@ -26,10 +26,10 @@
     <link rel="stylesheet" href="issets/style/bibliotecas/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="issets/style/bibliotecas/materialize/css/materialize.css">
     -->
-    <link rel="stylesheet" href="issets/style/dream/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="issets/style/generic/style.css">
+    <link rel="stylesheet" href="issets/style/dream/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Inicio | Beep</title>
 </head>
@@ -91,7 +91,7 @@
                             <a href="" >Esqueceu a senha?</a>
                         </div>
                         <div class="button-C">
-                            <a href="">Criar conta</a>
+                            <a href="paginas/cadastrar_se.php">Criar conta</a>
                         </div>
                     </div>
                 </div>

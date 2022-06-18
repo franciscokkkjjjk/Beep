@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="issets/style/bibliotecas/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="issets/style/bibliotecas/materialize/css/materialize.css">
     -->
-    <link rel="stylesheet" href="issets/style/dream/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="issets/style/generic/style.css">
+    <link rel="stylesheet" href="../issets/style/generic/style.css">
+    <link rel="stylesheet" href="../issets/style/dream/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <title>Inicio | Beep</title>
+    <title>Cadastra-se | Beep</title>
 </head>
 <body>
     <div class="container">
@@ -38,11 +38,11 @@
                 </div>
             </div>
         </div>
-        <form action="issets/script/php/login.php" method="POST">
+        <form action="../issets/script/php/cadastrar_se.php" method="POST">
         <div class="body--form">
             <div class="form--area">
                 <div class="tutulo--area--form">
-                    Entrar
+                    Cadastrar-se
                 </div>
                 <div class="input--area--form">
                     <div class="input--form">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="buttons--area">
                     <div class="entrar--area">
-                        <button type="submit">Entrar</button>
+                        <button type="submit">Cadastrar-se</button>
                     </div>
                     <div class="area--button--eC">
                         <div class="button-e">
