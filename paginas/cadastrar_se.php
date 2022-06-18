@@ -77,7 +77,7 @@
                                     mês
                                 </label>
                                 <select required id="mes" class="select--sub" name="dia">
-                                    <option>a</option>
+                                    <option></option>
                                 </select>
                             </div>
                             <div required class="select--date">

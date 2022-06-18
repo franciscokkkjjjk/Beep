@@ -108,5 +108,7 @@
     <script src="issets/style/bibliotecas/materialize/js/materialize.min.js" text="text/javasctipt"></script>
     <script src="issets/style/bibliotecas/materialize/js/materialize.js" text="text/javasctipt"></script> 
     -->
+    <script type="text/javascript" src="/issets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="/issets/script/javascript/default/form--script.js"></script>
 </body>
 </html>
