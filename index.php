@@ -1,5 +1,20 @@
 <?php 
     session_start();
+    $erro = '';
+    $erro_email_s = '';
+    $erroEmail = false;
+    $erroLogin = false;
+    $email = '';
+    if(isset($_SESSION['mensagem'])) {
+        if(isset($_SESSION['erro_email'])){
+            $erroEmail = true;
+            $erro_email_s = 'error--login';
+        } else {
+            $erroLogin = true;
+            $erro = 'error--login';
+        }
+        $email = $_SESSION['email'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -40,14 +55,32 @@
                 </div>
                 <div class="input--area--form">
                     <div class="input--form">
-                        <input id="email" placeholder="Email" type="email" name="email--user">
+                        <input id="email" class="<?= $erro_email_s.' '.$erro?>" value="<?=  $email?>" placeholder="Email" type="email" name="email--user">
                     </div>
+                    <?php 
+                        if($erroEmail) {
+                    ?>
+                    <div class="mensagem--erro">
+                        <?php echo $_SESSION['mensagem'];
+                        session_destroy();
+                        ?>
+                    </div>
+                    <?php }?>
                     <div class="input--form passoword--form">
-                        <input id="passoword--user" placeholder="Senha" type="password" name="senha--user">
+                        <input id="passoword--user" class='<?= $erro?>' placeholder="Senha" type="password" name="senha--user">
                         <label for="passoword--user">
                             <div class="olho--senha"></div>
                         </label>
                     </div>
+                    <?php 
+                        if($erroLogin) {
+                    ?>
+                    <div class="mensagem--erro">
+                        <?php echo $_SESSION['mensagem'];
+                        session_destroy();
+                        ?>
+                    </div>
+                    <?php }?>
                 </div>
                 <div class="buttons--area">
                     <div class="entrar--area">
