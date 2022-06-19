@@ -133,15 +133,17 @@
 }
 .menu--pag--opt--section:hover {
     background-color: #fdfdfd36;
+    border-radius: 10px;
     transition: all linear 0.3s;
     cursor: pointer;
 }
-.menu--pag--opt--section a{
+.menu--pag--opt--section {
     height: 30px;
     padding: 30px 10px;
     display: flex;
     align-items: center;
-    color: #0f0f0f;
+    color: #fafafa;
+    text-decoration: none;
     margin: 1px;
     margin-bottom: 7px;
     border-radius: 10px;
