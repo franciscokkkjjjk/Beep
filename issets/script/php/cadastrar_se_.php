@@ -58,17 +58,33 @@
                 $linha_username = mysqli_fetch_all($resultado_username,1);
                 $nome = 'francisco brum gomes';
                 $noSpaces = explode(' ',$nome);
-                $contagem_user = mb_strlen($noSpaces[0]);
-                $contagem_user00 = $contagem_user/3;
-                for($i = 0; $i < $cal_pross00; $i++) {
-                    
+                $username_sub = substr($noSpaces[0], 0,4);
+                $username_DF = '@'.$username_sub.rand(0, 500000);
+                $manteiga = false;
+                while (true){ 
+                    foreach($linha_username as $usernameV) {
+                        if($username_DF == $usernameV['username']){
+                            echo 'ptua merda tem um igual como??';
+                            $username_DF = '@'.$username_sub.rand(0, 500000);
+                            continue;
+                        } else {
+                            $manteiga = true;
+                            break;
+                        }
+                    }
+                    if($manteiga) {
+                        echo "não tinha nenhum igual";
+                        break;
+                    }
                 }
-                var_dump($a);
-                foreach($linha_username as $usernameV) {
-                    //.
-                }
-                var_dump($linha_username);
-               //$sql_cadastro = "INSERT INTO users(username, email, nome, senha, foto_perfil, bio, data_nas) VALUE (@$nome)";
+               $sql_cadastro = "INSERT INTO users(username, email, nome, senha, foto_perfil, bio, data_nas) VALUE ('$username_DF', '$email', '$nome', '$pass',NULL,NULL,'$datOt')";
+               $resultado_cadastro = mysqli_query($conexao,$sql_cadastro);
+               if($resultado_cadastro) {
+                session_destroy();
+                header('location:../../../');
+               } else {
+                echo 'deu ruim';
+               }
             }
         }
     } else {
