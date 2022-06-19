@@ -115,9 +115,6 @@
                             <a href="" class="img--opt-feed img--pag--perf menu--pag--opt--section">
                                 Perfil
                             </a>
-                            <a href="../issets/script/php/logout.php" class="img--opt-feed img--pag--perf menu--pag--opt--section">
-                                Logout
-                            </a>
                         </div>
                     </div>
                 </div>
