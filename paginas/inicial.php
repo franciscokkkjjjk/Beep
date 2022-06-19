@@ -163,7 +163,7 @@
                     </div>
                 </div>
                 <div class="menu--header--body">
-                    <a href='' class="opt--menu-header">
+                    <a href='../issets/script/php/logout.php' class="opt--menu-header">
                         <div class="img--menu--header logout"></div>
                         <div class="text--menu--header">logout</div>
                     </a>
