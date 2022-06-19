@@ -15,6 +15,19 @@
     <link rel="stylesheet" href="../issets/style/generic/style.css">
     <link rel="stylesheet" href="../issets/style/feed/style.css">
     <title>Pagina inicial | Beep</title>
+    <style>
+        <?php 
+            if(!$_SESSION['img'] == '') {
+        ?>
+        .menu--pag--img--area {
+            background-image: url('../issets/imgs/profile/<?=$_SESSION['img']?>')
+        }
+        <?php } else { ?>
+            .menu--pag--img--area {
+            background-image: url('../issets/imgs/default/perfil-de-usuario.png');
+        }
+        <?php }?>
+    </style>
 </head>
 <body>
     <!--<header>
@@ -76,10 +89,10 @@
                         </div>
                         <div class="menu--pag--name-perfil--area">
                             <div class="menu--pag--name-perfil">
-                                cisco
+                                <?=$_SESSION['nome']?>
                             </div>
                             <div class="menu--pag--username-perfil">
-                                @franciscokkkjjjk
+                                <?= $_SESSION['username'] ?>
                             </div>
                         </div>
                         <div class="menu--pag--button-menu--area">
@@ -91,16 +104,19 @@
                     <div class=" event--menu-pag menu--pag--opt--menu--area">
                         <div class="menu--pag--opt">
                             <div style="color: #fff;" class="img--opt-feed img--pag--inicial menu--pag--opt--section">
-                                Pagina inicial
+                            <a href="">Pagina inicial</a>
                             </div>
                             <div class="img--opt-feed img--pag--jogos menu--pag--opt--section">
-                                Jogos
+                            <a href="">Jogos</a>
                             </div>
                             <div class="img--opt-feed img--pag--solic menu--pag--opt--section">
-                                Solicitar jogo
+                            <a href="">Solicitar jogo</a>
                             </div>
                             <div class="img--opt-feed img--pag--perf menu--pag--opt--section">
-                                Perfil
+                            <a href="">Perfil</a>
+                            </div>
+                            <div class="img--opt-feed img--pag--perf menu--pag--opt--section">
+                                <a href="../issets/script/php/logout.php">Logout</a>
                             </div>
                         </div>
                     </div>

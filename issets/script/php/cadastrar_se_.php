@@ -56,7 +56,6 @@
                 $sql_username = 'SELECT username FROM users';
                 $resultado_username  = mysqli_query($conexao, $sql_username);
                 $linha_username = mysqli_fetch_all($resultado_username,1);
-                $nome = 'francisco brum gomes';
                 $noSpaces = explode(' ',$nome);
                 $username_sub = substr($noSpaces[0], 0,4);
                 $username_DF = '@'.$username_sub.rand(0, 500000);

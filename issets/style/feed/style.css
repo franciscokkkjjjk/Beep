@@ -50,11 +50,11 @@
     position: fixed;
 }
 .menu--pag-perfil--area {
-    width: 80%;
-    height: 10%;
+    width: 265px;
+    height: 60px;
     margin: auto;
     background-color: #111111;
-    border-radius: 30px;
+    border-radius: 30pc;
     margin-top: 15%;
 }
 .menu--pag {
@@ -74,11 +74,10 @@
 .menu--pag--img--area {
     width: 45px;
     height: 45px;
-    margin-left: 5%;
-    margin-right: 3%;
+    margin-left: 12px;
+    margin-right: 8px;
     border-radius: 100%;
     background-color: #ffffff;
-    background-image: url('../../imgs/profile/IMG_20220517_170714.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -137,7 +136,7 @@
     transition: all linear 0.3s;
     cursor: pointer;
 }
-.menu--pag--opt--section {
+.menu--pag--opt--section a{
     height: 30px;
     padding: 30px 10px;
     display: flex;
