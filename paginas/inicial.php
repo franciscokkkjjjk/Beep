@@ -152,16 +152,31 @@
                 
             </div>
         </div>
-        <div class="event"></div>
+        
         <div class="area--convite">
+            <div class="feed-logo-body menu--header">
+                <div class="menu">
+                    <div class="menu--pag--button-menu--area " >
+                        <div class="menu--pag--button button--header">
+                            <div class="event--header"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu--header--body">
+                    <a href='' class="opt--menu-header">
+                        <div class="img--menu--header logout"></div>
+                        <div class="text--menu--header">logout</div>
+                    </a>
+                </div>
+            </div>
             <div class="convite--body">
                 a
-            </div><!--menu fico por baixo arruma isso kkkk o cara não sabe posicionar o negocio direito kkk-->
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
-    <script>let a = true;setInterval(()=>{
+    <!--<script>let a = true;setInterval(()=>{
         if(a == true){
         a = false;
         document.querySelector('.event').style.transform ='rotate(180deg)';
@@ -171,6 +186,7 @@
         document.querySelector('.event').style.borderRight='3px solid salmon';
         document.querySelector('.event').style.transform ='rotate(-180deg)';
     }
-    }, 500)</script>
+    }, 500)</script>-->
 </body>
 </html>
+<!-- <div class="event"></div>-!>
