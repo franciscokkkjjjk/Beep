@@ -1,5 +1,8 @@
 <?php 
     session_start();
+    if(isset($_SESSION['id_user'])){
+        header('location:paginas/inicial.php');
+    } else {
     $erro = '';
     $erro_email_s = '';
     $erroEmail = false;
@@ -7,7 +10,7 @@
     $email = '';
     if(isset($_SESSION['mensagem'])) {
         if(isset($_SESSION['erro_email'])){
-            $erroEmail = true;
+            $erroEmail = $_SESSION['erro_email'];
             $erro_email_s = 'error--login';
         } else {
             $erroLogin = true;
@@ -15,6 +18,7 @@
         }
         $email = $_SESSION['email'];
     }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -98,6 +102,7 @@
                 </div>
             </div>
         </div>
+        
     </form>
     </div>
     </main>
