@@ -6,7 +6,7 @@
     $user = mysqli_fetch_all($resultado, 1);
     var_dump($user);
     $email = $_POST['email--user'];
-    $senha = $_POST['senha--user'];
+    $senha = md5($_POST['senha--user']);
     foreach($user as $user_aux){
         if($email == $user_aux['email']) {
             if($senha == $user_aux['senha']) {
