@@ -7,6 +7,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../issets/imgs/default/Letra-B-PNG-1.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../issets/style/generic/style.css">
     <link rel="stylesheet" href="../issets/style/feed/style.css">
@@ -81,26 +82,11 @@ session_start();
     </div>
             </div>
             <div class="feed-body-post">
-                <div class="">
-                    <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
+               <div class="header--perfil--area">
+                <div class="banner--perfil">
+                    <img>
                 </div>
-                <div class="post--menu--area">
-                    <div class="header--post--area">
-                        <div class="post--area--perfil">
-                            a
-                        </div>
-                        <div class="post--area--menu">
-                            ...
-                        </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
-                    </div>
-                    <div class="body--post--area">
-                        --                                                              <!--deve ter oq o usuario publicou-->
-                    </div>
-                    <div class="interacao--post--area">
-                        --                                                              <!--deve ter o curtir compartilhar e comentar-->
-                    </div>
-                </div>
-                
+               </div>
             </div>
         </div>
         
