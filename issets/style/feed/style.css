@@ -121,9 +121,7 @@
     margin-top: -5px;
 }  
 .menu--pag--opt--menu--area {
-    background-color: #4e4e4e;
-    margin-left:-10%;
-    width: 120%;
+    width: 120px;
     margin-top: -28%;
     padding-top: 100px;
     border-radius: 10px;
@@ -133,6 +131,7 @@
 }
 .menu--pag--opt {
     padding: 15px;
+    width: auto;
 }
 .menu--pag--opt--section:hover {
     background-color: #fdfdfd36;
@@ -202,13 +201,9 @@
 
 /*classes de eventos*/
 .event--menu-pag {
-    display:none;
-    height:130px; 
-    width: 114%;
-    margin-left: -8%;
-    overflow-y: hidden;
-    background-color: #00000000;
-    transition: all 0.3s ease;
+       height: auto;
+       width: auto;
+       transition: all 0.3s ease;
     /*para o menu ganhar forma padding-bottom: 267px;*/
 }
 .event { /*Bolinha de carregamento*/

@@ -1,0 +1,17 @@
+.elipse--menu {
+    background-image: url(../../imgs/default/elipse.png);
+}
+.menu--pag--button {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+}
+.active--tem {
+    background-color: #505050;
+}
+.seta--back {
+    background-image: url(../../imgs/default/seta-esquerda.png);
+}
+.button--back {
+    transform: rotate();
+}

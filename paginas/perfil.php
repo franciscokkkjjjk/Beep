@@ -10,6 +10,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../issets/style/generic/style.css">
     <link rel="stylesheet" href="../issets/style/feed/style.css">
+    <link rel="stylesheet" href="../issets/style/toca/style.css">
     <title><?= $_SESSION['nome']?>| Beep</title>
 </head>
 <body>
@@ -37,11 +38,6 @@ session_start();
                                 <?= $_SESSION['username'] ?>
                             </div>
                         </div>
-                        <div class="menu--pag--button-menu--area">
-                            <div class="menu--pag--button">
-                                <div class="eventscript--seta"></div>
-                            </div>
-                        </div>
                     </div>
                     <div class=" event--menu-pag menu--pag--opt--menu--area">
                         <div class="menu--pag--opt">
@@ -54,7 +50,7 @@ session_start();
                             <a href="" class="img--opt-feed img--pag--solic menu--pag--opt--section">
                               Solicitar jogo
                             </a>
-                            <a href="perfil.php" class="img--opt-feed img--pag--perf menu--pag--opt--section">
+                            <a href="perfil.php" class="active--tem img--opt-feed img--pag--perf menu--pag--opt--section">
                                 Perfil
                             </a>
                         </div>
@@ -64,9 +60,9 @@ session_start();
         </div>
         <div class="timeline--area">
             <div class="feed-header-body">
-                <h1>
-                    Inicio
-                </h1>
+                <div class="menu--pag--button button--back">
+                    <div class="seta--back"></div>
+                </div>
             </div>
             <div class="feed-body-post">
                 <div class="">
