@@ -112,7 +112,7 @@
                             <a href="" class="img--opt-feed img--pag--solic menu--pag--opt--section">
                               Solicitar jogo
                             </a>
-                            <a href="" class="img--opt-feed img--pag--perf menu--pag--opt--section">
+                            <a href="perfil.php" class="img--opt-feed img--pag--perf menu--pag--opt--section">
                                 Perfil
                             </a>
                         </div>
