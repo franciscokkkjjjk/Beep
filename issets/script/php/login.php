@@ -5,7 +5,6 @@
     $resultado = mysqli_query($conexao, $sql);
     $user = mysqli_fetch_all($resultado, 1);
     $email = $_POST['email--user'];
-    var_dump($email);
     $senha = md5($_POST['senha--user']);
     $emailError = true;
     foreach($user as $user_aux){
