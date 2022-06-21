@@ -96,3 +96,6 @@ header {
     background-color:#525252 ;
     cursor: pointer;
 }
+.active--tem {
+    background-color: #505050;
+}

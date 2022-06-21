@@ -112,7 +112,7 @@
     font-size: 13px;
     color: #e7e7e7;
 }
-.menu--pag--button div {
+.menu--pag--button .event--header {
     width: 12px; /*width: 18px;*/
     height: 12px;/*height: 18px;*/
     border-left: 2px solid #53ffff;

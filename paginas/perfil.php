@@ -11,7 +11,20 @@ session_start();
     <link rel="stylesheet" href="../issets/style/generic/style.css">
     <link rel="stylesheet" href="../issets/style/feed/style.css">
     <link rel="stylesheet" href="../issets/style/toca/style.css">
-    <title><?= $_SESSION['nome']?>| Beep</title>
+    <title><?= $_SESSION['nome']?> | Beep</title>
+    <style>
+        <?php 
+            if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
+        ?>
+        .menu--pag--img--area {
+            background-image: url('../issets/imgs/profile/<?=$_SESSION['img']?>')
+        }
+        <?php } else { ?>
+            .menu--pag--img--area {
+            background-image: url('../issets/imgs/default/perfil-de-usuario-black.png');
+        }
+        <?php }?>
+    </style>
 </head>
 <body>
     <div class="feed-area">
@@ -41,7 +54,7 @@ session_start();
                     </div>
                     <div class=" event--menu-pag menu--pag--opt--menu--area">
                         <div class="menu--pag--opt">
-                            <a href="" style="color: #fff;" class="img--opt-feed img--pag--inicial menu--pag--opt--section">
+                            <a href="inicial.php" style="color: #fff;" class="img--opt-feed img--pag--inicial menu--pag--opt--section">
                                 Pagina inicial
                             </a>
                             <a href=''class="img--opt-feed img--pag--jogos menu--pag--opt--section">
@@ -63,6 +76,9 @@ session_start();
                 <div class="menu--pag--button button--back">
                     <div class="seta--back"></div>
                 </div>
+                <div class="nome--perfil">
+                    <?= $_SESSION['nome']?>
+    </div>
             </div>
             <div class="feed-body-post">
                 <div class="">
@@ -111,5 +127,6 @@ session_start();
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
 </body>
 </html>

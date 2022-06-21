@@ -95,15 +95,10 @@
                                 <?= $_SESSION['username'] ?>
                             </div>
                         </div>
-                        <div class="menu--pag--button-menu--area">
-                            <div class="menu--pag--button">
-                                <div class="eventscript--seta"></div>
-                            </div>
-                        </div>
                     </div>
                     <div class=" event--menu-pag menu--pag--opt--menu--area">
                         <div class="menu--pag--opt">
-                            <a href="" style="color: #fff;" class="img--opt-feed img--pag--inicial menu--pag--opt--section">
+                            <a href="inicial.php" style="color: #fff;" class="active--tem img--opt-feed img--pag--inicial menu--pag--opt--section">
                                 Pagina inicial
                             </a>
                             <a href=''class="img--opt-feed img--pag--jogos menu--pag--opt--section">
