@@ -66,7 +66,7 @@
             while (true){ 
                 foreach($linha_username as $usernameV) {
                     if($username_DF == $usernameV['username']){
-                        echo 'ptua merda tem um igual como??';
+                        echo 'ops! tem um igual como??';
                         $username_DF = '@'.$username_sub.rand(0, 500000);
                         continue;
                     } else {
