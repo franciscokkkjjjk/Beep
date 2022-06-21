@@ -13,7 +13,7 @@
 }
 .feed-logo-body {
     background-color: #222222;
-    height: 6.5%;
+    height: 42px;
     margin-bottom: 3%;
 }
 .logo--area {
@@ -21,8 +21,7 @@
     height: auto;
 }
 .logo--area  img {
-    width: 75%;
-    margin-top: 10%;
+    width: 34px;
 }
 .body--menu-pag {
     width: 100%;
@@ -57,7 +56,7 @@
     margin: auto;
     background-color: #111111;
     border-radius: 30pc;
-    margin-top: 15%;
+    margin-top: 66px;
 }
 .menu--pag {
     width: 100%;
@@ -121,8 +120,7 @@
 }  
 .menu--pag--opt--menu--area {
     width: 120px;
-    margin-top: -28%;
-    padding-top: 100px;
+    margin-top: 15px;
     border-radius: 10px;
 }
 .menu--pag--opt--menu--area div {
@@ -173,29 +171,14 @@
     background-size: 10%;
 }
 @media screen and (max-width:1605px) {
-    .menu--pag--opt--menu--area {
-        margin-top: -40%;
-    }
+   
 }
 @media screen and (max-width:1125px) {
-    .menu--pag--opt--menu--area {
-        margin-top: -50%;
-    }
-    .menu--pag--img--area {
-        width: 37px;
-        height: 37px;
-        margin-left: 5%;
-        margin-right: 3%;
-        border-radius: 100%;
-        background-color: #ffffff;
-
-    }
+    
 }
 /*versão mobile incia aq*/
 @media screen and (max-width:828px) {
-    .menu--pag--opt--menu--area {
-        margin-top: -65%;
-    }
+
 }
 
 /*classes de eventos*/
@@ -247,7 +230,7 @@
     margin-left: 20px;
 }
 .feed-body-post {
-    padding-top: 9%;
+    padding-top: 60px;
     height: 100vh;
 }
 /*postagens*/
