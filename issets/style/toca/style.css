@@ -38,3 +38,22 @@
 .feed-body-post {
     padding-top: 42.5px;
 }
+.info--perfil {
+    height: 250px;
+}
+.info--perfil--img {
+    width: 145px;
+    height: 145px;
+    border-radius: 100%;
+}
+.info--perfil--img--position {
+    margin-top: -45px;
+    margin-left: 20px;
+    position: absolute;
+}
+.info--perfil--img--position img {
+    width: 145px;
+    height: 145px;
+    border-radius: 100%;
+    box-shadow: 0px 0px 12px 0px #4ee8e845;
+}

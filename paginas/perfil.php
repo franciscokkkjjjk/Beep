@@ -91,8 +91,26 @@ if(!isset($_SESSION['id_user'])) {
                     <img src="../issets/imgs/profile/<?= $_SESSION['img_banner']?>">
                     <?php }?>
                 </div>
-                <div class="inf--perfil">
-                    
+                <div class="info--perfil">
+                        <div class="info--perfil">
+                            <div class="info--perfil--img">
+                                <div class="info--perfil--img info--perfil--img--position">
+                                    <?php 
+                                    if(!$_SESSION['img'] == null) {
+                                    ?>
+                                        <img src="../issets/imgs/profile/<?=$_SESSION['img']?>">
+                                    <?php } else { ?>
+                                        <img src="../issets/imgs/default/perfil-de-usuario-black.png">
+                                    <?php }?> 
+                                </div>
+                            </div>
+                            <div class="info--perfil--user">
+
+                            </div>
+                        </div>
+                        <div class="info--button">
+
+                        </div>
                 </div>
                </div>
             </div>
