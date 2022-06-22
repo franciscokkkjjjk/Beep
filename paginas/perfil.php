@@ -1,5 +1,8 @@
 <?php 
 session_start();
+if(!isset($_SESSION['id_user'])) {
+    header('location:../');
+} 
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -79,12 +82,17 @@ session_start();
                 </div>
                 <div class="nome--perfil">
                     <?= $_SESSION['nome']?>
-    </div>
+                </div>
             </div>
             <div class="feed-body-post">
                <div class="header--perfil--area">
                 <div class="banner--perfil">
-                    <img>
+                    <?php if(!$_SESSION['img_banner'] == NULL){?>
+                    <img src="../issets/imgs/profile/<?= $_SESSION['img_banner']?>">
+                    <?php }?>
+                </div>
+                <div class="inf--perfil">
+                    
                 </div>
                </div>
             </div>

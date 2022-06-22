@@ -31,6 +31,10 @@
     background-color: #53ffff;
     background-image: linear-gradient(84deg, #4b4b4b78,#43434378,#1c1c1c78,#43434378);
 }
+.banner--perfil img {
+    width: 100%;
+    height: 150px;
+}
 .feed-body-post {
     padding-top: 42.5px;
 }

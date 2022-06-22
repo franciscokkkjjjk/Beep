@@ -17,6 +17,7 @@
                 $_SESSION['username'] = $user_aux['username'];
                 $_SESSION['email'] = $email;
                 $_SESSION['nome'] = $user_aux['nome'];
+                $_SESSION['img_banner'] = $user_aux['banner_pefil'];
                 header('location:../../../paginas/inicial.php');
             } else {
                 $_SESSION['mensagem'] = 'Senha incorreta. <a href="">você esqueceu a senha?</a>';
