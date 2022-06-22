@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['id_user'])) {
     header('location:../');
-} 
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -92,7 +92,7 @@ if(!isset($_SESSION['id_user'])) {
                     <?php }?>
                 </div>
                 <div class="info--perfil">
-                        <div class="info--perfil">
+                        <div class="info--perfil--area">
                             <div class="info--perfil--img">
                                 <div class="info--perfil--img info--perfil--img--position">
                                     <?php 
@@ -105,11 +105,16 @@ if(!isset($_SESSION['id_user'])) {
                                 </div>
                             </div>
                             <div class="info--perfil--user">
-
+                                <div class="info--perfil--user--nome">
+                                    <?=$_SESSION['nome'];?>
+                                </div>
+                                <div class="info--perfil--user--username">
+                                    <?=$_SESSION['username'];?>
+                                </div>
                             </div>
-                        </div>
-                        <div class="info--button">
-
+                            <div class="info--button">
+                                <a href='' class="button--editar">Editar perfil</a>
+                            </div>
                         </div>
                 </div>
                </div>

@@ -28,8 +28,8 @@
 }
 .banner--perfil {
     height: 150px;
-    background-color: #53ffff;
-    background-image: linear-gradient(84deg, #4b4b4b78,#43434378,#1c1c1c78,#43434378);
+    background-color: #000000;
+    background-image: linear-gradient(360deg, #06060691,#9c9c9c38,#b2b2b233);
 }
 .banner--perfil img {
     width: 100%;
@@ -42,18 +42,58 @@
     height: 250px;
 }
 .info--perfil--img {
-    width: 145px;
-    height: 145px;
+    width:165px ;
+    height: auto;
     border-radius: 100%;
 }
 .info--perfil--img--position {
     margin-top: -45px;
     margin-left: 20px;
-    position: absolute;
 }
 .info--perfil--img--position img {
     width: 145px;
     height: 145px;
     border-radius: 100%;
     box-shadow: 0px 0px 12px 0px #4ee8e845;
+}
+.info--perfil--area {
+    display: flex;
+    flex-direction: row;
+}
+.info--perfil--user {
+    height: auto;
+    padding-left: 10px;
+    padding-top: 10px;
+    color: #f1f1f1;
+    flex: 1;
+}
+.info--perfil--user--nome {
+    font-size: 21px;
+}
+.info--perfil--user--username {
+    color: #a7a7a7b0;
+}
+.info--button {
+    width: 150px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button--editar {
+    border: solid 1.5px #53ffff;
+    color: #fff;
+    padding: 12px 19px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+}
+.button--editar:hover {
+    border: solid 7px #53ffff;
+    color: #fff;
+    padding: 12px 19px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    tran
 }
