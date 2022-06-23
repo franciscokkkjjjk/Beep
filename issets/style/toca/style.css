@@ -69,6 +69,7 @@
 }
 .info--perfil--user--nome {
     font-size: 21px;
+    word-break: break-all;
 }
 .info--perfil--user--username {
     color: #a7a7a7b0;
@@ -81,19 +82,25 @@
     justify-content: center;
 }
 .button--editar {
-    border: solid 1.5px #53ffff;
+    border: solid 0.5px #53ffff;
     color: #fff;
     padding: 12px 19px;
     border-radius: 10px;
     font-size: 14px;
     text-decoration: none;
 }
+.button--editar::before {
+    content: 'Editar perfil';
+}
 .button--editar:hover {
-    border: solid 7px #53ffff;
+    background-color: #474747b0;
+    transition: all linear 0.25s;
+}
+.info--bio--perfil {
+    margin-top: 25px;
+    margin-left: 15px;
+}
+.bio{
     color: #fff;
-    padding: 12px 19px;
-    border-radius: 10px;
-    font-size: 14px;
-    text-decoration: none;
-    tran
+    font-size: 15px;
 }

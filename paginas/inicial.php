@@ -4,6 +4,7 @@
     if(!isset($_SESSION['id_user'])) {
         header('location:../');
     } 
+    require_once '../issets/script/php/historico.php';    
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -169,6 +170,7 @@
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>
     <!--<script>let a = true;setInterval(()=>{
         if(a == true){
         a = false;

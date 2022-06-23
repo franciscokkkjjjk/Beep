@@ -3,6 +3,8 @@ session_start();
 if(!isset($_SESSION['id_user'])) {
     header('location:../');
 }
+require_once '../issets/script/php/historico.php';    
+require_once '../issets/script/php/conecta.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -78,7 +80,7 @@ if(!isset($_SESSION['id_user'])) {
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
-                    <div class="seta--back"></div>
+                    <a href=''class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
                     <?= $_SESSION['nome']?>
@@ -113,7 +115,15 @@ if(!isset($_SESSION['id_user'])) {
                                 </div>
                             </div>
                             <div class="info--button">
-                                <a href='' class="button--editar">Editar perfil</a>
+                                <a href='' class="button--editar"></a>
+                            </div>
+                        </div>
+                        <div class="info--bio--perfil">
+                            <div class="bio">
+                                <?=$_SESSION['bio_user']?>
+                            </div>
+                            <div class="segui--indo">
+                                <a href=""></a>
                             </div>
                         </div>
                 </div>
@@ -145,5 +155,6 @@ if(!isset($_SESSION['id_user'])) {
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>
 </body>
 </html>
