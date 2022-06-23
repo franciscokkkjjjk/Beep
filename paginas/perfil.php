@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['id_user'])) {
     header('location:../');
 }
-require_once '../issets/script/php/historico.php';    
+include_once '../issets/script/php/historico.php';    
 require_once '../issets/script/php/conecta.php';
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ require_once '../issets/script/php/conecta.php';
             <div class="feed-logo-body">
                 <div class="logo--area">
                     <div class="logo">
-                        <a href="">
+                        <a href="inicial.php">
                             <img src="../issets/imgs/default/Letra-B-PNG-1.png">
                         </a>
                     </div>
@@ -80,7 +80,7 @@ require_once '../issets/script/php/conecta.php';
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
-                    <a href=''class="seta--back"></a>
+                    <a href="<?php if(!$pag_anterior == ''){echo $pag_anterior;} else {echo 'inicial.php';}?>" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
                     <?= $_SESSION['nome']?>

@@ -12,4 +12,9 @@
 } else {
     $_SESSION['historyc'][] = [$pag_atual];
 }
+if($contagem_his-2 > 0) {
+$pag_anterior = $_SESSION['historyc'][$contagem_his-2][0];
+} else {
+    $pag_anterior = '';
+}
 ?>
