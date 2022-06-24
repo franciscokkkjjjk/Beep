@@ -50,7 +50,7 @@
     margin-top: -45px;
     margin-left: 20px;
 }
-.info--perfil--img--position img {
+.info--perfil--img--position {
     width: 145px;
     height: 145px;
     border-radius: 100%;
@@ -102,5 +102,55 @@
 }
 .bio{
     color: #fff;
+    font-size: 16px;
+}
+.data_nasc {
+    font-size: 13px;
+    color: #c7c7c7;
+    background-image: url(../../imgs/default/bolo-de-aniversario.png);
+    background-position: left;
+    background-repeat: no-repeat;   
+    padding: 5px 0px;
+    background-size: 18px;
+    padding-left: 25px;
+    margin-top: 11px;
+    margin-bottom: 11px;
+}
+.segui--indo {
+    margin-top: 20px;
+}
+.area--segui {
+    color: #fff;
+    text-decoration: none;
     font-size: 15px;
+    text-decoration: underline transparent;
+}
+.area--segui:hover {
+    text-decoration: underline;
+    transition: all linear 0.25s;
+}
+.seguidor--info {
+    margin-left: 20px;
+}
+.menu--info--perfil--area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+.button--opt--info {
+    flex: 1;
+    text-decoration: none;
+    background-color: #4949498e;
+    padding: 10px 0px;
+    text-align: center;
+    color: #fff;
+}
+.button--opt--info:hover {
+    background-color: #505050;
+    cursor: pointer;
+    transition: all linear 0.25s;
+}
+.active_menu_info {
+    border-bottom:2px solid #53ffff ;
 }

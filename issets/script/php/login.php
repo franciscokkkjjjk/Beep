@@ -19,6 +19,7 @@
                 $_SESSION['nome'] = $user_aux['nome'];
                 $_SESSION['img_banner'] = $user_aux['banner_pefil'];
                 $_SESSION['bio_user'] = $user_aux['bio'];
+                $_SESSION['data_nas'] = $user_aux['data_nas'];
                 $_SESSION['historyc'] = array();
                 header('location:../../../paginas/inicial.php');
             } else {

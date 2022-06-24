@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['id_user'])) {
     header('location:../');
 }
-include_once '../issets/script/php/historico.php';    
+require_once '../issets/script/php/historico.php';    
 require_once '../issets/script/php/conecta.php';
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,10 @@ require_once '../issets/script/php/conecta.php';
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
         ?>
         .menu--pag--img--area {
-            background-image: url('../issets/imgs/profile/<?=$_SESSION['img']?>')
+            background-image: url('../issets/imgs/profile/<?=$_SESSION['img']?>');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
         }
         <?php } else { ?>
             .menu--pag--img--area {
@@ -96,14 +99,8 @@ require_once '../issets/script/php/conecta.php';
                 <div class="info--perfil">
                         <div class="info--perfil--area">
                             <div class="info--perfil--img">
-                                <div class="info--perfil--img info--perfil--img--position">
-                                    <?php 
-                                    if(!$_SESSION['img'] == null) {
-                                    ?>
-                                        <img src="../issets/imgs/profile/<?=$_SESSION['img']?>">
-                                    <?php } else { ?>
-                                        <img src="../issets/imgs/default/perfil-de-usuario-black.png">
-                                    <?php }?> 
+                                <div class="info--perfil--img info--perfil--img--position menu--pag--img--area ">
+                            
                                 </div>
                             </div>
                             <div class="info--perfil--user">
@@ -122,9 +119,27 @@ require_once '../issets/script/php/conecta.php';
                             <div class="bio">
                                 <?=$_SESSION['bio_user']?>
                             </div>
-                            <div class="segui--indo">
-                                <a href=""></a>
+                            <div class="data_nasc">
+                                <?=date('d/m/Y', strtotime($_SESSION['data_nas']))?>
                             </div>
+                            <div class="segui--indo">
+                                <a class='seguidores--info area--segui'href=""><span>10</span> seguindo</a>
+                                <a class='seguidor--info area--segui'href=""><span>10</span> seguidores</a>
+                            </div>
+                        </div>
+                        <div class="menu--info--perfil--area">
+                            <a class="button--opt--info active_menu_info">
+                                Pubublicações
+                            </a>
+                            <a class="button--opt--info">
+                                Jogos do usuario                                
+                            </a>
+                            <a class="button--opt--info">
+                                Curtidas  
+                            </a>    
+                            <a class="button--opt--info">
+                                Sobre                                
+                            </a>
                         </div>
                 </div>
                </div>
