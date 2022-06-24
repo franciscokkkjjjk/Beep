@@ -122,7 +122,7 @@ header {
 }
 .cabeca--menu {
     background-color: #282828;
-    height: 45px;
+    height: 50px;
     border-top-left-radius:20px ;
     border-top-right-radius:20px ;
     display: flex;
@@ -130,9 +130,26 @@ header {
     color:#fff;
     align-items: center;
 }
+.menu--text {
+    margin-right: -35px;
+}
 .menu--text::before {
     content: 'Editar perfil';
+    font-size: 18px;
 }
 .menu--exit-img {
-    ba
+    width: 20px;
+    height: 20px;
+    background-image: url('../../imgs/default/exit.png');
+    background-position: center;
+    background-size: 15px;
+    background-repeat: no-repeat;
+}
+.button--menu button {
+    border: none;
+    padding: 9px 22px;
+    margin-right: 10px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
 }

@@ -5,6 +5,7 @@ if(!isset($_SESSION['id_user'])) {
 }
 require_once '../issets/script/php/historico.php';    
 require_once '../issets/script/php/conecta.php';
+$teste = $_SESSION['email'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -167,10 +168,44 @@ require_once '../issets/script/php/conecta.php';
             </div>
         </div>
     </div>
+    <div class="menu--edit">
+        <div class="event--menu">
+        </div>
+        <div class="menu--body">
+            <div class="cabeca--menu">
+                <div class="menu--exit">
+                <div class="menu--pag--button button--header">
+                   <div class="menu--exit-img"></div>
+                </div>
+                </div>
+                <div class="menu--text">
+                </div>
+                <div class="button--menu">
+                        <button>Salvar</button>
+                </div>
+            </div>
+            <div class="body--edit">
+
+            </div>
+        </div>
+    </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
-    <script type="text/javascript" src="../issets/script/javascript/default/edit_form.js"></script>
+    <script>
+        const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
+        const email = <?php echo '"'.$_SESSION['email'].'"';?>;
+        const username = <?php echo '"'.$_SESSION['username'].'"';?>;
+        const img_perfil = <?php echo '"'.$_SESSION['img'].'"';?>;
+        const img_banner = <?php echo '"'.$_SESSION['img_banner'].'"';?>;
+        const bio = <?php echo '"'.$_SESSION['bio_user'].'"';?>;
+        const dateC = <?php echo '"'.date('d/m/Y', strtotime($_SESSION['data_nas'])).'"';?>;
+        const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
+        const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;
+        const y_nas = <?php echo '"'.date('Y', strtotime($_SESSION['data_nas'])).'"';?>;
+    </script>
+    <script src="../issets/script/javascript/default/edit_form.js">
+    </script>
 </body>
 </html>

@@ -1,5 +1,9 @@
-alert('teset');
+
 let edit = false;
 function editForm() {
-    alert('vc é gay');
+    let creat = document.createElement('div');
+    let script = qs('script');
+    qs('body').insertBefore(creat, script);
+    alert("foi gurizada")
 }
+
