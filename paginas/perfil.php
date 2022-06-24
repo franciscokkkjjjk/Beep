@@ -112,7 +112,7 @@ require_once '../issets/script/php/conecta.php';
                                 </div>
                             </div>
                             <div class="info--button">
-                                <a href='' class="button--editar"></a>
+                                <a href='editar_perfil.php' class="button--editar"></a>
                             </div>
                         </div>
                         <div class="info--bio--perfil">
