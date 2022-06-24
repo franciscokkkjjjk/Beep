@@ -154,3 +154,9 @@
 .active_menu_info {
     border-bottom:2px solid #53ffff ;
 }
+iframe {
+  width: 100vw;
+    height: 100vh;
+    position: inherit;
+    background-color: transparent;
+}
