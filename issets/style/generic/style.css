@@ -99,3 +99,40 @@ header {
 .active--tem {
     background-color: #505050;
 }
+.menu--edit {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: #585858ab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu--body {
+    width: 552px;
+    height: 544px;
+    border-radius: 20px;
+    background-color: #222222;
+    position: absolute;
+}
+.event--menu {
+    width: 100%;
+    height: 100%;
+}
+.cabeca--menu {
+    background-color: #282828;
+    height: 45px;
+    border-top-left-radius:20px ;
+    border-top-right-radius:20px ;
+    display: flex;
+    justify-content: space-between;
+    color:#fff;
+    align-items: center;
+}
+.menu--text::before {
+    content: 'Editar perfil';
+}
+.menu--exit-img {
+    ba
+}
