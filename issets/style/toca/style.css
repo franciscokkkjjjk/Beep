@@ -95,6 +95,7 @@
 .button--editar:hover {
     background-color: #474747b0;
     transition: all linear 0.25s;
+    cursor: pointer;
 }
 .info--bio--perfil {
     margin-top: 25px;
@@ -145,18 +146,14 @@
     padding: 10px 0px;
     text-align: center;
     color: #fff;
+    border-bottom:2px solid #000000 ;
 }
 .button--opt--info:hover {
     background-color: #505050;
     cursor: pointer;
     transition: all linear 0.25s;
+    border-bottom:2px solid #53ffff ;
 }
 .active_menu_info {
     border-bottom:2px solid #53ffff ;
-}
-iframe {
-  width: 100vw;
-    height: 100vh;
-    position: inherit;
-    background-color: transparent;
 }
