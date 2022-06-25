@@ -31,7 +31,7 @@ function creatFormEdit(){
         let div0201 = document.createElement('div');
         div0201.setAttribute('class', 'menu--exit');
         let div02010 = document.createElement('div');
-        div02010.setAttribute('class', 'menu--pag--button button--header');
+        div02010.setAttribute('class', 'menu--pag--button button--header button-exit-event');
         div020101 = document.createElement('div');
         div020101.setAttribute('class', 'menu--exit-img');
         div02010.appendChild(div020101);
@@ -66,15 +66,21 @@ function creatFormEdit(){
         let div04 = dC('div');
         eS(div04, 'img_perfil');
         div04.style.backgroundImage = 'url(../issets/imgs/profile/'+img_perfil+')';
+        let div0401 = dC('div');
+        eS(div0401, 'add-imagem img--perfil--add');
+        aP(div04, div0401);
         aP(div01, div04);
         for00 = form.appendChild(div);
         document.body.insertBefore(form, qs('script'));
         console.log(form);
+        qs('.button-exit-event').onclick = creatFormEdit;
     } else {
         creat = false;
         qs('#f3deR').remove();
     }
 }
+qs('.button--editar').onclick = creatFormEdit;
+
 
 
 /*
@@ -109,7 +115,7 @@ function creatFormEdit(){
                     </label>
                     <input id='nome' class="event--edit--input event--nome input--edit--pre" name='nome_edit'>
                 </div>
-                <div class="input--edit username">
+---------------6-<div class="input--edit username">
                     <label for="username">
                     <div class="inf--input--top">
                         <span>username</span>
@@ -120,7 +126,7 @@ function creatFormEdit(){
                     </label>
                     <input id='username' class="event--edit--input event--username input--edit--pre" name='bio_edit'>
                 </div>
-                <div class="input--edit bio_edit textarea_event">
+----------------7-<div class="input--edit bio_edit textarea_event">
                     <label for="bio">
                     <div class="inf--input--top">
                         <span>bio</span>
@@ -131,7 +137,7 @@ function creatFormEdit(){
                     </label>
                     <textarea id='bio' class="event--edit--input event--bio input--edit--pre"  name='nome_edit'></textarea>
                 </div>
-                <div class="input--edit select--area">
+--------------8--<div class="input--edit select--area">
                 <div class="dat--title">
                     Data de nascimento
                 </div>
