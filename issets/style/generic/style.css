@@ -1,6 +1,13 @@
 * {
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #666666;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #7e7e7e;
+}
 body {
     margin: 0px;
     padding: 0px;
@@ -107,19 +114,27 @@ header {
     background-color: #585858ab;
     display: flex;
     justify-content: center;
-    align-items: center;
+    overflow-y: auto;
 }
 .menu--body {
     width: 552px;
-    height: 544px;
+    height: auto;
+    padding-bottom: 35px;
     border-radius: 20px;
     background-color: #222222;
     position: absolute;
+    margin-top: 30px;
 }
 .event--menu {
     width: 100%;
     height: 100%;
 }
+.banner--perfil {
+    height: 150px;
+    background-color: #000000;
+    background-image: linear-gradient(360deg, #06060691,#9c9c9c38,#b2b2b233);
+}
+
 .cabeca--menu {
     background-color: #282828;
     height: 50px;
@@ -152,4 +167,169 @@ header {
     background-color: #000;
     color: #fff;
     border-radius: 10px;
+}
+.img--edit {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.opt--img {
+    display: flex;
+    flex-direction: row;
+}
+.img--opt--menu {
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    background-color: #222222;
+    box-shadow: 0px 0px 5px #424242c4;
+}
+.add-imagem  {
+    background-image: url(../../imgs/default/add-photo.png);
+    background-position: center;
+    background-size: 20px;
+    background-repeat: no-repeat;
+    margin-right: 30px;
+}
+.remove-imagem {
+    background-image: url(../../imgs/default/exit.png);
+    background-position: center;
+    background-size: 13px;
+    background-repeat: no-repeat;
+}
+.img--opt--menu:hover {
+    background-color: #424242af;
+    cursor: pointer;
+    transition: all linear 0.25s;
+}
+.img_perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 30px;
+    margin-top: -40px;
+    box-shadow: 0px 0px 10px 3px #454545;
+}
+.img--perfil--add {
+    width: 100%;
+    height: 100%;
+    background-color: #42424288;
+    border-radius: 100%;
+}
+.img--perfil--add:hover {
+    cursor: pointer;
+    background-color: #5c5c5c88;
+}
+.input--edit {
+    background-color: #222222;
+    width: auto;
+    height: 60px;
+    margin: 30px  20px 0px;
+    border-radius: 5px;
+    border: 0.5px solid #5c5c5c;
+    color: #fff;
+    transition: all ease 0.25s;
+}
+.input--edit--pre {
+    width: 100%;
+    height: 36px;
+    color: #fff;
+    border: none;
+    background-color: transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all ease 0.25s;
+    max-height: 150px;
+    max-width: 100%;
+    min-height: 30px;
+    min-width: 100%;
+}
+.input--edit--pre:focus {
+   outline: none;
+}
+.inf--input--top {
+    display: flex;
+    justify-content: space-between;
+    padding:5px 10px 0px;
+    font-size: 14px;
+    color: #d3d3d3dc;
+}
+.active--input {
+    box-shadow: 0px 0px 7px 3px #00adb9;
+}
+.color_font_input_act span{
+    color: #00adb9!important;
+}
+.textarea_event {
+    height: auto !important;
+}
+
+.date--form--area {
+    margin: 0px 26px;
+}
+.area--selection--date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 8px;
+}
+.select--date {
+    display: flex;
+    flex-direction: column;
+}
+.select--date select{
+    height: 55px;
+    cursor: pointer;
+    border: 0.5px solid #5c5c5c;
+    padding: 13px 11px 0px;
+    border-radius: 5px;
+    font-size: 15px;
+    background-color: transparent;
+    color: #fff;
+    transition: all ease 0.25s;
+}
+
+
+.select--date select:focus{
+    outline: none;
+    color: #00adb9;
+    border: 1px solid #0fa8b3;
+    transition: all linear 0.2s;
+    box-shadow: 0px 0px 7px 3px #00adb9;
+}
+.select--date label {
+    margin-left: 5px;
+    margin-bottom: -23px;
+    position: relative;
+    width: min-content;
+    font-size: 15px;
+    color: #d3d3d3dc;
+    transition: all ease 0.25s;
+}
+.select--date--dia {
+    width: 70px;
+}
+.select--date--mes {
+    width: 125px;
+}
+.select--date--ano {
+    width: 90px;
+}
+.color--select {
+    color: #00adb9!important;
+}
+.select--area {
+    border: none;
+}
+.dat--title {
+    margin-bottom: 3px;
+}
+select option {
+    color: #fff;
+    background-color: #282828;
+    border: 4px solid #ff0000;
 }
