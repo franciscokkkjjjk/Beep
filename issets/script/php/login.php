@@ -21,7 +21,14 @@
                 $_SESSION['bio_user'] = $user_aux['bio'];
                 $_SESSION['data_nas'] = $user_aux['data_nas'];
                 $_SESSION['historyc'] = array();
-                header('location:../../../paginas/inicial.php');
+                $sql_status = 'UPDATE users SET status_=1 WHERE id_user='.$user_aux['id_user'];
+                $result_status = mysqli_query($conexao, $sql_status);
+                if($result_status){
+                    header('location:../../../paginas/inicial.php');
+                } else {
+                     $_SESSION['mensagem'] = 'moiokkk';
+                     header('location:../../../');
+                }
             } else {
                 $_SESSION['mensagem'] = 'Senha incorreta. <a href="">você esqueceu a senha?</a>';
                 $_SESSION['email'] = $email;

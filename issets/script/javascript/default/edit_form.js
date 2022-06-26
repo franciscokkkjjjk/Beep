@@ -6,9 +6,6 @@ function editForm() {
     qs('body').insertBefore(creat, script);
     alert("foi gurizada")
 }
-qs('.event--menu').onclick = ()=>{
-    alert('click');
-}
 function input_ac(e, a) {
      e.addEventListener('focus', ()=>{
          a.classList.add('active--input');//
@@ -20,9 +17,7 @@ function input_ac(e, a) {
     })
     return;
 }
-input_ac(qs('.event--username'), qs('.username'));
-input_ac(qs('.event--nome'), qs('.nome'));
-input_ac(qs('.event--bio'), qs('.bio_edit'));
+
 function input_ac_selec(e, a) {
     e.addEventListener('focus', ()=>{
         a.classList.add('color--select');//color--select

@@ -5,6 +5,7 @@
         header('location:../');
     } 
     require_once '../issets/script/php/historico.php';    
+    require_once '../issets/script/php/conecta.php'
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -164,7 +165,16 @@
                 </div>
             </div>
             <div class="convite--body">
-                a
+                <h1>gurizada online:</h1>
+
+                <?php 
+                $sql_user = 'SELECT nome, username FROM users WHERE status_ = 1';
+                $resul = mysqli_query($conexao, $sql_user);
+                $array_use = mysqli_fetch_all($resul,1);
+                foreach($array_use as $user) {
+                    echo $user['nome'].': '.$user['username'].'<br>';
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -185,7 +195,6 @@
     </script>
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/date_script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
     <!--<script>let a = true;setInterval(()=>{
         if(a == true){

@@ -1,17 +1,4 @@
-let mes = [
-    'Janeiro',//0
-    'Fevereiro',
-    'Março',//2
-    'Abril',
-    'Maio',//4
-    'Junho',
-    'Julho',//6
-    'Agosto',//7
-    'Setembro',
-    'Outubro',//9
-    'Novembro',
-    'Dezembro'//10
-]
+
 let opt_d = qs('.opcao--date');
 let i_aux = 0;
 mes.forEach(() => {
@@ -29,15 +16,29 @@ mes_op.addEventListener('blur',()=>{
             event_dia.forEach((e)=>{
                 e.remove();
             })
+            let event_ano = qsAll('.event-ano');
+            event_ano.forEach((e)=>{
+                e.remove();
+            })
             for(i=1; i < 32; i++){
                 let clone = opt_d.cloneNode(true);
                 clone.innerHTML = i;
                 clone.classList.add('event-dia');
                 qs('#dia').appendChild(clone);
             }
+            for(i=2022; i > 1900; i--){
+                let clone = opt_d.cloneNode(true);
+                clone.innerHTML = i;
+                clone.classList.add('event-ano');
+                qs('#ano').appendChild(clone);
+            }
         } else if (value_mes == mes[1]) {
             let event_dia = qsAll('.event-dia');
             event_dia.forEach((e)=>{
+                e.remove();
+            })
+            let event_ano = qsAll('.event-ano');
+            event_ano.forEach((e)=>{
                 e.remove();
             })
             for(i=1; i < 30; i++){
@@ -46,9 +47,19 @@ mes_op.addEventListener('blur',()=>{
                 clone.classList.add('event-dia');
                 qs('#dia').appendChild(clone);
             }
+            for(i=2020; i > 1900; i = i-4){
+                let clone = opt_d.cloneNode(true);
+                clone.innerHTML = i;
+                clone.classList.add('event-ano');
+                qs('#ano').appendChild(clone);
+            }
         } else {
             let event_dia = qsAll('.event-dia');
             event_dia.forEach((e)=>{
+                e.remove();
+            })
+            let event_ano = qsAll('.event-ano');
+            event_ano.forEach((e)=>{
                 e.remove();
             })
             for(i=1; i < 31; i++){
@@ -56,6 +67,12 @@ mes_op.addEventListener('blur',()=>{
                 clone.innerHTML = i;
                 clone.classList.add('event-dia');
                 qs('#dia').appendChild(clone);
+            }
+            for(i=2022; i > 1900; i--){
+                let clone = opt_d.cloneNode(true);
+                clone.innerHTML = i;
+                clone.classList.add('event-ano');
+                qs('#ano').appendChild(clone);
             }
         }
 }, true)
@@ -68,5 +85,6 @@ for(i=1; i < 32; i++){
 for(i=2022; i > 1900; i--){
     let clone = opt_d.cloneNode(true);
     clone.innerHTML = i;
+    clone.classList.add('event-ano');
     qs('#ano').appendChild(clone);
 }
