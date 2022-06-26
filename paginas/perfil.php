@@ -193,9 +193,11 @@ require_once '../issets/script/php/conecta.php';
         const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
         const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;
         const y_nas = <?php echo '"'.date('Y', strtotime($_SESSION['data_nas'])).'"';?>;
+        
     </script>
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
+    </script>
 </body>
 </html>

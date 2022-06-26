@@ -51,7 +51,7 @@ function creatFormEdit(){
         let div03 = document.createElement('div');
         div03.setAttribute('class', 'body--edit');
         let div0301 = document.createElement('div');
-        div0301.setAttribute('class','banner--perfil img--edit');
+        div0301.setAttribute('class','banner--perfil event--banner img--edit');
         div0301.style.backgroundImage = 'url(../issets/imgs/profile/'+img_banner+')';
         let div030101 = document.createElement('div');
         div030101.setAttribute('class', 'opt--img');
@@ -402,7 +402,18 @@ function creatFormEdit(){
             clone.classList.add('event-ano');
             qs('#ano').appendChild(clone);
         }
-//
+//mostra uma previa da imagem antes do upload
+    function showImg(e,img_lugar){
+        return e.addEventListener('change', function () {   
+            let img = e.files[0];
+            console.log(img);
+            let src = URL.createObjectURL(img);
+            img_lugar.style.backgroundImage = "url("+src+")";
+        });
+    }
+
+    showImg(qs('#input_file_perfil'), qs('.img_perfil'));
+    showImg(qs('#input_file_banner'), qs('.event--banner'));
     } else {
         creat = false;
         qs('#f3deR').remove();
@@ -415,4 +426,18 @@ creatFormEdit();
 
 /*
 
+<canvas id='canvas'></canvas> para recortar imagem
+function cropImg(){
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+
+  var image = new Image();
+  image.src = "https://images.unsplash.com/photo-1593642634443-44adaa06623a?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=725&q=80"; 
+  
+  image.onload = function(){
+    ctx.drawImage(image, 150, 200, 500, 300, 60,60, 500, 300);
+  }
+}
+
+cropImg();
 */
