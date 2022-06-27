@@ -1,4 +1,17 @@
-
+var mes = [
+    'Janeiro',//0
+    'Fevereiro',
+    'Março',//2
+    'Abril',
+    'Maio',//4
+    'Junho',
+    'Julho',//6
+    'Agosto',//7
+    'Setembro',
+    'Outubro',//9
+    'Novembro',
+    'Dezembro'//10
+] 
 let opt_d = qs('.opcao--date');
 let i_aux = 0;
 mes.forEach(() => {
