@@ -25,21 +25,18 @@ $meses = [
     'Novembro',
     'Dezembro'//10
 ];
-if($mes_user < 32) {
-    $mesOut = intval($mes_user);
-    echo $mesOut;
-    $datIn = mktime( 0, 0, 0, $mesOut, $dia_user, $ano_user);
- } else {
-    for($i = 0;$i < 12;$i++){
-        if($meses[$i] == $mes_user){
-            $mesOut = $i+1;
-            echo $mesOut;
-            break;
-        }
-    }
-    $datIn = mktime( 0, 0, 0, $mesOut, $dia_user, $ano_user);
+for($i = 0;$i < 12;$i++){
+    if($meses[$i] == $mes_user){
+        $mesOut = $i+1;
+        $datIn = mktime( 0, 0, 0, $mesOut, $dia_user, $ano_user);
+        break;
+    } else{
+        $mesOut = intval($mes_user);
+        $datIn = mktime( 0, 0, 0, $mesOut, $dia_user, $ano_user);
+     }
 }
 $datOt = date('Y-m-d', $datIn);
+var_dump($datOt); die;
 $calc = $dat_in-$datIn;
 $cal_pross00 = $calc/60;
 $cal_pross0000 = $cal_pross00/60;
