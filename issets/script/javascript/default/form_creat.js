@@ -421,7 +421,6 @@ function creatFormEdit(){
     }
 }
 qs('.button--editar').addEventListener('click',creatFormEdit,true);
-creatFormEdit();
 
 
 /*

@@ -182,7 +182,6 @@ require_once '../issets/script/php/conecta.php';
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
     <script>
-       
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
         const username = <?php echo '"'.$_SESSION['username'].'"';?>;
@@ -193,7 +192,6 @@ require_once '../issets/script/php/conecta.php';
         const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
         const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;
         const y_nas = <?php echo '"'.date('Y', strtotime($_SESSION['data_nas'])).'"';?>;
-        
     </script>
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>

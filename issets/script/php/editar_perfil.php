@@ -50,15 +50,20 @@ if($date_coverti >= 18){
     $resultado_valid_username = mysqli_query($conexao, $sql_valid_username);
     $array_valid_user = mysqli_fetch_all($resultado_valid_username, 1);
     $usernameDE =  '@'. $username_user;
+    $usernameDE_session = $_SESSION['username'];
+    $user_erro = false;
+    if($usernameDE != $usernameDE_session) {
+        $user_erro = true;
+    }
     foreach($array_valid_user as $value) {
-        if($value['username'] == $usernameDE) {
+        if($value['username'] == $usernameDE and $user_erro) {
             $username_erro = true;
             echo "esse ja existe";
             break;
         } 
     }
     if(isset($username_erro)) {
-        echo ' tem um igual';
+        echo ' tem um igual e diferente da ssessao';
     } else {
         $sql_edit = "UPDATE users SET username='$usernameDE',nome='$nome_user', bio='$bio_user', data_nas='$datOt' WHERE id_user=".$_SESSION['id_user'];
         $rest_edit = mysqli_query($conexao, $sql_edit);
