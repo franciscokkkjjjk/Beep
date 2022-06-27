@@ -7,10 +7,10 @@ if(!isset($_SESSION['id_user'])) {
 require_once 'conecta.php';
 $nome_user = $_POST['nome_edit'];
 $username_user = $_POST['username_edit'];
-$bio_user = $_POST['bio_edit'];
+$bio_user = addslashes($_POST['bio_edit']);
 $mes_user = $_POST['mes'];
-$ano_user = $_POST['ano'];
-$dia_user = $_POST['dia'];
+$ano_user = intval($_POST['ano']);
+$dia_user = intval($_POST['dia']);
 $meses = [
     'Janeiro',//0
     'Fevereiro',
@@ -25,11 +25,58 @@ $meses = [
     'Novembro',
     'Dezembro'//10
 ];
-for($i = 0;$i<12;$i++){
-    if($meses[$i] == $mes_nas){
-        $mesOut = $i+1;
-        break;
+if($mes_user < 32) {
+    $mesOut = intval($mes_user);
+    echo $mesOut;
+    $datIn = mktime( 0, 0, 0, $mesOut, $dia_user, $ano_user);
+ } else {
+    for($i = 0;$i < 12;$i++){
+        if($meses[$i] == $mes_user){
+            $mesOut = $i+1;
+            echo $mesOut;
+            break;
+        }
     }
+    $datIn = mktime( 0, 0, 0, $mesOut, $dia_user, $ano_user);
+}
+$datOt = date('Y-m-d', $datIn);
+$calc = $dat_in-$datIn;
+$cal_pross00 = $calc/60;
+$cal_pross0000 = $cal_pross00/60;
+$cal_pross01 = $cal_pross0000/24;
+$date_coverti = $cal_pross01/365.25;
+if($date_coverti >= 18){
+    $sql_valid_username = 'SELECT username FROM users';
+    $resultado_valid_username = mysqli_query($conexao, $sql_valid_username);
+    $array_valid_user = mysqli_fetch_all($resultado_valid_username, 1);
+    $usernameDE =  '@'. $username_user;
+    foreach($array_valid_user as $value) {
+        if($value['username'] == $usernameDE) {
+            $username_erro = true;
+            echo "esse ja existe";
+            break;
+        } 
+    }
+    if(isset($username_erro)) {
+        echo ' tem um igual';
+    } else {
+        $sql_edit = "UPDATE users SET username='$usernameDE',nome='$nome_user', bio='$bio_user', data_nas='$datOt' WHERE id_user=".$_SESSION['id_user'];
+        $rest_edit = mysqli_query($conexao, $sql_edit);
+        if($rest_edit) {
+            $sql_user = 'SELECT username, nome, bio, data_nas FROM users WHERE id_user='.$_SESSION['id_user'];
+            $resultado_user = mysqli_query($conexao, $sql_user);
+            $array_user= mysqli_fetch_all($resultado_user, 1);
+            foreach($array_user as $user) {
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['nome'] = $user['nome'];
+                $_SESSION['bio_user'] = $user['bio'];
+                $_SESSION['data_nas'] = $user['data_nas'];
+            }
+            header('location:../../../paginas/perfil.php');
+        }
+    } 
+}else{
+    echo 'menor de idade';
 }
 //é possivel mandar funções de js pelo php $_session['funcao'] = 'funcaojs_()';
 ?>
