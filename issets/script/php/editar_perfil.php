@@ -36,7 +36,7 @@ for($i = 0;$i < 12;$i++){
      }
 }
 $datOt = date('Y-m-d', $datIn);
-var_dump($datOt); die;
+var_dump($datOt);
 $calc = $dat_in-$datIn;
 $cal_pross00 = $calc/60;
 $cal_pross0000 = $cal_pross00/60;
