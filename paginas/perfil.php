@@ -5,6 +5,7 @@ if(!isset($_SESSION['id_user'])) {
 }
 require_once '../issets/script/php/historico.php';    
 require_once '../issets/script/php/conecta.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR" style="overflow: hidden;">
@@ -185,8 +186,8 @@ require_once '../issets/script/php/conecta.php';
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
         const username = <?php echo '"'.$_SESSION['username'].'"';?>;
-        const img_perfil = <?php echo '"'.$_SESSION['img'].'"';?>;
-        const img_banner = <?php echo '"'.$_SESSION['img_banner'].'"';?>;
+        const img_perfil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img'].'"';} else {echo 'null';}?>;
+        const img_banner = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img_banner'].'"';} else{echo 'null';}?>;
         const bio = <?php echo '"'.$_SESSION['bio_user'].'"';?>;
         const dateC = <?php echo '"'.date('d/m/Y', strtotime($_SESSION['data_nas'])).'"';?>;
         const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;

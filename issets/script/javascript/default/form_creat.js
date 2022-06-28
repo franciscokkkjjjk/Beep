@@ -52,7 +52,11 @@ function creatFormEdit(){
         div03.setAttribute('class', 'body--edit');
         let div0301 = document.createElement('div');
         div0301.setAttribute('class','banner--perfil event--banner img--edit');
-        div0301.style.backgroundImage = 'url(../issets/imgs/profile/'+img_banner+')';
+        if(img_banner == ''){
+
+        } else{
+            div0301.style.backgroundImage = 'url(../issets/imgs/profile/'+img_banner+')';
+        }
         let div030101 = document.createElement('div');
         div030101.setAttribute('class', 'opt--img');
         let div03010101 = dC('label');
@@ -78,7 +82,11 @@ function creatFormEdit(){
 
         let div04 = dC('div');
         eS(div04, 'img_perfil');
+        if(img_banner == ''){
+
+        } else{
         div04.style.backgroundImage = 'url(../issets/imgs/profile/'+img_perfil+')';
+        }
         let div0401 = dC('label');
         div0401.setAttribute('for','input_file_perfil');
         let div040101 = dC('div');
