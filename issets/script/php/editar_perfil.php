@@ -45,7 +45,7 @@ $date_coverti = $cal_pross01/365.25;
 if($date_coverti >= 18){
     $sql_valid_username = 'SELECT username FROM users';
     $resultado_valid_username = mysqli_query($conexao, $sql_valid_username);
-    $array_valid_user = mysqli_fetch_all($resultado_valid_username, 1);
+    $array_valid_user = mysqli_fetch_all($resultado_valid_username, 2);
     $usernameDE =  '@'. $username_user;
     $usernameDE_session = $_SESSION['username'];
     $user_erro = false;
@@ -62,6 +62,9 @@ if($date_coverti >= 18){
     if(isset($username_erro)) {
         echo ' tem um igual e diferente da ssessao';
     } else {
+        //upload de arquivo
+
+        //
         $sql_edit = "UPDATE users SET username='$usernameDE',nome='$nome_user', bio='$bio_user', data_nas='$datOt' WHERE id_user=".$_SESSION['id_user'];
         $rest_edit = mysqli_query($conexao, $sql_edit);
         if($rest_edit) {

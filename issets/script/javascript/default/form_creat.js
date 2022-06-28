@@ -18,6 +18,7 @@ function creatFormEdit(){
         form.setAttribute('action','../issets/script/php/editar_perfil.php');
         form.setAttribute('method','POST');
         form.setAttribute('id','f3deR');
+        form.setAttribute('enctype', 'multipart/form-data');
         let opt= document.createElement('option');
         opt.setAttribute('class','opcao--date');
         div.appendChild(opt);
@@ -48,6 +49,7 @@ function creatFormEdit(){
         div0203.appendChild(but020301);
         div02.appendChild(div0203);
         div01.appendChild(div02);
+        
         let div03 = document.createElement('div');
         div03.setAttribute('class', 'body--edit');
         let div0301 = document.createElement('div');
@@ -303,9 +305,6 @@ function creatFormEdit(){
             input_ac_selec(qs('#mes'), qs('#label-mes'));
             input_ac_selec(qs('#ano'), qs('#label-ano'));
             input_ac_selec(qs('#dia'), qs('#label-dia'));
-///upload img
-        
-
 ///copia do date_script
             var mes = [
                 'Janeiro',//0
