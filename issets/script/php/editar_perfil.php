@@ -45,15 +45,15 @@ $date_coverti = $cal_pross01/365.25;
 if($date_coverti >= 18){
     $sql_valid_username = 'SELECT username FROM users';
     $resultado_valid_username = mysqli_query($conexao, $sql_valid_username);
-    $array_valid_user = mysqli_fetch_all($resultado_valid_username, 2);
+    $array_valid_user = mysqli_fetch_all($resultado_valid_username, 1);
     $usernameDE =  '@'. $username_user;
     $usernameDE_session = $_SESSION['username'];
     $user_erro = false;
     if($usernameDE != $usernameDE_session) {
         $user_erro = true;
     }
-    foreach($array_valid_user as $value) {
-        if($value['username'] == $usernameDE and $user_erro) {
+    foreach($array_valid_user as $value_) {
+        if($value_['username'] == $usernameDE and $user_erro) {
             $username_erro = true;
             echo "esse ja existe";
             break;

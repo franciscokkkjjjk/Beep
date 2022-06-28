@@ -8,7 +8,6 @@
     $senha = md5($_POST['senha--user']);
     $emailError = true;
     foreach($user as $user_aux){
-        var_dump($user_aux['email']);  
         if($email == $user_aux['email']) {
             $emailError = false;
             if($senha == $user_aux['senha']) {
