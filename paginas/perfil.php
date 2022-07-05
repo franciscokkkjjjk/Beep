@@ -93,10 +93,8 @@ require_once '../issets/script/php/conecta.php';
             </div>
             <div class="feed-body-post">
                <div class="header--perfil--area">
-                <div class="banner--perfil">
-                    <?php if(!$_SESSION['img_banner'] == NULL){?>
-                    <img src="../issets/imgs/profile/<?= $_SESSION['img_banner']?>">
-                    <?php }?>
+                <div class="banner--perfil" style="<?php if(!$_SESSION['img_banner'] == NULL){?>background-image: url(../issets/imgs/profile/<?= $_SESSION['img_banner']?>);<?php }?>">
+
                 </div>
                 <div class="info--perfil">
                         <div class="info--perfil--area">

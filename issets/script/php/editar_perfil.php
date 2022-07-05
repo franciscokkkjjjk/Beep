@@ -62,104 +62,50 @@ if($date_coverti >= 18){
     if(isset($username_erro)) {
         echo ' tem um igual e diferente da ssessao';
     } else {
-        //upload de arquivo
-            //foto de perfil 
-            $_FILES["input_file_perfil"]["name"];
-    $target_dir = "../../imgs/profile/";//tem que renomear os arquivos antes de criar no banco de dados
-    $target_file = $target_dir . basename($_FILES["input_file_perfil"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    $novo_nome = uniqid().'.'.pathinfo($_FILES["input_file_perfil"]["name"],PATHINFO_EXTENSION);
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["input_file_perfil"]["tmp_name"]);
-    if($check !== false) {
-        $uploadOk = 1;
-        $img = basename($_FILES["input_file_perfil"]["name"]);
-        $img_name = $img.$novo_nome;
-    } else {
-        $_SESSION['error_img'] = 'O upload não era uma imagem.';
-        $uploadOk = 0;
-        header('location:../../../paginas/index.php');
-    }
-    }
-
-    // Check if file already exists
-    if (file_exists($target_file)) {
-    $_SESSION['error_img'] = 'A imagem não existe';
-    $uploadOk = 0;
-    header('location:../../../paginas/perfil.php');
-    } else {
-        
-    }
-
-    // Check file size
-    if ($_FILES["input_file_perfil"]["size"] > 500000) {
-    $_SESSION['error_img'] = 'a imagem é muito grande.';
-    $uploadOk = 0;
-    header('location:../../../paginas/perfil.php');
-    }
-
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" && $imageFileType != "jfif") {
-    $_SESSION['error_img'] = "O upload só pode ser apenas jpg, png, jpeg, gif ou jfif";
-    $uploadOk = 0;
-    header('location:../../../paginas/perfil.php');
-    }
-
-    //banner_upload
-    $_FILES["input_file_banner"]["name"];
-    $target_file_banner = $target_dir . basename($_FILES["input_file_banner"]["name"]);
-    $uploadOk = 1;
-    $imageFileType_banner = strtolower(pathinfo($target_file_banner,PATHINFO_EXTENSION));
-    $novo_nome_banner = uniqid().'.'.pathinfo($_FILES["input_file_banner"]["name"],PATHINFO_EXTENSION);
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-    $check_banner = getimagesize($_FILES["input_file_banner"]["tmp_name"]);
-    if($check_banner !== false) {
-        $uploadOk = 1;
-    } else {
-        $_SESSION['error_img'] = 'O upload não era uma imagem.';
-        $uploadOk = 0;
-        header('location:../../../paginas/perfil.php');
-    }
-    }
-
-    // Check if file already exists
-    if (file_exists($target_file)) {
-    $_SESSION['error_img'] = 'A imagem não existe';
-    $uploadOk = 0;
-    header('location:../../..');
-    }
-
-    // Check file size
-    if ($_FILES["input_file_banner"]["size"] > 500000) {
-    $_SESSION['error_img'] = 'a imagem é muito grande.';
-    $uploadOk = 0;
-    header('location:../../../paginas/perfil.php');
-    }
-
-    // Allow certain file formats
-    if($imageFileType_banner != "jpg" && $imageFileType_banner != "png" && $imageFileType_banner != "jpeg"
-    && $imageFileType_banner != "gif" && $imageFileType_banner != "jfif") {
-    $_SESSION['error_img'] = "O upload só pode ser apenas jpg, png, jpeg, gif ou jfif";
-    $uploadOk = 0;
-    header('location:../../../paginas/perfil.php');
-    }
-
-    //
-    if ($uploadOk == 0) {
-        header('location:../../../paginas/perfil.php');
-    // if everything is ok, try to upload file
-    } else {
-    if (move_uploaded_file($_FILES["input_file_perfil"]["tmp_name"], $target_file.$novo_nome) and move_uploaded_file($_FILES["input_file_banner"]["tmp_name"], $target_file_banner.$novo_nome_banner)) {
-        
+        //upload do perfil;
+        $diretorio = '../../imgs/profile/';
+        $img_perfil = $_FILES['input_file_perfil']['name'];
+        $img_diretorio_perfil = $diretorio . basename($_FILES["input_file_perfil"]["name"]);
+        $perfil = 1;
+        if($img_perfil == '') {
+            $nome_banco_perfil = $_SESSION['img'];
+        } else {
+            $extensao = strtolower(pathinfo($img_diretorio_perfil,PATHINFO_EXTENSION));
+                if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"
+                && $extensao != "gif" && $extensao != "jfif") {
+                    $_SESSION['error_img'] = "O upload só pode ser apenas jpg, png, jpeg, gif ou jfif";
+                    $banner = 0;
+                    header('location:../../../paginas/perfil.php');
+                }
+            if($perfil == 1) {
+                $novo_nome = uniqid().'.'.pathinfo($_FILES["input_file_perfil"]["name"],PATHINFO_EXTENSION);
+                $nome_banco_perfil = $img_perfil.$novo_nome;
+                move_uploaded_file($_FILES["input_file_perfil"]["tmp_name"], $img_diretorio_perfil.$novo_nome);
+            }
+        }
+        //upload de banner 
+        $img_banner = $_FILES['input_file_banner']['name'];
+        $img_diretorio_banner = $diretorio . basename($_FILES["input_file_banner"]["name"]);
+        $banner = 1;
+        if($img_banner == '') {
+            $nome_banco_banner = $_SESSION['img_banner'];
+        } else {
+            $extensao = strtolower(pathinfo($img_diretorio_banner,PATHINFO_EXTENSION));
+                if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"
+                && $extensao != "gif" && $extensao != "jfif") {
+                    $_SESSION['error_img'] = "O upload só pode ser apenas jpg, png, jpeg, gif ou jfif";
+                    $banner = 0;
+                    header('location:../../../paginas/perfil.php');
+                    die;
+                }
+            if($banner == 1) {
+                $novo_nome_banner = uniqid().'.'.pathinfo($_FILES["input_file_banner"]["name"],PATHINFO_EXTENSION);
+                $nome_banco_banner = $img_banner.$novo_nome_banner;
+                move_uploaded_file($_FILES["input_file_banner"]["tmp_name"], $img_diretorio_banner.$novo_nome_banner);
+            }
+        }
         //
-        $img_banner = basename($_FILES["input_file_banner"]["name"]);
-        $img_name_banner = $img_banner.$novo_nome_banner;
-        //
-        $sql_edit = "UPDATE users SET username='$usernameDE',nome='$nome_user', bio='$bio_user',foto_perfil='$img_name',banner_pefil='$img_name_banner' ,data_nas='$datOt' WHERE id_user=".$_SESSION['id_user'];
+        $sql_edit = "UPDATE users SET username='$usernameDE',nome='$nome_user',foto_perfil='$nome_banco_perfil',banner_pefil='$nome_banco_banner' ,bio='$bio_user', data_nas='$datOt' WHERE id_user=".$_SESSION['id_user'];
         $rest_edit = mysqli_query($conexao, $sql_edit);
         if($rest_edit) {
             $sql_user = 'SELECT * FROM users WHERE id_user='.$_SESSION['id_user'];
@@ -168,16 +114,14 @@ if($date_coverti >= 18){
             foreach($array_user as $user) {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['nome'] = $user['nome'];
+                $_SESSION['bio_user'] = $user['bio'];
                 $_SESSION['img'] = $user['foto_perfil'];
                 $_SESSION['img_banner'] = $user['banner_pefil'];
-                $_SESSION['bio_user'] = $user['bio'];
                 $_SESSION['data_nas'] = $user['data_nas'];
             }
             header('location:../../../paginas/perfil.php');
         }
-    }
-}
-} 
+    } 
 }else{
     echo 'menor de idade';
 }

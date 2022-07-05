@@ -30,6 +30,10 @@
     height: 150px;
     background-color: #000000;
     background-image: linear-gradient(360deg, #06060691,#9c9c9c38,#b2b2b233);
+    background-image: url(../issets/imgs/profile/o-email.png62c47b97334cc.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .banner--perfil img {
     width: 100%;
