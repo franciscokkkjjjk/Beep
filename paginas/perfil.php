@@ -38,7 +38,6 @@ require_once '../issets/script/php/conecta.php';
     </style>
 </head>
 <body>
-<?= $_SESSION['error_img'];?>
     <div class="feed-area">
         <div class="menu--pag--area">
             <div class="feed-logo-body">

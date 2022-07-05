@@ -75,6 +75,8 @@ if($date_coverti >= 18){
     $check = getimagesize($_FILES["input_file_perfil"]["tmp_name"]);
     if($check !== false) {
         $uploadOk = 1;
+        $img = basename($_FILES["input_file_perfil"]["name"]);
+        $img_name = $img.$novo_nome;
     } else {
         $_SESSION['error_img'] = 'O upload não era uma imagem.';
         $uploadOk = 0;
@@ -87,6 +89,8 @@ if($date_coverti >= 18){
     $_SESSION['error_img'] = 'A imagem não existe';
     $uploadOk = 0;
     header('location:../../../paginas/perfil.php');
+    } else {
+        
     }
 
     // Check file size
@@ -150,8 +154,7 @@ if($date_coverti >= 18){
     // if everything is ok, try to upload file
     } else {
     if (move_uploaded_file($_FILES["input_file_perfil"]["tmp_name"], $target_file.$novo_nome) and move_uploaded_file($_FILES["input_file_banner"]["tmp_name"], $target_file_banner.$novo_nome_banner)) {
-        $img = basename($_FILES["input_file_perfil"]["name"]);
-        $img_name = $img.$novo_nome;
+        
         //
         $img_banner = basename($_FILES["input_file_banner"]["name"]);
         $img_name_banner = $img_banner.$novo_nome_banner;
