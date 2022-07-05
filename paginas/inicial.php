@@ -131,7 +131,17 @@
                 <div class="post--menu--area">
                     <div class="header--post--area">
                         <div class="post--area--perfil">
-                            a
+                            <div class="img--perfil">
+
+                            </div>
+                            <div class="name--area">
+                                <div class="name--name-perfil">
+                                    <?=$_SESSION['nome'];?>
+                                </div>
+                                <div class="name--username-perfil">
+                                    <?=$_SESSION['username'];?>
+                                </div>
+                            </div>
                         </div>
                         <div class="post--area--menu">
                             ...
