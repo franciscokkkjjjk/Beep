@@ -138,7 +138,7 @@
                         </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                     </div>
                     <div class="body--post--area">
-                        --                                                              <!--deve ter oq o usuario publicou-->
+                        postagens aq                                                    <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
                         --                                                              <!--deve ter o curtir compartilhar e comentar-->
