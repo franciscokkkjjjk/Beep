@@ -70,6 +70,7 @@ if($date_coverti >= 18){
         if($img_perfil == '') {
             $nome_banco_perfil = $_SESSION['img'];
         } else {
+            unlink('../../imgs/profile/'.$_SESSION['img']);
             $extensao = strtolower(pathinfo($img_diretorio_perfil,PATHINFO_EXTENSION));
                 if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"
                 && $extensao != "gif" && $extensao != "jfif") {
@@ -90,6 +91,7 @@ if($date_coverti >= 18){
         if($img_banner == '') {
             $nome_banco_banner = $_SESSION['img_banner'];
         } else {
+            unlink('../../imgs/profile/'.$_SESSION['img_banner']);
             $extensao = strtolower(pathinfo($img_diretorio_banner,PATHINFO_EXTENSION));
                 if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"
                 && $extensao != "gif" && $extensao != "jfif") {

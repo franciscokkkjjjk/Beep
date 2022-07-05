@@ -92,7 +92,7 @@
                 }
             }
 
-           $sql_cadastro = "INSERT INTO users(username, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas, status_) VALUE ('$username_DF', '$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt', 0)";
+           $sql_cadastro = "INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas, status_) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt', 0)";
            $resultado_cadastro = mysqli_query($conexao,$sql_cadastro);
            if($resultado_cadastro) {
             session_destroy();

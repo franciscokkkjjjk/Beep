@@ -5,7 +5,9 @@ if(!isset($_SESSION['id_user'])) {
 }
 require_once '../issets/script/php/historico.php';    
 require_once '../issets/script/php/conecta.php';
-
+$sql = 'SELECT t_seguidores, t_seguindo FROM users WHERE id_user='.$_SESSION['id_user'];
+$res_perfil = mysqli_query($conexao, $sql);
+$array_info = mysqli_fetch_assoc($res_perfil);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR" style="overflow: hidden;">
@@ -123,8 +125,8 @@ require_once '../issets/script/php/conecta.php';
                                 <?=date('d/m/Y', strtotime($_SESSION['data_nas']))?>
                             </div>
                             <div class="segui--indo">
-                                <a class='seguidores--info area--segui'href=""><span>10</span> seguindo</a>
-                                <a class='seguidor--info area--segui'href=""><span>10</span> seguidores</a>
+                                <a class='seguidores--info area--segui'href=""><span><?=$array_info['t_seguindo']?></span> seguindo</a>
+                                <a class='seguidor--info area--segui'href=""><span><?=$array_info['t_seguidores']?></span> seguidores</a>
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">
