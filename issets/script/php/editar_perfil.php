@@ -149,7 +149,7 @@ if($date_coverti >= 18){
         header('location:../../../paginas/perfil.php');
     // if everything is ok, try to upload file
     } else {
-    if (move_uploaded_file($_FILES["input_file_perfil"]["tmp_name"], $target_file.$novo_nome) and move_uploaded_file($_FILES["input_file_banner"]["tmp_name"], $target_file_banner.$novo_nome)) {
+    if (move_uploaded_file($_FILES["input_file_perfil"]["tmp_name"], $target_file.$novo_nome) and move_uploaded_file($_FILES["input_file_banner"]["tmp_name"], $target_file_banner.$novo_nome_banner)) {
         $img = basename($_FILES["input_file_perfil"]["name"]);
         $img_name = $img.$novo_nome;
         //
