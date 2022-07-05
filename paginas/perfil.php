@@ -34,9 +34,11 @@ require_once '../issets/script/php/conecta.php';
             background-image: url('../issets/imgs/default/perfil-de-usuario-black.png');
         }
         <?php }?>
+        
     </style>
 </head>
 <body>
+<?= $_SESSION['error_img'];?>
     <div class="feed-area">
         <div class="menu--pag--area">
             <div class="feed-logo-body">
