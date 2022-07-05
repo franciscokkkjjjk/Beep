@@ -108,7 +108,7 @@ if($date_coverti >= 18){
         $sql_edit = "UPDATE users SET username='$usernameDE',nome='$nome_user',foto_perfil='$nome_banco_perfil',banner_pefil='$nome_banco_banner' ,bio='$bio_user', data_nas='$datOt' WHERE id_user=".$_SESSION['id_user'];
         $rest_edit = mysqli_query($conexao, $sql_edit);
         if($rest_edit) {
-            $sql_user = 'SELECT * FROM users WHERE id_user='.$_SESSION['id_user'];
+            $sql_user = 'SELECT * FROM users WHERE id_user='.$_SESSION['id_user'];a
             $resultado_user = mysqli_query($conexao, $sql_user);
             $array_user= mysqli_fetch_all($resultado_user, 1);
             foreach($array_user as $user) {
