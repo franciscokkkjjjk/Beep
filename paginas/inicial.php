@@ -151,7 +151,8 @@
                     <div class="body--post--area">
                         <div class="post--text">cara não acredito aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
                         <div class="post--img-area">
-                            <div class="post--img"></div>
+                            <div class="post--img">
+                            </div>
                         </div>                                          <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">

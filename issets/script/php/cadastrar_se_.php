@@ -18,7 +18,7 @@
         'Novembro',
         'Dezembro'//10
     ];
-    $pass = md5($_POST['senha_user']);
+    $pass = password_hash($_POST['senha_user'], PASSWORD_DEFAULT);
 
     $email = $_POST['email_user'];
     $nome = $_POST['nome_user'];

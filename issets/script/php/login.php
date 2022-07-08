@@ -5,12 +5,12 @@
     $resultado = mysqli_query($conexao, $sql);
     $user = mysqli_fetch_all($resultado, 1);
     $email = $_POST['email--user'];
-    $senha = md5($_POST['senha--user']);
+    $senha = $_POST['senha--user'];
     $emailError = true;
     foreach($user as $user_aux){
         if($email == $user_aux['email']) {
             $emailError = false;
-            if($senha == $user_aux['senha']) {
+            if(password_verify($senha, $user_aux['senha'])) {
                 $_SESSION['id_user'] = $user_aux['id_user'];
                 $_SESSION['img'] = $user_aux['foto_perfil'];
                 $_SESSION['username'] = $user_aux['username'];
