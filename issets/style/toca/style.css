@@ -27,17 +27,18 @@
     transform: rotate();
 }
 .banner--perfil {
-    height: 150px;
+    height: 170px;
+    width: 100%;
     background-color: #000000;
     background-image: linear-gradient(360deg, #06060691,#9c9c9c38,#b2b2b233);
     background-image: url(../issets/imgs/profile/o-email.png62c47b97334cc.png);
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 .banner--perfil img {
     width: 100%;
-    height: 150px;
+    height: 170px;
 }
 .feed-body-post {
     padding-top: 42.5px;
