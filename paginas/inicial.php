@@ -128,6 +128,7 @@
                 <div class="">
                     <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
                 </div>
+				
                 <div class="post--menu--area">
                     <div class="header--post--area">
                         <div class="post--area--perfil">
