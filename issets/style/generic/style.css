@@ -368,3 +368,167 @@ select option {
 .input_file {
     display: none;
 }
+/*postagens*/
+.post--menu--area {
+    border: 0.5px solid #424242;
+    width:auto;
+    height: auto;
+    margin-left: 4%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    color: #fff;
+    margin: auto;
+}
+.header--post--area {
+    display: flex;
+    justify-content: space-between;
+}
+.post--area--perfil {
+    flex: 1;
+}
+.menu--header {
+    flex-direction: row-reverse;
+}
+.menu--header .menu {
+    margin-right: 117px;
+}
+.button--header {
+    width: 35px;
+    height: 33px;
+    border-radius: 100%;
+}
+.button--header:hover{ 
+    cursor: pointer;
+}
+.menu--header--body {
+    display: none;
+    opacity: 0;
+    width: 250px;
+    height: 00px;
+    background-color: #3d3d3d;
+    margin-top: 42px;
+    transition: all ease 0.25s;
+    box-shadow: -1px 4px 10px 0px #5f5f5f;
+}
+.opt--menu-header {
+    text-decoration: none;
+    color: #fff;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px;
+}
+.opt--menu-header:hover {
+    background-color: #5f5f5fd2;
+    transition: all linear 0.25s;
+}
+.event--header {
+    transition: all ease 0.3s;
+}
+.img--menu--header {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    margin-left: 10px;
+    margin-right: 7px;
+}
+.img--menu--header:hover {
+    background-color: #444444c4;
+    transition: all linear 0.25s;
+}
+.text--menu--header {
+    padding-left: 5px;
+}
+.post--area--perfil {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-left: 8px;
+    padding-bottom: 5px;
+}
+.name--area {
+    font-size: 17px;
+}
+.name--name-perfil {
+    margin-top: 5px;
+}
+.name--username-perfil {
+    font-size: 14px;
+}
+.post--area--menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.post--area--menu {
+    width: 45px;
+    border-radius: 5px;
+}
+.elipse-img {
+    background-image: url(../../imgs/default/elipse.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+}
+.elipse-img-hover:hover {
+    background-color: #424242;
+    cursor: pointer;
+    transition: all linear 0.25s;
+}
+.post--text {
+    width: 100%;
+    size-adjust: none;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-family: 'Roboto';
+    text-align: left;
+    font-size: 17px;
+    word-break: break-word;
+    padding: 8px 27px 7px 7px;
+}
+.post--img-area {
+    width: 96%;
+    margin: auto;
+    height: 288px;
+    border: #3d3d3d solid 0.5px;
+    border-radius: 10px;
+}
+.post--img {
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../planejamento/img\ de\ teste/primeira\ pub\ tcc.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+.interacao--post--area {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 8px;
+    justify-content: space-evenly;
+}
+.interacao--area {
+    width: 155px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.interacao--area:hover {
+    background-color: #3d3d3d;
+    transition: all linear 0.25s;
+    cursor: pointer;
+}

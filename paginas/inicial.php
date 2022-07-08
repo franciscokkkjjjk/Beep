@@ -132,7 +132,7 @@
                 <div class="post--menu--area">
                     <div class="header--post--area">
                         <div class="post--area--perfil">
-                            <div class="img--perfil">
+                            <div class="img--perfil menu--pag--img--area" style="background-image: url(../issets/imgs/default/_xY4nDnw_400x400.jpg);">
 
                             </div>
                             <div class="name--area">
@@ -144,15 +144,26 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="post--area--menu">
-                            ...
+                        <div class="post--area--menu ">
+                            <div class="elipse-img-hover elipse-img"></div>
                         </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                     </div>
                     <div class="body--post--area">
-                        postagens aq                                                    <!--deve ter oq o usuario publicou-->
+                        <div class="post--text">cara não acredito aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                        <div class="post--img-area">
+                            <div class="post--img"></div>
+                        </div>                                          <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
-                        --                                                              <!--deve ter o curtir compartilhar e comentar-->
+                        <div class="curtir interacao--area">
+                            Curtir
+                        </div>   
+                        <div class="comentar interacao--area">
+                            comentar
+                        </div>
+                        <div class="compartilhar interacao--area">
+                            compartilhar
+                        </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
                     </div>
                 </div>
                 
