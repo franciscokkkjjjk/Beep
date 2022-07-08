@@ -532,3 +532,10 @@ select option {
     transition: all linear 0.25s;
     cursor: pointer;
 }
+.post--area--date {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 12px;
+    color: #a0a0a0;
+}

@@ -5,7 +5,10 @@
         header('location:../');
     } 
     require_once '../issets/script/php/historico.php';    
-    require_once '../issets/script/php/conecta.php'
+    require_once '../issets/script/php/conecta.php';
+    $sql_segui = 'SELECT * FROM seguidores WHERE user_seguin='.$_SESSION['id_user'];
+    $resul_segui = mysqli_query($conexao, $sql_segui);
+    $array_segui = mysqli_fetch_all($resul_segui, 1);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -129,31 +132,63 @@
                     <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
                 </div>
 				
+                <?php 
+                foreach($array_segui as $value){
+                    $sql_post = 'SELECT * FROM publicacoes WHERE user_publi='.$value['user_seguido'];
+                    $resul_post = mysqli_query($conexao, $sql_post);
+                    $postagens[] = mysqli_fetch_all($resul_post, 1);
+                }
+                ?>
+                <?php 
+                    for($i = 0; $i< count($postagens);$i++) {
+                        for($i_aux= 0; $i_aux < count($postagens[$i]);$i_aux++){
+                        $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$postagens[$i][$i_aux]['user_publi'];
+                        $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
+                        $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
+                    
+
+                ?>
                 <div class="post--menu--area">
                     <div class="header--post--area">
                         <div class="post--area--perfil">
-                            <div class="img--perfil menu--pag--img--area" style="background-image: url(../issets/imgs/default/_xY4nDnw_400x400.jpg);">
+                            <div class="img--perfil menu--pag--img--area" style="background-image: url(../issets/imgs/profile/<?= $array_s_perfil['foto_perfil']?>);">
 
                             </div>
                             <div class="name--area">
                                 <div class="name--name-perfil">
-                                    <?=$_SESSION['nome'];?>
+                                    <?=$array_s_perfil['nome'];?>
                                 </div>
                                 <div class="name--username-perfil">
-                                    <?=$_SESSION['username'];?>
+                                    <?=$array_s_perfil['username'];?>
                                 </div>
                             </div>
                         </div>
+                        <div class="post--area--date ">
+                            <div class="date--post">
+                                <?php 
+                                    $hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+                                    $dia = date($postagens[$i][$i_aux]['date_publi']);
+                                    echo $dia;
+                                ?>
+                            </div>
+                        </div>  
                         <div class="post--area--menu ">
                             <div class="elipse-img-hover elipse-img"></div>
                         </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                     </div>
                     <div class="body--post--area">
-                        <div class="post--text">cara não acredito aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                        <?php if($postagens[$i][$i_aux]['text_publi'] == ''){
+
+                        } else {?>
+                        <div class="post--text"><?=$postagens[$i][$i_aux]['text_publi']?></div>
+                        <?php } ?>
+                        <?php if(!$postagens[$i][$i_aux]['img_publi'] == ''){
+                        ?>
                         <div class="post--img-area">
-                            <div class="post--img">
+                            <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$postagens[$i][$i_aux]['img_publi']?>);'>
                             </div>
-                        </div>                                          <!--deve ter oq o usuario publicou-->
+                        </div>
+                        <?php }?>                                          <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
                         <div class="curtir interacao--area">
@@ -167,7 +202,7 @@
                         </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
                     </div>
                 </div>
-                
+                <?php  }}?>
             </div>
         </div>
         

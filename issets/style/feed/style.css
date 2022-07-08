@@ -230,7 +230,7 @@
 }
 .feed-body-post {
     padding-top: 60px;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .logout {
