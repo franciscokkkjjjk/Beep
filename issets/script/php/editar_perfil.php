@@ -5,9 +5,9 @@ if(!isset($_SESSION['id_user'])) {
     header('location:../');
 }
 require_once 'conecta.php';
-$nome_user = $_POST['nome_edit'];
+$nome_user = trim($_POST['nome_edit']);
 $username_user = $_POST['username_edit'];
-$bio_user = addslashes($_POST['bio_edit']);
+$bio_user = trim($_POST['bio_edit']);
 $mes_user = $_POST['mes'];
 $ano_user = intval($_POST['ano']);
 $dia_user = intval($_POST['dia']);

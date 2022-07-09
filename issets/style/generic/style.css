@@ -495,7 +495,7 @@ select option {
     text-align: left;
     font-size: 17px;
     word-break: break-word;
-    padding: 8px 27px 7px 7px;
+    padding: 8px 27px 7px 12px;
 }
 .post--img-area {
     width: 96%;
