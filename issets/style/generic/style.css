@@ -539,3 +539,9 @@ select option {
     font-size: 12px;
     color: #a0a0a0;
 }
+.title--empty {
+    font-size: 25px;
+    text-align: center;
+    color: #999;
+    margin-top: 40px;
+}

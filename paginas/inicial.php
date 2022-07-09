@@ -133,6 +133,7 @@
                 </div>
 
                 <?php 
+                if(!$postagens == ''){
                     foreach($postagens as $post_segui) {
                         $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
                         $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
@@ -210,7 +211,9 @@
                         </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
                     </div>
                 </div>
-                <?php  }?>
+                <?php  }} else {?>
+                    <div class="title--empty">não há nada aqui por enquanto ;(</div>
+                <?php } ?>
             </div>
         </div>
         

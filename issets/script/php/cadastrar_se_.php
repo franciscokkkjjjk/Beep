@@ -45,7 +45,7 @@
     $date_coverti = $cal_pross01/365.25;
     $error_email = true;
     
-    if($date_coverti >= 18){
+    if($date_coverti >= 13){
         
         $sql_valid = 'SELECT * FROM users';
         $resultado_valid  = mysqli_query($conexao,$sql_valid);
@@ -102,7 +102,7 @@
            }
         }
     } else {
-        $_SESSION['mensagem'] = 'Foi mal baixinho(a), você precisa ser maior de idade para cadastrar-se';
+        $_SESSION['mensagem'] = 'Foi mal baixinho(a), você precisa ter no minimo 13 anos para poder cadastrar-se';
         header('location:../../../paginas/cadastrar_se.php');
     }
 
