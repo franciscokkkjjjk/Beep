@@ -6,9 +6,9 @@
     } 
     require_once '../issets/script/php/historico.php';    
     require_once '../issets/script/php/conecta.php';
-    $sql_segui = 'SELECT * FROM seguidores WHERE user_seguin='.$_SESSION['id_user'];
-    $resul_segui = mysqli_query($conexao, $sql_segui);
-    $array_segui = mysqli_fetch_all($resul_segui, 1);
+    $sql_posts = "SELECT * FROM publicacoes WHERE user_publi IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].") ORDER BY date_publi DESC ";
+    $res_posts = mysqli_query($conexao,$sql_posts);
+    $postagens = mysqli_fetch_all($res_posts,1);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -128,25 +128,15 @@
                 </h1>
             </div>
             <div class="feed-body-post">
-                <div class="">
-                    <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
+                <div class="form--post--area">
+                                        <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
                 </div>
-				
+
                 <?php 
-                foreach($array_segui as $value){
-                    $sql_post = 'SELECT * FROM publicacoes WHERE user_publi='.$value['user_seguido'];
-                    $resul_post = mysqli_query($conexao, $sql_post);
-                    $postagens[] = mysqli_fetch_all($resul_post, 1);
-                }
-                ?>
-                <?php 
-                    for($i = 0; $i< count($postagens);$i++) {
-                        for($i_aux= 0; $i_aux < count($postagens[$i]);$i_aux++){
-                        $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$postagens[$i][$i_aux]['user_publi'];
+                    foreach($postagens as $post_segui) {
+                        $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
                         $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
                         $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-                    
-
                 ?>
                 <div class="post--menu--area">
                     <div class="header--post--area">
@@ -166,9 +156,27 @@
                         <div class="post--area--date ">
                             <div class="date--post">
                                 <?php 
-                                    $hoje = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
-                                    $dia = date($postagens[$i][$i_aux]['date_publi']);
-                                    echo $dia;
+                                    $hoje = mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y'));
+                                    $sla = $hoje-strtotime($post_segui['date_publi']);
+                                    $secund = $sla/60;
+                                    $minutos = ($sla/60)-182;
+                                    $horas = $minutos/60;
+                                    $dias = $horas/24;
+                                    $meses = $dias/30.5;
+                                    $anos = $dias/365.25;
+                                    if(round($anos) > 0) {
+                                        echo 'há <b>'.round($anos).' anos</b> atrás';
+                                    } elseif (round($meses) > 0){
+                                        echo 'há <b>'.round($meses).' meses</b> atrás';
+                                    } elseif (round($dias) > 0) {
+                                        echo 'há <b>'.round($dias).' dias</b> atrás';
+                                    } elseif (round($horas) > 0) {
+                                        echo 'há <b>'.round($horas).' horas</b> atrás';
+                                    } elseif (round($minutos) > 0) {
+                                        echo 'há <b>'.round($minutos).' minutos</b> atrás';
+                                    } else {
+                                        echo '<b>agora</b>';
+                                    }
                                 ?>
                             </div>
                         </div>  
@@ -177,15 +185,15 @@
                         </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                     </div>
                     <div class="body--post--area">
-                        <?php if($postagens[$i][$i_aux]['text_publi'] == ''){
+                        <?php if($post_segui['text_publi'] == ''){
 
                         } else {?>
-                        <div class="post--text"><?=$postagens[$i][$i_aux]['text_publi']?></div>
+                        <div class="post--text"><?=$post_segui['text_publi']?></div>
                         <?php } ?>
-                        <?php if(!$postagens[$i][$i_aux]['img_publi'] == ''){
+                        <?php if(!$post_segui['img_publi'] == ''){
                         ?>
                         <div class="post--img-area">
-                            <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$postagens[$i][$i_aux]['img_publi']?>);'>
+                            <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$post_segui['img_publi']?>);'>
                             </div>
                         </div>
                         <?php }?>                                          <!--deve ter oq o usuario publicou-->
@@ -202,7 +210,7 @@
                         </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
                     </div>
                 </div>
-                <?php  }}?>
+                <?php  }?>
             </div>
         </div>
         
@@ -254,6 +262,21 @@
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
+    <!--<script>document.querySelector('.feed-new-input-placeholder').addEventListener('click', function(obj){
+    obj.target.style.display = 'none';
+    document.querySelector('.feed-new-input').style.display = 'block';
+    document.querySelector('.feed-new-input').focus();
+    document.querySelector('.feed-new-input').innerText = '';
+});
+
+document.querySelector('.feed-new-input').addEventListener('blur', function(obj) {
+    let value = obj.target.innerText.trim();
+    if(value == '') {
+        obj.target.style.display = 'none';
+        document.querySelector('.feed-new-input-placeholder').style.display = 'block';
+    }
+});</script>-->
+
     <!--<script>let a = true;setInterval(()=>{
         if(a == true){
         a = false;
