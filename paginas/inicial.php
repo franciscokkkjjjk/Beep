@@ -128,7 +128,7 @@
                 </h1>
             </div>
             <div class="feed-body-post">
-            <form action="" method="post">
+            <form action="../issets/script/php/posts.php" method="post" enctype="multipart/form-data">
                     <div class="form--post--area">
                         <div class="area--form01">
                             <div class="form--post--perfil">
@@ -141,9 +141,7 @@
                                     </div>
                                 </div>
                                 <div class="img--post">
-                                    <!--<img src="../issets/imgs/posts/primeira pub tcc.png" >-->
                                 </div>
-                                
                             </div>
                             <button class="button--post--form" type="submit">Postar</button>     <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
                             <input type="hidden" value="" class='form--event--diviput' name="post_text">
@@ -152,7 +150,7 @@
                             <div class="menu--post--item">
                                 <div class="area--opt">
                                     <label for="img--post">
-                                        <div class="opt--menu--item pic"></div>
+                                        <div class="opt--menu--item pic" title="Adicionar uma imagem"></div>
                                     <input id="img--post" type="file" style="display: none;" class="input_img_event" name="img_post">
                                     </label>
                                 </div>

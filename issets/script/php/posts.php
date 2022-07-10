@@ -1,4 +1,26 @@
 <?php 
     session_start();
-    echo 'estamos trabalhando então aguarde<br>'
+    require_once 'conecta.php';
+    if($_POST['post_text'] == '') {
+        $text_post = NULL;
+    } else {
+        $text_post = $_POST['post_text'];
+    }
+    if($img_perfil = $_FILES['img_post']['name'] == '') {
+        $img_post = NULL;
+    } else {
+        $diretorio = '../../imgs/posts/';
+        $img_post = $_FILES['img_post']['name'];
+        $img_diretorio_post = $diretorio . basename($_FILES["img_post"]["name"]);
+        $perfil = 1;
+        $novo_nome = uniqid().'.'.pathinfo($_FILES["img_post"]["name"],PATHINFO_EXTENSION);
+        $nome_banco_perfil = $img_perfil.$novo_nome;
+        move_uploaded_file($_FILES["img_post"]["tmp_name"], $img_diretorio_perfil.$novo_nome);
+    }
+    $data_publi = date('Y-m-d H:i:s');
+    $sql_post = "INSERT INTO publicacoes(user_publi, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",'$text_post','$img_post', 0, 0, '$data_publi', 0)";
+    $res_post = mysqli_query($conexao, $sql_post);
+    if($res_post) {
+        header('location:../../../paginas/inicial.php');
+    }
 ?>
