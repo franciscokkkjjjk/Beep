@@ -149,6 +149,7 @@ $seguindo = false;
                                         <button class="button--seguir button-remove curso-pointer"></button>
                                     
                                 <?php }?>
+                                    <input type="hidden" value="<?= $array_info['id_user']?>" name='iD_x30'>
                                     </form>
                             </div>
                         </div>
