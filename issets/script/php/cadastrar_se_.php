@@ -94,7 +94,14 @@
 
            $sql_cadastro = "INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas, status_) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt', 0)";
            $resultado_cadastro = mysqli_query($conexao,$sql_cadastro);
-           if($resultado_cadastro) {
+           $sql_perfil = "SELECT * FROM users WHERE username="."'$username_DF'";
+           $res_perfil = mysqli_query($conexao, $sql_perfil);
+           $perfi = mysqli_fetch_assoc($res_perfil);
+           var_dump($perfi);
+            $id_user = $perfi['id_user'];
+           $sql_segui_s = "INSERT INTO seguidores(user_seguin, user_seguido) VALUE (".intval($id_user).", ".intval($id_user).")";
+           $resultado_segui_s = mysqli_query($conexao,$sql_segui_s);
+           if($resultado_cadastro and $resultado_segui_s) {
             session_destroy();
             header('location:../../../');
            } else {

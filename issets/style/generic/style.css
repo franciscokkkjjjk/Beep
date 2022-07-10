@@ -493,6 +493,7 @@ select option {
     color: #fff;
     font-family: 'Roboto';
     text-align: left;
+    white-space: break-spaces;
     font-size: 17px;
     word-break: break-word;
     padding: 8px 27px 7px 12px;
@@ -550,4 +551,11 @@ select option {
     background-size: 65%;
     background-position: center;
     background-repeat: no-repeat;
+}
+.perfil-link {
+    text-decoration: none;
+    color: inherit;
+}
+.perfil-link-hover:hover {
+    text-decoration: underline;
 }

@@ -3,12 +3,13 @@ session_start();
 if(!isset($_SESSION['id_user'])) {
     header('location:../');
 }
+$perfil = $_GET['username'];
 require_once '../issets/script/php/historico.php';    
 require_once '../issets/script/php/conecta.php';
-$sql = 'SELECT * FROM users WHERE id_user='.$_SESSION['id_user'];
-$res_perfil = mysqli_query($conexao, $sql);
+$sql_perfil = "SELECT * FROM users WHERE username='$perfil'";
+$res_perfil = mysqli_query($conexao, $sql_perfil);
 $array_info = mysqli_fetch_assoc($res_perfil);
-$sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$_SESSION['id_user']." ORDER BY date_publi DESC ";
+$sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$array_info['id_user']." ORDER BY date_publi DESC ";
 $res_posts = mysqli_query($conexao,$sql_posts);
 $postagens = mysqli_fetch_all($res_posts,1);
 ?>
@@ -23,7 +24,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
     <link rel="stylesheet" href="../issets/style/generic/style.css">
     <link rel="stylesheet" href="../issets/style/feed/style.css">
     <link rel="stylesheet" href="../issets/style/toca/style.css">
-    <title><?= $_SESSION['nome']?> | Beep</title>
+    <title><?= $array_info['nome']?> | Beep</title>
     <style>
         <?php 
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
@@ -36,6 +37,20 @@ $postagens = mysqli_fetch_all($res_posts,1);
         }
         <?php } else { ?>
             .menu--pag--img--area {
+            background-image: url('../issets/imgs/default/perfil-de-usuario-black.png');
+        }
+        <?php }?>
+        <?php 
+            if(!$array_info['foto_perfil'] == '' and !$array_info['foto_perfil'] == null) {
+        ?>
+        .fot_user_visit {
+            background-image: url('../issets/imgs/profile/<?=$array_info['foto_perfil']?>');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        <?php } else { ?>
+            .fot_user_visit {
             background-image: url('../issets/imgs/default/perfil-de-usuario-black.png');
         }
         <?php }?>
@@ -79,7 +94,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
                             <a href="" class="img--opt-feed img--pag--solic menu--pag--opt--section">
                               Solicitar jogo
                             </a>
-                            <a href="perfil.php" class="active--tem img--opt-feed img--pag--perf menu--pag--opt--section">
+                            <a href="perfil.php" class="img--opt-feed img--pag--perf menu--pag--opt--section">
                                 Perfil
                             </a>
                         </div>
@@ -90,30 +105,28 @@ $postagens = mysqli_fetch_all($res_posts,1);
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
-                    <a href="<?php if(!$pag_anterior == ''){echo $pag_anterior;} else {echo 'inicial.php';}?>" class="seta--back"></a>
+                    <a href="'inicial.php'" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
-                    <?= $_SESSION['nome']?>
+                    <?= $array_info['nome']?>
                 </div>
             </div>
             <div class="feed-body-post">
-               <div class="header--perfil--area">
-                <div class="banner--perfil" style="<?php if(!$_SESSION['img_banner'] == NULL){?>background-image: url(../issets/imgs/profile/<?= $_SESSION['img_banner']?>);<?php }?>">
-
+                <div class="banner--perfil" style="<?php if(!$array_info['banner_pefil'] == NULL){?>background-image: url(../issets/imgs/profile/<?= $array_info['banner_pefil']?>);<?php }?>">
                 </div>
                 <div class="info--perfil">
                         <div class="info--perfil--area">
                             <div class="info--perfil--img">
-                                <div class="info--perfil--img info--perfil--img--position menu--pag--img--area ">
+                                <div class="fot_user_visit info--perfil--img--position menu--pag--img--area ">
                             
                                 </div>
                             </div>
                             <div class="info--perfil--user">
                                 <div class="info--perfil--user--nome">
-                                    <?=$_SESSION['nome'];?>
+                                    <?=$array_info['nome'];?>
                                 </div>
                                 <div class="info--perfil--user--username">
-                                    <?=$_SESSION['username'];?>
+                                    <?=$array_info['username'];?>
                                 </div>
                             </div>
                             <div class="info--button">
@@ -122,10 +135,10 @@ $postagens = mysqli_fetch_all($res_posts,1);
                         </div>
                         <div class="info--bio--perfil">
                             <div class="bio">
-                                <?=$_SESSION['bio_user']?>
+                                <?=$array_info['bio']?>
                             </div>
                             <div class="data_nasc">
-                                <?=date('d/m/Y', strtotime($_SESSION['data_nas']))?>
+                                <?=date('d/m/Y', strtotime($array_info['data_nas']))?>
                             </div>
                             <div class="segui--indo">
                                 <a class='seguidores--info area--segui'href=""><span><?=$array_info['t_seguindo']?></span> seguindo</a>
@@ -146,9 +159,9 @@ $postagens = mysqli_fetch_all($res_posts,1);
                                 Sobre                                
                             </a>
                         </div>
-                </div>
-               </div>
-               <div class="posts--ara--perfil">
+                    </div>
+                
+                <div class="posts--ara--perfil">
                 <?php foreach($postagens as $post_segui){?>
                         <div class="post--menu--area">
                         <div class="header--post--area">
@@ -227,7 +240,8 @@ $postagens = mysqli_fetch_all($res_posts,1);
                     <?php }?>
                 </div>
             </div>
-        </div>
+            
+          </div>
         
         <div class="area--convite">
             <div class="feed-logo-body menu--header">
@@ -269,7 +283,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
         const username = <?php echo '"'.$_SESSION['username'].'"';?>;
         const img_perfil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img'].'"';} else {echo 'null';}?>;
-        const img_banner = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img_banner'].'"';} else{echo 'null';}?>;
+        const banner_pefil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['banner_pefil'].'"';} else{echo 'null';}?>;
         const bio = <?php echo '"'.$_SESSION['bio_user'].'"';?>;
         const dateC = <?php echo '"'.date('d/m/Y', strtotime($_SESSION['data_nas'])).'"';?>;
         const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;

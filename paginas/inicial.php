@@ -90,6 +90,7 @@
             </div>
             <div class="body--menu-pag">
                 <div  class="menu--pag-perfil--area">
+                <a href="perfil.php" class="perfil-link">
                     <div class="menu--pag menu--pag--event01">
                         <div class="menu--pag--img--area">
                         </div>
@@ -102,6 +103,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                     <div class=" event--menu-pag menu--pag--opt--menu--area">
                         <div class="menu--pag--opt">
                             <a href="inicial.php" style="color: #fff;" class="active--tem img--opt-feed img--pag--inicial menu--pag--opt--section">
@@ -172,21 +174,29 @@
 
                             </div>
                             <div class="name--area">
-                                <div class="name--name-perfil">
-                                    <?=$array_s_perfil['nome'];?>
-                                </div>
-                                <div class="name--username-perfil">
-                                    <?=$array_s_perfil['username'];?>
-                                </div>
+                                <?php if($array_s_perfil['username'] == $_SESSION['username']) {?>
+                                    <a class="perfil-link" href='perfil.php'>
+                                <?php } else {?>        
+                                    <a class="perfil-link" href="perfil_user_v.php?username=<?=$array_s_perfil['username']?>">
+                                <?php }?>   
+                                    <div class="name--name-perfil perfil-link-hover">
+                                        <?=$array_s_perfil['nome'];?>
+                                    </div>
+                                    <div class="name--username-perfil perfil-link-hover">
+                                        <?=$array_s_perfil['username'];?>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                         <div class="post--area--date ">
                             <div class="date--post">
                                 <?php 
+                                    date_default_timezone_set('America/Sao_Paulo');
+                                    date_default_timezone_get();
                                     $hoje = mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y'));
                                     $sla = $hoje-strtotime($post_segui['date_publi']);
-                                    $secund = $sla/60;
-                                    $minutos = ($sla/60)-182;
+                                    $secund = $sla/1000;
+                                    $minutos = ($sla/60);
                                     $horas = $minutos/60;
                                     $dias = $horas/24;
                                     $meses = $dias/30.5;
