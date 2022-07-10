@@ -229,13 +229,101 @@
     margin-left: 20px;
 }
 .feed-body-post {
-    padding-top: 60px;
+    padding-top: 42px;
     min-height: 100vh;
 }
 
 .logout {
     background-image: url('../../imgs/default/logout.png');
 }
+.form--post--area {
+    background-color: #161616;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    border: 0.5px solid #3d3d3d;
+    border-radius: 5px;
+    color: #fff;
+}
+.area--form01 {
+    display: flex;
+    padding: 15px 5px 0px;
+    flex-direction: row;
+}
+.form--post--text {
+    margin: auto;
+    width: 72%;
+    /*max-height: 400px;*/
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.placeholder--div {
+    color: #d1d1d1cb;
+    display: block;
+}
+.inputdiv--form--post {
+    max-width: 100%;
+    display: none;
+}
+.inputdiv--form--post:focus {
+    outline: none;
+}
+.button--post--form {
+    padding: 0px 24px;
+    height: 30px;
+    margin-top: 9px;
+    background-color: #159797;
+    cursor: normal;
+    transition: all ease 0.25s;
+    color: #343434;
+    border-radius: 6px;
+    border: none;
+}
+.img--post  {
+    width: auto;
+    height: auto;
+}
+.img--post img {
+    height: 264px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: -12px;
+}
+.opt--menu--item {
+    width: 30px;
+    height: 30px;
+    padding: 15px;
+    border-radius: 100%;
+}
+.area--opt {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+.opt--menu--item:hover {
+    background-color: #444444;
+    cursor: pointer;
+}
+.menu--post--item {
+    border: 0.5px solid #3b3b3b;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 14px;
+    background-color: #121212;
+    box-shadow: 0px 0px 16px 2px #181818;
+}
+.form--inpudiv--event {
+    cursor: text;
+    margin-top: 12px;
+}
+
+
 /*
 border??
 link no nome e @

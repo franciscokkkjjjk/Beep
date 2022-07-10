@@ -128,10 +128,38 @@
                 </h1>
             </div>
             <div class="feed-body-post">
-                <div class="form--post--area">
-                                        <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
-                </div>
-
+            <form action="" method="post">
+                    <div class="form--post--area">
+                        <div class="area--form01">
+                            <div class="form--post--perfil">
+                                <div class="img--perfil menu--pag--img--area" style="background-image: url(../issets/imgs/profile/<?=$_SESSION['img']?>)"></div>
+                            </div>  
+                            <div class="form--post--text">
+                                <div class="form--inpudiv--event">
+                                    <span class='placeholder--div event--placeholder'>O que ta rolando, <?=$_SESSION['nome']?>?</span>
+                                    <div id="inputdiv"  contenteditable="true" class="inputdiv--form--post">
+                                    </div>
+                                </div>
+                                <div class="img--post">
+                                    <!--<img src="../issets/imgs/posts/primeira pub tcc.png" >-->
+                                </div>
+                                
+                            </div>
+                            <button class="button--post--form" type="submit">Postar</button>     <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
+                            <input type="hidden" value="" class='form--event--diviput' name="post_text">
+                        </div>
+                        <div class="area--form02">
+                            <div class="menu--post--item">
+                                <div class="area--opt">
+                                    <label for="img--post">
+                                        <div class="opt--menu--item pic"></div>
+                                    <input id="img--post" type="file" style="display: none;" class="input_img_event" name="img_post">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                </form>
                 <?php 
                 if(!$postagens == ''){
                     foreach($postagens as $post_segui) {
@@ -166,15 +194,15 @@
                                     $meses = $dias/30.5;
                                     $anos = $dias/365.25;
                                     if(round($anos) > 0) {
-                                        echo 'há <b>'.round($anos).' anos</b> atrás';
+                                        echo 'há <b>'.round($anos).' anos</b>';
                                     } elseif (round($meses) > 0){
-                                        echo 'há <b>'.round($meses).' meses</b> atrás';
+                                        echo 'há <b>'.round($meses).' meses</b>';
                                     } elseif (round($dias) > 0) {
-                                        echo 'há <b>'.round($dias).' dias</b> atrás';
+                                        echo 'há <b>'.round($dias).' dias</b>';
                                     } elseif (round($horas) > 0) {
-                                        echo 'há <b>'.round($horas).' horas</b> atrás';
+                                        echo 'há <b>'.round($horas).' horas</b>';
                                     } elseif (round($minutos) > 0) {
-                                        echo 'há <b>'.round($minutos).' minutos</b> atrás';
+                                        echo 'há <b>'.round($minutos).' minutos</b>';
                                     } else {
                                         echo '<b>agora</b>';
                                     }
