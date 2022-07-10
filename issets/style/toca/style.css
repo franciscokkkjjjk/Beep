@@ -164,10 +164,6 @@
 .posts--ara--perfil {
     margin-top: 42px;
 }
-.timeline--area{
-    height: 100vh;
-    overflow-y:scroll ;
-}
 .button--seguir {
     border: solid 0.5px #53ffff;
     color: #fff;

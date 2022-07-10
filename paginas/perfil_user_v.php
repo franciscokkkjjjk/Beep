@@ -24,7 +24,7 @@ $array_seguidor = mysqli_fetch_all($res_seguir, 1);
 $seguindo = false;
 ?>
 <!DOCTYPE html>
-<html lang="pt-BR" style="overflow: hidden;">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -114,7 +114,7 @@ $seguindo = false;
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
-                    <a href="'inicial.php'" class="seta--back"></a>
+                    <a href="inicial.php" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
                     <?= $array_info['nome']?>
