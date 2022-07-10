@@ -180,7 +180,7 @@ $array_info = mysqli_fetch_assoc($res_perfil);
     </div>
     
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
-    <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
     <script>
@@ -195,6 +195,7 @@ $array_info = mysqli_fetch_assoc($res_perfil);
         const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;
         const y_nas = <?php echo '"'.date('Y', strtotime($_SESSION['data_nas'])).'"';?>;
     </script>
+    
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
