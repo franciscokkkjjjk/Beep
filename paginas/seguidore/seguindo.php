@@ -5,12 +5,18 @@ if(!isset($_SESSION['id_user'])) {
 }
 require_once '../../issets/script/php/historico.php';    
 require_once '../../issets/script/php/conecta.php';
-$sql = 'SELECT * FROM users WHERE id_user='.$_SESSION['id_user'];
-$res_perfil = mysqli_query($conexao, $sql);
-$array_info = mysqli_fetch_assoc($res_perfil);
-$sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$_SESSION['id_user']." ORDER BY date_publi DESC ";
-$res_posts = mysqli_query($conexao,$sql_posts);
-$postagens = mysqli_fetch_all($res_posts,1);
+$user_vist = isset($_GET['id_user']);
+if(!$user_vist) {
+    $atual = $_SESSION['id_user'];
+    $sql_seguindo = "SELECT * FROM users WHERE id_user IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].")";
+    $res_seguindo = mysqli_query($conexao, $sql_seguindo);
+    $seguindo = mysqli_fetch_all($res_seguindo,1);
+} else {
+    $atual = $_GET['id_user'];
+    $sql_seguindo = "SELECT * FROM users WHERE id_user IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_GET['id_user'].")";
+    $res_seguindo = mysqli_query($conexao, $sql_seguindo);
+    $seguindo = mysqli_fetch_all($res_seguindo,1);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -90,16 +96,36 @@ $postagens = mysqli_fetch_all($res_posts,1);
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
-                    <a href="<?php if(!$pag_anterior == ''){echo $pag_anterior;} else {echo 'inicial.php';}?>" class="seta--back"></a>
+                    <a href="<?php if(isset($_SERVER['HTTP_REFERER'])) {echo $_SERVER['HTTP_REFERER'];} else {echo 'inicial.php';}?>" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
                     Seguindo
                 </div>
             </div>
             <div class="feed-body-post">
-               
+                <?php foreach($seguindo as $array_s_perfil) { if($array_s_perfil['id_user'] == $atual){} else{?>
+               <div class="area--seguindo">
+                    <div class="area--seguindo-0">
+                            <div class="name--area">
+                                <?php if($array_s_perfil['id_user'] == $_SESSION['username']){}else {?>        
+                                    <a class="perfil-link" href="../perfil_user_v.php?username=<?=$array_s_perfil['username']?>">
+                                <?php }?>   
+                                    <div class="name--name-perfil perfil-link-hover">
+                                        <?=$array_s_perfil['nome'];?>
+                                    </div>
+                                    <div class="name--username-perfil perfil-link-hover">
+                                        <?=$array_s_perfil['username'];?>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="area--seguindo-1">
+
+                        </div>
+                    </div>
+                    <?php }}?>
+               </div>
             </div>
-        </div>
         <div class="area--convite">
             <div class="feed-logo-body menu--header">
                 <div class="menu">

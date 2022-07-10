@@ -114,7 +114,7 @@ $seguindo = false;
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
-                    <a href="inicial.php" class="seta--back"></a>
+                    <a href="<?php if(isset($_SERVER['HTTP_REFERER'])) {echo $_SERVER['HTTP_REFERER'];} else {echo 'inicial.php';}?>" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
                     <?= $array_info['nome']?>
@@ -161,7 +161,7 @@ $seguindo = false;
                                 <?=date('d/m/Y', strtotime($array_info['data_nas']))?>
                             </div>
                             <div class="segui--indo">
-                                <a class='seguidores--info area--segui'href=""><span><?=$array_info['t_seguindo']?></span> seguindo</a>
+                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php?id_user=<?= $array_info['id_user']?>"><span><?=$array_info['t_seguindo']?></span> seguindo</a>
                                 <a class='seguidor--info area--segui'href=""><span><?=$array_info['t_seguidores']?></span> seguidores</a>
                             </div>
                         </div>
