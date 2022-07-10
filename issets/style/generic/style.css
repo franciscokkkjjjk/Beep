@@ -559,3 +559,12 @@ select option {
 .perfil-link-hover:hover {
     text-decoration: underline;
 }
+.curso-pointer {
+    cursor: pointer;
+}
+.name--username-perfil {
+    color: #a5a4a4;
+}
+.button-remove {
+    background-color: transparent;
+}

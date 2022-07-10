@@ -168,3 +168,33 @@
     height: 100vh;
     overflow-y:scroll ;
 }
+.button--seguir {
+    border: solid 0.5px #53ffff;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.button--seguir:hover {
+    background-color: #505050;
+}
+.button--seguir::before {
+    content: 'Seguir';
+}
+.button--seguindo {
+       /* border: solid 0.5px #53ffff; */
+       color: #fff;
+       box-shadow: inset 0px 0px 7px 3px #000;
+       padding: 12px 19px;
+       border-radius: 10px;
+       font-size: 14px;
+       text-decoration: none;
+}
+.button--seguindo:hover {
+    background-color: #505050;
+}
+.button--seguindo::before {
+    content: 'Seguindo';
+}

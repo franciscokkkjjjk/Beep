@@ -4,14 +4,24 @@ if(!isset($_SESSION['id_user'])) {
     header('location:../');
 }
 $perfil = $_GET['username'];
+if($perfil == '') {
+    header('location:inicial.php');
+}
 require_once '../issets/script/php/historico.php';    
 require_once '../issets/script/php/conecta.php';
 $sql_perfil = "SELECT * FROM users WHERE username='$perfil'";
 $res_perfil = mysqli_query($conexao, $sql_perfil);
 $array_info = mysqli_fetch_assoc($res_perfil);
+if($array_info == '') {
+    header('location:inicial.php');
+}
 $sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$array_info['id_user']." ORDER BY date_publi DESC ";
 $res_posts = mysqli_query($conexao,$sql_posts);
 $postagens = mysqli_fetch_all($res_posts,1);
+$sql_seguir = 'SELECT * FROM seguidores WHERE user_seguin='.$_SESSION['id_user'];
+$res_seguir = mysqli_query($conexao, $sql_seguir);
+$array_seguidor = mysqli_fetch_all($res_seguir, 1);
+$seguindo = false;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR" style="overflow: hidden;">
@@ -54,7 +64,6 @@ $postagens = mysqli_fetch_all($res_posts,1);
             background-image: url('../issets/imgs/default/perfil-de-usuario-black.png');
         }
         <?php }?>
-        
     </style>
 </head>
 <body>
@@ -130,7 +139,17 @@ $postagens = mysqli_fetch_all($res_posts,1);
                                 </div>
                             </div>
                             <div class="info--button">
-                                <div class="button--editar"></div>
+                                <?php foreach($array_seguidor as $value_seguir) {
+                                        if($value_seguir['user_seguido'] == $array_info['id_user']) { $seguindo = true;
+                                    ?>
+                                    <form action="../issets/script/php/" method="post">
+                                        <button class="button--seguindo button-remove curso-pointer"></button>
+                                <?php }} if(!$seguindo) {?>
+                                    <form action="../issets/script/php/seguir.php" method="post">
+                                        <button class="button--seguir button-remove curso-pointer"></button>
+                                    
+                                <?php }?>
+                                    </form>
                             </div>
                         </div>
                         <div class="info--bio--perfil">
