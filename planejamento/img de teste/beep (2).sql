@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 11-Jul-2022 às 12:14
+-- Tempo de geração: 11-Jul-2022 às 12:27
 -- Versão do servidor: 5.7.36
 -- versão do PHP: 7.4.26
 
@@ -76,7 +76,6 @@ CREATE TABLE IF NOT EXISTS `publicacoes` (
 INSERT INTO `publicacoes` (`user_publi`, `id_publi`, `text_publi`, `img_publi`, `num_curtidas`, `num_compartilha`, `date_publi`, `num_comentario`) VALUES
 (10, 2, 'meu deus kkkkkkkkkkkkkkkkkk', 'primeira\\ pub\\ tcc.png', 0, 0, '2020-04-04 00:00:00', 0),
 (9, 3, 'kkkkkkkkkkkkkk', NULL, 0, 0, '2022-07-09 00:50:00', 0),
-(10, 10, 'blublue...\r\n<div><br></div>\r\n<div><br></div>\r\ngay', NULL, 0, 0, '2022-07-09 00:59:41', 0),
 (10, 5, NULL, 'primeira\\ pub\\ tcc.png', 0, 0, '2022-07-09 00:16:51', 0),
 (11, 6, 'queria se o homem-aranha, mas meu tio não deixou -_-', NULL, 0, 0, '2022-07-08 00:00:00', 0),
 (9, 7, 'to meio pá das ideia', NULL, 0, 0, '2022-07-07 23:56:00', 0),

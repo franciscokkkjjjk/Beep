@@ -104,7 +104,7 @@ if(!$user_vist) {
             </div>
             <div class="feed-body-post">
                 <?php foreach($seguindo as $array_s_perfil) { if($array_s_perfil['id_user'] == $atual){} else{?>
-               <div class="area--seguindo">
+                <div class="area--seguindo">
                     <div class="area--seguindo-0">
                             <div class="name--area">
                                 <?php if($array_s_perfil['id_user'] == $_SESSION['username']){}else {?>        
