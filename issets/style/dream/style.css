@@ -184,6 +184,8 @@ main {
 }
 footer {
     background-color: red;
+    box-shadow: inset 0px 4px 4px 0px #4e4e4edb;
+    background-color: #f1f1f1!important;
 }
 .show {
     background-image: url(../../imgs/default/olho_mostra.png);
