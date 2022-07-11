@@ -62,6 +62,7 @@ if(!$user_vist) {
             </div>
             <div class="body--menu-pag">
                 <div  class="menu--pag-perfil--area">
+                <a href="../perfil.php" class="perfil-link">
                     <div class="menu--pag menu--pag--event01">
                         <div class="menu--pag--img--area">
                         </div>
@@ -74,6 +75,7 @@ if(!$user_vist) {
                             </div>
                         </div>
                     </div>
+                    </a>
                     <div class=" event--menu-pag menu--pag--opt--menu--area">
                         <div class="menu--pag--opt">
                             <a href="../inicial.php" style="color: #fff;" class="img--opt-feed img--pag--inicial menu--pag--opt--section">

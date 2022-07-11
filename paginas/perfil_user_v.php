@@ -83,18 +83,20 @@ if($perfil == $_SESSION['username']) {
             </div>
             <div class="body--menu-pag">
                 <div  class="menu--pag-perfil--area">
-                    <div class="menu--pag menu--pag--event01">
-                        <div class="menu--pag--img--area">
-                        </div>
-                        <div class="menu--pag--name-perfil--area">
-                            <div class="menu--pag--name-perfil">
-                                <?=$_SESSION['nome']?>
+                    <a href="perfil.php" class="perfil-link">
+                        <div class="menu--pag menu--pag--event01">
+                            <div class="menu--pag--img--area">
                             </div>
-                            <div class="menu--pag--username-perfil">
-                                <?= $_SESSION['username'] ?>
+                            <div class="menu--pag--name-perfil--area">
+                                <div class="menu--pag--name-perfil">
+                                    <?=$_SESSION['nome']?>
+                                </div>
+                                <div class="menu--pag--username-perfil">
+                                    <?= $_SESSION['username'] ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        </a>
                     <div class=" event--menu-pag menu--pag--opt--menu--area">
                         <div class="menu--pag--opt">
                             <a href="inicial.php" style="color: #fff;" class="img--opt-feed img--pag--inicial menu--pag--opt--section">
