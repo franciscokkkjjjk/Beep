@@ -1,0 +1,28 @@
+.img--perfil--seguir {
+    width: auto;
+    height: auto;
+    border-radius: 100%;
+    margin-right: 10px;
+    box-shadow: 0px 0px 12px 0px #4ee8e845;
+}
+.area--seguindo {
+    padding: 5px;
+    margin-top: 5px;
+    padding: 9px 12px 0px;
+}
+.img_segui {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.name--area {
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+}
+.name--name-perfil{
+    margin-top: 0px!important;
+}

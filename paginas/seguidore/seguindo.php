@@ -29,6 +29,7 @@ if(!$user_vist) {
     <link rel="stylesheet" href="../../issets/style/generic/style.css">
     <link rel="stylesheet" href="../../issets/style/feed/style.css">
     <link rel="stylesheet" href="../../issets/style/toca/style.css">
+    <link rel="stylesheet" href="../../issets/style/toca/list_seg.css">
     <title><?= $_SESSION['nome']?> | Beep</title>
     <style>
         <?php 
@@ -109,7 +110,10 @@ if(!$user_vist) {
                 <div class="area--seguindo">
                     <div class="area--seguindo-0">
                             <div class="name--area">
-                                <?php if($array_s_perfil['id_user'] == $_SESSION['username']){}else {?>        
+                                <?php if($array_s_perfil['id_user'] == $_SESSION['id_user']){}else {?>   
+                                    <div class="img--perfil--seguir">
+                                        <div class="img_segui" style="background-image: url(../../issets/imgs/profile/<?= $array_s_perfil['foto_perfil']?>);"></div>
+                                    </div>     
                                     <a class="perfil-link" href="../perfil_user_v.php?username=<?=$array_s_perfil['username']?>">
                                 <?php }?>   
                                     <div class="name--name-perfil perfil-link-hover">

@@ -210,8 +210,8 @@ if($perfil == $_SESSION['username']) {
                                         date_default_timezone_get();
                                         $hoje = mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y'));
                                         $sla = $hoje-strtotime($post_segui['date_publi']);
-                                        $secund = $sla/60;
-                                        $minutos = ($sla/60)-182;
+                                        $secund = $sla/1000;
+                                        $minutos = ($sla/60);
                                         $horas = $minutos/60;
                                         $dias = $horas/24;
                                         $meses = $dias/30.5;
