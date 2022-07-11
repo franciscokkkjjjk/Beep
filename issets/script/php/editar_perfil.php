@@ -80,8 +80,8 @@ if($date_coverti >= 13){
                 }
             if($perfil == 1) {
                 $novo_nome = uniqid().'.'.pathinfo($_FILES["input_file_perfil"]["name"],PATHINFO_EXTENSION);
-                $nome_banco_perfil = $img_perfil.$novo_nome;
-                move_uploaded_file($_FILES["input_file_perfil"]["tmp_name"], $img_diretorio_perfil.$novo_nome);
+                $nome_banco_perfil = $novo_nome;
+                move_uploaded_file($_FILES["input_file_perfil"]["tmp_name"], $diretorio.$novo_nome);
             }
         }
         //upload de banner 
@@ -102,8 +102,8 @@ if($date_coverti >= 13){
                 }
             if($banner == 1) {
                 $novo_nome_banner = uniqid().'.'.pathinfo($_FILES["input_file_banner"]["name"],PATHINFO_EXTENSION);
-                $nome_banco_banner = $img_banner.$novo_nome_banner;
-                move_uploaded_file($_FILES["input_file_banner"]["tmp_name"], $img_diretorio_banner.$novo_nome_banner);
+                $nome_banco_banner = $novo_nome_banner;
+                move_uploaded_file($_FILES["input_file_banner"]["tmp_name"], $diretorio.$novo_nome_banner);
             }
         }
         //
