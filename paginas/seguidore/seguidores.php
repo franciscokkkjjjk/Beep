@@ -137,6 +137,22 @@ if(!$user_vist) {
                     <?php }}?>
                </div>
             </div>
+            <div class="area--convite">
+            <div class="feed-logo-body menu--header">
+                <div class="menu">
+                    <div class="menu--pag--button-menu--area " >
+                        <div class="menu--pag--button button--header">
+                            <div class="event--header"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu--header--body">
+                    <a href='../../issets/script/php/logout.php' class="opt--menu-header">
+                        <div class="img--menu--header logout"></div>
+                        <div class="text--menu--header">logout</div>
+                    </a>
+                </div>
+            </div>
             <div class="convite--body">
                 <h1>pessoas do sistema:</h1>
 
@@ -149,6 +165,7 @@ if(!$user_vist) {
                 }
                 ?>
             </div>
+        </div>
     </div>
     
     <script type="text/javascript" src="../../issets/script/javascript/default/script.js"></script>

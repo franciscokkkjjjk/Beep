@@ -421,6 +421,7 @@ function creatFormEdit(){
 
     showImg(qs('#input_file_perfil'), qs('.img_perfil'));
     showImg(qs('#input_file_banner'), qs('.event--banner'));
+    qs('html').style.overflow = 'hidden';
     } else {
         creat = false;
         qs('#f3deR').remove();
