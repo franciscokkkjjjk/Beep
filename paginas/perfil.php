@@ -131,7 +131,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
                             </div>
                             <div class="segui--indo">
                                 <a class='seguidores--info area--segui'href="seguidore/seguindo.php"><span><?=$array_info['t_seguindo']?></span> seguindo</a>
-                                <a class='seguidor--info area--segui'href=""><span><?=$array_info['t_seguidores']?></span> seguidores</a>
+                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php"><span><?=$array_info['t_seguidores']?></span> seguidores</a>
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">

@@ -167,7 +167,7 @@ if($perfil == $_SESSION['username']) {
                             </div>
                             <div class="segui--indo">
                                 <a class='seguidores--info area--segui'href="seguidore/seguindo.php?id_user=<?= $array_info['id_user']?>"><span><?=$array_info['t_seguindo']?></span> seguindo</a>
-                                <a class='seguidor--info area--segui'href=""><span><?=$array_info['t_seguidores']?></span> seguidores</a>
+                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php?id_user=<?= $array_info['id_user']?>""><span><?=$array_info['t_seguidores']?></span> seguidores</a>
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">

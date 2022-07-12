@@ -8,12 +8,12 @@ require_once '../../issets/script/php/conecta.php';
 $user_vist = isset($_GET['id_user']);
 if(!$user_vist) {
     $atual = $_SESSION['id_user'];
-    $sql_seguindo = "SELECT * FROM users WHERE id_user IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].")";
+    $sql_seguindo = "SELECT * FROM users WHERE id_user IN (SELECT user_seguin FROM seguidores WHERE user_seguido=".$_SESSION['id_user'].")";
     $res_seguindo = mysqli_query($conexao, $sql_seguindo);
     $seguindo = mysqli_fetch_all($res_seguindo,1);
 } else {
     $atual = $_GET['id_user'];
-    $sql_seguindo = "SELECT * FROM users WHERE id_user IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_GET['id_user'].")";
+    $sql_seguindo = "SELECT * FROM users WHERE id_user IN (SELECT user_seguin FROM seguidores WHERE user_seguido=".$_GET['id_user'].")";
     $res_seguindo = mysqli_query($conexao, $sql_seguindo);
     $seguindo = mysqli_fetch_all($res_seguindo,1);
 }
@@ -30,7 +30,7 @@ if(!$user_vist) {
     <link rel="stylesheet" href="../../issets/style/feed/style.css">
     <link rel="stylesheet" href="../../issets/style/toca/style.css">
     <link rel="stylesheet" href="../../issets/style/toca/list_seg.css">
-    <title>Seguindo | Beep</title>
+    <title>Seguidores | Beep</title>
     <style>
         <?php 
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
@@ -113,7 +113,7 @@ if(!$user_vist) {
                                     <div class="img--perfil--seguir">
                                         <div class="img_segui" style="background-image: url(../../issets/imgs/profile/<?= $array_s_perfil['foto_perfil']?>);"></div>
                                     </div>     
-                                    <a class="perfil-link" href="../perfil_user_v.php?username=<?=$array_s_perfil['username']?>">  
+                                    <a class="perfil-link" href="../perfil_user_v.php?username=<?=$array_s_perfil['username']?>">
                                     <div class="name--name-perfil perfil-link-hover">
                                         <?=$array_s_perfil['nome'];?>
                                     </div>
