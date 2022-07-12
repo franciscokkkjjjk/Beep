@@ -137,35 +137,18 @@ if(!$user_vist) {
                     <?php }}?>
                </div>
             </div>
-        <div class="area--convite">
-            <div class="feed-logo-body menu--header">
-                <div class="menu">
-                    <div class="menu--pag--button-menu--area " >
-                        <div class="menu--pag--button button--header">
-                            <div class="event--header"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu--header--body">
-                    <a href='../../issets/script/php/logout.php' class="opt--menu-header">
-                        <div class="img--menu--header logout"></div>
-                        <div class="text--menu--header">logout</div>
-                    </a>
-                </div>
-            </div>
             <div class="convite--body">
-                <h1>gurizada online:</h1>
+                <h1>pessoas do sistema:</h1>
 
                 <?php 
-                $sql_user = 'SELECT nome, username FROM users WHERE status_ = 1';
-                $resul = mysqli_query($conexao,$sql_user);
+                $sql_user = 'SELECT * FROM users ORDER BY t_seguidores DESC';
+                $resul = mysqli_query($conexao, $sql_user);
                 $array_use = mysqli_fetch_all($resul,1);
                 foreach($array_use as $user) {
-                    echo $user['nome'].': '.$user['username'].'<br>';
+                    echo '<a href="../perfil_user_v.php?username='.$user['username'].'">'.$user['nome'].': '.$user['username'].'<br></a>';
                 }
                 ?>
             </div>
-        </div>
     </div>
     
     <script type="text/javascript" src="../../issets/script/javascript/default/script.js"></script>

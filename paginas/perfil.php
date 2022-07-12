@@ -227,14 +227,14 @@ $postagens = mysqli_fetch_all($res_posts,1);
                 </div>
             </div>
             <div class="convite--body">
-                <h1>gurizada online:</h1>
+                <h1>pessoas do sistema:</h1>
 
                 <?php 
-                $sql_user = 'SELECT nome, username FROM users WHERE status_ = 1';
-                $resul = mysqli_query($conexao,$sql_user);
+                $sql_user = 'SELECT * FROM users ORDER BY t_seguidores DESC';
+                $resul = mysqli_query($conexao, $sql_user);
                 $array_use = mysqli_fetch_all($resul,1);
                 foreach($array_use as $user) {
-                    echo $user['nome'].': '.$user['username'].'<br>';
+                    echo '<a href="perfil_user_v.php?username='.$user['username'].'">'.$user['nome'].': '.$user['username'].'<br></a>';
                 }
                 ?>
             </div>
