@@ -108,6 +108,7 @@
 .bio{
     color: #fff;
     font-size: 16px;
+    min-height: 18px;
 }
 .data_nasc {
     font-size: 13px;

@@ -4,7 +4,7 @@
     if($_POST['post_text'] == '') {
         $text_post = NULL;
     } else {
-        $text_post = $_POST['post_text'];
+        $text_post = addslashes($_POST['post_text']);
     }
     if($img_perfil = $_FILES['img_post']['name'] == '') {
         $img_post = NULL;

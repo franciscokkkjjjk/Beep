@@ -167,6 +167,10 @@ header {
     background-color: #000;
     color: #fff;
     border-radius: 10px;
+    cursor: pointer;
+}
+.button--menu button:hover{
+    background-color: #3f3f3f;
 }
 .img--edit {
     background-repeat: no-repeat;
