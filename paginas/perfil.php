@@ -92,7 +92,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
-                    <a href="<?php if(isset($_SERVER['HTTP_REFERER'])) {echo $_SERVER['HTTP_REFERER'];} else {echo 'inicial.php';}?>" class="seta--back"></a>
+                    <a href="inicial.php" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
                     <?= $_SESSION['nome']?>

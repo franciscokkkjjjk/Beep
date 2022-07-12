@@ -6,6 +6,13 @@ if(!isset($_SESSION['id_user'])) {
 require_once '../../issets/script/php/historico.php';    
 require_once '../../issets/script/php/conecta.php';
 $user_vist = isset($_GET['id_user']);
+if($user_vist) {
+    $sql_pag_anterior = 'SELECT username FROM users WHERE id_user='.$_GET['id_user'];
+} else {
+    $sql_pag_anterior = 'SELECT username FROM users WHERE id_user='.$_SESSION['id_user'];
+}
+$resultado_anterior = mysqli_query($conexao, $sql_pag_anterior);
+$array_anterior = mysqli_fetch_assoc($resultado_anterior);
 if(!$user_vist) {
     $atual = $_SESSION['id_user'];
     $sql_seguindo = "SELECT * FROM users WHERE id_user IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].")";
@@ -99,7 +106,7 @@ if(!$user_vist) {
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
-                    <a href="<?php if(isset($_SERVER['HTTP_REFERER'])) {echo $_SERVER['HTTP_REFERER'];} else {echo 'inicial.php';}?>" class="seta--back"></a>
+                    <a href="../perfil_user_v.php?username=<?= $array_anterior['username']?>" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
                     Seguindo
