@@ -35,8 +35,7 @@
         <?php }?>
     </style>
 </head>
-<body>
-    
+<body> 
     <!--<header>
         <div class="body--header">
             <div class="feed-logo-body">
