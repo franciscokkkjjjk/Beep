@@ -47,7 +47,15 @@ function showImg_form(e){
             qs('.input_img_event').value = '';
             img_f.remove();
             exit.remove();
-        }, true)
+            if(value.target.innerText.trim() == '' && qs('.input_img_event').value == '') {
+                qs('.inputdiv--form--post').target.innerText = '';
+                qs('.button--post--form').disabled = true;
+                qs('.button--post--form').style.backgroundColor = '';
+                qs('.button--post--form').style.cursor = '';
+                qs('.button--post--form').style.cursor = '';
+             }
+            }, true)
+        
         qs('.button--post--form').disabled = false;
         qs('.button--post--form').style.backgroundColor = '#53ffff';
         qs('.button--post--form').style.cursor = 'pointer';
