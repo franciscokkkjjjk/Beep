@@ -147,7 +147,7 @@ if($perfil == $_SESSION['username']) {
                                 <?php foreach($array_seguidor as $value_seguir) {
                                         if($value_seguir['user_seguido'] == $array_info['id_user']) { $seguindo = true;
                                     ?>
-                                    <form action="../issets/script/php/unseguir.php" method="post">
+                                    <form class="submit--form" action="../issets/script/php/unseguir.php" method="post">
                                         <button class="button--seguindo button-remove curso-pointer"></button>
                                 <?php }} if(!$seguindo) {?>
                                     <form action="../issets/script/php/seguir.php" method="post">
@@ -300,5 +300,13 @@ if($perfil == $_SESSION['username']) {
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
+    <script type="text/javascript">
+        document.querySelector('.button--seguindo').addEventListener('click', (e)=>{
+            e.preventDefault();
+            if(confirm('deseja mesmo para de seguir esse usuário?')){
+                document.querySelector('.submit--form').submit();
+            }
+        }, true)
+    </script>            
 </body>
 </html>
