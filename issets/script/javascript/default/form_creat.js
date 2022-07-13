@@ -424,6 +424,7 @@ function creatFormEdit(){
     qs('html').style.overflow = 'hidden';
     } else {
         creat = false;
+        qs('html').style.overflow = '';
         qs('#f3deR').remove();
         qs('.edit_form_script').remove()
     }
