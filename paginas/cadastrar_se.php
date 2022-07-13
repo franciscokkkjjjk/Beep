@@ -49,7 +49,7 @@
                 </div>
                 <div class="text--beep">
                     <p>
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    Com beep você pode se divertir com seus amigos, e conhecer pessoas novas. Além de ampliar sua perspectiva sobre jogos.
                     </p>
                 </div>
             </div>
