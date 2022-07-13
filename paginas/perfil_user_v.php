@@ -147,7 +147,7 @@ if($perfil == $_SESSION['username']) {
                                 <?php foreach($array_seguidor as $value_seguir) {
                                         if($value_seguir['user_seguido'] == $array_info['id_user']) { $seguindo = true;
                                     ?>
-                                    <form action="../issets/script/php/" method="post">
+                                    <form action="../issets/script/php/unseguir.php" method="post">
                                         <button class="button--seguindo button-remove curso-pointer"></button>
                                 <?php }} if(!$seguindo) {?>
                                     <form action="../issets/script/php/seguir.php" method="post">

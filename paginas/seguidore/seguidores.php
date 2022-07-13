@@ -109,7 +109,7 @@ if(!$user_vist) {
                     <a href="../perfil_user_v.php?username=<?= $array_anterior['username']?>" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
-                    Seguindo
+                    Seguidores
                 </div>
             </div>
             <div class="feed-body-post">
