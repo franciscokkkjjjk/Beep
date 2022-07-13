@@ -60,7 +60,10 @@ if($date_coverti >= 13){
         } 
     }
     if(isset($username_erro)) {
-        echo ' tem um igual e diferente da ssessao';
+        $_SESSION['functionPHPJS'] = 'creatFormEdit();';
+        $_SESSION['error_username'] = true;
+        $_SESSION['username_temp'] = $username_user;
+        header('location:../../../paginas/perfil.php');
     } else {
         //upload do perfil;
         $diretorio = '../../imgs/profile/';

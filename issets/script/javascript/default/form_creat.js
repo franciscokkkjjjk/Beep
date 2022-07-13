@@ -168,6 +168,14 @@ function creatFormEdit(){
         eS(input07, 'event--edit--input event--bio input--edit--pre'); 
         input07.setAttribute('name', 'bio_edit');
 
+        let div_error = dC('div');
+        eS(div_error, 'mensagem--erro');
+        if(error_php == '') {} else {
+            div06.classList.add('error--login');
+            div_error.innerHTML = 'Esse username já existe';
+        }
+
+
         let div08 = dC('div');
         eS(div08, 'input--edit select--area');
         let div0801 = dC('div');
@@ -249,6 +257,8 @@ function creatFormEdit(){
         aP(div06,div0601);
         aP(div06, input06);
         aP(div01, div06);
+
+        aP(div01, div_error);
 
         aP(div07010102, div0701010201);
         aP(div07010102, div0701010202);
@@ -368,7 +378,7 @@ function creatFormEdit(){
                         clone.classList.add('event-dia');
                         qs('#dia').appendChild(clone);
                     }
-                    for(i=2020; i > 1900; i = i-4){
+                    for(i=2008; i > 1900; i = i-4){
                         let clone = opt_d.cloneNode(true);
                         clone.innerHTML = i;
                         clone.classList.add('event-ano');
@@ -389,7 +399,7 @@ function creatFormEdit(){
                         clone.classList.add('event-dia');
                         qs('#dia').appendChild(clone);
                     }
-                    for(i=2022; i > 1900; i--){
+                    for(i=2009; i > 1900; i--){
                         let clone = opt_d.cloneNode(true);
                         clone.innerHTML = i;
                         clone.classList.add('event-ano');
@@ -403,7 +413,7 @@ function creatFormEdit(){
             clone.classList.add('event-dia');
             qs('#dia').appendChild(clone);
         }
-        for(i=2022; i > 1900; i--){
+        for(i=2009; i > 1900; i--){
             let clone = opt_d.cloneNode(true);
             clone.innerHTML = i;
             clone.classList.add('event-ano');

@@ -241,28 +241,40 @@ $postagens = mysqli_fetch_all($res_posts,1);
             </div>
         </div>
     </div>
-    
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
     <script>
+        const error_php = <?php if(isset($_SESSION['error_username'])) {echo $_SESSION['error_username'];} else {echo "''";} ?>;
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
-        const username = <?php echo '"'.$_SESSION['username'].'"';?>;
+        var username = <?php if(isset($_SESSION['error_username'])) { echo "'" . $_SESSION['username_temp'] . "'"; } else {echo '"'.$_SESSION['username'].'"';}?>;
         const img_perfil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img'].'"';} else {echo 'null';}?>;
         const img_banner = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img_banner'].'"';} else{echo 'null';}?>;
+        console.log(img_banner);
         const bio = <?php echo '"'.$_SESSION['bio_user'].'"';?>;
         const dateC = <?php echo '"'.date('d/m/Y', strtotime($_SESSION['data_nas'])).'"';?>;
         const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
         const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;
         const y_nas = <?php echo '"'.date('Y', strtotime($_SESSION['data_nas'])).'"';?>;
+
     </script>
     
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
     </script>
-        <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
+    <script>
+        <?php 
+            if(isset($_SESSION['functionPHPJS'])) {
+                echo $_SESSION['functionPHPJS'];
+                unset($_SESSION['functionPHPJS']);
+                unset($_SESSION['username_temp']);
+                unset($_SESSION['error_username']);
+            }
+        ?> 
+    </script>
+    <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
 </body>
 </html>
