@@ -225,6 +225,7 @@ if($perfil == $_SESSION['username']) {
                             ?>
                             <div class="post--img-area">
                                 <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$post_segui['img_publi']?>);'>
+                                    <div class="event--post--img"></div>
                                 </div>
                             </div>
                             <?php }?>                                          <!--deve ter oq o usuario publicou-->
@@ -298,5 +299,6 @@ if($perfil == $_SESSION['username']) {
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
     </script>
+    <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
 </body>
 </html>

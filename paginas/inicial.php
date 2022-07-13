@@ -163,6 +163,7 @@
                 </form>
                 <?php 
                 if(!$postagens == ''){
+                    $i = 0;
                     foreach($postagens as $post_segui) {
                         $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
                         $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
@@ -211,6 +212,7 @@
                         ?>
                         <div class="post--img-area">
                             <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$post_segui['img_publi']?>);'>
+                                <div class="event--post--img"></div>
                             </div>
                         </div>
                         <?php }?>                                          <!--deve ter oq o usuario publicou-->
@@ -261,14 +263,6 @@
                 }
                 ?>
             </div>
-        </div>
-    </div>
-    <div class="img--modal">
-        <div class="local--max--img">
-            <div class="menu--exit-img-area">
-                <div class="menu--exit-img"></div>
-            </div>
-            <img src="../issets/imgs/posts/62cdfb980da21.png">
         </div>
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>

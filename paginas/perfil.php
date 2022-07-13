@@ -189,6 +189,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
                             ?>
                             <div class="post--img-area">
                                 <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$post_segui['img_publi']?>);'>
+                                    <div class="event--post--img"></div>
                                 </div>
                             </div>
                             <?php }?>                                          <!--deve ter oq o usuario publicou-->
@@ -262,5 +263,6 @@ $postagens = mysqli_fetch_all($res_posts,1);
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
     </script>
+        <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
 </body>
 </html>
