@@ -36,6 +36,7 @@
     </style>
 </head>
 <body>
+    
     <!--<header>
         <div class="body--header">
             <div class="feed-logo-body">
@@ -262,6 +263,14 @@
             </div>
         </div>
     </div>
+    <div class="img--modal">
+        <div class="local--max--img">
+            <div class="menu--exit-img-area">
+                <div class="menu--exit-img"></div>
+            </div>
+            <img src="../issets/imgs/posts/62cdfb980da21.png">
+        </div>
+    </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
@@ -281,6 +290,7 @@
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
     <!--<script>document.querySelector('.feed-new-input-placeholder').addEventListener('click', function(obj){
     obj.target.style.display = 'none';
     document.querySelector('.feed-new-input').style.display = 'block';

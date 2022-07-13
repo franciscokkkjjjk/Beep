@@ -277,7 +277,6 @@ if($perfil == $_SESSION['username']) {
             </div>
         </div>
     </div>
-    
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
