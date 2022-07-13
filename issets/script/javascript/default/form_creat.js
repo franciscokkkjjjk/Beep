@@ -426,10 +426,10 @@ function creatFormEdit(){
         creat = false;
         qs('html').style.overflow = '';
         qs('#f3deR').remove();
-        qs('.edit_form_script').remove()
     }
 }
-qs('.button--editar').addEventListener('click',creatFormEdit,true);
+let buttonEdit = qs('.button--editar');
+if(buttonEdit != null){ buttonEdit.addEventListener('click',creatFormEdit,true);}
 
 
 /*
