@@ -109,7 +109,7 @@
            }
         }
     } else {
-        $_SESSION['mensagem'] = 'Foi mal baixinho(a), você precisa ter no minimo 13 anos para poder cadastrar-se';
+        $_SESSION['mensagem'] = 'Foi mal baixinho(a), você precisa ter no minimo 13 anos para poder cadastrar-se.';
         header('location:../../../paginas/cadastrar_se.php');
     }
 

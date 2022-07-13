@@ -84,6 +84,8 @@
                     <div class="input--form passoword--form">
                         <input id="passoword--user--confirm" required class='' placeholder="Confirmar senha" type="password">
                     </div>
+                    <div class="mensagem--erro senha--erro">
+                    </div>
                     <div class="mensagem--erro">
                         <?php 
                         if($erro){

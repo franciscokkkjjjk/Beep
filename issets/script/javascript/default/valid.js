@@ -10,7 +10,7 @@ function validar(){
         pass00.classList.remove('error--login');
         pass01.classList.remove('error--login');
         qs('form').removeEventListener("submit",stopForm, true)
-        qs('.mensagem--erro').innerHTML = '';
+        qs('.senha--erro').innerHTML = '';
         qs('form').removeEventListener();
     } else if(!pass01.value == '' && !pass00.value == '') {
         pass00.classList.remove('confirm');
@@ -18,14 +18,14 @@ function validar(){
         pass00.classList.add('error--login');
         pass01.classList.add('error--login');
         qs('form').addEventListener("submit", stopForm, true);
-        qs('.mensagem--erro').innerHTML = 'Senhas diferentes.';
+        qs('.senha--erro').innerHTML = 'Senhas diferentes.';
         qs('form');
     } else {
         pass00.classList.remove('error--login');
         pass01.classList.remove('error--login');
         pass00.classList.remove('confirm');
         pass01.classList.remove('confirm');
-        qs('.mensagem--erro').innerHTML = '';
+        qs('.senha--erro').innerHTML = '';
         qs('form').removeEventListener("submit",stopForm, true)
     }
 }
