@@ -252,7 +252,7 @@
                 </div>
             </div>
             <div class="convite--body">
-                <h1>pessoas do sistema:</h1>
+                <h1>pessoas cadastradas:</h1>
 
                 <?php 
                 $sql_user = 'SELECT * FROM users ORDER BY t_seguidores DESC';
