@@ -323,8 +323,22 @@
     cursor: text;
     margin-top: 12px;
 }
-
-
+.exit--previu {
+    position: absolute;
+    margin-top: 32px;
+    padding: 5px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #161616de;
+    box-shadow: 0px 0px 7px 3px #7070707a;
+}
+.exit--previu:hover {
+    background-color: #505050de;
+    cursor: pointer;
+    transition: all linear 0.25s;
+}
 /*
 border??
 link no nome e @
