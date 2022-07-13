@@ -303,7 +303,7 @@ if($perfil == $_SESSION['username']) {
     <script type="text/javascript">
         document.querySelector('.button--seguindo').addEventListener('click', (e)=>{
             e.preventDefault();
-            if(confirm('deseja mesmo para de seguir esse usuário?')){
+            if(confirm('deseja mesmo parar de seguir esse usuário?')){
                 document.querySelector('.submit--form').submit();
             }
         }, true)
