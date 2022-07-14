@@ -34,10 +34,10 @@ header {
     height: 100%;
 }
 .logo--area img {
-    width: 35%;
+    width: 38px !important;
     height: 50%;
     margin-left: 25%;
-    margin-top: 4px;
+    margin-top: 0px;
 } 
 .menu--area {
     width: 15%;

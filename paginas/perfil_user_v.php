@@ -76,7 +76,7 @@ if($perfil == $_SESSION['username']) {
                 <div class="logo--area">
                     <div class="logo">
                         <a href="inicial.php">
-                            <img src="../issets/imgs/default/Letra-B-PNG-1.png">
+                            <img src="../issets/imgs/default/beep_logo.png">
                         </a>
                     </div>
                 </div>
