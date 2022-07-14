@@ -652,6 +652,7 @@ select option {
     color: #fff;
     font-size: 20px;
     margin-left: 20px;
+    margin-bottom: 5px;
 }
 .body--recomendado {
     background-color: #3d3d3d;
