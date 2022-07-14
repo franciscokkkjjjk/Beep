@@ -269,6 +269,9 @@
                 <div class="body--recomendado">
                     a
                 </div>
+                <div class="mais--recomendados">
+                    <a class="link" style="color: #f0f0f0;" href="">Ver mais</a>
+                </div>
             </div>
         </div>
     </div>
