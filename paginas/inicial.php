@@ -262,6 +262,14 @@
                 }
                 ?>
             </div>
+            <div class="convite--body pessoas Recomendados-body">
+                <div class="title--recomendados">
+                    Recomendados
+                </div>
+                <div class="body--recomendado">
+                    a
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
