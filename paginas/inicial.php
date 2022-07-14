@@ -267,7 +267,37 @@
                     Recomendados
                 </div>
                 <div class="body--recomendado">
-                    a
+                    <div class="opt--recomedado--area">
+                        <div class="perfil--area">
+                        <div class="img--perfil menu--pag--img--area area--recomendado" style="background-image: url(../issets/imgs/profile/img_teste.png62c78ae56c952.png);">
+                        </div>
+                        <div class="name--area">
+                           <a class="perfil-link" href="perfil.php"> 
+                                <div class="name--name-perfil perfil-link-hover">
+                                    sla
+                                </div>
+                                <div class="name--username-perfil perfil-link-hover">
+                                    #sla
+                                </div>
+                            </a>
+                        </div>
+                        </div>
+                        <div class="buttom-recomendado-area">
+                            <div class="buttom--body">
+                                <?php $seguir = true;if($seguir) {?>
+                                <form action="../issets/script/php/seguir.php">
+                                    <button type="submit" class="button--seguir"></button>
+                                    <input type="hidden" value="id" name="iD_x30">
+                                <?php }else{?>
+                                <form action="../issets/script/php/unseguir.php">
+                                    <button type="submit"></button>
+                                    
+                                <?php }?>
+                                <input type="hidden" value="id" name="iD_x30">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="mais--recomendados">
                     <a class="link" style="color: #f0f0f0;" href="">Ver mais</a>
