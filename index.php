@@ -29,7 +29,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="issets/imgs/default/Letra-B-PNG-1.png">
+    <link rel="icon" href="issets/imgs/default/beep_logo.png">
     <!--Materialize
     <link rel="stylesheet" href="issets/style/bibliotecas/materialize/css/materialize.min.css">
     <link rel="stylesheet" href="issets/style/bibliotecas/materialize/css/materialize.css">
@@ -47,7 +47,7 @@
         <div class="body--text">
             <div class="area--text">
                 <div class="titulo--beep">
-                    <h1>Beep</h1>
+                    <img src="issets/imgs/default/Beep_logo_title.png">
                 </div>
                 <div class="text--beep">
                     <p>

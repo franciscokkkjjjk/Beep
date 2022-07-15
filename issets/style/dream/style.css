@@ -21,9 +21,10 @@ body {
     margin-left: 42px;
 }   
 .titulo--beep {
-    font-size: 32px;
     color: #12beca;
-    font-family: 'Chewy', 'Roboto', sans-serif;
+}
+.titulo--beep img {
+    width: 214px;
 }
 .titulo--beep h1 {
     font-weight: 900;
