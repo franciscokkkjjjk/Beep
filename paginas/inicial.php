@@ -37,47 +37,6 @@
     </style>
 </head>
 <body> 
-    <!--<header>
-        <div class="body--header">
-            <div class="feed-logo-body">
-                <div class="logo--area">
-                    <div class="logo">
-                        <a href="">
-                            <img src="../issets/imgs/default/Letra-B-PNG-1.png">
-                        </a>
-                    </div>
-                </div>
-                <div class="menu--area">
-                    <div class="menu--button">
-                        <div class="seta--menu">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="menu--header--body">
-                <a href="">
-                    <div class="menu--header--opt">
-                        
-                    </div>
-                </a>
-                <a href="">
-                    <div class="menu--header--opt">
-                        
-                    </div>
-                </a>
-                <a href="">
-                    <div class="menu--header--opt">
-                        
-                    </div>
-                </a>
-                <a href="">
-                    <div class="quit menu--header--opt">
-                        Logout
-                    </div>
-                </a>
-            </div>
-        </div>
-    </header>-->
     <div class="feed-area">
         <div class="menu--pag--area">
             <div class="feed-logo-body">
@@ -96,7 +55,7 @@
                         <div class="menu--pag--img--area">
                         </div>
                         <div class="menu--pag--name-perfil--area">
-                            <div class="menu--pag--name-perfil">
+                            <div class="menu--pag--name-perfil" >
                                 <?=$_SESSION['nome']?>
                             </div>
                             <div class="menu--pag--username-perfil">
@@ -113,7 +72,7 @@
                             <a href=''class="img--opt-feed img--pag--jogos menu--pag--opt--section">
                                 Jogos
                             </a>
-                            <a href="" class="img--opt-feed img--pag--solic menu--pag--opt--section">
+                            <a onclick="teste()" class="img--opt-feed img--pag--solic menu--pag--opt--section">
                               Solicitar jogo
                             </a>
                             <a href="perfil.php" class="img--opt-feed img--pag--perf menu--pag--opt--section">
@@ -217,16 +176,12 @@
                         <?php }?>                                          <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
-                        <form action="../issets/script/php/interacoes_post/curtir.php">
-                            <button class="curtir interacao--area button--remove">
-                                <div class="img--iteracao" style="background-image: url(../issets/imgs/default/curtida-off.png);">
-
-                                </div>
-                                <div id="">
+                        <form  class="p-xD30" data-key='<?= $post_segui['id_publi']?>'>
+                            <input type="hidden" value="<?= $post_segui['id_publi']?>" name="p-xD30">
+                            <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
                                     Curtir
-                                </div>
                             </button>
-                            </lable>   
+                            </lable> 
                         </form>
                         <div class="comentar interacao--area">
                             comentar
@@ -441,9 +396,9 @@
         </div>
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/interact_post.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
-    <script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>
     <script>
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
@@ -460,7 +415,11 @@
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
-    <!--<script>document.querySelector('.feed-new-input-placeholder').addEventListener('click', function(obj){
+
+</body>
+</html>
+
+   <!--<script>document.querySelector('.feed-new-input-placeholder').addEventListener('click', function(obj){
     obj.target.style.display = 'none';
     document.querySelector('.feed-new-input').style.display = 'block';
     document.querySelector('.feed-new-input').focus();
@@ -486,43 +445,45 @@ document.querySelector('.feed-new-input').addEventListener('blur', function(obj)
         document.querySelector('.event').style.transform ='rotate(-180deg)';
     }
     }, 500)</script>-->
-</body>
-</html>
 <!-- <div class="event"></div>-->
-
-
-
-
-
-
-
-<!-- <div class="opt--recomedado--area">
-                            <div class="perfil--area">
-                            <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($user['foto_perfil'], '')?>">
-                            </div>
-                            <div class="name--area">
-                               <a class="perfil-link" href="perfil_user_v.php?username=<?=$user['username']?>"> 
-                                    <div class="name--name-perfil perfil-link-hover">
-                                    <?=$user['nome']?>
-                                    </div>
-                                    <div class="name--username-perfil perfil-link-hover">
-                                        <?=$user['username']?>
-                                    </div>
-                                </a>
-                            </div>
-                            </div>
-                            <div class="buttom-recomendado-area">
-                                <div class="buttom--body">
-                                    <?php if($user['username'] =! $_SESSION['username'] ) {?>
-                                    <form action="../issets/script/php/seguir.php" method="post">
-                                        <button type="submit" class="button--seguir"></button>
-                                    <?php }else{?>
-                                    <form action="../issets/script/php/seguir.php" method="post">
-                                        <button type="submit" class="button--seguir"></button>
-                                        
-                                    <?php }?>
-                                    <input type="hidden" value="id" name="iD_x30">
-                                    </form>
-                                </div>
-                            </div>
-                        </div> -->
+   <!--<header>
+        <div class="body--header">
+            <div class="feed-logo-body">
+                <div class="logo--area">
+                    <div class="logo">
+                        <a href="">
+                            <img src="../issets/imgs/default/Letra-B-PNG-1.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="menu--area">
+                    <div class="menu--button">
+                        <div class="seta--menu">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu--header--body">
+                <a href="">
+                    <div class="menu--header--opt">
+                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="menu--header--opt">
+                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="menu--header--opt">
+                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="quit menu--header--opt">
+                        Logout
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>-->

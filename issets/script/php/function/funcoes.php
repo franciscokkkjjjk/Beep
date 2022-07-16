@@ -31,4 +31,5 @@ function perfilDefault($array_user, $dir) {
         return "background-image:url($dir../issets/imgs/profile/$array_user);";
     }
 }
+
 ?>
