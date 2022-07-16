@@ -656,7 +656,7 @@ select option {
 }
 .body--recomendado {
     background-color: #3d3d3d;
-    height: auto;
+    min-height: 179px;
 }
 .opt--recomedado--area {
     background-color: #212121;
