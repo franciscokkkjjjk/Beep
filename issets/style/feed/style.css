@@ -37,6 +37,7 @@
     background-color: #222222;
 }
 .area--convite {
+    overflow-y: auto;
     position: fixed;
     right: 0px;
     width: 26.5%;
