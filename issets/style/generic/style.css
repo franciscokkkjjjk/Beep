@@ -531,6 +531,8 @@ select option {
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+    color: #fff;
+    font-size: 15px;
 }
 .interacao--area:hover {
     background-color: #3d3d3d;
@@ -703,4 +705,8 @@ select option {
 }
 .buttom-recomendado-area {
     margin-right: 10px;
+}
+.button--remove {
+    background-color: transparent;
+    border: none;
 }

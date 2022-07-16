@@ -193,7 +193,6 @@
                         <div class="post--area--date ">
                             <div class="date--post">
                                 <?php 
-
                                     dateCalc($post_segui);
                                 ?>
                             </div>
@@ -218,9 +217,17 @@
                         <?php }?>                                          <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
-                        <div class="curtir interacao--area">
-                            Curtir
-                        </div>   
+                        <form action="../issets/script/php/interacoes_post/curtir.php">
+                            <button class="curtir interacao--area button--remove">
+                                <div class="img--iteracao" style="background-image: url(../issets/imgs/default/curtida-off.png);">
+
+                                </div>
+                                <div id="">
+                                    Curtir
+                                </div>
+                            </button>
+                            </lable>   
+                        </form>
                         <div class="comentar interacao--area">
                             comentar
                         </div>
@@ -252,13 +259,7 @@
                 </div>
             </div>
             <div class="convite--body">
-                <h1>pessoas cadastradas:</h1>
-
-                <?php 
-                $sql_user = "SELECT * FROM users WHERE id_user IN (SELECT user_seguido FROM seguidores WHERE user_seguin IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].")) ORDER BY t_seguidores DESC";
-                $resul = mysqli_query($conexao, $sql_user);
-                $array_use = mysqli_fetch_all($resul,1);
-                ?>
+                
             </div>
             <div class="convite--body pessoas Recomendados-body">
                 <div class="title--recomendados">
