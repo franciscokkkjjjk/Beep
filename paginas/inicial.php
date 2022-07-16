@@ -6,6 +6,7 @@
     } 
     require_once '../issets/script/php/historico.php';    
     require_once '../issets/script/php/conecta.php';
+    require_once '../issets/script/php/function/funcoes.php';
     $sql_posts = "SELECT * FROM publicacoes WHERE user_publi IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].") ORDER BY date_publi DESC ";
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
@@ -134,7 +135,7 @@
                     <div class="form--post--area">
                         <div class="area--form01">
                             <div class="form--post--perfil">
-                                <div class="img--perfil menu--pag--img--area" style="background-image: url(../issets/imgs/profile/<?=$_SESSION['img']?>)"></div>
+                                <div class="img--perfil menu--pag--img--area"></div>
                             </div>  
                             <div class="form--post--text">
                                 <div class="form--inpudiv--event">
@@ -171,7 +172,7 @@
                 <div class="post--menu--area">
                     <div class="header--post--area">
                         <div class="post--area--perfil">
-                            <div class="img--perfil menu--pag--img--area" style="background-image: url(../issets/imgs/profile/<?= $array_s_perfil['foto_perfil']?>);">
+                            <div class="img--perfil menu--pag--img--area" style="<?= perfilDefault($array_s_perfil['foto_perfil'], '');?>">
 
                             </div>
                             <div class="name--area">
@@ -192,7 +193,7 @@
                         <div class="post--area--date ">
                             <div class="date--post">
                                 <?php 
-                                    require_once '../issets/script/php/function/funcoes.php';
+
                                     dateCalc($post_segui);
                                 ?>
                             </div>
@@ -254,12 +255,9 @@
                 <h1>pessoas cadastradas:</h1>
 
                 <?php 
-                $sql_user = 'SELECT * FROM users ORDER BY t_seguidores DESC';
+                $sql_user = "SELECT * FROM users WHERE id_user IN (SELECT user_seguido FROM seguidores WHERE user_seguin IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].")) ORDER BY t_seguidores DESC";
                 $resul = mysqli_query($conexao, $sql_user);
                 $array_use = mysqli_fetch_all($resul,1);
-                foreach($array_use as $user) {
-                    echo '<a href="perfil_user_v.php?username='.$user['username'].'">'.$user['nome'].': '.$user['username'].'<br></a>';
-                }
                 ?>
             </div>
             <div class="convite--body pessoas Recomendados-body">
@@ -267,39 +265,149 @@
                     Recomendados
                 </div>
                 <div class="body--recomendado">
+                <?php 
+                $i = 0;
+                $users_r = array();
+                $sql_seguidores = "SELECT * FROM users WHERE id_user IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].") ORDER BY t_seguidores DESC";
+                $res_seguidores = mysqli_query($conexao,$sql_seguidores);
+                $arra_seg_recomendados = mysqli_fetch_all($res_seguidores, 1);
+                $posibilidade = count($arra_seg_recomendados);
+                if(count($arra_seg_recomendados) <= 1) {
+                    $sql_que_seguir = 'SELECT * FROM users ORDER BY t_seguidores';
+                    foreach($array_use as $user) {
+                        if($i < 4 and $user['username'] != $_SESSION['username']) {
+                    ?>
+                        <div class="opt--recomedado--area">
+                            <div class="perfil--area">
+                            <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($user['foto_perfil'], '')?>">
+                            </div>
+                            <div class="name--area">
+                               <a class="perfil-link" href="perfil_user_v.php?username=<?=$user['username']?>"> 
+                                    <div class="name--name-perfil perfil-link-hover">
+                                        <?=$user['nome']?>
+                                    </div>
+                                    <div class="name--username-perfil perfil-link-hover">
+                                        <?=$user['username']?>
+                                    </div>
+                                </a>
+                            </div>
+                            </div>
+                            <div class="buttom-recomendado-area">
+                                <div class="buttom--body">
+                                    <?php if($user['username'] =! $_SESSION['username'] ) {?>
+                                    <form action="../issets/script/php/seguir.php" method="post">
+                                        <button type="submit" class="button--seguir"></button>
+                                    <?php }else{?>
+                                    <form action="../issets/script/php/seguir.php" method="post">
+                                        <button type="submit" class="button--seguir"></button>
+                                        
+                                    <?php }?>
+                                    <input type="hidden" value="id" name="iD_x30">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <?php 
+                        } else {
+                            $i--;
+                        } 
+                        $i++;
+                    }
+                } else {
+                    $aux = 0;
+                foreach($array_use as $user) {
+                    $seguindo = false;
+                    if($aux < 3) {
+                        foreach($arra_seg_recomendados as $seguid_user) {
+                                if($seguid_user['username'] == $user['username']) {
+                                    $seguindo = true;
+                                }
+                     ?>
+                    <?php } if(!$seguindo and $user['username'] != $_SESSION['username']) { ?>
                     <div class="opt--recomedado--area">
                         <div class="perfil--area">
-                        <div class="img--perfil menu--pag--img--area area--recomendado" style="background-image: url(../issets/imgs/profile/img_teste.png62c78ae56c952.png);">
+                        <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($user['foto_perfil'], '')?>">
                         </div>
                         <div class="name--area">
-                           <a class="perfil-link" href="perfil.php"> 
+                           <a class="perfil-link" href="perfil_user_v.php?username=<?=$user['username']?>"> 
                                 <div class="name--name-perfil perfil-link-hover">
-                                    sla
+                                    <?=$user['nome']?>
                                 </div>
                                 <div class="name--username-perfil perfil-link-hover">
-                                    #sla
+                                    <?=$user['username']?>
+                                    <?php $users_r['username'] = $user['username'];?>
                                 </div>
                             </a>
                         </div>
                         </div>
                         <div class="buttom-recomendado-area">
                             <div class="buttom--body">
-                                <?php $seguir = true;if($seguir) {?>
-                                <form action="../issets/script/php/seguir.php">
+                                <?php if($user['username'] =! $_SESSION['username'] ) {?>
+                                <form action="../issets/script/php/seguir.php" method="post">
                                     <button type="submit" class="button--seguir"></button>
-                                    <input type="hidden" value="id" name="iD_x30">
                                 <?php }else{?>
-                                <form action="../issets/script/php/unseguir.php">
-                                    <button type="submit"></button>
+                                <form action="../issets/script/php/seguir.php" method="post">
+                                    <button type="submit" class="button--seguir"></button>
                                     
                                 <?php }?>
-                                <input type="hidden" value="id" name="iD_x30">
+                                <input type="hidden" value="<?= $user['id_user']?>" name="iD_x30">
                                 </form>
                             </div>
                         </div>
                     </div>
+                    <?php $aux++;} } } if(count($users_r) < 4) {
+                        $diferenca = 3-count($users_r);
+                        $sql_aux = 'SELECT * FROM users ORDER BY t_seguidores DESC';
+                        $res_sqli_aux = mysqli_query($conexao, $sql_aux);
+                        $array_aux_recomendado = mysqli_fetch_all($res_sqli_aux, 1);
+                        foreach($array_aux_recomendado as $value_) {
+                            $seguindo_aux = false;
+                            if($value_['username'] != $_SESSION['username']) {
+                                foreach($arra_seg_recomendados as $value_aux) {
+                                    if($value_['username'] == $value_aux['username']) {
+                                        $seguindo_aux = true;
+                                    }
+                                }
+                                if($seguindo_aux and $diferenca < 4 and $_SESSION['username'] != $value_['username']) {?>
+                                 <div class="opt--recomedado--area">
+                                    <div class="perfil--area">
+                                    <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($value_aux['foto_perfil'], '')?>">
+                                    </div>
+                                    <div class="name--area">
+                                    <a class="perfil-link" href="perfil_user_v.php?username=<?=$value_aux['username']?>"> 
+                                            <div class="name--name-perfil perfil-link-hover">
+                                                <?=$value_aux['nome']?>
+                                            </div>
+                                            <div class="name--username-perfil perfil-link-hover">
+                                                <?=$value_aux['username']?>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    </div>
+                                    <div class="buttom-recomendado-area">
+                                        <div class="buttom--body">
+                                            <?php if($user['username'] =! $_SESSION['username'] ) {?>
+                                            <form action="../issets/script/php/seguir.php" method="post">
+                                                <button type="submit" class="button--seguir"></button>
+                                            <?php }else{?>
+                                            <form action="../issets/script/php/seguir.php" method="post">
+                                                <button type="submit" class="button--seguir"></button>
+                                                
+                                            <?php }?>
+                                            <input type="hidden" value="<?= $value_aux['id_user']?>" name="iD_x30">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php $diferenca++;}
+                            }
+                        }
+                    }
+                
+                  }  ?>
                 </div>
                 <div class="mais--recomendados">
+                    <?php ?>
                     <a class="link" style="color: #f0f0f0;" href="">Ver mais</a>
                 </div>
             </div>

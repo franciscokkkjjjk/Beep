@@ -656,16 +656,20 @@ select option {
 }
 .body--recomendado {
     background-color: #3d3d3d;
-    height: 180px;
+    height: auto;
 }
 .opt--recomedado--area {
     background-color: #212121;
-    padding-bottom: 4px;
+    padding-bottom: 9px;
+    padding-top: 8px;
 }
 .perfil--area {
     display: flex;
     flex-direction: row;
-    margin-left: 10px;
+    margin-left: 4px;
+}
+.mais--recomendados {
+    padding: 10px;
 }
 .area--recomendado{
     width: 35px!important;

@@ -24,3 +24,11 @@ function dateCalc($array_user){
         echo '<b>agora</b>';
     }
 }
+function perfilDefault($array_user, $dir) {
+    if($array_user == '') {
+        return "background-image:url($dir../issets/imgs/default/perfil-de-usuario-black.png);";
+    } else {
+        return "background-image:url($dir../issets/imgs/profile/$array_user);";
+    }
+}
+?>
