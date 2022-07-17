@@ -23,5 +23,5 @@
         'num_comentario' => $post_segui['num_comentario'] 
     ];
     }
-    var_dump($post);
+    echo json_encode($post);
 ?>
