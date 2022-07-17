@@ -340,10 +340,12 @@
     cursor: pointer;
     transition: all linear 0.25s;
 }
-/*
-border??
-link no nome e @
-curtir -- sem borda (algo chamativo)
-comenter/compartilhar -- mesmo q o curtir 
-
-*/
+.alert--mensagem {
+    width: 634px;
+    height: 23px;
+    text-align: center;
+    position: fixed;
+    top: 42px;
+    background-color: #53ffff;
+    color: #545454;    
+}

@@ -120,6 +120,7 @@
                         </div>
                         </div>
                 </form>
+                <div class="event"></div>
                 <div class="post_clone" style="display: none;">
                 <div class="post--menu--area" >
                     <div class="header--post--area">
@@ -370,9 +371,8 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
-    <script type="text/javascript" src="../issets/script/javascript/default/interact_post.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
     <script>
@@ -391,7 +391,8 @@
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
-    <script>let a = true;setInterval(()=>{
+    <script>let a = true;
+        setInterval(()=>{
         if(a == true){
         a = false;
         document.querySelector('.event').style.position = 'absolute';
