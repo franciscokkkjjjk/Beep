@@ -125,7 +125,7 @@
                 <div class="post--menu--area" >
                     <div class="header--post--area">
                         <div class="post--area--perfil">
-                            <div class="img--perfil menu--pag--img--area" style="">
+                            <div class="img--perfil menu--pag--img--area">
                             </div>
                             <div class="name--area">        
                                     <a class="perfil-link" href="">        
