@@ -738,10 +738,9 @@ select option {
 }
 .p-evt-box-off {
     box-shadow: none;
-    transition: all ease 0.15s;
+    transition: all ease 0.25s;
 }
 .img--curtida--on {
-
     background-image: url(../../imgs/default/curtida-on.png);
     color: #53ffff;
 }
