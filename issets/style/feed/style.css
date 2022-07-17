@@ -193,12 +193,10 @@
 .event { /*Bolinha de carregamento*/
     width: 30px;
     height: 30px ;
+    position: absolute;
+    top: 30%;
+    right: 50%;
     border-radius: 100%;
-    border: 3px solid linear-gradient(172deg,#e63333, #690efa);
-    transition: all ease 0.3s;
-    border-bottom: 3px solid #00ff80;
-    border-top: 3px solid #00ff80;
-    transition: all 0.3s ease;
 }
 
 .dimensoes--seta {

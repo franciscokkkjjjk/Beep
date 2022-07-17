@@ -120,7 +120,8 @@
                         </div>
                         </div>
                 </form>
-                <div class="post--menu--area" style="display: none;">
+                <div class="post_clone" style="display: none;">
+                <div class="post--menu--area" >
                     <div class="header--post--area">
                         <div class="post--area--perfil">
                             <div class="img--perfil menu--pag--img--area" style="">
@@ -167,6 +168,7 @@
                         </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
                     </div>
                 </div>
+              </div>
             </div>
         </div>
         
@@ -389,7 +391,25 @@
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
-
+    <script>let a = true;setInterval(()=>{
+        if(a == true){
+        a = false;
+        document.querySelector('.event').style.position = 'absolute';
+        document.querySelector('.event').style.right = '50%';
+        document.querySelector('.event').style.top = '30%';
+        document.querySelector('.event').style.borderBottom = '3px solid #000';
+        document.querySelector('.event').style.borderTop = '3px solid #000';
+        document.querySelector('.event').style.borderLeft='3px solid #53ffff';
+        document.querySelector('.event').style.borderRight='3px solid #53ffff';
+    } else {
+        a = true;
+        document.querySelector('.event').style.borderBottom = '3px solid #53ffff';
+        document.querySelector('.event').style.borderTop = '3px solid #53ffff';
+        document.querySelector('.event').style.borderLeft='3px solid #000';
+        document.querySelector('.event').style.borderRight='3px solid #000';
+        
+    }
+    }, 250)</script>
 </body>
 </html>
 
@@ -408,17 +428,7 @@ document.querySelector('.feed-new-input').addEventListener('blur', function(obj)
     }
 });</script>-->
 
-    <!--<script>let a = true;setInterval(()=>{
-        if(a == true){
-        a = false;
-        document.querySelector('.event').style.transform ='rotate(180deg)';
-    } else {
-        a = true;
-        document.querySelector('.event').style.borderLeft='3px solid salmon';
-        document.querySelector('.event').style.borderRight='3px solid salmon';
-        document.querySelector('.event').style.transform ='rotate(-180deg)';
-    }
-    }, 500)</script>-->
+    
 <!-- <div class="event"></div>-->
    <!--<header>
         <div class="body--header">
