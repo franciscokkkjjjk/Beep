@@ -20,7 +20,7 @@
         'num_curtidas' => $post_segui['num_curtidas'],
         'beepadas' => $post_segui['num_compartilha'],
         'date_publi' => dateCalc($post_segui),
-        'num_comentario' => $post_segui['num_comentario'] 
+        'num_comentario' => $post_segui['num_comentario']
     ];
     }
     echo json_encode($post);

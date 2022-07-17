@@ -11,17 +11,17 @@ function dateCalc($array_user){
     $meses = $dias / 30.5;
     $anos = $dias / 365.25;
     if (round($anos) > 0) {
-        echo 'há <b>' . round($anos) . ' anos</b>';
+        return 'há <b>' . round($anos) . ' anos</b>';
     } elseif (round($meses) > 0) {
-        echo 'há <b>' . round($meses) . ' meses</b>';
+        return 'há <b>' . round($meses) . ' meses</b>';
     } elseif (round($dias) > 0) {
-        echo 'há <b>' . round($dias) . ' dias</b>';
+        return 'há <b>' . round($dias) . ' dias</b>';
     } elseif (round($horas) > 0) {
-        echo 'há <b>' . round($horas) . ' horas</b>';
+        return 'há <b>' . round($horas) . ' horas</b>';
     } elseif (round($minutos) > 0) {
-        echo 'há <b>' . round($minutos) . ' minutos</b>';
+        return 'há <b>' . round($minutos) . ' minutos</b>';
     } else {
-        echo '<b>agora</b>';
+        return '<b>agora</b>';
     }
 }
 function perfilDefault($array_user, $dir) {

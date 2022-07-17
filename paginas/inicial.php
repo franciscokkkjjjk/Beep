@@ -120,40 +120,23 @@
                         </div>
                         </div>
                 </form>
-                <?php 
-                if(!$postagens == ''){
-                    $i = 0;
-                    foreach($postagens as $post_segui) {
-                        $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
-                        $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
-                        $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-                ?>
-                <div class="post--menu--area">
+                <div class="post--menu--area" style="display: none;">
                     <div class="header--post--area">
                         <div class="post--area--perfil">
-                            <div class="img--perfil menu--pag--img--area" style="<?= perfilDefault($array_s_perfil['foto_perfil'], '');?>">
-
+                            <div class="img--perfil menu--pag--img--area" style="">
                             </div>
-                            <div class="name--area">
-                                <?php if($array_s_perfil['username'] == $_SESSION['username']) {?>
-                                    <a class="perfil-link" href='perfil.php'>
-                                <?php } else {?>        
-                                    <a class="perfil-link" href="perfil_user_v.php?username=<?=$array_s_perfil['username']?>">
-                                <?php }?>   
+                            <div class="name--area">        
+                                    <a class="perfil-link" href="">        
                                     <div class="name--name-perfil perfil-link-hover">
-                                        <?=$array_s_perfil['nome'];?>
                                     </div>
                                     <div class="name--username-perfil perfil-link-hover">
-                                        <?=$array_s_perfil['username'];?>
+
                                     </div>
                                 </a>
                             </div>
                         </div>
                         <div class="post--area--date ">
                             <div class="date--post">
-                                <?php 
-                                    dateCalc($post_segui);
-                                ?>
                             </div>
                         </div>  
                         <div class="post--area--menu ">
@@ -161,23 +144,16 @@
                         </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                     </div>
                     <div class="body--post--area">
-                        <?php if($post_segui['text_publi'] == ''){
-
-                        } else {?>
-                        <div class="post--text"><?=$post_segui['text_publi']?></div>
-                        <?php } ?>
-                        <?php if(!$post_segui['img_publi'] == ''){
-                        ?>
-                        <div class="post--img-area">
-                            <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$post_segui['img_publi']?>);'>
+                        <div class="post--text"></div>
+                        <div class="post--img-area" style="display: none;">
+                            <div class="post--img" >
                                 <div class="event--post--img"></div>
                             </div>
-                        </div>
-                        <?php }?>                                          <!--deve ter oq o usuario publicou-->
+                        </div>                                        <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
-                        <form  class="p-xD30" data-key='<?= $post_segui['id_publi']?>'>
-                            <input type="hidden" value="<?= $post_segui['id_publi']?>" name="p-xD30">
+                        <form  class="p-xD30">
+                            <input type="hidden" value="" name="p-xD30">
                             <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
                                     Curtir
                             </button>
@@ -191,9 +167,6 @@
                         </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
                     </div>
                 </div>
-                <?php  }} else {?>
-                    <div class="title--empty">não há nada aqui por enquanto ;(</div>
-                <?php } ?>
             </div>
         </div>
         
@@ -395,6 +368,7 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/interact_post.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
