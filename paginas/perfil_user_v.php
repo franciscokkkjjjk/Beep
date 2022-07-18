@@ -44,7 +44,6 @@ if($perfil == $_SESSION['username']) {
         }
         <?php }?>
         .fot_user_visit {
-            background-image: url('../issets/imgs/profile/<?=$array_info['foto_perfil']?>');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -85,12 +84,12 @@ if($perfil == $_SESSION['username']) {
                                 </div>
                             </div>
                             <div class="info--button">
-                                    <form action="" method="post">
+                                    <form  method="post" class="form_id_x30">
                                         <button class="button--seguindo button-remove curso-pointer" style="display: none;"></button>
                          
                                         <button class="button--seguir button-remove curso-pointer" style="display: none;"></button>
                                         <div class="event"></div>
-                                    <input type="hidden" value="" name='iD_x30'>
+                                    <input type="hidden" value="" name='iD_x30' class="input_segui_id_x30">
                                     </form>
                             </div>
                         </div>
@@ -186,6 +185,9 @@ if($perfil == $_SESSION['username']) {
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
+    <script type="text/javascript">
+        user_();
+    </script>
     <script type="text/javascript" src="../issets/script/javascript/default/perfil_vist/perfil_users.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>

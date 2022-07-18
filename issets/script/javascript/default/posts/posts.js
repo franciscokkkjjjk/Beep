@@ -36,13 +36,16 @@ async function posts() {
         })
     }
     async function user_() {
-        qs('.back--event').remove();
-        qsAll('.event').forEach((e)=>{e.remove()});
         let username_vist = window.location.href.replace('http://localhost/projetos/Luiskkk/projetos/beep/paginas/perfil_user_v.php?username=', '');
         let user_vist = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username_vist);
         let user_v = await user_vist.json();
+        qs('.back--event').remove();
+        qsAll('.event').forEach((e)=>{e.remove()});
         console.log(user_v);
-        user_creat(user_v.publicacoes, user_v)
+        user_seguidores(user_v);
+        user_creat(user_v.publicacoes, user_v);
+        curtir_post();
+        seguidores_user()
     }
 
     function criarPosts(lista) {
@@ -130,9 +133,39 @@ async function posts() {
             post_body.querySelector('.p-xD30').setAttribute('data-key', json_list[i]['id_publi'])
             post_body.querySelector('.p-xD30 input').value = json_list[i]['id_publi'];
             document.querySelector('.feed-body-post').append(post_body);
-           
         }
     }
     function user_seguidores(list_user) {
+        document.querySelector('.banner--perfil').setAttribute('style', list_user.banner_pefil);
+        document.querySelector('.fot_user_visit').setAttribute('style', list_user.img_user);
+        document.querySelector('.info--perfil--user--nome').innerHTML = list_user.nome_user;
+        qs('.info--perfil--user--username').innerHTML = list_user.username_user;
+        qs('.bio').innerHTML = list_user.bio;
+        qs('.nome--perfil').innerHTML = list_user.nome_user;
+        qs('.data_nasc').innerHTML = list_user.data_nas;
+        let button_segu = document.createElement('button');
+        qs('.input_segui_id_x30').value = list_user.user_id;
+        if(list_user.seguindo == true) {
+            button_segu.setAttribute('class', 'button--seguindo button-remove curso-pointer');
+            qs('.form_id_x30').setAttribute('action', '../issets/script/php/unseguir.php');
+            qs('.form_id_x30').appendChild(button_segu);
+        } else {
+            button_segu.setAttribute('class', 'button--seguir button-remove curso-pointer');
+            qs('.form_id_x30').setAttribute('action', '../issets/script/php/seguir.php');
+            qs('.form_id_x30').appendChild(button_segu);
+        }
+    }
+    function seguidores_user() {
+        let segui = window.location.href.replace('http://localhost/projetos/Luiskkk/projetos/beep/paginas/perfil_user_v.php?username=', '');
+        setInterval(()=>{
+        fetch('../issets/script/php/requsicoes/posts_users.php?username='+segui)
+            .then(function (resultado){
+                return resultado.json()
+            })
+            .then(function (json){
+                qs('.num_seguindo').innerHTML = json.t_seguindo;
+                qs('.num_seguidores').innerHTML = json.t_seguidores;
+            })
+        },300)
 
     }

@@ -28,7 +28,7 @@
                 'bio' => $array_info['bio'],
                 't_seguindo' => $array_info['t_seguindo'],
                 't_seguidores' => $array_info['t_seguidores'],
-                'data_nas' => $array_info['data_nas'],
+                'data_nas' => date('d/m/Y', strtotime($array_info['data_nas'])) ,
                 'username_user' => $array_info['username'],
                 'nome_user' => $array_info['nome'],
                 'seguindo' => $seguindo,
