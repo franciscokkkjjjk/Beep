@@ -114,7 +114,7 @@
                         </div>                                        <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
-                        <form  class="p-xD30">
+                        <form class="p-xD30">
                             <input type="hidden" value="" name="p-xD30">
                             <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
                                     Curtir
@@ -139,7 +139,10 @@
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js">
     </script>
-    <script>posts();</script>
+    <script>
+        posts();
+        verficar_posts();
+    </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
     <script>

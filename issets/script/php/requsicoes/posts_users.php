@@ -12,6 +12,15 @@
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
 
+    $sql_seguir = 'SELECT * FROM seguidores WHERE user_seguin='.$_SESSION['id_user'];
+    $res_seguir = mysqli_query($conexao, $sql_seguir);
+    $array_seguidor = mysqli_fetch_all($res_seguir, 1);
+    $seguindo = false;
+    foreach($array_seguidor as $value) {
+        if($value['user_seguido'] == $array_info['id_user']) {
+            $seguindo = true;
+        }
+    }
         $perfil_visit = [
                 'user_id' => $array_info['id_user'],
                 'img_user' => perfilDefault($array_info['foto_perfil'], ''),
@@ -22,6 +31,7 @@
                 'data_nas' => $array_info['data_nas'],
                 'username_user' => $array_info['username'],
                 'nome_user' => $array_info['nome'],
+                'seguindo' => $seguindo,
                 'publicacoes' => array()
             ];
             foreach($postagens as $post_segui) {

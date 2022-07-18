@@ -11,10 +11,7 @@ require_once '../issets/script/php/historico.php';
 require_once '../issets/script/php/conecta.php';
 require_once '../issets/script/php/function/funcoes.php';
 
-$sql_seguir = 'SELECT * FROM seguidores WHERE user_seguin='.$_SESSION['id_user'];
-$res_seguir = mysqli_query($conexao, $sql_seguir);
-$array_seguidor = mysqli_fetch_all($res_seguir, 1);
-$seguindo = false;
+
 if($perfil == $_SESSION['username']) {
     header('location:perfil.php');
 }

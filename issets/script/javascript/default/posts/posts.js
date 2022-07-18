@@ -10,37 +10,41 @@ async function posts() {
     post_d =  await posts.json();
     load.style.display = 'none';
     criarPosts(post_d);
-    qsAll('.p-xD30').forEach( (e)=>{
-        let teste = new FormData(e);
-        e.addEventListener('click', async (a)=>{
-            a.preventDefault();
-            let req = await fetch('../issets/script/php/interacoes_post/curtir.php', {
-                method: 'POST',
-                body: teste,
+    curtir_post();
+    }
+    function curtir_post() {
+        qsAll('.p-xD30').forEach( (e)=>{
+            let teste = new FormData(e);
+            e.addEventListener('click', async (a)=>{
+                a.preventDefault();
+                let req = await fetch('../issets/script/php/interacoes_post/curtir.php', {
+                    method: 'POST',
+                    body: teste,
+                })
+                res = await req.json();
+                console.log(res);
+                e.querySelector('button').classList.remove('img--iteracao-curtida');
+                e.querySelector('button').classList.add('img--iteracao-curtida-on');
+                e.querySelector('button').classList.add('img--iteracao-curtida-on')
+                e.querySelector('button').classList.add('img--curtida--on');
+                e.querySelector('button').classList.add('p-evt-box');
+                setTimeout(()=>{
+                    e.querySelector('button').classList.remove('p-evt-box');
+                },0260)
+                console.log();
             })
-
-            res = await req.json();
-            load.style.display = 'none'
-            e.querySelector('button').classList.remove('img--iteracao-curtida');
-            e.querySelector('button').classList.add('img--iteracao-curtida-on');
-            e.querySelector('button').classList.add('img--iteracao-curtida-on')
-            e.querySelector('button').classList.add('img--curtida--on');
-            e.querySelector('button').classList.add('p-evt-box');
-            setTimeout(()=>{
-                e.querySelector('button').classList.remove('p-evt-box');
-            },0260)
-            console.log();
         })
-    })
     }
     async function user_() {
         qs('.back--event').remove();
         qsAll('.event').forEach((e)=>{e.remove()});
         let username_vist = window.location.href.replace('http://localhost/projetos/Luiskkk/projetos/beep/paginas/perfil_user_v.php?username=', '');
         let user_vist = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username_vist);
-        let posts_vist = await user_vist.json();
-        criarPosts(posts_vist.publicacoes);
+        let user_v = await user_vist.json();
+        console.log(user_v);
+        user_creat(user_v.publicacoes, user_v)
     }
+
     function criarPosts(lista) {
         for(var i in lista) {
             let post_body = document.querySelector('.post--menu--area').cloneNode(true);
@@ -109,8 +113,25 @@ async function posts() {
         } ,1000);
         
     }
-    function user_creat(json) {
-        
+    function user_creat(json_list, json_list_user) {
+        for(let i in json_list) {
+            console.log(json_list);
+            let post_body = document.querySelector('.post--menu--area').cloneNode(true);
+            post_body.querySelector('.menu--pag--img--area').setAttribute('style', json_list_user.img_user);
+            post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${json_list_user.username_user}`)
+            post_body.querySelector('.name--name-perfil').innerHTML = json_list_user.nome_user;
+            post_body.querySelector('.name--username-perfil').innerHTML = json_list_user.username_user;
+            post_body.querySelector('.date--post').innerHTML = json_list[i]['date_publi'];
+            post_body.querySelector('.post--text').innerHTML = json_list[i]['text_post'];
+            if(json_list[i]['img_publi'] == ""){}else {
+                post_body.querySelector('.post--img').style.display = '';
+                post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${json_list[i]['img_publi']})`;
+            }
+            post_body.querySelector('.p-xD30').setAttribute('data-key', json_list[i]['id_publi'])
+            post_body.querySelector('.p-xD30 input').value = json_list[i]['id_publi'];
+            document.querySelector('.feed-body-post').append(post_body);
+           
+        }
     }
     function user_seguidores(list_user) {
 
