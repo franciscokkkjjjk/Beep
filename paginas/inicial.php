@@ -137,7 +137,9 @@
         ?>
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
-    <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js">
+    </script>
+    <script>posts();</script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
     <script>

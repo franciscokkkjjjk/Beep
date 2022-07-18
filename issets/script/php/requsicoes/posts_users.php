@@ -3,7 +3,7 @@
     require_once '../conecta.php';
     require_once '../function/funcoes.php';
     $perfil = $_GET['username'];
-
+    $perfil_visit = array();
     $sql_perfil = "SELECT * FROM users WHERE username='$perfil'";
     $res_perfil = mysqli_query($conexao, $sql_perfil);
     $array_info = mysqli_fetch_assoc($res_perfil);
@@ -12,7 +12,29 @@
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
 
-    $perfil_visit[] = {
-
-    }
+        $perfil_visit = [
+                'user_id' => $array_info['id_user'],
+                'img_user' => perfilDefault($array_info['foto_perfil'], ''),
+                'banner_pefil' => perfilDefault($array_info['banner_pefil'], ''),
+                'bio' => $array_info['bio'],
+                't_seguindo' => $array_info['t_seguindo'],
+                't_seguidores' => $array_info['t_seguidores'],
+                'data_nas' => $array_info['data_nas'],
+                'username_user' => $array_info['username'],
+                'nome_user' => $array_info['nome'],
+                'publicacoes' => array()
+            ];
+            foreach($postagens as $post_segui) {
+                $perfil_visit['publicacoes'][] = 
+                [
+                    'id_publi' => $post_segui['id_publi'],
+                    'text_post' => $post_segui['text_publi'],
+                    'img_publi' => $post_segui['img_publi'],
+                    'num_curtidas' => $post_segui['num_curtidas'],
+                    'beepadas' => $post_segui['num_compartilha'],
+                    'date_publi' => dateCalc($post_segui),
+                    'num_comentario' => $post_segui['num_comentario']
+                ];
+            }
+    echo json_encode($perfil_visit);
 ?>

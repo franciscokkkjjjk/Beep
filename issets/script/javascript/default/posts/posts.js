@@ -33,14 +33,19 @@ async function posts() {
         })
     })
     }
-    async function post_user() {
-        
+    async function user_() {
+        qs('.back--event').remove();
+        qsAll('.event').forEach((e)=>{e.remove()});
+        let username_vist = window.location.href.replace('http://localhost/projetos/Luiskkk/projetos/beep/paginas/perfil_user_v.php?username=', '');
+        let user_vist = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username_vist);
+        let posts_vist = await user_vist.json();
+        criarPosts(posts_vist.publicacoes);
     }
     function criarPosts(lista) {
         for(var i in lista) {
             let post_body = document.querySelector('.post--menu--area').cloneNode(true);
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['img_user']);
-            post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${post_d[i]['username_user']}`)
+            post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['username_user']}`)
             post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['nome_user'];
             post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['username_user'];
             post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
@@ -57,7 +62,6 @@ async function posts() {
         atual = parseInt(i) + 1;
         return;
     }
-    posts();
     function verficar_posts() {
         setInterval((e)=>{
             fetch('../issets/script/php/requsicoes/posts.php')
@@ -105,5 +109,9 @@ async function posts() {
         } ,1000);
         
     }
-    
-    verficar_posts();
+    function user_creat(json) {
+        
+    }
+    function user_seguidores(list_user) {
+
+    }

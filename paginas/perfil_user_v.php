@@ -30,7 +30,7 @@ if($perfil == $_SESSION['username']) {
     <link rel="stylesheet" href="../issets/style/generic/style.css">
     <link rel="stylesheet" href="../issets/style/feed/style.css">
     <link rel="stylesheet" href="../issets/style/toca/style.css">
-    <title><?= $array_info['nome']?> | Beep</title>
+    <title><?= $perfil?> | Beep</title>
     <style>
         <?php 
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
@@ -46,20 +46,12 @@ if($perfil == $_SESSION['username']) {
             background-image: url('../issets/imgs/default/perfil-de-usuario-black.png');
         }
         <?php }?>
-        <?php 
-            if(!$array_info['foto_perfil'] == '' and !$array_info['foto_perfil'] == null) {
-        ?>
         .fot_user_visit {
             background-image: url('../issets/imgs/profile/<?=$array_info['foto_perfil']?>');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
         }
-        <?php } else { ?>
-            .fot_user_visit {
-            background-image: url('../issets/imgs/default/perfil-de-usuario-black.png');
-        }
-        <?php }?>
     </style>
 </head>
 <body>
@@ -73,52 +65,48 @@ if($perfil == $_SESSION['username']) {
                     <a href="inicial.php" class="seta--back"></a>
                 </div>
                 <div class="nome--perfil">
-                    <?= $array_info['nome']?>
+                    <div class="event"></div>
                 </div>
             </div>
             <div class="feed-body-post">
-                <div class="banner--perfil" style="<?php if(!$array_info['banner_pefil'] == NULL){?>background-image: url(../issets/imgs/profile/<?= $array_info['banner_pefil']?>);<?php }?>">
+                <div class="banner--perfil" style="">
+                    <div class="event"></div>
                 </div>
                 <div class="info--perfil">
                         <div class="info--perfil--area">
                             <div class="info--perfil--img">
-                                <div class="fot_user_visit info--perfil--img--position menu--pag--img--area ">
-                            
+                                <div class="fot_user_visit info--perfil--img--position ">
+                                     <div class="event" style="position:absolute; margin-top: 56px;margin-left: 59px;"></div>
                                 </div>
                             </div>
                             <div class="info--perfil--user">
                                 <div class="info--perfil--user--nome">
-                                    <?=$array_info['nome'];?>
+                                    <div class="event"></div>
                                 </div>
                                 <div class="info--perfil--user--username">
-                                    <?=$array_info['username'];?>
+                                
                                 </div>
                             </div>
                             <div class="info--button">
-                                <?php foreach($array_seguidor as $value_seguir) {
-                                        if($value_seguir['user_seguido'] == $array_info['id_user']) { $seguindo = true;
-                                    ?>
-                                    <form class="submit--form" action="../issets/script/php/unseguir.php" method="post">
-                                        <button class="button--seguindo button-remove curso-pointer"></button>
-                                <?php }} if(!$seguindo) {?>
-                                    <form action="../issets/script/php/seguir.php" method="post">
-                                        <button class="button--seguir button-remove curso-pointer"></button>
-                                    
-                                <?php }?>
-                                    <input type="hidden" value="<?= $array_info['id_user']?>" name='iD_x30'>
+                                    <form action="" method="post">
+                                        <button class="button--seguindo button-remove curso-pointer" style="display: none;"></button>
+                         
+                                        <button class="button--seguir button-remove curso-pointer" style="display: none;"></button>
+                                        <div class="event"></div>
+                                    <input type="hidden" value="" name='iD_x30'>
                                     </form>
                             </div>
                         </div>
                         <div class="info--bio--perfil">
                             <div class="bio">
-                                <?=$array_info['bio']?>
+                                <div class="event"></div>
                             </div>
                             <div class="data_nasc">
-                                <?=date('d/m/Y', strtotime($array_info['data_nas']))?>
+                                <div class="event"></div>
                             </div>
                             <div class="segui--indo">
-                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php?id_user=<?= $array_info['id_user']?>"><span><?=$array_info['t_seguindo']?></span> seguindo</a>
-                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php?id_user=<?= $array_info['id_user']?>""><span><?=$array_info['t_seguidores']?></span> seguidores</a>
+                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php?id_user="><span class="num_seguindo"></span> seguindo</a>
+                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php?id_user="><span class="num_seguidores"></span> seguidores</a>
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">
@@ -138,62 +126,58 @@ if($perfil == $_SESSION['username']) {
                     </div>
                 
                 <div class="posts--ara--perfil">
-                <?php foreach($postagens as $post_segui){?>
-                        <div class="post--menu--area">
-                        <div class="header--post--area">
-                            <div class="post--area--perfil">
-                                <div class="img--perfil menu--pag--img--area" style="background-image: url(../issets/imgs/profile/<?= $array_info['foto_perfil']?>);">
+                <div class="back--event" style="postion:fixed; top:auto;bottom:5%;">
+                    <div class="event"></div>
+                </div>
+                <div class="post_clone" style="display: none;">
+                <div class="post--menu--area" >
+                    <div class="header--post--area">
+                        <div class="post--area--perfil">
+                            <div class="img--perfil menu--pag--img--area">
+                            </div>
+                            <div class="name--area">        
+                                    <a class="perfil-link" href="">        
+                                    <div class="name--name-perfil perfil-link-hover">
+                                    </div>
+                                    <div class="name--username-perfil perfil-link-hover">
 
-                                </div>
-                                <div class="name--area">
-                                        <div class="name--name-perfil">
-                                            <?=$array_info['nome'];?>
-                                        </div>
-                                        <div class="name--username-perfil">
-                                            <?=$array_info['username'];?>
-                                        </div>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="post--area--date">
-                                <div class="date--post">
-                                    <?php 
-                                        require_once '../issets/script/php/function/funcoes.php';
-                                        dateCalc($post_segui);
-                                    ?>
-                                </div>
-                            </div>  
-                            <div class="post--area--menu ">
-                                <div class="elipse-img-hover elipse-img"></div>
-                            </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                         </div>
-                        <div class="body--post--area">
-                            <?php if($post_segui['text_publi'] == ''){
-
-                            } else {?>
-                            <div class="post--text"><?=$post_segui['text_publi']?></div>
-                            <?php } ?>
-                            <?php if(!$post_segui['img_publi'] == ''){
-                            ?>
-                            <div class="post--img-area">
-                                <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$post_segui['img_publi']?>);'>
-                                    <div class="event--post--img"></div>
-                                </div>
+                        <div class="post--area--date ">
+                            <div class="date--post">
                             </div>
-                            <?php }?>                                          <!--deve ter oq o usuario publicou-->
-                        </div>
-                        <div class="interacao--post--area">
-                            <div class="curtir interacao--area">
-                                Curtir
-                            </div>   
-                            <div class="comentar interacao--area">
-                                comentar
-                            </div>
-                            <div class="compartilhar interacao--area">
-                                compartilhar
-                            </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
-                        </div>
+                        </div>  
+                        <div class="post--area--menu ">
+                            <div class="elipse-img-hover elipse-img"></div>
+                        </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                     </div>
-                    <?php }?>
+                    <div class="body--post--area">
+                        <div class="post--text"></div>
+                        <div class="post--img-area" style="display: none;">
+                            <div class="post--img" >
+                                <div class="event--post--img"></div>
+                            </div>
+                        </div>                                        <!--deve ter oq o usuario publicou-->
+                    </div>
+                    <div class="interacao--post--area">
+                        <form  class="p-xD30">
+                            <input type="hidden" value="" name="p-xD30">
+                            <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
+                                    Curtir
+                            </button>
+                            </lable> 
+                        </form>
+                        <div class="comentar interacao--area">
+                            comentar
+                        </div>
+                        <div class="compartilhar interacao--area">
+                            compartilhar
+                        </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
+                    </div>
+                </div>
+              </div>
                 </div>
             </div>
             
@@ -204,6 +188,8 @@ if($perfil == $_SESSION['username']) {
             ?>
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/perfil_vist/perfil_users.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
@@ -212,7 +198,7 @@ if($perfil == $_SESSION['username']) {
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
         const username = <?php echo '"'.$_SESSION['username'].'"';?>;
         const img_perfil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img'].'"';} else {echo 'null';}?>;
-        const banner_pefil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['banner_pefil'].'"';} else{echo 'null';}?>;
+        const banner_pefil = <?php if(isset($_SESSION['banner_pefil'])){echo '"'.$_SESSION['banner_pefil'].'"';} else{echo 'null';}?>;
         const bio = <?php echo '"'.$_SESSION['bio_user'].'"';?>;
         const dateC = <?php echo '"'.date('d/m/Y', strtotime($_SESSION['data_nas'])).'"';?>;
         const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
