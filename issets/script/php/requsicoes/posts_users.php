@@ -16,6 +16,11 @@
     $res_seguir = mysqli_query($conexao, $sql_seguir);
     $array_seguidor = mysqli_fetch_all($res_seguir, 1);
     $seguindo = false;
+
+    $sql_curtidas = 'SELECT * FROM curtidas WHERE id_user_curti='.$_SESSION['id_user'];
+    $res_curtidas = mysqli_query($conexao, $sql_curtidas);
+    $arra_curtida = mysqli_fetch_all($res_curtidas, 1);
+
     foreach($array_seguidor as $value) {
         if($value['user_seguido'] == $array_info['id_user']) {
             $seguindo = true;
@@ -32,9 +37,15 @@
                 'username_user' => $array_info['username'],
                 'nome_user' => $array_info['nome'],
                 'seguindo' => $seguindo,
-                'publicacoes' => array()
+                'publicacoes' => array(),
             ];
             foreach($postagens as $post_segui) {
+                $user_curtiu = false;
+                foreach($arra_curtida as $value_c) {
+                    if($value_c['id_postagem'] == $post_segui['id_publi']) {
+                        $user_curtiu = true;  
+                    } 
+                }
                 $perfil_visit['publicacoes'][] = 
                 [
                     'id_publi' => $post_segui['id_publi'],
@@ -43,7 +54,8 @@
                     'num_curtidas' => $post_segui['num_curtidas'],
                     'beepadas' => $post_segui['num_compartilha'],
                     'date_publi' => dateCalc($post_segui),
-                    'num_comentario' => $post_segui['num_comentario']
+                    'num_comentario' => $post_segui['num_comentario'],
+                    'user_curtiu' => $user_curtiu
                 ];
             }
     echo json_encode($perfil_visit);
