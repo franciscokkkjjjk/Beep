@@ -5,6 +5,7 @@ if(!isset($_SESSION['id_user'])) {
 }
 require_once '../../issets/script/php/historico.php';    
 require_once '../../issets/script/php/conecta.php';
+require_once '../../issets/script/php/function/funcoes.php';
 $user_vist = isset($_GET['id_user']);
 if($user_vist) {
     $sql_pag_anterior = 'SELECT username FROM users WHERE id_user='.$_GET['id_user'];
@@ -58,51 +59,9 @@ if(!$user_vist) {
 </head>
 <body>
     <div class="feed-area">
-        <div class="menu--pag--area">
-            <div class="feed-logo-body">
-                <div class="logo--area">
-                    <div class="logo">
-                        <a href="inicial.php">
-                            <img src="../../issets/imgs/default/beep_logo.png">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="body--menu-pag">
-                <div  class="menu--pag-perfil--area">
-                <a href="../perfil.php" class="perfil-link">
-                    <div class="menu--pag menu--pag--event01">
-                        <div class="menu--pag--img--area">
-                        </div>
-                        <div class="menu--pag--name-perfil--area">
-                            <div class="menu--pag--name-perfil">
-                                <?=$_SESSION['nome']?>
-                            </div>
-                            <div class="menu--pag--username-perfil">
-                                <?= $_SESSION['username'] ?>
-                            </div>
-                        </div>
-                    </div>
-                    </a>
-                    <div class=" event--menu-pag menu--pag--opt--menu--area">
-                        <div class="menu--pag--opt">
-                            <a href="../inicial.php" style="color: #fff;" class="img--opt-feed img--pag--inicial menu--pag--opt--section">
-                                Pagina inicial
-                            </a>
-                            <a href=''class="img--opt-feed img--pag--jogos menu--pag--opt--section">
-                                Jogos
-                            </a>
-                            <a href="" class="img--opt-feed img--pag--solic menu--pag--opt--section">
-                              Solicitar jogo
-                            </a>
-                            <a href="../perfil.php" class="img--opt-feed img--pag--perf menu--pag--opt--section">
-                                Perfil
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php 
+            require_once '../../issets/script/php/html__generic/nav_menu.php';
+        ?>
         <div class="timeline--area">
             <div class="feed-header-body">
                 <div class="menu--pag--button button--back">
@@ -137,35 +96,9 @@ if(!$user_vist) {
                     <?php }}?>
                </div>
             </div>
-            <div class="area--convite">
-            <div class="feed-logo-body menu--header">
-                <div class="menu">
-                    <div class="menu--pag--button-menu--area " >
-                        <div class="menu--pag--button button--header">
-                            <div class="event--header"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu--header--body">
-                    <a href='../../issets/script/php/logout.php' class="opt--menu-header">
-                        <div class="img--menu--header logout"></div>
-                        <div class="text--menu--header">logout</div>
-                    </a>
-                </div>
-            </div>
-            <div class="convite--body">
-                <h1>pessoas do sistema:</h1>
-
-                <?php 
-                $sql_user = 'SELECT * FROM users ORDER BY t_seguidores DESC';
-                $resul = mysqli_query($conexao, $sql_user);
-                $array_use = mysqli_fetch_all($resul,1);
-                foreach($array_use as $user) {
-                    echo '<a href="../perfil_user_v.php?username='.$user['username'].'">'.$user['nome'].': '.$user['username'].'<br></a>';
-                }
-                ?>
-            </div>
-        </div>
+            <?php 
+                require_once '../../issets/script/php/html__generic/recomendado.php';
+            ?>
     </div>
     
     <script type="text/javascript" src="../../issets/script/javascript/default/script.js"></script>

@@ -190,13 +190,27 @@
        transition: all 0.3s ease;
     /*para o menu ganhar forma padding-bottom: 267px;*/
 }
-.event { /*Bolinha de carregamento*/
-    width: 30px;
-    height: 30px ;
+.back--event {
     position: absolute;
     top: 30%;
     right: 50%;
+    background-color: #000;
+    padding: 10px;
+    border-radius:100% ;
+    box-shadow: 0px 0px 7px 0px #ffffff3b;
+}
+.event { /*Bolinha de carregamento*/
+    width: 30px;
+    height: 30px ;
+    border: 3px solid #545454;
+    border-left-color:#53ffff ;
     border-radius: 100%;
+    animation: 1s loading linear infinite;
+}
+@keyframes loading {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .dimensoes--seta {
@@ -341,11 +355,12 @@
     transition: all linear 0.25s;
 }
 .alert--mensagem {
-    width: 634px;
+    width: 47%;
     height: 23px;
     text-align: center;
     position: fixed;
     top: 42px;
+    cursor: pointer;
     background-color: #53ffff;
     color: #545454;    
 }

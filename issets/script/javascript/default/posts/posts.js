@@ -1,6 +1,7 @@
 let post_d;
 let scroll_ = false;
 var atual;
+let load = document.querySelector('.back--event');
 let quan_novos = 0;
 let button = document.createElement('button');
 let div = document.querySelector('.event');
@@ -9,7 +10,7 @@ async function posts() {
     );
     post_d =  await posts.json();
     console.log(post_d);
-    div.style.display = 'none';
+    load.style.display = 'none';
     criarPosts(post_d);
     qsAll('.p-xD30').forEach( (e)=>{
         let teste = new FormData(e);
@@ -19,7 +20,9 @@ async function posts() {
                 method: 'POST',
                 body: teste,
             })
+
             res = await req.json();
+            load.style.display = 'none'
             e.querySelector('button').classList.remove('img--iteracao-curtida');
             e.querySelector('button').classList.add('img--iteracao-curtida-on');
             e.querySelector('button').classList.add('img--iteracao-curtida-on')
@@ -54,7 +57,6 @@ async function posts() {
         return;
     }
     posts();
-    console.log(atual);
     function verficar_posts() {
         setInterval((e)=>{
             fetch('../issets/script/php/requsicoes/posts.php')
@@ -65,7 +67,6 @@ async function posts() {
                     if(atual < json.length) {
                         quan_novos++;
                         atual++;
-                        console.log(quan_novos);
                         if(document.querySelector('html').scrollTop >= 200) {
                         scroll_ = true;
                         let alert;
@@ -73,20 +74,35 @@ async function posts() {
                         divAlert.setAttribute('class', 'alert--mensagem')
                         if(quan_novos > 1) {
                            alert = `você tem ${quan_novos} novos posts`;
-                        } else {
+                        } else if (quan_novos < 2)  {
                            alert = `você tem ${quan_novos} novo post`;
+                        } if(quan_novos > 9) {
+                            alert = `você tem muitos novos posts`;
                         }
                         divAlert.innerHTML = alert;
                         document.querySelector('.feed-body-post').appendChild(divAlert);
-                    } else if (document.querySelector('html').scrollTop == 0 && scroll_) {
-                        divAlert.remove();
-                    }
+                        divAlert.addEventListener('click', (a)=>{ 
+                            window.scrollTo({
+                                top:0,
+                                behavior:'smooth'
+                            });
+                            document.querySelector('.alert--mensagem').remove();
+                            setTimeout(()=>{
+                                load.style.display = '';
+                                setTimeout(()=>{
+                                    window.location.reload();
+                                },100)
+                            }, 1100)
+                        }, true)
                     } else if (document.querySelector('html').scrollTop == 0 && scroll_) {
                         document.querySelector('.alert--mensagem').remove();
-                    } console.log(scroll_);
+                        scroll_ = false;
+                    }
+                    } 
                     return json.length;
                 })
         } ,1000);
         
     }
+    
     verficar_posts();

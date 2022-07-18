@@ -24,12 +24,23 @@ function dateCalc($array_user){
         return '<b>agora</b>';
     }
 }
-function perfilDefault($array_user, $dir) {
-    if($array_user == '') {
-        return "background-image:url($dir../issets/imgs/default/perfil-de-usuario-black.png);";
-    } else {
-        return "background-image:url($dir../issets/imgs/profile/$array_user);";
+function perfilDefault($array_user, $diretorio) {
+    if($array_user == '' and $diretorio == '') {
+        return "background-image:url('../issets/imgs/default/perfil-de-usuario-black.png');";
+    } elseif ($array_user == '' and $diretorio != '') {
+        return "background-image:url('../../issets/imgs/default/perfil-de-usuario-black.png');";
+    } elseif ($array_user != '' and $diretorio == '') {
+        return "background-image:url('../issets/imgs/profile/$array_user');". $diretorio;
+    } elseif ($array_user != '' and $diretorio != '') {
+        return "background-image:url('../../issets/imgs/profile/$array_user');";
     }
 }
-
+function pagAtual($area) {
+    $pagina_atual = basename($_SERVER['SCRIPT_NAME']);
+    if($pagina_atual == $area) {
+        return 'active--tem';
+    } elseif ($pagina_atual == 'seguindo.php' or $pagina_atual == 'seguidores.php' and $area == 'caminho') {
+        return '../';
+    }
+}
 ?>
