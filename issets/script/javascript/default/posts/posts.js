@@ -6,10 +6,8 @@ let quan_novos = 0;
 let button = document.createElement('button');
 let div = document.querySelector('.event');
 async function posts() {
-    let posts = await fetch('../issets/script/php/requsicoes/posts.php',
-    );
+    let posts = await fetch('../issets/script/php/requsicoes/posts.php');
     post_d =  await posts.json();
-    console.log(post_d);
     load.style.display = 'none';
     criarPosts(post_d);
     qsAll('.p-xD30').forEach( (e)=>{
@@ -34,6 +32,9 @@ async function posts() {
             console.log();
         })
     })
+    }
+    async function post_user() {
+        
     }
     function criarPosts(lista) {
         for(var i in lista) {

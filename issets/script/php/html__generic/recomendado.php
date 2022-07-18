@@ -48,12 +48,11 @@
                                 $seguindo = true;
                           }
                         }
-                        $caminho = perfilDefault($value01['foto_perfil'], 'a');
                         
                         if(!$seguindo) {?>
                             <div class="opt--recomedado--area">
                                         <div class="perfil--area">
-                                        <div class="img--perfil menu--pag--img--area area--recomendado" style="echo 'arrobado'.'../'<?php $caminho?>">
+                                        <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=  perfilDefault($value01['foto_perfil'], pagAtual('caminho'))?>">
                                         </div>
                                         <div class="name--area">
                                         <a class="perfil-link" href="<?= pagAtual('caminho');?>perfil_user_v.php?username=<?=$value01['username']?>"> 
@@ -92,7 +91,7 @@
                                 if($seguindo_01) { ?>
                                     <div class="opt--recomedado--area">
                                         <div class="perfil--area">
-                                        <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($value04['foto_perfil'], '')?>">
+                                        <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($value04['foto_perfil'], pagAtual('caminho'))?>">
                                         </div>
                                         <div class="name--area">
                                         <a class="perfil-link" href="<?= pagAtual('caminho');?>perfil_user_v.php?username=<?=$value04['username']?>"> 
@@ -127,7 +126,7 @@
                                     if($total == 0) {?>
                                         <div class="opt--recomedado--area">
                                                 <div class="perfil--area">
-                                                <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($value05['foto_perfil'], '')?>">
+                                                <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($value05['foto_perfil'], pagAtual('caminho'))?>">
                                                 </div>
                                                 <div class="name--area">
                                                 <a class="perfil-link" href="<?= pagAtual('caminho');?>perfil_user_v.php?username=<?=$value05['username']?>"> 
@@ -160,7 +159,7 @@
                                         if(!$seguindo) { ?>
                                             <div class="opt--recomedado--area">
                                                 <div class="perfil--area">
-                                                <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($value05['foto_perfil'], '')?>">
+                                                <div class="img--perfil menu--pag--img--area area--recomendado" style="<?=perfilDefault($value05['foto_perfil'], pagAtual('caminho'))?>">
                                                 </div>
                                                 <div class="name--area">
                                                 <a class="perfil-link" href="<?= pagAtual('caminho');?>perfil_user_v.php?username=<?=$value05['username']?>"> 

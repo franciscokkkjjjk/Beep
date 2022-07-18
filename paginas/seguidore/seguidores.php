@@ -77,7 +77,7 @@ if(!$user_vist) {
                     <div class="area--seguindo-0">
                             <div class="name--area">
                                     <div class="img--perfil--seguir">
-                                        <div class="img_segui" style="background-image: url(../../issets/imgs/profile/<?= $array_s_perfil['foto_perfil']?>);"></div>
+                                        <div class="img_segui" style="<?= perfilDefault($array_s_perfil['foto_perfil'],'a')?>"></div>
                                     </div>     
                                     <a class="perfil-link" href="../perfil_user_v.php?username=<?=$array_s_perfil['username']?>">
                                     <div class="name--name-perfil perfil-link-hover">
