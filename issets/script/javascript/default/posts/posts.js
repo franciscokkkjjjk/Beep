@@ -11,7 +11,6 @@ async function posts() {
     load.style.display = 'none';
     criarPosts(post_d);
     curtir_post();
-    console.log(post_d);
     desCurtir();
     }
     function curtir_post() {
@@ -50,6 +49,7 @@ async function posts() {
         user_seguidores(user_v);
         user_creat(user_v.publicacoes, user_v);
         curtir_post();
+        desCurtir();
         seguidores_user()
     }
 
@@ -198,6 +198,7 @@ async function posts() {
         user_creat(user_s.publicacoes, user_s);
         console.log(user_s);
         curtir_post();
+        desCurtir();
         seguidores_session()
     }
 
