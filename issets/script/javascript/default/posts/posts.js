@@ -11,17 +11,19 @@ async function posts() {
     load.style.display = 'none';
     criarPosts(post_d);
     curtir_post();
+    console.log(post_d);
     }
     function curtir_post() {
         qsAll('.p-xD30').forEach( (e)=>{
-            let teste = new FormData(e);
+            let curtida = new FormData(e);
             e.addEventListener('click', async (a)=>{
                 a.preventDefault();
-                let req = await fetch('../issets/script/php/interacoes_post/curtir.php', {
+                let moio = await fetch('../issets/script/php/interacoes_post/curtir.php', {
                     method: 'POST',
-                    body: teste,
+                    body: curtida,
                 })
-                res = await req.json();
+                let res = await moio.json();
+                console.log(res);
                 e.querySelector('button').classList.remove('img--iteracao-curtida');
                 e.querySelector('button').classList.add('img--iteracao-curtida-on');
                 e.querySelector('button').classList.add('img--iteracao-curtida-on')
@@ -58,11 +60,18 @@ async function posts() {
             if(lista[i]['img_publi'] == ""){}else {
                 post_body.querySelector('.post--img').style.display = '';
                 post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
+            }//p-xD30
+            if(lista[i]['user_curtiu']){
+                post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi']);
+                post_body.querySelector('.event--curtida').classList.add('p-xD29');
+                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+            } else{
+                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
+                post_body.querySelector('.event--curtida').classList.add('p-xD30');
+                post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
+                post_body.querySelector('.event--curtida input').value = lista[i]['id_publi'];
             }
-            post_body.querySelector('.p-xD30').setAttribute('data-key', lista[i]['id_publi'])
-            post_body.querySelector('.p-xD30 input').value = lista[i]['id_publi'];
             document.querySelector('.feed-body-post').append(post_body);
-           
         }
         atual = parseInt(i) + 1;
         return;
@@ -187,4 +196,9 @@ async function posts() {
                 qs('.num_seguidores').innerHTML = jso.t_seguidores;
             })
         },300)
+    }
+    function desCurtir() {
+        qsAll('.p-xD29').forEach((e) =>{
+            
+        })
     }

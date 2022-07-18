@@ -114,9 +114,9 @@
                         </div>                                        <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
-                        <form class="p-xD30">
+                        <form class="event--curtida">
                             <input type="hidden" value="" name="p-xD30">
-                            <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
+                            <button class="curtir ">
                                     Curtir
                             </button>
                             </lable> 
