@@ -22,7 +22,6 @@ async function posts() {
                     body: teste,
                 })
                 res = await req.json();
-                console.log(res);
                 e.querySelector('button').classList.remove('img--iteracao-curtida');
                 e.querySelector('button').classList.add('img--iteracao-curtida-on');
                 e.querySelector('button').classList.add('img--iteracao-curtida-on')
@@ -31,17 +30,16 @@ async function posts() {
                 setTimeout(()=>{
                     e.querySelector('button').classList.remove('p-evt-box');
                 },0260)
-                console.log();
+
             })
         })
     }
     async function user_() {
-        let username_vist = window.location.href.replace('http://localhost/projetos/Luiskkk/projetos/beep/paginas/perfil_user_v.php?username=', '');
-        let user_vist = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username_vist);
+        let username_vist = window.location.href.split('=');
+        let user_vist = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username_vist[1]);
         let user_v = await user_vist.json();
         qs('.back--event').remove();
         qsAll('.event').forEach((e)=>{e.remove()});
-        console.log(user_v);
         user_seguidores(user_v);
         user_creat(user_v.publicacoes, user_v);
         curtir_post();
@@ -118,7 +116,6 @@ async function posts() {
     }
     function user_creat(json_list, json_list_user) {
         for(let i in json_list) {
-            console.log(json_list);
             let post_body = document.querySelector('.post--menu--area').cloneNode(true);
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', json_list_user.img_user);
             post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${json_list_user.username_user}`)
@@ -156,9 +153,9 @@ async function posts() {
         }
     }
     function seguidores_user() {
-        let segui = window.location.href.replace('http://localhost/projetos/Luiskkk/projetos/beep/paginas/perfil_user_v.php?username=', '');
+        let segui = window.location.href.split('=');
         setInterval(()=>{
-        fetch('../issets/script/php/requsicoes/posts_users.php?username='+segui)
+        fetch('../issets/script/php/requsicoes/posts_users.php?username='+segui[1])
             .then(function (resultado){
                 return resultado.json()
             })
@@ -167,5 +164,27 @@ async function posts() {
                 qs('.num_seguidores').innerHTML = json.t_seguidores;
             })
         },300)
+    }
 
+    async function user_session() {
+        let user_session = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
+        let user_s = await user_session.json();
+        qs('.back--event').remove();
+        qsAll('.event').forEach((e)=>{e.remove()});
+        user_creat(user_s.publicacoes, user_s);
+        curtir_post();
+        seguidores_session()
+    }
+
+    function seguidores_session() {
+        setInterval(()=>{
+        fetch('../issets/script/php/requsicoes/posts_users.php?username='+username)
+            .then(function (res){
+                return res.json()
+            })
+            .then(function (jso){
+                qs('.num_seguindo').innerHTML = jso.t_seguindo;
+                qs('.num_seguidores').innerHTML = jso.t_seguidores;
+            })
+        },300)
     }

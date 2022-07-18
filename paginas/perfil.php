@@ -89,8 +89,8 @@ $postagens = mysqli_fetch_all($res_posts,1);
                                 <?=date('d/m/Y', strtotime($_SESSION['data_nas']))?>
                             </div>
                             <div class="segui--indo">
-                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php"><span><?=$array_info['t_seguindo']?></span> seguindo</a>
-                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php"><span><?=$array_info['t_seguidores']?></span> seguidores</a>
+                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php"><span class="num_seguindo"><?=$array_info['t_seguindo']?></span> seguindo</a>
+                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php"><span class="num_seguidores"><?=$array_info['t_seguidores']?></span> seguidores</a>
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">
@@ -110,62 +110,58 @@ $postagens = mysqli_fetch_all($res_posts,1);
                 </div>
                </div>
                <div class="posts--ara--perfil">
-                <?php foreach($postagens as $post_segui){?>
-                        <div class="post--menu--area">
-                        <div class="header--post--area">
-                            <div class="post--area--perfil">
-                                <div class="img--perfil menu--pag--img--area" style="background-image: url(../issets/imgs/profile/<?= $array_info['foto_perfil']?>);">
+               <div class="back--event" style="position:fixed; top:auto;bottom:5%;">
+                    <div class="event"></div>
+                </div>
+                <div class="post_clone" style="display: none;">
+                <div class="post--menu--area" >
+                    <div class="header--post--area">
+                        <div class="post--area--perfil">
+                            <div class="img--perfil menu--pag--img--area">
+                            </div>
+                            <div class="name--area">        
+                                    <a class="perfil-link" href="">        
+                                    <div class="name--name-perfil perfil-link-hover">
+                                    </div>
+                                    <div class="name--username-perfil perfil-link-hover">
 
-                                </div>
-                                <div class="name--area">
-                                        <div class="name--name-perfil">
-                                            <?=$array_info['nome'];?>
-                                        </div>
-                                        <div class="name--username-perfil">
-                                            <?=$array_info['username'];?>
-                                        </div>
-                                </div>
+                                    </div>
+                                </a>
                             </div>
-                            <div class="post--area--date">
-                                <div class="date--post">
-                                    <?php 
-                                        require_once '../issets/script/php/function/funcoes.php';
-                                        dateCalc($post_segui);
-                                    ?>
-                                </div>
-                            </div>  
-                            <div class="post--area--menu ">
-                                <div class="elipse-img-hover elipse-img"></div>
-                            </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                         </div>
-                        <div class="body--post--area">
-                            <?php if($post_segui['text_publi'] == ''){
-
-                            } else {?>
-                            <div class="post--text"><?=$post_segui['text_publi']?></div>
-                            <?php } ?>
-                            <?php if(!$post_segui['img_publi'] == ''){
-                            ?>
-                            <div class="post--img-area">
-                                <div class="post--img" style='background-image:url(../issets/imgs/posts/<?=$post_segui['img_publi']?>);'>
-                                    <div class="event--post--img"></div>
-                                </div>
+                        <div class="post--area--date ">
+                            <div class="date--post">
                             </div>
-                            <?php }?>                                          <!--deve ter oq o usuario publicou-->
-                        </div>
-                        <div class="interacao--post--area">
-                            <div class="curtir interacao--area">
-                                Curtir
-                            </div>   
-                            <div class="comentar interacao--area">
-                                comentar
-                            </div>
-                            <div class="compartilhar interacao--area">
-                                compartilhar
-                            </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
-                        </div>
+                        </div>  
+                        <div class="post--area--menu ">
+                            <div class="elipse-img-hover elipse-img"></div>
+                        </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                     </div>
-                    <?php }?>
+                    <div class="body--post--area">
+                        <div class="post--text"></div>
+                        <div class="post--img-area" style="display: none;">
+                            <div class="post--img" >
+                                <div class="event--post--img"></div>
+                            </div>
+                        </div>                                        <!--deve ter oq o usuario publicou-->
+                    </div>
+                    <div class="interacao--post--area">
+                        <form  class="p-xD30">
+                            <input type="hidden" value="" name="p-xD30">
+                            <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
+                                    Curtir
+                            </button>
+                            </lable> 
+                        </form>
+                        <div class="comentar interacao--area">
+                            comentar
+                        </div>
+                        <div class="compartilhar interacao--area">
+                            compartilhar
+                        </div>                                                      <!--deve ter o curtir compartilhar e comentar-->
+                    </div>
+                </div>
+              </div>
                 </div>
             </div>
         </div>
@@ -175,6 +171,14 @@ $postagens = mysqli_fetch_all($res_posts,1);
         </div>
     </div>
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
+    <script>
+          const username = <?php if(isset($_SESSION['error_username'])) { echo "'" . $_SESSION['username_temp'] . "'"; } else {echo '"'.$_SESSION['username'].'"';}?>;
+    </script>
+    <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
+    <script type="text/javascript">
+        seguidores_session()
+        user_session()
+    </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
@@ -182,7 +186,6 @@ $postagens = mysqli_fetch_all($res_posts,1);
         const error_php = <?php if(isset($_SESSION['error_username'])) {echo $_SESSION['error_username'];} else {echo "''";} ?>;
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
-        var username = <?php if(isset($_SESSION['error_username'])) { echo "'" . $_SESSION['username_temp'] . "'"; } else {echo '"'.$_SESSION['username'].'"';}?>;
         const img_perfil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img'].'"';} else {echo 'null';}?>;
         const img_banner = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img_banner'].'"';} else{echo 'null';}?>;
         console.log(img_banner);

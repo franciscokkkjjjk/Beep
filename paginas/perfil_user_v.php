@@ -65,7 +65,7 @@ if($perfil == $_SESSION['username']) {
                 </div>
             </div>
             <div class="feed-body-post">
-                <div class="banner--perfil" style="">
+                <div class="banner--perfil" >
                     <div class="event"></div>
                 </div>
                 <div class="info--perfil">
@@ -85,9 +85,6 @@ if($perfil == $_SESSION['username']) {
                             </div>
                             <div class="info--button">
                                     <form  method="post" class="form_id_x30">
-                                        <button class="button--seguindo button-remove curso-pointer" style="display: none;"></button>
-                         
-                                        <button class="button--seguir button-remove curso-pointer" style="display: none;"></button>
                                         <div class="event"></div>
                                     <input type="hidden" value="" name='iD_x30' class="input_segui_id_x30">
                                     </form>
@@ -122,7 +119,7 @@ if($perfil == $_SESSION['username']) {
                     </div>
                 
                 <div class="posts--ara--perfil">
-                <div class="back--event" style="postion:fixed; top:auto;bottom:5%;">
+                <div class="back--event" style="position:fixed; top:auto;bottom:5%;">
                     <div class="event"></div>
                 </div>
                 <div class="post_clone" style="display: none;">
