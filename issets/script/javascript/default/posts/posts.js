@@ -244,3 +244,7 @@ async function posts() {
             }
         })
     }
+
+    function postsCurtidos_session() {
+        
+    }
