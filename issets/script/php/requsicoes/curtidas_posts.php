@@ -8,7 +8,7 @@
     $res_requ = mysqli_query($conexao, $sql_req);
     $assoc_user_req = mysqli_fetch_assoc($res_requ);
 
-    $sql_post_curtidos = "SELECT * FROM publicacoes WHERE publicacoes.id_publi IN (SELECT curtidas.id_postagem FROM curtidas WHERE curtidas.id_user_curti=".$assoc_user_req['id_user']." ORDER BY curtida_date ASC)";
+    $sql_post_curtidos = "SELECT * FROM publicacoes WHERE publicacoes.id_publi IN (SELECT curtidas.id_postagem FROM curtidas WHERE curtidas.id_user_curti=".$assoc_user_req['id_user']." ORDER BY curtida_date DESC)";
     $res_push = mysqli_query($conexao, $sql_post_curtidos);
     $array_push = mysqli_fetch_all($res_push, 1);
     

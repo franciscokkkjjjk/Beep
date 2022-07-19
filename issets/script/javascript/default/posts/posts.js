@@ -225,7 +225,7 @@ async function posts() {
             })
         },300)
     }
-    function desCurtir() {
+    function desCurtir(a) {
         qsAll('.p-xD29').forEach( (e)=>{
             let desCurtida = new FormData(e);
             e.onclick =  async function(a) {
@@ -246,7 +246,6 @@ async function posts() {
                 e.querySelector('button').classList.remove('img--curtida--on');
                 e.classList.add('p-xD30');
                 e.classList.remove('p-xD29');
-                
                 curtir_post();
                 setTimeout(()=>{
                     e.querySelector('button').classList.remove('p-evt-box');
