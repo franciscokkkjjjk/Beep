@@ -35,7 +35,7 @@
                             <a onclick="" class="img--opt-feed img--pag--solic menu--pag--opt--section">
                               Solicitar jogo
                             </a>
-                            <a href="<?= pagAtual('caminho');?>perfil.php" class="<?= pagAtual('perfil.php')?> img--opt-feed img--pag--perf menu--pag--opt--section">
+                            <a href="<?= pagAtual('caminho');?>perfil.php" class="<?= pagAtual('perfil.php').pagAtual('curtidas.php')?> img--opt-feed img--pag--perf menu--pag--opt--section">
                                 Perfil
                             </a>
                         </div>

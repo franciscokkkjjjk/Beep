@@ -39,7 +39,7 @@ function pagAtual($area) {
     $pagina_atual = basename($_SERVER['SCRIPT_NAME']);
     if($pagina_atual == $area) {
         return 'active--tem';
-    } elseif ($pagina_atual == 'seguindo.php' or $pagina_atual == 'seguidores.php' and $area == 'caminho') {
+    } elseif ($pagina_atual == 'seguindo.php' or $pagina_atual == 'seguidores.php'  and $area == 'caminho') {
         return '../';
     }
 }

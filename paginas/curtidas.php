@@ -94,13 +94,13 @@ $postagens = mysqli_fetch_all($res_posts,1);
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">
-                            <a class="button--opt--info active_menu_info">
+                            <a class="button--opt--info" href="perfil.php">
                                 Publicações
                             </a>
                             <a class="button--opt--info">
                                 Jogos do usuario                                
                             </a>
-                            <a class="button--opt--info" href="curtidas.php">
+                            <a class="button--opt--info active_menu_info">
                                 Curtidas  
                             </a>    
                             <a class="button--opt--info">
@@ -129,7 +129,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
         seguidores_session()
-        user_session()
+        
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
