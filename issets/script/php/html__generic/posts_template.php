@@ -36,7 +36,7 @@
                             <button class="curtir">
                                 Curtir
                             </button>
-                            <div class="post_curtidas">99999</div>
+                            <div class="post_curtidas area_num" ><div class="event min-event"></div></div>
                         </form>
                         <div class="comentar interacao--area">
                             comentar

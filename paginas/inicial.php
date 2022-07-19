@@ -94,6 +94,9 @@
     <script>
         posts();
         verficar_posts();
+        setInterval(()=>{
+            post_num_curtida();
+        }, 1500);
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>

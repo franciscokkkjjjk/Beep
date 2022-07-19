@@ -758,3 +758,11 @@ select option {
     justify-content: center;
     flex-direction: column;
 }
+.area_num {
+    display: flex;
+    justify-content: center;
+}
+.min-event {
+    width: 20px!important;
+    height: 20px!important;
+}

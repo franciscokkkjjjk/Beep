@@ -24,7 +24,9 @@ async function posts() {
                     body: curtida,
                 })
                 let res = await moio.json();
-                console.log(res);
+                let num_curtidas = e.querySelector('.area_num').innerHTML;
+                let convet = parseInt(num_curtidas)+1;
+                e.querySelector('.area_num').innerHTML = convet;
                 e.querySelector('button').classList.remove('img--iteracao-curtida');
                 e.querySelector('button').classList.add('img--iteracao-curtida-on');
                 e.querySelector('button').classList.add('img--iteracao-curtida-on')
@@ -82,7 +84,9 @@ async function posts() {
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
 
             }
+            post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['id_publi']);
             document.querySelector('.feed-body-post').append(post_body);
+
         }
         atual = parseInt(i) + 1;
         return;
@@ -235,7 +239,9 @@ async function posts() {
                     body: desCurtida,
                 })
                 let res_ = await moio_.json();
-                console.log(res_);
+                let num_curtidas = e.querySelector('.area_num').innerHTML;
+                let convet = parseInt(num_curtidas)-1;
+                e.querySelector('.area_num').innerHTML = convet;
                 e.querySelector('button').classList.add('img--iteracao-curtida');
                 e.querySelector('button').classList.add('img--iteracao-curtida-off');
                 e.querySelector('button').classList.add('img--iteracao-curtida-off')
@@ -316,6 +322,13 @@ async function posts() {
             });
         });
         }
-        async function post_num_curtida() {
-            
-        }
+        async function post_num_curtida(c_jso) {
+            let req_ = await fetch('../issets/script/php/requsicoes/posts.php');
+            let json_ = await req_.json(); 
+            for(let s in json_) {
+                document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+                
+            }
+         }
+                   // document.getElementById(c_jso[s]['id_publi']).innerHTML = c_jso[s]['num_curtidas'];
+
