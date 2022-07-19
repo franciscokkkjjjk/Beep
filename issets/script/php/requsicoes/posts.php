@@ -2,7 +2,7 @@
     session_start();
     require_once '../conecta.php';
     require_once '../function/funcoes.php';
-    
+
 
     $sql_posts = "SELECT * FROM publicacoes WHERE user_publi IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].") ORDER BY date_publi DESC ";
     $res_posts = mysqli_query($conexao,$sql_posts);

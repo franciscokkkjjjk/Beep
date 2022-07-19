@@ -266,7 +266,13 @@ async function posts() {
             curtida_req = await fetch(`../issets/script/php/requsicoes/curtidas_posts.php?username=`+username )
         }
         let jso_c = await curtida_req.json();
+        jso_c.reverse(); 
+        qsAll('.back--event').forEach((e)=>{e.remove()});
         console.log(jso_c);
+        criarPosts(jso_c);
+        curtir_post();
+        desCurtir();
+        viwimg();
     }
 
     function viwimg() {
