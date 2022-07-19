@@ -316,3 +316,6 @@ async function posts() {
             });
         });
         }
+        async function post_num_curtida() {
+            
+        }

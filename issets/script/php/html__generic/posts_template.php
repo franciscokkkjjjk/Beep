@@ -31,12 +31,12 @@
                         </div>                                        <!--deve ter oq o usuario publicou-->
                     </div>
                     <div class="interacao--post--area">
-                        <form class="event--curtida">
+                        <form class="event--curtida curtir--hover interac-button">
                             <input type="hidden" value="" name="p-xD30">
-                            <button class="curtir ">
-                                    Curtir
+                            <button class="curtir">
+                                Curtir
                             </button>
-                            </lable> 
+                            <div class="post_curtidas">99999</div>
                         </form>
                         <div class="comentar interacao--area">
                             comentar

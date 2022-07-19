@@ -743,3 +743,18 @@ select option {
     background-image: url(../../imgs/default/curtida-on.png);
     color: #53ffff;
 }
+.curtir--hover {
+    font-size: 14px;
+    color: #858585;
+    text-align: center;
+}
+.curtir--hover:hover {
+    cursor: pointer;
+    color: #53ffff;
+    transition: all linear 0.25s;
+}
+.interac-button {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
