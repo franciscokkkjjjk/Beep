@@ -165,6 +165,7 @@ async function posts() {
                 post_body.querySelector('.event--curtida').classList.add('p-xD30');
                 post_body.querySelector('.event--curtida').setAttribute('data-key', json_list[i]['id_publi'])
             }
+            post_body.querySelector('.post_curtidas').setAttribute('id', json_list[i]['id_publi']);
             qs('.feed-body-post').append(post_body);
         }
         console.log(json_list);
@@ -210,7 +211,6 @@ async function posts() {
         let user_s = await user_session.json();
         qs('.back--event').remove();
         user_creat(user_s.publicacoes, user_s);
-        console.log(user_s);
         curtir_post();
         desCurtir();
         seguidores_session();
@@ -322,13 +322,36 @@ async function posts() {
             });
         });
         }
-        async function post_num_curtida(c_jso) {
-            let req_ = await fetch('../issets/script/php/requsicoes/posts.php');
-            let json_ = await req_.json(); 
-            for(let s in json_) {
-                document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
-                
+         function post_num_curtida() {
+            setInterval(async ()=>{
+            let url_perfil = window.location.href.split('=');
+            let url_push_v = window.location.href.split('paginas/');
+            let req_;
+            let json_
+            if(url_push_v[1] == 'inicial.php') {    
+                 req_ = await fetch('../issets/script/php/requsicoes/posts.php');
+                 json_ = await req_.json(); 
+                 for(let s in json_) {
+                    document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+                }
+            } else {
+                if(url_push_v[1] == 'perfil.php') {
+                    req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
+                    json_ = await req_.json(); 
+                    for(let s in json_.publicacoes) {
+                        document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+                    }
+                } else {
+                    req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+url_perfil[1]);
+                    json_ = await req_.json(); 
+                    for(let s in json_.publicacoes) {
+                        document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+                    }
+                }
             }
+            
+            
+            }, 500);
          }
                    // document.getElementById(c_jso[s]['id_publi']).innerHTML = c_jso[s]['num_curtidas'];
 

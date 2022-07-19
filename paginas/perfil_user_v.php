@@ -122,7 +122,7 @@ if($perfil == $_SESSION['username']) {
                 <div class="back--event" style="position:fixed; top:auto;bottom:5%;">
                     <div class="event"></div>
                 </div>
-                <?php require_once '../issets/script/php/html__generic/posts_template.php';?>
+                    <?php require_once '../issets/script/php/html__generic/posts_template.php';?>
                 </div>
             </div>
             
@@ -136,6 +136,7 @@ if($perfil == $_SESSION['username']) {
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
         user_();
+        post_num_curtida()
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
