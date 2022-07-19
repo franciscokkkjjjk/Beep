@@ -12,6 +12,8 @@ const aP = function(e, a) {
 function creatFormEdit(){
     if(!creat) {
         creat = true;
+        let div03010102 = document.createElement('div');
+        div03010102.setAttribute('class', 'remove-imagem img--opt--menu');
         let form = document.createElement('form');
         let div = document.createElement('div');
         div.setAttribute('class', "menu--edit");
@@ -55,10 +57,15 @@ function creatFormEdit(){
         let div0301 = document.createElement('div');
         div0301.setAttribute('class','banner--perfil event--banner img--edit');
         if(img_banner == ''){
-
+            div03010102.style.display = 'none';
         } else{
             div0301.style.backgroundImage = 'url(../issets/imgs/profile/'+img_banner+')';
         }
+        let inputBool = document.createElement('input');
+        inputBool.setAttribute('type', 'hidden');
+        inputBool.value = false;
+        inputBool.setAttribute('name', 'remove_img');
+        inputBool.setAttribute('class', 'remove_img');
         let div030101 = document.createElement('div');
         div030101.setAttribute('class', 'opt--img');
         let div03010101 = dC('label');
@@ -71,20 +78,20 @@ function creatFormEdit(){
         div0301010102.setAttribute('id','input_file_banner');
         div0301010102.setAttribute('type','file');
 
-        let div03010102 = document.createElement('div');
-        div03010102.setAttribute('class', 'remove-imagem img--opt--menu');
+       
 
         aP(div03010101, div0301010101);
         aP(div03010101, div0301010102);
         div030101.appendChild(div03010101);
         div030101.appendChild(div03010102);
+        div030101.appendChild(inputBool);
         div0301.appendChild(div030101);
         div03.appendChild(div0301);
         div01.appendChild(div03);
 
         let div04 = dC('div');
         eS(div04, 'img_perfil');
-        if(img_banner == ''){
+        if(img_perfil == ''){
 
         } else{
         div04.style.backgroundImage = 'url(../issets/imgs/profile/'+img_perfil+')';
@@ -425,10 +432,16 @@ function creatFormEdit(){
             let img = e.files[0];
             console.log(img);
             let src = URL.createObjectURL(img);
+            div03010102.style.display = 'block';
+            document.querySelector('.remove_img').value = 'false';
             img_lugar.style.backgroundImage = "url("+src+")";
         });
     }
-
+    div03010102.addEventListener('click',  ()=>{
+        div03010102.style.display = 'none';
+        document.querySelector('.remove_img').value = 'true';
+        document.querySelector('.event--banner').style.backgroundImage = '';
+    }, true)
     showImg(qs('#input_file_perfil'), qs('.img_perfil'));
     showImg(qs('#input_file_banner'), qs('.event--banner'));
     qs('html').style.overflow = 'hidden';

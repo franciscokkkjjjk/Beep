@@ -70,6 +70,7 @@ if($date_coverti >= 13){
         $img_perfil = $_FILES['input_file_perfil']['name'];
         $img_diretorio_perfil = $diretorio . basename($_FILES["input_file_perfil"]["name"]);
         $perfil = 1;
+        
         if($img_perfil == '') {
             $nome_banco_perfil = $_SESSION['img'];
         } else {
@@ -91,19 +92,23 @@ if($date_coverti >= 13){
         $img_banner = $_FILES['input_file_banner']['name'];
         $img_diretorio_banner = $diretorio . basename($_FILES["input_file_banner"]["name"]);
         $banner = 1;
-        if($img_banner == '') {
+        $confi_remove = $_POST['remove_img'];
+        if($confi_remove == "true") {
+            $nome_banco_banner = null;
+        }
+        if($img_banner == '' and $confi_remove == "false") {
             $nome_banco_banner = $_SESSION['img_banner'];
         } else {
             unlink('../../imgs/profile/'.$_SESSION['img_banner']);
             $extensao = strtolower(pathinfo($img_diretorio_banner,PATHINFO_EXTENSION));
                 if($extensao != "jpg" && $extensao != "png" && $extensao != "jpeg"
-                && $extensao != "gif" && $extensao != "jfif") {
+                && $extensao != "gif" && $extensao != "jfif" and $confi_remove == "false") {
                     $_SESSION['error_img'] = "O upload só pode ser apenas jpg, png, jpeg, gif ou jfif";
                     $banner = 0;
                     header('location:../../../paginas/perfil.php');
                     die;
                 }
-            if($banner == 1) {
+            if($banner == 1 and $confi_remove == "false") {
                 $novo_nome_banner = uniqid().'.'.pathinfo($_FILES["input_file_banner"]["name"],PATHINFO_EXTENSION);
                 $nome_banco_banner = $novo_nome_banner;
                 move_uploaded_file($_FILES["input_file_banner"]["tmp_name"], $diretorio.$novo_nome_banner);
