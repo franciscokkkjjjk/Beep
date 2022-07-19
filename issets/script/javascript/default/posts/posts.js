@@ -165,6 +165,8 @@ async function posts() {
         qs('.bio').innerHTML = list_user.bio;
         qs('.nome--perfil').innerHTML = list_user.nome_user;
         qs('.data_nasc').innerHTML = list_user.data_nas;
+        qs('.seguidores--info').href= qs('.seguidores--info').href+list_user.user_id;
+        qs('.seguidor--info ').href= qs('.seguidor--info ').href+list_user.user_id;
         let button_segu = document.createElement('button');
         qs('.input_segui_id_x30').value = list_user.user_id;
         if(list_user.seguindo == true) {
@@ -246,5 +248,5 @@ async function posts() {
     }
 
     function postsCurtidos_session() {
-        
+
     }
