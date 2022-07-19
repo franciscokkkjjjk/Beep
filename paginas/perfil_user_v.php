@@ -137,7 +137,6 @@ if($perfil == $_SESSION['username']) {
     <script type="text/javascript">
         user_();
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/perfil_vist/perfil_users.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
@@ -157,15 +156,6 @@ if($perfil == $_SESSION['username']) {
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
-    </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
-    <script type="text/javascript">
-        document.querySelector('.button--seguindo').addEventListener('click', (e)=>{
-            e.preventDefault();
-            if(confirm('deseja mesmo parar de seguir esse usuário?')){
-                document.querySelector('.submit--form').submit();
-            }
-        }, true)
-    </script>            
+    </script>       
 </body>
 </html>

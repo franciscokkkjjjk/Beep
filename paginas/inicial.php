@@ -112,6 +112,5 @@
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
-    <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
-</body>
+    </body>
 </html>

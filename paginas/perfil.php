@@ -163,6 +163,5 @@ $postagens = mysqli_fetch_all($res_posts,1);
             }
         ?> 
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
-</body>
+    </body>
 </html>

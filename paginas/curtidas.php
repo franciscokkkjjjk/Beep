@@ -24,7 +24,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
     <link rel="stylesheet" href="../issets/style/generic/style.css">
     <link rel="stylesheet" href="../issets/style/feed/style.css">
     <link rel="stylesheet" href="../issets/style/toca/style.css">
-    <title><?= $_SESSION['nome']?> | Beep</title>
+    <title><?= $_SESSION['nome']?> (curtidas) | Beep</title>
     <style>
         <?php 
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
@@ -129,11 +129,9 @@ $postagens = mysqli_fetch_all($res_posts,1);
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
         seguidores_session()
-    
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
-    <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
     <script>
         const error_php = <?php if(isset($_SESSION['error_username'])) {echo $_SESSION['error_username'];} else {echo "''";} ?>;
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
@@ -163,6 +161,5 @@ $postagens = mysqli_fetch_all($res_posts,1);
             }
         ?> 
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/creat_modal_img.js"></script>
-</body>
+    </body>
 </html>

@@ -256,8 +256,17 @@ async function posts() {
         })
     }
 
-    function postsCurtidos_session() {
-
+    async function postsCurtidos_session() {
+        let url_push = window.location.href;
+        let value_url = url_push.split('=');
+        let curtida_req;
+        if(value_url.length == 2){
+            curtida_req = await fetch(`../issets/script/php/requsicoes/curtidas_posts.php?username=${value_url[1]}`);
+        } else {
+            curtida_req = await fetch(`../issets/script/php/requsicoes/curtidas_posts.php?username=`+username )
+        }
+        let jso_c = await curtida_req.json();
+        console.log(jso_c);
     }
 
     function viwimg() {
