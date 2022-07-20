@@ -766,3 +766,13 @@ select option {
     width: 20px!important;
     height: 20px!important;
 }
+.compartilhar-hover {
+    font-size: 14px;
+    color: #858585;
+}
+.compartilhar:hover {
+    color: #000;
+}
+.compartilhar-hover:hover {
+    color: #000 ;
+}

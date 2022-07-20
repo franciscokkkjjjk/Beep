@@ -3,7 +3,7 @@
     require_once '../conecta.php';
     require_once '../function/funcoes.php';
 
-    $sql_posts = "SELECT * FROM publicacoes WHERE user_publi IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].") ORDER BY date_publi DESC";
+    $sql_posts = "SELECT * FROM publicacoes WHERE publicacoes.user_publi IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin=8) AND publicacoes.type <> 1 ORDER BY publicacoes.date_publi DESC";
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
 
@@ -25,21 +25,24 @@
                 $user_curtiu = true;  
             } 
         }
-
-    $post[] = [
-        'user_id' => $post_segui['user_publi'],
-        'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
-        'username_user' => $array_s_perfil['username'],
-        'nome_user' => $array_s_perfil['nome'],
-        'id_publi' => $post_segui['id_publi'],
-        'text_post' => $post_segui['text_publi'],
-        'img_publi' => $post_segui['img_publi'],
-        'num_curtidas' => $post_segui['num_curtidas'],
-        'beepadas' => $post_segui['num_compartilha'],
-        'date_publi' => dateCalc($post_segui),
-        'num_comentario' => $post_segui['num_comentario'],
-        'user_curtiu' => $user_curtiu
-    ];
+        $post[] = [
+            'id_publi' => $post_segui['id_publi'],
+            'type' => $post_segui['type'],
+            'id_interacao' => $post_segui['id_publi_interagida'],
+            'text_post' => $post_segui['text_publi'],
+            'img_publi' => $post_segui['img_publi'],
+            'num_curtidas' => $post_segui['num_curtidas'],
+            'beepadas' => $post_segui['num_compartilha'],
+            'date_publi' => dateCalc($post_segui),
+            'num_comentario' => $post_segui['num_comentario'],
+            'user_curtiu' => $user_curtiu,
+            'user_info' => [
+                'user_id' => $post_segui['user_publi'],
+                'nome_user' => $array_s_perfil['nome'],
+                'username_user' => $array_s_perfil['username'],
+                'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+            ]
+        ];
     $sql_user_curtiram = "SELECT * FROM curtidas WHERE curtidas.id_postagem=".$post_segui['id_publi'];
     $res_user_curtiram =mysqli_query($conexao, $sql_user_curtiram);
     $array_users_curtiram = mysqli_fetch_all($res_user_curtiram, 1);

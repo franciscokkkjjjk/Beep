@@ -9,6 +9,7 @@ async function posts() {
     let posts = await fetch('../issets/script/php/requsicoes/posts.php');
     post_d =  await posts.json();
     load.style.display = 'none';
+    console.log(post_d);
     criarPosts(post_d);
     curtir_post();
     desCurtir();
@@ -60,10 +61,10 @@ async function posts() {
     function criarPosts(lista) {
         for(var i in lista) {
             let post_body = document.querySelector('.post--menu--area').cloneNode(true);
-            post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['img_user']);
-            post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['username_user']}`)
-            post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['nome_user'];
-            post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['username_user'];
+                post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
+                post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
+                post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
+                post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['user_info']['username_user'];
             post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
             post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
             if(lista[i]['img_publi'] == ""){
