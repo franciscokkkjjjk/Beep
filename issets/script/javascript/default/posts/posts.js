@@ -15,6 +15,7 @@ async function posts() {
     desCurtir();
     viwimg();
     show_CM();
+    qs('.event-direct').onclick = compartilhar;
     }
     function curtir_post() {
         qsAll('.p-xD30').forEach( (e)=>{
@@ -368,5 +369,12 @@ async function posts() {
         body: newF
     })
     let res = await compartilhar.json();
+    let modal = qs('.modal--shared');
+    modal.style.opacity = 0;
+        setTimeout(()=>{
+            modal.style = '';
+           qs('.modal-area').style.display = 'none';
+           modal.style.display = 'none';
+        })
     console.log(res);
  }

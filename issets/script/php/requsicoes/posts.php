@@ -15,45 +15,95 @@
     $res_curtidas = mysqli_query($conexao, $sql_curtidas);
     $arra_curtida = mysqli_fetch_all($res_curtidas, 1);
     $posi = 0;
+
     foreach($postagens as $post_segui) {
         $user_curtiu = false;
-        $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
-        $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
-        $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-        foreach($arra_curtida as $value_c) {
-            if($value_c['id_postagem'] == $post_segui['id_publi']) {
-                $user_curtiu = true;  
-            } 
-        }
-        $post[] = [
-            'id_publi' => $post_segui['id_publi'],
-            'type' => $post_segui['type'],
-            'id_interacao' => $post_segui['id_publi_interagida'],
-            'text_post' => $post_segui['text_publi'],
-            'img_publi' => $post_segui['img_publi'],
-            'num_curtidas' => $post_segui['num_curtidas'],
-            'beepadas' => $post_segui['num_compartilha'],
-            'date_publi' => dateCalc($post_segui),
-            'num_comentario' => $post_segui['num_comentario'],
-            'user_curtiu' => $user_curtiu,
-            'user_info' => [
-                'user_id' => $post_segui['user_publi'],
-                'nome_user' => $array_s_perfil['nome'],
-                'username_user' => $array_s_perfil['username'],
-                'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
-            ]
-        ];
-    $sql_user_curtiram = "SELECT * FROM curtidas WHERE curtidas.id_postagem=".$post_segui['id_publi'];
-    $res_user_curtiram =mysqli_query($conexao, $sql_user_curtiram);
-    $array_users_curtiram = mysqli_fetch_all($res_user_curtiram, 1);
-    foreach($array_users_curtiram as $value_U_C){    
-            $post[$posi]['users_curtiram'] = [
-                'id_user' => $value_U_C['id_user_curti'],
-                'hora_curtida' => $value_U_C['curtida_date']
+        if($post_segui['type'] == 2) {
+            foreach($arra_curtida as $value_c) {
+                if($value_c['id_postagem'] == $post_segui['id_publi']) {
+                    $user_curtiu = true;  
+                } 
+            }
+
+            $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi='.$post_segui['id_publi_interagida'];
+            $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
+            $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
+
+            $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$array_compartilhada['user_publi'];
+            $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
+            $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
+
+            $sql_s_compartilhador = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
+            $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
+            $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
+
+            $timeline[] = [
+                'id_publi' => $array_compartilhada['id_publi'],
+                'type' => $array_compartilhada['type'],
+                'id_interacao' => $array_compartilhada['id_publi_interagida'],
+                'text_post' => $array_compartilhada['text_publi'],
+                'img_publi' => $array_compartilhada['img_publi'],
+                'num_curtidas' => $post_segui['num_curtidas'],
+                'beepadas' => $post_segui['num_compartilha'],
+                'date_publi' => dateCalc($array_compartilhada),
+                'num_comentario' => $post_segui['num_comentario'],
+                'user_curtiu' => $user_curtiu,
+                'user_info' => [
+                    'user_id' => $array_compartilhada['user_publi'],
+                    'nome_user' => $array_s_perfil['nome'],
+                    'username_user' => $array_s_perfil['username'],
+                    'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+                ],
+                'compartilhador_info' => [
+                    'id_da_compartilhada' => $post_segui['id_publi'],
+                    'text_compartilhada' => $post_segui['text_publi'],
+                    'img_compartilhada' => $post_segui['img_publi'],
+                    'date_publi_compartilhada' => dateCalc($post_segui),
+                    'user_id' => $post_segui['user_publi'],
+                    'nome_user' => $array_s_compartilhador['nome'],
+                    'username_user' => $array_s_compartilhador['username'],
+                    'img_user' => perfilDefault($array_s_compartilhador['foto_perfil'], ''),
+                ]
             ];
-        }
+            } elseif ($post_segui['type'] == 3) {
+            $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
+            $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
+            $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
+            foreach($arra_curtida as $value_c) {
+                if($value_c['id_postagem'] == $post_segui['id_publi']) {
+                    $user_curtiu = true;  
+                } 
+            }
+            $timeline[] = [
+                'id_publi' => $post_segui['id_publi'],
+                'type' => $post_segui['type'],
+                'id_interacao' => $post_segui['id_publi_interagida'],
+                'text_post' => $post_segui['text_publi'],
+                'img_publi' => $post_segui['img_publi'],
+                'num_curtidas' => $post_segui['num_curtidas'],
+                'beepadas' => $post_segui['num_compartilha'],
+                'date_publi' => dateCalc($post_segui),
+                'num_comentario' => $post_segui['num_comentario'],
+                'user_curtiu' => $user_curtiu,
+                'user_info' => [
+                    'user_id' => $post_segui['user_publi'],
+                    'nome_user' => $array_s_perfil['nome'],
+                    'username_user' => $array_s_perfil['username'],
+                    'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+                ]
+            ];
+        $sql_user_curtiram = "SELECT * FROM curtidas WHERE curtidas.id_postagem=".$post_segui['id_publi'];
+        $res_user_curtiram =mysqli_query($conexao, $sql_user_curtiram);
+        $array_users_curtiram = mysqli_fetch_all($res_user_curtiram, 1);
+        foreach($array_users_curtiram as $value_U_C){    
+                $post[$posi]['users_curtiram'] = [
+                    'id_user' => $value_U_C['id_user_curti'],
+                    'hora_curtida' => $value_U_C['curtida_date']
+                ];
+            } 
+    }
     $posi++;
     }
 
-    echo json_encode($post);
+    echo json_encode($timeline);
 ?>

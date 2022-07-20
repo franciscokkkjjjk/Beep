@@ -30,7 +30,7 @@ function pegar_lemento(id) {
 }
 
 var mOpen = false;
-function show_CM() {
+function show_CM(function_) {
     if(mOpen == false) {
     qsAll('.compartilhar').forEach((e) => {
         e.addEventListener('click', (a)=>{
@@ -52,6 +52,7 @@ function show_CM() {
             qs('.modal--shared').style.left = cordenadasInput.right-216+'px';
             let id_dE = id.replace('c-xD30', '');
             qs('.modal--shared input').value = id_dE;
+            
        })        
     });
     qs('.modal--event ').addEventListener('click', ()=>{
