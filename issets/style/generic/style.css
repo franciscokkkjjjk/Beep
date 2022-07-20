@@ -771,8 +771,10 @@ select option {
     color: #858585;
 }
 .compartilhar:hover {
-    color: #000;
+    color: #FF6ED8;
+    transition: all linear 0.25s;
 }
 .compartilhar-hover:hover {
-    color: #000 ;
+    color: #FF6ED8;
+    transition: all linear 0.25s;
 }

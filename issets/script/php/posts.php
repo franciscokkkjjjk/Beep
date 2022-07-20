@@ -20,7 +20,7 @@
     date_default_timezone_set('America/Sao_Paulo');
     date_default_timezone_get();
     $data_publi = date('Y-m-d H:i:s');
-    $sql_post = "INSERT INTO publicacoes(user_publi, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",'$text_post','$novo_nome', 0, 0, '$data_publi', 0)";
+    $sql_post = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",3, NULL,'$text_post','$novo_nome', 0, 0, '$data_publi', 0)";
     $res_post = mysqli_query($conexao, $sql_post);
     if($res_post) {
         header('location:../../../paginas/inicial.php');

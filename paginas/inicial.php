@@ -116,3 +116,12 @@
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
     </body>
 </html>
+
+
+<!-- 
+function pegar_lemento() {
+    let but = document.getElementById('207')
+    let cor = but.getBoundingClientRect()
+    return cor
+}
+-->
