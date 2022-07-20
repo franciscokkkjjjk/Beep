@@ -48,7 +48,6 @@ async function posts() {
         let username_vist = window.location.href.split('=');
         let user_vist = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username_vist[1]);
         let user_v = await user_vist.json();
-        console.log(user_v);
         qsAll('.event').forEach((e)=>{e.remove()});
         qsAll('.back--event').forEach((e)=>{e.remove()});
         user_seguidores(user_v);
@@ -174,7 +173,6 @@ async function posts() {
             post_body.querySelector('.post_curtidas').setAttribute('id', json_list[i]['id_publi']);
             qs('.feed-body-post').append(post_body);
         }
-        console.log(json_list);
     }
     function user_seguidores(list_user) {
         document.querySelector('.banner--perfil').setAttribute('style', list_user.banner_pefil);
@@ -279,7 +277,6 @@ async function posts() {
         let jso_c = await curtida_req.json();
         jso_c.reverse(); 
         qsAll('.back--event').forEach((e)=>{e.remove()});
-        console.log(jso_c);
         criarPosts(jso_c);
         curtir_post();
         desCurtir();
@@ -354,10 +351,22 @@ async function posts() {
                         document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
                     }
                 }
-            }
-            
-            
+            } // document.getElementById(c_jso[s]['id_publi']).innerHTML = c_jso[s]['num_curtidas'];
             }, 500);
          }
-                   // document.getElementById(c_jso[s]['id_publi']).innerHTML = c_jso[s]['num_curtidas'];
-
+                  
+ async function compartilhar() {
+    let form_ = document.createElement('form');
+    let input_a = document.createElement('input');
+    input_a.setAttribute('name', 'direct');
+    input_a.setAttribute('value', qs('.event-direct').id);
+    form_.appendChild(input_a);
+    let newF = new FormData(form_);
+    
+    let compartilhar = await fetch('../issets/script/php/interacoes_post/compartilhar.php', {
+        method: 'POST',
+        body: newF
+    })
+    let res = await compartilhar.json();
+    console.log(res);
+ }
