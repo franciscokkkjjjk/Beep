@@ -38,6 +38,7 @@
 </head>
 <body> 
     <div class="feed-area">
+        
         <?php 
             require_once '../issets/script/php/html__generic/nav_menu.php';
         ?>
@@ -88,6 +89,7 @@
             require_once '../issets/script/php/html__generic/recomendado.php';
         ?>
     </div>
+    
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js">
     </script>
@@ -95,7 +97,6 @@
         posts();
         verficar_posts();
         post_num_curtida();
-
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>

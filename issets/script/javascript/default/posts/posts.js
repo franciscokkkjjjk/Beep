@@ -14,6 +14,7 @@ async function posts() {
     curtir_post();
     desCurtir();
     viwimg();
+    show_CM();
     }
     function curtir_post() {
         qsAll('.p-xD30').forEach( (e)=>{
@@ -84,6 +85,10 @@ async function posts() {
                 post_body.querySelector('.event--curtida').classList.add('p-xD30');
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
 
+            }// implementar o botão de já shared
+            post_body.querySelector('.compartilhar').id = lista[i]['id_publi']+'c-xD30';
+            if(lista[i]['compartilhou'] == 'true') {
+                
             }
             post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['id_publi']);
             document.querySelector('.feed-body-post').append(post_body);

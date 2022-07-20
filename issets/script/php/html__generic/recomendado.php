@@ -195,3 +195,17 @@
                 </div>
             </div>
         </div>
+        <div class="modal-area">
+                <div class="modal--event"></div>
+                <div class="modal--shared"><!--data key//id+c-xd30 -->
+                    <form class="form--shared">
+                        <input type="hidden" value="" name="c-xD30">
+                        <div class="modal--shared--opt">
+                            compartilhar
+                        </div>
+                    </form>
+                    <div class="modal--shared--opt">
+                        compartilhar com comentario
+                    </div>
+                </div>
+              </div>

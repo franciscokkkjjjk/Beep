@@ -41,13 +41,13 @@
                         <div class="comentar interacao--area">
                             comentar
                         </div>
-                        <form class="compartilhar compartilhar-hover interac-button  interac-button ">
-                                <input type="hidden" name="c-xD30" value="">
-                                <button class="compartilhar button--remove interacao--area">    
+                        <div  class="compartilhar compartilhar-hover interac-button  interac-button ">
+                                <button class="compartilhar compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off">    
                                     compartilhar
                                 </button>
-                                <div class="post_beepadas area_num" ><div class="event min-event"></div></div>  
-                        </form>
+                                <div class="post_compartilhadas area_num">9999</div>  
+                        </div>
                     </div>
                 </div>
               </div>
+              
