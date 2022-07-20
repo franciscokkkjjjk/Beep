@@ -39,8 +39,7 @@
 
             $timeline[] = [
                 'id_publi' => $array_compartilhada['id_publi'],
-                'type' => $array_compartilhada['type'],
-                'id_interacao' => $array_compartilhada['id_publi_interagida'],
+                'type' => $post_segui['type'],
                 'text_post' => $array_compartilhada['text_publi'],
                 'img_publi' => $array_compartilhada['img_publi'],
                 'num_curtidas' => $post_segui['num_curtidas'],
@@ -56,6 +55,7 @@
                 ],
                 'compartilhador_info' => [
                     'id_da_compartilhada' => $post_segui['id_publi'],
+                    'id_interacao' => $post_segui['id_publi_interagida'],
                     'text_compartilhada' => $post_segui['text_publi'],
                     'img_compartilhada' => $post_segui['img_publi'],
                     'date_publi_compartilhada' => dateCalc($post_segui),

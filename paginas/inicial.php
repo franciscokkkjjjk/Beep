@@ -94,8 +94,8 @@
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js">
     </script>
     <script>
-        //posts();
-        //verficar_posts();
+        posts();
+        verficar_posts();
         //post_num_curtida();
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
