@@ -878,6 +878,9 @@ background-position: center;
 .info-compartilhador a:hover {
     text-decoration: underline;
 }
+.compartilhar-event:hover {
+    color: #FF6ED8;
+}
 .descompartilhar:hover {
     color: #FF6ED8;
     transition: all linear 0.25s;

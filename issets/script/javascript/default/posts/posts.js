@@ -81,6 +81,7 @@ async function posts() {
                     post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
                 }//p-xD30
                 post_body.querySelector('.event--curtida input').value = lista[i]['id_publi'];
+                post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
                 if(lista[i]['user_curtiu']){
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi']);
                     post_body.querySelector('.event--curtida').classList.add('p-xD29');
@@ -116,6 +117,7 @@ async function posts() {
                 } else {
                     post_body.querySelector('.post--text_comp').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
                 }
+                post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
                 post_body.querySelector('.date--post-comp_').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
                 post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
                 post_body.querySelector('.perfil-link-comp').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
@@ -164,6 +166,7 @@ async function posts() {
                 post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
                 post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['user_info']['username_user'];
                 post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
+                post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
                 if(lista[i]['text_post'] == '' || lista[i]['text_post'] == null) {
                     post_body.querySelector('.post--text').style.display = 'none';
                 } else {
