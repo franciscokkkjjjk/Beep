@@ -61,38 +61,46 @@ async function posts() {
 
     function criarPosts(lista) {
         for(var i in lista) {
-            let post_body = document.querySelector('.post--menu--area').cloneNode(true);
+            
+            if(lista[i]['type'] == "3"){
+                let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
                 post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
                 post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
                 post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['user_info']['username_user'];
-            post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
-            post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
-            if(lista[i]['img_publi'] == ""){
-                
-            }else {
-                post_body.querySelector('.post--img-area').style.display = '';
-                post_body.querySelector('.post--img').style.display = 'block';
-                post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
-            }//p-xD30
-            post_body.querySelector('.event--curtida input').value = lista[i]['id_publi'];
-            if(lista[i]['user_curtiu']){
-                post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi']);
-                post_body.querySelector('.event--curtida').classList.add('p-xD29');
-                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
-            } else{
-                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
-                post_body.querySelector('.event--curtida').classList.add('p-xD30');
-                post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
+                post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
+                post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
+                if(lista[i]['img_publi'] == ""){
+                    
+                }else {
+                    post_body.querySelector('.post--img-area').style.display = '';
+                    post_body.querySelector('.post--img').style.display = 'block';
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
+                }//p-xD30
+                post_body.querySelector('.event--curtida input').value = lista[i]['id_publi'];
+                if(lista[i]['user_curtiu']){
+                    post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi']);
+                    post_body.querySelector('.event--curtida').classList.add('p-xD29');
+                    post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+                } else{
+                    post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
+                    post_body.querySelector('.event--curtida').classList.add('p-xD30');
+                    post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
 
-            }// implementar o botão de já shared
-            post_body.querySelector('.compartilhar').id = lista[i]['id_publi']+'c-xD30';
-            if(lista[i]['compartilhou'] == 'true') {
-                
+                }// implementar o botão de já shared
+                post_body.querySelector('.compartilhar').id = lista[i]['id_publi']+'c-xD30';
+                if(lista[i]['compartilhou'] == 'true') {
+                    
+                }
+                post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['id_publi']);
+                document.querySelector('.feed-body-post').append(post_body);
+            } else {
+                let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
+                post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
+                post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
+                post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
+
             }
-            post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['id_publi']);
-            document.querySelector('.feed-body-post').append(post_body);
-
         }
         atual = parseInt(i) + 1;
         return;

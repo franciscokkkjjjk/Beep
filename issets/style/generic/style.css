@@ -825,3 +825,43 @@ select option {
     width: 100%;
     height: 100%;
 }
+.area--post-com {
+    width: 84%;
+    margin: auto;
+    height: auto;
+    border: #3d3d3d solid 0.5px;
+    border-radius: 10px;
+}
+.post--comp {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+.name--name-perfil-comp {
+    font-size: 13px;
+}
+.name--username-perfil-comp {
+    font-size: 12px;
+    color: #a5a4a4;
+}
+.img--perfil-comp {
+width: 35px!important;
+height: 35px!important;
+margin-left: 12px;
+margin-right: 8px;
+border-radius: 100%;
+background-color: #ffffff;
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+}
+.date--post-comp {
+    font-size: 12px;
+}
+.post--img-area-com {
+    width: 100%;
+    height: 256px;
+}
