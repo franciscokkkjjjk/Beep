@@ -462,6 +462,19 @@ async function posts() {
                     } else {
                         let curtidaArea = document.getElementById(json_[s]['compartilhador_info']['id_da_compartilhada']);
                         curtidaArea.querySelector('.post_curtidas').innerHTML = json_[s]['num_curtidas'];
+                        if(json_[s]['user_curtiu']) {
+                            curtidaArea.querySelector('button').classList.remove();
+                            curtidaArea.classList.remove('p-xD30');
+                            curtidaArea.classList.add('p-xD29');
+                            curtidaArea.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+                            desCurtir();
+                        } else {
+                            curtidaArea.querySelector('button').classList.remove();
+                            curtidaArea.classList.remove('p-xD29');
+                            curtidaArea.classList.add('p-xD30');
+                            curtidaArea.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off');
+                            curtir_post();
+                        }
                     }
                 }
             } else {
