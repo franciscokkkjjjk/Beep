@@ -61,7 +61,6 @@ async function posts() {
 
     function criarPosts(lista) {
         for(var i in lista) {
-            
             if(lista[i]['type'] == "3"){
                 let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
@@ -69,7 +68,11 @@ async function posts() {
                 post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
                 post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['user_info']['username_user'];
                 post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
-                post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
+                if(lista[i]['text_post'] == '' || lista[i]['text_post'] == null) {
+                    post_body.querySelector('.post--text').style.display = 'none';
+                } else {
+                    post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
+                }
                 if(lista[i]['img_publi'] == ""){
                     
                 }else {
@@ -97,19 +100,43 @@ async function posts() {
             } else {
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
-                post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
-                post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
-                post_body.querySelector('.post--text').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
-                post_body.querySelector('.date--post').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
+                post_body.querySelector('.name--comp .perfil-link').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
+                post_body.querySelector('.name--name-perfil-comp_').innerHTML = lista[i]['compartilhador_info']['nome_user'];
+                post_body.querySelector('.name--username-perfil-comp_').innerHTML = lista[i]['compartilhador_info']['username_user'];
+                post_body.querySelector('.event--curtida-comp input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
+                if(lista[i]['compartilhador_info']['text_compartilhada'] == '' || lista[i]['compartilhador_info']['text_compartilhada'] == null){
+                    post_body.querySelector('.post--text_comp').style.display = 'none';
+                } else {
+                    post_body.querySelector('.post--text_comp').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
+                }
+                post_body.querySelector('.date--post-comp_').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
                 post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
-                post_body.querySelector('.perfil-link-comp').setAttribute('hreft', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
+                post_body.querySelector('.perfil-link-comp').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
                 post_body.querySelector('.name--name-perfil-comp').innerHTML = lista[i]['user_info']['nome_user'];
                 post_body.querySelector('.name--username-perfil-comp').innerHTML = lista[i]['user_info']['username_user'];
                 post_body.querySelector('.date--post-comp').innerHTML = lista[i]['date_publi'];
-        
-                post_body.query('.post--comp .post--text').innerHTML = lista[i]['text_post'];
-
-
+                if(lista[i]['text_post'] == "" || lista[i]['text_post'] == null){
+                    post_body.querySelector('.post--text--comp_2').style.display = 'none';
+               
+                } else {
+                    post_body.querySelector('.post--text--comp_2').innerHTML = lista[i]['text_post'];
+                }
+                if(lista[i]['img_publi'] == '' || lista[i]['img_publi'] == null) {} else {
+                    post_body.querySelector('.post--img-area-com').style.display= 'block';
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
+                }
+                if(lista[i]['user_curtiu']){
+                    post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada']);
+                    post_body.querySelector('.event--curtida').classList.add('p-xD29');
+                    post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+                } else{
+                    post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
+                    post_body.querySelector('.event--curtida').classList.add('p-xD30');
+                    post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
+                }
+                post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
+                post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
+                document.querySelector('.feed-body-post').append(post_body);
             }
         }
         atual = parseInt(i) + 1;
@@ -234,6 +261,7 @@ async function posts() {
         let user_s = await user_session.json();
         qs('.back--event').remove();
         user_creat(user_s.publicacoes, user_s);
+        criarPosts(lista)
         curtir_post();
         desCurtir();
         seguidores_session();
@@ -352,9 +380,13 @@ async function posts() {
             let json_
             if(url_push_v[1] == 'inicial.php') {    
                  req_ = await fetch('../issets/script/php/requsicoes/posts.php');
-                 json_ = await req_.json(); 
+                 json_ = await req_.json();
                  for(let s in json_) {
-                    document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+                    if(json_[s]['type'] == 3){
+                        document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+                    } else {
+                        document.getElementById(json_[s]['compartilhador_info']['id_da_compartilhada']).innerHTML = json_[s]['num_curtidas'];
+                    }
                 }
             } else {
                 if(url_push_v[1] == 'perfil.php') {
