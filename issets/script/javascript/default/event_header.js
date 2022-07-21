@@ -30,7 +30,7 @@ function pegar_lemento(id) {
 }
 
 var mOpen = false;
-function show_CM(function_) {
+function show_CM() {
     if(mOpen == false) {
     qsAll('.compartilhar').forEach((e) => {
         e.addEventListener('click', (a)=>{

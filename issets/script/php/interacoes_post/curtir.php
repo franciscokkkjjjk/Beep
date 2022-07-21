@@ -7,6 +7,12 @@
         $error = false;
     }   
     if(isset($_POST['p-xD30'])) {
+        $sql_type_post = 'SELECT * FROM publicacoes WHERE id_publi='.$_POST['p-xD30'];
+        $res_type_post = mysqli_query($conexao, $sql_type_post);
+        $arra_type_post = mysqli_fetch_assoc($res_type_post);
+        if($arra_type_post['type'] == '4') {
+            $post_curtido = $arra_type_post['id_publi_interagida'];
+        }
         date_default_timezone_set('America/Sao_Paulo');
         date_default_timezone_get();
         $data_publi = date('Y-m-d H:i:s');

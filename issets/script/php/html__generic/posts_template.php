@@ -1,7 +1,7 @@
 <div class="post_clone type_1" style="display: none;">
                 <div class="post--menu--area" >
-                <div class="info-compartilhador">
-                    Repostado por <a href='' class="user_respost">miranda burrão</a>
+                <div class="info-compartilhador" style="display: none;">
+                    Repostado por <a href='' class="user_respost"><div class="event min-event"></div></a>
                 </div>
                     <div class="header--post--area">
                         <div class="post--area--perfil">
@@ -45,8 +45,8 @@
                         <div class="comentar interacao--area">
                             comentar
                         </div>
-                        <div  class="compartilhar compartilhar-hover interac-button  interac-button ">
-                        <button class="compartilhar compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off">    
+                        <div  class=" compartilhar-hover compartilhar-event-div interac-button  interac-button ">
+                        <button class=" compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
                             compartilhar
                         </button>
                     <div class="post_compartilhadas area_num">9999</div>  
@@ -128,8 +128,8 @@
                         <div class="comentar interacao--area">
                             comentar
                         </div>
-                        <div  class="compartilhar compartilhar-hover interac-button  interac-button ">
-                        <button class="compartilhar compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off">    
+                        <div  class="compartilhar-hover compartilhar-event-div interac-button  interac-button ">
+                        <button class="compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
                             compartilhar
                         </button>
                     <div class="post_compartilhadas area_num">9999</div>  

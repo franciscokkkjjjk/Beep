@@ -91,11 +91,16 @@ async function posts() {
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
 
                 }// implementar o botão de já shared
-                post_body.querySelector('.compartilhar').id = lista[i]['id_publi']+'c-xD30';
-                if(lista[i]['compartilhou'] == 'true') {
-                    
+                if(lista[i]['user_compartilhou']) {
+                    post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
+                    post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
+                    post_body.querySelector('.descompartilhar').id = lista[i]['id_publi']+'c-xD30';
+                } else {
+                    post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-off')
+                    post_body.querySelector('.compartilhar-event-div').classList.add('compartilhar')
+                    post_body.querySelector('.compartilhar').id = lista[i]['id_publi']+'c-xD30';
                 }
-                post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['id_publi']);
+                post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
                 document.querySelector('.feed-body-post').append(post_body);
 
             } else if (lista[i]['type'] == "2") {
@@ -136,11 +141,24 @@ async function posts() {
                     post_body.querySelector('.event--curtida').classList.add('p-xD30');
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
                 }
-                post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
-                post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
+                if(lista[i]['user_compartilhou']) {
+                    post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
+                    post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
+                    post_body.querySelector('.descompartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
+                } else {
+                    post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-off');
+                    post_body.querySelector('.compartilhar-event-div').classList.add('compartilhar');
+                    post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
+                }
+                post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
                 document.querySelector('.feed-body-post').append(post_body);
+
             } else if (lista[i]['type'] == "4") {
                 let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
+                post_body.querySelector('.event').remove();
+                post_body.querySelector('.info-compartilhador').style.display = '';
+                post_body.querySelector('.user_respost').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
+                post_body.querySelector('.user_respost').innerHTML = `${lista[i]['compartilhador_info']['nome_user']}(${lista[i]['compartilhador_info']['username_user']})`;
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
                 post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
                 post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
@@ -169,11 +187,16 @@ async function posts() {
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
 
                 }// implementar o botão de já shared
-                post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
-                if(lista[i]['compartilhou'] == 'true') {
-                    
+                if(lista[i]['user_compartilhou']) {
+                    post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
+                    post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
+                    post_body.querySelector('.descompartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
+                } else {
+                    post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-off')
+                    post_body.querySelector('.compartilhar-event-div').classList.add('compartilhar')
+                    post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
                 }
-                post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
+                post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
                 document.querySelector('.feed-body-post').append(post_body);
             }
         }
@@ -421,9 +444,24 @@ async function posts() {
                  json_ = await req_.json();
                  for(let s in json_) {
                     if(json_[s]['type'] == 3){
-                        document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+                        let curtidaArea = document.getElementById(json_[s]['id_publi']);
+                        curtidaArea.querySelector('.post_curtidas').innerHTML = json_[s]['num_curtidas'];
+                        if(json_[s]['user_curtiu']) {
+                            curtidaArea.querySelector('button').classList.remove();
+                            curtidaArea.classList.remove('p-xD30');
+                            curtidaArea.classList.add('p-xD29');
+                            curtidaArea.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+                            desCurtir();
+                        } else {
+                            curtidaArea.querySelector('button').classList.remove();
+                            curtidaArea.classList.remove('p-xD29');
+                            curtidaArea.classList.add('p-xD30');
+                            curtidaArea.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off');
+                            curtir_post();
+                        }
                     } else {
-                        document.getElementById(json_[s]['compartilhador_info']['id_da_compartilhada']).innerHTML = json_[s]['num_curtidas'];
+                        let curtidaArea = document.getElementById(json_[s]['compartilhador_info']['id_da_compartilhada']);
+                        curtidaArea.querySelector('.post_curtidas').innerHTML = json_[s]['num_curtidas'];
                     }
                 }
             } else {
