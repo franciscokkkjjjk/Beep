@@ -99,6 +99,16 @@ async function posts() {
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
                 post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
                 post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
+                post_body.querySelector('.post--text').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
+                post_body.querySelector('.date--post').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
+                post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
+                post_body.querySelector('.perfil-link-comp').setAttribute('hreft', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
+                post_body.querySelector('.name--name-perfil-comp').innerHTML = lista[i]['user_info']['nome_user'];
+                post_body.querySelector('.name--username-perfil-comp').innerHTML = lista[i]['user_info']['username_user'];
+                post_body.querySelector('.date--post-comp').innerHTML = lista[i]['date_publi'];
+        
+                post_body.query('.post--comp .post--text').innerHTML = lista[i]['text_post'];
+
 
             }
         }

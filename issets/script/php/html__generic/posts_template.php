@@ -86,7 +86,7 @@
                                             <div class="img--perfil-comp menu--pag--img--area">
                                             </div>
                                             <div class="name--area">        
-                                                    <a class="perfil-link" href="">        
+                                                    <a class="perfil-link perfil-link-comp" href="">        
                                                     <div class="name--name-perfil-comp perfil-link-hover">
                                                         miranda_pederas
                                                     </div>
