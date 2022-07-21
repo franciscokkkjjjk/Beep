@@ -97,7 +97,9 @@ async function posts() {
                 }
                 post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['id_publi']);
                 document.querySelector('.feed-body-post').append(post_body);
-            } else {
+
+            } else if (lista[i]['type'] == "2") {
+
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
                 post_body.querySelector('.name--comp .perfil-link').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
@@ -135,6 +137,42 @@ async function posts() {
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
                 }
                 post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
+                post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
+                document.querySelector('.feed-body-post').append(post_body);
+            } else if (lista[i]['type'] == "4") {
+                let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
+                post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
+                post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
+                post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
+                post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['user_info']['username_user'];
+                post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
+                if(lista[i]['text_post'] == '' || lista[i]['text_post'] == null) {
+                    post_body.querySelector('.post--text').style.display = 'none';
+                } else {
+                    post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
+                }
+                if(lista[i]['img_publi'] == ""){
+                    
+                }else {
+                    post_body.querySelector('.post--img-area').style.display = '';
+                    post_body.querySelector('.post--img').style.display = 'block';
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
+                }//p-xD30
+                post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
+                if(lista[i]['user_curtiu']){
+                    post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada']);
+                    post_body.querySelector('.event--curtida').classList.add('p-xD29');
+                    post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+                } else{
+                    post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
+                    post_body.querySelector('.event--curtida').classList.add('p-xD30');
+                    post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
+
+                }// implementar o botão de já shared
+                post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
+                if(lista[i]['compartilhou'] == 'true') {
+                    
+                }
                 post_body.querySelector('.post_curtidas').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
                 document.querySelector('.feed-body-post').append(post_body);
             }

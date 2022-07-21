@@ -1,5 +1,8 @@
 <div class="post_clone type_1" style="display: none;">
                 <div class="post--menu--area" >
+                <div class="info-compartilhador">
+                    Repostado por <a href='' class="user_respost">miranda burrão</a>
+                </div>
                     <div class="header--post--area">
                         <div class="post--area--perfil">
                             <div class="img--perfil menu--pag--img--area">
@@ -49,6 +52,7 @@
                     <div class="post_compartilhadas area_num">9999</div>  
                 </div>
             </div>
+            
         </div>
 </div>
 <div class="post_clone type_2" style="display:none;">
