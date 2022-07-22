@@ -23,7 +23,25 @@
                   ];
                   echo json_encode($descompatilha);
                }
+            } else {
+               $descompatilha = [
+                  'moio' => false,
+                  'error' => 'erro no deletar'
+               ];
+               echo json_encode($descompatilha);
             }
+         }else {
+            $descompatilha = [
+               'moio' => false,
+               'error' => 'erro no tipo'
+            ];
+            echo json_encode($descompatilha);
          }
-     }
+     } else {
+      $descompatilha = [
+         'moio' => false,
+         'error' => 'seu tareco não existe'
+      ];
+      echo json_encode($descompatilha);
+   }
 ?>
