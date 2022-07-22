@@ -91,9 +91,10 @@ async function posts() {
                     post_body.querySelector('.event--curtida').classList.add('p-xD30');
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
 
-                }// implementar o botão de já shared
+                }
                 if(lista[i]['user_compartilhou']) {
                     post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
+                    post_body.querySelector('.compartilhar-event-div').classList.add('descompartilhar-event');
                     post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
                     post_body.querySelector('.descompartilhar').id = lista[i]['id_publi']+'c-xD30';
                 } else {
@@ -146,6 +147,7 @@ async function posts() {
                 if(lista[i]['user_compartilhou']) {
                     post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
                     post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
+                    post_body.querySelector('.compartilhar-event-div').classList.add('descompartilhar-event');
                     post_body.querySelector('.descompartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
                 } else {
                     post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-off');
@@ -189,10 +191,11 @@ async function posts() {
                     post_body.querySelector('.event--curtida').classList.add('p-xD30');
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
 
-                }// implementar o botão de já shared
+                }
                 if(lista[i]['user_compartilhou']) {
                     post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
                     post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
+                    post_body.querySelector('.compartilhar-event-div').classList.add('descompartilhar-event');
                     post_body.querySelector('.descompartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
                 } else {
                     post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-off')
@@ -520,3 +523,19 @@ async function posts() {
         })
     console.log(res);
  }
+async function descompartilhar() {
+    qsAll('.descompartilhar-event').forEach((e)=>{
+        e.onclick = function () {
+        let form_ = document.createElement('form');
+        let input_a = document.createElement('input');
+        input_a.setAttribute('name', 'direct');
+        let id_button = e.querySelector('button').id.replace('c-xD30', '');
+        input_a.setAttribute('value', id_button);
+        form_.appendChild(input_a);
+        let value_pomisse = new FormData(form_);
+        let primisse = fetch('../issets/script/php/interacoes_post/',[
+
+        ])
+    }
+})
+}
