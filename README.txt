@@ -1,1 +1,16 @@
-Os arquivos .sql que existem na pasta "banco de dados" são apenas tabelas, então é necessario criar uma base de dados com o nome Beep. 
+----------- problemas conhecidos-------------------------------
+
+-compartilhar type 4 não compartilha o post raiz
+-timeline não ta muito dinamica
+-json dos perfil não estão coerentes com o da timeline, isso resulta em um má funcionamento do criarPosts()
+-não reconhece anos bissextos e anos comuns
+
+------------------------- implementações -----------------------
+
+-deixar o user editar a data de nascimento apenas uma vez
+-repostagem com comentario
+-uma area para aparecer novos post quando o scrollTop estiver em 0
+-uma area para abrir as postagens 
+
+---------------------------------futuros-------------------------
+-filtração dos posts pela classificação etaria dos jogos

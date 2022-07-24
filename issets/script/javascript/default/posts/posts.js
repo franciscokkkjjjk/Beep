@@ -411,7 +411,7 @@ async function posts() {
         desCurtir();
         viwimg();
     }
-
+    let openIMG = false;
     function viwimg() {
         qsAll('.post--img').forEach(e => {
             e.addEventListener('click', ()=>{
@@ -448,9 +448,8 @@ async function posts() {
                     qs('html').style.overflow = '';
                     return true;
                 }
-                
-                qs('.exit_event').addEventListener('click',exit_img,true);
-                qs('.menu--exit-img-area').addEventListener('click',exit_img,true);
+                event_exit.addEventListener('click', exit_img,true);
+                div03.addEventListener('click', exit_img,true);
             });
         });
         }
@@ -610,6 +609,5 @@ function post_num_compartilhamento() {
             }
         }
     } 
-    viwimg();
     }, 500);
  }
