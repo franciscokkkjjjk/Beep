@@ -19,12 +19,14 @@ function input_ac(e, a) {
 }
 
 function input_ac_selec(e, a) {
+    if(e != null) {
     e.addEventListener('focus', ()=>{
         a.classList.add('color--select');//color--select
    })
     e.addEventListener('blur', ()=>{
         a.classList.remove('color--select');
    })
+}
    return;
 }
 input_ac_selec(qs('#mes'), qs('#label-mes'));
