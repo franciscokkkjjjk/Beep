@@ -19,27 +19,28 @@
                $res_updt_interagida = mysqli_query($conexao, $updt_interagida);
                if($res_updt_interagida) {
                   $descompatilha = [
-                     'moio' => false
+                     'moio' => false,
+                     'id_descompartilhada' => $publi_des
                   ];
                   echo json_encode($descompatilha);
                }
             } else {
                $descompatilha = [
-                  'moio' => false,
+                  'moio' => true,
                   'error' => 'erro no deletar'
                ];
                echo json_encode($descompatilha);
             }
-         }else {
+         }else {//acrescentar quando o user descompartilhar pela publi raiz
             $descompatilha = [
-               'moio' => false,
+               'moio' => true,
                'error' => 'erro no tipo'
             ];
             echo json_encode($descompatilha);
          }
      } else {
       $descompatilha = [
-         'moio' => false,
+         'moio' => true,
          'error' => 'seu tareco não existe'
       ];
       echo json_encode($descompatilha);

@@ -63,7 +63,7 @@ async function posts() {
 
     function criarPosts(lista) {
         for(var i in lista) {
-            if(lista[i]['type'] == "3"){
+            if(lista[i]['type'] == "3"){//postagem normal
                 let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
                 post_body.id = lista[i]['id_publi']+'pt-xD30';
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
@@ -108,7 +108,7 @@ async function posts() {
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
                 document.querySelector('.feed-body-post').append(post_body);
 
-            } else if (lista[i]['type'] == "2") {
+            } else if (lista[i]['type'] == "2") {//repostagem com comentario 
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
                 post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada']+'pt-xD30';
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
@@ -160,7 +160,7 @@ async function posts() {
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
                 document.querySelector('.feed-body-post').append(post_body);
 
-            } else if (lista[i]['type'] == "4") {//
+            } else if (lista[i]['type'] == "4") {//compartilhamneto direto 
                 let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
                 post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada']+'pt-xD30';
                 post_body.querySelector('.event').remove();
@@ -327,7 +327,7 @@ async function posts() {
         },300)
     }
 
-    async function user_session() {
+    async function user_session() {//adaptar para parece com os da timeline
         let user_session = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
         let user_s = await user_session.json();
         qs('.back--event').remove();
@@ -383,7 +383,7 @@ async function posts() {
         })
     }
 
-    async function postsCurtidos_session() {
+    async function postsCurtidos_session() {//mesma coisa da session
         let url_push = window.location.href;
         let value_url = url_push.split('=');
         let curtida_req;
@@ -547,6 +547,9 @@ function descompartilhar() {
                 body: value_pomisse
             });
             let resposta = await promisse.json();
+            console.log(resposta);
+            document.getElementById(resposta.id_descompartilhada+'pt-xD30').remove();
+
         }
 })
 }
@@ -559,6 +562,7 @@ function post_num_compartilhamento() {
         let prom = await fetch('../issets/script/php/requsicoes/posts.php');
         let res_pom = await prom.json();
          for(let l in res_pom) {
+
             if(res_pom[l]['type'] == 3){
                 let repostArea = document.getElementById(res_pom[l]['id_publi']+'c-xD30');
                 repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
@@ -576,6 +580,7 @@ function post_num_compartilhamento() {
                 }
             } else {
                 let repostArea = document.getElementById(res_pom[l]['compartilhador_info']['id_da_compartilhada']+'c-xD30');
+                if(repostArea != undefined) {
                 repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
                 if(res_pom[l]['user_compartilhou']) {
                     repostArea.classList.remove();
@@ -590,6 +595,7 @@ function post_num_compartilhamento() {
                     repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
 
                 }
+            }
             }
         }
     } 
