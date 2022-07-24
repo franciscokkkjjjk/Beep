@@ -64,7 +64,7 @@
                                 <div class="img--post">
                                 </div>
                             </div>
-                            <button class="button--post--form" type="submit">Postar</button>     <!-- post direto parecido com o que tem no facebook e no twitter(rever)-->
+                            <button class="button--post--form" type="submit">Postar</button>    
                             <input type="hidden" value="" class='form--event--diviput' name="post_text">
                         </div>
                         <div class="area--form02">
@@ -113,15 +113,8 @@
     </script>
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js"></script>
+    <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
+    </script>
+     
     </body>
 </html>
-
-
-<!-- 
-function pegar_lemento() {
-    let but = document.getElementById('207')
-    let cor = but.getBoundingClientRect()
-    return cor
-}
--->
