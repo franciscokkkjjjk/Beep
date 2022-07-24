@@ -3,7 +3,7 @@
     require_once '../conecta.php';
     require_once '../function/funcoes.php';
 
-    $sql_posts = "SELECT * FROM publicacoes WHERE publicacoes.user_publi IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin=8) AND publicacoes.type <> 1 ORDER BY publicacoes.date_publi DESC";
+    $sql_posts = "SELECT * FROM publicacoes WHERE publicacoes.user_publi IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin=".$_SESSION['id_user'].") AND publicacoes.type <> 1 ORDER BY publicacoes.date_publi DESC";
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
 
@@ -174,6 +174,10 @@
     }
     $posi++;
     }
-
+    if($postagens == null) {
+        $timeline = [
+            'nada' => 'nada por aqui'
+        ];
+    }
     echo json_encode($timeline);
 ?>

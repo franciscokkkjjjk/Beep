@@ -10,13 +10,24 @@ async function posts() {
     post_d =  await posts.json();
     load.style.display = 'none';
     console.log(post_d);
-    criarPosts(post_d);
-    curtir_post();
-    desCurtir();
-    viwimg();
-    show_CM();
-    descompartilhar();
-    qs('.event-direct').onclick = compartilhar;
+    if(post_d.nada == undefined) {
+        criarPosts(post_d);
+        curtir_post();
+        desCurtir();
+        viwimg();
+        show_CM();
+        descompartilhar();
+        qs('.event-direct').onclick = compartilhar;
+        setInterval( ()=>{
+            post_num_curtida();
+        }, 500);
+        post_num_compartilhamento();
+    } else {
+        let nada = document.createElement('div');
+        nada.classList.add('nada');
+        nada.innerHTML = 'Por enquanto não há nada por aqui. :(';
+        qs('.feed-body-post').appendChild(nada);
+    }
     
     }
     function curtir_post() {

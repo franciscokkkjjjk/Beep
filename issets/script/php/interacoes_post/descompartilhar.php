@@ -32,11 +32,9 @@
                echo json_encode($descompatilha);
             }
          }else {//acrescentar quando o user descompartilhar pela publi raiz
-            $descompatilha = [
-               'moio' => true,
-               'error' => 'erro no tipo'
-            ];
-            echo json_encode($descompatilha);
+            $sql_post_des = 'SELECT * FROM publicacoes WHERE user_publi='.$_SESSION['id_user'].' AND id_publi_interagida='.$publi_des;
+            $res_post_des = mysqli_query($conexao, $sql_post_des);
+            $assoc_post_des = mysqli_fetch_assoc($res_post_des);
          }
      } else {
       $descompatilha = [

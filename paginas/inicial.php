@@ -96,10 +96,6 @@
     <script>
         posts();
         verficar_posts();
-        setInterval( ()=>{
-            post_num_curtida();
-        }, 500);
-        post_num_compartilhamento();
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>

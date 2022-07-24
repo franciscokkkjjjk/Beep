@@ -885,3 +885,10 @@ background-position: center;
     color: #FF6ED8;
     transition: all linear 0.25s;
 }
+.nada {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    color: #727272;
+
+}
