@@ -160,7 +160,7 @@ async function posts() {
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
                 document.querySelector('.feed-body-post').append(post_body);
 
-            } else if (lista[i]['type'] == "4") {
+            } else if (lista[i]['type'] == "4") {//
                 let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
                 post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada']+'pt-xD30';
                 post_body.querySelector('.event').remove();

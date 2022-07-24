@@ -53,7 +53,7 @@
                 </div>
                 <div class="text--beep">
                     <p>
-                    Com beep você pode se divertir com seus amigos, e conhecer pessoas novas. Além de ampliar sua perspectiva sobre jogos.
+                    Com a beep você pode se divertir com seus amigos, e conhecer pessoas novas. Além de ampliar sua perspectiva sobre jogos.
                     </p>
                 </div>
             </div>
