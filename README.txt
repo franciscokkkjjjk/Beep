@@ -3,7 +3,7 @@
 -timeline não ta muito dinamica
 -não reconhece anos bissextos e anos comuns
 -só gera perfils que já tenham postagens kkkk pqp 
-
+-a pag de curtidas deve ser adaptada para o novo padrão
 
 -------------------ideias---------------------------------------
 --no json de pefils criar a posição 0 e 1

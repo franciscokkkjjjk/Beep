@@ -18,6 +18,10 @@
     $array_all_compartilhada = mysqli_fetch_all($res_all_compartilhada, 1);
     $posi = 0;
 
+    $sql_s_perfil = "SELECT * FROM users WHERE username='$perfil'";
+    $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
+    $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
+
     $sql_seguir = 'SELECT * FROM seguidores WHERE user_seguin='.$_SESSION['id_user'];
     $res_seguir = mysqli_query($conexao, $sql_seguir);
     $array_seguidor = mysqli_fetch_all($res_seguir, 1);
@@ -53,15 +57,11 @@
             $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
             $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
 
-            $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$array_compartilhada['user_publi'];
-            $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
-            $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-
             $sql_s_compartilhador = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
             $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
             $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
 
-            $perfil_visit[] = [
+            $perfil_visit['publi'][] = [
                 'id_publi' => $array_compartilhada['id_publi'],
                 'type' => $post_segui['type'],
                 'text_post' => $array_compartilhada['text_publi'],
@@ -72,12 +72,6 @@
                 'num_comentario' => $post_segui['num_comentario'],
                 'user_curtiu' => $user_curtiu,
                 'user_compartilhou'=> $user_compartilhou,
-                'user_info' => [
-                    'user_id' => $array_compartilhada['user_publi'],
-                    'nome_user' => $array_s_perfil['nome'],
-                    'username_user' => $array_s_perfil['username'],
-                    'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
-                ],
                 'compartilhador_info' => [
                     'id_da_compartilhada' => $post_segui['id_publi'],
                     'id_interacao' => $post_segui['id_publi_interagida'],
@@ -88,6 +82,12 @@
                     'nome_user' => $array_s_compartilhador['nome'],
                     'username_user' => $array_s_compartilhador['username'],
                     'img_user' => perfilDefault($array_s_compartilhador['foto_perfil'], ''),
+                ],
+                'user_info' => [
+                    'user_id' => $array_s_perfil['id_user'],
+                    'nome_user' => $array_s_perfil['nome'],
+                    'username_user' => $array_s_perfil['username'],
+                    'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
                 ]
             ];
             } elseif ($post_segui['type'] == 3) {
@@ -99,16 +99,12 @@
                     $user_compartilhou = true;
                 }
 
-            $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
-            $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
-            $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-
             foreach($arra_curtida as $value_c) {
                 if($value_c['id_postagem'] == $post_segui['id_publi']) {
                     $user_curtiu = true;  
                 } 
             }
-            $perfil_visit[] = [
+            $perfil_visit['publi'][] = [
                 'id_publi' => $post_segui['id_publi'],
                 'type' => $post_segui['type'],
                 'id_interacao' => $post_segui['id_publi_interagida'],
@@ -121,13 +117,10 @@
                 'user_curtiu' => $user_curtiu,
                 'user_compartilhou'=> $user_compartilhou,
                 'user_info' => [
-                    'user_id' => $post_segui['user_publi'],
+                    'user_id' => $array_s_perfil['id_user'],
                     'nome_user' => $array_s_perfil['nome'],
                     'username_user' => $array_s_perfil['username'],
                     'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
-                    'bio' => $array_s_perfil['bio'],
-                    'data_nas' => date('d/m/Y', strtotime($array_s_perfil['data_nas'])),
-                    'banner_perfil' => $array_s_perfil['banner_pefil']
                 ]
             ];
         $sql_user_curtiram = "SELECT * FROM curtidas WHERE curtidas.id_postagem=".$post_segui['id_publi'];
@@ -158,15 +151,11 @@
             }
 
 
-            $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$array_compartilhada['user_publi'];
-            $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
-            $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-
             $sql_s_compartilhador = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
             $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
             $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
                 
-            $perfil_visit[] = [
+            $perfil_visit['publi'][] = [
                 'id_publi' => $array_compartilhada['id_publi'],
                 'type' => $post_segui['type'],
                 'text_post' => $array_compartilhada['text_publi'],
@@ -178,13 +167,10 @@
                 'user_curtiu' => $user_curtiu,
                 'user_compartilhou'=> $user_comp,
                 'user_info' => [
-                    'user_id' => $array_compartilhada['user_publi'],
+                    'user_id' => $array_s_perfil['id_user'],
                     'nome_user' => $array_s_perfil['nome'],
                     'username_user' => $array_s_perfil['username'],
                     'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
-                    'bio' => $array_s_perfil['bio'],
-                    'data_nas' => date('d/m/Y', strtotime($array_s_perfil['data_nas'])),
-                    'banner_perfil' => $array_s_perfil['banner_pefil']
                 ],
                 'compartilhador_info' => [
                     'id_da_compartilhada' => $post_segui['id_publi'],
@@ -200,9 +186,21 @@
     $posi++;
     }
     if($postagens == null) {
-        $perfil = [
+        $perfil_visit['publi'][] = [
             'nada' => 'nada por aqui'
         ];
     }
+    $perfil_visit['user'] = [
+            'user_id' => $array_s_perfil['id_user'],
+            'nome_user' => $array_s_perfil['nome'],
+            'username_user' => $array_s_perfil['username'],
+            'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+            'bio' => $array_s_perfil['bio'],
+            'data_nas' => date('d/m/Y', strtotime($array_s_perfil['data_nas'])),
+            'banner_perfil' => $array_s_perfil['banner_pefil'],
+            't_seguindo' => $array_s_perfil['t_seguindo'],
+            't_seguidores' => $array_s_perfil['t_seguidores']
+    ];
+
     echo json_encode($perfil_visit);
 ?>

@@ -318,7 +318,8 @@ async function posts() {
         let user_session = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
         let user_s = await user_session.json();
         qs('.back--event').remove();
-        criarPosts(user_s)
+        console.log(user_s)
+        criarPosts(user_s.publi)
         curtir_post();
         desCurtir();
         viwimg();
@@ -338,8 +339,8 @@ async function posts() {
                 return res.json()
             })
             .then(function (jso){
-                qs('.num_seguindo').innerHTML = jso.t_seguindo;
-                qs('.num_seguidores').innerHTML = jso.t_seguidores;
+                qs('.num_seguindo').innerHTML = jso.user.t_seguindo;
+                qs('.num_seguidores').innerHTML = jso.user.t_seguidores;
             })
         },300)
     }
@@ -435,7 +436,6 @@ async function posts() {
         });
         }
         async function post_num_curtida() {
-
             let url_perfil = window.location.href.split('=');
             let url_push_v = window.location.href.split('paginas/');
             let req_;
@@ -445,7 +445,7 @@ async function posts() {
                  json_ = await req_.json();
                  for(let s in json_) {
                     let calc = parseInt(s) + parseInt(quan_novos);
-                    if(json_[s]['type'] == 3){
+                    if(json_[s]['type'] == "3"){
                         let curtidaArea = document.getElementById(json_[s]['id_publi']);
                         if(curtidaArea != undefined) {
                             curtidaArea.querySelector('.post_curtidas').innerHTML = json_[s]['num_curtidas'];
@@ -487,13 +487,13 @@ async function posts() {
                 if(url_push_v[1] == 'perfil.php') {
                     req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
                     json_ = await req_.json(); 
-                    for(let s in json_) {
+                    for(let s in json_.publi) {
                         let calc = parseInt(s) + parseInt(quan_novos);
-                        if(json_[s]['type'] == 3){
-                            let curtidaArea = document.getElementById(json_[s]['id_publi']);
+                        if(json_.publi[s]['type'] == "3"){
+                            let curtidaArea = document.getElementById(json_.publi[s]['id_publi']);
                             if(curtidaArea != undefined) {
-                                curtidaArea.querySelector('.post_curtidas').innerHTML = json_[s]['num_curtidas'];
-                            if(json_[s]['user_curtiu']) {
+                                curtidaArea.querySelector('.post_curtidas').innerHTML = json_.publi[s]['num_curtidas'];
+                            if(json_.publi[s]['user_curtiu']) {
                                 curtidaArea.querySelector('button').classList.remove();
                                 curtidaArea.classList.remove('p-xD30');
                                 curtidaArea.classList.add('p-xD29');
@@ -508,10 +508,10 @@ async function posts() {
                             }
                           }
                         } else {
-                            let curtidaArea = document.getElementById(json_[s]['compartilhador_info']['id_da_compartilhada']);
+                            let curtidaArea = document.getElementById(json_.publi[s]['compartilhador_info']['id_da_compartilhada']);
                             if(curtidaArea != undefined) {
-                            curtidaArea.querySelector('.post_curtidas').innerHTML = json_[s]['num_curtidas'];
-                            if(json_[s]['user_curtiu']) {
+                            curtidaArea.querySelector('.post_curtidas').innerHTML =json_.publi[s]['num_curtidas'];
+                            if(json_.publi[s]['user_curtiu']) {
                                 curtidaArea.querySelector('button').classList.remove();
                                 curtidaArea.classList.remove('p-xD30');
                                 curtidaArea.classList.add('p-xD29');
@@ -530,8 +530,8 @@ async function posts() {
                 } else {
                     req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+url_perfil[1]);
                     json_ = await req_.json(); 
-                    for(let s in json_.publicacoes) {
-                        document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+                    for(let s in json_.publi) {
+                        document.getElementById(json_.publi[s]['id_publi']).innerHTML = json_.publi[s]['num_curtidas'];
                     }
                 }
             } // document.getElementById(c_jso[s]['id_publi']).innerHTML = c_jso[s]['num_curtidas'];
@@ -630,12 +630,11 @@ function post_num_compartilhamento() {
         if(url_push_v[1] == 'perfil.php') {
             req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
             res_pom = await req_.json(); 
-            for(let l in res_pom) {
-
-                if(res_pom[l]['type'] == 3){
-                    let repostArea = document.getElementById(res_pom[l]['id_publi']+'c-xD30');
-                    repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
-                    if(res_pom[l]['user_compartilhou']) {
+            for(let l in res_pom.publi) {
+                if(res_pom.publi[l]["type"] == "3"){
+                    let repostArea = document.getElementById(res_pom.publi[l]['id_publi']+'c-xD30');
+                    repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom.publi[l]['beepadas'];
+                    if(res_pom.publi[l]['user_compartilhou']) {
                         repostArea.classList.remove();
                         repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
                         repostArea.querySelector('button').classList.remove();
@@ -648,10 +647,10 @@ function post_num_compartilhamento() {
                         repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
                     }
                 } else {
-                    let repostArea = document.getElementById(res_pom[l]['compartilhador_info']['id_da_compartilhada']+'c-xD30');
+                    let repostArea = document.getElementById(res_pom.publi[l]['compartilhador_info']['id_da_compartilhada']+'c-xD30');
                     if(repostArea != undefined) {
-                    repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
-                    if(res_pom[l]['user_compartilhou']) {
+                    repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom.publi[l]['beepadas'];
+                    if(res_pom.publi[l]['user_compartilhou']) {
                         repostArea.classList.remove();
                         repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
                         repostArea.querySelector('button').classList.remove();
@@ -670,8 +669,8 @@ function post_num_compartilhamento() {
         } else {
             req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+url_perfil[1]);
             json_ = await req_.json(); 
-            for(let s in json_.publicacoes) {
-                document.getElementById(json_[s]['id_publi']).innerHTML = json_[s]['num_curtidas'];
+            for(let s in json_.publi) {
+                document.getElementById(json_.publi[s]['id_publi']).innerHTML = json_.publi[s]['num_curtidas'];
             }
         }
     }

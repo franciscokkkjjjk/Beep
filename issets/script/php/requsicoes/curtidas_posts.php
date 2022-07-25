@@ -14,7 +14,6 @@
     
     $user_push = array();
     $i = 0;
-    
     foreach($array_push as $valueP) {
         $i++;
         $sql_user_ ='SELECT * FROM users WHERE id_user='.$valueP['user_publi'];
