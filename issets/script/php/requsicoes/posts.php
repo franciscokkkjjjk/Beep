@@ -14,10 +14,15 @@
     $sql_curtidas = 'SELECT * FROM curtidas WHERE id_user_curti='.$_SESSION['id_user'];
     $res_curtidas = mysqli_query($conexao, $sql_curtidas);
     $arra_curtida = mysqli_fetch_all($res_curtidas, 1);
+
+    $sql_all_compartilhada = 'SELECT * FROM publicacoes WHERE user_publi='.$_SESSION['id_user'].' AND type=4';
+    $res_all_compartilhada = mysqli_query($conexao, $sql_all_compartilhada);
+    $array_all_compartilhada = mysqli_fetch_all($res_all_compartilhada, 1);
     $posi = 0;
 
     foreach($postagens as $post_segui) {
         $user_curtiu = false;
+        $user_comp = false;
         if($post_segui['type'] == 2) {
             $user_compartilhou = false;
             $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$post_segui['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
@@ -124,12 +129,19 @@
             $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi='.$post_segui['id_publi_interagida'];
             $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
             $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);       
+
             
             foreach($arra_curtida as $value_c) {
                 if($value_c['id_postagem'] == $post_segui['id_publi_interagida']) {
                     $user_curtiu = true;  
                 } 
             }
+            foreach($array_all_compartilhada as $value_pu) {
+                if($value_pu['id_publi_interagida'] == $array_compartilhada['id_publi']) {
+                    $user_comp = true;
+                }
+            }
+
 
             $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$array_compartilhada['user_publi'];
             $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
@@ -138,11 +150,6 @@
             $sql_s_compartilhador = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
             $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
             $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
-            if($post_segui['user_publi'] == $_SESSION['id_user']){
-                $user_compartilhou = true;
-            } else {
-                $user_compartilhou = false;
-            }
                 
             $timeline[] = [
                 'id_publi' => $array_compartilhada['id_publi'],
@@ -154,7 +161,7 @@
                 'date_publi' => dateCalc($array_compartilhada),
                 'num_comentario' => $array_compartilhada['num_comentario'],
                 'user_curtiu' => $user_curtiu,
-                'user_compartilhou'=> $user_compartilhou,
+                'user_compartilhou'=> $user_comp,
                 'user_info' => [
                     'user_id' => $array_compartilhada['user_publi'],
                     'nome_user' => $array_s_perfil['nome'],

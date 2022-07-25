@@ -8,29 +8,58 @@
         $res_post_compartilhado = mysqli_query($conexao, $sql_post_compartilhado);
         $assoc_post = mysqli_fetch_assoc($res_post_compartilhado);
          if($assoc_post['type'] == '4' or $assoc_post['type'] == '2') {
-            $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$publi_des;
-            $res_delet = mysqli_query($conexao, $sql_delet);
-            if($res_delet) {
-               $sql_interagida = 'SELECT * FROM publicacoes WHERE id_publi='.$assoc_post['id_publi_interagida'];
-               $res_interagida = mysqli_query($conexao, $sql_interagida);
-               $assoc_interagida = mysqli_fetch_assoc($res_interagida);
-               $calc = intval($assoc_interagida['num_compartilha'])-1;
-               $updt_interagida = "UPDATE publicacoes SET num_compartilha=$calc WHERE id_publi=".$assoc_post['id_publi_interagida'];
+            if($assoc_post['user_publi'] == $_SESSION['id_user']) {
+               $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$publi_des;
+               $res_delet = mysqli_query($conexao, $sql_delet);
+               if($res_delet) {
+                  $sql_interagida = 'SELECT * FROM publicacoes WHERE id_publi='.$assoc_post['id_publi_interagida'];
+                  $res_interagida = mysqli_query($conexao, $sql_interagida);
+                  $assoc_interagida = mysqli_fetch_assoc($res_interagida);
+                  $calc = intval($assoc_interagida['num_compartilha'])-1;
+                  $updt_interagida = "UPDATE publicacoes SET num_compartilha=$calc WHERE id_publi=".$assoc_post['id_publi_interagida'];
+                  $res_updt_interagida = mysqli_query($conexao, $updt_interagida);
+                  if($res_updt_interagida) {
+                     $descompatilha = [
+                        'moio' => false,
+                        'id_descompartilhada' => $publi_des
+                     ];
+                     echo json_encode($descompatilha);
+                  }
+               } else {
+                  $descompatilha = [
+                     'moio' => true,
+                     'error' => 'erro no deletar'
+                  ];
+                  echo json_encode($descompatilha);
+               }
+          } else {
+            $em_busca_de_nemo = 'SELECT * FROM publicacoes WHERE id_publi_interagida'.$assoc_post['id_publi_interagida'].' AND user_publi='.$_SESSION['id_user'];
+            $nossa_achamos_o_nemo = mysqli_query($conexao, $em_busca_de_nemo);
+            $olha_o_nemo_ai = mysqli_fetch_assoc($nossa_achamos_o_nemo);
+            $bo_mata_o_nemo = "DELETE FROM publicacoes WHERE id_publi=".$olha_o_nemo_ai['id_publi'];
+            $conseguimos_interogacao = mysqli_query($conexao, $bo_mata_o_nemo);
+            if($conseguimos_interogacao) {
+               $busca_raiz = 'SELECT * FROM publicacoes WHERE id_publi='.$olha_o_nemo_ai['id_publi_interagida'];
+               $achomos_raiz = mysqli_query($conexao, $busca_raiz);
+               $assoc_raiz = mysqli_fetch_assoc($achomos_raiz);
+               $calc = intval($assoc_raiz['num_compartilha'])-1;
+               $updt_interagida = "UPDATE publicacoes SET num_compartilha=$calc WHERE id_publi=".$assoc_raiz['id_publi'];
                $res_updt_interagida = mysqli_query($conexao, $updt_interagida);
                if($res_updt_interagida) {
                   $descompatilha = [
                      'moio' => false,
-                     'id_descompartilhada' => $publi_des
+                     'id_descompartilhada' => $olha_o_nemo_ai['id_publi']
+                  ];
+                  echo json_encode($descompatilha);
+               } else {
+                  $descompatilha = [
+                     'moio' => true,
+                     'error' => 'não deu updt'
                   ];
                   echo json_encode($descompatilha);
                }
-            } else {
-               $descompatilha = [
-                  'moio' => true,
-                  'error' => 'erro no deletar'
-               ];
-               echo json_encode($descompatilha);
             }
+          }
          }else {
             $sql_post_des = 'SELECT * FROM publicacoes WHERE user_publi='.$_SESSION['id_user'].' AND id_publi_interagida='.$publi_des;
             $res_post_des = mysqli_query($conexao, $sql_post_des);

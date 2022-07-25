@@ -3,7 +3,7 @@
 -timeline não ta muito dinamica
 -json dos perfil não estão coerentes com o da timeline, isso resulta em um má funcionamento do criarPosts()
 -não reconhece anos bissextos e anos comuns
--compartilhamento infinito kkkkk type 4 vsf
+-por algum caralho ele exclui a publi do amiguinho kkkkkkkkkkkk
 
 ------------------------- implementações -----------------------
 
