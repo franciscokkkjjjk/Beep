@@ -1,8 +1,13 @@
 ----------- problemas conhecidos-------------------------------
 
 -timeline não ta muito dinamica
--json dos perfil não estão coerentes com o da timeline, isso resulta em um má funcionamento do criarPosts()
 -não reconhece anos bissextos e anos comuns
+-só gera perfils que já tenham postagens kkkk pqp 
+
+-------------------ideias---------------------------------------
+--no json de pefils criar a posição 0 e 1
+-0: fica todas as postagens do user 
+-1:fica informações de seu perfil
 
 ------------------------- implementações -----------------------
 

@@ -64,12 +64,19 @@ async function posts() {
         let user_v = await user_vist.json();
         qsAll('.event').forEach((e)=>{e.remove()});
         qsAll('.back--event').forEach((e)=>{e.remove()});
-        user_seguidores(user_v);
-        user_creat(user_v.publicacoes, user_v);
+        console.log(user_v[0].user_info)
+        user_seguidores(user_v[0].user_info);
+        criarPosts(user_v)
         curtir_post();
         desCurtir();
-        seguidores_user();
         viwimg();
+        show_CM();
+        descompartilhar();
+        qs('.event-direct').onclick = compartilhar;
+        setInterval( ()=>{
+            post_num_curtida();
+        }, 500);
+        post_num_compartilhamento();
     }
 
     function criarPosts(lista) {
@@ -270,37 +277,6 @@ async function posts() {
                 })
         } ,1000);
         
-    }
-    function user_creat(json_list, json_list_user) {
-        
-        for(let i in json_list) {
-            let post_body = document.querySelector('.post--menu--area').cloneNode(true);
-            post_body.querySelector('.menu--pag--img--area').setAttribute('style', json_list_user.img_user);
-            post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${json_list_user.username_user}`)
-            post_body.querySelector('.name--name-perfil').innerHTML = json_list_user.nome_user;
-            post_body.querySelector('.name--username-perfil').innerHTML = json_list_user.username_user;
-            post_body.querySelector('.date--post').innerHTML = json_list[i]['date_publi'];
-            post_body.querySelector('.post--text').innerHTML = json_list[i]['text_post'];
-            if(json_list[i]['img_publi'] == ""){
-                
-            }else {
-                post_body.querySelector('.post--img-area').style.display = '';
-                post_body.querySelector('.post--img').style.display = 'block';
-                post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${json_list[i]['img_publi']})`;
-            }
-            post_body.querySelector('.event--curtida input').value = json_list[i]['id_publi'];
-            if(json_list[i]['user_curtiu']){
-                post_body.querySelector('.event--curtida').setAttribute('data-key', json_list[i]['id_publi']);
-                post_body.querySelector('.event--curtida').classList.add('p-xD29');
-                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
-            } else{
-                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
-                post_body.querySelector('.event--curtida').classList.add('p-xD30');
-                post_body.querySelector('.event--curtida').setAttribute('data-key', json_list[i]['id_publi'])
-            }
-            post_body.querySelector('.post_curtidas').setAttribute('id', json_list[i]['id_publi']);
-            qs('.feed-body-post').append(post_body);
-        }
     }
     function user_seguidores(list_user) {
         document.querySelector('.banner--perfil').setAttribute('style', list_user.banner_pefil);
