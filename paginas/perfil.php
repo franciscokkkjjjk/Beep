@@ -130,7 +130,6 @@ $postagens = mysqli_fetch_all($res_posts,1);
     <script type="text/javascript">
         seguidores_session();
         user_session();
-        post_num_curtida()
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>

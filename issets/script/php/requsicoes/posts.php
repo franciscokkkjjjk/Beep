@@ -7,9 +7,6 @@
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
 
-    $sql_posts_curtidos = "SELECT * FROM publicacoes WHERE publicacoes.id_publi IN (SELECT curtidas.id_postagem FROM curtidas WHERE curtidas.id_user_curti IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin=".$_SESSION['id_user']."))";
-    $res_posts_curtidos = mysqli_query($conexao, $sql_posts_curtidos);
-    $array_posts_curtidos = mysqli_fetch_all($res_posts_curtidos,1);
 
     $sql_curtidas = 'SELECT * FROM curtidas WHERE id_user_curti='.$_SESSION['id_user'];
     $res_curtidas = mysqli_query($conexao, $sql_curtidas);
