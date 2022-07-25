@@ -4,11 +4,13 @@
 -não reconhece anos bissextos e anos comuns
 -só gera perfils que já tenham postagens kkkk pqp 
 
+
 -------------------ideias---------------------------------------
 --no json de pefils criar a posição 0 e 1
 -0: fica todas as postagens do user 
 -1:fica informações de seu perfil
 
+--colocar na json de perfil o total de seguidores e total de seguindo
 ------------------------- implementações -----------------------
 
 -deixar o user editar a data de nascimento apenas uma vez
