@@ -25,7 +25,6 @@ async function posts() {
     } else {
         post_not(true);
     }
-    
     }
     function curtir_post() {
         qsAll('.p-xD30').forEach( (e)=>{
@@ -62,19 +61,23 @@ async function posts() {
         qsAll('.event').forEach((e)=>{e.remove()});
         qsAll('.back--event').forEach((e)=>{e.remove()});
         console.log(user_v)
-        user_seguidores(user_v.user);
-        criarPosts(user_v.publi)
-        curtir_post();
-        desCurtir();
-        viwimg();
-        show_CM();
-        descompartilhar();
-        qs('.event-direct').onclick = compartilhar;
-        setInterval( ()=>{
-            post_num_curtida();
-        }, 500);
-        post_num_compartilhamento();
-        seguidores_session();
+            user_seguidores(user_v.user);
+        if(user_v.publi.nada == undefined) {
+            criarPosts(user_v.publi)
+            curtir_post();
+            desCurtir();
+            viwimg();
+            show_CM();
+            descompartilhar();
+            qs('.event-direct').onclick = compartilhar;
+            setInterval( ()=>{
+                post_num_curtida();
+            }, 500);
+            post_num_compartilhamento();
+            seguidores_session();
+        } else {
+            post_not(false);
+        }
     }
 
     function criarPosts(lista) {

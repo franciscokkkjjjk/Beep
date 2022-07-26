@@ -894,3 +894,12 @@ background-position: center;
 .event-block {
     display: inline-block;
 }
+.post--menu--area:hover {
+    cursor: pointer;
+    background-color: #282828;
+} 
+.post_menu_area--event {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

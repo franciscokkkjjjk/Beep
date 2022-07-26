@@ -135,8 +135,7 @@ if($perfil == $_SESSION['username']) {
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
-        //user_();
-        //post_num_curtida();
+        user_();
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>

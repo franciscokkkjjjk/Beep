@@ -1,5 +1,6 @@
-<div class="post_clone type_1" style="display: none;">
+<div class="post_clone type_1" style="display:none;">
                 <div class="post--menu--area" >
+  
                 <div class="info-compartilhador" style="display: none;">
                     Repostado por <a href='' class="user_respost"><div class="event min-event"></div></a>
                 </div>
@@ -25,7 +26,6 @@
                             <div class="elipse-img-hover elipse-img"></div>
                         </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                     </div>
-                    
                     <div class="body--post--area">
                         <div class="post--text"></div>
                         <div class="post--img-area" style="display: none;">
@@ -52,7 +52,6 @@
                     <div class="post_compartilhadas area_num">9999</div>  
                 </div>
             </div>
-            
         </div>
 </div>
 <div class="post_clone type_2" style="display:none;">
