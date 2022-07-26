@@ -110,7 +110,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
                 </div>
                </div>
                <div class="posts--ara--perfil">
-               <div class="back--event" style="position:fixed; top:auto;bottom:5%;">
+               <div class="back--event" style=" top:auto;    margin-top: 18px;">
                     <div class="event"></div>
                 </div>
                 <?php require_once '../issets/script/php/html__generic/posts_template.php';?>

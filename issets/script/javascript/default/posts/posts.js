@@ -74,6 +74,7 @@ async function posts() {
             post_num_curtida();
         }, 500);
         post_num_compartilhamento();
+        seguidores_session();
     }
 
     function criarPosts(lista) {
@@ -334,15 +335,29 @@ async function posts() {
     }
 
     function seguidores_session() {
+        let url_perfil = window.location.href.split('=');
+        let atual_pag = window.location.href.split('paginas/');
         setInterval(()=>{
-        fetch('../issets/script/php/requsicoes/posts_users.php?username='+username)
-            .then(function (res){
-                return res.json()
-            })
-            .then(function (jso){
-                qs('.num_seguindo').innerHTML = jso.user.t_seguindo;
-                qs('.num_seguidores').innerHTML = jso.user.t_seguidores;
-            })
+            if(atual_pag[1] == 'perfil.php') {
+                fetch('../issets/script/php/requsicoes/posts_users.php?username='+username)
+                    .then(function (res){
+                        return res.json()
+                    })
+                    .then(function (jso){
+                        qs('.num_seguindo').innerHTML = jso.user.t_seguindo;
+                        qs('.num_seguidores').innerHTML = jso.user.t_seguidores;
+                    })
+            } else {
+                fetch('../issets/script/php/requsicoes/posts_users.php?username='+url_perfil[1])
+                    .then(function (res){
+                        return res.json()
+                    })
+                    .then(function (jso){
+                        qs('.num_seguindo').innerHTML = jso.user.t_seguindo;
+                        qs('.num_seguidores').innerHTML = jso.user.t_seguidores;
+                    })
+            }
+            
         },300)
     }
     function desCurtir(a) {

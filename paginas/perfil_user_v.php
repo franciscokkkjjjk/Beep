@@ -98,8 +98,8 @@ if($perfil == $_SESSION['username']) {
                                 <div class="event"></div>
                             </div>
                             <div class="segui--indo">
-                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php?id_user="><span class="num_seguindo"></span> seguindo</a>
-                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php?id_user="><span class="num_seguidores"></span> seguidores</a>
+                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php?id_user="><span class="num_seguindo"><div class="event min-event event-block"></div></span> seguindo</a>
+                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php?id_user="><span class="num_seguidores"><div class="event min-event event-block"></div></span> seguidores</a>
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">
@@ -119,7 +119,7 @@ if($perfil == $_SESSION['username']) {
                     </div>
                 
                 <div class="posts--ara--perfil">
-                <div class="back--event" style="position:fixed; top:auto;bottom:5%;">
+                <div class="back--event" style="top:auto;    margin-top: 18px;">
                     <div class="event"></div>
                 </div>
                     <?php require_once '../issets/script/php/html__generic/posts_template.php';?>
@@ -135,8 +135,8 @@ if($perfil == $_SESSION['username']) {
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
-        user_();
-        post_num_curtida()
+        //user_();
+        //post_num_curtida();
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
