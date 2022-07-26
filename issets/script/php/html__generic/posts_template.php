@@ -51,7 +51,7 @@
                     <div class="post_compartilhadas area_num">9999</div>  
                 </div>
             </div>
-            <div class=""></div>
+            <div class="">mostrar tudo (rever esse texto)</div>
         </div>
 </div>
 <div class="post_clone type_2" style="display:none;">
