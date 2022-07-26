@@ -1,6 +1,5 @@
 <div class="post_clone type_1" style="display:none;">
                 <div class="post--menu--area" >
-  
                 <div class="info-compartilhador" style="display: none;">
                     Repostado por <a href='' class="user_respost"><div class="event min-event"></div></a>
                 </div>
@@ -52,6 +51,7 @@
                     <div class="post_compartilhadas area_num">9999</div>  
                 </div>
             </div>
+            <div class=""></div>
         </div>
 </div>
 <div class="post_clone type_2" style="display:none;">
