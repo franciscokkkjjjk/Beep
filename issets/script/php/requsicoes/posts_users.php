@@ -5,11 +5,11 @@
     $perfil = $_GET['username'];
     $perfil_visit = array();
 
-    $sql_perfil = "SELECT * FROM users WHERE username='$perfil'";
-    $res_perfil = mysqli_query($conexao, $sql_perfil);
-    $array_info = mysqli_fetch_assoc($res_perfil);
+    $sql_s_perfil = "SELECT * FROM users WHERE username='$perfil'";
+    $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
+    $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
 
-    $sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$array_info['id_user']." AND publicacoes.type <> 1 ORDER BY publicacoes.date_publi DESC";
+    $sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$array_s_perfil['id_user']." AND publicacoes.type <> 1 ORDER BY publicacoes.date_publi DESC";
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
 
@@ -18,9 +18,7 @@
     $array_all_compartilhada = mysqli_fetch_all($res_all_compartilhada, 1);
     $posi = 0;
 
-    $sql_s_perfil = "SELECT * FROM users WHERE username='$perfil'";
-    $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
-    $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
+    
 
     $sql_seguir = 'SELECT * FROM seguidores WHERE user_seguin='.$_SESSION['id_user'];
     $res_seguir = mysqli_query($conexao, $sql_seguir);
@@ -32,7 +30,7 @@
     $arra_curtida = mysqli_fetch_all($res_curtidas, 1);
 
     foreach($array_seguidor as $value) {
-        if($value['user_seguido'] == $array_info['id_user']) {
+        if($value['user_seguido'] == $array_s_perfil['id_user']) {
             $seguindo = true;
         }
     }
@@ -149,7 +147,9 @@
                     $user_comp = true;
                 }
             }
-
+            $sql_info_raiz = 'SELECT * FROM users WHERE id_user='.$array_compartilhada['user_publi'];
+            $res__info_raiz = mysqli_query($conexao, $sql_info_raiz);
+            $array__info_raiz = mysqli_fetch_assoc($res__info_raiz);
 
             $sql_s_compartilhador = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
             $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
@@ -167,10 +167,10 @@
                 'user_curtiu' => $user_curtiu,
                 'user_compartilhou'=> $user_comp,
                 'user_info' => [
-                    'user_id' => $array_s_perfil['id_user'],
-                    'nome_user' => $array_s_perfil['nome'],
-                    'username_user' => $array_s_perfil['username'],
-                    'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+                    'user_id' => $array_compartilhada['user_publi'],
+                    'nome_user' => $array__info_raiz['nome'],
+                    'username_user' => $array__info_raiz['username'],
+                    'img_user' => perfilDefault($array__info_raiz['foto_perfil'], ''),
                 ],
                 'compartilhador_info' => [
                     'id_da_compartilhada' => $post_segui['id_publi'],
@@ -186,7 +186,7 @@
     $posi++;
     }
     if($postagens == null) {
-        $perfil_visit['publi'][] = [
+        $perfil_visit['publi'] = [
             'nada' => 'nada por aqui'
         ];
     }
@@ -197,9 +197,10 @@
             'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
             'bio' => $array_s_perfil['bio'],
             'data_nas' => date('d/m/Y', strtotime($array_s_perfil['data_nas'])),
-            'banner_perfil' => $array_s_perfil['banner_pefil'],
+            'banner_pefil' => perfilDefault($array_s_perfil['banner_pefil'], ''),
             't_seguindo' => $array_s_perfil['t_seguindo'],
-            't_seguidores' => $array_s_perfil['t_seguidores']
+            't_seguidores' => $array_s_perfil['t_seguidores'],
+            'seguindo' => $seguindo
     ];
 
     echo json_encode($perfil_visit);

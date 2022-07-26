@@ -1,7 +1,9 @@
 .elipse--menu {
     background-image: url(../../imgs/default/elipse.png);
 }
-
+.feed-body-post {
+    min-height: 150vh;
+}
 .menu--pag--button {
     background-position: center;
     background-repeat: no-repeat;
