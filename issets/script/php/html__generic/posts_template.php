@@ -1,6 +1,5 @@
 <div class="post_clone type_1" style="display:none;">
                 <div class="post--menu--area" >
-                    <div class="px_xD30_6"></div>
                 <div class="info-compartilhador" style="display: none;">
                     Repostado por <a href='' class="user_respost"><div class="event min-event"></div></a>
                 </div>
@@ -34,6 +33,9 @@
                             </div>
                         </div>                                        <!--deve ter oq o usuario publicou-->
                     </div>
+                    <a class="conteudo--all--post" href="">
+                        mostrar todo conteudo
+                    </a>
                     <div class="interacao--post--area">
                         <form class="event--curtida curtir--hover interac-button">
                             <input type="hidden" value="" name="p-xD30">
@@ -52,12 +54,10 @@
                     <div class="post_compartilhadas area_num"><div class="event min-event"></div></div>  
                 </div>
             </div>
-            <div class="">mostrar tudo (rever esse texto)</div>
         </div>
 </div>
 <div class="post_clone type_2" style="display:none;">
-                <div class="post--menu--area" >
-                 <div class="px_xD30_6"></div>
+                <div class="post--menu--area">
                     <div class="header--post--area">
                         <div class="post--area--perfil">
                             <div class="img--perfil menu--pag--img--area">
@@ -118,6 +118,9 @@
                             </div>
                         </div>                                        <!--deve ter oq o usuario publicou-->
                     </div>
+                    <a class="conteudo--all--post" href="">
+                        mostrar todo conteudo
+                    </a>
                     <div class="interacao--post--area">
                         <form class="event--curtida event--curtida-comp curtir--hover interac-button">
                             <input type="hidden" value="" name="p-xD30">

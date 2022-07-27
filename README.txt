@@ -3,7 +3,8 @@
 -timeline não ta muito dinamica
 -não reconhece anos bissextos e anos comuns
 -só gera perfils que já tenham postagens kkkk pqp 
--a pag de curtidas deve ser adaptada para o novo padrão
+-o descompartilhamento do type 2 exclui a postagem de origem ao em vez da postagem 
+criada para o compartilhamento
 
 -------------------ideias---------------------------------------
 --no json de pefils criar a posição 0 e 1
@@ -20,3 +21,4 @@
 
 ---------------------------------futuros-------------------------
 -filtração dos posts pela classificação etaria dos jogos
+-a pag de curtidas deve ser adaptada para o novo padrão

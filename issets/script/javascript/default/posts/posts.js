@@ -789,3 +789,4 @@ function post_num_compartilhamento() {
     }
     document.querySelector('.feed-body-post').appendChild(nada);
  }
+ 
