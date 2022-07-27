@@ -67,12 +67,7 @@
                                            </div>
                                           </a>
                                        </div>
-                                   </div>
-                                   <div class="post--area--date ">
-                                   <div class="date--post">
-                                        há 2000000000000 anos atrás
-                                   </div>
-                               </div>  
+                                   </div> 
                                <div class="post--area--menu ">
                                <div class="elipse-img-hover elipse-img"></div>
                            </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
@@ -80,8 +75,29 @@
                         <div class="body--post-area">
                             <div class="post--text">texto granddddddddddddddddddddddddddddddddddddddddddaaaaaaaaaaaaaaopoooooooooooooooooo</div>
                             <div class="p-30d_10">
-                                  <img class='event--post--img post--img-area' src="../issets/imgs/posts/62cf01491151c.png">
+                                  <img class='post--img event--post--img post--img-area' src="../issets/imgs/posts/62cf01491151c.png">
                             </div>  
+                        </div>
+                        <div class="info--post--complete">
+                            <div class="interação--info">
+                                <div class="curtidas--area">
+                                <span>999999</span> curtidas
+                                </div>
+                                <div class="comentarios-area">
+                                <span>999999</span> comentários
+                                </div>
+                                <div class="compartilha-area">
+                                    <span>999999</span> compartilhamentos
+                                </div>
+                            </div>
+                            <div class="post--area--date">
+                                   <div class="date--complete">
+                                     19/04/2004 as 19:45
+                                   </div>
+                                   <div class="date--post">
+                                        há 2000000000000 anos atrás
+                                   </div>
+                            </div> 
                         </div>
                     </div>
                 </div>
@@ -94,15 +110,12 @@
             require_once '../issets/script/php/html__generic/recomendado.php';
         ?>
     </div>
-    
     <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js">
     </script>
     <script>
-
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/feed/script.js"></script>
     <script>
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
@@ -118,6 +131,7 @@
     <script src="../issets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
+        
     </script>
      
     </body>

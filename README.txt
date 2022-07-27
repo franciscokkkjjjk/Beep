@@ -22,3 +22,4 @@ criada para o compartilhamento
 ---------------------------------futuros-------------------------
 -filtração dos posts pela classificação etaria dos jogos
 -a pag de curtidas deve ser adaptada para o novo padrão
+-criar uma dunction para mostrar img quando o post esta aberto completo na tela 
