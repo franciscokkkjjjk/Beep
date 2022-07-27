@@ -56,14 +56,14 @@
                     <div class="header--post--area">
                                    <div class="post--area--perfil">
                                       <div class="menu--pag--img--area">
-                                   </div>
+                                      </div>
                                     <div class="name--area">        
                                           <a class="perfil-link" href="">        
                                           <div class="name--name-perfil perfil-link-hover">
-                                                a
+                                                <div class="event min-event"></div>
                                            </div>
                                            <div class="name--username-perfil perfil-link-hover">
-                                                @a
+                                                <div class="event min-event"></div>
                                            </div>
                                           </a>
                                        </div>
@@ -73,36 +73,75 @@
                            </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                         </div>
                         <div class="body--post-area">
-                            <div class="post--text">texto granddddddddddddddddddddddddddddddddddddddddddaaaaaaaaaaaaaaopoooooooooooooooooo</div>
+                            <div class="post--text"><div class="event min-event"></div></div>
                             <div class="p-30d_10">
-                                  <img class='post--img event--post--img post--img-area' src="../issets/imgs/posts/62cf01491151c.png">
+                                <div class="event min-event"></div>
+                                  <!-- <img class='post--img event--post--img post--img-area' src="../issets/imgs/posts/62cf01491151c.png"> -->
                             </div>  
                         </div>
                         <div class="info--post--complete">
                             <div class="interação--info">
                                 <div class="curtidas--area">
-                                <span>999999</span> curtidas
+                                <span class="num--curtidas"><div class="event min-event event-block"></div></span> curtidas
                                 </div>
                                 <div class="comentarios-area">
-                                <span>999999</span> comentários
+                                <span class="num--coment"><div class="event min-event event-block"></div></span> comentários
                                 </div>
                                 <div class="compartilha-area">
-                                    <span>999999</span> compartilhamentos
+                                    <span class="num--compartilha"><div class="event min-event event-block"></div></span> compartilhamentos
+                                </div>
+                            </div>
+                            <div class="post--game-area">
+                                <div class="game">
+                                    <div class="event min-event"></div>
                                 </div>
                             </div>
                             <div class="post--area--date">
                                    <div class="date--complete">
-                                     19/04/2004 as 19:45
+                                        <div class="event min-event"></div>
                                    </div>
                                    <div class="date--post">
-                                        há 2000000000000 anos atrás
+                                        <div class="event min-event"></div>
                                    </div>
                             </div> 
+                        </div>
+                        <div class="interacao--post--area">
+                            <form class="event--curtida event--curtida-comp curtir--hover interac-button">
+                                <input type="hidden" value="" name="p-xD30">
+                                <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
+                                    Curtir
+                                </button>
+                            </form>
+                            <div class="comentar interacao--area">
+                                comentar
+                            </div>
+                            <div  class="compartilhar-hover compartilhar-event-div interac-button  interac-button ">
+                                <button class="img-compartilhar-off compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
+                                    compartilhar
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="post-comentario--area">
-                    
+                    <div class="coment--area">
+                    <div class="post--area--perfil-coment">
+                          <div class="menu--pag--img--area img--perfil img--perfil-red">
+                          </div>
+                    </div>
+                    <div class="body--coment--area">
+                        <div class="user--perfil--info name--area">
+                            <a class="perfil-link" href=""> 
+                                <div class="name--perfil--coment name--name-perfil perfil-link-hover">
+                                    aaa
+                                </div>
+                                <div class="username--perfil--coment name--username-perfil perfil-link-hover">
+                                    @aaa
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
