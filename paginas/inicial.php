@@ -115,6 +115,5 @@
     </script>
     <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
     </script>
-     
     </body>
 </html>

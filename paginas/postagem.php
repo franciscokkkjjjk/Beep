@@ -53,7 +53,36 @@
             <div class="feed-body-post">
                 <div class="post-completo-area">
                     <div class="post--area-header">
-
+                    <div class="header--post--area">
+                                   <div class="post--area--perfil">
+                                      <div class="menu--pag--img--area">
+                                   </div>
+                                    <div class="name--area">        
+                                          <a class="perfil-link" href="">        
+                                          <div class="name--name-perfil perfil-link-hover">
+                                                a
+                                           </div>
+                                           <div class="name--username-perfil perfil-link-hover">
+                                                @a
+                                           </div>
+                                          </a>
+                                       </div>
+                                   </div>
+                                   <div class="post--area--date ">
+                                   <div class="date--post">
+                                        há 2000000000000 anos atrás
+                                   </div>
+                               </div>  
+                               <div class="post--area--menu ">
+                               <div class="elipse-img-hover elipse-img"></div>
+                           </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
+                        </div>
+                        <div class="body--post-area">
+                            <div class="post--text">texto granddddddddddddddddddddddddddddddddddddddddddaaaaaaaaaaaaaaopoooooooooooooooooo</div>
+                            <div class="p-30d_10">
+                                  <img class='event--post--img post--img-area' src="../issets/imgs/posts/62cf01491151c.png">
+                            </div>  
+                        </div>
                     </div>
                 </div>
                 <div class="post-comentario--area">

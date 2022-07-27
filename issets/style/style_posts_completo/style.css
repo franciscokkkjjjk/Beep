@@ -1,0 +1,27 @@
+body {
+    color: #f1f1f1;
+}
+.post-completo-area {
+    min-height: 280px;
+    width: auto;
+}
+.post--text {
+    padding: 24px 27px 8px 19px;
+}
+.post--img-area {
+    height: auto;
+} 
+.post--img-area {
+    width: auto;
+    height: auto;
+}
+.event--post--img {
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 590px;
+    max-height: 600px;
+}
+.event--post--img {
+    width:fit-content;
+    height: fit-content;
+}
