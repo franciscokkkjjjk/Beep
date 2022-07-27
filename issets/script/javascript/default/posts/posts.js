@@ -124,9 +124,10 @@ async function posts() {
                     post_body.querySelector('.compartilhar-event-div').classList.add('compartilhar')
                     post_body.querySelector('.compartilhar').id = lista[i]['id_publi']+'c-xD30';
                 }
+                
+                post_body.querySelector('.conteudo--all--post').href = 'postagem.php?'+lista[i]['id_publi'];   
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
                 document.querySelector('.feed-body-post').append(post_body);
-
             } else if (lista[i]['type'] == "2") {//repostagem com comentario 
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
                 post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada']+'pt-xD30';
@@ -226,6 +227,8 @@ async function posts() {
                     post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
                 }
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
+                
+                post_body.querySelector('.conteudo--all--post').href = 'postagem.php?'+lista[i]['compartilhador_info']['id_da_compartilhada'];   
                 document.querySelector('.feed-body-post').append(post_body);
             }
         }
@@ -789,4 +792,3 @@ function post_num_compartilhamento() {
     }
     document.querySelector('.feed-body-post').appendChild(nada);
  }
- 
