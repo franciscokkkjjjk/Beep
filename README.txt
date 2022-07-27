@@ -1,15 +1,10 @@
 ----------- problemas conhecidos-------------------------------
 
--timeline não ta muito dinamica
 -não reconhece anos bissextos e anos comuns
--só gera perfils que já tenham postagens kkkk pqp 
--o descompartilhamento do type 2 exclui a postagem de origem ao em vez da postagem 
+-o descompartilhamento do type 2 exclui a postagem de origem ao em vez da postagem- 
 criada para o compartilhamento
 
 -------------------ideias---------------------------------------
---no json de pefils criar a posição 0 e 1
--0: fica todas as postagens do user 
--1:fica informações de seu perfil
 
 --colocar na json de perfil o total de seguidores e total de seguindo
 ------------------------- implementações -----------------------
@@ -20,6 +15,12 @@ criada para o compartilhamento
 -uma area para abrir as postagens 
 
 ---------------------------------futuros-------------------------
+
 -filtração dos posts pela classificação etaria dos jogos
 -a pag de curtidas deve ser adaptada para o novo padrão
--criar uma dunction para mostrar img quando o post esta aberto completo na tela 
+-criar uma function para mostrar img quando o post esta aberto completo na tela 
+
+----------------------------ideias feitas----------------------------
+--no json de pefils criar a posição 0 e 1
+-0: fica todas as postagens do user 
+-1:fica informações de seu perfil
