@@ -197,7 +197,7 @@
             'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
             'bio' => $array_s_perfil['bio'],
             'data_nas' => date('d/m/Y', strtotime($array_s_perfil['data_nas'])),
-            'banner_pefil' => perfilDefault($array_s_perfil['banner_pefil'], ''),
+            'banner_pefil' => $array_s_perfil['banner_pefil'],
             't_seguindo' => $array_s_perfil['t_seguindo'],
             't_seguidores' => $array_s_perfil['t_seguidores'],
             'seguindo' => $seguindo

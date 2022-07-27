@@ -1,5 +1,6 @@
 <div class="post_clone type_1" style="display:none;">
                 <div class="post--menu--area" >
+                    <div class="px_xD30_6"></div>
                 <div class="info-compartilhador" style="display: none;">
                     Repostado por <a href='' class="user_respost"><div class="event min-event"></div></a>
                 </div>
@@ -56,6 +57,7 @@
 </div>
 <div class="post_clone type_2" style="display:none;">
                 <div class="post--menu--area" >
+                 <div class="px_xD30_6"></div>
                     <div class="header--post--area">
                         <div class="post--area--perfil">
                             <div class="img--perfil menu--pag--img--area">
