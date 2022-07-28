@@ -142,8 +142,26 @@
                         </div>
                         <div class="coment--conteudo">
                             <div class="coment--conteudo--text post--text">mano eu tinha um desses no soq ele foi para amsterdamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-                            <div class="coment--conteudo--img">
-                                
+                                <div class="post--img-area coment--conteudo--img" style="">
+                                    <div class="post--img" >
+                                    <div class="event--post--img coment--event"></div>
+                                </div>
+                            </div>  
+                        </div>
+                        <div class="interacao--post--area">
+                            <form class="event--curtida event--curtida-comp curtir--hover interac-button">
+                                <input type="hidden" value="" name="p-xD30">
+                                <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
+                                    Curtir
+                                </button>
+                            </form>
+                            <div class="comentar interacao--area">
+                                comentar
+                            </div>
+                            <div  class="compartilhar-hover compartilhar-event-div interac-button  interac-button ">
+                                <button class="img-compartilhar-off compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
+                                    compartilhar
+                                </button>
                             </div>
                         </div>
                     </div>

@@ -73,7 +73,7 @@ body {
     flex: 1;
 }
 .coment--conteudo--text {
-    padding: 5px 27px 0px 0px;
+    padding:5px 27px 9px 0px;
     font-size: 15px;
 }
 .coment-link {
@@ -84,4 +84,14 @@ body {
 .username--perfil--coment {
     margin-top: 6px;
     margin-left: 2px;
+}
+.coment--conteudo--img {
+    width: 96%;
+    height: 343px;
+    margin: 0px;
+}
+.coment--event {
+    width: 100%;
+    height: 100%;
+
 }
