@@ -7,6 +7,7 @@ criada para o compartilhamento
 -------------------ideias---------------------------------------
 
 --colocar na json de perfil o total de seguidores e total de seguindo
+
 ------------------------- implementações -----------------------
 
 -deixar o user editar a data de nascimento apenas uma vez

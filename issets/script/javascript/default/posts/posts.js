@@ -283,7 +283,9 @@ async function posts() {
         
     }
     function user_seguidores(list_user) {
-        document.querySelector('.banner--perfil').setAttribute('style', list_user.banner_pefil);
+        if(list_user.banner_pefil != null && list_user.banner_pefil != "") {
+            document.querySelector('.banner--perfil').setAttribute('style', "background-image:url(../issets/imgs/profile/"+list_user.banner_pefil+");");
+        } 
         document.querySelector('.fot_user_visit').setAttribute('style', list_user.img_user);
         document.querySelector('.info--perfil--user--nome').innerHTML = list_user.nome_user;
         qs('.info--perfil--user--username').innerHTML = list_user.username_user;
