@@ -715,7 +715,7 @@ select option {
 }
 .interacao--area:hover {
     color: #fff;
-    background-color: #282828;
+    background-color: #131313;
     transition: all linear 0.25s;
 }
 .curtir:hover {
@@ -912,7 +912,7 @@ background-position: center;
 }
 .conteudo--all--post:hover {
     cursor: pointer;
-    background-color: #282828;
+    background-color: #111111;
 }
 .menu--pag--button {
     background-position: center;

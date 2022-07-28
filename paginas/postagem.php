@@ -141,7 +141,10 @@
                             </a>
                         </div>
                         <div class="coment--conteudo">
-                            <div class="coment--conteudo--text post--text">asdadsdas</div>
+                            <div class="coment--conteudo--text post--text">mano eu tinha um desses no soq ele foi para amsterdamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                            <div class="coment--conteudo--img">
+                                
+                            </div>
                         </div>
                     </div>
                     </div>
