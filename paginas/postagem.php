@@ -142,18 +142,19 @@
                         </div>
                         <div class="coment--conteudo">
                             <div class="coment--conteudo--text post--text">mano eu tinha um desses no soq ele foi para amsterdamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
-                                <div class="post--img-area coment--conteudo--img" style="">
+                                <div class="post--img-area coment--conteudo--img" style="display:none;">
                                     <div class="post--img" >
                                     <div class="event--post--img coment--event"></div>
                                 </div>
                             </div>  
                         </div>
-                        <div class="interacao--post--area">
+                        <div class="interacao--post--area interacao--coment">
                             <form class="event--curtida event--curtida-comp curtir--hover interac-button">
                                 <input type="hidden" value="" name="p-xD30">
                                 <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
                                     Curtir
                                 </button>
+                                <div class="post_curtidas area_num" ><div class="event min-event"></div></div>
                             </form>
                             <div class="comentar interacao--area">
                                 comentar
@@ -162,10 +163,12 @@
                                 <button class="img-compartilhar-off compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
                                     compartilhar
                                 </button>
+                                <div class="post_compartilhadas area_num"><div class="event min-event"></div></div>  
                             </div>
                         </div>
                     </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
