@@ -131,14 +131,17 @@
                     </div>
                     <div class="body--coment--area">
                         <div class="user--perfil--info name--area">
-                            <a class="perfil-link" href=""> 
+                            <a class="perfil-link coment-link" style='flex-direction:row;' href=""> 
                                 <div class="name--perfil--coment name--name-perfil perfil-link-hover">
-                                    aaa
+                                    franciscos
                                 </div>
                                 <div class="username--perfil--coment name--username-perfil perfil-link-hover">
-                                    @aaa
+                                  (@fran_pedrinhas)
                                 </div>
                             </a>
+                        </div>
+                        <div class="coment--conteudo">
+                            <div class="coment--conteudo--text post--text">asdadsdas</div>
                         </div>
                     </div>
                     </div>

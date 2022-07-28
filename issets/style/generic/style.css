@@ -66,17 +66,6 @@ header {
     transform: rotate(314deg /*134deg*/);
     transition: all ease 0.3s;
 }
-.menu--header--body {
-    display:none;
-    width:23% ;
-    height: auto;
-    position: absolute;
-    right: 10px;
-    overflow-x: auto;
-    background-color:#424242 ;
-    padding: 5px;
-    transition: all ease 0.3s;
-}
 .menu--header--body a {
     text-decoration: none;
 }
@@ -104,7 +93,7 @@ header {
     cursor: pointer;
 }
 .active--tem {
-    background-color: #505050;
+    background-color: #1b1b1b;
 }
 .menu--edit {
     width: 100%;
@@ -121,7 +110,7 @@ header {
     height: auto;
     padding-bottom: 35px;
     border-radius: 20px;
-    background-color: #222222;
+    background-color: #090909;
     position: absolute;
     margin-top: 30px;
 }
@@ -136,7 +125,7 @@ header {
 }
 
 .cabeca--menu {
-    background-color: #282828;
+    background-color: #090909;
     height: 50px;
     border-top-left-radius:20px ;
     border-top-right-radius:20px ;
@@ -217,12 +206,12 @@ header {
     background-position: center;
     margin-left: 30px;
     margin-top: -40px;
-    box-shadow: 0px 0px 10px 3px #454545;
+    box-shadow: 0px 0px 10px 3px #4ee8e845;
 }
 .img--perfil--add {
     width: 100%;
     height: 100%;
-    background-color: #42424288;
+    background-color: #00000088;
     border-radius: 100%;
 }
 .img--perfil--add:hover {
@@ -230,7 +219,7 @@ header {
     background-color: #5c5c5c88;
 }
 .input--edit {
-    background-color: #222222;
+    background-color: #090909;
     width: auto;
     height: 60px;
     margin: 30px  20px 0px;
@@ -410,7 +399,7 @@ select option {
     opacity: 0;
     width: 250px;
     height: 00px;
-    background-color: #3d3d3d;
+    background-color: #191919;
     margin-top: 42px;
     transition: all ease 0.25s;
     box-shadow: -1px 4px 10px 0px #5f5f5f;
@@ -656,11 +645,11 @@ select option {
     margin-bottom: 5px;
 }
 .body--recomendado {
-    background-color: #3d3d3d;
+    background-color: #0e0e0e;
     min-height: 179px;
 }
 .opt--recomedado--area {
-    background-color: #212121;
+    background-color: #131313;
     padding-bottom: 9px;
     padding-top: 8px;
 }

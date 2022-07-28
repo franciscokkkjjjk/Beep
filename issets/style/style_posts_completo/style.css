@@ -54,7 +54,6 @@ body {
     height: 38px;
 }
 .coment--area {
-    background-color: red;
     display: flex;
     flex-direction: row;
 }
@@ -72,4 +71,16 @@ body {
 }
 .user--perfil--info {
     flex: 1;
+}
+.coment--conteudo--text {
+    padding: 5px 0px;
+}
+.coment-link {
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+.username--perfil--coment {
+    margin-top: 6px;
+    margin-left: 2px;
 }
