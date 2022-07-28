@@ -34,7 +34,7 @@
                         </div>                                        <!--deve ter oq o usuario publicou-->
                     </div>
                     <a class="conteudo--all--post" href="">
-                        mostrar todo conteudo
+                        mostrar todo conteúdo
                     </a>
                     <div class="interacao--post--area">
                         <form class="event--curtida curtir--hover interac-button">

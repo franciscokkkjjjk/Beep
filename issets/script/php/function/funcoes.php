@@ -11,15 +11,36 @@ function dateCalc($array_user){
     $meses = $dias / 30.5;
     $anos = $dias / 365.25;
     if (round($anos) > 0) {
-        return 'há <b>' . round($anos) . ' anos</b>';
+        if(round($anos) > 1) {
+            return 'há <b>' . round($anos) . ' anos</b>';
+        } else {
+            return 'há <b>' . round($anos) . ' ano</b>';
+        }
     } elseif (round($meses) > 0) {
-        return 'há <b>' . round($meses) . ' meses</b>';
+        if(round($meses) > 1) {
+            return 'há <b>' . round($meses) . ' meses</b>';
+        } else {
+            return 'há <b>' . round($meses) . ' mês</b>';
+        }
     } elseif (round($dias) > 0) {
-        return 'há <b>' . round($dias) . ' dias</b>';
+        if(round($dias) > 1) {
+            return 'há <b>' . round($dias) . ' dias</b>';
+        } else {
+            return 'há <b>' . round($dias) . ' dia</b>';
+        }
     } elseif (round($horas) > 0) {
-        return 'há <b>' . round($horas) . ' horas</b>';
+        if(round($horas) > 1){
+            return 'há <b>' . round($horas) . ' horas</b>';
+        } else {
+            return 'há <b>' . round($horas) . ' hora</b>';
+        }
     } elseif (round($minutos) > 0) {
-        return 'há <b>' . round($minutos) . ' minutos</b>';
+        if(round($minutos) > 1) {
+            return 'há <b>' . round($minutos) . ' minutos</b>';
+        } else {
+            return 'há <b>' . round($minutos) . ' minuto</b>';
+        }
+        
     } else {
         return '<b>agora</b>';
     }
