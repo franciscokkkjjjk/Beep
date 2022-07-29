@@ -4,6 +4,10 @@
 -o descompartilhamento do type 2 exclui a postagem de origem ao em vez da postagem- 
 criada para o compartilhamento
 
+----------------------meta de hoje-----------------------------
+
+-criar uma area de comentario funcional
+
 -------------------ideias---------------------------------------
 
 --colocar na json de perfil o total de seguidores e total de seguindo

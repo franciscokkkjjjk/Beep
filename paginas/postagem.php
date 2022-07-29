@@ -7,9 +7,9 @@
     require_once '../issets/script/php/historico.php';    
     require_once '../issets/script/php/conecta.php';
     require_once '../issets/script/php/function/funcoes.php';
-    $sql_posts = "SELECT * FROM publicacoes WHERE user_publi IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].") ORDER BY date_publi DESC ";
-    $res_posts = mysqli_query($conexao,$sql_posts);
-    $postagens = mysqli_fetch_all($res_posts,1);
+    if(!isset($_GET['postagem'])) {
+        header('location:inicial.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -181,6 +181,7 @@
     <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js">
     </script>
     <script>
+        post_all();
     </script>
     <script>
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;

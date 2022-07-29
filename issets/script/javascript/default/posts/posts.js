@@ -125,7 +125,7 @@ async function posts() {
                     post_body.querySelector('.compartilhar').id = lista[i]['id_publi']+'c-xD30';
                 }
                 
-                post_body.querySelector('.conteudo--all--post').href = 'postagem.php?'+lista[i]['id_publi'];   
+                post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem='+lista[i]['id_publi'];   
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
                 document.querySelector('.feed-body-post').append(post_body);
             } else if (lista[i]['type'] == "2") {//repostagem com comentario 
@@ -228,7 +228,7 @@ async function posts() {
                 }
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
                 
-                post_body.querySelector('.conteudo--all--post').href = 'postagem.php?'+lista[i]['compartilhador_info']['id_da_compartilhada'];   
+                post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem='+lista[i]['compartilhador_info']['id_da_compartilhada'];   
                 document.querySelector('.feed-body-post').append(post_body);
             }
         }
@@ -794,3 +794,27 @@ function post_num_compartilhamento() {
     }
     document.querySelector('.feed-body-post').appendChild(nada);
  }
+
+async function post_all() {
+    let postagem_all = window.location.href;
+    let info = postagem_all.split('=');
+    if(info[1] == undefined || info[1] == ''){
+        window.location.href = 'inicial.php';
+    } else {
+        let form_aux = document.createElement('form');
+        form_aux.setAttribute('method', 'POST');
+        let input_aux = document.createElement('input');
+        input_aux.setAttribute('name', 'All_xD30');
+        input_aux.setAttribute('value', info[1]);
+        form_aux.appendChild(input_aux);
+        let info_aux = new FormData(form_aux);
+        let post_completo = await fetch('../issets/script/php/requsicoes/post_completo.php', {
+            method: 'POST',
+            body: info_aux
+        });
+        console.log(post_completo)
+        let res_aux = await post_completo.json();
+        console.log(res_aux);
+    }
+ }
+ 
