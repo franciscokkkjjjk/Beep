@@ -51,6 +51,8 @@
                 'num_curtidas' => $assoc_post['num_curtidas'],
                 'beepadas' => $assoc_post['num_compartilha'],
                 'date_publi' => dateCalc($assoc_post),
+                "date_publi_ca" => date('d/m/Y', strtotime($assoc_post['date_publi'])),
+                "date_publi_hr" => date('H:i', strtotime($assoc_post['date_publi'])),
                 'num_comentario' => $assoc_post['num_comentario'],
                 'user_curtiu' => $user_curtiu,
                 'user_compartilhou'=> $user_compartilhou,

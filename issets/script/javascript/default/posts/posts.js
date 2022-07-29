@@ -812,9 +812,50 @@ async function post_all() {
             method: 'POST',
             body: info_aux
         });
-        console.log(post_completo)
         let res_aux = await post_completo.json();
+        post_all_creat(res_aux.publicacao);
+        curtir_post();
+        desCurtir();
         console.log(res_aux);
+    }
+ }
+ function post_all_creat(obj) {
+    let area_post_completo = qs('.post-completo-area');
+    area_post_completo.querySelector('.menu--pag--img--area').setAttribute('style', obj.user_info.img_user);
+    area_post_completo.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username='+ obj.user_info.username_user);
+    area_post_completo.querySelector('.name--name-perfil').innerHTML = obj.user_info.nome_user;
+    area_post_completo.querySelector('.name--username-perfil').innerHTML = obj.user_info.username_user;
+    if(obj.text_post != '' || obj.text_post != null) {
+        area_post_completo.querySelector('.post--text').innerHTML = obj.text_post;
+    }
+    let area_img = qs('.p-30d_10');
+    if(obj.img_publi == '' || obj.img_publi == null) {
+        area_img.remove()
+    } else {
+        area_img.querySelector('.event').remove();
+        area_img.querySelector('img').setAttribute('src', '../issets/imgs/posts/'+obj.img_publi);
+        area_img.querySelector('img').style.display = '';
+    }
+    area_post_completo.querySelector('.num--curtidas').innerHTML = obj.num_curtidas;
+    area_post_completo.querySelector('.num--coment').innerHTML = obj.num_comentario;
+    area_post_completo.querySelector('.num--compartilha').innerHTML = obj.beepadas;
+    if(obj.game == undefined || obj.game == "" || obj.game == null) {
+        area_post_completo.querySelector('.game').remove();
+    } else {
+        area_post_completo.querySelector('.game').innerHTML =  obj.game;
+    }
+    area_post_completo.querySelector('.date--complete').innerHTML = `${obj.date_publi_ca} as ${obj.date_publi_hr}`;
+    area_post_completo.querySelector('.date--post').innerHTML = obj.date_publi;
+    area_post_completo.querySelector('.event--curtida').id = obj.id_publi;
+    area_post_completo.querySelector('.event--curtida input').value = obj.id_publi;
+    if(obj.user_curtiu){
+        area_post_completo.querySelector('.event--curtida').setAttribute('data-key', obj.id_publi);
+        area_post_completo.querySelector('.event--curtida').classList.add('p-xD29');
+        area_post_completo.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+    } else{
+        area_post_completo.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
+        area_post_completo.querySelector('.event--curtida').classList.add('p-xD30');
+        area_post_completo.querySelector('.event--curtida').setAttribute('data-key', obj.id_publi)
     }
  }
  

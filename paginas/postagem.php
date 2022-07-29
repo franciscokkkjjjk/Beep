@@ -76,7 +76,7 @@
                             <div class="post--text"><div class="event min-event"></div></div>
                             <div class="p-30d_10">
                                 <div class="event min-event"></div>
-                                  <!-- <img class='post--img event--post--img post--img-area' src="../issets/imgs/posts/62cf01491151c.png"> -->
+                                  <img class='post--img event--post--img post--img-area' style="display:none;">
                             </div>  
                         </div>
                         <div class="info--post--complete">
