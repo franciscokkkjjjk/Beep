@@ -939,3 +939,8 @@ background-position: center;
 .p-30d_10 {
     display: flex;   
 }
+.postion-none {
+    position:relative!important;
+    top: inherit !important;
+    right: inherit !important;
+}

@@ -861,12 +861,24 @@ async function post_all() {
     } 
     if(obj.comentarios != undefined) {
         for(let bobSponja in obj.comentarios) {
-            let areaPalhacada = qs('.post-comentario--area .coment--area').cloneNode(true);
-            qs('.coment--area').remove();
+            let areaPalhacada = qs('.coment--area').cloneNode(true);
             areaPalhacada.style ='';
             areaPalhacada.querySelector('.post--area--perfil-coment .menu--pag--img--area').setAttribute('style', obj.comentarios[bobSponja].user_info.img_user);
-            qs('.post-comentario--area').appendChild(areaPalhacada);
+            let load = areaPalhacada.querySelector('.post--area--perfil-coment .menu--pag--img--area').querySelector('.back--event');
+            if(load != undefined) {
+             load.remove()
+            }
+            areaPalhacada.querySelector('.perfil-link').setAttribute('href', `perfil_user_v.php?username=${obj.comentarios[bobSponja].user_info.username_user}`);
+            areaPalhacada.querySelector('.name--perfil--coment').innerHTML = obj.comentarios[bobSponja].user_info.nome_user;
+            areaPalhacada.querySelector('.username--perfil--coment').innerHTML = `(${obj.comentarios[bobSponja].user_info.username_user})`;
+            console.log(obj.comentarios[bobSponja]);
+            console.log(areaPalhacada)
+            console.log(qs('.post-comentario--area'))
+            qs('.post-comentario--area').append(areaPalhacada);    
+            
         }
+        qs('.coment--area').remove();
+        
     } else {
         post_not('coment');
         qs('.post-comentario--area .coment--area').remove();

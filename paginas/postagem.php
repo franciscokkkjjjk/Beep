@@ -127,21 +127,24 @@
                     <div class="coment--area" style="display: none;">
                     <div class="post--area--perfil-coment">
                           <div class="menu--pag--img--area img--perfil img--perfil-red">
+                            <div class="back--event postion-none">
+                                <div class="event min-event"></div>
+                            </div>
                           </div>
                     </div>
                     <div class="body--coment--area">
                         <div class="user--perfil--info name--area">
                             <a class="perfil-link coment-link" style='flex-direction:row;' href=""> 
                                 <div class="name--perfil--coment name--name-perfil perfil-link-hover">
-                                    franciscos
+                                    <div class="event min-event"></div>
                                 </div>
                                 <div class="username--perfil--coment name--username-perfil perfil-link-hover">
-                                  (@fran_pedrinhas)
+                                    <div class="event min-event"></div>
                                 </div>
                             </a>
                         </div>
                         <div class="coment--conteudo">
-                            <div class="coment--conteudo--text post--text">mano eu tinha um desses no soq ele foi para amsterdamaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+                            <div class="coment--conteudo--text post--text"><div class="event min-event"></div></div>
                                 <div class="post--img-area coment--conteudo--img" style="display:none;">
                                     <div class="post--img" >
                                     <div class="event--post--img coment--event"></div>

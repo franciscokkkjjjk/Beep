@@ -63,7 +63,7 @@
                     'img_user' => perfilDefault($assoc_info_user_publi['foto_perfil'], ''),
                 ]
             ];
-            $sql_comentarios = 'SELECT * FROM publicacoes WHERE id_publi_interagida='.$assoc_post['id_publi'].' AND type=1';
+            $sql_comentarios = 'SELECT * FROM publicacoes WHERE id_publi_interagida='.$assoc_post['id_publi'].' AND type=1 ORDER BY num_curtidas DESC';
             $res_comentarios = mysqli_query($conexao, $sql_comentarios);
             $array_comentarios = mysqli_fetch_all($res_comentarios, 1);
 
