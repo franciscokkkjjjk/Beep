@@ -142,11 +142,15 @@
                                     <div class="event min-event"></div>
                                 </div>
                             </a>
+                            <div class="time--publi">
+                                <div class="date--post"></div>
+                                <div class="elipse-img-hover elipse-img elipse--coment"></div>
+                            </div>
                         </div>
                         <div class="coment--conteudo">
                             <div class="coment--conteudo--text post--text"><div class="event min-event"></div></div>
                                 <div class="post--img-area coment--conteudo--img" style="display:none;">
-                                    <div class="post--img" >
+                                    <div class="post--img" style>
                                     <div class="event--post--img coment--event"></div>
                                 </div>
                             </div>  

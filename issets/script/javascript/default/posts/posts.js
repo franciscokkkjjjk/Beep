@@ -871,9 +871,19 @@ async function post_all() {
             areaPalhacada.querySelector('.perfil-link').setAttribute('href', `perfil_user_v.php?username=${obj.comentarios[bobSponja].user_info.username_user}`);
             areaPalhacada.querySelector('.name--perfil--coment').innerHTML = obj.comentarios[bobSponja].user_info.nome_user;
             areaPalhacada.querySelector('.username--perfil--coment').innerHTML = `(${obj.comentarios[bobSponja].user_info.username_user})`;
-            console.log(obj.comentarios[bobSponja]);
-            console.log(areaPalhacada)
-            console.log(qs('.post-comentario--area'))
+            areaPalhacada.querySelector('.date--post').innerHTML = obj.comentarios[bobSponja].date_publi;
+            if(obj.comentarios[bobSponja].img_publi == "" || obj.comentarios[bobSponja].img_publi == undefined|| obj.comentarios[bobSponja].img_publi == null) {
+                areaPalhacada.querySelector('.post--img-area').remove();
+            } else {
+                areaPalhacada.querySelector('.post--img-area').style.display = '';
+                areaPalhacada.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${obj.comentarios[bobSponja].img_publi})`;
+            }
+            if(obj.comentarios[bobSponja].text_post == undefined || obj.comentarios[bobSponja].text_post == null || obj.comentarios[bobSponja].text_post == '') {
+                areaPalhacada.querySelector('.coment--conteudo--text').remove(); 
+            } else {
+                areaPalhacada.querySelector('.post--text').innerHTML = obj.comentarios[bobSponja].text_post;
+            }
+            
             qs('.post-comentario--area').append(areaPalhacada);    
             
         }
