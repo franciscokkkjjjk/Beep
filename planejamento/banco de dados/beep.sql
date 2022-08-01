@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Jul-2022 às 06:11
+-- Tempo de geração: 01-Ago-2022 às 02:06
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -44,7 +44,6 @@ INSERT INTO `curtidas` (`id_user_curti`, `id_postagem`, `curtida_date`) VALUES
 (9, 47, '2022-07-19 20:35:04'),
 (9, 204, '2022-07-19 20:42:19'),
 (9, 203, '2022-07-19 20:42:25'),
-(8, 70, '2022-07-20 20:05:11'),
 (8, 217, '2022-07-20 22:32:59'),
 (8, 220, '2022-07-20 22:34:01'),
 (8, 180, '2022-07-20 22:45:05'),
@@ -59,7 +58,9 @@ INSERT INTO `curtidas` (`id_user_curti`, `id_postagem`, `curtida_date`) VALUES
 (8, 205, '2022-07-21 17:03:15'),
 (8, 192, '2022-07-21 18:41:15'),
 (8, 47, '2022-07-21 18:41:38'),
-(8, 292, '2022-07-25 00:54:50');
+(8, 333, '2022-07-27 20:13:04'),
+(8, 70, '2022-07-30 14:40:37'),
+(8, 292, '2022-07-31 21:02:11');
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,7 @@ CREATE TABLE `publicacoes` (
 --
 
 INSERT INTO `publicacoes` (`user_publi`, `id_publi`, `type`, `id_publi_interagida`, `text_publi`, `img_publi`, `num_curtidas`, `num_compartilha`, `date_publi`, `num_comentario`, `compartilhamento`) VALUES
-(8, 218, 2, 47, NULL, '', 1, 0, '2022-07-20 19:42:49', 0, 0),
+(8, 333, 3, NULL, 'cara....', '', 1, 0, '2022-07-27 15:43:03', 0, 0),
 (9, 87, 3, NULL, 'goiba de marmelo ', '', 0, 0, '2022-07-16 23:43:00', 0, 0),
 (8, 35, 3, NULL, 'sla\r\n\r\n\r\n\r\n\r\na', '62cc18a1762d6.png', 0, 0, '2022-07-11 09:33:37', 0, 0),
 (22, 86, 3, NULL, 'suspense', '', 0, 0, '2022-07-16 23:37:11', 0, 0),
@@ -154,7 +155,7 @@ INSERT INTO `publicacoes` (`user_publi`, `id_publi`, `type`, `id_publi_interagid
 (29, 67, 3, NULL, 'que dia lindo\r\n\r\n\r\n*fico o dia todo dentro do meu quarto*', '', 0, 0, '2022-07-15 19:24:15', 0, 0),
 (8, 68, 3, NULL, 'mlk como é dificil fazer um negocio de recomendações pqp ', '', 0, 0, '2022-07-15 21:58:19', 0, 0),
 (8, 69, 3, NULL, 'dor tragédia, decepção', '', 0, 0, '2022-07-15 22:05:02', 0, 0),
-(31, 70, 3, NULL, 'kkkkkk o dev não sabe fazer um recomendados kkkkkkkkkkk vsf \r\n\r\n\r\neu sou o dev...', '', 1, 1, '2022-07-16 15:01:09', 0, 0),
+(31, 70, 3, NULL, 'kkkkkk o dev não sabe fazer um recomendados kkkkkkkkkkk vsf \r\n\r\n\r\neu sou o dev...', '', 2, 1, '2022-07-16 15:01:09', 0, 0),
 (8, 71, 3, NULL, 'terminei o recomenados slk, mo difícil ', '', 0, 0, '2022-07-16 15:11:29', 0, 0),
 (22, 72, 3, NULL, 'cara não paro de pensar que sou esquizofrênico ', '', 0, 0, '2022-07-16 15:36:42', 0, 0),
 (9, 89, 3, NULL, 'existe uma coisa ', '', 0, 0, '2022-07-17 00:43:58', 0, 0),
@@ -232,22 +233,25 @@ INSERT INTO `publicacoes` (`user_publi`, `id_publi`, `type`, `id_publi_interagid
 (9, 209, 3, NULL, 'cara q isso', '', 1, 0, '2022-07-20 14:05:08', 0, 0),
 (8, 210, 3, NULL, 'miranda sempre com razão em kkkk ', '', 1, 0, '2022-07-20 17:32:51', 0, 0),
 (9, 219, 3, NULL, 'esse site ta cada vez mais falido em kkkkkk pqp', '', 1, 0, '2022-07-20 19:45:28', 0, 0),
-(8, 217, 2, 47, NULL, '', 1, 0, '2022-07-20 19:10:27', 0, 0),
 (9, 220, 2, 208, NULL, '', 1, 0, '2022-07-20 19:50:06', 0, 0),
 (8, 221, 3, NULL, '$mira_narek esta certo novamente fdp', '', 0, 0, '2022-07-20 22:07:44', 0, 0),
-(8, 222, 2, 180, NULL, '', 0, 0, '2022-07-20 22:45:07', 0, 0),
+(8, 337, 3, NULL, 'a', '', 0, 0, '2022-07-28 14:05:31', 0, 0),
 (8, 223, 2, 47, NULL, '', 1, 0, '2022-07-20 22:56:24', 0, 0),
-(8, 224, 2, 41, 'olha esse meme kkkkkkkk<br>*vejo uma garota e fujo*', '', 0, 0, '2022-07-20 22:56:53', 0, 0),
+(8, 343, 3, NULL, 'post generico kkkkkkkk', '', 0, 0, '2022-07-29 18:02:52', 0, 0),
+(8, 344, 4, 70, NULL, '', 0, 0, '2022-07-29 18:06:17', 0, 0),
 (9, 226, 4, 43, NULL, '', 0, 0, '2022-07-21 13:55:01', 0, 0),
 (8, 292, 3, NULL, '', '62ddd85a621ac.jpeg', 1, 0, '2022-07-24 20:40:10', 0, 0),
 (8, 229, 3, NULL, 'cara, só o odio', '', 3, 0, '2022-07-21 14:17:53', 0, 0),
-(9, 313, 3, NULL, 'wtf kkkkkkk', '', 0, 1, '2022-07-25 00:44:11', 0, 0),
-(8, 319, 4, 70, NULL, '', 0, 0, '2022-07-25 00:59:58', 0, 0),
+(9, 313, 3, NULL, 'wtf kkkkkkk', '', 0, 2, '2022-07-25 00:44:11', 0, 0),
+(8, 323, 4, 235, NULL, '', 0, 0, '2022-07-25 20:08:57', 0, 0),
+(9, 338, 3, NULL, 'a\r\nfranciscos\r\n@fran_pedrinhas', '', 0, 0, '2022-07-28 14:05:59', 0, 0),
+(32, 327, 4, 313, NULL, '', 0, 0, '2022-07-25 21:55:45', 0, 0),
 (8, 233, 3, NULL, 'kkkkkkk ???????? ', '', 0, 0, '2022-07-21 18:47:03', 0, 0),
-(8, 314, 4, 313, NULL, '', 0, 0, '2022-07-25 00:44:22', 0, 0),
-(8, 235, 3, NULL, '??/', '', 0, 0, '2022-07-21 18:47:58', 0, 0),
+(8, 322, 4, 313, NULL, '', 0, 0, '2022-07-25 20:05:50', 0, 0),
+(8, 235, 3, NULL, '??/', '', 0, 1, '2022-07-21 18:47:58', 0, 0),
 (8, 237, 3, NULL, 'queria ta comendo uns sapos', '', 0, 0, '2022-07-22 15:35:58', 0, 0),
-(8, 290, 3, NULL, 'dev cada vez mais perdido kkkkkkkk', '', 0, 0, '2022-07-24 20:36:10', 0, 0);
+(8, 290, 3, NULL, 'dev cada vez mais perdido kkkkkkkk', '', 0, 0, '2022-07-24 20:36:10', 0, 0),
+(8, 342, 1, 338, 'cara kkkkkk vsf isso foi genial', NULL, 0, 0, '2022-07-28 18:07:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -283,35 +287,32 @@ INSERT INTO `seguidores` (`user_seguin`, `user_seguido`) VALUES
 (27, 27),
 (28, 28),
 (28, 24),
-(8, 24),
-(8, 26),
 (29, 29),
 (30, 30),
-(8, 25),
 (29, 25),
 (29, 9),
 (29, 24),
 (29, 26),
 (31, 31),
-(8, 12),
 (22, 9),
 (22, 31),
 (22, 12),
 (22, 24),
 (32, 32),
 (32, 9),
-(8, 22),
 (9, 22),
 (9, 8),
 (9, 12),
 (29, 10),
 (12, 10),
-(8, 10),
 (9, 10),
-(8, 9),
 (33, 33),
-(8, 31),
-(8, 31);
+(8, 9),
+(8, 10),
+(8, 12),
+(8, 22),
+(9, 32),
+(8, 24);
 
 -- --------------------------------------------------------
 
@@ -339,22 +340,22 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `t_seguidores`, `t_seguindo`, `email`, `nome`, `senha`, `foto_perfil`, `banner_pefil`, `bio`, `data_nas`, `status_`) VALUES
-(8, '@fran_pedrinhas', 4, 10, 'fran@gmail.com', 'franciscos', '$2y$10$VeknT5KBG5k4yWCoVUo4fu3U2UlfCRnEOdFo7GFroPjxx/bLMTOC2', '62d6d7e37f319.png', '62d6d80302e72.jpg', 'gosto de suco de uva | desempregado profissional', '2003-08-15', 1),
-(9, '@mira_narek', 6, 6, 'mira@gmail.com', 'miranda', '$2y$10$G/Um7Dnbp5LqwnfVIJNue.D4YYgWqpWAoJcfdnkSyru/asS7WLkDe', 'test_banner.jpg62c88f2fd9885.jpg', 'tumblr_5cd8d34827dfa6b0be3630995ae357ee_e777277e_1280.png62c88f09a2180.png', 'gosto de tortas', '2002-05-06', 1),
+(8, '@fran_pedrinhas', 4, 5, 'fran@gmail.com', 'franciscos', '$2y$10$VeknT5KBG5k4yWCoVUo4fu3U2UlfCRnEOdFo7GFroPjxx/bLMTOC2', '62d6d7e37f319.png', '62d6d80302e72.jpg', 'gosto de suco de uva | desempregado profissional', '2003-08-15', 1),
+(9, '@mira_narek', 7, 7, 'mira@gmail.com', 'miranda', '$2y$10$G/Um7Dnbp5LqwnfVIJNue.D4YYgWqpWAoJcfdnkSyru/asS7WLkDe', 'test_banner.jpg62c88f2fd9885.jpg', '62e16edd2f227.jpg', 'gosto de tortas', '2002-05-06', 1),
 (10, '@mate261486', 5, 1, 'ma@gmail.com', 'matehux', '$2y$10$8XBZBMQ1HCnfKs1l2oHIjO/0LHVaDBlkqPDLgDJcz549A9z8NvjhS', 'tumblr_5cd8d34827dfa6b0be3630995ae357ee_e777277e_1280.png62c78ae56cd20.png62cad38f2a9c1.png', 'img_teste.png62c88f4a801f8.png', 'mateus', '2002-05-08', 1),
-(11, '@curs174410a', 0, 0, 'fran_15@gmail.com', 'cursedi@gmail.com', '$2y$10$0/vK4QlYYB97tvf7WveaDeI/PjFGursRjrw1FfqkZIUAVLCarxISa', 'img_teste.png62c88102d7a86.png', 'tumblr_5cd8d34827dfa6b0be3630995ae357ee_e777277e_1280.png62c88102d7ec4.png', 'gosto de batatas ', '2001-09-16', 0),
+(11, '@marinha', 0, 0, 'fran_15@gmail.com', 'cursedi', '$2y$10$0/vK4QlYYB97tvf7WveaDeI/PjFGursRjrw1FfqkZIUAVLCarxISa', 'img_teste.png62c88102d7a86.png', 'tumblr_5cd8d34827dfa6b0be3630995ae357ee_e777277e_1280.png62c88102d7ec4.png', 'gosto de batatas', '2001-09-16', 0),
 (12, '@pedrinhas', 3, 1, 'pedrinhaskid@gmail.com', 'pedrinhasKid', '$2y$10$63p1jKZOdCUncW/38Y1LN.Z2t2K0OJYzOAjWAvzzLDA1sDn.uDFQS', '', '', '', '2008-01-15', 1),
 (22, '@mira458170', 3, 6, 'mir@gmail', 'miranddd', '$2y$10$6Fv4GZG/EsRkjOCSWRdHqOI4KSt49SeAV7hKW7iH6Y7sutx9iGolm', 'background.jpg62cb37f242313.jpg', 'picture.png62cb37f246613.png', '', '2008-04-04', 0),
 (23, '@mir_180322', 0, 3, 'miranda_15@gmail.com', 'mir_25', '$2y$10$5zVPQDHwN9xknn1akrGYVe5gl4vAE1eeMSc9T9R6Yo6ZkjPLAFdZ.', 'perfil.png62cc118dc5aa4.png', 'mrpowergamerbr_logo.png62cc0863638da.png', '', '2004-03-16', 0),
 (24, '@Dial168933', 5, 0, 'dialogo@mail.com', 'DialogosCurtos', '$2y$10$mHnF9TpwOsFy9L/DdXHCseQ6y.oel1nEXbgV.xqfNLtmO/Fvq8JYm', 'NfFcH3ZG_400x400.jpg62cc2b7942d30.jpg', '', 'Dialogos Curtos', '1904-02-29', 0),
-(25, '@Magic_26', 3, 0, 'magic@mail.com', 'Magic', '$2y$10$zcWEOEjNuuE6pk9WddfPf.k4l20nfaCuOzIDQd8Vomw9JZLJw8CTC', '33588981afc44d9dd1904ba28c3bfd63.jpg62cc341fb28c8.jpg', 'chainsaw-man-1_a93h.jpg62cc341fb7107.jpg', '', '2004-09-26', 0),
-(26, '@mart177372', 2, 1, 'martinsilveiradealmeida@gmail.com', 'corsa roubado', '$2y$10$o8FMHQ8LgEYXMUJHGexsyuWxsvMLn7UIMAgTLJCnzmVEFG5pdW4Fm', '62cc4ffa7e1f5.jpg', '62cc4ff28e93b.jpg', 'sou um corsa roubado da favela jacarezinho do rj', '2004-12-19', 0),
+(25, '@Magic_26', 2, 0, 'magic@mail.com', 'Magic', '$2y$10$zcWEOEjNuuE6pk9WddfPf.k4l20nfaCuOzIDQd8Vomw9JZLJw8CTC', '33588981afc44d9dd1904ba28c3bfd63.jpg62cc341fb28c8.jpg', 'chainsaw-man-1_a93h.jpg62cc341fb7107.jpg', '', '2004-09-26', 0),
+(26, '@mart177372', 1, 1, 'martinsilveiradealmeida@gmail.com', 'corsa roubado', '$2y$10$o8FMHQ8LgEYXMUJHGexsyuWxsvMLn7UIMAgTLJCnzmVEFG5pdW4Fm', '62cc4ffa7e1f5.jpg', '62cc4ff28e93b.jpg', 'sou um corsa roubado da favela jacarezinho do rj', '2004-12-19', 0),
 (27, '@Yang354167', 0, 0, 'yang@hotmail.com', 'Yang', '$2y$10$/cF9FqmOxpKFG7wowbZSDu/L01SGnftMxJqw7CPIcbcQ5RdmDVCMO', '62cda4d5bb5a6.jpg', '', 'oaishdoiashdoashd asjdiasjdoiasjdoiajsd oaisjdoiasjdojas asijdoasijdoasijdoasijdoia iasodjaosijdaoisjeqw8ue0wqueqw0ueqw0 uasijd osiajdaskmcalnmczxokcnzxlcnzx aosijdasueq8wudqwud0qwu csaoj doaskjdaosij', '2005-06-12', 0),
 (28, '@pedr117085', 0, 1, 'pedrinho@gmail.com', 'pedrinho', '$2y$10$5fDXpIPbTNoqUUmn./zCXOrheKiEqRiy./TrL11aH/nmG3jKUk6Se', NULL, NULL, NULL, '1999-04-14', 0),
 (29, '@test215201', 0, 5, 'teste@gmail.com', 'teste', '$2y$10$ojBGEnpLnDbq2VMVgSe2bu4XLrmmke8Q1ZZohxicgqF7zCspoLl6e', NULL, NULL, NULL, '2007-03-06', 1),
 (30, '@test454369', 0, 0, 'email@email', 'test05', '$2y$10$3Ox7eTKUY70CzBmR6VRyXOuQN8qejmOG136err6HUWE61t1S7d22e', NULL, NULL, NULL, '2007-03-11', 1),
-(31, '@test422544', 3, 0, 'testae@gmail.com', 'testekkk', '$2y$10$zkOgGAGuqiyrTKC9VGhwPeqJei30pKM/Ka4RiX/qMoRFRxahWb6cW', NULL, NULL, NULL, '2007-04-04', 0),
-(32, '@ezquzi_15', 0, 1, 'ezquzi_15@gmail.com', 'ezquzi_15', '$2y$10$ho/mf0gqaqbz3jv8u05XBO6HPBlLg.K5bo5DyI12movdlwRau2Xm.', '', '', '', '2005-04-08', 0),
+(31, '@test422544', 2, 0, 'testae@gmail.com', 'testekkk', '$2y$10$zkOgGAGuqiyrTKC9VGhwPeqJei30pKM/Ka4RiX/qMoRFRxahWb6cW', NULL, NULL, NULL, '2007-04-04', 0),
+(32, '@ezquzi_15', 1, 1, 'ezquzi_15@gmail.com', 'ezquzi_15', '$2y$10$ho/mf0gqaqbz3jv8u05XBO6HPBlLg.K5bo5DyI12movdlwRau2Xm.', '', '', '', '2005-04-08', 1),
 (33, '@eszu18945', 0, 0, 'ezquizo5@gmail', 'eszuizo5', '$2y$10$CyQflgVTcxVL8M3j9hiQrOxTEznaEL2ubcetuuUPXC7HekxbfNox.', NULL, NULL, NULL, '2003-04-06', 0);
 
 --
@@ -399,7 +400,7 @@ ALTER TABLE `jogos`
 -- AUTO_INCREMENT de tabela `publicacoes`
 --
 ALTER TABLE `publicacoes`
-  MODIFY `id_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=320;
+  MODIFY `id_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345;
 
 --
 -- AUTO_INCREMENT de tabela `users`
