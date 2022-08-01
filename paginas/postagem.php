@@ -124,7 +124,7 @@
                     </div>
                 </div>
                 <div class="post-comentario--area">
-                    <div class="coment--area">
+                    <div class="coment--area" style="display: none;">
                     <div class="post--area--perfil-coment">
                           <div class="menu--pag--img--area img--perfil img--perfil-red">
                           </div>

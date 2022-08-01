@@ -789,7 +789,9 @@ function post_num_compartilhamento() {
     nada.classList.add('nada');
     if(timeline) {
         nada.innerHTML = 'Por enquanto não há nada por aqui. :(';
-    } else {
+    } if(timeline == 'coment') {
+        nada.innerHTML = 'Seja o primeiro a interagir com esse usuário!';
+    } if(timeline == false) {
         nada.innerHTML = 'Esse usuário não fez nenhuma publicação. :(';
     }
     document.querySelector('.feed-body-post').appendChild(nada);
@@ -858,7 +860,16 @@ async function post_all() {
         area_post_completo.querySelector('.event--curtida').setAttribute('data-key', obj.publicacao.id_publi);
     } 
     if(obj.comentarios != undefined) {
-        console.log('oi')
+        for(let bobSponja in obj.comentarios) {
+            let areaPalhacada = qs('.post-comentario--area .coment--area').cloneNode(true);
+            qs('.coment--area').remove();
+            areaPalhacada.style ='';
+            areaPalhacada.querySelector('.post--area--perfil-coment .menu--pag--img--area').setAttribute('style', obj.comentarios[bobSponja].user_info.img_user);
+            qs('.post-comentario--area').appendChild(areaPalhacada);
+        }
+    } else {
+        post_not('coment');
+        qs('.post-comentario--area .coment--area').remove();
     }
 }
  
