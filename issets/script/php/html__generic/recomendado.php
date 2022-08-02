@@ -206,3 +206,30 @@
                     </div>
                 </div>
               </div>
+              <div class="area-generic-modal">
+                
+            </div>
+            <div class="modal-coment">
+                    <div class="modal-event-coment"></div>
+                    <div class="body-modal-coment">
+                        <div class="header-coment">
+                            <div class="button-exit">
+                                <div class="menu--exit-img"></div>
+                            </div>
+                            <div class="name--text-coment">
+                                Comentário
+                            </div>
+                            <button class="button--postar-coment button-remove">Postar</button>
+                        </div>
+                        <div class="body--coment">
+                            <div class="coment--area">
+                                <div class="area-input-div">
+                                    Escreva aqui... (provisorio)
+                                </div>
+                                <div class="area--img">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

@@ -944,3 +944,59 @@ background-position: center;
     top: inherit !important;
     right: inherit !important;
 }
+.modal-coment {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.modal-event-coment {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #6666664b;
+}
+.body-modal-coment {
+    background-color: #0a0a0a;
+    width: 50%;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 40px;
+    height: auto;
+}
+.header-coment {
+    height: 40px;
+    width: 100%;
+    background-color: #101010;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 10px ;
+    align-items: center;
+}
+.name--text-coment {
+    color: #fbfbfb;
+    margin-right: -10px;
+}
+.button-exit {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+.button-exit:hover {
+    background-color: #363636;
+    cursor: pointer;
+    transition: all linear 0.25s;
+}
+.button--postar-coment  {
+    border: none;
+    background-color: #0fa8b3;
+    padding: 5px 13px;
+    border-radius: 10px;
+    color: #fbfbfb;
+}
