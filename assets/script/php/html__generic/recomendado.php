@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <div class="menu--header--body">
-                    <a href='<?= pagAtual('caminho');?>../issets/script/php/logout.php' class="opt--menu-header">
+                    <a href='<?= pagAtual('caminho');?>../assets/script/php/logout.php' class="opt--menu-header">
                         <div class="img--menu--header logout"></div>
                         <div class="text--menu--header">logout</div>
                     </a>
@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="buttom-recomendado-area">
                                             <div class="buttom--body">
-                                                <form action="<?= pagAtual('caminho');?>../issets/script/php/seguir.php" method="post">
+                                                <form action="<?= pagAtual('caminho');?>../assets/script/php/seguir.php" method="post">
                                                     <button type="submit" class="button--seguir"></button>
                                                 <input type="hidden" value="<?= $value01['id_user']?>" name="iD_x30">
                                                 </form>
@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="buttom-recomendado-area">
                                             <div class="buttom--body">
-                                                <form action="../issets/script/php/seguir.php" method="post">
+                                                <form action="../assets/script/php/seguir.php" method="post">
                                                     <button type="submit" class="button--seguir"></button>
                                                 <input type="hidden" value="<?= $value04['id_user']?>" name="iD_x30">
                                                 </form>
@@ -141,7 +141,7 @@
                                                 </div>
                                                 <div class="buttom-recomendado-area">
                                                     <div class="buttom--body">
-                                                        <form action="../issets/script/php/seguir.php" method="post">
+                                                        <form action="../assets/script/php/seguir.php" method="post">
                                                             <button type="submit" class="button--seguir"></button>
                                                         <input type="hidden" value="<?= $value05['id_user']?>" name="iD_x30">
                                                         </form>
@@ -174,7 +174,7 @@
                                                 </div>
                                                 <div class="buttom-recomendado-area">
                                                     <div class="buttom--body">
-                                                        <form action="../issets/script/php/seguir.php" method="post">
+                                                        <form action="../assets/script/php/seguir.php" method="post">
                                                             <button type="submit" class="button--seguir"></button>
                                                         <input type="hidden" value="<?= $value05['id_user']?>" name="iD_x30">
                                                         </form>
@@ -227,7 +227,7 @@
                                     Escreva aqui... (provisorio)
                                 </div>
                                 <div class="area--img">
-                                    
+
                                 </div>
                             </div>
                         </div>

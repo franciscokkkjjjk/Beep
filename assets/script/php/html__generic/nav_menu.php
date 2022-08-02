@@ -3,7 +3,7 @@
                 <div class="logo--area">
                     <div class="logo">
                         <a href="">
-                            <img src="<?= pagAtual('caminho');?>../issets/imgs/default/beep_logo.png">
+                            <img src="<?= pagAtual('caminho');?>../assets/imgs/default/beep_logo.png">
                         </a>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ function creatFormEdit(){
         let form = document.createElement('form');
         let div = document.createElement('div');
         div.setAttribute('class', "menu--edit");
-        form.setAttribute('action','../issets/script/php/editar_perfil.php');
+        form.setAttribute('action','../assets/script/php/editar_perfil.php');
         form.setAttribute('method','POST');
         form.setAttribute('id','f3deR');
         form.setAttribute('enctype', 'multipart/form-data');
@@ -59,7 +59,7 @@ function creatFormEdit(){
         if(img_banner == ''){
             div03010102.style.display = 'none';
         } else{
-            div0301.style.backgroundImage = 'url(../issets/imgs/profile/'+img_banner+')';
+            div0301.style.backgroundImage = 'url(../assets/imgs/profile/'+img_banner+')';
         }
         let inputBool = document.createElement('input');
         inputBool.setAttribute('type', 'hidden');
@@ -94,7 +94,7 @@ function creatFormEdit(){
         if(img_perfil == ''){
 
         } else{
-        div04.style.backgroundImage = 'url(../issets/imgs/profile/'+img_perfil+')';
+        div04.style.backgroundImage = 'url(../assets/imgs/profile/'+img_perfil+')';
         }
         let div0401 = dC('label');
         div0401.setAttribute('for','input_file_perfil');

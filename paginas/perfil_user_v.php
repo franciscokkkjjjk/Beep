@@ -7,9 +7,9 @@ $perfil = $_GET['username'];
 if($perfil == '') {
     header('location:inicial.php');
 }
-require_once '../issets/script/php/historico.php';    
-require_once '../issets/script/php/conecta.php';
-require_once '../issets/script/php/function/funcoes.php';
+require_once '../assets/script/php/historico.php';    
+require_once '../assets/script/php/conecta.php';
+require_once '../assets/script/php/function/funcoes.php';
 
 
 if($perfil == $_SESSION['username']) {
@@ -22,25 +22,25 @@ if($perfil == $_SESSION['username']) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../issets/imgs/default/beep_logo.png">
+    <link rel="icon" href="../assets/imgs/default/beep_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../issets/style/generic/style.css">
-    <link rel="stylesheet" href="../issets/style/feed/style.css">
-    <link rel="stylesheet" href="../issets/style/toca/style.css">
+    <link rel="stylesheet" href="../assets/style/generic/style.css">
+    <link rel="stylesheet" href="../assets/style/feed/style.css">
+    <link rel="stylesheet" href="../assets/style/toca/style.css">
     <title><?= $perfil?> | Beep</title>
     <style>
         <?php 
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
         ?>
         .menu--pag--img--area {
-            background-image: url('../issets/imgs/profile/<?=$_SESSION['img']?>');
+            background-image: url('../assets/imgs/profile/<?=$_SESSION['img']?>');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
         }
         <?php } else { ?>
             .menu--pag--img--area {
-            background-image: url('../issets/imgs/default/perfil-de-usuario-black.png');
+            background-image: url('../assets/imgs/default/perfil-de-usuario-black.png');
         }
         <?php }?>
         .fot_user_visit {
@@ -53,7 +53,7 @@ if($perfil == $_SESSION['username']) {
 <body>
     <div class="feed-area">
         <?php 
-            require_once '../issets/script/php/html__generic/nav_menu.php';
+            require_once '../assets/script/php/html__generic/nav_menu.php';
         ?>
         <div class="timeline--area">
             <div class="feed-header-body">
@@ -122,24 +122,24 @@ if($perfil == $_SESSION['username']) {
                 <div class="back--event" style="top:auto;    margin-top: 18px;">
                     <div class="event"></div>
                 </div>
-                    <?php require_once '../issets/script/php/html__generic/posts_template.php';?>
+                    <?php require_once '../assets/script/php/html__generic/posts_template.php';?>
                 </div>
             </div>
             
           </div>
         
           <?php 
-                require_once '../issets/script/php/html__generic/recomendado.php';
+                require_once '../assets/script/php/html__generic/recomendado.php';
             ?>
     </div>
-    <script type="text/javascript" src="../issets/script/javascript/default/script.js"></script>
-    <script type="text/javascript" src="../issets/script/javascript/default/posts/posts.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
         user_();
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/event_header.js"></script>
-    <script type="text/javascript" src="../issets/script/javascript/toca/script.js"></script>
-    <!--<script type="text/javascript" src="../issets/script/javascript/default/session_storage.js"></script>-->
+    <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>
+    <!--<script type="text/javascript" src="../assets/script/javascript/default/session_storage.js"></script>-->
     <script>
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;
@@ -153,9 +153,9 @@ if($perfil == $_SESSION['username']) {
         const y_nas = <?php echo '"'.date('Y', strtotime($_SESSION['data_nas'])).'"';?>;
     </script>
     
-    <script src="../issets/script/javascript/default/edit_form.js">
+    <script src="../assets/script/javascript/default/edit_form.js">
     </script>
-    <script type="text/javascript" src="../issets/script/javascript/default/form_creat.js">
+    <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js">
     </script>       
 </body>
 </html>

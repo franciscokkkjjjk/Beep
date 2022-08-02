@@ -6,7 +6,7 @@ let quan_novos = 0;
 let button = document.createElement('button');
 let div = document.querySelector('.event');
 async function posts() {
-    let posts = await fetch('../issets/script/php/requsicoes/posts.php');
+    let posts = await fetch('../assets/script/php/requsicoes/posts.php');
     post_d =  await posts.json();
     load.style.display = 'none';
     console.log(post_d);
@@ -31,7 +31,7 @@ async function posts() {
             let curtida = new FormData(e);
             e.onclick =  async (a)=>{
                 a.preventDefault();
-                let moio = await fetch('../issets/script/php/interacoes_post/curtir.php', {
+                let moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
                     method: 'POST',
                     body: curtida,
                 })
@@ -59,7 +59,7 @@ async function posts() {
     }
     async function user_() {
         let username_vist = window.location.href.split('=');
-        let user_vist = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username_vist[1]);
+        let user_vist = await fetch('../assets/script/php/requsicoes/posts_users.php?username='+username_vist[1]);
         let user_v = await user_vist.json();
         qsAll('.event').forEach((e)=>{e.remove()});
         qsAll('.back--event').forEach((e)=>{e.remove()});
@@ -103,7 +103,7 @@ async function posts() {
                 }else {
                     post_body.querySelector('.post--img-area').style.display = '';
                     post_body.querySelector('.post--img').style.display = 'block';
-                    post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }//p-xD30
                 post_body.querySelector('.event--curtida input').value = lista[i]['id_publi'];
                 post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
@@ -159,7 +159,7 @@ async function posts() {
                 }
                 if(lista[i]['img_publi'] == '' || lista[i]['img_publi'] == null) {} else {
                     post_body.querySelector('.post--img-area-com').style.display= 'block';
-                    post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }
                 if(lista[i]['user_curtiu']){
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada']);
@@ -206,7 +206,7 @@ async function posts() {
                 }else {
                     post_body.querySelector('.post--img-area').style.display = '';
                     post_body.querySelector('.post--img').style.display = 'block';
-                    post_body.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${lista[i]['img_publi']})`;
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }//p-xD30
                 post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
                 if(lista[i]['user_curtiu']){
@@ -240,7 +240,7 @@ async function posts() {
     }
     function verficar_posts() {
         setInterval((e)=>{
-            fetch('../issets/script/php/requsicoes/posts.php')
+            fetch('../assets/script/php/requsicoes/posts.php')
                 .then(function (resultado){
                     return resultado.json()
                 })
@@ -287,7 +287,7 @@ async function posts() {
     }
     function user_seguidores(list_user) {
         if(list_user.banner_pefil != null && list_user.banner_pefil != "") {
-            document.querySelector('.banner--perfil').setAttribute('style', "background-image:url(../issets/imgs/profile/"+list_user.banner_pefil+");");
+            document.querySelector('.banner--perfil').setAttribute('style', "background-image:url(../assets/imgs/profile/"+list_user.banner_pefil+");");
         } 
         document.querySelector('.fot_user_visit').setAttribute('style', list_user.img_user);
         document.querySelector('.info--perfil--user--nome').innerHTML = list_user.nome_user;
@@ -301,18 +301,18 @@ async function posts() {
         qs('.input_segui_id_x30').value = list_user.user_id;
         if(list_user.seguindo == true) {
             button_segu.setAttribute('class', 'button--seguindo button-remove curso-pointer');
-            qs('.form_id_x30').setAttribute('action', '../issets/script/php/unseguir.php');
+            qs('.form_id_x30').setAttribute('action', '../assets/script/php/unseguir.php');
             qs('.form_id_x30').appendChild(button_segu);
         } else {
             button_segu.setAttribute('class', 'button--seguir button-remove curso-pointer');
-            qs('.form_id_x30').setAttribute('action', '../issets/script/php/seguir.php');
+            qs('.form_id_x30').setAttribute('action', '../assets/script/php/seguir.php');
             qs('.form_id_x30').appendChild(button_segu);
         }
     }
     function seguidores_user() {
         let segui = window.location.href.split('=');
         setInterval(()=>{
-        fetch('../issets/script/php/requsicoes/posts_users.php?username='+segui[1])
+        fetch('../assets/script/php/requsicoes/posts_users.php?username='+segui[1])
             .then(function (resultado){
                 return resultado.json()
             })
@@ -324,7 +324,7 @@ async function posts() {
     }
 
     async function user_session() {//adaptar para parece com os da timeline
-        let user_session = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
+        let user_session = await fetch('../assets/script/php/requsicoes/posts_users.php?username='+username);
         let user_s = await user_session.json();
         qs('.back--event').remove();
         console.log(user_s)
@@ -350,7 +350,7 @@ async function posts() {
         let atual_pag = window.location.href.split('paginas/');
         setInterval(()=>{
             if(atual_pag[1] == 'perfil.php') {
-                fetch('../issets/script/php/requsicoes/posts_users.php?username='+username)
+                fetch('../assets/script/php/requsicoes/posts_users.php?username='+username)
                     .then(function (res){
                         return res.json()
                     })
@@ -359,7 +359,7 @@ async function posts() {
                         qs('.num_seguidores').innerHTML = jso.user.t_seguidores;
                     })
             } else {
-                fetch('../issets/script/php/requsicoes/posts_users.php?username='+url_perfil[1])
+                fetch('../assets/script/php/requsicoes/posts_users.php?username='+url_perfil[1])
                     .then(function (res){
                         return res.json()
                     })
@@ -376,7 +376,7 @@ async function posts() {
             let desCurtida = new FormData(e);
             e.onclick =  async function(a) {
                 a.preventDefault();
-                let moio_ = await fetch('../issets/script/php/interacoes_post/descurtir.php', {
+                let moio_ = await fetch('../assets/script/php/interacoes_post/descurtir.php', {
                     method: 'POST',
                     body: desCurtida,
                 })
@@ -411,9 +411,9 @@ async function posts() {
         let value_url = url_push.split('=');
         let curtida_req;
         if(value_url.length == 2){
-            curtida_req = await fetch(`../issets/script/php/requsicoes/curtidas_posts.php?username=${value_url[1]}`);
+            curtida_req = await fetch(`../assets/script/php/requsicoes/curtidas_posts.php?username=${value_url[1]}`);
         } else {
-            curtida_req = await fetch(`../issets/script/php/requsicoes/curtidas_posts.php?username=`+username )
+            curtida_req = await fetch(`../assets/script/php/requsicoes/curtidas_posts.php?username=`+username )
         }
         let jso_c = await curtida_req.json();
         jso_c.reverse(); 
@@ -475,7 +475,7 @@ async function posts() {
             let req_;
             let json_
             if(url_push_v[1] == 'inicial.php') {    
-                 req_ = await fetch('../issets/script/php/requsicoes/posts.php');
+                 req_ = await fetch('../assets/script/php/requsicoes/posts.php');
                  json_ = await req_.json();
                  for(let s in json_) {
                     let calc = parseInt(s) + parseInt(quan_novos);
@@ -519,7 +519,7 @@ async function posts() {
                 }
             } else {
                 if(url_push_v[1] == 'perfil.php') {
-                    req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
+                    req_ = await fetch('../assets/script/php/requsicoes/posts_users.php?username='+username);
                     json_ = await req_.json(); 
                     if(json_.publi.nada == undefined){
                     for(let s in json_.publi) {
@@ -564,7 +564,7 @@ async function posts() {
                     }
                  }
                 } else {
-                    req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+url_perfil[1]);
+                    req_ = await fetch('../assets/script/php/requsicoes/posts_users.php?username='+url_perfil[1]);
                     json_ = await req_.json(); 
                     if(json_.publi.nada == undefined) {
                         for(let s in json_.publi) {
@@ -621,7 +621,7 @@ async function posts() {
     form_.appendChild(input_a);
     let newF = new FormData(form_);
     
-    let compartilhar = await fetch('../issets/script/php/interacoes_post/compartilhar.php', {
+    let compartilhar = await fetch('../assets/script/php/interacoes_post/compartilhar.php', {
         method: 'POST',
         body: newF
     })
@@ -645,7 +645,7 @@ function descompartilhar() {
             input_a.setAttribute('value', id_button);
             form_.appendChild(input_a);
             let value_pomisse = new FormData(form_);
-            let promisse = await fetch('../issets/script/php/interacoes_post/descompartilhar.php', {
+            let promisse = await fetch('../assets/script/php/interacoes_post/descompartilhar.php', {
                 method: 'POST',
                 body: value_pomisse
             });
@@ -662,7 +662,7 @@ function post_num_compartilhamento() {
     let url_push_v = window.location.href.split('paginas/');
         
     if(url_push_v[1] == 'inicial.php') {    
-        let prom = await fetch('../issets/script/php/requsicoes/posts.php');
+        let prom = await fetch('../assets/script/php/requsicoes/posts.php');
         let res_pom = await prom.json();
          for(let l in res_pom) {
 
@@ -703,7 +703,7 @@ function post_num_compartilhamento() {
         }
     } else {
         if(url_push_v[1] == 'perfil.php') {
-            req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+username);
+            req_ = await fetch('../assets/script/php/requsicoes/posts_users.php?username='+username);
             res_pom = await req_.json(); 
             if(res_pom.publi.nada == undefined) {
             for(let l in res_pom.publi) {
@@ -744,7 +744,7 @@ function post_num_compartilhamento() {
             }
          }
         } else {
-            req_ = await fetch('../issets/script/php/requsicoes/posts_users.php?username='+url_perfil[1]);
+            req_ = await fetch('../assets/script/php/requsicoes/posts_users.php?username='+url_perfil[1]);
             res_pom = await req_.json(); 
             if(res_pom.publi.nada == undefined) {
                 for(let l in res_pom.publi) {
@@ -816,7 +816,7 @@ async function post_all() {
         input_aux.setAttribute('value', info[1]);
         form_aux.appendChild(input_aux);
         let info_aux = new FormData(form_aux);
-        let post_completo = await fetch('../issets/script/php/requsicoes/post_completo.php', {
+        let post_completo = await fetch('../assets/script/php/requsicoes/post_completo.php', {
             method: 'POST',
             body: info_aux
         });
@@ -841,7 +841,7 @@ async function post_all() {
         area_img.remove()
     } else {
         area_img.querySelector('.event').remove();
-        area_img.querySelector('img').setAttribute('src', '../issets/imgs/posts/'+obj.publicacao.img_publi);
+        area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/'+obj.publicacao.img_publi);
         area_img.querySelector('img').style.display = '';
     }
     area_post_completo.querySelector('.num--curtidas').innerHTML = obj.publicacao.num_curtidas;
@@ -882,7 +882,7 @@ async function post_all() {
                 areaPalhacada.querySelector('.post--img-area').remove();
             } else {
                 areaPalhacada.querySelector('.post--img-area').style.display = '';
-                areaPalhacada.querySelector('.post--img').style.backgroundImage = `url(../issets/imgs/posts/${obj.comentarios[bobSponja].img_publi})`;
+                areaPalhacada.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${obj.comentarios[bobSponja].img_publi})`;
             }
             if(obj.comentarios[bobSponja].text_post == undefined || obj.comentarios[bobSponja].text_post == null || obj.comentarios[bobSponja].text_post == '') {
                 areaPalhacada.querySelector('.coment--conteudo--text').remove(); 

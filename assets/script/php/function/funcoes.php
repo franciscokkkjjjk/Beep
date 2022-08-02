@@ -47,13 +47,13 @@ function dateCalc($array_user){
 }
 function perfilDefault($array_user, $diretorio) {
     if($array_user == '' and $diretorio == '') {
-        return "background-image:url('../issets/imgs/default/perfil-de-usuario-black.png');";
+        return "background-image:url('../assets/imgs/default/perfil-de-usuario-black.png');";
     } elseif ($array_user == '' and $diretorio != '') {
-        return "background-image:url('../../issets/imgs/default/perfil-de-usuario-black.png');";
+        return "background-image:url('../../assets/imgs/default/perfil-de-usuario-black.png');";
     } elseif ($array_user != '' and $diretorio == '') {
-        return "background-image:url('../issets/imgs/profile/$array_user');". $diretorio;
+        return "background-image:url('../assets/imgs/profile/$array_user');". $diretorio;
     } elseif ($array_user != '' and $diretorio != '') {
-        return "background-image:url('../../issets/imgs/profile/$array_user');";
+        return "background-image:url('../../assets/imgs/profile/$array_user');";
     }
 }
 function pagAtual($area) {
