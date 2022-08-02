@@ -1000,3 +1000,8 @@ background-position: center;
     border-radius: 10px;
     color: #fbfbfb;
 }
+.area-input-div {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}

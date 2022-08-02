@@ -224,7 +224,10 @@
                         <div class="body--coment">
                             <div class="coment--area">
                                 <div class="area-input-div">
+                                    <div class="img--perfil menu--pag--img--area"></div>
+                                    <div class="area--inputdiv">
                                     Escreva aqui... (provisorio)
+                                    </div>
                                 </div>
                                 <div class="area--img">
 
