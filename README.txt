@@ -29,3 +29,14 @@ criada para o compartilhamento
 --no json de pefils criar a posição 0 e 1
 -0: fica todas as postagens do user 
 -1:fica informações de seu perfil
+
+
+
+
+------------------------------------descrição de elementos dentro do código---------------------
+-p_xD30 = na classe significa que o elemento cai chamar a função de curtir
+-p_xD29 = na classe significa que o elemento vai chamar a função de descortir
+-type 1 = comentario
+-type 2 = repost com comentario 
+-type 3 = post normal
+-type 4 = repost direto

@@ -158,7 +158,7 @@
                         <div class="interacao--post--area interacao--coment">
                             <form class="event--curtida event--curtida-comp curtir--hover interac-button">
                                 <input type="hidden" value="" name="p-xD30">
-                                <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
+                                <button>
                                     Curtir
                                 </button>
                                 <div class="post_curtidas area_num" ><div class="event min-event"></div></div>

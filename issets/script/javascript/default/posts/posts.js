@@ -36,9 +36,12 @@ async function posts() {
                     body: curtida,
                 })
                 let res = await moio.json();
-                let num_curtidas = e.querySelector('.area_num').innerHTML;
-                let convet = parseInt(num_curtidas)+1;
-                e.querySelector('.area_num').innerHTML = convet;
+                let num_curtidas = e.querySelector('.area_num');
+                if(num_curtidas != undefined) {
+                    let num  = num_curtidas.innerHTML
+                    let convet = parseInt(num)+1;
+                    e.querySelector('.area_num').innerHTML = convet;
+                }
                 e.querySelector('button').classList.remove('img--iteracao-curtida');
                 e.querySelector('button').classList.add('img--iteracao-curtida-on');
                 e.querySelector('button').classList.add('img--iteracao-curtida-on')
@@ -378,9 +381,12 @@ async function posts() {
                     body: desCurtida,
                 })
                 let res_ = await moio_.json();
-                let num_curtidas = e.querySelector('.area_num').innerHTML;
-                let convet = parseInt(num_curtidas)-1;
-                e.querySelector('.area_num').innerHTML = convet;
+                let num_curtidas = e.querySelector('.area_num');
+                if(num_curtidas != undefined) {
+                    let num = num_curtidas.innerHTML
+                    let convet = parseInt(num)-1;
+                    e.querySelector('.area_num').innerHTML = convet;
+                }
                 e.querySelector('button').classList.add('img--iteracao-curtida');
                 e.querySelector('button').classList.add('img--iteracao-curtida-off');
                 e.querySelector('button').classList.add('img--iteracao-curtida-off')
@@ -883,9 +889,18 @@ async function post_all() {
             } else {
                 areaPalhacada.querySelector('.post--text').innerHTML = obj.comentarios[bobSponja].text_post;
             }
-            
+            areaPalhacada.querySelector('.event--curtida').id = obj.comentarios[bobSponja].id_publi;
+            areaPalhacada.querySelector('.event--curtida input').value = obj.comentarios[bobSponja].id_publi;
+            if(obj.comentarios[bobSponja].user_curtiu) {
+                //p-xD30 para curtir
+                areaPalhacada.querySelector('.event--curtida').classList.add('p-xD29');
+                areaPalhacada.querySelector('.event--curtida button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+            } else {
+                areaPalhacada.querySelector('.event--curtida').classList.add('p-xD30');
+                areaPalhacada.querySelector('.event--curtida button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off');
+            }
+            areaPalhacada.querySelector('.post_curtidas').innerHTML = obj.comentarios[bobSponja].num_curtidas;
             qs('.post-comentario--area').append(areaPalhacada);    
-            
         }
         qs('.coment--area').remove();
         
