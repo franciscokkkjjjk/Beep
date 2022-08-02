@@ -892,7 +892,6 @@ async function post_all() {
             areaPalhacada.querySelector('.event--curtida').id = obj.comentarios[bobSponja].id_publi;
             areaPalhacada.querySelector('.event--curtida input').value = obj.comentarios[bobSponja].id_publi;
             if(obj.comentarios[bobSponja].user_curtiu) {
-                //p-xD30 para curtir
                 areaPalhacada.querySelector('.event--curtida').classList.add('p-xD29');
                 areaPalhacada.querySelector('.event--curtida button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
             } else {
