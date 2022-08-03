@@ -1,9 +1,17 @@
 qs('.button--post--form').disabled = true;
 qs('.form--inpudiv--event').addEventListener('click',()=>{
     qs('.event--placeholder').style.display='none';
-    qs('.inputdiv--form--post').style.display='block';
-    qs('.inputdiv--form--post').focus();
-    
+    /*
+     <div id="inputdiv"  contenteditable="true" class="inputdiv--form--post"></div>
+     */ 
+    if(qs('.inputdiv--form--post') == undefined){ 
+        let creat_div = document.createElement('div');
+        creat_div.id = 'inputdiv';
+        creat_div.contentEditable = 'true';
+        creat_div.classList.add('inputdiv--form--post');
+        qs('.form--inpudiv--event').appendChild(creat_div);
+        qs('.inputdiv--form--post').focus();
+    }
     qs('.inputdiv--form--post').addEventListener('blur',(e)=>{
         let value = e.target.innerText.trim()
         if(value == '' && qs('.input_img_event').value == '') {
@@ -11,14 +19,11 @@ qs('.form--inpudiv--event').addEventListener('click',()=>{
             qs('.button--post--form').disabled = true;
             qs('.button--post--form').style.backgroundColor = '';
             qs('.button--post--form').style.cursor = '';
-            qs('.button--post--form').style.cursor = '';
             qs('.event--placeholder').style.display='';
-            qs('.inputdiv--form--post').style.display='';
-            qs('.form--event--diviput').value = qs('.inputdiv--form--post').innerText;
+            qs('.inputdiv--form--post').remove();
         } else if(value == ''){
             qs('.event--placeholder').style.display='';
-            qs('.inputdiv--form--post').style.display='';
-            qs('.form--event--diviput').value = qs('.inputdiv--form--post').innerText;
+            qs('.inputdiv--form--post').remove();
         } else {
             qs('.form--event--diviput').value = qs('.inputdiv--form--post').innerText;
             qs('.button--post--form').disabled = false;
@@ -47,13 +52,23 @@ function showImg_form(e){
             qs('.input_img_event').value = '';
             img_f.remove();
             exit.remove();
-            if(value.target.innerText.trim() == '' && qs('.input_img_event').value == '') {
-                qs('.inputdiv--form--post').target.innerText = '';
-                qs('.button--post--form').disabled = true;
-                qs('.button--post--form').style.backgroundColor = '';
-                qs('.button--post--form').style.cursor = '';
-                qs('.button--post--form').style.cursor = '';
-             }
+            let value = qs('.inputdiv--form--post');
+            if(value != undefined) {
+                if(value.target.innerText.trim() == '' && qs('.input_img_event').value == '') {
+                    qs('.inputdiv--form--post').target.innerText = '';
+                    qs('.button--post--form').disabled = true;
+                    qs('.button--post--form').style.backgroundColor = '';
+                    qs('.button--post--form').style.cursor = '';
+                    qs('.button--post--form').style.cursor = '';
+                 }
+            } else {
+                if(qs('.input_img_event').value == '') {
+                    qs('.button--post--form').disabled = true;
+                    qs('.button--post--form').style.backgroundColor = '';
+                    qs('.button--post--form').style.cursor = '';
+                    qs('.button--post--form').style.cursor = '';
+                }
+                }
             }, true)
         
         qs('.button--post--form').disabled = false;

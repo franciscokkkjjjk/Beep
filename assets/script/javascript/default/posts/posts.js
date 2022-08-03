@@ -22,6 +22,7 @@ async function posts() {
             post_num_curtida();
         }, 500);
         post_num_compartilhamento();
+        coment();
     } else {
         post_not(true);
     }
@@ -71,6 +72,7 @@ async function posts() {
             desCurtir();
             viwimg();
             show_CM();
+            coment()
             descompartilhar();
             qs('.event-direct').onclick = compartilhar;
             setInterval( ()=>{

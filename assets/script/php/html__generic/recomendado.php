@@ -206,9 +206,6 @@
                     </div>
                 </div>
               </div>
-              <div class="area-generic-modal">
-                
-            </div>
             <div class="modal-coment" style="display: none;">
                     <div class="modal-event-coment"></div>
                     <div class="body-modal-coment">

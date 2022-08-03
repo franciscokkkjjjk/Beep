@@ -281,7 +281,6 @@
 }
 .inputdiv--form--post {
     max-width: 100%;
-    display: none;
 }
 .inputdiv--form--post:focus {
     outline: none;
