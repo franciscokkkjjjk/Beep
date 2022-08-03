@@ -209,7 +209,7 @@
               <div class="area-generic-modal">
                 
             </div>
-            <div class="modal-coment">
+            <div class="modal-coment" style="display: none;">
                     <div class="modal-event-coment"></div>
                     <div class="body-modal-coment">
                         <div class="header-coment">
@@ -226,11 +226,27 @@
                                 <div class="area-input-div">
                                     <div class="img--perfil menu--pag--img--area"></div>
                                     <div class="area--inputdiv">
-                                    Escreva aqui... (provisorio)
+                                        Escreva aqui... (provisorio)
                                     </div>
                                 </div>
                                 <div class="area--img">
-
+                                    <div class="img--coment img--post">
+                                        <img src="../assets/imgs/posts/62cb152c7ffc0.png">
+                                    </div>
+                                </div>
+                                
+                                <div class="area--menu">
+                                <div class="menu--post--item coment--menu">
+                                    <div class="area--reposta ">
+                                        Em resposta a <a class="resposat info--perfil--user--username">@fran</a>
+                                    </div>
+                                    <div class="area--opt">
+                                        <label for="img--post">
+                                            <div class="opt--menu--item pic" title="Adicionar uma imagem"></div>
+                                        <input id="img--post" type="file" style="display: none;" class="input_img_event" name="img_post">
+                                        </label>
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>

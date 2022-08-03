@@ -1003,5 +1003,44 @@ background-position: center;
 .area-input-div {
     display: flex;
     flex-direction: row;
-    background-color: red;
+    min-height: 104px;
+}
+.body--coment {
+    padding: 13px 22px;
+}
+.area--inputdiv {
+    color: #fbfbfb;
+    width: 100%;
+    padding: 10px 10px;
+}
+.area--inputdiv:hover {
+    cursor:text;
+}
+.img--post img {
+    max-height: 540px;
+    max-width: 540px;
+    min-height: 350px;
+    min-width: 350px;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-left: -12px;
+}
+.img--post  {
+    width: auto;
+    height: auto;
+}
+.img--coment  {
+    display: flex;
+    align-items: center;
+}
+.img--coment img{
+    margin:auto;
+}
+.coment--menu {
+    flex-direction: column !important;
+}
+.area--reposta {
+    color: #fbfbfb;
+    padding: 5px 10px;
+    font-size: 14px;
 }

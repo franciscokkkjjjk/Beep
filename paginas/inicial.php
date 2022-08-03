@@ -58,8 +58,8 @@
                             <div class="form--post--text">
                                 <div class="form--inpudiv--event">
                                     <span class='placeholder--div event--placeholder'>O que ta rolando, <?=$_SESSION['nome']?>?</span>
-                                    <div id="inputdiv"  contenteditable="true" class="inputdiv--form--post">
-                                    </div>
+        
+                                    
                                 </div>
                                 <div class="img--post">
                                 </div>
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                    </div>
                 </form>
                 <div class="back--event">
                     <div class="event"></div>
@@ -91,6 +91,7 @@
     </div>
     
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
+    <script type ="text/javascript" src="../assets/script/javascript/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js">
     </script>
