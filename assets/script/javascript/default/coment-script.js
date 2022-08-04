@@ -11,8 +11,12 @@ function coment() {
         comentar.forEach((e) => {
             e.addEventListener('click', async (element)=>{
                 clone.style.display = '';
-                qs('.feed-area').append(clone)
-                let info = await fetch('');
+                qs('.feed-area').append(clone);
+                console.log(e.id.replace('p_xD30_C',''));
+                let post = document.createElement('form');
+                let input = document.createElement('div');
+                input.value;
+                //let info = await fetch('');
             }, true);
         });
     }

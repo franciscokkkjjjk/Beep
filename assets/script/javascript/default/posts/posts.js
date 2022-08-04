@@ -129,7 +129,7 @@ async function posts() {
                     post_body.querySelector('.compartilhar-event-div').classList.add('compartilhar')
                     post_body.querySelector('.compartilhar').id = lista[i]['id_publi']+'c-xD30';
                 }
-                post_body.querySelector('.comentar').id = lista[i]['id_publi']+'p_xD30_C';
+                post_body.querySelector('.comentar').id = 'p_xD30_C'+lista[i]['id_publi'];
                 post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem='+lista[i]['id_publi'];   
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
                 document.querySelector('.feed-body-post').append(post_body);
@@ -172,7 +172,7 @@ async function posts() {
                     post_body.querySelector('.event--curtida').classList.add('p-xD30');
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
                 }
-                post_body.querySelector('.comentar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'p_xD30_C';
+                post_body.querySelector('.comentar').id = 'p_xD30_C'+lista[i]['compartilhador_info']['id_da_compartilhada'];
                 if(lista[i]['user_compartilhou']) {
                     post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
                     post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
@@ -212,7 +212,7 @@ async function posts() {
                     post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }//p-xD30
                 post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
-                post_body.querySelector('.comentar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'p_xD30_C';
+                post_body.querySelector('.comentar').id = 'p_xD30_C'+lista[i]['compartilhador_info']['id_da_compartilhada'];
                 if(lista[i]['user_curtiu']){
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada']);
                     post_body.querySelector('.event--curtida').classList.add('p-xD29');
