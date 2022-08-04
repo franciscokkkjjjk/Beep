@@ -14,7 +14,7 @@ function coment() {
                 qs('.feed-area').append(clone);
                 console.log(e.id.replace('p_xD30_C',''));
                 let post = document.createElement('form');
-                let input = document.createElement('div');
+                let input = documenta.createElement('div');
                 input.value;
                 //let info = await fetch('');
             }, true);
