@@ -12,12 +12,21 @@ function coment() {
             e.addEventListener('click', async (element)=>{
                 clone.style.display = '';
                 qs('.feed-area').append(clone);
-                console.log(e.id.replace('p_xD30_C',''));
+                let id = e.id.replace('p_xD30_C','');
                 let post = document.createElement('form');
-                let input = documenta.createElement('div');
-                input.value;
-                //let info = await fetch('');
-            }, true);
+                let input = document.createElement('input');
+                post.setAttribute('method','post');
+                input.setAttribute('value',id);
+                input.setAttribute('name','p-xD30');
+                post.appendChild(input);
+                let info_requi = new FormData(post);
+                let info = await fetch('../assets/script/php/requsicoes/comenta.php', {
+                    method:'POST',
+                    body:info_requi
+                })
+                let json_c = await info.json()
+                console.log(json_c);
+         }, true);
         });
     }
 }
