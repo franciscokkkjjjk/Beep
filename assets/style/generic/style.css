@@ -562,6 +562,9 @@ select option {
 .button-remove {
     background-color: transparent;
 }
+.button-remove:hover {
+    cursor: pointer;
+}
 .area--seguindo {
     height: 80px;
 }
@@ -1000,6 +1003,10 @@ background-position: center;
     border-radius: 10px;
     color: #fbfbfb;
 }
+.button--postar-coment:hover {
+    background-color: #3dc7d1;
+    transition: all linear 0.25s;
+}
 .area-input-div {
     display: flex;
     flex-direction: row;
@@ -1043,4 +1050,7 @@ background-position: center;
     color: #fbfbfb;
     padding: 5px 10px;
     font-size: 14px;
+}
+.resposat {
+    text-decoration: none;
 }

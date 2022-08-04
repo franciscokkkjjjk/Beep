@@ -26,6 +26,16 @@ function coment() {
                 })
                 let json_c = await info.json()
                 console.log(json_c);
+                if(json_c.user_info.username_user == username) {
+                    qs('.resposat').innerHTML = 'voce mesmo';
+                    qs('.resposat').setAttribute('href','perfil_user_v.php?username='+json_c.user_info.username_user);
+                } else {
+                    qs('.resposat').innerHTML = json_c.user_info.username_user;
+                    qs('.resposat').setAttribute('href','perfil_user_v.php?username='+json_c.user_info.username_user);
+                }
+                qs('.button--postar-coment').addEventListener('click', ()=>{
+                    window.location.href = '../assets/script/php/interacoes_post/comentar.php?id_publi'+json_c.id_publi;
+                },true);
          }, true);
         });
     }
