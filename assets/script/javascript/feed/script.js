@@ -33,7 +33,8 @@ qs('.form--inpudiv--event').addEventListener('click',()=>{
     },true)
 },true)
 
-function showImg_form(e){
+function showImg_form(e, a, c){
+    let inpu = e;
     let img_f = document.createElement('img');
     let exit = document.createElement('div');
     exit.setAttribute('class', 'exit--previu');
@@ -45,30 +46,32 @@ function showImg_form(e){
         console.log(img);
         let src = URL.createObjectURL(img);
         img_f.setAttribute('src', src);
-        qs('.img--post').appendChild(exit);
-        qs('.img--post').appendChild(img_f);
-        console.log(qs('.input_img_event').value);
-        exit.addEventListener('click', (e)=>{
-            qs('.input_img_event').value = '';
+        a.appendChild(exit);
+        a.appendChild(img_f);
+        console.log(e.value);
+        exit.addEventListener('click', (e = e)=>{
+            inpu.value = '';
             img_f.remove();
             exit.remove();
-            let value = qs('.inputdiv--form--post');
-            if(value != undefined) {
-                if(value.target.innerText.trim() == '' && qs('.input_img_event').value == '') {
-                    qs('.inputdiv--form--post').target.innerText = '';
-                    qs('.button--post--form').disabled = true;
-                    qs('.button--post--form').style.backgroundColor = '';
-                    qs('.button--post--form').style.cursor = '';
-                    qs('.button--post--form').style.cursor = '';
-                 }
-            } else {
-                if(qs('.input_img_event').value == '') {
-                    qs('.button--post--form').disabled = true;
-                    qs('.button--post--form').style.backgroundColor = '';
-                    qs('.button--post--form').style.cursor = '';
-                    qs('.button--post--form').style.cursor = '';
+            if(c) {
+                let value = qs('.inputdiv--form--post');
+                if(value != undefined) {
+                    if(value.target.innerText.trim() == '' && inpu.value == '') {
+                        qs('.inputdiv--form--post').target.innerText = '';
+                        qs('.button--post--form').disabled = true;
+                        qs('.button--post--form').style.backgroundColor = '';
+                        qs('.button--post--form').style.cursor = '';
+                        qs('.button--post--form').style.cursor = '';
+                    }
+                } else {
+                    if(e.value == '') {
+                        qs('.button--post--form').disabled = true;
+                        qs('.button--post--form').style.backgroundColor = '';
+                        qs('.button--post--form').style.cursor = '';
+                        qs('.button--post--form').style.cursor = '';
+                    }
                 }
-                }
+            }
             }, true)
         
         qs('.button--post--form').disabled = false;
@@ -77,4 +80,4 @@ function showImg_form(e){
 
     });
 }
-showImg_form(qs('.input_img_event'));
+showImg_form(qs('.input_img_event'), qs('.img--post'), true);

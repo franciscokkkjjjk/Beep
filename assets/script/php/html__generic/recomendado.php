@@ -216,7 +216,7 @@
                             <div class="name--text-coment">
                                 Comentário
                             </div>
-                            <button class="button--postar-coment button-remove">Postar</button>
+                            <button class="button--postar-coment button-remove" type="submit">Postar</button>
                         </div>
                         <div class="body--coment">
                             <div class="coment--area">
@@ -238,9 +238,9 @@
                                         Em resposta a <a class="resposat info--perfil--user--username name--username-perfil perfil-link-hover"><div class="event min-event event-block"></div></a>
                                     </div>
                                     <div class="area--opt">
-                                        <label for="img--post">
+                                        <label for="img--post-coment">
                                             <div class="opt--menu--item pic" title="Adicionar uma imagem"></div>
-                                        <input id="img--post" type="file" style="display: none;" class="input_img_event" name="img_post">
+                                        <input id="img--post-coment" type="file" style="display: none;" class="input_coment_event_img" name="img_post">
                                         </label>
                                     </div>
                                 </div>
