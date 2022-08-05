@@ -1,17 +1,24 @@
 /*
      <div id="inputdiv"  contenteditable="true" class="inputdiv--form--post"></div>
 */ 
-let modal = qs('.modal-coment');
+let modal = qs('.modal-coment-coment');
 let clone = modal.cloneNode(true);
 function coment() {
+    let creat_div = document.createElement('div');;
     modal.remove();
     let comentar = qsAll('.comentar');
     if(comentar.length > 0) {
         console.log('ola')
         comentar.forEach((e) => {
             e.addEventListener('click', async (element)=>{
+                creat_div.id = 'inputdiv';
+                creat_div.contentEditable = 'true';
+                creat_div.classList.add('inputdiv--form--post-coment');
                 qs('html').style.overflow = 'hidden';
                 clone.style.display = '';
+                setTimeout(()=>{
+                    clone.style.opacity = '';
+                },15)
                 qs('.feed-area').append(clone);
                 let id = e.id.replace('p_xD30_C','');
                 let post = document.createElement('form');
@@ -63,24 +70,38 @@ function coment() {
                 }
                 qs('.button--postar-coment').addEventListener('click', ()=>{
                     if(valid_div(1)) {
-                        window.location.href = '../assets/script/php/interacoes_post/comentar.php?id_publi'+json_c.id_publi;
+                        window.location.href = '../assets/script/php/interacoes_post/comentar.php?id_publi='+json_c.id_publi;
+                    } else {
+                        qs('.area--inputdiv').click();
                     }
                 },true);
                 qs('.area--inputdiv').addEventListener('click',(e)=>{
                         qs('.area--inputdiv').style.display = 'none';
-                        let creat_div = document.createElement('div');
-                        creat_div.id = 'inputdiv';
-                        creat_div.contentEditable = 'true';
-                        creat_div.classList.add('inputdiv--form--post-coment');
-                        qs('.area-input-div').appendChild(creat_div);
+                        if(qs('.inputdiv--form--post-coment') == undefined) { 
+                            qs('.area-input-div').appendChild(creat_div);
+                        }
                         qs('.inputdiv--form--post-coment').focus(); 
                         qs('.inputdiv--form--post-coment').addEventListener('blur',()=>{  
                             if(valid_div(0)) {
-                                qs('.inputdiv--form--post-coment').remove()
+                                if(qs('.inputdiv--form--post-coment') != undefined) {
+                                    qs('.inputdiv--form--post-coment').remove();
+                                }
                                 qs('.area--inputdiv').style.display = 'block'
                             }
                         },true)      
                 })
+                qs('.button-exit').addEventListener('click', ()=>{
+                    qs('.modal-coment').style.opacity = '0';
+                    setTimeout(()=>{
+                        if(qs('.modal-coment') != undefined) {
+                            qs('.modal-coment').remove();
+                        }
+                    },80)
+                    qs('html').removeAttribute('style');
+                }, true)
+                setTimeout(()=>{
+                    qs('.modal-event-coment').onclick = ()=>{qs('.button-exit').click()};
+                },45)
          }, true);
         });
     }

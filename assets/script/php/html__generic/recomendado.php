@@ -206,7 +206,7 @@
                     </div>
                 </div>
               </div>
-            <div class="modal-coment" style="display: none;">
+            <div class="modal-coment modal-coment-coment" style="display: none; opacity:0;">
                     <div class="modal-event-coment"></div>
                     <div class="body-modal-coment">
                         <div class="header-coment">

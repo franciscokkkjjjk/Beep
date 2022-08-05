@@ -954,6 +954,8 @@ background-position: center;
     width: 100vw;
     display: flex;
     align-items: center;
+    opacity:1;
+    transition: all ease 0.25s;
 }
 .modal-event-coment {
     position: fixed;
@@ -1019,6 +1021,7 @@ background-position: center;
 }
 .area--inputdiv {
     color: #fbfbfb;
+    width: 86%;
     padding: 10px 10px;
 }
 .area--inputdiv:hover {
