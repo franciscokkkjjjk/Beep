@@ -10,6 +10,7 @@ function coment() {
         console.log('ola')
         comentar.forEach((e) => {
             e.addEventListener('click', async (element)=>{
+                qs('html').style.overflow = 'hidden';
                 clone.style.display = '';
                 qs('.feed-area').append(clone);
                 let id = e.id.replace('p_xD30_C','');
@@ -36,6 +37,15 @@ function coment() {
                 qs('.button--postar-coment').addEventListener('click', ()=>{
                     window.location.href = '../assets/script/php/interacoes_post/comentar.php?id_publi'+json_c.id_publi;
                 },true);
+                qs('.area--inputdiv').addEventListener('click',(e)=>{
+                    qs('.area--inputdiv').style.display = 'none';
+                    let creat_div = document.createElement('div');
+                    creat_div.id = 'inputdiv';
+                    creat_div.contentEditable = 'true';
+                    creat_div.classList.add('inputdiv--form--post-coment');
+                    qs('.area-input-div').appendChild(creat_div);
+                    qs('.inputdiv--form--post-coment').focus();             
+                })
          }, true);
         });
     }

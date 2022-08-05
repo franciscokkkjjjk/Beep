@@ -228,14 +228,14 @@
                                 </div>
                                 <div class="area--img">
                                     <div class="img--coment img--post">
-                                        <img src="../assets/imgs/posts/62cb152c7ffc0.png">
+                                        
                                     </div>
                                 </div>
                                 
                                 <div class="area--menu">
                                 <div class="menu--post--item coment--menu">
                                     <div class="area--reposta ">
-                                        Em resposta a <a class="resposat info--perfil--user--username name--username-perfil perfil-link-hover">@fran</a>
+                                        Em resposta a <a class="resposat info--perfil--user--username name--username-perfil perfil-link-hover"><div class="event min-event event-block"></div></a>
                                     </div>
                                     <div class="area--opt">
                                         <label for="img--post">

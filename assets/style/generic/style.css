@@ -950,12 +950,13 @@ background-position: center;
 .modal-coment {
     position: fixed;
     height: 100vh;
+    overflow: auto;
     width: 100vw;
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
 .modal-event-coment {
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: #6666664b;
@@ -963,10 +964,11 @@ background-position: center;
 .body-modal-coment {
     background-color: #0a0a0a;
     width: 50%;
+    margin:auto;
     border-radius: 10px;
     position: relative;
-    margin-top: 40px;
     height: auto;
+    box-shadow: 0px 0px 14px 0px #7a7a7a;
 }
 .header-coment {
     height: 40px;
@@ -1017,7 +1019,6 @@ background-position: center;
 }
 .area--inputdiv {
     color: #fbfbfb;
-    width: 100%;
     padding: 10px 10px;
 }
 .area--inputdiv:hover {
@@ -1053,4 +1054,11 @@ background-position: center;
 }
 .resposat {
     text-decoration: none;
+}
+.inputdiv--form--post-coment {
+width: 84%;
+color: #fbfbfb;
+}
+.inputdiv--form--post-coment:focus {
+    outline: none;
 }
