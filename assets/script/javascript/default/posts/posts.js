@@ -916,4 +916,3 @@ async function post_all() {
         qs('.post-comentario--area .coment--area').remove();
     }
 }
- 
