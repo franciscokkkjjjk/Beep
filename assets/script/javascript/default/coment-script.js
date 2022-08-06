@@ -79,6 +79,7 @@ function coment() {
                         }  
                         input_info_coment.setAttribute('value', avalue_inpud_c);
                         input_info_coment.setAttribute('name', 'p_xD30_info_');
+                        form_info_coment.appendChild(input);
                         form_info_coment.appendChild(img_value_c);
                         form_info_coment.appendChild(input_info_coment);
                         let body_req = new FormData(form_info_coment);
@@ -86,7 +87,7 @@ function coment() {
                         qs('.button-exit').click();
                         let req_coment = await fetch('../assets/script/php/interacoes_post/comentar_post.php', {
                             method:'POST',
-                            body: body_req,
+                           body: body_req,
                         });
                         let apend_req = await req_coment.json();
                         alert_mensage(apend_req);
