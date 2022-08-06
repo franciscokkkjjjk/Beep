@@ -333,6 +333,7 @@ async function posts() {
         console.log(user_s)
         if(user_s.publi.nada == undefined) {
         criarPosts(user_s.publi)
+        coment();
         curtir_post();
         desCurtir();
         viwimg();
@@ -423,6 +424,7 @@ async function posts() {
         qsAll('.back--event').forEach((e)=>{e.remove()});
         if(jso_c.publi.nada == undefined) {
         criarPosts(jso_c);
+        coment();
         curtir_post();
         desCurtir();
         viwimg();
@@ -827,6 +829,7 @@ async function post_all() {
         post_all_creat(res_aux);
         curtir_post();
         desCurtir();
+        coment();
         console.log(res_aux);
     }
  }
@@ -868,6 +871,7 @@ async function post_all() {
         area_post_completo.querySelector('.event--curtida').classList.add('p-xD30');
         area_post_completo.querySelector('.event--curtida').setAttribute('data-key', obj.publicacao.id_publi);
     } 
+    area_post_completo.querySelector('.comentar').id ='p_xD30_C'+obj.publicacao.id_publi;
     if(obj.comentarios != undefined) {
         for(let bobSponja in obj.comentarios) {
             let areaPalhacada = qs('.coment--area').cloneNode(true);
@@ -902,6 +906,7 @@ async function post_all() {
                 areaPalhacada.querySelector('.event--curtida button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off');
             }
             areaPalhacada.querySelector('.post_curtidas').innerHTML = obj.comentarios[bobSponja].num_curtidas;
+            areaPalhacada.querySelector('.comentar').id = 'p_xD30_C'+obj.comentarios[bobSponja].id_publi;
             qs('.post-comentario--area').append(areaPalhacada);    
         }
         qs('.coment--area').remove();

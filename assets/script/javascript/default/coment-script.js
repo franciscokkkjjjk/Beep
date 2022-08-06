@@ -62,7 +62,7 @@ function coment() {
                 }
                 }
                 if(json_c.user_info.username_user == username) {
-                    qs('.resposat').innerHTML = 'voce mesmo';
+                    qs('.resposat').innerHTML = 'você mesmo';
                     qs('.resposat').setAttribute('href','perfil_user_v.php?username='+json_c.user_info.username_user);
                 } else {
                     qs('.resposat').innerHTML = json_c.user_info.username_user;
@@ -94,6 +94,11 @@ function coment() {
                     qs('.modal-coment').style.opacity = '0';
                     setTimeout(()=>{
                         if(qs('.modal-coment') != undefined) {
+                            if(qs('.inputdiv--form--post-coment') != undefined) {
+                                qs('.inputdiv--form--post-coment').innerText = '';
+                                qs('.inputdiv--form--post-coment').focus();
+                                qs('.inputdiv--form--post-coment').blur();
+                            }
                             qs('.modal-coment').remove();
                         }
                     },80)

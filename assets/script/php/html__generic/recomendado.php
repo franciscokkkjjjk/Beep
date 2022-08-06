@@ -219,7 +219,7 @@
                             <button class="button--postar-coment button-remove" type="submit">Postar</button>
                         </div>
                         <div class="body--coment">
-                            <div class="coment--area">
+                            <div class="coment--area-modal">
                                 <div class="area-input-div">
                                     <div class="img--perfil menu--pag--img--area"></div>
                                     <div class="area--inputdiv">
