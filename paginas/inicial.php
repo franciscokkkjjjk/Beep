@@ -87,9 +87,8 @@
         </div>
         <?php 
             require_once '../assets/script/php/html__generic/recomendado.php';
-        ?>
+        ?> 
     </div>
-    
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>

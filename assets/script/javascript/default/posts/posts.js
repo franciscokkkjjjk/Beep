@@ -420,7 +420,6 @@ async function posts() {
             curtida_req = await fetch(`../assets/script/php/requsicoes/curtidas_posts.php?username=`+username )
         }
         let jso_c = await curtida_req.json();
-        jso_c.reverse(); 
         qsAll('.back--event').forEach((e)=>{e.remove()});
         if(jso_c.publi.nada == undefined) {
         criarPosts(jso_c);

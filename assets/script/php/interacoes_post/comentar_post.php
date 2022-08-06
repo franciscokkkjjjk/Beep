@@ -34,7 +34,7 @@
             $res_upt = mysqli_query($conexao, $sql_upt);
             if($res_upt){
                 $json = [
-                    'mensage' => 'Comentado com sucesso.'
+                    'mensage' => 'Comentário enviado com sucesso.'
                 ];
                 echo json_encode($json);
             }

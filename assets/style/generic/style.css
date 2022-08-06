@@ -1077,9 +1077,13 @@ color: #fbfbfb;
 }
 .mensagem_alert {
     position: fixed;
-    left: 5%;
+    left: 2%;
     bottom: 10%;
     padding: 15px 45px;
     background-color: #53ffff;
     color: #000000;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px 3px #53ffff;
 }
+
+
