@@ -1065,3 +1065,21 @@ color: #fbfbfb;
 .inputdiv--form--post-coment:focus {
     outline: none;
 }
+.comentar {
+    background-image: url(../../imgs/default/coment-default.png);
+}
+.img--small {
+    background-position: 19px !important;
+}
+.comentar:hover {
+    color: #FFDF3B;
+    background-image: url(../../imgs/default/coment-default-hover.png);
+}
+.mensagem_alert {
+    position: fixed;
+    left: 5%;
+    bottom: 10%;
+    padding: 15px 45px;
+    background-color: #53ffff;
+    color: #000000;
+}
