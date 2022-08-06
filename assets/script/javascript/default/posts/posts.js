@@ -916,3 +916,18 @@ async function post_all() {
         qs('.post-comentario--area .coment--area').remove();
     }
 }
+function alert_mensage(json) {
+    let creat_mensage = document.createElement('div');
+    creat_mensage.classList.add('mensagem_alert');
+    if(json.mensage != undefined) {
+        creat_mensage.innerHTML = json.mensage;
+        if(qs('.mensagem_alert') == undefined) { 
+            qs('.feed-area').appendChild(creat_mensage);
+        }
+        setTimeout(()=>{
+            if(qs('.mensagem_alert') != undefined) { 
+                qs('.mensagem_alert').remove();
+            }
+        }, 4000);
+    }
+}

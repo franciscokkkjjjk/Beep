@@ -8,7 +8,6 @@ function coment() {
     modal.remove();
     let comentar = qsAll('.comentar');
     if(comentar.length > 0) {
-        console.log('ola')
         comentar.forEach((e) => {
             e.addEventListener('click', async (element)=>{
                 creat_div.id = 'inputdiv';
@@ -37,17 +36,17 @@ function coment() {
                 showImg_form(qs('.input_coment_event_img'), qs('.img--coment'), false);
                 function valid_div(cond) {
                     if(cond == 1) {
-                    let img_value = qs('.input_coment_event_img').value;
-                    let value_inpud = document.getElementById('inputdiv');
-                    let avalue_inpud = null;
-                    if(value_inpud != undefined ){
-                        avalue_inpud = value_inpud.innerText.trim(); 
-                    }   
-                    if((avalue_inpud == '' || avalue_inpud == null) && (img_value == ''|| img_value == null)) {
-                        return false;
-                    } else {
-                        return true;
-                    }                           
+                        let img_value = qs('.input_coment_event_img').value;
+                        let value_inpud = document.getElementById('inputdiv');
+                        let avalue_inpud = null;
+                        if(value_inpud != undefined ){
+                            avalue_inpud = value_inpud.innerText.trim(); 
+                        }   
+                        if((avalue_inpud == '' || avalue_inpud == null) && (img_value == ''|| img_value == null)) {
+                            return false;
+                        } else {
+                            return true;
+                        }                           
                 } else if(cond == 0) {
                     let value_inpud = document.getElementById('inputdiv');
                     let avalue_inpud = null;
@@ -68,9 +67,30 @@ function coment() {
                     qs('.resposat').innerHTML = json_c.user_info.username_user;
                     qs('.resposat').setAttribute('href','perfil_user_v.php?username='+json_c.user_info.username_user);
                 }
-                qs('.button--postar-coment').addEventListener('click', ()=>{
+                qs('.button--postar-coment').addEventListener('click', async (elementB)=>{
                     if(valid_div(1)) {
-                        window.location.href = '../assets/script/php/interacoes_post/comentar.php?id_publi='+json_c.id_publi;
+                        let form_info_coment = document.createElement('form');
+                        let input_info_coment = document.createElement('input');
+                        let img_value_c = qs('.input_coment_event_img').cloneNode(true);
+                        let value_inpud_c = document.getElementById('inputdiv');
+                        let avalue_inpud_c = null;
+                        if(value_inpud_c != undefined ){
+                            avalue_inpud_c = value_inpud_c.innerText; 
+                        }  
+                        input_info_coment.setAttribute('value', avalue_inpud_c);
+                        input_info_coment.setAttribute('name', 'p_xD30_info_');
+                        form_info_coment.appendChild(img_value_c);
+                        form_info_coment.appendChild(input_info_coment);
+                        let body_req = new FormData(form_info_coment);
+                        console.log(form_info_coment);
+                        qs('.button-exit').click();
+                        let req_coment = await fetch('../assets/script/php/interacoes_post/comentar_post.php', {
+                            method:'POST',
+                            body: body_req,
+                        });
+                        let apend_req = await req_coment.json();
+                        alert_mensage(apend_req);
+                        
                     } else {
                         qs('.area--inputdiv').click();
                     }
