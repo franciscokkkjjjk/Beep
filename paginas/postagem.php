@@ -52,6 +52,60 @@
             </div>
             <div class="feed-body-post">
                 <div class="post-completo-area">
+                <div class="post--area--raiz" style="display: none;">
+                    <div class="header--post--area">
+                                   <div class="post--area--perfil">
+                                      <div class="menu--pag--img--area">
+                                      </div>
+                                    <div class="name--area">        
+                                          <a class="perfil-link" href="">        
+                                          <div class="name--name-perfil perfil-link-hover">
+                                                <div class="event min-event"></div>
+                                           </div>
+                                           <div class="name--username-perfil perfil-link-hover">
+                                                <div class="event min-event"></div>
+                                           </div>
+                                          </a>
+                                       </div>
+                                   </div> 
+                            <div class="post--area--menu ">
+                               <div class="elipse-img-hover elipse-img"></div>
+                           </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
+                        </div>
+                        <div class="body--post-area">
+                            <div class="post--text"><div class="event min-event"></div></div>
+                            <div class="p-30d_10">
+                                <div class="event min-event"></div>
+                                  <img class='post--img event--post--img post--img-area' style="display:none;">
+                            </div>  
+                            <div class="post_type2_conteudo">
+                                <div class="header--post--area">
+                                        <div class="post--area--perfil">
+                                            <div class="menu--pag--img--area img--perfil-red">
+                                            </div>
+                                            <div class="name--area">        
+                                                <a class="perfil-link type_2_link_perfil" href="">        
+                                                <div class="name--name-perfil perfil-link-hover">
+                                                        <div class="event min-event"></div>
+                                                </div>
+                                                <div class="name--username-perfil perfil-link-hover">
+                                                        <div class="event min-event"></div>
+                                                </div>
+                                                </a>
+                                            </div>
+                                        </div> 
+                                        <div class="post--area--menu ">
+                                            <div class="elipse-img-hover elipse-img"></div>
+                                        </div>   
+                                </div>
+                                <div class="post--text"><div class="event min-event"></div></div>
+                                <div class="p-30d_10">
+                                    <div class="event min-event"></div>
+                                    <img class='post--img event--post--img post--img-area' style="display:none">
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
                     <div class="post--area-header">
                     <div class="header--post--area">
                                    <div class="post--area--perfil">
@@ -78,7 +132,7 @@
                                 <div class="event min-event"></div>
                                   <img class='post--img event--post--img post--img-area' style="display:none;">
                             </div>  
-                            <div class="post_type2_conteudo">
+                            <div class="post_type2_conteudo" style="display: none;">
                                 <div class="header--post--area">
                                         <div class="post--area--perfil">
                                             <div class="menu--pag--img--area img--perfil-red">
@@ -116,6 +170,9 @@
                                 <div class="compartilha-area">
                                     <span class="num--compartilha"><div class="event min-event event-block"></div></span> compartilhamentos
                                 </div>
+                            </div>
+                            <div class="resposta--area-post_all" style="display: none;">
+                                Em resposta a <a class="resposta-link" href="">(@fran_pedrinhas)</a>
                             </div>
                             <div class="post--game-area">
                                 <div class="game">

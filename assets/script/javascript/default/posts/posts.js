@@ -885,7 +885,7 @@ async function post_all() {
     }
  }
  function post_all_creat(obj) {
-    let area_post_completo = qs('.post-completo-area');
+    let area_post_completo = qs('.post-completo-area .post--area-header');
     area_post_completo.querySelector('.menu--pag--img--area').setAttribute('style', obj.publicacao.user_info.img_user);
     area_post_completo.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username='+ obj.publicacao.user_info.username_user);
     area_post_completo.querySelector('.name--name-perfil').innerHTML = obj.publicacao.user_info.nome_user;
@@ -893,7 +893,7 @@ async function post_all() {
     if(obj.text_post != '' || obj.text_post != null) {
         area_post_completo.querySelector('.post--text').innerHTML = obj.publicacao.text_post;
     }
-    let area_img = qs('.p-30d_10');
+    let area_img = qs('.post--area-header .p-30d_10');
     if(obj.publicacao.img_publi == '' || obj.publicacao.img_publi == null) {
         area_img.remove()
     } else {
@@ -925,12 +925,28 @@ async function post_all() {
     area_post_completo.querySelector('.comentar').id ='p_xD30_C'+obj.publicacao.id_publi;
     let conteudo_type_2 = area_post_completo.querySelector('.post_type2_conteudo');
     if(obj.publicacao.id_publi == 2) {
-        conteudo_type_2;
+        conteudo_type_2.querySelector('.menu--pag--img--area').setAttribute('style', obj.publicacao.c_comentada.user_info.img_user);
+        conteudo_type_2.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username='+ obj.publicacao.c_comentada.user_info.username_user);
+        conteudo_type_2.querySelector('.name--name-perfil').innerHTML = obj.publicacao.c_comentada.user_info.nome_user;
+        conteudo_type_2.querySelector('.name--username-perfil').innerHTML = obj.publicacao.c_comentada.user_info.username_user;
+        if(obj.c_comentada.text_post != '' || obj.c_comentada.text_post != null) {
+            conteudo_type_2.querySelector('.post--text').innerHTML = obj.publicacao.text_post;
+        }
+        let area_img = qs('.post--area-header .p-30d_10');
+        if(obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
+            area_img.remove()
+        } else {
+            area_img.querySelector('.event').remove();
+            area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/'+obj.publicacao.c_comentada.img_publi);
+            area_img.querySelector('img').style.display = '';
+        }
+        conteudo_type_2.querySelector('.date--post').innerHTML = obj.publicacao.date_publi;
     } else {
         if(conteudo_type_2 != undefined) {
             conteudo_type_2.remove()
         }
     }
+    //gera a area de comentarios
     if(obj.comentarios != undefined) {
         for(let bobSponja in obj.comentarios) {
             let areaPalhacada = qs('.coment--area').cloneNode(true);
