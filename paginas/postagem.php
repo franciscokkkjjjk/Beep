@@ -150,9 +150,9 @@
                         <div class="coment--conteudo">
                             <div class="coment--conteudo--text post--text"><div class="event min-event"></div></div>
                                 <div class="post--img-area coment--conteudo--img" style="display:none;">
-                                    <div class="post--img" style>
+                                 <div class="post--img" style>
                                     <div class="event--post--img coment--event"></div>
-                                </div>
+                                 </div>
                             </div>  
                         </div>
                         <div class="interacao--post--area interacao--coment">

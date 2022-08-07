@@ -184,6 +184,7 @@ async function posts() {
                     post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada']+'c-xD30';
                 }
                 post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
+                post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem='+lista[i]['compartilhador_info']['id_da_compartilhada'];
                 document.querySelector('.feed-body-post').append(post_body);
 
             } else if (lista[i]['type'] == "4") {//compartilhamneto direto 
