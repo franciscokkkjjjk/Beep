@@ -147,3 +147,7 @@ margin-top: -1px;
     align-items: center;
     font-size: 13px;
 }
+.all_area {
+    width: 100%;
+    display: inline-block;
+}

@@ -28,13 +28,7 @@
         $array_all_compartilhada = mysqli_fetch_all($res_all_compartilhada, 1);
 
 
-        if($assoc_post['type'] == '1') {
-            $post_completo = [
-                'erro' => true,
-                'desc' => 'usuario tentou puxar um comentario'
-            ];
-            echo json_encode($post_completo);
-        } elseif($assoc_post['type'] == '3') {
+        if($assoc_post['type'] == '3') {
             $user_compartilhou = false;
             $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
@@ -108,7 +102,7 @@
                 ];
             }
             echo json_encode($postagem_completa);
-        } elseif($assoc_post['type'] == '2') {
+        } elseif($assoc_post['type'] == '2' or $assoc_post['type'] == '1') {
             $user_compartilhou = false;
             $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);

@@ -68,7 +68,12 @@
                                             </a>
                                         </div>
                                     </div> 
-                                <div class="post--area--menu ">
+                            <div class="post--area--date-comp">
+                                                <div class="date--post date--post-comp">
+                                                    
+                             </div>
+                            </div>     
+                            <div class="post--area--menu ">
                                 <div class="elipse-img-hover elipse-img"></div>
                             </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
                             </div>
@@ -78,33 +83,10 @@
                                     <div class="event min-event"></div>
                                     <img class='post--img event--post--img post--img-area' style="display:none;">
                                 </div>  
-                                <div class="post_type2_conteudo">
-                                    <div class="header--post--area">
-                                            <div class="post--area--perfil">
-                                                <div class="menu--pag--img--area img--perfil-red">
-                                                </div>
-                                                <div class="name--area">        
-                                                    <a class="perfil-link type_2_link_perfil" href="">        
-                                                    <div class="name--name-perfil perfil-link-hover">
-                                                            <div class="event min-event"></div>
-                                                    </div>
-                                                    <div class="name--username-perfil perfil-link-hover">
-                                                            <div class="event min-event"></div>
-                                                    </div>
-                                                    </a>
-                                                </div>
-                                            </div> 
-                                            <div class="post--area--menu ">
-                                                <div class="elipse-img-hover elipse-img"></div>
-                                            </div>   
-                                    </div>
-                                    <div class="post--text"><div class="event min-event"></div></div>
-                                    <div class="p-30d_10">
-                                        <div class="event min-event"></div>
-                                        <img class='post--img event--post--img post--img-area' style="display:none">
-                                    </div>  
-                                </div>
                             </div>
+                            <a class="conteudo--all--post all_area" href="">
+                                mostrar todo conteudo
+                            </a>
                         </div>
                         <div class="post--area-header">
                         <div class="header--post--area">
@@ -162,6 +144,9 @@
                                         <div class="event min-event"></div>
                                         <img class='post--img event--post--img post--img-area' style="display:none">
                                     </div>  
+                                    <a class="conteudo--all--post all_area" href="">
+                                        mostrar todo conteudo
+                                    </a>
                                 </div>
                             </div>
                             <div class="info--post--complete">
@@ -243,6 +228,9 @@
                                  </div>
                             </div>
                         </div>
+                        <a class="conteudo--all--post all_area" href="">
+                                        mostrar todo conteudo
+                        </a>
                         <div class="interacao--post--area interacao--coment">
                             <form class="event--curtida event--curtida-comp curtir--hover interac-button">
                                 <input type="hidden" value="" name="p-xD30">
