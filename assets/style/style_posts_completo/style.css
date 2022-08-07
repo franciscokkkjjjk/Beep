@@ -142,3 +142,8 @@ margin-top: -1px;
 .resposta-link:hover {
     text-decoration: underline;
 }
+.post--area--date-C_comentada {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}

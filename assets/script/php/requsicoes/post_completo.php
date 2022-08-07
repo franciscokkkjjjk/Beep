@@ -108,6 +108,102 @@
                 ];
             }
             echo json_encode($postagem_completa);
+        } elseif($assoc_post['type'] == '2') {
+            $user_compartilhou = false;
+            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+            $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
+            $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
+                if(!is_null($assoc_compartilhou)) {
+                    $user_compartilhou = true;
+                }
+            $postagem_completa['publicacao'] = [
+                'id_publi' => $assoc_post['id_publi'],
+                'type' => $assoc_post['type'],
+                'id_interacao' => $assoc_post['id_publi_interagida'],
+                'text_post' => $assoc_post['text_publi'],
+                'img_publi' => $assoc_post['img_publi'],
+                'num_curtidas' => $assoc_post['num_curtidas'],
+                'beepadas' => $assoc_post['num_compartilha'],
+                'date_publi' => dateCalc($assoc_post),
+                "date_publi_ca" => date('d/m/Y', strtotime($assoc_post['date_publi'])),
+                "date_publi_hr" => date('H:i', strtotime($assoc_post['date_publi'])),
+                'num_comentario' => $assoc_post['num_comentario'],
+                'user_curtiu' => $user_curtiu,
+                'user_compartilhou'=> $user_compartilhou,
+                'user_info' => [
+                    'user_id' => $assoc_post['user_publi'],
+                    'nome_user' => $assoc_info_user_publi['nome'],
+                    'username_user' => $assoc_info_user_publi['username'],
+                    'img_user' => perfilDefault($assoc_info_user_publi['foto_perfil'], ''),
+                ]
+            ];
+            $sql_comentarios = 'SELECT * FROM publicacoes WHERE id_publi_interagida='.$assoc_post['id_publi'].' AND type=1 ORDER BY num_curtidas DESC';
+            $res_comentarios = mysqli_query($conexao, $sql_comentarios);
+            $array_comentarios = mysqli_fetch_all($res_comentarios, 1);
+
+            foreach($array_comentarios as $valueC) {
+                $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$valueC['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+                $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
+                $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
+                if(!is_null($assoc_compartilhou)) {
+                    $user_compartilhou_comet = true;
+                } else {
+                    $user_compartilhou_comet = false;
+                }
+                $sql_curtiu = 'SELECT * FROM curtidas WHERE curtidas.id_postagem ='.$valueC['id_publi'].' AND curtidas.id_user_curti='.$_SESSION['id_user'];
+                $res_curtiu = mysqli_query($conexao, $sql_curtiu);
+                $assoc_curtiu = mysqli_fetch_assoc($res_curtiu);
+                if(is_null($assoc_curtiu)) {
+                    $user_cur = false;
+                } else {
+                    $user_cur = true;
+                }
+                $sql_quem_comentou = 'SELECT * FROM users WHERE id_user=' . $valueC['user_publi'];
+                $res_quem_comentou = mysqli_query($conexao, $sql_quem_comentou);
+                $assoc_quem_comentou = mysqli_fetch_assoc($res_quem_comentou);
+                $postagem_completa['comentarios'][] = [
+                    'id_publi' => $valueC['id_publi'],
+                    'type' => $valueC['type'],
+                    'id_interacao' => $valueC['id_publi_interagida'],
+                    'text_post' => $valueC['text_publi'],
+                    'img_publi' => $valueC['img_publi'],
+                    'num_curtidas' => $valueC['num_curtidas'],
+                    'beepadas' => $valueC['num_compartilha'],
+                    'date_publi' => dateCalc($valueC),
+                    'num_comentario' => $valueC['num_comentario'],
+                    'user_curtiu' => $user_cur,
+                    'user_compartilhou'=> $user_compartilhou_comet,
+                    'user_info' => [
+                        'user_id' => $valueC['user_publi'],
+                        'nome_user' => $assoc_quem_comentou['nome'],
+                        'username_user' => $assoc_quem_comentou['username'],
+                        'img_user' => perfilDefault($assoc_quem_comentou['foto_perfil'], ''),
+                    ]
+                ];
+            }
+            $sql_C_comentada = 'SELECT * FROM publicacoes WHERE id_publi='.$assoc_post['id_publi_interagida'];
+            $res_C_comentada = mysqli_query($conexao, $sql_C_comentada);
+            $ass_C_comentada = mysqli_fetch_assoc($res_C_comentada);
+
+            $sql_us_C_comentada = 'SELECT * FROM users WHERE id_user='.$ass_C_comentada['user_publi'];
+            $res_us_C_comentada = mysqli_query($conexao, $sql_us_C_comentada);
+            $ass_us_C_comentada = mysqli_fetch_assoc($res_us_C_comentada);
+
+            $postagem_completa['publicacao']['c_comentada'] = [
+                'id_publi' => $ass_C_comentada['id_publi'],
+                'type' => $ass_C_comentada['type'],
+                'id_interacao' => $ass_C_comentada['id_publi_interagida'],
+                'text_post' => $ass_C_comentada['text_publi'],
+                'img_publi' => $ass_C_comentada['img_publi'],
+                'date_publi' => dateCalc($ass_C_comentada),
+                'user_info' => [
+                    'user_id' => $ass_C_comentada['user_publi'],
+                    'nome_user' => $ass_us_C_comentada['nome'],
+                    'username_user' => $ass_us_C_comentada['username'],
+                    'img_user' => perfilDefault($ass_us_C_comentada['foto_perfil'], ''),
+                ]
+            ];
+            echo json_encode($postagem_completa);
         }
     } else {
         header('../../../../paginas/inicial.php');

@@ -890,7 +890,9 @@ async function post_all() {
     area_post_completo.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username='+ obj.publicacao.user_info.username_user);
     area_post_completo.querySelector('.name--name-perfil').innerHTML = obj.publicacao.user_info.nome_user;
     area_post_completo.querySelector('.name--username-perfil').innerHTML = obj.publicacao.user_info.username_user;
-    if(obj.text_post != '' || obj.text_post != null) {
+    if(obj.publicacao.text_post == '' || obj.publicacao.text_post == null) {
+        area_post_completo.querySelector('.post--text').remove();
+    } else {
         area_post_completo.querySelector('.post--text').innerHTML = obj.publicacao.text_post;
     }
     let area_img = qs('.post--area-header .p-30d_10');
@@ -909,8 +911,8 @@ async function post_all() {
     } else {
         area_post_completo.querySelector('.game').innerHTML =  obj.publicacao.game;
     }
-    area_post_completo.querySelector('.date--complete').innerHTML = `${obj.publicacao.date_publi_ca} as ${obj.publicacao.date_publi_hr}`;
-    area_post_completo.querySelector('.date--post').innerHTML = obj.publicacao.date_publi;
+    area_post_completo.querySelector('.info--post--complete .date--complete').innerHTML = `${obj.publicacao.date_publi_ca} as ${obj.publicacao.date_publi_hr}`;
+    area_post_completo.querySelector('.info--post--complete .date--post').innerHTML = obj.publicacao.date_publi;
     area_post_completo.querySelector('.event--curtida').id = obj.publicacao.id_publi;
     area_post_completo.querySelector('.event--curtida input').value = obj.publicacao.id_publi;
     if(obj.publicacao.user_curtiu){
@@ -924,13 +926,16 @@ async function post_all() {
     } 
     area_post_completo.querySelector('.comentar').id ='p_xD30_C'+obj.publicacao.id_publi;
     let conteudo_type_2 = area_post_completo.querySelector('.post_type2_conteudo');
-    if(obj.publicacao.id_publi == 2) {
+    if(obj.publicacao.type == "2") {
+        conteudo_type_2.style.display = '';
         conteudo_type_2.querySelector('.menu--pag--img--area').setAttribute('style', obj.publicacao.c_comentada.user_info.img_user);
         conteudo_type_2.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username='+ obj.publicacao.c_comentada.user_info.username_user);
         conteudo_type_2.querySelector('.name--name-perfil').innerHTML = obj.publicacao.c_comentada.user_info.nome_user;
         conteudo_type_2.querySelector('.name--username-perfil').innerHTML = obj.publicacao.c_comentada.user_info.username_user;
-        if(obj.c_comentada.text_post != '' || obj.c_comentada.text_post != null) {
-            conteudo_type_2.querySelector('.post--text').innerHTML = obj.publicacao.text_post;
+        if(obj.publicacao.c_comentada.text_post == '' || obj.publicacao.c_comentada.text_post == null) {
+            conteudo_type_2.querySelector('.post--text').remove();
+        } else {
+            conteudo_type_2.querySelector('.post--text').innerHTML = obj.publicacao.c_comentada.text_post;
         }
         let area_img = qs('.post--area-header .p-30d_10');
         if(obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
@@ -940,10 +945,18 @@ async function post_all() {
             area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/'+obj.publicacao.c_comentada.img_publi);
             area_img.querySelector('img').style.display = '';
         }
-        conteudo_type_2.querySelector('.date--post').innerHTML = obj.publicacao.date_publi;
+        conteudo_type_2.querySelector('.date--post').innerHTML = obj.publicacao.c_comentada.date_publi;
     } else {
         if(conteudo_type_2 != undefined) {
             conteudo_type_2.remove()
+        }   
+    }
+    let conteudo_type_1 = qs('.post--area--raiz');
+    if(obj.publicacao.type == "1"){
+        
+    } else {
+        if(conteudo_type_1 != undefined) {
+            conteudo_type_1.remove();
         }
     }
     //gera a area de comentarios

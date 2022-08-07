@@ -52,159 +52,164 @@
             </div>
             <div class="feed-body-post">
                 <div class="post-completo-area">
-                <div class="post--area--raiz" style="display: none;">
-                    <div class="header--post--area">
-                                   <div class="post--area--perfil">
-                                      <div class="menu--pag--img--area">
-                                      </div>
-                                    <div class="name--area">        
-                                          <a class="perfil-link" href="">        
-                                          <div class="name--name-perfil perfil-link-hover">
-                                                <div class="event min-event"></div>
-                                           </div>
-                                           <div class="name--username-perfil perfil-link-hover">
-                                                <div class="event min-event"></div>
-                                           </div>
-                                          </a>
-                                       </div>
-                                   </div> 
-                            <div class="post--area--menu ">
-                               <div class="elipse-img-hover elipse-img"></div>
-                           </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
-                        </div>
-                        <div class="body--post-area">
-                            <div class="post--text"><div class="event min-event"></div></div>
-                            <div class="p-30d_10">
-                                <div class="event min-event"></div>
-                                  <img class='post--img event--post--img post--img-area' style="display:none;">
-                            </div>  
-                            <div class="post_type2_conteudo">
-                                <div class="header--post--area">
-                                        <div class="post--area--perfil">
-                                            <div class="menu--pag--img--area img--perfil-red">
+                    <div class="post--area--raiz" style="display: none;">
+                        <div class="header--post--area">
+                                    <div class="post--area--perfil">
+                                        <div class="menu--pag--img--area">
+                                        </div>
+                                        <div class="name--area">        
+                                            <a class="perfil-link" href="">        
+                                            <div class="name--name-perfil perfil-link-hover">
+                                                    <div class="event min-event"></div>
                                             </div>
-                                            <div class="name--area">        
-                                                <a class="perfil-link type_2_link_perfil" href="">        
-                                                <div class="name--name-perfil perfil-link-hover">
-                                                        <div class="event min-event"></div>
-                                                </div>
-                                                <div class="name--username-perfil perfil-link-hover">
-                                                        <div class="event min-event"></div>
-                                                </div>
-                                                </a>
+                                            <div class="name--username-perfil perfil-link-hover">
+                                                    <div class="event min-event"></div>
                                             </div>
-                                        </div> 
-                                        <div class="post--area--menu ">
-                                            <div class="elipse-img-hover elipse-img"></div>
-                                        </div>   
-                                </div>
+                                            </a>
+                                        </div>
+                                    </div> 
+                                <div class="post--area--menu ">
+                                <div class="elipse-img-hover elipse-img"></div>
+                            </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
+                            </div>
+                            <div class="body--post-area">
                                 <div class="post--text"><div class="event min-event"></div></div>
                                 <div class="p-30d_10">
                                     <div class="event min-event"></div>
-                                    <img class='post--img event--post--img post--img-area' style="display:none">
+                                    <img class='post--img event--post--img post--img-area' style="display:none;">
                                 </div>  
+                                <div class="post_type2_conteudo">
+                                    <div class="header--post--area">
+                                            <div class="post--area--perfil">
+                                                <div class="menu--pag--img--area img--perfil-red">
+                                                </div>
+                                                <div class="name--area">        
+                                                    <a class="perfil-link type_2_link_perfil" href="">        
+                                                    <div class="name--name-perfil perfil-link-hover">
+                                                            <div class="event min-event"></div>
+                                                    </div>
+                                                    <div class="name--username-perfil perfil-link-hover">
+                                                            <div class="event min-event"></div>
+                                                    </div>
+                                                    </a>
+                                                </div>
+                                            </div> 
+                                            <div class="post--area--menu ">
+                                                <div class="elipse-img-hover elipse-img"></div>
+                                            </div>   
+                                    </div>
+                                    <div class="post--text"><div class="event min-event"></div></div>
+                                    <div class="p-30d_10">
+                                        <div class="event min-event"></div>
+                                        <img class='post--img event--post--img post--img-area' style="display:none">
+                                    </div>  
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="post--area-header">
-                    <div class="header--post--area">
-                                   <div class="post--area--perfil">
-                                      <div class="menu--pag--img--area">
-                                      </div>
-                                    <div class="name--area">        
-                                          <a class="perfil-link" href="">        
-                                          <div class="name--name-perfil perfil-link-hover">
-                                                <div class="event min-event"></div>
-                                           </div>
-                                           <div class="name--username-perfil perfil-link-hover">
-                                                <div class="event min-event"></div>
-                                           </div>
-                                          </a>
-                                       </div>
-                                   </div> 
-                               <div class="post--area--menu ">
-                               <div class="elipse-img-hover elipse-img"></div>
-                           </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
-                        </div>
-                        <div class="body--post-area">
-                            <div class="post--text"><div class="event min-event"></div></div>
-                            <div class="p-30d_10">
-                                <div class="event min-event"></div>
-                                  <img class='post--img event--post--img post--img-area' style="display:none;">
-                            </div>  
-                            <div class="post_type2_conteudo" style="display: none;">
-                                <div class="header--post--area">
-                                        <div class="post--area--perfil">
-                                            <div class="menu--pag--img--area img--perfil-red">
+                        <div class="post--area-header">
+                        <div class="header--post--area">
+                                    <div class="post--area--perfil">
+                                        <div class="menu--pag--img--area">
+                                        </div>
+                                        <div class="name--area">        
+                                            <a class="perfil-link" href="">        
+                                            <div class="name--name-perfil perfil-link-hover">
+                                                    <div class="event min-event"></div>
                                             </div>
-                                            <div class="name--area">        
-                                                <a class="perfil-link type_2_link_perfil" href="">        
-                                                <div class="name--name-perfil perfil-link-hover">
-                                                        <div class="event min-event"></div>
-                                                </div>
-                                                <div class="name--username-perfil perfil-link-hover">
-                                                        <div class="event min-event"></div>
-                                                </div>
-                                                </a>
+                                            <div class="name--username-perfil perfil-link-hover">
+                                                    <div class="event min-event"></div>
                                             </div>
-                                        </div> 
-                                        <div class="post--area--menu ">
-                                            <div class="elipse-img-hover elipse-img"></div>
-                                        </div>   
-                                </div>
+                                            </a>
+                                        </div>
+                                    </div> 
+                                <div class="post--area--menu ">
+                                <div class="elipse-img-hover elipse-img"></div>
+                            </div>                                                              <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
+                            </div>
+                            <div class="body--post-area">
                                 <div class="post--text"><div class="event min-event"></div></div>
                                 <div class="p-30d_10">
                                     <div class="event min-event"></div>
-                                    <img class='post--img event--post--img post--img-area' style="display:none">
+                                    <img class='post--img event--post--img post--img-area' style="display:none;">
                                 </div>  
-                            </div>
-                        </div>
-                        <div class="info--post--complete">
-                            <div class="interação--info">
-                                <div class="curtidas--area">
-                                <span class="num--curtidas"><div class="event min-event event-block"></div></span> curtidas
-                                </div>
-                                <div class="comentarios-area">
-                                <span class="num--coment"><div class="event min-event event-block"></div></span> comentários
-                                </div>
-                                <div class="compartilha-area">
-                                    <span class="num--compartilha"><div class="event min-event event-block"></div></span> compartilhamentos
-                                </div>
-                            </div>
-                            <div class="resposta--area-post_all" style="display: none;">
-                                Em resposta a <a class="resposta-link" href="">(@fran_pedrinhas)</a>
-                            </div>
-                            <div class="post--game-area">
-                                <div class="game">
-                                    <div class="event min-event"></div>
-                                </div>
-                            </div>
-                            <div class="post--area--date">
-                                   <div class="date--complete">
+                                <div class="post_type2_conteudo" style="display: none;">
+                                    <div class="header--post--area">
+                                            <div class="post--area--perfil">
+                                                <div class="menu--pag--img--area img--perfil-comp">
+                                                </div>
+                                                <div class="name--area">        
+                                                    <a class="perfil-link type_2_link_perfil" href="">        
+                                                    <div class="name--name-perfil name--name-perfil-comp perfil-link-hover">
+                                                            <div class="event min-event"></div>
+                                                    </div>
+                                                    <div class="name--username-perfil name--username-perfil-comp perfil-link-hover">
+                                                            <div class="event min-event"></div>
+                                                    </div>
+                                                    </a>
+                                                </div>
+                                            </div> 
+                                            <div class="post--area--date-comp">
+                                                <div class="date--post date--post-comp">
+                                                    
+                                                </div>
+                                            </div> 
+                                            <div class="post--area--menu ">
+                                                <div class="elipse-img-hover elipse-img"></div>
+                                            </div>   
+                                    </div>
+                                    <div class="post--text post--text--comp_2"><div class="event min-event"></div></div>
+                                    <div class="p-30d_10">
                                         <div class="event min-event"></div>
-                                   </div>
-                                   <div class="date--post">
+                                        <img class='post--img event--post--img post--img-area' style="display:none">
+                                    </div>  
+                                </div>
+                            </div>
+                            <div class="info--post--complete">
+                                <div class="interação--info">
+                                    <div class="curtidas--area">
+                                    <span class="num--curtidas"><div class="event min-event event-block"></div></span> curtidas
+                                    </div>
+                                    <div class="comentarios-area">
+                                    <span class="num--coment"><div class="event min-event event-block"></div></span> comentários
+                                    </div>
+                                    <div class="compartilha-area">
+                                        <span class="num--compartilha"><div class="event min-event event-block"></div></span> compartilhamentos
+                                    </div>
+                                </div>
+                                <div class="resposta--area-post_all" style="display: none;">
+                                    Em resposta a <a class="resposta-link" href="">(@fran_pedrinhas)</a>
+                                </div>
+                                <div class="post--game-area">
+                                    <div class="game">
                                         <div class="event min-event"></div>
-                                   </div>
-                            </div> 
-                        </div>
-                        <div class="interacao--post--area">
-                            <form class="event--curtida event--curtida-comp curtir--hover interac-button">
-                                <input type="hidden" value="" name="p-xD30">
-                                <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
-                                    Curtir
-                                </button>
-                            </form>
-                            <div class="comentar interacao--area">
-                                comentar
+                                    </div>
+                                </div>
+                                <div class="post--area--date">
+                                    <div class="date--complete">
+                                            <div class="event min-event"></div>
+                                    </div>
+                                    <div class="date--post">
+                                            <div class="event min-event"></div>
+                                    </div>
+                                </div> 
                             </div>
-                            <div  class="compartilhar-hover compartilhar-event-div interac-button  interac-button ">
-                                <button class="img-compartilhar-off compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
-                                    compartilhar
-                                </button>
+                            <div class="interacao--post--area">
+                                <form class="event--curtida event--curtida-comp curtir--hover interac-button">
+                                    <input type="hidden" value="" name="p-xD30">
+                                    <button class="curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off">
+                                        Curtir
+                                    </button>
+                                </form>
+                                <div class="comentar interacao--area">
+                                    comentar
+                                </div>
+                                <div  class="compartilhar-hover compartilhar-event-div interac-button  interac-button ">
+                                    <button class="img-compartilhar-off compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
+                                        compartilhar
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </div>
                 <div class="post-comentario--area">
                     <div class="coment--area" style="display: none;">
