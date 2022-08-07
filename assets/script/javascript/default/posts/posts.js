@@ -295,6 +295,8 @@ async function posts() {
         document.querySelector('.fot_user_visit').setAttribute('style', list_user.img_user);
         document.querySelector('.info--perfil--user--nome').innerHTML = list_user.nome_user;
         qs('.info--perfil--user--username').innerHTML = list_user.username_user;
+        qs('.curtidas_user').setAttribute('href','curtidas_v.php?username='+list_user.username_user);
+        qs('.publicacoes_user').setAttribute('href', 'perfil_user_v.php?username='+list_user.username_user);
         qs('.bio').innerHTML = list_user.bio;
         qs('.nome--perfil').innerHTML = list_user.nome_user;
         qs('.data_nasc').innerHTML = list_user.data_nas;
@@ -353,7 +355,7 @@ async function posts() {
         let url_perfil = window.location.href.split('=');
         let atual_pag = window.location.href.split('paginas/');
         setInterval(()=>{
-            if(atual_pag[1] == 'perfil.php') {
+            if(atual_pag[1] == 'perfil.php' || atual_pag[1] == 'curtidas.php') {
                 fetch('../assets/script/php/requsicoes/posts_users.php?username='+username)
                     .then(function (res){
                         return res.json()
@@ -421,12 +423,20 @@ async function posts() {
         }
         let jso_c = await curtida_req.json();
         qsAll('.back--event').forEach((e)=>{e.remove()});
-        if(jso_c.publi.nada == undefined) {
-        criarPosts(jso_c);
-        coment();
-        curtir_post();
-        desCurtir();
-        viwimg();
+        if(jso_c.nada == undefined) {
+            jso_c.reverse();
+            criarPosts(jso_c);
+            curtir_post();
+            desCurtir();
+            viwimg();
+            show_CM();
+            descompartilhar();
+            qs('.event-direct').onclick = compartilhar;
+            setInterval( ()=>{
+                post_num_curtida();
+            }, 500);
+            post_num_compartilhamento();
+            coment();
      } else {
         post_not(false);
      }
@@ -478,7 +488,7 @@ async function posts() {
             let url_push_v = window.location.href.split('paginas/');
             let req_;
             let json_
-            if(url_push_v[1] == 'inicial.php') {    
+            if(url_push_v[1] == 'inicial.php' || url_push_v[1] == 'curtidas.php') {    
                  req_ = await fetch('../assets/script/php/requsicoes/posts.php');
                  json_ = await req_.json();
                  for(let s in json_) {
@@ -669,7 +679,6 @@ function post_num_compartilhamento() {
         let prom = await fetch('../assets/script/php/requsicoes/posts.php');
         let res_pom = await prom.json();
          for(let l in res_pom) {
-
             if(res_pom[l]['type'] == 3){
                 let repostArea = document.getElementById(res_pom[l]['id_publi']+'c-xD30');
                 repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
@@ -726,7 +735,7 @@ function post_num_compartilhamento() {
                         repostArea.querySelector('button').classList.remove();
                         repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
                     }
-                } else {
+                } else{
                     let repostArea = document.getElementById(res_pom.publi[l]['compartilhador_info']['id_da_compartilhada']+'c-xD30');
                     if(repostArea != undefined) {
                     repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom.publi[l]['beepadas'];
@@ -747,6 +756,48 @@ function post_num_compartilhamento() {
                 }
             }
          }
+        }  else if (url_push_v[1] == 'curtidas.php' || url_push_v[1].split('?')[0] == 'curtidas_v.php'){
+            let req_C = await fetch('../assets/script/php/requsicoes/curtidas_posts.php');
+            if(url_push_v[1].split('?')[0] == 'curtidas_v.php') {
+                req_C = await fetch('../assets/script/php/requsicoes/curtidas_posts.php?username='+ url_push_v[1].split('?username=')[1]);
+            }
+             res_pom = await req_C.json();
+             for(let l in res_pom) {
+                if(res_pom[l]['type'] == 3){
+                    let repostArea = document.getElementById(res_pom[l]['id_publi']+'c-xD30');
+                    repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
+                    if(res_pom[l]['user_compartilhou']) {
+                        repostArea.classList.remove();
+                        repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
+                        repostArea.querySelector('button').classList.remove();
+                        repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar');
+                        descompartilhar()
+                    } else {
+                        repostArea.classList.remove();
+                        repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
+                        repostArea.querySelector('button').classList.remove();
+                        repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+                    }
+                } else {
+                    let repostArea = document.getElementById(res_pom[l]['compartilhador_info']['id_da_compartilhada']+'c-xD30');
+                    if(repostArea != undefined) {
+                    repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
+                    if(res_pom[l]['user_compartilhou']) {
+                        repostArea.classList.remove();
+                        repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
+                        repostArea.querySelector('button').classList.remove();
+                        repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar');
+                        descompartilhar()
+                    } else {
+                        repostArea.classList.remove();
+                        repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
+                        repostArea.querySelector('button').classList.remove();
+                        repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+    
+                    }
+                }
+                }
+            }
         } else {
             req_ = await fetch('../assets/script/php/requsicoes/posts_users.php?username='+url_perfil[1]);
             res_pom = await req_.json(); 
@@ -930,3 +981,31 @@ function alert_mensage(json) {
         }, 4000);
     }
 }
+async function user__curtidas() {
+        let username_vist = window.location.href.split('=');
+        let user_vist = await fetch('../assets/script/php/requsicoes/posts_users.php?username='+username_vist[1]);
+        let user_v = await user_vist.json();
+        let user_vist_post = await fetch('../assets/script/php/requsicoes/curtidas_posts.php?username='+username_vist[1]);
+        let res_vist_post = await user_vist_post.json();
+        qsAll('.event').forEach((e)=>{e.remove()});
+        qsAll('.back--event').forEach((e)=>{e.remove()});
+        console.log(user_v)
+            user_seguidores(user_v.user);
+        if(res_vist_post.nada == undefined) {
+            criarPosts(res_vist_post.reverse())
+            curtir_post();
+            desCurtir();
+            viwimg();
+            show_CM();
+            coment()
+            descompartilhar();
+            qs('.event-direct').onclick = compartilhar;
+            setInterval( ()=>{
+                post_num_curtida();
+            }, 500);
+            post_num_compartilhamento();
+            seguidores_session();
+        } else {
+            post_not(false);
+        }
+    }
