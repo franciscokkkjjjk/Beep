@@ -12,12 +12,17 @@
     $res_requ = mysqli_query($conexao, $sql_req);
     $assoc_user_req = mysqli_fetch_assoc($res_requ);
 
+    $sql_curtidas = 'SELECT * FROM curtidas WHERE id_user_curti='.$_SESSION['id_user'];
+    $res_curtidas = mysqli_query($conexao, $sql_curtidas);
+    $arra_curtida = mysqli_fetch_all($res_curtidas, 1);
+
     $sql_post_curtidos = "SELECT * FROM publicacoes WHERE publicacoes.id_publi IN (SELECT curtidas.id_postagem FROM curtidas WHERE curtidas.id_user_curti=".$assoc_user_req['id_user']." ORDER BY curtida_date DESC)";
     $res_push = mysqli_query($conexao, $sql_post_curtidos);
     $array_push = mysqli_fetch_all($res_push, 1);
     foreach($array_push as $post_segui) {
-        $user_curtiu = true;
+        $user_curtiu = false;
         $user_comp = false;
+    
         if($post_segui['type'] == 2) {
             $user_compartilhou = false;
             $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$post_segui['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
@@ -34,6 +39,12 @@
             $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$array_compartilhada['user_publi'];
             $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
             $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
+            
+            foreach($arra_curtida as $value_c) {
+                if($value_c['id_postagem'] == $post_segui['id_publi_interagida']) {
+                    $user_curtiu = true;  
+                } 
+            }
 
             $sql_s_compartilhador = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
             $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
@@ -75,6 +86,12 @@
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
                     $user_compartilhou = true;
+                }
+
+                foreach($arra_curtida as $value_c) {
+                    if($value_c['id_postagem'] == $post_segui['id_publi_interagida']) {
+                        $user_curtiu = true;  
+                    } 
                 }
 
             $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$post_segui['user_publi'];
@@ -121,6 +138,11 @@
                 }
             }
 
+            foreach($arra_curtida as $value_c) {
+                if($value_c['id_postagem'] == $post_segui['id_publi_interagida']) {
+                    $user_curtiu = true;  
+                } 
+            }
 
             $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$array_compartilhada['user_publi'];
             $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
@@ -160,7 +182,7 @@
     }
     $posi++;
     }
-    if(is_null($post_curtidos)) {
+    if($array_push == null) {
         $post_curtidos = [
             'nada' => 'nada por aqui!'
         ];

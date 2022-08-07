@@ -24,7 +24,7 @@ async function posts() {
         post_num_compartilhamento();
         coment();
     } else {
-        post_not(true);
+        post_not(0);
     }
     }
     function curtir_post() {
@@ -81,7 +81,7 @@ async function posts() {
             post_num_compartilhamento();
             seguidores_session();
         } else {
-            post_not(false);
+            post_not(1);
         }
     }
 
@@ -347,7 +347,7 @@ async function posts() {
         }, 500);
         post_num_compartilhamento();
         } else {
-            post_not(false);
+            post_not(1);
         }
     }
 
@@ -416,11 +416,7 @@ async function posts() {
         let url_push = window.location.href;
         let value_url = url_push.split('=');
         let curtida_req;
-        if(value_url.length == 2){
-            curtida_req = await fetch(`../assets/script/php/requsicoes/curtidas_posts.php?username=${value_url[1]}`);
-        } else {
-            curtida_req = await fetch(`../assets/script/php/requsicoes/curtidas_posts.php?username=`+username )
-        }
+        curtida_req = await fetch(`../assets/script/php/requsicoes/curtidas_posts.php?username=`+username )
         let jso_c = await curtida_req.json();
         qsAll('.back--event').forEach((e)=>{e.remove()});
         if(jso_c.nada == undefined) {
@@ -438,7 +434,7 @@ async function posts() {
             post_num_compartilhamento();
             coment();
      } else {
-        post_not(false);
+        post_not(1);
      }
     }
     let openIMG = false;
@@ -488,7 +484,7 @@ async function posts() {
             let url_push_v = window.location.href.split('paginas/');
             let req_;
             let json_
-            if(url_push_v[1] == 'inicial.php' || url_push_v[1] == 'curtidas.php') {    
+            if(url_push_v[1] == 'inicial.php' || url_push_v[1] == 'curtidas.php' || url_push_v[1].split('?'[0] == 'curtidas_v.php')) {    
                  req_ = await fetch('../assets/script/php/requsicoes/posts.php');
                  json_ = await req_.json();
                  for(let s in json_) {
@@ -665,7 +661,9 @@ function descompartilhar() {
             });
             let resposta = await promisse.json();
             console.log(resposta);
-            document.getElementById(resposta.id_descompartilhada+'pt-xD30').remove();
+            if(document.getElementById(resposta.id_descompartilhada+'pt-xD30') != undefined){
+                document.getElementById(resposta.id_descompartilhada+'pt-xD30').remove();
+            }
 
         }
 })
@@ -848,12 +846,14 @@ function post_num_compartilhamento() {
  function post_not(timeline) {
     let nada = document.createElement('div');
     nada.classList.add('nada');
-    if(timeline) {
+    if(timeline == 0) {
         nada.innerHTML = 'Por enquanto não há nada por aqui. :(';
     } if(timeline == 'coment') {
         nada.innerHTML = 'Seja o primeiro a interagir com esse usuário!';
-    } if(timeline == false) {
+    } if(timeline == 1) {
         nada.innerHTML = 'Esse usuário não fez nenhuma publicação. :(';
+    } if(timeline == 2) {
+        nada.innerHTML = 'Esse usuário não curtiu nenhuma publicação. :(';
     }
     document.querySelector('.feed-body-post').appendChild(nada);
  }
@@ -987,25 +987,26 @@ async function user__curtidas() {
         let user_v = await user_vist.json();
         let user_vist_post = await fetch('../assets/script/php/requsicoes/curtidas_posts.php?username='+username_vist[1]);
         let res_vist_post = await user_vist_post.json();
+        console.log(res_vist_post)
         qsAll('.event').forEach((e)=>{e.remove()});
         qsAll('.back--event').forEach((e)=>{e.remove()});
         console.log(user_v)
             user_seguidores(user_v.user);
         if(res_vist_post.nada == undefined) {
-            criarPosts(res_vist_post.reverse())
+            res_vist_post.reverse();
+            criarPosts(res_vist_post);
             curtir_post();
             desCurtir();
             viwimg();
             show_CM();
-            coment()
             descompartilhar();
             qs('.event-direct').onclick = compartilhar;
             setInterval( ()=>{
                 post_num_curtida();
             }, 500);
             post_num_compartilhamento();
-            seguidores_session();
+            coment();
         } else {
-            post_not(false);
+            post_not(2);
         }
     }
