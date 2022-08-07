@@ -78,6 +78,27 @@
                                 <div class="event min-event"></div>
                                   <img class='post--img event--post--img post--img-area' style="display:none;">
                             </div>  
+                            <div class="post_type2_conteudo">
+                                <div class="header--post--area">
+                                        <div class="post--area--perfil">
+                                            <div class="menu--pag--img--area type_2_img_perfil img--perfil-red">
+                                            </div>
+                                            <div class="name--area">        
+                                                <a class="perfil-link" href="">        
+                                                <div class="name--name-perfil perfil-link-hover">
+                                                        <div class="event min-event"></div>
+                                                </div>
+                                                <div class="name--username-perfil perfil-link-hover">
+                                                        <div class="event min-event"></div>
+                                                </div>
+                                                </a>
+                                            </div>
+                                        </div> 
+                                        <div class="post--area--menu ">
+                                            <div class="elipse-img-hover elipse-img"></div>
+                                        </div>   
+                                </div>
+                            </div>
                         </div>
                         <div class="info--post--complete">
                             <div class="interação--info">
@@ -149,11 +170,11 @@
                         </div>
                         <div class="coment--conteudo">
                             <div class="coment--conteudo--text post--text"><div class="event min-event"></div></div>
-                                <div class="post--img-area coment--conteudo--img" style="display:none;">
+                            <div class="post--img-area coment--conteudo--img" style="display:none;">
                                  <div class="post--img" style>
                                     <div class="event--post--img coment--event"></div>
                                  </div>
-                            </div>  
+                            </div>
                         </div>
                         <div class="interacao--post--area interacao--coment">
                             <form class="event--curtida event--curtida-comp curtir--hover interac-button">

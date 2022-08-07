@@ -123,3 +123,9 @@ margin-top: -1px;
 .date--post {
     color: #a0a0a0;
 }
+.post_type2_conteudo {
+    width: 100%;
+    display: block;
+    height: 30px;
+    background-color: red;
+}

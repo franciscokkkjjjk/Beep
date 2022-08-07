@@ -17,7 +17,6 @@ criada para o compartilhamento
 -na area post completo colocar uma area para o type 2{
     adicionar uma area para mostrar para quem foi a resposta para o type 4
 }
-
 ---------------------------------futuros-------------------------
 
 -filtração dos posts pela classificação de idade dos jogos
