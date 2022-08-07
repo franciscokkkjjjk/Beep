@@ -923,6 +923,14 @@ async function post_all() {
         area_post_completo.querySelector('.event--curtida').setAttribute('data-key', obj.publicacao.id_publi);
     } 
     area_post_completo.querySelector('.comentar').id ='p_xD30_C'+obj.publicacao.id_publi;
+    let conteudo_type_2 = area_post_completo.querySelector('.post_type2_conteudo');
+    if(obj.publicacao.id_publi == 2) {
+        conteudo_type_2;
+    } else {
+        if(conteudo_type_2 != undefined) {
+            conteudo_type_2.remove()
+        }
+    }
     if(obj.comentarios != undefined) {
         for(let bobSponja in obj.comentarios) {
             let areaPalhacada = qs('.coment--area').cloneNode(true);

@@ -81,10 +81,10 @@
                             <div class="post_type2_conteudo">
                                 <div class="header--post--area">
                                         <div class="post--area--perfil">
-                                            <div class="menu--pag--img--area type_2_img_perfil img--perfil-red">
+                                            <div class="menu--pag--img--area img--perfil-red">
                                             </div>
                                             <div class="name--area">        
-                                                <a class="perfil-link" href="">        
+                                                <a class="perfil-link type_2_link_perfil" href="">        
                                                 <div class="name--name-perfil perfil-link-hover">
                                                         <div class="event min-event"></div>
                                                 </div>
@@ -98,6 +98,11 @@
                                             <div class="elipse-img-hover elipse-img"></div>
                                         </div>   
                                 </div>
+                                <div class="post--text"><div class="event min-event"></div></div>
+                                <div class="p-30d_10">
+                                    <div class="event min-event"></div>
+                                    <img class='post--img event--post--img post--img-area' style="display:none">
+                                </div>  
                             </div>
                         </div>
                         <div class="info--post--complete">
