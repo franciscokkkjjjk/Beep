@@ -73,11 +73,17 @@ function coment() {
                         let input_info_coment = document.createElement('input');
                         let img_value_c = qs('.input_coment_event_img').cloneNode(true);
                         let value_inpud_c = document.getElementById('inputdiv');
-                        let avalue_inpud_c = null;
+                        let final= null;
+                        input_info_coment.setAttribute('type','text');
                         if(value_inpud_c != undefined ){
-                            avalue_inpud_c = value_inpud_c.innerText; 
-                        }  
-                        input_info_coment.setAttribute('value', avalue_inpud_c);
+                            final =  qs('.body-modal-coment .inputdiv--form--post-coment').innerText;
+                            input_info_coment.setAttribute('value', '');
+                            input_info_coment.value =  final;
+                        } else {
+                            input_info_coment.setAttribute('value', '');
+                            input_info_coment.value =  final;
+                        }
+                        console.log(input_info_coment.value);
                         input_info_coment.setAttribute('name', 'p_xD30_info_');
                         form_info_coment.appendChild(input);
                         form_info_coment.appendChild(img_value_c);
@@ -86,8 +92,8 @@ function coment() {
                         console.log(form_info_coment);
                         qs('.button-exit').click();
                         let req_coment = await fetch('../assets/script/php/interacoes_post/comentar_post.php', {
-                            method:'POST',
-                           body: body_req,
+                             method:'POST',
+                            body: body_req,
                         });
                         let apend_req = await req_coment.json();
                         alert_mensage(apend_req);

@@ -23,7 +23,7 @@
             $nome_banco_ar = $novo_nome;
             move_uploaded_file($_FILES["img_post"]["tmp_name"], $diretorio.$novo_nome);
         }
-        $text_post = $_POST['p_xD30_info_'];
+        $text_post = addslashes($_POST['p_xD30_info_']);
         date_default_timezone_set('America/Sao_Paulo');
         date_default_timezone_get();
         $data_publi = date('Y-m-d H:i:s');
