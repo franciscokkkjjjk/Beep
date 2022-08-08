@@ -16,6 +16,7 @@
     $res_all_compartilhada = mysqli_query($conexao, $sql_all_compartilhada);
     $array_all_compartilhada = mysqli_fetch_all($res_all_compartilhada, 1);
     $posi = 0;
+    $pos_aux = 0;
 
     foreach($postagens as $post_segui) {
         $user_curtiu = false;
@@ -46,7 +47,7 @@
             $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
             $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
 
-            $timeline[] = [
+            $timeline[$posi] = [
                 'id_publi' => $array_compartilhada['id_publi'],
                 'type' => $post_segui['type'],
                 'text_post' => $array_compartilhada['text_publi'],
@@ -93,7 +94,7 @@
                     $user_curtiu = true;  
                 } 
             }
-            $timeline[] = [
+            $timeline[$posi] = [
                 'id_publi' => $post_segui['id_publi'],
                 'type' => $post_segui['type'],
                 'id_interacao' => $post_segui['id_publi_interagida'],
@@ -148,7 +149,7 @@
             $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
             $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
                 
-            $timeline[] = [
+            $timeline[$posi] = [
                 'id_publi' => $array_compartilhada['id_publi'],
                 'type' => $post_segui['type'],
                 'text_post' => $array_compartilhada['text_publi'],
