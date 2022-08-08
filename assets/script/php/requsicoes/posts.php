@@ -184,5 +184,7 @@
             'nada' => 'nada por aqui'
         ];
     }
+
     echo json_encode($timeline);
+
 ?>
