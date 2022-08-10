@@ -223,8 +223,9 @@
                                 <div class="area-input-div">
                                     <div class="img--perfil menu--pag--img--area"></div>
                                     <div class="area--inputdiv">
-                                        Escreva aqui... (provisorio)
+                                        Escreva aqui... (provisório)
                                     </div>
+                                    <input type="hidden" value='' class='input_div_info' name='input_div_info'>
                                 </div>
                                 <div class="area--img">
                                     <div class="img--coment img--post">

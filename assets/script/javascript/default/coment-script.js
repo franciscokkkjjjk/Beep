@@ -70,27 +70,27 @@ function coment() {
                 qs('.button--postar-coment').addEventListener('click', async (elementB)=>{
                     if(valid_div(1)) {
                         let form_info_coment = document.createElement('form');
-                        let input_info_coment = document.createElement('input');
+                        let input_info_coment = document.querySelector('.input_div_info');
                         let img_value_c = qs('.input_coment_event_img').cloneNode(true);
                         let value_inpud_c = document.getElementById('inputdiv');
                         let avalue_inpud_c = null;
                         if(value_inpud_c != undefined ){
                             avalue_inpud_c = value_inpud_c.innerText; 
                         }  
-                        input_info_coment.setAttribute('value', avalue_inpud_c);
-                        input_info_coment.setAttribute('name', 'p_xD30_info_');
+                        input_info_coment.value = avalue_inpud_c;
                         form_info_coment.appendChild(input);
                         form_info_coment.appendChild(img_value_c);
                         form_info_coment.appendChild(input_info_coment);
-                        let body_req = new FormData(form_info_coment);
-                        console.log(form_info_coment);
-                        qs('.button-exit').click();
-                        let req_coment = await fetch('../assets/script/php/interacoes_post/comentar_post.php', {
-                            method:'POST',
-                           body: body_req,
-                        });
-                        let apend_req = await req_coment.json();
-                        alert_mensage(apend_req);
+                        console.log(input_info_coment.value);
+                        //let body_req = new FormData(form_info_coment);
+                        // console.log(form_info_coment);
+                        // s('.button-exit').click();
+                        // let req_coment = await fetch('../assets/script/php/interacoes_post/comentar_post.php', {
+                            // method:'POST',
+                        //    body: body_req,
+                        // });
+                        // let apend_req = await req_coment.json();
+                        // alert_mensage(apend_req);
                         
                     } else {
                         qs('.area--inputdiv').click();
