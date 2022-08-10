@@ -82,15 +82,15 @@ function coment() {
                         form_info_coment.appendChild(img_value_c);
                         form_info_coment.appendChild(input_info_coment);
                         console.log(input_info_coment.value);
-                        //let body_req = new FormData(form_info_coment);
-                        // console.log(form_info_coment);
-                        // s('.button-exit').click();
-                        // let req_coment = await fetch('../assets/script/php/interacoes_post/comentar_post.php', {
-                            // method:'POST',
-                        //    body: body_req,
-                        // });
-                        // let apend_req = await req_coment.json();
-                        // alert_mensage(apend_req);
+                        let body_req = new FormData(form_info_coment);
+                         console.log(form_info_coment);
+                         qs('.button-exit').click();
+                         let req_coment = await fetch('../assets/script/php/interacoes_post/comentar_post.php', {
+                             method:'POST',
+                            body: body_req,
+                         });
+                         let apend_req = await req_coment.json();
+                         alert_mensage(apend_req);
                         
                     } else {
                         qs('.area--inputdiv').click();

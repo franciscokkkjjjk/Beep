@@ -225,7 +225,7 @@
                                     <div class="area--inputdiv">
                                         Escreva aqui... (provisório)
                                     </div>
-                                    <input type="hidden" value='' class='input_div_info' name='input_div_info'>
+                                    <input type="hidden" value='' class='input_div_info' name='p_xD30_info_'>
                                 </div>
                                 <div class="area--img">
                                     <div class="img--coment img--post">

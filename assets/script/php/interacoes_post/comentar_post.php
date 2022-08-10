@@ -40,6 +40,6 @@
             }
         }
     } else {
-        echo 'mano kkkkkk! tem como não kkkkkkk!';
+        echo json_encode($json);
     } 
 ?>
