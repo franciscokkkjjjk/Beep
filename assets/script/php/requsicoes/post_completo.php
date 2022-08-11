@@ -198,6 +198,93 @@
                 ]
             ];
             echo json_encode($postagem_completa);
+        } elseif ($assoc_post['type'] == 4) {
+            $user_compartilhou = false;
+            $sql_raiz_publi = "SELECT * FROM publicacoes WHERE publicacoes.id_publi=".$assoc_post['id_publi_interagida'];
+            $res_raiz_publi = mysqli_query($conexao, $sql_raiz_publi);
+            $assc_raiz_publi = mysqli_fetch_assoc($res_raiz_publi);
+            $sql_user_raiz_publi = "SELECT * FROM users WHERE users.id_user=".$assc_raiz_publi['user_publi'];
+            $res_user_raiz_publi = mysqli_query($conexao, $sql_user_raiz_publi);
+            $assoc_user_raiz_publi = mysqli_fetch_assoc($res_user_raiz_publi);
+
+            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assc_raiz_publi['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+            $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
+            $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
+                if(!is_null($assoc_compartilhou)) {
+                    $user_compartilhou = true;
+                } 
+                $user_curtiu = false;  
+                foreach($arra_curtida as $value_c) {
+                    if($value_c['id_postagem'] == $assc_raiz_publi['id_publi']) {//curtida da publicação aberta
+                        $user_curtiu = true;  
+                    } 
+                }
+                $postagem_completa['publicacao'] = [
+                    'id_publi' => $assc_raiz_publi['id_publi'],
+                    'type' => $assc_raiz_publi['type'],
+                    'id_interacao' => $assc_raiz_publi['id_publi_interagida'],
+                    'text_post' => $assc_raiz_publi['text_publi'],
+                    'img_publi' => $assc_raiz_publi['img_publi'],
+                    'num_curtidas' => $assc_raiz_publi['num_curtidas'],
+                    'beepadas' => $assc_raiz_publi['num_compartilha'],
+                    'date_publi' => dateCalc($assc_raiz_publi),
+                    "date_publi_ca" => date('d/m/Y', strtotime($assc_raiz_publi['date_publi'])),
+                    "date_publi_hr" => date('H:i', strtotime($assc_raiz_publi['date_publi'])),
+                    'num_comentario' => $assc_raiz_publi['num_comentario'],
+                    'user_curtiu' => $user_curtiu,
+                    'user_compartilhou'=> $user_compartilhou,
+                    'user_info' => [
+                        'user_id' => $assc_raiz_publi['user_publi'],
+                        'nome_user' => $assoc_user_raiz_publi['nome'],
+                        'username_user' => $assoc_user_raiz_publi['username'],
+                        'img_user' => perfilDefault($assoc_user_raiz_publi['foto_perfil'], ''),
+                    ]
+                ];
+                $sql_comentarios = 'SELECT * FROM publicacoes WHERE id_publi_interagida='.$assc_raiz_publi['id_publi'].' AND type=1 ORDER BY num_curtidas DESC';
+                $res_comentarios = mysqli_query($conexao, $sql_comentarios);
+                $array_comentarios = mysqli_fetch_all($res_comentarios, 1);
+    
+                foreach($array_comentarios as $valueC) {
+                    $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$valueC['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+                    $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
+                    $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
+                    if(!is_null($assoc_compartilhou)) {
+                        $user_compartilhou_comet = true;
+                    } else {
+                        $user_compartilhou_comet = false;
+                    }
+                    $sql_curtiu = 'SELECT * FROM curtidas WHERE curtidas.id_postagem ='.$valueC['id_publi'].' AND curtidas.id_user_curti='.$_SESSION['id_user'];
+                    $res_curtiu = mysqli_query($conexao, $sql_curtiu);
+                    $assoc_curtiu = mysqli_fetch_assoc($res_curtiu);
+                    if(is_null($assoc_curtiu)) {
+                        $user_cur = false;
+                    } else {
+                        $user_cur = true;
+                    }
+                    $sql_quem_comentou = 'SELECT * FROM users WHERE id_user=' . $valueC['user_publi'];
+                    $res_quem_comentou = mysqli_query($conexao, $sql_quem_comentou);
+                    $assoc_quem_comentou = mysqli_fetch_assoc($res_quem_comentou);
+                    $postagem_completa['comentarios'][] = [
+                        'id_publi' => $valueC['id_publi'],
+                        'type' => $valueC['type'],
+                        'id_interacao' => $valueC['id_publi_interagida'],
+                        'text_post' => $valueC['text_publi'],
+                        'img_publi' => $valueC['img_publi'],
+                        'num_curtidas' => $valueC['num_curtidas'],
+                        'beepadas' => $valueC['num_compartilha'],
+                        'date_publi' => dateCalc($valueC),
+                        'num_comentario' => $valueC['num_comentario'],
+                        'user_curtiu' => $user_cur,
+                        'user_compartilhou'=> $user_compartilhou_comet,
+                        'user_info' => [
+                            'user_id' => $valueC['user_publi'],
+                            'nome_user' => $assoc_quem_comentou['nome'],
+                            'username_user' => $assoc_quem_comentou['username'],
+                            'img_user' => perfilDefault($assoc_quem_comentou['foto_perfil'], ''),
+                        ]
+                    ];
+                }
+                echo json_encode($postagem_completa);
         }
     } else {
         header('../../../../paginas/inicial.php');
