@@ -28,7 +28,7 @@ criada para o compartilhamento
 -aparecer post na timeline com menos de uma semana;
 
 ----------------------------erros--------------------------------
-
+--a img não renicia com o modal - (rever a maneira de fechar o modal);
 ---------------------------------futuros-------------------------
 
 -filtração dos posts pela classificação de idade dos jogos

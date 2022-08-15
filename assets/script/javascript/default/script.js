@@ -14,7 +14,14 @@ function showImg_form(e, a, c){
     exit.appendChild(exit_img);
     return e.addEventListener('change', function () {   
         let img = e.files[0];
-        console.log(img);
+        console.log(img.type);
+        if(img.type == 'image/jpeg' || img.type == 'image/gif' || img.type == 'image/png' || img.type == 'image/jfif') {
+            console.log('é uma img');
+        } else if(img.type == 'video/mp4') {
+            console.log('isso é um video');
+        } else {
+            alert('ta fazendo oq da vida cara? vai trabalhar.');
+        }
         let src = URL.createObjectURL(img);
         img_f.setAttribute('src', src);
         a.appendChild(exit);
