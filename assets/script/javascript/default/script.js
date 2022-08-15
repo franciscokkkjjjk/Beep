@@ -20,6 +20,9 @@ function showImg_form(e, a, c){
         a.appendChild(exit);
         a.appendChild(img_f);
         console.log(e.value);
+        qs('.button--post--form').disabled = false;
+        qs('.button--post--form').style.backgroundColor = '#53ffff';
+        qs('.button--post--form').style.cursor = 'pointer';
         exit.addEventListener('click', (e = e)=>{
             inpu.value = '';
             img_f.remove();
@@ -27,24 +30,23 @@ function showImg_form(e, a, c){
             if(c) {
                 let value = qs('.inputdiv--form--post');
                 if(value != undefined) {
-                    if(value.target.innerText.trim() == '' && inpu.value == '') {
-                        qs('.inputdiv--form--post').target.innerText = '';
+                    console.log('entrou');
+                    if(value.innerText.trim() == '' && inpu.value == '') {
+                        qs('.inputdiv--form--post').innerText = '';
                         qs('.button--post--form').disabled = true;
                         qs('.button--post--form').style.backgroundColor = '';
                         qs('.button--post--form').style.cursor = '';
                         qs('.button--post--form').style.cursor = '';
                     }
                 } else {
-                    if(e.value == '') {
+                    if(qs('.input_img_event').value == '') {
                         qs('.button--post--form').disabled = true;
                         qs('.button--post--form').style.backgroundColor = '';
                         qs('.button--post--form').style.cursor = '';
                         qs('.button--post--form').style.cursor = '';
                     }
                 }
-                qs('.button--post--form').disabled = false;
-                qs('.button--post--form').style.backgroundColor = '#53ffff';
-                qs('.button--post--form').style.cursor = 'pointer';
+
             }
             }, true)
     });
