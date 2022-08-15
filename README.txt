@@ -25,7 +25,7 @@ criada para o compartilhamento
             //cria a area de video
         }
 }
--aparecer post na timeline com < de uma semana;
+-aparecer post na timeline com menos de uma semana;
 
 ----------------------------erros--------------------------------
 
