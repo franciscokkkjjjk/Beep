@@ -17,7 +17,7 @@ criada para o compartilhamento
 -na area post completo colocar uma area para o type 2{
     adicionar uma area para mostrar para quem foi a resposta para o type 4
 }
--criar mais uma coluna para adicionar videos{
+-criar mais uma coluna para adicionar videos {
     logica desse tipo:
         if(img != null) {
             //cria a area de imagem
@@ -25,6 +25,7 @@ criada para o compartilhamento
             //cria a area de video
         }
 }
+
 
 ----------------------------erros--------------------------------
 
