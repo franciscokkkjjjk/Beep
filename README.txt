@@ -17,10 +17,17 @@ criada para o compartilhamento
 -na area post completo colocar uma area para o type 2{
     adicionar uma area para mostrar para quem foi a resposta para o type 4
 }
+-criar mais uma coluna para adicionar videos{
+    logica desse tipo:
+        if(img != null) {
+            //cria a area de imagem
+        } else if (video != null) {
+            //cria a area de video
+        }
+}
 
 ----------------------------erros--------------------------------
--a area editavel de comentar esta gerando um valor sem /n
- isso impede de passar a quebra de linha para o banco de dados
+
 ---------------------------------futuros-------------------------
 
 -filtração dos posts pela classificação de idade dos jogos
