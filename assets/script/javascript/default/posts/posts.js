@@ -105,6 +105,7 @@ async function posts() {
                 }else {
                     let type_midia = lista[i]['img_publi'].split('.');
                     if(type_midia[1] == 'mp4') {
+                        post_body.querySelector('.post--img-area').remove();
                         
                     } else {
                         post_body.querySelector('.post--img-area').style.display = '';
