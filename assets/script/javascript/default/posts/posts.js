@@ -103,9 +103,14 @@ async function posts() {
                 if(lista[i]['img_publi'] == ""){
                     
                 }else {
-                    post_body.querySelector('.post--img-area').style.display = '';
-                    post_body.querySelector('.post--img').style.display = 'block';
-                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                    let type_midia = lista[i]['img_publi'].split('.');
+                    if(type_midia[1] == 'mp4') {
+                        
+                    } else {
+                        post_body.querySelector('.post--img-area').style.display = '';
+                        post_body.querySelector('.post--img').style.display = 'block';
+                        post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                    }
                 }//p-xD30
                 post_body.querySelector('.event--curtida input').value = lista[i]['id_publi'];
                 post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
