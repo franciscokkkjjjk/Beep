@@ -105,8 +105,13 @@ async function posts() {
                 }else {
                     let type_midia = lista[i]['img_publi'].split('.');
                     if(type_midia[1] == 'mp4') {
-                        post_body.querySelector('.post--img-area').remove();
-                        
+                        post_body.querySelector('.post--img').remove();
+                        post_body.querySelector('.post--img-area').style.display = '';
+                        post_body.querySelector('.post--img-area').classList.add('area_midia_video');
+                        let video_creat = document.createElement('video');
+                        video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['img_publi']}`);
+                        video_creat.setAttribute('controls', '');
+                        post_body.querySelector('.post--img-area').appendChild(video_creat);
                     } else {
                         post_body.querySelector('.post--img-area').style.display = '';
                         post_body.querySelector('.post--img').style.display = 'block';
@@ -123,7 +128,6 @@ async function posts() {
                     post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
                     post_body.querySelector('.event--curtida').classList.add('p-xD30');
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
-
                 }
                 if(lista[i]['user_compartilhou']) {
                     post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
@@ -166,8 +170,21 @@ async function posts() {
                     post_body.querySelector('.post--text--comp_2').innerHTML = lista[i]['text_post'];
                 }
                 if(lista[i]['img_publi'] == '' || lista[i]['img_publi'] == null) {} else {
+                    let type_midia = lista[i]['img_publi'].split('.');
+                    console.log(type_midia);
+                    if(type_midia[1] == 'mp4') {
+                        console.log('video')
+                        post_body.querySelector('.post--img').remove();
+                        post_body.querySelector('.post--img-area').style.display = '';
+                        post_body.querySelector('.post--img-area').classList.add('area_midia_video');
+                        let video_creat = document.createElement('video');
+                        video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['img_publi']}`);
+                        video_creat.setAttribute('controls', '');
+                        post_body.querySelector('.post--img-area').appendChild(video_creat);
+                    } else {
                     post_body.querySelector('.post--img-area-com').style.display= 'block';
                     post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                    }
                 }
                 if(lista[i]['user_curtiu']){
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada']);
@@ -214,9 +231,20 @@ async function posts() {
                 if(lista[i]['img_publi'] == ""){
                     
                 }else {
-                    post_body.querySelector('.post--img-area').style.display = '';
-                    post_body.querySelector('.post--img').style.display = 'block';
-                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                    let type_midia = lista[i]['img_publi'].split('.');
+                    if(type_midia[1] == 'mp4') {
+                        post_body.querySelector('.post--img').remove();
+                        post_body.querySelector('.post--img-area').style.display = '';
+                        post_body.querySelector('.post--img-area').classList.add('area_midia_video');
+                        let video_creat = document.createElement('video');
+                        video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['img_publi']}`);
+                        video_creat.setAttribute('controls', '');
+                        post_body.querySelector('.post--img-area').appendChild(video_creat);
+                    } else {
+                        post_body.querySelector('.post--img-area').style.display = '';
+                        post_body.querySelector('.post--img').style.display = 'block';
+                        post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                    }
                 }//p-xD30
                 post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
                 post_body.querySelector('.comentar').id = 'p_xD30_C'+lista[i]['compartilhador_info']['id_da_compartilhada'];
@@ -906,9 +934,21 @@ async function post_all() {
     if(obj.publicacao.img_publi == '' || obj.publicacao.img_publi == null) {
         area_img.remove()
     } else {
-        area_img.querySelector('.event').remove();
-        area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/'+obj.publicacao.img_publi);
-        area_img.querySelector('img').style.display = '';
+        let type_midia = obj.publicacao.img_publi.split('.');
+        console.log(type_midia);
+        if(type_midia[1] == 'mp4') {
+            area_img.querySelector('.event').remove();
+            area_img.querySelector('img').remove();
+            let video_creat = document.createElement('video');
+            video_creat.setAttribute('src', `../assets/imgs/posts/${obj.publicacao.img_publi}`);
+            video_creat.setAttribute('controls', '');
+            video_creat.setAttribute('class', 'post--img post--img-area');
+            area_img.appendChild(video_creat);
+        } else {
+                area_img.querySelector('.event').remove();
+                area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/'+obj.publicacao.img_publi);
+                area_img.querySelector('img').style.display = '';
+        }
     }
     area_post_completo.querySelector('.num--curtidas').innerHTML = obj.publicacao.num_curtidas;
     area_post_completo.querySelector('.num--coment').innerHTML = obj.publicacao.num_comentario;
@@ -948,9 +988,21 @@ async function post_all() {
         if(obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
             area_img.remove()
         } else {
+            let type_midia = obj.publicacao.c_comentada.img_publi.split('.');
+            console.log(type_midia);
+            if(type_midia[1] == 'mp4') {
+                area_img.querySelector('.event').remove();
+                area_img.querySelector('img').remove();
+                let video_creat = document.createElement('video');
+                video_creat.setAttribute('src', `../assets/imgs/posts/${obj.publicacao.c_comentada.img_publi}`);
+                video_creat.setAttribute('controls', '');
+                video_creat.setAttribute('class', 'post--img post--img-area');
+                area_img.appendChild(video_creat);
+            } else {
             area_img.querySelector('.event').remove();
             area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/'+obj.publicacao.c_comentada.img_publi);
             area_img.querySelector('img').style.display = '';
+        }
         }
         conteudo_type_2.querySelector('.conteudo--all--post').href = 'postagem.php?postagem='+obj.publicacao.c_comentada.id_publi;
         conteudo_type_2.querySelector('.date--post').innerHTML = obj.publicacao.c_comentada.date_publi;
@@ -975,9 +1027,21 @@ async function post_all() {
         if(obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
             area_img.remove()
         } else {
-            area_img.querySelector('.event').remove();
-            area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/'+obj.publicacao.c_comentada.img_publi);
-            area_img.querySelector('img').style.display = '';
+            let type_midia = obj.publicacao.c_comentada.img_publi.split('.');
+            console.log(type_midia);
+            if(type_midia[1] == 'mp4') {
+                area_img.querySelector('.event').remove();
+                area_img.querySelector('img').remove();
+                let video_creat = document.createElement('video');
+                video_creat.setAttribute('src', `../assets/imgs/posts/${obj.publicacao.c_comentada.img_publi}`);
+                video_creat.setAttribute('controls', '');
+                video_creat.setAttribute('class', 'post--img post--img-area');
+                area_img.appendChild(video_creat);
+            } else {
+                area_img.querySelector('.event').remove();
+                area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/'+obj.publicacao.c_comentada.img_publi);
+                area_img.querySelector('img').style.display = '';
+            }
         }
         conteudo_type_1.querySelector('.conteudo--all--post').href = 'postagem.php?postagem='+obj.publicacao.c_comentada.id_publi;
         conteudo_type_1.querySelector('.date--post').innerHTML = obj.publicacao.c_comentada.date_publi;
@@ -1003,9 +1067,20 @@ async function post_all() {
             if(obj.comentarios[bobSponja].img_publi == "" || obj.comentarios[bobSponja].img_publi == undefined|| obj.comentarios[bobSponja].img_publi == null) {
                 areaPalhacada.querySelector('.post--img-area').remove();
             } else {
-                areaPalhacada.querySelector('.post--img-area').style.display = '';
-                areaPalhacada.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${obj.comentarios[bobSponja].img_publi})`;
-            }
+                let type_midia = obj.comentarios[bobSponja].img_publi.split('.');
+                if(type_midia[1] == 'mp4') {
+                    areaPalhacada.querySelector('.post--img').remove();
+                    areaPalhacada.querySelector('.post--img-area').style.display = '';
+                    areaPalhacada.querySelector('.post--img-area').classList.add('area_midia_video');
+                    let video_creat = document.createElement('video');
+                    video_creat.setAttribute('src', `../assets/imgs/posts/${obj.comentarios[bobSponja].img_publi}`);
+                    video_creat.setAttribute('controls', '');
+                    areaPalhacada.querySelector('.post--img-area').appendChild(video_creat);
+                } else {
+                    areaPalhacada.querySelector('.post--img-area').style.display = '';
+                    areaPalhacada.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${obj.comentarios[bobSponja].img_publi})`;
+                } 
+             }
             if(obj.comentarios[bobSponja].text_post == undefined || obj.comentarios[bobSponja].text_post == null || obj.comentarios[bobSponja].text_post == '') {
                 areaPalhacada.querySelector('.coment--conteudo--text').remove(); 
             } else {

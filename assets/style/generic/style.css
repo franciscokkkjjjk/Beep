@@ -1095,5 +1095,19 @@ color: #fbfbfb;
     border-radius: 10px;
     box-shadow: 0px 0px 7px 3px #53ffff;
 }
+.post--img-area video {
+    min-height: 150px;
+    max-height: 450px ;
+    min-width:150px ;
+    max-height: 450px;
+    background-image: linear-gradient(#fff0, #000000);
+}
+.area_midia_video {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(#fff0, #000000);
+    background-color: transparent;
+}
 
 
