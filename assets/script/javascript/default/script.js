@@ -45,7 +45,6 @@ function showImg_form(e, a, c){
                 if(c) {
                     let value = qs('.inputdiv--form--post');
                     if(value != undefined) {
-                        console.log('entrou');
                         if(value.innerText.trim() == '' && inpu.value == '') {
                             qs('.inputdiv--form--post').innerText = '';
                             qs('.button--post--form').disabled = true;
@@ -68,6 +67,9 @@ function showImg_form(e, a, c){
             let alerta = {
                 mensage: 'A Beep aceita apenas formato gif, mp4, png, jpeg, jpg e jfif.',
                 error: true
+            }
+            if(document.getElementById('img--post-coment') != undefined) {
+                document.getElementById('img--post-coment').value = '';
             }
             document.getElementById('img--post').value = '';
             alert_mensage(alerta);
