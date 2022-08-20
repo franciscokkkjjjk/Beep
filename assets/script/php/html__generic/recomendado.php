@@ -250,3 +250,25 @@
                         </div>
                     </div>
                 </div>
+                <?php 
+                 if(isset($_SESSION['menssagem'])) {
+                    if(isset($_SESSION['fal'])){  unset($_SESSION['fal']);
+                ?>
+                <div class="mensagem_alert remove_tmp" style="background-color: #f00; color:#fff;"><?= $_SESSION['menssagem']?></div>
+                <?php 
+                    } else {
+                ?>
+                <div class="mensagem_alert remove_tmp"><?= $_SESSION['menssagem']?></div>
+                <?php }?>
+                <script>
+                    function remove() {
+                    setTimeout(()=>{
+                        document.querySelector('.remove_tmp').remove();
+                    },4500)
+                }
+                remove();
+                </script>
+                <?php 
+                unset($_SESSION['menssagem']);
+                 }
+                ?>
