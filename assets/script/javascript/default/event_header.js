@@ -57,7 +57,6 @@ function show_CM() {
             if(qs('.modal--shared input') != undefined) { 
                 qs('.modal--shared input').value = id_dE;
             }
-            
        })        
     });
     qs('.modal--event ').addEventListener('click', ()=>{
