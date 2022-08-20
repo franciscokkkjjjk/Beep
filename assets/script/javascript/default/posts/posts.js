@@ -1113,6 +1113,10 @@ function alert_mensage(json) {
     if(json.mensage != undefined) {
         creat_mensage.innerHTML = json.mensage;
         if(qs('.mensagem_alert') == undefined) { 
+            if(json.error) {
+                creat_mensage.style.backgroundColor = '#f00';
+                creat_mensage.style.color = '#fff';
+            }
             qs('.feed-area').appendChild(creat_mensage);
         }
         setTimeout(()=>{

@@ -65,7 +65,12 @@ function showImg_form(e, a, c){
                 }
                 }, true)
         } else {
-            alert('ta fazendo oq da vida cara? vai trabalhar.');
+            let alerta = {
+                mensage: 'A Beep aceita apenas formato gif, mp4, png, jpeg, jpg e jfif.',
+                error: true
+            }
+            document.getElementById('img--post').value = '';
+            alert_mensage(alerta);
         }
     });
     

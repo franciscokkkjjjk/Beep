@@ -26,6 +26,7 @@ qs('.button--header').addEventListener('click',showMH,true);
 function pegar_lemento(id) {
     let but = document.getElementById(id);
     let cor = but.getBoundingClientRect();
+    
     return cor
 }
 
@@ -43,15 +44,19 @@ function show_CM() {
             })
             modal.querySelector('.event-direct').id = id.replace('c-xD30', '');
             let cordenadasInput = pegar_lemento(id);
-            if(cordenadasInput.top >= 99.5 && cordenadasInput.top <= window.innerHeight*0.85) {
-                qs('.modal--shared').style.top = cordenadasInput.top+scrollY+32+'px';//216
-            } if(cordenadasInput.top >= window.innerHeight*0.85) {
-                let calc = cordenadasInput.top+scrollY-72;
+            console.log(pegar_lemento(id));
+             if(cordenadasInput.top >= window.innerHeight*0.85) {
+                let calc = cordenadasInput.top+scrollY-72;//cima
                 qs('.modal--shared').style.top = calc+'px';//32
+            } else {//baixc
+                console.log('entrou');
+                qs('.modal--shared').style.top = cordenadasInput.top+scrollY+32+'px';//216
             }
             qs('.modal--shared').style.left = cordenadasInput.right-216+'px';
             let id_dE = id.replace('c-xD30', '');
-            qs('.modal--shared input').value = id_dE;
+            if(qs('.modal--shared input') != undefined) { 
+                qs('.modal--shared input').value = id_dE;
+            }
             
        })        
     });
