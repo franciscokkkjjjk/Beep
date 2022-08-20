@@ -3,6 +3,7 @@
 -não reconhece anos bissextos.
 -o descompartilhamento do type 2 exclui a postagem de origem ao em vez da postagem- 
 criada para o compartilhamento
+-caso usuario de uma quebra de linha o textArea buga o banco de dados.
 
 
 -------------------ideias---------------------------------------
@@ -16,14 +17,6 @@ criada para o compartilhamento
 -uma area para aparecer novos post quando o scrollTop estiver em 0 
 -na area post completo colocar uma area para o type 2{
     adicionar uma area para mostrar para quem foi a resposta para o type 4
-}
--criar mais uma coluna para adicionar videos {
-    logica desse tipo:
-        if(img != null) {
-            //cria a area de imagem
-        } else if (video != null) {
-            //cria a area de video
-        }
 }
 -aparecer post na timeline com menos de uma semana;
 
