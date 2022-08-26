@@ -1155,3 +1155,7 @@ async function user__curtidas() {
             post_not(2);
         }
     }
+
+async function compartilhar_comentario() {
+    
+}

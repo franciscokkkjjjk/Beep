@@ -110,7 +110,7 @@ header {
     height: auto;
     padding-bottom: 35px;
     border-radius: 20px;
-    background-color: #090909;
+    background-color: #121212;
     position: absolute;
     margin-top: 30px;
 }
@@ -125,7 +125,7 @@ header {
 }
 
 .cabeca--menu {
-    background-color: #090909;
+    background-color: #121212;
     height: 50px;
     border-top-left-radius:20px ;
     border-top-right-radius:20px ;
@@ -220,7 +220,7 @@ header {
     background-color: #5c5c5c88;
 }
 .input--edit {
-    background-color: #090909;
+    background-color: #121212;
     width: auto;
     height: 60px;
     margin: 30px  20px 0px;
