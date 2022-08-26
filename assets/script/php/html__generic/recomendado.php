@@ -272,3 +272,18 @@
                 unset($_SESSION['menssagem']);
                  }
                 ?>
+                <div class="modal--coment--compartilhamento--area">
+                    <div class="modal--coment--compartilhamento">
+                        <div class="area--header--coment">
+                            <div class="area--header--exit">X</div>
+                            <div class="area--title--header">
+                                Compartilhar com comentário
+                            </div>
+                            <div class="area--button--comentar">
+                                <button type="submit">Enviar</button>
+                            </div>
+                        </div>
+                        <div class="area--body--coment"></div>
+                    </div>
+                    <div class="event--exit--compartilhamneto"></div>
+                </div>
