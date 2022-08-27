@@ -1128,8 +1128,8 @@ color: #fbfbfb;
     color: #fff;
     display: flex;
     height: auto;
-    margin-top: 10%;
-    max-height: 450px;
+    margin-top: 5%;
+    max-height:535px;
     overflow: auto;
     min-width: 40%;
     max-width: 75%;
@@ -1210,4 +1210,17 @@ color: #fbfbfb;
 .img--perfil-reduz {
     width: 40px !important;
     height: 40px !important;
+}
+.area--post--respostado {
+    margin: auto;
+    width: 80%;
+    border: 0.5px solid #3b3b3b;
+    border-radius: 10px;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+}
+.repost--link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

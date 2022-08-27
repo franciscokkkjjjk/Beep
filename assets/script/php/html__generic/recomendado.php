@@ -302,17 +302,27 @@
                             <div class="area--post--respostado">
                                 <div class="area--perfil--repostado">
                                     <div class="perfil--respostado">
-                                     <a href="" class="perfil-link">
+                                     <a href="" class="perfil-link repost--link" style="width: 40px;">
                                         <div class="area--perfil--repost">
                                             <div class="menu--pag--img--area img--perfil-reduz"></div>
                                         </div>
-                                        <div class="name--name-perfil-comp perfil-link-hover">
-                                            teste
-                                        </div>
-                                        <div class="name--username-perfil-comp perfil-link-hover">
-                                            @teste
+                                        <div class="area--name--reost">
+                                            <div class="name--name-perfil-comp perfil-link-hover">
+                                                teste
+                                            </div>
+                                            <div class="name--username-perfil-comp perfil-link-hover">
+                                                @teste
+                                            </div>
                                         </div>
                                      </a>
+                                    </div>
+                                    <div class="body--post--comp">
+                                        <div class="post--text post--text--comp_2">a</div>
+                                        <div class="post--img-area post--img-area-com">
+                                            <div class="post--img">
+                                                <div class="event--post--img"></div>
+                                            </div>
+                                        </div>                                        
                                     </div>
                                 </div>
                             </div>
