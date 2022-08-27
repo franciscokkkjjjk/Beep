@@ -285,7 +285,43 @@
                             </div>
                         </div>
                         <div class="body--repost--coment">
-
+                            <div class="area--body--repost--coment">
+                                <div class="area--perfil--coment--repost">
+                                <a href="perfil.php">
+                                        <div class="menu--pag--img--area"></div>
+                                </a>
+                                </div>
+                                <div class="area--divinput--coment--repsot">
+                                    <div class="placeholder--editediv">
+                                        No que você está pensando, <span class="name--coment">@fran</span>?
+                                    </div>
+                                    <div class="diveditable--coment--repost" contenteditable="true">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="area--post--respostado">
+                                <div class="area--perfil--repostado">
+                                    <div class="perfil--respostado">
+                                     <a href="" class="perfil-link">
+                                        <div class="area--perfil--repost">
+                                            <div class="menu--pag--img--area img--perfil-reduz"></div>
+                                        </div>
+                                        <div class="name--name-perfil-comp perfil-link-hover">
+                                            teste
+                                        </div>
+                                        <div class="name--username-perfil-comp perfil-link-hover">
+                                            @teste
+                                        </div>
+                                     </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="area--opt--comet--repost">
+                                        <label for="img--post-coment-=-repsot">
+                                            <div class="opt--menu--item pic" title="Adicionar uma midia"></div>
+                                        <input id="img--repost-coment" type="file" style="display: none;" class="input_coment_event_mid" name="midia_repost">
+                                    </label>
+                            </div>
                         </div>
                     </div>
                 </div>
