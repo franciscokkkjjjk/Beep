@@ -272,3 +272,20 @@
                 unset($_SESSION['menssagem']);
                  }
                 ?>
+                <div class="modal--coment--repost--area">
+                    <div class="exit--modal--repost--coment"></div>
+                    <div class="area--modal--coment--repost">
+                        <div class="header--modal--coment--repost">
+                            <div class="exit--area--body_coment">
+                                <div class="menu--exit-img "></div>
+                            </div>
+                            <div class="title--coment--repost">Compartilhar com comentário</div>
+                            <div class="submit--button--comet--area">
+                                <button type="submit">Enviar</button>
+                            </div>
+                        </div>
+                        <div class="body--repost--coment">
+
+                        </div>
+                    </div>
+                </div>
