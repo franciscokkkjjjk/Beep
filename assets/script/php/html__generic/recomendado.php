@@ -223,7 +223,7 @@
                                 <div class="area-input-div">
                                     <div class="img--perfil menu--pag--img--area"></div>
                                     <div class="area--inputdiv">
-                                        No que você está pensando?
+                                        No que você está pensando, <?= $_SESSION['username']?>?
                                     </div>
                                     <input type="hidden" value='' class='input_div_info' name='p_xD30_info_'>
                                 </div>
@@ -294,7 +294,7 @@
                                 </div>
                                 <div class="area--divinput--coment--repsot">
                                     <div class="placeholder--editediv">
-                                        No que você está pensando, <span class="name--coment"><div class="event min-event event-block" style="margin-bottom: -5px;"></div></span>?
+                                        No que você está pensando, <?= $_SESSION['username']?>?
                                     </div>
                                     <div class="diveditable--coment--repost" contenteditable="true">
                                     </div>
@@ -312,10 +312,10 @@
                                         </div>
                                         <div class="area--name--reost">
                                             <div class="name--name-perfil-comp perfil-link-hover">
-                                                teste
+                                                <div class="event"></div>
                                             </div>
                                             <div class="name--username-perfil-comp perfil-link-hover">
-                                                @teste
+                                                <div class="event"></div>
                                             </div>
                                         </div>
                                      </a>

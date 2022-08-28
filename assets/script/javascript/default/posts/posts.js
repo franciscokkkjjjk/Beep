@@ -680,6 +680,7 @@ async function posts() {
         })
     console.log(res);
  }
+
 let modal_repost_coment = document.querySelector('.modal--coment--repost--area');
 let clone_MD_RC = modal_repost_coment.cloneNode(true);
 modal_repost_coment.remove();
@@ -695,7 +696,7 @@ async function compartilhar_comentario() {//All_xD30
         form_aux.setAttribute('method', 'POST');
     let input_aux = document.createElement('input');
         input_aux.setAttribute('name', 'All_xD30');
-        input_aux.setAttribute('value', qs('.'));
+        input_aux.setAttribute('value', qs('.event--repost--coment').id);
         form_aux.appendChild(input_aux);
     let info_aux = new FormData(form_aux);
     let post_completo = await fetch('../assets/script/php/requsicoes/post_completo.php', {
@@ -703,8 +704,18 @@ async function compartilhar_comentario() {//All_xD30
             body: info_aux
     });
     let resultado = await post_completo.json();
-        
+    console.log(resultado);
+    let cloneLoad = clone_MD_RC.querySelector('.back--event').cloneNode(true);
+    clone_MD_RC.querySelector('.back--event').remove();
+    clone_MD_RC.querySelector('.area--post--respostado').style = '';
+    clone_MD_RC.querySelector('.area--perfil--repostado').style.display = '';
+    clone_MD_RC.querySelector('.name--name-perfil-comp').innerHTML = resultado.publicacao.user_info.nome_user;
+    clone_MD_RC.querySelector('.name--username-perfil-comp').innerHTML = resultado.publicacao.user_info.username_user;
+    clone_MD_RC.querySelector('.img--perfil-reduz').style = resultado.publicacao.user_info.img_user;
+
 }
+qs('.event--repost--coment').addEventListener('click',compartilhar_comentario);
+
 function descompartilhar() {
     qsAll('.descompartilhar-event').forEach((e)=>{
         e.onclick = async () => {
