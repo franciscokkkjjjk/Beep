@@ -4,7 +4,7 @@
 let modal = qs('.modal-coment-coment');
 let clone = modal.cloneNode(true);
 function coment() {
-    let creat_div = document.createElement('div');;
+    let creat_div = document.createElement('div');
     modal.remove();
     let comentar = qsAll('.comentar');
     if(comentar.length > 0) {

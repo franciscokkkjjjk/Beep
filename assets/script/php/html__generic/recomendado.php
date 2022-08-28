@@ -201,7 +201,7 @@
                         <div class="modal--shared--opt event-direct">
                             compartilhar
                         </div>
-                    <div class="modal--shared--opt">
+                    <div class="modal--shared--opt event--repost--coment">
                         compartilhar com comentario
                     </div>
                 </div>
@@ -272,7 +272,7 @@
                 unset($_SESSION['menssagem']);
                  }
                 ?>
-                <div class="modal--coment--repost--area">
+                <div class="modal--coment--repost--area" style="opacity: 0; display:none;">
                     <div class="exit--modal--repost--coment"></div>
                     <div class="area--modal--coment--repost">
                         <div class="header--modal--coment--repost">
@@ -281,6 +281,7 @@
                             </div>
                             <div class="title--coment--repost">Compartilhar com comentário</div>
                             <div class="submit--button--comet--area">
+                                <div class="event min-event" style="margin-right: 5px;"></div>
                                 <button type="submit">Enviar</button>
                             </div>
                         </div>
@@ -293,14 +294,17 @@
                                 </div>
                                 <div class="area--divinput--coment--repsot">
                                     <div class="placeholder--editediv">
-                                        No que você está pensando, <span class="name--coment">@fran</span>?
+                                        No que você está pensando, <span class="name--coment"><div class="event min-event event-block" style="margin-bottom: -5px;"></div></span>?
                                     </div>
                                     <div class="diveditable--coment--repost" contenteditable="true">
                                     </div>
                                 </div>
                             </div>
-                            <div class="area--post--respostado">
-                                <div class="area--perfil--repostado">
+                            <div class="area--post--respostado" style="display: flex; justify-content:center;">
+                                <div class="back--event event-block" style="position: inherit;">
+                                    <div class="event"></div>
+                                </div>
+                                <div class="area--perfil--repostado" style="display: none;">
                                     <div class="perfil--respostado">
                                      <a href="" class="perfil-link repost--link" style="width: 40px;">
                                         <div class="area--perfil--repost">

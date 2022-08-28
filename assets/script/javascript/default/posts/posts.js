@@ -680,6 +680,24 @@ async function posts() {
         })
     console.log(res);
  }
+async function compartilhar_comentario() {//All_xD30
+    //criar modal antes da requisição
+    
+    //requisição
+    let form_aux = document.createElement('form');
+        form_aux.setAttribute('method', 'POST');
+    let input_aux = document.createElement('input');
+        input_aux.setAttribute('name', 'All_xD30');
+        input_aux.setAttribute('value', 458);
+        form_aux.appendChild(input_aux);
+    let info_aux = new FormData(form_aux);
+    let post_completo = await fetch('../assets/script/php/requsicoes/post_completo.php', {
+            method: 'POST',
+            body: info_aux
+    });
+    let resultado = await post_completo.json();
+        
+}
 function descompartilhar() {
     qsAll('.descompartilhar-event').forEach((e)=>{
         e.onclick = async () => {
