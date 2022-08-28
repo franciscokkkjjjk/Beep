@@ -680,15 +680,22 @@ async function posts() {
         })
     console.log(res);
  }
+let modal_repost_coment = document.querySelector('.modal--coment--repost--area');
+let clone_MD_RC = modal_repost_coment.cloneNode(true);
+modal_repost_coment.remove();
 async function compartilhar_comentario() {//All_xD30
     //criar modal antes da requisição
-    
+    qs('.feed-area').append(clone_MD_RC);
+    clone_MD_RC.style.display = '';
+    setInterval(()=>{
+        clone_MD_RC.style.opacity = 1;
+    }, 15);
     //requisição
     let form_aux = document.createElement('form');
         form_aux.setAttribute('method', 'POST');
     let input_aux = document.createElement('input');
         input_aux.setAttribute('name', 'All_xD30');
-        input_aux.setAttribute('value', 458);
+        input_aux.setAttribute('value', qs('.'));
         form_aux.appendChild(input_aux);
     let info_aux = new FormData(form_aux);
     let post_completo = await fetch('../assets/script/php/requsicoes/post_completo.php', {

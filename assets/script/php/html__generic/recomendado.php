@@ -223,7 +223,7 @@
                                 <div class="area-input-div">
                                     <div class="img--perfil menu--pag--img--area"></div>
                                     <div class="area--inputdiv">
-                                        Escreva aqui... (provisório)
+                                        No que você está pensando?
                                     </div>
                                     <input type="hidden" value='' class='input_div_info' name='p_xD30_info_'>
                                 </div>

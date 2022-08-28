@@ -60,7 +60,7 @@ function show_CM() {
             }
        })        
     });
-    qs('.modal--event ').addEventListener('click', ()=>{
+    qs('.modal--event').addEventListener('click', ()=>{
         let modal = qs('.modal--shared');
         modal.style.opacity = 0;
         setTimeout(()=>{
