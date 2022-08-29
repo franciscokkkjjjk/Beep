@@ -727,9 +727,18 @@ async function compartilhar_comentario() {//All_xD30
         clone_MD_RC.querySelector('.post--img-area').style.display = 'none';
     } else {
         clone_MD_RC.querySelector('.post--img-area').style = '';
-        
+        let extensao = resultado.publicacao.img_publi.split('.');
+        console.log(extensao);
+        if(extensao[1] == 'mp4') {
+            clone_MD_RC.querySelector('.post--img').style= '';
+            clone_MD_RC.querySelector('.post--img').style.display = 'none';
+
+        } else {
+            clone_MD_RC.querySelector('.post--img').style= '';
+        }
     }
 } else {
+    //retorna para o padrao default
     modal_repost = false;
     clone_MD_RC.style.opacity = 0;
     document.querySelector('html').style.overflow = '';
