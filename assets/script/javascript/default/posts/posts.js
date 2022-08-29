@@ -723,6 +723,12 @@ async function compartilhar_comentario() {//All_xD30
         clone_MD_RC.querySelector('.post--text').style = '';
         clone_MD_RC.querySelector('.post--text').innerHTML = resultado.publicacao.text_post
     }
+    if(resultado.publicacao.img_publi == "" || resultado.publicacao.img_publi == null) {
+        clone_MD_RC.querySelector('.post--img-area').style.display = 'none';
+    } else {
+        clone_MD_RC.querySelector('.post--img-area').style = '';
+        
+    }
 } else {
     modal_repost = false;
     clone_MD_RC.style.opacity = 0;
