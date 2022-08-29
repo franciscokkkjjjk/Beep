@@ -732,9 +732,14 @@ async function compartilhar_comentario() {//All_xD30
         if(extensao[1] == 'mp4') {
             clone_MD_RC.querySelector('.post--img').style= '';
             clone_MD_RC.querySelector('.post--img').style.display = 'none';
-
+            let creat_video = document.createElement('video');
+            creat_video.setAttribute('src', `../assets/imgs/posts/${resultado.publicacao.img_publi}`);
+            creat_video.setAttribute('controls', '');
+            creat_video.setAttribute('class', 'post--img post--img-area');
+            clone_MD_RC.querySelector('.post--img-area').append(creat_video);
         } else {
             clone_MD_RC.querySelector('.post--img').style= '';
+            clone_MD_RC.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${resultado.publicacao.img_publi})`;
         }
     }
 } else {
