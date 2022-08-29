@@ -2,12 +2,34 @@
     box-sizing: border-box;
 }
 ::-webkit-scrollbar {
-    width: 10px;
-    background-color: #666666;
+    width: 15px;
+    background-color: #0b0b0b;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #7e7e7e;
+    background-color: #505050;
 }
+::-webkit-scrollbar-button:single-button {
+    background-color: rgb(53, 53, 53);
+    display: block;
+    border-style: solid;
+    height: auto;
+  }
+  ::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-width: calc(15px*0.5);
+    border-color: transparent transparent #53ffff transparent;
+  }
+  ::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    border-width:    calc(15px*0.5);
+    border-color: transparent #53ffff transparent  transparent;
+  }
+  ::-webkit-scrollbar-button:single-button:horizontal:increment {
+    border-width:   calc(15px*0.5) 0px calc(15px*0.5) calc(15px*0.5);
+    border-color: transparent transparent  transparent #53ffff;
+  }
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-width: calc(15px*0.5);
+    border-color: #53ffff transparent transparent transparent;
+  }
 body {
     margin: 0px;
     padding: 0px;
