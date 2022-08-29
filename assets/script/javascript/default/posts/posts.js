@@ -684,13 +684,17 @@ async function posts() {
 let modal_repost_coment = document.querySelector('.modal--coment--repost--area');
 let clone_MD_RC = modal_repost_coment.cloneNode(true);
 modal_repost_coment.remove();
+let modal_repost = false;
 async function compartilhar_comentario() {//All_xD30
     //criar modal antes da requisição
-    qs('.feed-area').append(clone_MD_RC);
-    clone_MD_RC.style.display = '';
-    setInterval(()=>{
-        clone_MD_RC.style.opacity = 1;
-    }, 15);
+    if(modal_repost == false) {
+        modal_repost = true;
+        qs('.feed-area').append(clone_MD_RC);
+        clone_MD_RC.style.display = '';
+        document.querySelector('html').style.overflow = 'hidden';
+        setTimeout(()=>{
+            clone_MD_RC.style.opacity = 1;
+        }, 15);
     //requisição
     let form_aux = document.createElement('form');
         form_aux.setAttribute('method', 'POST');
@@ -705,14 +709,29 @@ async function compartilhar_comentario() {//All_xD30
     });
     let resultado = await post_completo.json();
     console.log(resultado);
-    let cloneLoad = clone_MD_RC.querySelector('.back--event').cloneNode(true);
-    clone_MD_RC.querySelector('.back--event').remove();
+    if(clone_MD_RC.querySelector('.back--event') != undefined) {
+        clone_MD_RC.querySelector('.back--event').remove();
+    }
     clone_MD_RC.querySelector('.area--post--respostado').style = '';
     clone_MD_RC.querySelector('.area--perfil--repostado').style.display = '';
     clone_MD_RC.querySelector('.name--name-perfil-comp').innerHTML = resultado.publicacao.user_info.nome_user;
     clone_MD_RC.querySelector('.name--username-perfil-comp').innerHTML = resultado.publicacao.user_info.username_user;
     clone_MD_RC.querySelector('.img--perfil-reduz').style = resultado.publicacao.user_info.img_user;
-
+    if(resultado.publicacao.text_post == "" || resultado.publicacao.text_post == null) {
+        clone_MD_RC.querySelector('.post--text').style.display = 'none';
+    } else {
+        clone_MD_RC.querySelector('.post--text').style = '';
+        clone_MD_RC.querySelector('.post--text').innerHTML = resultado.publicacao.text_post
+    }
+} else {
+    modal_repost = false;
+    clone_MD_RC.style.opacity = 0;
+    document.querySelector('html').style.overflow = '';
+        setTimeout(()=>{
+            clone_MD_RC.style.display = 'none';
+            document.querySelector('.modal--coment--repost--area').remove();
+        }, 100);
+}
 }
 qs('.event--repost--coment').addEventListener('click',compartilhar_comentario);
 

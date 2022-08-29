@@ -517,6 +517,7 @@ select option {
 .post--img-area {
     width: 96%;
     margin: auto;
+    margin-top: 5px;
     height: 343px;
     border: #3d3d3d solid 0.5px;
     border-radius: 10px;
@@ -1147,7 +1148,7 @@ color: #fbfbfb;
 }
 .area--modal--coment--repost {
     z-index: 1;
-    background-color: #000;
+    background-color: #0a0a0a;
     color: #fff;
     display: flex;
     height: auto;
@@ -1165,7 +1166,9 @@ color: #fbfbfb;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    padding: 10px 20px;
+    padding: 10px 18px;
+    margin-bottom: 10px;
+    background-color: #101010;
     width: auto;
     align-items: center;
 }
