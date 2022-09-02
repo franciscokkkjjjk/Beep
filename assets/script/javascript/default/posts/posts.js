@@ -680,6 +680,81 @@ async function posts() {
         })
     console.log(res);
  }
+
+let modal_repost_coment = document.querySelector('.modal--coment--repost--area');
+let clone_MD_RC = modal_repost_coment.cloneNode(true);
+modal_repost_coment.remove();
+let modal_repost = false;
+async function compartilhar_comentario() {//All_xD30
+    //criar modal antes da requisição
+    if(modal_repost == false) {
+        modal_repost = true;
+        qs('.feed-area').append(clone_MD_RC);
+        clone_MD_RC.style.display = '';
+        document.querySelector('html').style.overflow = 'hidden';
+        setTimeout(()=>{
+            clone_MD_RC.style.opacity = 1;
+        }, 15);
+    //requisição
+    let form_aux = document.createElement('form');
+        form_aux.setAttribute('method', 'POST');
+    let input_aux = document.createElement('input');
+        input_aux.setAttribute('name', 'All_xD30');
+        input_aux.setAttribute('value', qs('.event--repost--coment').id);
+        form_aux.appendChild(input_aux);
+    let info_aux = new FormData(form_aux);
+    let post_completo = await fetch('../assets/script/php/requsicoes/post_completo.php', {
+            method: 'POST',
+            body: info_aux
+    });
+    let resultado = await post_completo.json();
+    console.log(resultado);
+    if(clone_MD_RC.querySelector('.back--event') != undefined) {
+        clone_MD_RC.querySelector('.back--event').remove();
+    }
+    clone_MD_RC.querySelector('.area--post--respostado').style = '';
+    clone_MD_RC.querySelector('.area--perfil--repostado').style.display = '';
+    clone_MD_RC.querySelector('.name--name-perfil-comp').innerHTML = resultado.publicacao.user_info.nome_user;
+    clone_MD_RC.querySelector('.name--username-perfil-comp').innerHTML = resultado.publicacao.user_info.username_user;
+    clone_MD_RC.querySelector('.img--perfil-reduz').style = resultado.publicacao.user_info.img_user;
+    if(resultado.publicacao.text_post == "" || resultado.publicacao.text_post == null) {
+        clone_MD_RC.querySelector('.post--text').style.display = 'none';
+    } else {
+        clone_MD_RC.querySelector('.post--text').style = '';
+        clone_MD_RC.querySelector('.post--text').innerHTML = resultado.publicacao.text_post
+    }
+    if(resultado.publicacao.img_publi == "" || resultado.publicacao.img_publi == null) {
+        clone_MD_RC.querySelector('.post--img-area').style.display = 'none';
+    } else {
+        clone_MD_RC.querySelector('.post--img-area').style = '';
+        let extensao = resultado.publicacao.img_publi.split('.');
+        console.log(extensao);
+        if(extensao[1] == 'mp4') {
+            clone_MD_RC.querySelector('.post--img').style= '';
+            clone_MD_RC.querySelector('.post--img').style.display = 'none';
+            let creat_video = document.createElement('video');
+            creat_video.setAttribute('src', `../assets/imgs/posts/${resultado.publicacao.img_publi}`);
+            creat_video.setAttribute('controls', '');
+            creat_video.setAttribute('class', 'post--img post--img-area');
+            clone_MD_RC.querySelector('.post--img-area').append(creat_video);
+        } else {
+            clone_MD_RC.querySelector('.post--img').style= '';
+            clone_MD_RC.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${resultado.publicacao.img_publi})`;
+        }
+    }
+} else {
+    //retorna para o padrao default
+    modal_repost = false;
+    clone_MD_RC.style.opacity = 0;
+    document.querySelector('html').style.overflow = '';
+        setTimeout(()=>{
+            clone_MD_RC.style.display = 'none';
+            document.querySelector('.modal--coment--repost--area').remove();
+        }, 100);
+}
+}
+qs('.event--repost--coment').addEventListener('click',compartilhar_comentario);
+
 function descompartilhar() {
     qsAll('.descompartilhar-event').forEach((e)=>{
         e.onclick = async () => {

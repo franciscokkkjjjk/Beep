@@ -2,12 +2,34 @@
     box-sizing: border-box;
 }
 ::-webkit-scrollbar {
-    width: 10px;
-    background-color: #666666;
+    width: 15px;
+    background-color: #0b0b0b;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #7e7e7e;
+    background-color: #505050;
 }
+::-webkit-scrollbar-button:single-button {
+    background-color: rgb(53, 53, 53);
+    display: block;
+    border-style: solid;
+    height: auto;
+  }
+  ::-webkit-scrollbar-button:single-button:vertical:decrement {
+    border-width: calc(15px*0.5);
+    border-color: transparent transparent #53ffff transparent;
+  }
+  ::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    border-width:    calc(15px*0.5);
+    border-color: transparent #53ffff transparent  transparent;
+  }
+  ::-webkit-scrollbar-button:single-button:horizontal:increment {
+    border-width:   calc(15px*0.5) 0px calc(15px*0.5) calc(15px*0.5);
+    border-color: transparent transparent  transparent #53ffff;
+  }
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    border-width: calc(15px*0.5);
+    border-color: #53ffff transparent transparent transparent;
+  }
 body {
     margin: 0px;
     padding: 0px;
@@ -110,7 +132,7 @@ header {
     height: auto;
     padding-bottom: 35px;
     border-radius: 20px;
-    background-color: #121212;
+    background-color: #090909;
     position: absolute;
     margin-top: 30px;
 }
@@ -125,7 +147,7 @@ header {
 }
 
 .cabeca--menu {
-    background-color: #121212;
+    background-color: #090909;
     height: 50px;
     border-top-left-radius:20px ;
     border-top-right-radius:20px ;
@@ -220,7 +242,7 @@ header {
     background-color: #5c5c5c88;
 }
 .input--edit {
-    background-color: #121212;
+    background-color: #090909;
     width: auto;
     height: 60px;
     margin: 30px  20px 0px;
@@ -650,6 +672,7 @@ select option {
 .body--recomendado {
     background-color: #0e0e0e;
     min-height: 179px;
+    
 }
 .opt--recomedado--area {
     background-color: #131313;
@@ -1109,31 +1132,124 @@ color: #fbfbfb;
     background-image: linear-gradient(#fff0, #000000);
     background-color: transparent;
 }
-.modal--coment--compartilhamento--area {
-    position: absolute;
+.modal--coment--repost--area {
+    position: fixed;
     width: 100%;
     height: 100%;
+    transition: all ease 0.3s;
+}
+.exit--modal--repost--coment {
+    width: 100%;
+    height: 100%;
+    background-color: #6666664b;
+    position: absolute;
+}
+.area--modal--coment--repost {
+       position: relative;
+       background-color: #0a0a0a;
+       color: #fff;
+       display: flex;
+       margin: auto;
+       margin-top: 6%;
+       max-height: 85%;
+       min-width: 40%;
+       max-width: 51%;
+       height: auto;
+       border-radius: 10px;
+       flex-direction: column;
+       overflow: auto;
+       padding-bottom: 10px;
+       box-shadow: 0px 0px 14px 0px #7a7a7a;
+}
+.body--post--comp {
+    margin-top: 5px;
+}
+.header--modal--coment--repost {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 5px 18px;
+    border-radius:  10px  10px 0px 0px;
+    margin-bottom: 10px;
+    background-color: #101010;
+    width: auto;
+    align-items: center;
+}
+.exit--area--body_coment {
+    padding: 8px;
+    border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: red;
 }
-.event--exit--compartilhamneto {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: #4c4a4ac7;
+.exit--area--body_coment:hover {
+    background-color: #111111;
+    cursor: pointer;
+    transition:all linear 0.3s;
 }
-.modal--coment--compartilhamento{
-    background-color: blue;
-    z-index: 1;
-    box-shadow: 0px 0px 11px 1px #161515;
+.title--coment--repost {
+    flex: 1;
+    text-align: center;
 }
-.area--header--coment {
-    width: auto;
-    height: 40px;
-    padding: 0px 20px;
+.submit--button--comet--area {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+}
+.submit--button--comet--area button {
+    border: none;
+    background-color: #0fa8b3;
+    padding: 5px 13px;
+    border-radius: 10px;
+    color: #fbfbfb;
+}
+.submit--button--comet--area button:hover {
+    background-color: #3dc7d1;
+    cursor:pointer;
+    transition: all linear 0.25s;
+}
+.area--body--repost--coment {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+}
+.area--perfil--coment--repost {
+    margin-left: 15px;
+}
+.area--divinput--coment--repsot {
+    flex: 1;
+    padding: 0px 10px;
+}
+.placeholder--editediv {
+    color: #d1d1d1cb;
+    display: block;
+    margin-top: 10px;
+}
+.area--opt--comet--repost {
+    border: 0.5px solid #3b3b3b;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 14px;
+    background-color: #000;
+    box-shadow: 0px 0px 16px 2px #030303;
+    margin: 0px 5px;
+}
+.img--perfil-reduz {
+    width: 40px !important;
+    height: 40px !important;
+}
+.area--post--respostado {
+    margin: auto;
+    width: 80%;
+    border: 0.5px solid #3b3b3b;
+    border-radius: 10px;
+    padding: 15px 10px;
+    margin-bottom: 10px;
+}
+.repost--link{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

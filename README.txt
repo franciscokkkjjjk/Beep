@@ -4,6 +4,7 @@
 -o descompartilhamento do type 2 exclui a postagem de origem ao em vez da postagem- 
 criada para o compartilhamento
 -caso usuario de uma quebra de linha o textArea buga o banco de dados.
+-o comentario gera mais de uma imagem (possivel problema= no clone);
 
 
 -------------------ideias---------------------------------------
