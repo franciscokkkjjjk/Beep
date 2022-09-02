@@ -92,7 +92,7 @@
                 }
             }
 
-           $sql_cadastro = "INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas, status_) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt', 0)";
+           $sql_cadastro = "INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt')";
            $resultado_cadastro = mysqli_query($conexao,$sql_cadastro);
            $sql_perfil = "SELECT * FROM users WHERE username="."'$username_DF'";
            $res_perfil = mysqli_query($conexao, $sql_perfil);

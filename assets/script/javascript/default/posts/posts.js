@@ -687,10 +687,11 @@ modal_repost_coment.remove();
 let modal_repost = false;
 async function compartilhar_comentario() {//All_xD30
     //criar modal antes da requisição
-    console.log('teste')
-    if(modal_repost == false) {
+    if(modal_repost == false) {        
         modal_repost = true;
         qs('.feed-area').append(clone_MD_RC);
+        qs(".exit--area--body_coment").addEventListener('click', compartilhar_comentario, true);
+        qs('.exit--modal--repost--coment').addEventListener('click',compartilhar_comentario, true);
         clone_MD_RC.style.display = '';
         document.querySelector('html').style.overflow = 'hidden';
         setTimeout(()=>{
@@ -752,6 +753,7 @@ async function compartilhar_comentario() {//All_xD30
             clone_MD_RC.style.display = 'none';
             document.querySelector('.modal--coment--repost--area').remove();
         }, 100);
+       
 }
 }
 qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, true);
