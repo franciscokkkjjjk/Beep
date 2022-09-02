@@ -690,6 +690,7 @@ async function compartilhar_comentario() {//All_xD30
     if(modal_repost == false) {        
         modal_repost = true;
         qs('.feed-area').append(clone_MD_RC);
+        input_div_valid();
         qs(".exit--area--body_coment").addEventListener('click', compartilhar_comentario, true);
         qs('.exit--modal--repost--coment').addEventListener('click',compartilhar_comentario, true);
         clone_MD_RC.style.display = '';
@@ -755,6 +756,14 @@ async function compartilhar_comentario() {//All_xD30
         }, 100);
        
 }
+}
+function input_div_valid() {
+    qs('.placeholder--editediv').addEventListener('click', (e)=>{
+        qs('.diveditable--coment--repost').innerText = '';
+        qs('.diveditable--coment--repost').style.display = 'block';
+        qs('.diveditable--coment--repost').focus();
+        qs('.placeholder--editediv').style.display= 'none';
+    }, true);
 }
 qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, true);
 
