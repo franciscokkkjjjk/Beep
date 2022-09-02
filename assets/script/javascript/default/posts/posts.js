@@ -687,7 +687,7 @@ modal_repost_coment.remove();
 let modal_repost = false;
 async function compartilhar_comentario() {//All_xD30
     //criar modal antes da requisição
-    console.log('teste');
+    console.log('teste')
     if(modal_repost == false) {
         modal_repost = true;
         qs('.feed-area').append(clone_MD_RC);
@@ -754,7 +754,7 @@ async function compartilhar_comentario() {//All_xD30
         }, 100);
 }
 }
-qs('.event--repost--coment').addEventListener('click', compartilhar_comentario);
+qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, true);
 
 function descompartilhar() {
     qsAll('.descompartilhar-event').forEach((e)=>{
@@ -1231,7 +1231,3 @@ async function user__curtidas() {
             post_not(2);
         }
     }
-
-async function compartilhar_comentario() {
-    
-}
