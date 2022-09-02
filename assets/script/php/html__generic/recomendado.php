@@ -296,7 +296,7 @@
                                     <div class="placeholder--editediv">
                                         No que você está pensando, <?= $_SESSION['username']?>?
                                     </div>
-                                    <div class="diveditable--coment--repost" contenteditable="true">
+                                    <div class="diveditable--coment--repost" contenteditable="true" style="display: none;">
                                     </div>
                                 </div>
                             </div>
@@ -321,7 +321,7 @@
                                      </a>
                                     </div>
                                     <div class="body--post--comp">
-                                        <div class="post--text post--text--comp_2">a</div>
+                                        <div class="post--text post--text--comp_2"></div>
                                         <div class="post--img-area post--img-area-com">
                                             <div class="post--img">
                                                 <div class="event--post--img"></div>

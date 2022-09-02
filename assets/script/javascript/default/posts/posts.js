@@ -764,6 +764,10 @@ function input_div_valid() {
         qs('.diveditable--coment--repost').focus();
         qs('.placeholder--editediv').style.display= 'none';
     }, true);
+    qs('.diveditable--coment--repost').addEventListener('blur', ()=>{
+        qs('.diveditable--coment--repost').style.display = 'none';
+        qs('.placeholder--editediv').style.display= 'block';
+    })
 }
 qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, true);
 
