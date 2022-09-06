@@ -691,6 +691,7 @@ async function compartilhar_comentario() {//All_xD30
         modal_repost = true;
         qs('.feed-area').append(clone_MD_RC);
         input_div_valid();
+        showImg_form(qs('#midia_compatilhamento_coment'), qs('.post_img_area'), false);
         qs(".exit--area--body_coment").addEventListener('click', compartilhar_comentario, true);
         qs('.exit--modal--repost--coment').addEventListener('click',compartilhar_comentario, true);
         clone_MD_RC.style.display = '';

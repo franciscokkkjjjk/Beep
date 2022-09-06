@@ -301,6 +301,9 @@
                                     <input type="hidden" class="input_hidden_coment_compartilhada" value="" name="cC_xd30">
                                 </div>
                             </div>
+                            <div class="are_img_comentario_repost">
+                                <div class="post_img_area"></div>
+                            </div>
                             <div class="area--post--respostado" style="display: flex; justify-content:center;">
                                 <div class="back--event event-block" style="position: inherit;">
                                     <div class="event"></div>
