@@ -298,6 +298,7 @@
                                     </div>
                                     <div class="diveditable--coment--repost" contenteditable="true" style="display: none;">
                                     </div>
+                                    <input type="hidden" class="input_hidden_coment_compartilhada" value="" name="cC_xd30">
                                 </div>
                             </div>
                             <div class="area--post--respostado" style="display: flex; justify-content:center;">

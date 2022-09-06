@@ -764,9 +764,15 @@ function input_div_valid() {
         qs('.diveditable--coment--repost').focus();
         qs('.placeholder--editediv').style.display= 'none';
     }, true);
-    qs('.diveditable--coment--repost').addEventListener('blur', ()=>{
-        qs('.diveditable--coment--repost').style.display = 'none';
-        qs('.placeholder--editediv').style.display= 'block';
+    let div_e = qs('.diveditable--coment--repost');
+    div_e.addEventListener('blur', ()=>{
+        console.log(div_e.innerText.length);
+        if(div_e.innerText.trim() == "") {
+            qs('.diveditable--coment--repost').style.display = 'none';
+            qs('.placeholder--editediv').style.display= 'block';
+        } else {
+            qs('.input_hidden_coment_compartilhada').value = div_e.innerText;
+        }
     })
 }
 qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, true);
