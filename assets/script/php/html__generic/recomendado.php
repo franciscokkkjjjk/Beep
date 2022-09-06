@@ -332,9 +332,9 @@
                                 </div>
                             </div>
                             <div class="area--opt--comet--repost">
-                                        <label for="img--post-coment-=-repsot">
+                                    <label for="midia_compatilhamento_coment">
                                             <div class="opt--menu--item pic" title="Adicionar uma midia"></div>
-                                        <input id="img--repost-coment" type="file" style="display: none;" class="input_coment_event_mid" name="midia_repost">
+                                        <input id="midia_compatilhamento_coment" type="file" style="display: none;" class="input_coment_event_mid" name="midia_repost">
                                     </label>
                             </div>
                         </div>

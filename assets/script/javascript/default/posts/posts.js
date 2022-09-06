@@ -770,11 +770,13 @@ function input_div_valid() {
         if(div_e.innerText.trim() == "") {
             qs('.diveditable--coment--repost').style.display = 'none';
             qs('.placeholder--editediv').style.display= 'block';
+            qs('.input_hidden_coment_compartilhada').value = null;
         } else {
             qs('.input_hidden_coment_compartilhada').value = div_e.innerText;
         }
     })
 }
+
 qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, true);
 
 function descompartilhar() {

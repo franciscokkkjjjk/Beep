@@ -1175,6 +1175,13 @@ color: #fbfbfb;
     width: auto;
     align-items: center;
 }
+.diveditable--coment--repost:focus-visible {
+    outline: none;
+}
+.diveditable--coment--repost span, .diveditable--coment--repost div {
+    background-color: transparent !important;
+    color: #fff;
+}
 .exit--area--body_coment {
     padding: 8px;
     border-radius: 100%;
