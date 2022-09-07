@@ -746,6 +746,16 @@ async function compartilhar_comentario() {//All_xD30
                 clone_MD_RC.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${resultado.publicacao.img_publi})`;
             }
         }
+        qs('.area--modal--coment--repost button').onclick = function (){
+            let input1 = qs('.input_hidden_coment_compartilhada').cloneNode(true);
+            let input2 = qs('#midia_compatilhamento_coment').cloneNode(true);
+            let formHtml = document.createElement('form');
+            formHtml.setAttribute('method', 'POST');
+            formHtml.appendChild(input1);
+            formHtml.appendChild(input2);
+            console.log(formHtml);
+            let form = new FormData();
+        }
     } else {
         //retorna para o padrao default
         modal_repost = false;

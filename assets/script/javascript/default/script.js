@@ -11,7 +11,7 @@ function showImg_form(e, a, c){
     let exit_img = document.createElement('div');
     exit_img.setAttribute('class', 'menu--exit-img');
     exit.appendChild(exit_img);
-    return e.addEventListener('change', function () {   
+    return e.onchange = function () {   
         let midia;
         let img = e.files[0];
         console.log(img);
@@ -74,6 +74,6 @@ function showImg_form(e, a, c){
             document.getElementById('img--post').value = '';
             alert_mensage(alerta);
         }
-    });
+    }
     
 }
