@@ -16,31 +16,36 @@ if(isset($_POST['cC_xd30'])) {
         $name_banco = bin2hex(random_bytes(20)) . '.' . $ex;
         if(!move_uploaded_file($_FILES["midia_repost"]["tmp_name"], $diretorio.$name_banco)) {
             $json = [
-                'moio' => true,
-                'error' => 'não deu update no arquivo'
+                'error' => true,
+                'mensage' => 'Algo deu errado! Parece que o upload não pode ser concluido.'
              ];
              echo json_encode($json);
              die;
         }
     }
     //$sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",2, ".$id_interagida.",'$text_post','$name_banco', 0, 0, '$data_publi', 0)";
-    $res_query = mysqli_query($conexao,$sql_respot_coment);
+    //$res_query = mysqli_query($conexao,$sql_respot_coment);
+    $res_query = true;
     if($res_query) {
         $json = [
-            'moio' => false,
-            'error' => 'Postagem compartilhada com sucesso!'
+            'error' => false,
+            'mensage' => 'Postagem compartilhada com sucesso!'
          ];
          echo json_encode($json);
          die;
     } else {
         //deleta a imagem que foi para o diretorio post
         $json = [
-            'moio' => true,
-            'error' => 'Falha ao compartilhar o post. Tente novamente.'
+            'error' => true,
+            'mensage' => 'Falha ao compartilhar o post. Tente novamente.'
          ];
          echo json_encode($json);
          die;
     }
 } else {
-    echo 'saia agora daq';
+    $json = [
+        'error' => true,
+        'mensage' => 'Algo deu errado! Parece que os dados não poderam ser enviados.'
+     ];
+     echo json_encode($json);
 }

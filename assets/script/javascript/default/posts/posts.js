@@ -746,8 +746,8 @@ async function compartilhar_comentario() {//All_xD30
                 clone_MD_RC.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${resultado.publicacao.img_publi})`;
             }
         }
-        qs('.area--modal--coment--repost button').onclick = async function (){
-            if(qs('.input_hidden_coment_compartilhada').value == '' &&  qs('#midia_compatilhamento_coment').value == ''){
+        qs('.area--modal--coment--repost button').onclick = async () => {
+            if (qs('.input_hidden_coment_compartilhada').value == '' && qs('#midia_compatilhamento_coment').value == '') {
                 qs('.placeholder--editediv').click();
             } else {
                 let input1 = qs('.input_hidden_coment_compartilhada').cloneNode(true);
@@ -762,11 +762,13 @@ async function compartilhar_comentario() {//All_xD30
                 formHtml.appendChild(input3);
                 console.log(formHtml);
                 let form = new FormData(formHtml);
-                let req = fetch('#', {
+                let req_post = await fetch('../assets/script/php/interacoes_post/compartilhar_c_comentario.php', {
                     method: 'POST',
-                    body: formHtml
+                    body: form
                 })
-                let res_req = await req.json();
+                let res_req = await req_post.json();
+                console.log(res_req);
+                alert_mensage(res_req);
             }
 
         }
