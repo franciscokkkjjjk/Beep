@@ -763,6 +763,7 @@ async function compartilhar_comentario() {//All_xD30
                     body: formHtml
                 })
                 let res_req = await req.json();
+                console.log(res_req);
             }
 
         }
