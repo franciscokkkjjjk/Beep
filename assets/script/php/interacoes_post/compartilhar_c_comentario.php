@@ -1,7 +1,12 @@
 <?php
 session_start(); 
 if(isset($_POST['cC_xd30'])) {
-    $test_post = $_POST['cC_xd30'];
+    require_once '../conecta.php';
+    $text_post = addslashes($_POST['cC_xd30']);
+    $id_interagida = $_POST['cI_xd30']; 
+    date_default_timezone_set('America/Sao_Paulo');
+    date_default_timezone_get();
+    $data_publi = date('Y-m-d H:i:s');
     $arquivo_name  = $_FILES['midia_repost']['name'];
     if($arquivo_name == '' or $arquivo_name == null) {
         $name_banco = null;
@@ -17,6 +22,24 @@ if(isset($_POST['cC_xd30'])) {
              echo json_encode($json);
              die;
         }
+    }
+    //$sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",2, ".$id_interagida.",'$text_post','$name_banco', 0, 0, '$data_publi', 0)";
+    $res_query = mysqli_query($conexao,$sql_respot_coment);
+    if($res_query) {
+        $json = [
+            'moio' => false,
+            'error' => 'Postagem compartilhada com sucesso!'
+         ];
+         echo json_encode($json);
+         die;
+    } else {
+        //deleta a imagem que foi para o diretorio post
+        $json = [
+            'moio' => true,
+            'error' => 'Falha ao compartilhar o post. Tente novamente.'
+         ];
+         echo json_encode($json);
+         die;
     }
 } else {
     echo 'saia agora daq';

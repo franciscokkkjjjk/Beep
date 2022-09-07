@@ -752,18 +752,21 @@ async function compartilhar_comentario() {//All_xD30
             } else {
                 let input1 = qs('.input_hidden_coment_compartilhada').cloneNode(true);
                 let input2 = qs('#midia_compatilhamento_coment').cloneNode(true);
+                let input3 = document.createElement('input');
+                input3.setAttribute('name', 'cI_xd30');
+                input3.setAttribute('value', qs('.event--repost--coment').id);
                 let formHtml = document.createElement('form');
                 formHtml.setAttribute('method', 'POST');
                 formHtml.appendChild(input1);
                 formHtml.appendChild(input2);
+                formHtml.appendChild(input3);
                 console.log(formHtml);
                 let form = new FormData(formHtml);
-                let req = fetch('...', {
+                let req = fetch('#', {
                     method: 'POST',
                     body: formHtml
                 })
                 let res_req = await req.json();
-                console.log(res_req);
             }
 
         }
