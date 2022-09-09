@@ -9,6 +9,7 @@ criada para o compartilhamento
 
 -------------------ideias---------------------------------------
 
+- uma function para verificar as imagens que foram cadastradas na imagem.
 -
 
 ------------------------- implementações -----------------------

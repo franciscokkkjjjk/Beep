@@ -25,7 +25,7 @@ if(isset($_POST['cC_xd30'])) {
     }
     //$sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",2, ".$id_interagida.",'$text_post','$name_banco', 0, 0, '$data_publi', 0)";
     //$res_query = mysqli_query($conexao,$sql_respot_coment);
-    $res_query = true;
+    $res_query = false;
     if($res_query) {
         $json = [
             'error' => false,
@@ -35,6 +35,8 @@ if(isset($_POST['cC_xd30'])) {
          die;
     } else {
         //deleta a imagem que foi para o diretorio post
+        $nomodiretorio = $diretorio.$name_banco;
+        unlink($nomodiretorio);
         $json = [
             'error' => true,
             'mensage' => 'Falha ao compartilhar o post. Tente novamente.'
@@ -48,4 +50,5 @@ if(isset($_POST['cC_xd30'])) {
         'mensage' => 'Algo deu errado! Parece que os dados não poderam ser enviados.'
      ];
      echo json_encode($json);
+     die;
 }
