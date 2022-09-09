@@ -769,6 +769,9 @@ async function compartilhar_comentario() {//All_xD30
                 let res_req = await req_post.json();
                 console.log(res_req);
                 alert_mensage(res_req);
+                if(!(res_req.error)) {
+                    compartilhar_comentario();
+                }
             }
 
         }
