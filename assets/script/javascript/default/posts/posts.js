@@ -169,8 +169,8 @@ function criarPosts(lista) {
             } else {
                 post_body.querySelector('.post--text--comp_2').innerHTML = lista[i]['text_post'];
             }
-            if (lista[i]['img_publi'] == '' || lista[i]['img_publi'] == null) { } else {
-                let type_midia = lista[i]['img_publi'].split('.');
+            if (lista[i]['compartilhador_info']['img_compartilhada'] == '' || lista[i]['compartilhador_info']['img_compartilhada'] == null) { } else {
+                let type_midia = lista[i]['compartilhador_info']['img_compartilhada'].split('.');
                 console.log(type_midia);
                 if (type_midia[1] == 'mp4') {
                     console.log('video')
@@ -178,12 +178,29 @@ function criarPosts(lista) {
                     post_body.querySelector('.post--img-area').style.display = '';
                     post_body.querySelector('.post--img-area').classList.add('area_midia_video');
                     let video_creat = document.createElement('video');
-                    video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['img_publi']}`);
+                    video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['compartilhador_info']['img_compartilhada']}`);
                     video_creat.setAttribute('controls', '');
                     post_body.querySelector('.post--img-area').appendChild(video_creat);
                 } else {
+                    post_body.querySelector('.post--img-area').style.display = 'block';
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['compartilhador_info']['img_compartilhada']})`;
+                }
+            }
+            if (lista[i]['img_publi'] == '' || lista[i]['img_publi'] == null) { } else {
+                let type_midia = lista[i]['img_publi'].split('.');
+                console.log(type_midia);
+                if (type_midia[1] == 'mp4') {
+                    console.log('video')
+                    post_body.querySelector('.img--comentada').remove();
+                    post_body.querySelector('.post--img-area-com').style.display = '';
+                    post_body.querySelector('.post--img-area-com').classList.add('area_midia_video');
+                    let video_creat = document.createElement('video');
+                    video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['img_publi']}`);
+                    video_creat.setAttribute('controls', '');
+                    post_body.querySelector('.post--img-area-com').appendChild(video_creat);
+                } else {
                     post_body.querySelector('.post--img-area-com').style.display = 'block';
-                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                    post_body.querySelector('.img--comentada').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }
             }
             if (lista[i]['user_curtiu']) {
@@ -1060,6 +1077,7 @@ function post_all_creat(obj) {
         area_post_completo.querySelector('.post--text').innerHTML = obj.publicacao.text_post;
     }
     let area_img = qs('.post--area-header .p-30d_10');
+    console.log(area_img);
     if (obj.publicacao.img_publi == '' || obj.publicacao.img_publi == null) {
         area_img.remove()
     } else {
@@ -1113,6 +1131,7 @@ function post_all_creat(obj) {
         } else {
             conteudo_type_2.querySelector('.post--text').innerHTML = obj.publicacao.c_comentada.text_post;
         }
+//nem sei para que serve lkkkkkkkkkkkkkkkkk
         let area_img = qs('.post--area-header .p-30d_10');
         if (obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
             area_img.remove()

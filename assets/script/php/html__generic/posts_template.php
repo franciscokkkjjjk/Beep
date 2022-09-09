@@ -83,6 +83,11 @@
                     </div>
                     <div class="body--post--area">
                         <div class="post--text_comp post--text"></div>
+                        <div class="post--img-area" style="display: none; margin-bottom: 5px;" >
+                            <div class="post--img">
+                                <div class="event--post--img"></div>
+                            </div>
+                        </div> 
                         <div class="area--post-com" style="display: block;">
                              <div class="post--comp">
                                     <div class="header--post--area">
@@ -100,7 +105,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="post--area--date ">
+                                        <div class="post--area--date">
                                             <div class="date--post-comp ">
                                                 
                                             </div>
@@ -112,7 +117,7 @@
                                     <div class="body--post--area">
                                         <div class="post--text post--text--comp_2"></div>
                                         <div class="post--img-area post--img-area-com" style="display:none">
-                                            <div class="post--img">
+                                            <div class="post--img img--comentada">
                                                 <div class="event--post--img"></div>
                                             </div>
                                         </div>                                        <!--deve ter oq o usuario publicou-->
