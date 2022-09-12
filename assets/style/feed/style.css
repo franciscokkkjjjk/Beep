@@ -58,7 +58,7 @@
     width: 265px;
     height: 60px;
     margin: auto;
-    background-color: #000;
+    background-color: #121212;
     border-radius: 30pc;
     margin-top: 66px;
 }
@@ -229,7 +229,7 @@
 
 .feed-header-body {
     background-color: #333333b2;
-    background-image: linear-gradient(84deg, #131313,#0f0f0f78,#131313,#0f0f0f78);
+    background-image: linear-gradient(84deg, #050505,#0f0f0f78,#050505,#0f0f0f78);
     width: 47%;
     height: 42px;
     position: fixed;

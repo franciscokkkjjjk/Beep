@@ -1,0 +1,28 @@
+.feed-header-body {
+    width: 75% !important;
+    display: flex;
+    justify-content: space-between;
+}
+.menu--header {
+    background-color: transparent;
+}
+.menu   {
+    padding: 30px 0px 0px;
+    margin-bottom: 10;
+}
+.menu--header--body {
+    margin-top: 52px;
+}
+.area--jogos {
+    display: block;
+    width: 100%;
+    min-height: 100%;
+    background-color: red;
+}
+.timeçine--area {
+    background-color: transparent;
+}
+.feed-body-post {
+    width: 75vw;
+    background-color: #121212;
+}
