@@ -1,3 +1,6 @@
+body {
+    overflow-y: hidden;
+}
 .feed-header-body {
     width: 75% !important;
     display: flex;
@@ -25,4 +28,29 @@
 .feed-body-post {
     width: 75vw;
     background-color: #121212;
+    display: grid;
+    grid-template-columns: calc(100%/3) calc(100%/3) calc(100%/3);
+    justify-items: center;
+    align-items: center;
+}
+.area_jogo_body {
+    width: 230px;
+    height: 280px;
+    margin-top: 20px;
+    background-color: red;
+    border-radius: 5px;
+}
+.jogo_header {
+    height: calc(100%/1.7);
+}
+.jogo_area_img {
+    height: 100%;
+    background-image: url(../../imgs/posts/primeira\ pub\ tcc.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 4px 4px 0px 0px;
+}
+.jogo_area_titulo {
+
+
 }
