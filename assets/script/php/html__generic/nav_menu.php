@@ -29,7 +29,7 @@
                             <a href="<?= pagAtual('caminho');?>inicial.php" style="color: #fff;" class="<?= pagAtual('inicial.php')?> img--opt-feed img--pag--inicial menu--pag--opt--section">
                                 Pagina inicial
                             </a>
-                            <a href=''class="<?= pagAtual('jogos.php')?> img--opt-feed img--pag--jogos menu--pag--opt--section">
+                            <a href='<?= pagAtual('caminho');?>jogos.php'class="<?= pagAtual('jogos.php')?> img--opt-feed img--pag--jogos menu--pag--opt--section">
                                 Jogos
                             </a>
                             <a onclick="" class="img--opt-feed img--pag--solic menu--pag--opt--section">

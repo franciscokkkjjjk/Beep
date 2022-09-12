@@ -14,6 +14,7 @@
                     </a>
                 </div>
             </div>
+            <?php if(!(basename($_SERVER['SCRIPT_NAME']) == 'jogos.php' or basename($_SERVER['SCRIPT_NAME']) == 'pesquisa.php')) { ?>
             <div class="convite--body">
                 
             </div>
@@ -194,6 +195,7 @@
                     <a class="link" style="color: #f0f0f0;" href="">Ver mais</a>
                 </div>
             </div>
+            <?php } ?>
         </div>
         <div class="modal-area">
                 <div class="modal--event"></div>
