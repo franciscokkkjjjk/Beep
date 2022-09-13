@@ -60,7 +60,49 @@
             </div>
             <div class="feed-body-post">
                 <div class='area_jogo_body'>
-                    
+                    <div class="jogo_header">
+                        <div class="jogo_area_img">
+
+                        </div>
+                    </div>
+                    <div class="jogo_area_bottom">
+                        <div class="jogo_area_titulo">Red Dead Redemption 2</div>
+                        <div class="jogo_area_comando">
+                            <div class="jogo_possui"></div>
+                            <div class="jogo_ver">
+                                <a href=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='area_jogo_body'>
+                    <div class="jogo_header">
+                        <div class="jogo_area_img">
+
+                        </div>
+                    </div>
+                    <div class="jogo_area_bottom">
+                        
+                    </div>
+                </div>
+                <div class='area_jogo_body'>
+                    <div class="jogo_header">
+                        <div class="jogo_area_img">
+
+                        </div>
+                    </div>
+                    <div class="jogo_area_bottom">
+                        
+                    </div>
+                </div>
+                <div class='area_jogo_body'>
+                    <div class="jogo_header">
+                        <div class="jogo_area_img">
+
+                        </div>
+                    </div>
+                    <div class="jogo_area_bottom">
+                    </div>
                 </div>
             </div>
         </div>

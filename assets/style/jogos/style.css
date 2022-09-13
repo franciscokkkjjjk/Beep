@@ -16,12 +16,6 @@ body {
 .menu--header--body {
     margin-top: 52px;
 }
-.area--jogos {
-    display: block;
-    width: 100%;
-    min-height: 100%;
-    background-color: red;
-}
 .timeçine--area {
     background-color: transparent;
 }
@@ -37,7 +31,7 @@ body {
     width: 230px;
     height: 280px;
     margin-top: 20px;
-    background-color: red;
+    background-color: #393939;
     border-radius: 5px;
 }
 .jogo_header {
@@ -49,8 +43,24 @@ body {
     background-position: center;
     background-size: cover;
     border-radius: 4px 4px 0px 0px;
+    background-repeat: no-repeat;
 }
 .jogo_area_titulo {
-
-
+    padding: 5px 10px;
+    color: #fff;
+}
+.jogo_possui {
+    width: 35px;
+    height: 35px;
+    background-image: url(../../imgs/default/generic_lupa_beep.png);
+    background-position: center;
+    background-size: 20px;
+    cursor: pointer;
+    border-radius: 100%;
+    padding: 5px;
+    background-color: #121212;
+    background-repeat: no-repeat;
+}
+.jogo_possui {
+    
 }
