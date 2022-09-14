@@ -1137,6 +1137,7 @@ color: #fbfbfb;
     width: 100%;
     height: 100%;
     transition: all ease 0.3s;
+    z-index: 1;
 }
 .exit--modal--repost--coment {
     width: 100%;

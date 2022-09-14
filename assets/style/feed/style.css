@@ -58,7 +58,7 @@
     width: 265px;
     height: 60px;
     margin: auto;
-    background-color: #121212;
+    background-color: #1c1c1c;
     border-radius: 30pc;
     margin-top: 66px;
 }
@@ -236,6 +236,7 @@
     display: flex;
     align-items: center;
     color: #fff;
+    z-index: 1;
 }
 .feed-header-body h1 {
     font-size: 20px;
