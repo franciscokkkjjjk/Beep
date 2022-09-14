@@ -906,6 +906,9 @@ background-position: center;
     font-size: 20px;
     color: #727272;
 }
+.nada a {
+    color: #727272;
+}
 .event-block {
     display: inline-block;
 }

@@ -9,7 +9,19 @@ async function game(pag) {
     }
 }
 game(1);
-function creat_game() {
+function creat_game(json) {
+    let m_game_clone;
+    let m_game = document.querySelector('.area_jogo_body');
+    if(m_game != undefined) {
+        m_game_clone = m_game.cloneNode(true);
+        m_game.remove();
+    }
+    for (let ax in json) {
+        m_game_clone.style.display = '';
+        m_game_clone.querySelector('.jogo_area_img').style.backgroundImage = `url(../assets/imgs/games/${json[ax].capa_game})`;
+        m_game_clone.querySelector('.jogo_area_titulo').innerHTML = json[ax].nome_jogo;
+        m_game_clone.querySelector('')
+    }
     //jogos padrao
         //adicionar o id de uma publicaçÃo no botão de add e ver
         //adicionar o evento de click para chamar o modal_ver
