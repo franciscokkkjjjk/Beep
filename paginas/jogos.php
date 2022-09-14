@@ -80,6 +80,7 @@
     </div>
     
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/jogos/game.js"></script>
 </body>

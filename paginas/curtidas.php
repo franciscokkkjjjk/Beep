@@ -123,6 +123,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
         </div>
     </div>
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script>
           const username = <?php if(isset($_SESSION['error_username'])) { echo "'" . $_SESSION['username_temp'] . "'"; } else {echo '"'.$_SESSION['username'].'"';}?>;

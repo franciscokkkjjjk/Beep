@@ -1024,20 +1024,6 @@ function post_num_compartilhamento() {
         }
     }, 500);
 }
-function post_not(timeline) {
-    let nada = document.createElement('div');
-    nada.classList.add('nada');
-    if (timeline == 0) {
-        nada.innerHTML = 'Por enquanto não há nada por aqui. :(';
-    } if (timeline == 'coment') {
-        nada.innerHTML = 'Seja o primeiro a interagir com esse usuário!';
-    } if (timeline == 1) {
-        nada.innerHTML = 'Esse usuário não fez nenhuma publicação. :(';
-    } if (timeline == 2) {
-        nada.innerHTML = 'Esse usuário não curtiu nenhuma publicação. :(';
-    }
-    document.querySelector('.feed-body-post').appendChild(nada);
-}
 
 async function post_all() {
     let postagem_all = window.location.href;

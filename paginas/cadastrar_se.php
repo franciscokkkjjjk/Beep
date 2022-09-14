@@ -174,6 +174,7 @@
     <script src="assets/style/bibliotecas/materialize/js/materialize.js" text="text/javasctipt"></script> 
     -->
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/date_script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/valid.js"></script>
 </body>

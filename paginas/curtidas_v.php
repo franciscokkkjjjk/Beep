@@ -133,6 +133,7 @@ if($perfil == $_SESSION['username']) {
             ?>
     </div>
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">

@@ -1,11 +1,14 @@
-async function game() {
-    let game_req = await fetch("../assets/script/php/requsicoes/jogos/game.php", {
-        method: "GET",
-    });
+async function game(pag) {
+    let game_req = await fetch("../assets/script/php/requsicoes/jogos/game.php?pag="+pag)
     let game_res = await game_req.json();
     console.log(game_res);
+    if(game_res.nada == undefined) {
+
+    } else {
+        post_not(3);
+    }
 }
-game();
+game(1);
 function creat_game() {
     //jogos padrao
         //adicionar o id de uma publicaçÃo no botão de add e ver
