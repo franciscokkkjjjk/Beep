@@ -10,7 +10,7 @@ function post_not(timeline) {
     } if (timeline == 2) {
         nada.innerHTML = 'Esse usuário não curtiu nenhuma publicação. :(';
     } if(timeline == 3) {
-        nada.innerHTML = "OPS! parece que nenhum jogo foi cadastrado ainda. Solicite o cadastro de um jogo em <a href='solicitacaoJogos.php'>aqui</a>.";
+        nada.innerHTML = "OPS! Parece que nenhum jogo foi cadastrado ainda. Solicite o cadastro de um jogo em <a href='solicitacaoJogos.php'>aqui</a>.";
         document.querySelector('.feed-body-post').style.gridTemplateColumns = 'none';
     }
     document.querySelector('.feed-body-post').appendChild(nada);
