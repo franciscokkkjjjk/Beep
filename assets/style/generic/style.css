@@ -1277,3 +1277,19 @@ color: #fbfbfb;
 .diveditable--coment--repost:hover {
     outline: none;
 }
+.icon_lupa {
+    background-image: url(../../imgs/default/generic_lupa_beep.png);
+}
+.icon_lupa:hover {
+    background-image: url(../../imgs/default/generic_lupa_beep_hover.png) ;
+    background-color: #0000006e;
+    transition: all linear 0.25s;
+}
+.icon_add {
+    background-image: url(../../imgs/default/add.png);
+}
+.icon_add:hover {
+    background-image: url(../../imgs/default/add_hover.png);
+    background-color: #0000006e;
+    transition: all linear 0.25s;
+}

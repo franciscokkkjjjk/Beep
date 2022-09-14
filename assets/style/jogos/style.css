@@ -1,5 +1,5 @@
 body {
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 .feed-header-body {
     width: 75% !important;
@@ -49,10 +49,15 @@ body {
     padding: 5px 10px;
     color: #fff;
 }
-.jogo_possui {
+.jogo_area_comando {
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    justify-content: center;
+}
+.button_para {
     width: 35px;
     height: 35px;
-    background-image: url(../../imgs/default/generic_lupa_beep.png);
     background-position: center;
     background-size: 20px;
     cursor: pointer;
@@ -61,6 +66,7 @@ body {
     background-color: #121212;
     background-repeat: no-repeat;
 }
-.jogo_possui {
-    
+.g1 {
+    margin-left: 18px;
 }
+
