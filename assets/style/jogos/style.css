@@ -39,7 +39,6 @@ body {
 }
 .jogo_area_img {
     height: 100%;
-    background-image: url(../../imgs/posts/primeira\ pub\ tcc.png);
     background-position: center;
     background-size: cover;
     border-radius: 4px 4px 0px 0px;
