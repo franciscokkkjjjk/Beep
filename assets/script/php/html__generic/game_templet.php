@@ -5,12 +5,10 @@
                         </div>
                     </div>
                     <div class="jogo_area_bottom">
-                        <div class="jogo_area_titulo">Red Dead Redemption 2</div>
+                        <div class="jogo_area_titulo"></div>
                         <div class="jogo_area_comando">
-                            <div class="icon_add button_para"></div>
-                            <div class="icon_lupa button_para g1">
-                                <a href=""></a>
-                            </div>
+                            <div class="icon_add button_para button_A_"></div>
+                            <div class="icon_lupa button_para g1 button_B_"></div>
                         </div>
                     </div>
                 </div>

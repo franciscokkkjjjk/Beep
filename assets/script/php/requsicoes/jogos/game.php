@@ -14,13 +14,13 @@
     $offset = $limit * ($pag - 1);
     $sql_game = "SELECT * FROM jogos LIMIT $limit OFFSET $offset";
     $res_game = mysqli_query($conexao, $sql_game);
+    $game_array = mysqli_fetch_all($res_game, 1);
 
     $sql_game_user = "SELECT * FROM jogos_possui WHERE id_user=" . $_SESSION['id_user'];
-    $res_game_user = mysqli_query($conexao, $sql_game);
+    $res_game_user = mysqli_query($conexao, $sql_game_user);
     $arra_game_user = mysqli_fetch_all($res_game_user, 1);
-    if($res_game) {
-    $game_array = mysqli_fetch_all($res_game, 1);
-        if(is_null($game_array)) {
+
+        if($res_game) {
            foreach($game_array as $value_game) {
             $possui = false;
                 foreach($arra_game_user as $v_game) {
@@ -42,11 +42,5 @@
                 'nada' => 'nada por aqui'
             ];
         }
-    } else {
-        $json = [
-            'erro' => true,
-            'desc' => 'algo deu errado!'
-        ];
-    }
     echo json_encode($json);
 ?>
