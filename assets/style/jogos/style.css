@@ -16,7 +16,7 @@ body {
 .menu--header--body {
     margin-top: 52px;
 }
-.timeçine--area {
+.timeline--area {
     background-color: transparent;
 }
 .feed-body-post {
@@ -33,6 +33,7 @@ body {
     margin-top: 20px;
     background-color: #393939;
     border-radius: 5px;
+    opacity: 1;
 }
 .jogo_header {
     height: calc(100%/1.7);

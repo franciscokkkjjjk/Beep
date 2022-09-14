@@ -979,6 +979,7 @@ background-position: center;
     display: flex;
     align-items: center;
     opacity:1;
+    z-index: 1;
     transition: all ease 0.25s;
 }
 .modal-event-coment {
