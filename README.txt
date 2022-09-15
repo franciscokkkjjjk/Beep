@@ -24,6 +24,10 @@ criada para o compartilhamento
 
 ----------------------------erros--------------------------------
 --a img não renicia com o modal - (rever a maneira de fechar o modal);
+--o modal está imcompleto
+--o descompartilhar do type 2 exclui a postagem errada 
+    possivel solução
+        verificar no descompartilhar isso
 ---------------------------------futuros-------------------------
 
 -filtração dos posts pela classificação de idade dos jogos
