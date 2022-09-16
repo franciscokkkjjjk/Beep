@@ -34,7 +34,7 @@ function curtir_post() {
         e.onclick = async (a) => {
             num_click++;
             a.preventDefault();
-            if(num_click < 2){
+            if (num_click < 2) {
                 let moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
                     method: 'POST',
                     body: curtida,
@@ -54,7 +54,7 @@ function curtir_post() {
                 }, 0260)
                 e.classList.remove();
                 e.setAttribute('class', 'event--curtida curtir--hover interac-button p-xD29');
-                setTimeout(()=>{
+                setTimeout(() => {
                     desCurtir();
                 }, 001)
             } else {
@@ -443,32 +443,32 @@ function desCurtir() {
             num_clic++;
             console.log(num_clic);
             a.preventDefault();
-            if(num_clic < 2){
-            let moio_ = await fetch('../assets/script/php/interacoes_post/descurtir.php', {
-                method: 'POST',
-                body: desCurtida,
-            })
-            let res_ = await moio_.json();
-            let num_curtidas = e.querySelector('.area_num');
-            if (num_curtidas != undefined) {
-                let num = num_curtidas.innerHTML
-                let convet = parseInt(num) - 1;
-                e.querySelector('.area_num').innerHTML = convet;
+            if (num_clic < 2) {
+                let moio_ = await fetch('../assets/script/php/interacoes_post/descurtir.php', {
+                    method: 'POST',
+                    body: desCurtida,
+                })
+                let res_ = await moio_.json();
+                let num_curtidas = e.querySelector('.area_num');
+                if (num_curtidas != undefined) {
+                    let num = num_curtidas.innerHTML
+                    let convet = parseInt(num) - 1;
+                    e.querySelector('.area_num').innerHTML = convet;
+                }
+                e.querySelector('button').classList.remove()
+                e.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida img--iteracao-curtida-off img--curtida--off');
+                e.classList.remove('p-xD29');
+                e.classList.add('p-xD30');
+                setTimeout(() => {
+                    e.querySelector('button').classList.remove('p-evt-box');
+                }, 0260)
+                setTimeout(() => {
+                    curtir_post();
+                }, 001
+                )
+            } else {
+                console.log('estão mesmo tentando me sabotar')
             }
-            e.querySelector('button').classList.remove()
-            e.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida img--iteracao-curtida-off img--curtida--off');
-            e.classList.remove('p-xD29');
-            e.classList.add('p-xD30');
-            setTimeout(() => {
-                e.querySelector('button').classList.remove('p-evt-box');
-            }, 0260)
-            setTimeout(()=>{
-                curtir_post();
-            }, 001
-            )
-        } else {
-            console.log('estão mesmo tentando me sabotar')
-        }
         }
     })
 }
@@ -544,7 +544,7 @@ async function post_num_curtida() {
     let url_perfil = window.location.href.split('=');
     let url_push_v = window.location.href.split('paginas/');
     let req_;
-    let json_
+    let json_;
     if (url_push_v[1] == 'inicial.php' || url_push_v[1] == 'curtidas.php' || url_push_v[1].split('?'[0] == 'curtidas_v.php')) {
         req_ = await fetch('../assets/script/php/requsicoes/posts.php');
         json_ = await req_.json();
@@ -795,7 +795,7 @@ async function compartilhar_comentario() {//All_xD30
                 let res_req = await req_post.json();
                 console.log(res_req);
                 alert_mensage(res_req);
-                if(!(res_req.error)) {
+                if (!(res_req.error)) {
                     compartilhar_comentario();
                 }
             }
@@ -1132,7 +1132,7 @@ function post_all_creat(obj) {
         } else {
             conteudo_type_2.querySelector('.post--text').innerHTML = obj.publicacao.c_comentada.text_post;
         }
-//nem sei para que serve lkkkkkkkkkkkkkkkkk
+        //nem sei para que serve lkkkkkkkkkkkkkkkkk
         let area_img = qs('.post--area-header .p-30d_10');
         if (obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
             area_img.remove()
