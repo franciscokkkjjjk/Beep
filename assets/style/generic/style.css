@@ -1297,3 +1297,11 @@ color: #fbfbfb;
     background-color: #0000006e;
     transition: all linear 0.25s;
 }
+.icon_remove {
+    background-image: url(../../imgs/default/rm.png);
+}
+.icon_remove:hover {
+    background-image: url(../../imgs/default/rm_hover.png);
+    background-color: #0000006e;
+    transition: all linear 0.25s;
+}

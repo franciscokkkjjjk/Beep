@@ -1256,25 +1256,6 @@ function post_all_creat(obj) {
         qs('.post-comentario--area .coment--area').remove();
     }
 }
-function alert_mensage(json) {
-    let creat_mensage = document.createElement('div');
-    creat_mensage.classList.add('mensagem_alert');
-    if (json.mensage != undefined) {
-        creat_mensage.innerHTML = json.mensage;
-        if (qs('.mensagem_alert') == undefined) {
-            if (json.error) {
-                creat_mensage.style.backgroundColor = '#f00';
-                creat_mensage.style.color = '#fff';
-            }
-            qs('.feed-area').appendChild(creat_mensage);
-        }
-        setTimeout(() => {
-            if (qs('.mensagem_alert') != undefined) {
-                qs('.mensagem_alert').remove();
-            }
-        }, 4000);
-    }
-}
 async function user__curtidas() {
     let username_vist = window.location.href.split('=');
     let user_vist = await fetch('../assets/script/php/requsicoes/posts_users.php?username=' + username_vist[1]);
