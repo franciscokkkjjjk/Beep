@@ -22,7 +22,7 @@ function creat_game(json) {
             m_game_clone.querySelector('.button_A_').classList.remove('icon_add');         
         } else {
             m_game_clone.querySelector(".button_A_").onclick = async ()=>{
-                let requisicao_add = await fetch(''+json[ax].id_game)
+                let requisicao_add = await fetch('../assets/script/php/requsicoes/jogos/add_game.php?id_game='+json[ax].id_game)
                 let res_add = await requisicao_add.json();
                 console.log(res_add);
             }
