@@ -71,23 +71,31 @@
             $sql_post_des = 'SELECT * FROM publicacoes WHERE user_publi='.$_SESSION['id_user'].' AND id_publi_interagida='.$publi_des;
             $res_post_des = mysqli_query($conexao, $sql_post_des);
             $assoc_post_des = mysqli_fetch_assoc($res_post_des);
-            $id_post_comp = $assoc_post_des['id_publi'];
-            $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$assoc_post_des['id_publi'];
-            $res_delet = mysqli_query($conexao, $sql_delet);
-            if($res_delet) {
-               $sql_interagida = 'SELECT * FROM publicacoes WHERE id_publi='.$publi_des;
-               $res_interagida = mysqli_query($conexao, $sql_interagida);
-               $assoc_interagida = mysqli_fetch_assoc($res_interagida);
-               $calc = intval($assoc_interagida['num_compartilha'])-1;
-               $updt_interagida = "UPDATE publicacoes SET num_compartilha=$calc WHERE id_publi=".$publi_des;
-               $res_updt_interagida = mysqli_query($conexao, $updt_interagida);
-               if($res_updt_interagida) {
-                  $descompatilha = [
-                     'error' => false,
-                     'id_descompartilhada' => $id_post_comp
-                  ];
-                  echo json_encode($descompatilha);
+            if($assoc_post_des != NULL){
+               $id_post_comp = $assoc_post_des['id_publi'];
+               $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$assoc_post_des['id_publi'];
+               $res_delet = mysqli_query($conexao, $sql_delet);
+               if($res_delet) {
+                  $sql_interagida = 'SELECT * FROM publicacoes WHERE id_publi='.$publi_des;
+                  $res_interagida = mysqli_query($conexao, $sql_interagida);
+                  $assoc_interagida = mysqli_fetch_assoc($res_interagida);
+                  $calc = intval($assoc_interagida['num_compartilha'])-1;
+                  $updt_interagida = "UPDATE publicacoes SET num_compartilha=$calc WHERE id_publi=".$publi_des;
+                  $res_updt_interagida = mysqli_query($conexao, $updt_interagida);
+                  if($res_updt_interagida) {
+                     $descompatilha = [
+                        'error' => false,
+                        'id_descompartilhada' => $id_post_comp
+                     ];
+                     echo json_encode($descompatilha);
                }
+             }
+            } else {
+               $descompatilha = [
+                  'error' => true,
+                  'desc' => 'valor da postagem igual a null'
+               ];
+               echo json_encode($descompatilha);
             }
          }
      } else {

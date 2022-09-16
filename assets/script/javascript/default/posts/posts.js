@@ -29,31 +29,37 @@ async function posts() {
 }
 function curtir_post() {
     qsAll('.p-xD30').forEach((e) => {
+        let num_click = 0;
         let curtida = new FormData(e);
         e.onclick = async (a) => {
+            num_click++;
             a.preventDefault();
-            let moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
-                method: 'POST',
-                body: curtida,
-            })
-            let res = await moio.json();
-            let num_curtidas = e.querySelector('.area_num');
-            if (num_curtidas != undefined) {
-                let num = num_curtidas.innerHTML
-                let convet = parseInt(num) + 1;
-                e.querySelector('.area_num').innerHTML = convet;
+            if(num_click < 2){
+                let moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
+                    method: 'POST',
+                    body: curtida,
+                })
+                let res = await moio.json();
+                let num_curtidas = e.querySelector('.area_num');
+                if (num_curtidas != undefined) {
+                    let num = num_curtidas.innerHTML
+                    let convet = parseInt(num) + 1;
+                    e.querySelector('.area_num').innerHTML = convet;
+                }
+                e.querySelector('button').classList.remove();
+                e.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
+                e.querySelector('button').classList.add('p-evt-box');
+                setTimeout(() => {
+                    e.querySelector('button').classList.remove('p-evt-box');
+                }, 0260)
+                e.classList.remove();
+                e.setAttribute('class', 'event--curtida curtir--hover interac-button p-xD29');
+                setTimeout(()=>{
+                    desCurtir();
+                }, 001)
+            } else {
+                console.log('tão tentando me sabotar kkkk')
             }
-            e.querySelector('button').classList.remove('img--iteracao-curtida');
-            e.querySelector('button').classList.add('img--iteracao-curtida-on');
-            e.querySelector('button').classList.add('img--iteracao-curtida-on')
-            e.querySelector('button').classList.add('img--curtida--on');
-            e.querySelector('button').classList.add('p-evt-box');
-            setTimeout(() => {
-                e.querySelector('button').classList.remove('p-evt-box');
-            }, 0260)
-            e.classList.remove('p-xD30');
-            e.classList.add('p-xD29');
-            desCurtir();
 
         }
     })
@@ -429,11 +435,15 @@ function seguidores_session() {
 
     }, 300)
 }
-function desCurtir(a) {
+function desCurtir() {
     qsAll('.p-xD29').forEach((e) => {
+        let num_clic = 0;
         let desCurtida = new FormData(e);
         e.onclick = async function (a) {
+            num_clic++;
+            console.log(num_clic);
             a.preventDefault();
+            if(num_clic < 2){
             let moio_ = await fetch('../assets/script/php/interacoes_post/descurtir.php', {
                 method: 'POST',
                 body: desCurtida,
@@ -445,21 +455,20 @@ function desCurtir(a) {
                 let convet = parseInt(num) - 1;
                 e.querySelector('.area_num').innerHTML = convet;
             }
-            e.querySelector('button').classList.add('img--iteracao-curtida');
-            e.querySelector('button').classList.add('img--iteracao-curtida-off');
-            e.querySelector('button').classList.add('img--iteracao-curtida-off')
-            e.querySelector('button').classList.add('img--curtida--off');
-            e.querySelector('button').classList.add('p-evt-box');
-            e.querySelector('button').classList.remove('img--iteracao-curtida-on');
-            e.querySelector('button').classList.remove('img--iteracao-curtida-on')
-            e.querySelector('button').classList.remove('img--curtida--on');
-            e.classList.add('p-xD30');
+            e.querySelector('button').classList.remove()
+            e.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida img--iteracao-curtida-off img--curtida--off');
             e.classList.remove('p-xD29');
-            curtir_post();
+            e.classList.add('p-xD30');
             setTimeout(() => {
                 e.querySelector('button').classList.remove('p-evt-box');
             }, 0260)
-
+            setTimeout(()=>{
+                curtir_post();
+            }, 001
+            )
+        } else {
+            console.log('estão mesmo tentando me sabotar')
+        }
         }
     })
 }
@@ -872,6 +881,7 @@ function post_num_compartilhamento() {
                         repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                         repostArea.querySelector('button').classList.remove();
                         repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+                        show_CM();
                     }
                 } else {
                     let repostArea = document.getElementById(res_pom[l]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30');
@@ -888,7 +898,7 @@ function post_num_compartilhamento() {
                             repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                             repostArea.querySelector('button').classList.remove();
                             repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
-
+                            show_CM();
                         }
                     }
                 }
@@ -913,6 +923,7 @@ function post_num_compartilhamento() {
                                 repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                                 repostArea.querySelector('button').classList.remove();
                                 repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+                                show_CM();
                             }
                         } else {
                             let repostArea = document.getElementById(res_pom.publi[l]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30');
@@ -929,6 +940,7 @@ function post_num_compartilhamento() {
                                     repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                                     repostArea.querySelector('button').classList.remove();
                                     repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+                                    show_CM()
 
                                 }
                             }
@@ -956,6 +968,7 @@ function post_num_compartilhamento() {
                             repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                             repostArea.querySelector('button').classList.remove();
                             repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+                            show_CM()
                         }
                     } else {
                         let repostArea = document.getElementById(res_pom[l]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30');
@@ -972,7 +985,7 @@ function post_num_compartilhamento() {
                                 repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                                 repostArea.querySelector('button').classList.remove();
                                 repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
-
+                                show_CM()
                             }
                         }
                     }
@@ -996,6 +1009,7 @@ function post_num_compartilhamento() {
                                 repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                                 repostArea.querySelector('button').classList.remove();
                                 repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+                                show_CM()
                             }
                         } else {
                             let repostArea = document.getElementById(res_pom.publi[l]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30');
@@ -1006,12 +1020,13 @@ function post_num_compartilhamento() {
                                     repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
                                     repostArea.querySelector('button').classList.remove();
                                     repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar');
-                                    descompartilhar()
+                                    descompartilhar();
                                 } else {
                                     repostArea.classList.remove();
                                     repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                                     repostArea.querySelector('button').classList.remove();
                                     repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+                                    show_CM();
 
                                 }
                             }

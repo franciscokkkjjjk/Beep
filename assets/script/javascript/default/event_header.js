@@ -34,7 +34,7 @@ var mOpen = false;
 function show_CM() {
     if(mOpen == false) {
     qsAll('.compartilhar').forEach((e) => {
-        e.addEventListener('click', (a)=>{
+        e.onclick = (a)=>{
             let id = e.id;
             let modal = qs('.modal--shared');
             qs('.modal-area').style.display = 'block';
@@ -58,7 +58,7 @@ function show_CM() {
             if(qs('.modal--shared input') != undefined) { 
                 qs('.modal--shared input').value = id_dE;
             }
-       })        
+       }   
     });
     qs('.modal--event').addEventListener('click', ()=>{
         let modal = qs('.modal--shared');

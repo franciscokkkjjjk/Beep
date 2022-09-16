@@ -28,6 +28,7 @@ criada para o compartilhamento
 --o descompartilhar do type 2 exclui a postagem errada 
     possivel solução
         verificar no descompartilhar isso
+---clicar no botão de curtir varias vezes torna o valor negativo;
 ---------------------------------futuros-------------------------
 
 -filtração dos posts pela classificação de idade dos jogos
