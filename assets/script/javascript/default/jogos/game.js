@@ -12,20 +12,24 @@ game(1);
 function creat_game(json) {
     let m_game_clone;
     let m_game = document.querySelector('.area_jogo_body');
-    if(m_game != undefined) {
+    for (let ax in json) {
         m_game_clone = m_game.cloneNode(true);
         m_game.remove();
-    }
-    for (let ax in json) {
         m_game_clone.style.display = '';
         m_game_clone.querySelector('.jogo_area_img').style.backgroundImage = `url(../assets/imgs/games/${json[ax].capa_game})`;
         m_game_clone.querySelector('.jogo_area_titulo').innerHTML = json[ax].nome_jogo;
         if(json[ax].possui) {
             m_game_clone.querySelector('.button_A_').classList.remove('icon_add');         
+        } else {
+            m_game_clone.querySelector(".button_A_").onclick = async ()=>{
+                let requisicao_add = await fetch('../assets/script/php/requsicoes/jogos/add_game.php?id_game='+json[ax].id_game)
+                let res_add = await requisicao_add.json();
+                console.log(res_add);
+            }
         }
         m_game_clone.querySelector('.button_B_').id = `g_xD30D${json[ax].id_game}`;
         m_game_clone.querySelector('.button_A_').id = `g_xD30D${json[ax].id_game}`;
-        document.querySelector('.feed-body-post').append(m_game_clone);
+        document.querySelector('.feed-body-post').appendChild(m_game_clone);
     }
     //jogos padrao
         //adicionar o id de uma publicaçÃo no botão de add e ver

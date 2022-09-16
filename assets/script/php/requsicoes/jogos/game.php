@@ -10,8 +10,11 @@
     } else {
         $pag = 1;
     }
+    $json = array();
+
     $limit = 4;
     $offset = $limit * ($pag - 1);
+    
     $sql_game = "SELECT * FROM jogos LIMIT $limit OFFSET $offset";
     $res_game = mysqli_query($conexao, $sql_game);
     $game_array = mysqli_fetch_all($res_game, 1);
@@ -20,7 +23,7 @@
     $res_game_user = mysqli_query($conexao, $sql_game_user);
     $arra_game_user = mysqli_fetch_all($res_game_user, 1);
 
-        if($res_game) {
+        if($game_array != NULL) {
            foreach($game_array as $value_game) {
             $possui = false;
                 foreach($arra_game_user as $v_game) {
