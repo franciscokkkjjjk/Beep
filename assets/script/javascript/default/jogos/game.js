@@ -19,6 +19,9 @@ async function rm_game(json, button) {
     button.onclick = ()=>{add_game(json, button)};
     return true;
 }
+async function show_game(json, button) {
+    let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/');
+}
 async function add_game(json, button) {
     button.classList.remove('icon_add');
     button.classList.add('icon_remove');
@@ -51,18 +54,22 @@ function creat_game(json) {
                 add_game(json[ax], button_a);
             }
         }
+        m_game_clone.querySelector('.button_B_').onclick = ()=>{
+            
+        };
         m_game_clone.querySelector('.button_B_').id = `g_xD30D${json[ax].id_game}`;
         m_game_clone.querySelector('.button_A_').id = `g_xD30D${json[ax].id_game}`;
         document.querySelector('.feed-body-post').appendChild(m_game_clone);
     }
-    //jogos padrao
-    //adicionar o id de uma publicaçÃo no botão de add e ver
-    //adicionar o evento de click para chamar o modal_ver
-    //adiconar imagem 
-    //adicionar um nome
-    //perfil
-    //verficar se o usuario possui e mudar o botão de add para um de excluir
 }
 function modal_ver() {
     //cria um modal estilo facebook com as informações do jogo
 }
+// async function asw() {
+//     let kh = await fetch('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?key=27800A97A260C821A0420E2EACE6C309&appid=440&format=json', {
+//         method:'GET'
+//     });
+//     let gf = await kh.json();
+//     console.log(gf);
+// }
+// asw();

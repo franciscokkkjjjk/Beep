@@ -79,16 +79,21 @@
                 <div class="capa_modal_game">
 
                 </div>
+                <div class="info_desc_modal_game">
+                    <div class="title_desc_modal_game">
+                        Descrição
+                    </div>
+                    <div class="descri_modal_game">
+                        ...
+                    </div>
+                </div>
                 <div class="info_title_modal_game">
                     <div class="title_game">
-
+                       Lojas 
                     </div>
                     <div class="loja_game">
-
+                        <!-- <iframe src="https://store.steampowered.com/widget/2109430/" frameborder="0" width="646" height="190"></iframe> -->
                     </div>            
-                </div>
-                <div class="info_desc_modal_game">
-
                 </div>
             </div>
         </div>

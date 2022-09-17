@@ -1306,16 +1306,16 @@ color: #fbfbfb;
     transition: all linear 0.25s;
 }
 .modal_game_area {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     width: 100vw;
-    height: 100vh;
+    max-height: 100vh;
     display: flex;
-    align-items: flex-end;
     justify-content: center;
+    overflow-y: auto;
 }
 .modal_game_event {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     width: 100vw;
     height: 100vh;
@@ -1325,7 +1325,9 @@ color: #fbfbfb;
     background-color: #101010;
     width: 60%;
     z-index: 1;
-    min-height: 40%;
+    height: auto;
+    margin-top: 28%;
+    height: 100%;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     box-shadow: 0px 0px 7px 3px #000;
@@ -1335,4 +1337,45 @@ color: #fbfbfb;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: #191919;
+    display: flex;
+    align-items: center;
+    padding:0px 20px ;
+}
+.title_modal_game {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    width: 98%;
+    text-align: center;
+}
+.capa_modal_game {
+    background-color: black;
+    width: 100%;
+    height: 250px;
+    background-image: url(../../imgs/games/r.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+.info_desc_modal_game {
+    min-height: 350px;
+}
+.title_desc_modal_game {
+    font-size: 20px;
+    color: #fff;
+    padding: 15px 20px;
+}
+.descri_modal_game {
+    color: #fff;
+    padding: 10px 25px;
+    word-break: break-all;
+}
+.info_title_modal_game {
+    min-height: 140px;
+    box-shadow: 0px 0px 4px 1px #292929;
+}
+.title_game {
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 20px;
 }
