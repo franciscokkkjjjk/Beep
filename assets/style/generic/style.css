@@ -1307,6 +1307,7 @@ color: #fbfbfb;
 }
 .modal_game_area {
     position: fixed;
+    opacity: 1;
     z-index: 1;
     width: 100vw;
     max-height: 100vh;
@@ -1378,4 +1379,13 @@ color: #fbfbfb;
     color: #fff;
     font-size: 20px;
     padding: 15px 20px;
+}
+.exit_area_modal_game{
+    border-radius: 100%;
+    padding: 5px;
+}
+.exit_area_modal_game:hover {
+    cursor: pointer;
+    background-color: #444444;
+    transition: all linear 0.25s;
 }

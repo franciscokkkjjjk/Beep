@@ -1,3 +1,4 @@
+let modal_game_status = false;
 async function game(pag) {
     let game_req = await fetch("../assets/script/php/requsicoes/jogos/game.php?pag=" + pag)
     let game_res = await game_req.json();
@@ -20,7 +21,9 @@ async function rm_game(json, button) {
     return true;
 }
 async function show_game(json, button) {
-    let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/');
+    let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/game_completo.php?id_game='+json.id_game);
+    let res_json = await show_game_req.json();
+
 }
 async function add_game(json, button) {
     button.classList.remove('icon_add');

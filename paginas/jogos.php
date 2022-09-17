@@ -65,7 +65,7 @@
                 
             </div>
         </div>
-        <div class="modal_game_area">
+        <div class="modal_game_area" style="">
             <div class="modal_game_event"></div>
             <div class="modal_game">
                 <div class="header_modal_game">
@@ -73,10 +73,13 @@
                         <div class="menu--exit-img"></div>
                     </div>
                     <div class="title_modal_game">
-                        Red Dead Redemption 2
+                        <div class="event min-event event-block"></div>
                     </div>
                 </div>
-                <div class="capa_modal_game">
+                <div class="aux_area" style="width: 100%; text-align: center;">
+                    <div class="event event-block" ></div>
+                </div>
+                <div class="capa_modal_game" style="display: none;">
 
                 </div>
                 <div class="info_desc_modal_game">
@@ -84,7 +87,7 @@
                         Descrição
                     </div>
                     <div class="descri_modal_game">
-                        ...
+                        <div class="event min-event event-block"></div>
                     </div>
                 </div>
                 <div class="info_title_modal_game">
@@ -92,6 +95,7 @@
                        Lojas 
                     </div>
                     <div class="loja_game">
+                        <div class="event min-event event-block"></div>
                         <!-- <iframe src="https://store.steampowered.com/widget/2109430/" frameborder="0" width="646" height="190"></iframe> -->
                     </div>            
                 </div>
