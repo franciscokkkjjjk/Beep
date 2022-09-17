@@ -65,9 +65,9 @@
                 
             </div>
         </div>
-        <div class="modal_game_area" style="">
+        <div class="modal_game_area" style="display:none;">
             <div class="modal_game_event"></div>
-            <div class="modal_game">
+            <div class="modal_game" style="margin-top: 58%;">
                 <div class="header_modal_game">
                     <div class="exit_area_modal_game">
                         <div class="menu--exit-img"></div>

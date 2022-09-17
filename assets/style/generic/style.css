@@ -1332,6 +1332,7 @@ color: #fbfbfb;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     box-shadow: 0px 0px 7px 3px #000;
+    transition: all ease 0.25s;
 }
 .header_modal_game {
     height: 6.5vh;
@@ -1388,4 +1389,9 @@ color: #fbfbfb;
     cursor: pointer;
     background-color: #444444;
     transition: all linear 0.25s;
+}
+.loja_game {
+    color: #fff;
+    padding: 10px 25px;
+    word-break: break-all; 
 }
