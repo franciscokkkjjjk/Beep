@@ -104,9 +104,6 @@ function creat_game(json) {
         document.querySelector('.feed-body-post').appendChild(m_game_clone);
     }
 }
-function modal_ver() {
-    //cria um modal estilo facebook com as informações do jogo
-}
 // async function asw() {
 //     let kh = await fetch('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?key=27800A97A260C821A0420E2EACE6C309&appid=440&format=json', {
 //         method:'GET'
