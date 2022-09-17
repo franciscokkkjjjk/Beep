@@ -67,7 +67,30 @@
         </div>
         <div class="modal_game_area">
             <div class="modal_game_event"></div>
-            <div class="modal_"
+            <div class="modal_game">
+                <div class="header_modal_game">
+                    <div class="exit_area_modal_game">
+                        <div class="menu--exit-img"></div>
+                    </div>
+                    <div class="title_modal_game">
+                        Red Dead Redemption 2
+                    </div>
+                </div>
+                <div class="capa_modal_game">
+
+                </div>
+                <div class="info_title_modal_game">
+                    <div class="title_game">
+
+                    </div>
+                    <div class="loja_game">
+
+                    </div>            
+                </div>
+                <div class="info_desc_modal_game">
+
+                </div>
+            </div>
         </div>
     </div>
     

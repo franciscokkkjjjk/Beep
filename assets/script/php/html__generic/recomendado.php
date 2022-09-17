@@ -279,11 +279,10 @@
                     <div class="area--modal--coment--repost">
                         <div class="header--modal--coment--repost">
                             <div class="exit--area--body_coment">
-                                <div class="menu--exit-img "></div>
+                                <div class="menu--exit-img"></div>
                             </div>
                             <div class="title--coment--repost">Compartilhar com comentário</div>
                             <div class="submit--button--comet--area">
-                                <div class="event min-event" style="margin-right: 5px;"></div>
                                 <button type="submit">Enviar</button>
                             </div>
                         </div>

@@ -1305,3 +1305,34 @@ color: #fbfbfb;
     background-color: #0000006e;
     transition: all linear 0.25s;
 }
+.modal_game_area {
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.modal_game_event {
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: #6666664b;
+}
+.modal_game {
+    background-color: #101010;
+    width: 60%;
+    z-index: 1;
+    min-height: 40%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0px 0px 7px 3px #000;
+}
+.header_modal_game {
+    height: 6.5vh;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #191919;
+}
