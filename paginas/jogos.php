@@ -65,6 +65,10 @@
                 
             </div>
         </div>
+        <div class="modal_game_area">
+            <div class="modal_game_event"></div>
+            <div class="modal_"
+        </div>
     </div>
     
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>

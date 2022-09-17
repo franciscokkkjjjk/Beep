@@ -64,6 +64,5 @@ function creat_game(json) {
     //verficar se o usuario possui e mudar o botão de add para um de excluir
 }
 function modal_ver() {
-    //pega o id do botao e faz uma requisição para o jogo completo
     //cria um modal estilo facebook com as informações do jogo
 }
