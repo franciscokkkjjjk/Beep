@@ -60,7 +60,9 @@
             </div>
             <div class="feed-body-post">
                 <div class="form_solicitacao_area">
-                    
+                    <!-- 
+                        --adicionar fotos 
+                     -->
                 </div>
             </div>
         </div>
