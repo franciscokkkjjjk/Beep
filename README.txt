@@ -15,7 +15,6 @@ criada para o compartilhamento
 ------------------------- implementações -----------------------
 
 -deixar o user editar a data de nascimento apenas uma vez
--repostagem com comentario
 -uma area para aparecer novos post quando o scrollTop estiver em 0 
 -na area post completo colocar uma area para o type 2{
     adicionar uma area para mostrar para quem foi a resposta para o type 4

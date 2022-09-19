@@ -91,7 +91,8 @@ async function user_(active) {
             post_not(1);
         }
     } else {
-        //
+        let username_vist = window.location.href.split('=');
+        game_perfil(username_vist[1]);
     }
 }
 
@@ -385,8 +386,9 @@ function seguidores_user() {
                 return resultado.json()
             })
             .then(function (json) {
-                qs('.num_seguindo').innerHTML = json.t_seguindo;
-                qs('.num_seguidores').innerHTML = json.t_seguidores;
+                console.log(json);
+                qs('.num_seguindo').innerHTML = json.user.t_seguindo;
+                qs('.num_seguidores').innerHTML = json.user.t_seguidores;
             })
     }, 300)
 }
@@ -1295,7 +1297,9 @@ async function game_perfil(user) {
         method:'GET', 
     });
     let res_game = await req_game.json();
-    qs('.back--event').remove();
+    if(qs('.back--event') != undefined) {
+        qs('.back--event').remove();
+    }
     if(res_game.nada == undefined) {
         creat_game(res_game);
     } else {

@@ -5,6 +5,11 @@
         $sql_user = "SELECT * FROM users WHERE username='".$_GET['username']."'";
         $res_user = mysqli_query($conexao, $sql_user);
         $assoc_user = mysqli_fetch_assoc($res_user);
+
+        $sql_game_user = "SELECT * FROM jogos_possui WHERE id_user=" . $_SESSION['id_user'];
+        $res_game_user = mysqli_query($conexao, $sql_game_user);
+        $arra_game_user = mysqli_fetch_all($res_game_user, 1);
+
         if($assoc_user != null) {
             $sql_info = "SELECT * FROM jogos_possui WHERE id_user=" . $assoc_user['id_user'];
             $res_info = mysqli_query($conexao, $sql_info);
@@ -15,12 +20,18 @@
                         $sql_game = "SELECT * FROM jogos WHERE id_jogos=" . $v['id_game'];
                         $res_game = mysqli_query($conexao, $sql_game);
                         $assoc_game = mysqli_fetch_assoc($res_game);
+                        $possui = false;
+                        foreach($arra_game_user as $v_game) {
+                            if($v_game['id_game'] == $v['id_game']) {
+                                $possui = true;
+                            }
+                        }
                         $json[] = [
                             'id_game' => $assoc_game['id_jogos'],
                             'nome_jogo' => $assoc_game['nome_jogo'],
                             'capa_game' => $assoc_game['img_jogo'],
                             'faixa_etaria' => $assoc_game['class_etaria'],
-                            'possui' => true
+                            'possui' => $possui
                         ];
                     }
                 } else {

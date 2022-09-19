@@ -51,6 +51,9 @@ if($perfil == $_SESSION['username']) {
     </style>
 </head>
 <body>
+    <?php 
+        require_once '../assets/script/php/html__generic/game_templet.php';
+    ?>
     <div class="feed-area">
         <?php 
             require_once '../assets/script/php/html__generic/nav_menu.php';
@@ -122,7 +125,7 @@ if($perfil == $_SESSION['username']) {
                 <div class="back--event" style="top:auto;    margin-top: 18px;">
                     <div class="event"></div>
                 </div>
-                    <?php require_once '../assets/script/php/html__generic/posts_template.php';?>
+                <div class="area_game"></div>
                 </div>
             </div>
             
@@ -135,9 +138,11 @@ if($perfil == $_SESSION['username']) {
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/jogos/game.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
         user_(false);
+        seguidores_user();
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>
