@@ -1,22 +1,22 @@
-<?php 
-session_start();
-if(!isset($_SESSION['id_user'])) {
-    header('location:../');
-}
-require_once '../assets/script/php/historico.php';    
-require_once '../assets/script/php/conecta.php';
-require_once '../assets/script/php/function/funcoes.php';
-$sql = 'SELECT * FROM users WHERE id_user='.$_SESSION['id_user'];
-$res_perfil = mysqli_query($conexao, $sql);
-$array_info = mysqli_fetch_assoc($res_perfil);
-$sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$_SESSION['id_user']." ORDER BY date_publi DESC ";
-$res_posts = mysqli_query($conexao,$sql_posts);
-$postagens = mysqli_fetch_all($res_posts,1);
+<?php
+    session_start();
+    if(!isset($_SESSION['id_user'])) {
+        header('location:../');
+    }
+    require_once '../assets/script/php/historico.php';    
+    require_once '../assets/script/php/conecta.php';
+    require_once '../assets/script/php/function/funcoes.php';
+    $sql = 'SELECT * FROM users WHERE id_user='.$_SESSION['id_user'];
+    $res_perfil = mysqli_query($conexao, $sql);
+    $array_info = mysqli_fetch_assoc($res_perfil);
+    $sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$_SESSION['id_user']." ORDER BY date_publi DESC ";
+    $res_posts = mysqli_query($conexao,$sql_posts);
+    $postagens = mysqli_fetch_all($res_posts,1);
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../assets/imgs/default/beep_logo.png">
@@ -24,7 +24,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
     <link rel="stylesheet" href="../assets/style/generic/style.css">
     <link rel="stylesheet" href="../assets/style/feed/style.css">
     <link rel="stylesheet" href="../assets/style/toca/style.css">
-    <title><?= $_SESSION['nome']?> (curtidas) | Beep</title>
+    <title><?= $_SESSION['nome']?> | Beep</title>
     <style>
         <?php 
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
@@ -97,10 +97,10 @@ $postagens = mysqli_fetch_all($res_posts,1);
                             <a class="button--opt--info" href="perfil.php">
                                 Publicações
                             </a>
-                            <a class="button--opt--info" href="perfilJogos.php">
+                            <a class="button--opt--info active_menu_info" href="perfilJogos.php">
                                 Jogos do usuario                                
                             </a>
-                            <a class="button--opt--info active_menu_info">
+                            <a class="button--opt--info" href="curtidas.php" href="curtidas.php">
                                 Curtidas  
                             </a>    
                             <a class="button--opt--info">
@@ -110,7 +110,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
                 </div>
                </div>
                <div class="posts--ara--perfil">
-               <div class="back--event" style="top:auto; margin-top:18px;">
+               <div class="back--event" style=" top:auto;    margin-top: 18px;">
                     <div class="event"></div>
                 </div>
                 <?php require_once '../assets/script/php/html__generic/posts_template.php';?>
@@ -131,10 +131,11 @@ $postagens = mysqli_fetch_all($res_posts,1);
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
         seguidores_session();
-        postsCurtidos_session();
+        user_session();
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>
+    <!--<script type="text/javascript" src="../assets/script/javascript/default/session_storage.js"></script>-->
     <script>
         const error_php = <?php if(isset($_SESSION['error_username'])) {echo $_SESSION['error_username'];} else {echo "''";} ?>;
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
