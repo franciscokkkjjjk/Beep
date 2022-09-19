@@ -32,7 +32,7 @@
                             <a href='<?= pagAtual('caminho');?>jogos.php'class="<?= pagAtual('jogos.php')?> img--opt-feed img--pag--jogos menu--pag--opt--section">
                                 Jogos
                             </a>
-                            <a onclick="" class="img--opt-feed img--pag--solic menu--pag--opt--section">
+                            <a href="<?= pagAtual('caminho');?>solicitacaoJogos.php" class="<?= pagAtual('solicitacaoJogos.php')?> img--opt-feed img--pag--solic menu--pag--opt--section">
                               Solicitar jogo
                             </a>
                             <a href="<?= pagAtual('caminho');?>perfil.php" class="<?= pagAtual('perfil.php').pagAtual('curtidas.php').pagAtual('perfilJogos.php')?> img--opt-feed img--pag--perf menu--pag--opt--section">
