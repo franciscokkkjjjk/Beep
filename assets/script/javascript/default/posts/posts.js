@@ -64,7 +64,7 @@ function curtir_post() {
         }
     })
 }
-async function user_() {
+async function user_(active) {
     let username_vist = window.location.href.split('=');
     let user_vist = await fetch('../assets/script/php/requsicoes/posts_users.php?username=' + username_vist[1]);
     let user_v = await user_vist.json();
@@ -72,22 +72,26 @@ async function user_() {
     qsAll('.back--event').forEach((e) => { e.remove() });
     console.log(user_v)
     user_seguidores(user_v.user);
-    if (user_v.publi.nada == undefined) {
-        criarPosts(user_v.publi)
-        curtir_post();
-        desCurtir();
-        viwimg();
-        show_CM();
-        coment()
-        descompartilhar();
-        qs('.event-direct').onclick = compartilhar;
-        setInterval(() => {
-            post_num_curtida();
-        }, 500);
-        post_num_compartilhamento();
-        seguidores_session();
+    if(active) {
+        if (user_v.publi.nada == undefined) {
+            criarPosts(user_v.publi)
+            curtir_post();
+            desCurtir();
+            viwimg();
+            show_CM();
+            coment()
+            descompartilhar();
+            qs('.event-direct').onclick = compartilhar;
+            setInterval(() => {
+                post_num_curtida();
+            }, 500);
+            post_num_compartilhamento();
+            seguidores_session();
+        } else {
+            post_not(1);
+        }
     } else {
-        post_not(1);
+        //
     }
 }
 
@@ -355,6 +359,7 @@ function user_seguidores(list_user) {
     qs('.info--perfil--user--username').innerHTML = list_user.username_user;
     qs('.curtidas_user').setAttribute('href', 'curtidas_v.php?username=' + list_user.username_user);
     qs('.publicacoes_user').setAttribute('href', 'perfil_user_v.php?username=' + list_user.username_user);
+    qs('.game_opt').setAttribute('href', 'perfilJogos_v.php?username=' + list_user.username_user);
     qs('.bio').innerHTML = list_user.bio;
     qs('.nome--perfil').innerHTML = list_user.nome_user;
     qs('.data_nasc').innerHTML = list_user.data_nas;

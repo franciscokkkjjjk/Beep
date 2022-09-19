@@ -106,7 +106,7 @@ if($perfil == $_SESSION['username']) {
                             <a  class="button--opt--info publicacoes_user">
                                 Publicações
                             </a>
-                            <a class="button--opt--info">
+                            <a class="button--opt--info game_opt">
                                 Jogos do usuario                                
                             </a>
                             <a class="button--opt--info curtidas_user active_menu_info">

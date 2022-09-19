@@ -117,6 +117,9 @@
                         <div class="event"></div>
                     </div>
                 </div>
+                <div class="area_game">
+                    
+                </div>
             </div>
         </div>
             <?php 

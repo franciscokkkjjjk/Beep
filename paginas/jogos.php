@@ -62,7 +62,9 @@
                 </div>
             </div>
             <div class="feed-body-post">
-                
+                    <div class="area_game">
+                    
+                    </div>
             </div>
         </div>
     </div>

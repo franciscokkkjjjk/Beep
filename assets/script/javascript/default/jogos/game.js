@@ -99,7 +99,7 @@ function creat_game(json) {
         };
         m_game_clone.querySelector('.button_B_').id = `g_xD30D${json[ax].id_game}`;
         m_game_clone.querySelector('.button_A_').id = `g_xD30D${json[ax].id_game}`;
-        document.querySelector('.feed-body-post').appendChild(m_game_clone);
+        document.querySelector('.area_game').appendChild(m_game_clone);
     }
 }
 // async function asw() {

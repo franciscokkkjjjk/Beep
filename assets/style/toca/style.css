@@ -174,3 +174,9 @@
 .button--seguindo::before {
     content: 'Seguindo';
 }
+.area_game {
+    display: grid;
+    grid-template-columns: calc(100%/2) calc(100%/2);
+    justify-items: center;
+    align-items: center;
+}

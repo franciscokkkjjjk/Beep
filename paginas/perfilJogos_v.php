@@ -103,10 +103,10 @@ if($perfil == $_SESSION['username']) {
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">
-                            <a  class="button--opt--info active_menu_info publicacoes_user">
+                            <a  class="button--opt--info  publicacoes_user">
                                 Publicações
                             </a>
-                            <a class="button--opt--info game_opt ">
+                            <a class="button--opt--info active_menu_info game_opt">
                                 Jogos do usuario                                
                             </a>
                             <a class="button--opt--info curtidas_user">
@@ -137,7 +137,7 @@ if($perfil == $_SESSION['username']) {
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
-        user_(true);
+        user_(false);
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>
