@@ -1,0 +1,27 @@
+body {
+    overflow-x: hidden;
+}
+.feed-header-body {
+    width: 75% !important;
+    display: flex;
+    justify-content: space-between;
+}
+.menu--header {
+    background-color: transparent;
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+.menu   {
+    padding: 30px 0px 0px;
+    margin-bottom: 10px;
+}
+.menu--header--body {
+    margin-top: 52px;
+}
+.timeline--area {
+    background-color: transparent;
+}
+.feed-body-post {
+    width: 75vw;
+    background-color: #121212;
+}
