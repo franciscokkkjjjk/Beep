@@ -131,7 +131,7 @@
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
         seguidores_session();
-        user_session();
+        game_perfil(username);
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>

@@ -413,7 +413,7 @@ function seguidores_session() {
     let url_perfil = window.location.href.split('=');
     let atual_pag = window.location.href.split('paginas/');
     setInterval(() => {
-        if (atual_pag[1] == 'perfil.php' || atual_pag[1] == 'curtidas.php') {
+        if (atual_pag[1] == 'perfil.php' || atual_pag[1] == 'curtidas.php' || atual_pag[1] == 'perfilJogos.php') {
             fetch('../assets/script/php/requsicoes/posts_users.php?username=' + username)
                 .then(function (res) {
                     return res.json()
@@ -1284,4 +1284,11 @@ async function user__curtidas() {
     } else {
         post_not(2);
     }
+}
+async function game_perfil(user) {
+    let req_game = await fetch('../assets/script/php/requisicoes/jogos/users_game.php?username='+user, {
+        method:'GET', 
+    });
+    let res_game = await req_game.json();
+    console.log(res_game);
 }
