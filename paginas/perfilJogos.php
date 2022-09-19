@@ -44,6 +44,9 @@
     </style>
 </head>
 <body>
+    <?php 
+        require_once '../assets/script/php/html__generic/game_templet.php';
+    ?>
     <div class="feed-area">
         <?php 
             require_once '../assets/script/php/html__generic/nav_menu.php';
@@ -110,10 +113,9 @@
                 </div>
                </div>
                <div class="posts--ara--perfil">
-               <div class="back--event" style=" top:auto;    margin-top: 18px;">
-                    <div class="event"></div>
-                </div>
-                <?php require_once '../assets/script/php/html__generic/posts_template.php';?>
+                <div class="back--event" style=" top:auto;    margin-top: 18px;">
+                        <div class="event"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -124,6 +126,7 @@
     </div>
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/jogos/game.js"></script>
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script>
           const username = <?php if(isset($_SESSION['error_username'])) { echo "'" . $_SESSION['username_temp'] . "'"; } else {echo '"'.$_SESSION['username'].'"';}?>;

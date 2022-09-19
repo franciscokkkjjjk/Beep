@@ -29,46 +29,5 @@ body {
     justify-items: center;
     align-items: center;
 }
-.area_jogo_body {
-    width: 230px;
-    height: 280px;
-    margin-top: 20px;
-    background-color: #393939;
-    border-radius: 5px;
-    opacity: 1;
-}
-.jogo_header {
-    height: calc(100%/1.7);
-}
-.jogo_area_img {
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    border-radius: 4px 4px 0px 0px;
-    background-repeat: no-repeat;
-}
-.jogo_area_titulo {
-    padding: 5px 10px;
-    color: #fff;
-}
-.jogo_area_comando {
-    display: flex;
-    flex-direction: row;
-    margin-top: 25px;
-    justify-content: center;
-}
-.button_para {
-    width: 35px;
-    height: 35px;
-    background-position: center;
-    background-size: 20px;
-    cursor: pointer;
-    border-radius: 100%;
-    padding: 5px;
-    background-color: #121212;
-    background-repeat: no-repeat;
-}
-.g1 {
-    margin-left: 18px;
-}
+
 

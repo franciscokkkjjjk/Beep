@@ -12,6 +12,8 @@ function post_not(timeline) {
     } if (timeline == 3) {
         nada.innerHTML = "OPS! Parece que nenhum jogo foi cadastrado ainda. Solicite o cadastro de um jogo em <a href='solicitacaoJogos.php'>aqui</a>.";
         document.querySelector('.feed-body-post').style.gridTemplateColumns = 'none';
+    } if(timeline == 4){
+        nada.innerHTML = "Esse usuário não possue nenhum jogo. :(";
     }
     document.querySelector('.feed-body-post').appendChild(nada);
 }
@@ -105,34 +107,5 @@ function alert_mensage(json) {
                 qs('.mensagem_alert').remove();
             }
         }, 4000);
-    }
-}
-function creat_game(json) {
-    let m_game_clone;
-    let m_game = document.querySelector('.area_jogo_body');
-    for (let ax in json) {
-        m_game_clone = m_game.cloneNode(true);
-        m_game.remove();
-        m_game_clone.style.display = '';
-        m_game_clone.querySelector('.jogo_area_img').style.backgroundImage = `url(../assets/imgs/games/${json[ax].capa_game})`;
-        m_game_clone.querySelector('.jogo_area_titulo').innerHTML = json[ax].nome_jogo;
-        let button_a = m_game_clone.querySelector('.button_A_');
-        if (json[ax].possui) {
-            button_a.classList.remove('icon_add');
-            button_a.classList.add('icon_remove');
-            button_a.onclick = ()=>{
-                rm_game(json[ax], button_a);
-            }
-        } else {
-            button_a.onclick = async ()=>{
-                add_game(json[ax], button_a);
-            }
-        }
-        m_game_clone.querySelector('.button_B_').onclick = ()=>{
-            show_game(json[ax], m_game_clone.querySelector('.button_B_'));
-        };
-        m_game_clone.querySelector('.button_B_').id = `g_xD30D${json[ax].id_game}`;
-        m_game_clone.querySelector('.button_A_').id = `g_xD30D${json[ax].id_game}`;
-        document.querySelector('.feed-body-post').appendChild(m_game_clone);
     }
 }

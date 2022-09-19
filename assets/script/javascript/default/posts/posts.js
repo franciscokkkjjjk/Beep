@@ -1286,9 +1286,15 @@ async function user__curtidas() {
     }
 }
 async function game_perfil(user) {
-    let req_game = await fetch('../assets/script/php/requisicoes/jogos/users_game.php?username='+user, {
+    let req_game = await fetch('../assets/script/php/requsicoes/jogos/users_game.php?username='+user, {
         method:'GET', 
     });
     let res_game = await req_game.json();
+    qs('.back--event').remove();
+    if(res_game.nada == undefined) {
+        creat_game(res_game);
+    } else {
+        post_not(4);
+    }
     console.log(res_game);
 }
