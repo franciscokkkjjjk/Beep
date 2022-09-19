@@ -386,7 +386,6 @@ function seguidores_user() {
                 return resultado.json()
             })
             .then(function (json) {
-                console.log(json);
                 qs('.num_seguindo').innerHTML = json.user.t_seguindo;
                 qs('.num_seguidores').innerHTML = json.user.t_seguidores;
             })
