@@ -60,9 +60,43 @@
             </div>
             <div class="feed-body-post">
                 <div class="form_solicitacao_area">
+                    <form action="" method="post">
                     <!-- 
                         --adicionar fotos 
+                        --adicionar nomes
+                        --adicionar lojas e seus respectivos links
+                        --adicionar descriçoes
                      -->
+                     <div class="cap_area">
+                        <label for="img_input_s">
+                            <div class="img_cap_solicita"></div>
+                        </label>
+                        <input type="file" name="img_input_s" id="img_input_s" required style="display: none;">
+                     </div>
+                     <div class="inputs_area">
+                        <div class="input_name_solicita_area">
+                            <input type="text" class="input_name_solicita" required name="name_input_s">
+                        </div>
+                        <div class="input_desc_solicita_area">
+                            <div class="plachehold_inpdiv">
+                                ....descrição
+                            </div>
+                            <div class="input_div_desc"></div>
+                            <input type="hidden" value="" name="des_cap_solicita">
+                        </div>
+                        <div class="area_loja">
+                            <div class="loja_inputs">
+                                <div class="name_loja">
+                                    <input required type="text" value="" name="name_loja_cap_solicita">
+                                </div>
+                                <div class="link_loja">
+                                    <input required type="text" value="" name="name_loja_cap_solicita">
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                     <button type="submit">Enviar</button>
+                    </form>
                 </div>
             </div>
         </div>
