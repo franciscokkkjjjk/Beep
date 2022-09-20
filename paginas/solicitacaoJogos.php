@@ -81,7 +81,7 @@
                             <div class="plachehold_inpdiv">
                                 ....descrição
                             </div>
-                            <div class="input_div_desc"></div>
+                            <div class="input_div_desc" contenteditable="true"></div>
                             <input type="hidden" value="" name="des_cap_solicita">
                         </div>
                         <div class="area_loja">
@@ -95,6 +95,10 @@
                             </div>
                         </div>
                      </div>
+                     <label for="checkBox">
+                        <input id="checkBox" type="checkbox" name="checkBox">
+                        Deseja reber notificação por email, caso seu jogo seja cadastrado?
+                     </label>
                      <button type="submit">Enviar</button>
                     </form>
                 </div>

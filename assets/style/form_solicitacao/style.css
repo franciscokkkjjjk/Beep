@@ -25,3 +25,45 @@ body {
     width: 75vw;
     background-color: #121212;
 }
+.form_solicitacao_area {
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+}
+.form_solicitacao_area form {
+    width: 50%;
+    border-radius: 15px;
+    padding: 20px 0px;
+    background-color: #202020;
+    box-shadow: 0px 0px 7px 3px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.inputs_area {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+}
+.form_solicitacao_area input {
+    width: 95%;
+}
+.cap_area {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.img_cap_solicita {
+    width: 100%;
+    height: 150px;
+    border-radius: 15px;
+    background-color: #000;
+}
