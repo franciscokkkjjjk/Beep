@@ -68,9 +68,12 @@
                         --adicionar descriçoes
                      -->
                      <div class="cap_area">
-                        <label for="img_input_s">
-                            <div class="img_cap_solicita"></div>
-                        </label>
+                            <div class="img_cap_solicita">
+                                <label for="img_input_s">
+                                    <div class="img_buttons add-imagem"></div>
+                                </label>
+                                <div class="img_buttons remove-imagem "></div>
+                            </div>
                         <input type="file" name="img_input_s" id="img_input_s" required style="display: none;">
                      </div>
                      <div class="inputs_area">
