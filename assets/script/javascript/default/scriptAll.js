@@ -109,3 +109,16 @@ function alert_mensage(json) {
         }, 4000);
     }
 }
+function img_viw_modal(button_add, input_file) {
+    let file_input = input_file;
+    file_input.onchange = (e)=>{
+        let seguir = false;
+        let img = e.files[0];
+        if (img.type == 'image/jpeg' || img.type == 'image/gif' || img.type == 'image/png' || img.type == 'image/jfif') {
+            seguir = true
+        }
+        if(seguir) {
+            
+        }
+    }
+}
