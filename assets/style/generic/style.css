@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
 }
+
 ::-webkit-scrollbar {
     width: 15px;
     background-color: #0b0b0b;
@@ -572,6 +573,7 @@ select option {
 .perfil-link {
     text-decoration: none;
     color: inherit;
+
 }
 .perfil-link-hover:hover {
     text-decoration: underline;

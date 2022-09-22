@@ -15,7 +15,7 @@
                         <div class="menu--pag--img--area">
                         </div>
                         <div class="menu--pag--name-perfil--area">
-                            <div class="menu--pag--name-perfil" >
+                            <div class="menu--pag--name-perfil">
                                 <?=$_SESSION['nome']?>
                             </div>
                             <div class="menu--pag--username-perfil">

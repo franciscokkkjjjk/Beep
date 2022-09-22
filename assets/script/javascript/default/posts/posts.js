@@ -9,7 +9,7 @@ async function posts() {
     let posts = await fetch('../assets/script/php/requsicoes/posts.php');
     post_d = await posts.json();
     load.style.display = 'none';
-    console.log(post_d);
+    console.log(post_d); 
     if (post_d.nada == undefined) {
         criarPosts(post_d);
         curtir_post();
@@ -25,7 +25,7 @@ async function posts() {
         coment();
     } else {
         post_not(0);
-    }
+    } 
 }
 function curtir_post() {
     qsAll('.p-xD30').forEach((e) => {
@@ -1305,4 +1305,4 @@ async function game_perfil(user) {
         post_not(4);
     }
     console.log(res_game);
-}
+} 

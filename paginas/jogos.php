@@ -31,7 +31,7 @@
         }
         <?php }?>
     </style>
-</head>
+</head> 
 <body>
     <?php 
         require_once '../assets/script/php/html__generic/game_templet.php';

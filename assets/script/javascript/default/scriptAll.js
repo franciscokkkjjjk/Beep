@@ -90,6 +90,7 @@ function showImg_form(e, a, c) {
     }
 
 }
+let timer; 
 function alert_mensage(json) {
     let creat_mensage = document.createElement('div');
     creat_mensage.classList.add('mensagem_alert');
@@ -101,14 +102,22 @@ function alert_mensage(json) {
                 creat_mensage.style.color = '#fff';
             }
             qs('.feed-area').appendChild(creat_mensage);
+        } else {
+            qs('.mensagem_alert').innerHTML = json.mensage;
+            if (json.error) {
+                qs('.mensagem_alert').style.backgroundColor = '#f00';
+                qs('.mensagem_alert').style.color = '#fff';
+            }
+            clearTimeout(timer);
+            
         }
-        setTimeout(() => {
+        timer = setTimeout(() => {
             if (qs('.mensagem_alert') != undefined) {
                 qs('.mensagem_alert').remove();
             }
         }, 4000);
     }
-}
+} 
 function img_viw_modal(button_add, input_file) {
     let file_input = input_file;
     file_input.onchange = (e)=>{
@@ -118,7 +127,10 @@ function img_viw_modal(button_add, input_file) {
             seguir = true
         }
         if(seguir) {
-            
+         let area_img = docuemnt.querySelector('.img_cap_solicita');
+         if(area_img != undefined) {
+            area_img.style.backgroundImage = `url(${e.files[0]})`;
+         }   
         }
-    }
+    } 
 }
