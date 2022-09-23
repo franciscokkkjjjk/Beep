@@ -14,6 +14,7 @@ async function show_game(json, button) {//mostra informações completa de um de
     let m_ = document.querySelector('.modal_game_area');
     if(modal_game_status) {
         let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/game_completo.php?id_game='+json.id_game);
+        console.log(show_game_req);
         let res_json = await show_game_req.json();
         console.log(res_json);
         m_.style.display = '';
