@@ -1138,7 +1138,7 @@ function post_all_creat(obj) {
         } else {
             conteudo_type_2.querySelector('.post--text').innerHTML = obj.publicacao.c_comentada.text_post;
         }
-        //nem sei para que serve lkkkkkkkkkkkkkkkkk
+        //nem sei para que serve lkkkkkkkkkkkkkkkkk (o pior que foi eu mesmo q fiz kkkkkkkkkkk)
         let area_img = qs('.post--area-header .p-30d_10');
         if (obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
             area_img.remove()
