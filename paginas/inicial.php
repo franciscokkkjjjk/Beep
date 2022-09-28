@@ -3,7 +3,7 @@
     
     if(!isset($_SESSION['id_user'])) {
         header('location:../');
-    } 
+    }  
     require_once '../assets/script/php/historico.php';    
     require_once '../assets/script/php/conecta.php';
     require_once '../assets/script/php/function/funcoes.php';
