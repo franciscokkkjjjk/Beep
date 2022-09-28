@@ -20,7 +20,7 @@ async function posts() {
         qs('.event-direct').onclick = compartilhar;
         setInterval(() => {
             post_num_curtida();
-        }, 500);
+        }, 950);
         post_num_compartilhamento();
         coment();
     } else {
@@ -137,10 +137,12 @@ function criarPosts(lista) {
             if (lista[i]['user_curtiu']) {
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi']);
                 post_body.querySelector('.event--curtida').classList.add('p-xD29');
+                post_body.querySelector('.event--curtida .post_curtidas').innerHTML = lista[i]['num_curtidas'];
                 post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
             } else {
                 post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
                 post_body.querySelector('.event--curtida').classList.add('p-xD30');
+                post_body.querySelector('.event--curtida .post_curtidas').innerHTML = lista[i]['num_curtidas'];
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
             }
             if (lista[i]['user_compartilhou']) {
@@ -154,6 +156,8 @@ function criarPosts(lista) {
                 post_body.querySelector('.compartilhar').id = lista[i]['id_publi'] + 'c-xD30';
             }
             post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['id_publi'];
+            post_body.querySelector('.comentar .post_comentadas').innerHTML = lista[i]['num_comentario'];
+            num_coment_dinamic(post_body.querySelector('.comentar'), lista[i]['id_publi']);
             post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + lista[i]['id_publi'];
             post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
             document.querySelector('.feed-body-post').append(post_body);
@@ -171,6 +175,9 @@ function criarPosts(lista) {
                 post_body.querySelector('.post--text_comp').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
             }
             post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
+
+            
+
             post_body.querySelector('.date--post-comp_').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
             post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
             post_body.querySelector('.perfil-link-comp').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
@@ -227,6 +234,8 @@ function criarPosts(lista) {
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
             }
             post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['compartilhador_info']['id_da_compartilhada'];
+            post_body.querySelector('.comentar .post_comentadas').innerHTML = lista[i]['num_comentario'];
+            num_coment_dinamic(post_body.querySelector('.comentar'), lista[i]['compartilhador_info']['id_da_compartilhada']);
             if (lista[i]['user_compartilhou']) {
                 post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
                 post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
@@ -279,6 +288,14 @@ function criarPosts(lista) {
             }//p-xD30
             post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
             post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['compartilhador_info']['id_da_compartilhada'];
+            
+            
+            
+            post_body.querySelector('.comentar .post_comentadas').innerHTML = lista[i]['num_comentario'];
+            num_coment_dinamic(post_body.querySelector('.comentar'), lista[i]['compartilhador_info']['id_da_compartilhada']);
+
+
+
             if (lista[i]['user_curtiu']) {
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada']);
                 post_body.querySelector('.event--curtida').classList.add('p-xD29');
@@ -288,6 +305,7 @@ function criarPosts(lista) {
                 post_body.querySelector('.event--curtida').classList.add('p-xD30');
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
             }
+
             if (lista[i]['user_compartilhou']) {
                 post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
                 post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
@@ -460,7 +478,7 @@ function desCurtir() {
                 let res_ = await moio_.json();
                 console.log(res_);
                 alert_mensage(res_);
-                if ((num_curtidas != undefined) && (num_curtidas != undefined)) {
+                if ((e.querySelector('.area_num') != undefined) && (res_.curtidas != undefined)) {
                     let num = res_.curtidas;
                     e.querySelector('.area_num').innerHTML = num;
                 }
@@ -1054,7 +1072,7 @@ function post_num_compartilhamento() {
                 }
             }
         }
-    }, 500);
+    }, 950);
 }
 
 async function post_all() {
@@ -1318,8 +1336,25 @@ async function game_perfil(user) {
     console.log(res_game);
 } 
 
-function num_coment_dinamic() {
-    if(){
-        
+function num_coment_dinamic(div,id) {
+    if((qs('.post_comentadas') != undefined)){
+        let inter = setInterval(async ()=>{
+          if((div != undefined) && (div.querySelector('.post_comentadas') != undefined)) {
+            let input = document.createElement('input');
+            input.setAttribute('name', 'All_xD30');
+            input.setAttribute('value', id);
+            let form = document.createElement('form');
+            form.appendChild(input);
+            let formnew = new FormData(form);
+            let coment_req = await fetch('../assets/script/php/requsicoes/post_completo.php', {
+                method:"POST",
+                body: formnew
+            })
+            let res_coment = await coment_req.json();
+            if((div != undefined) && (div.querySelector('.post_comentadas') != undefined) && (res_coment.error == undefined)) {
+                div.querySelector('.post_comentadas').innerHTML = res_coment.publicacao.num_comentario;
+            }
+          }
+        }, 950)
     }
 }

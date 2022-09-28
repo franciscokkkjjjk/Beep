@@ -44,10 +44,11 @@
                             </button>
                             <div class="post_curtidas area_num" ><div class="event min-event"></div></div>
                         </form>
-                        <div class="post_coment_area">
-                             <div class="comentar img--small img--iteracao interacao--area">
+                        <div class="comentar post_coment_area">
+                             <div class=" img--small img--iteracao interacao--area">
                                 comentar
                              </div>  
+                             <div class="post_comentadas area_num">5</div>
                         </div>
                         <div  class=" compartilhar-hover compartilhar-event-div interac-button  interac-button ">
                         <button class=" compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
@@ -136,10 +137,11 @@
                             </button>
                             <div class="post_curtidas area_num" ><div class="event min-event"></div></div>
                         </form>
-                        <div class="post_coment_area">
-                             <div class="comentar img--small img--iteracao interacao--area">
+                        <div class="comentar post_coment_area">
+                             <div class="img--small img--iteracao interacao--area">
                                 comentar
                              </div>  
+                             <div class="post_comentadas area_num">5</div>
                         </div>
                         <div  class="compartilhar-hover compartilhar-event-div interac-button  interac-button">
                         <button class="compartilhar-event img--iteracao img--strong button--remove interacao--area">    

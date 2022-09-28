@@ -8,15 +8,7 @@
         $sql_post_compartilhado = 'SELECT * FROM publicacoes WHERE id_publi='.$publi_des;
         $res_post_compartilhado = mysqli_query($conexao, $sql_post_compartilhado);
         $assoc_post = mysqli_fetch_assoc($res_post_compartilhado);
-         if(count($assoc_post) < 1) {
-            $descompatilha = [
-               'error' => true,
-               'mensage' => "A postagem já foi descompartilhada anteriormente."
-            ];
-            echo json_encode($descompatilha);
-            die;
-         }
-         if($assoc_post['type'] == '4' or $assoc_post['type'] == '2') {
+         if($assoc_post['type'] == '4') {
             if($assoc_post['user_publi'] == $_SESSION['id_user']) {
                $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$publi_des;
                $res_delet = mysqli_query($conexao, $sql_delet);
@@ -39,7 +31,7 @@
                } else {
                   $descompatilha = [
                      'error' => true,
-                     'mensage' => 'erro no deletar'
+                     'error' => 'erro no deletar'
                   ];
                   echo json_encode($descompatilha);
                }
@@ -68,7 +60,7 @@
                } else {
                   $descompatilha = [
                      'error' => true,
-                     'mensage' => 'Não foi possivel atualizar o numero de curtidas.'
+                     'desc' => 'não deu updt'
                   ];
                   echo json_encode($descompatilha);
                }
@@ -100,7 +92,7 @@
             } else {
                $descompatilha = [
                   'error' => true,
-                  'mensage' => 'valor da postagem igual a nulo.'
+                  'desc' => 'valor da postagem igual a null'
                ];
                echo json_encode($descompatilha);
             }
@@ -108,7 +100,7 @@
      } else {
       $descompatilha = [
          'error' => true,
-         'mensage' => 'A postagem selecionada não existe'
+         'desc' => 'seu tareco não existe'
       ];
       echo json_encode($descompatilha);
    }

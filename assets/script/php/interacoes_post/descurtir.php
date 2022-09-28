@@ -5,9 +5,12 @@
         $postagem = $_POST['p-xD30'];
         $sql_type_post = 'SELECT * FROM publicacoes WHERE id_publi='.$_POST['p-xD30'];
         $res_type_post = mysqli_query($conexao, $sql_type_post);
-        $arra_type_post = mysqli_fetch_assoc($res_type_post);
-
-        $sql_verify = "SELECT * FROM `curtidas` WHERE curtidas.id_user_curti=" . $_SESSION['id_user'] . " AND curtidas.id_postagem=".$_POST['p-xD30'];
+        $arra_type_post = mysqli_fetch_assoc($res_type_post);        
+        
+        if($arra_type_post['type'] == '4') {
+            $postagem = $arra_type_post['id_publi_interagida'];
+        }
+        $sql_verify = "SELECT * FROM `curtidas` WHERE curtidas.id_user_curti=" . $_SESSION['id_user'] . " AND curtidas.id_postagem=".$postagem;
         $res_verify = mysqli_query($conexao, $sql_verify);
         $all_verify = mysqli_fetch_all($res_verify, 1);
         if(count($all_verify) < 1) {
@@ -17,9 +20,6 @@
             ];
            echo json_encode($json);
            die;
-        }
-        if($arra_type_post['type'] == '4') {
-            $postagem = $arra_type_post['id_publi_interagida'];
         }
         $sql_descurtir = "DELETE FROM curtidas WHERE id_user_curti=".$_SESSION['id_user']." AND id_postagem=".$postagem;
         $res_d = mysqli_query($conexao, $sql_descurtir);

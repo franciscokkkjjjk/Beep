@@ -7,7 +7,14 @@
         $sql_post = 'SELECT * FROM publicacoes WHERE id_publi='.$id_post;
         $res_post = mysqli_query($conexao, $sql_post);
         $assoc_post = mysqli_fetch_assoc($res_post);
-
+        if(is_null($assoc_post)) {
+            $json = [
+                'error' => true,
+                'mensage' => 'A postagem não existe.'
+            ];
+            echo json_encode($json);
+            die;
+        }
         $sql_info_user_publi = 'SELECT * FROM users WHERE id_user='.$assoc_post['user_publi'];
         $res_info_user_publi = mysqli_query($conexao, $sql_info_user_publi);
         $assoc_info_user_publi = mysqli_fetch_assoc($res_info_user_publi);

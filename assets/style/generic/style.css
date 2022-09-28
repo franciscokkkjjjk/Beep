@@ -1106,13 +1106,20 @@ color: #fbfbfb;
     outline: none;
 }
 .comentar {
+    font-size: 14px;
+    color: #858585;
+}
+.comentar .interacao--area {
     background-image: url(../../imgs/default/coment-default.png);
 }
 .img--small {
     background-position: 19px !important;
 }
-.comentar:hover {
+.comentar:hover, .comentar .interacao--area:hover {
     color: #FFDF3B;
+    transition: all linear 0.25s;
+}
+.comentar .interacao--area:hover{
     background-image: url(../../imgs/default/coment-default-hover.png);
 }
 .mensagem_alert {

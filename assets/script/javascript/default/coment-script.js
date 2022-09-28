@@ -70,7 +70,7 @@ function coment() {
                 qs('.button--postar-coment').addEventListener('click', async (elementB)=>{
                     if(valid_div(1)) {
                         let form_info_coment = document.createElement('form');
-                        let input_info_coment = document.querySelector('.input_div_info');
+                        let input_info_coment = document.querySelector('.input_div_info').cloneNode(true);
                         let img_value_c = qs('.input_coment_event_img').cloneNode(true);
                         let value_inpud_c = document.getElementById('inputdiv');
                         let avalue_inpud_c = null;
