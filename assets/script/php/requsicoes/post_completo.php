@@ -37,7 +37,7 @@
 
         if($assoc_post['type'] == '3') {
             $user_compartilhou = false;
-            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
@@ -69,7 +69,7 @@
             $array_comentarios = mysqli_fetch_all($res_comentarios, 1);
 
             foreach($array_comentarios as $valueC) {
-                $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$valueC['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+                $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$valueC['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4 ";
                 $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
                 $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
@@ -111,7 +111,7 @@
             echo json_encode($postagem_completa);
         } elseif($assoc_post['type'] == '2' or $assoc_post['type'] == '1') {
             $user_compartilhou = false;
-            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
@@ -143,7 +143,7 @@
             $array_comentarios = mysqli_fetch_all($res_comentarios, 1);
 
             foreach($array_comentarios as $valueC) {
-                $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$valueC['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+                $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$valueC['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4";
                 $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
                 $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
@@ -214,7 +214,7 @@
             $res_user_raiz_publi = mysqli_query($conexao, $sql_user_raiz_publi);
             $assoc_user_raiz_publi = mysqli_fetch_assoc($res_user_raiz_publi);
 
-            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assc_raiz_publi['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assc_raiz_publi['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4 ";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
@@ -252,7 +252,7 @@
                 $array_comentarios = mysqli_fetch_all($res_comentarios, 1);
     
                 foreach($array_comentarios as $valueC) {
-                    $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$valueC['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+                    $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$valueC['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4 ";
                     $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
                     $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                     if(!is_null($assoc_compartilhou)) {

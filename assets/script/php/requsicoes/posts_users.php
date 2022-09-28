@@ -39,7 +39,7 @@
         $user_comp = false;
         if($post_segui['type'] == 2) {
             $user_compartilhou = false;
-            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$post_segui['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$post_segui['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND  publicacoes.type=4";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
@@ -90,7 +90,7 @@
             ];
             } elseif ($post_segui['type'] == 3) {
             $user_compartilhou = false;
-            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$post_segui['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$post_segui['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4 ";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
