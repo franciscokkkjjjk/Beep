@@ -10,6 +10,17 @@
         $sql_type_post = 'SELECT * FROM publicacoes WHERE id_publi='.$_POST['p-xD30'];
         $res_type_post = mysqli_query($conexao, $sql_type_post);
         $arra_type_post = mysqli_fetch_assoc($res_type_post);
+        $sql_verify = "SELECT * FROM `curtidas` WHERE curtidas.id_user_curti=" . $_SESSION['id_user'] . " AND curtidas.id_postagem=".$_POST['p-xD30'];
+        $res_verify = mysqli_query($conexao, $sql_verify);
+        $all_verify = mysqli_fetch_all($res_verify, 1);
+        if(count($all_verify) > 1) {
+            $json = [
+                'error' => true,
+                'mensage' => '<a href="https://youtu.be/DzMo-EhGqG4">click aqui</a>'
+            ];
+           echo json_encode($json);
+           die;
+        }
         if($arra_type_post['type'] == '4') {
             $post_curtido = $arra_type_post['id_publi_interagida'];
         }
@@ -27,15 +38,17 @@
         $res_up = mysqli_query($conexao, $sql_up);
 
         if($res_curtida and $res_up) {
-            $json[] = [
-                'moio' => false,
+            $json = [
+                'error' => false,
+                'curtidas' => $num_calc
             ];
         }
   
     } else {
         echo 'saia saia imediatamnete';
-        $json[] = [
-            'moio' => true,
+        $json = [
+            'error' => true,
+            'mensage' => 'O input do id não existe.'
         ];
     }
     echo json_encode($json);

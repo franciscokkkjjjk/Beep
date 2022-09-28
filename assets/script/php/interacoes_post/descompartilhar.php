@@ -8,7 +8,14 @@
         $sql_post_compartilhado = 'SELECT * FROM publicacoes WHERE id_publi='.$publi_des;
         $res_post_compartilhado = mysqli_query($conexao, $sql_post_compartilhado);
         $assoc_post = mysqli_fetch_assoc($res_post_compartilhado);
-
+         if(is_null($assoc_post)) {
+            $descompatilha = [
+               'error' => true,
+               'mensage' => "A postagem já foi descompartilhada anteriormente."
+            ];
+            echo json_encode($descompatilha);
+            die;
+         }
          if($assoc_post['type'] == '4' or $assoc_post['type'] == '2') {
             if($assoc_post['user_publi'] == $_SESSION['id_user']) {
                $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$publi_des;
@@ -32,7 +39,7 @@
                } else {
                   $descompatilha = [
                      'error' => true,
-                     'error' => 'erro no deletar'
+                     'mensage' => 'erro no deletar'
                   ];
                   echo json_encode($descompatilha);
                }
@@ -61,7 +68,7 @@
                } else {
                   $descompatilha = [
                      'error' => true,
-                     'desc' => 'não deu updt'
+                     'mensage' => 'Não foi possivel atualizar o numero de curtidas.'
                   ];
                   echo json_encode($descompatilha);
                }
@@ -93,7 +100,7 @@
             } else {
                $descompatilha = [
                   'error' => true,
-                  'desc' => 'valor da postagem igual a null'
+                  'mensage' => 'valor da postagem igual a nulo.'
                ];
                echo json_encode($descompatilha);
             }
@@ -101,7 +108,7 @@
      } else {
       $descompatilha = [
          'error' => true,
-         'desc' => 'seu tareco não existe'
+         'mensage' => 'A postagem selecionada não existe'
       ];
       echo json_encode($descompatilha);
    }

@@ -7,6 +7,17 @@
         date_default_timezone_get();
         $data_publi = date('Y-m-d H:i:s');
         $id_postI = $_POST['direct'];
+        $sql_verify = "SELECT * FROM `publicacoes` WHERE `id_publi_interagida`=$id_postI AND type=4 AND user_publi=".$_SESSION['id_user']."";
+        $sql_verify = mysqli_query($conexao, $sql_verify);
+        $array_verify = mysqli_fetch_all($sql_verify, 1);
+        if(count($array_verify) >= 1) {
+            $res = [
+                'error' => true,
+                'mensage' => '<a href="https://youtu.be/DzMo-EhGqG4">click aqui</a>'
+            ];
+            echo json_encode($res);
+            die;
+        }
         $sql_post = 'SELECT * FROM publicacoes WHERE id_publi='.$id_postI;
         $res_postI = mysqli_query($conexao, $sql_post);
         $ass_postI = mysqli_fetch_assoc($res_postI);
@@ -39,13 +50,15 @@
             $res_num = mysqli_query($conexao, $upd_num);
             if($res_c_d) {
                 $res = [
-                    'error' => false
+                    'error' => false,
+                    'mensage' => 'Postagem compartilhada com sucesso.'
                 ];
                 echo json_encode($res);
                 
             }  else {
                 $res = [
-                    'error' => true
+                    'error' => true,
+                    'mensage' => 'erro ao aumentar o numero de compartilhamento.'
                 ];
                 echo json_encode($res);
             }

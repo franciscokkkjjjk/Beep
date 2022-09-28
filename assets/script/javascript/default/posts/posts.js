@@ -34,17 +34,20 @@ function curtir_post() {
         e.onclick = async (a) => {
             num_click++;
             a.preventDefault();
-            if (num_click < 2) {
-                let moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
+            let moio;
+            console.log(num_click);
+            if (num_click <= 55) {
+                    moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
                     method: 'POST',
                     body: curtida,
                 })
                 let res = await moio.json();
+                console.log(res);
+                alert_mensage(res);
                 let num_curtidas = e.querySelector('.area_num');
-                if (num_curtidas != undefined) {
-                    let num = num_curtidas.innerHTML
-                    let convet = parseInt(num) + 1;
-                    e.querySelector('.area_num').innerHTML = convet;
+                if ((num_curtidas != undefined) &&  (res.curtidas != undefined)) {
+                    let num = res.curtidas;
+                    e.querySelector('.area_num').innerHTML = num;
                 }
                 e.querySelector('button').classList.remove();
                 e.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
@@ -710,6 +713,7 @@ async function compartilhar() {
         qs('.modal-area').style.display = 'none';
         modal.style.display = 'none';
     })
+    alert_mensage(res);
     console.log(res);
 }
 

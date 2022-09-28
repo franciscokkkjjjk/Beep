@@ -30,6 +30,7 @@ async function show_game(json, button) {//mostra informações completa de um de
         m_.querySelector('.descri_modal_game').innerHTML = res_json.desc_jogo;
         m_.querySelector('.loja_game').innerHTML = res_json.loja;//esse estilo de mostrar lojas será alterado futuramente
         modal_game_status = false;
+        document.querySelector('html').style.overflow = 'hidden';
     } else {
         let creat_event = document.createElement('div');
         creat_event.setAttribute('class', 'event event-block');
