@@ -8,7 +8,7 @@
         $sql_post_compartilhado = 'SELECT * FROM publicacoes WHERE id_publi='.$publi_des;
         $res_post_compartilhado = mysqli_query($conexao, $sql_post_compartilhado);
         $assoc_post = mysqli_fetch_assoc($res_post_compartilhado);
-         if(is_null($assoc_post)) {
+         if(count($assoc_post) < 1) {
             $descompatilha = [
                'error' => true,
                'mensage' => "A postagem já foi descompartilhada anteriormente."

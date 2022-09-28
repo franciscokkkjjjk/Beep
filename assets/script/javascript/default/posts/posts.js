@@ -36,7 +36,7 @@ function curtir_post() {
             a.preventDefault();
             let moio;
             console.log(num_click);
-            if (num_click <= 55) {
+            if (num_click <= 3) {
                     moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
                     method: 'POST',
                     body: curtida,
@@ -458,11 +458,11 @@ function desCurtir() {
                     body: desCurtida,
                 })
                 let res_ = await moio_.json();
-                let num_curtidas = e.querySelector('.area_num');
-                if (num_curtidas != undefined) {
-                    let num = num_curtidas.innerHTML
-                    let convet = parseInt(num) - 1;
-                    e.querySelector('.area_num').innerHTML = convet;
+                console.log(res_);
+                alert_mensage(res_);
+                if ((num_curtidas != undefined) && (num_curtidas != undefined)) {
+                    let num = res_.curtidas;
+                    e.querySelector('.area_num').innerHTML = num;
                 }
                 e.querySelector('button').classList.remove()
                 e.querySelector('button').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida img--iteracao-curtida-off img--curtida--off');
@@ -735,6 +735,14 @@ async function compartilhar_comentario() {//All_xD30
         setTimeout(() => {
             clone_MD_RC.style.opacity = 1;
         }, 15);
+        //acaba com o modal-shared aberto
+        if(qs('.modal--shared') != undefined) {
+            let modal = qs('.modal--shared');
+            modal.style.opacity = 0;
+            modal.style = '';
+            qs('.modal-area').style.display = 'none';
+            modal.style.display = 'none';
+        }
         //requisição
         let form_aux = document.createElement('form');
         form_aux.setAttribute('method', 'POST');
@@ -805,9 +813,8 @@ async function compartilhar_comentario() {//All_xD30
                 let res_req = await req_post.json();
                 console.log(res_req);
                 alert_mensage(res_req);
-                if (!(res_req.error)) {
-                    compartilhar_comentario();
-                }
+                // coisa especificas
+                compartilhar_comentario();
             }
 
         }
@@ -1310,3 +1317,9 @@ async function game_perfil(user) {
     }
     console.log(res_game);
 } 
+
+function num_coment_dinamic() {
+    if(){
+        
+    }
+}

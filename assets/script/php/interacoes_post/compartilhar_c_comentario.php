@@ -2,8 +2,20 @@
 session_start(); 
 if(isset($_POST['cC_xd30'])) {
     require_once '../conecta.php';
-    $text_post = addslashes($_POST['cC_xd30']);
     $id_interagida = $_POST['cI_xd30']; 
+    $sql_verify = "SELECT * FROM `publicacoes` WHERE `id_publi_interagida`=$id_interagida AND type=2 AND user_publi=".$_SESSION['id_user']."";
+    $sql_verify = mysqli_query($conexao, $sql_verify);
+    $array_verify = mysqli_fetch_all($sql_verify, 1);
+    if(count($array_verify) >= 1) {
+            $res = [
+                'error' => true,
+                'mensage' => '<a href="https://youtu.be/DzMo-EhGqG4">click aqui</a>'
+            ];
+            echo json_encode($res);
+            die;
+    }
+
+    $text_post = addslashes($_POST['cC_xd30']);
     date_default_timezone_set('America/Sao_Paulo');
     date_default_timezone_get();
     $data_publi = date('Y-m-d H:i:s');
@@ -25,10 +37,17 @@ if(isset($_POST['cC_xd30'])) {
     }
     $sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",2, ".$id_interagida.",'$text_post','$name_banco', 0, 0, '$data_publi', 0)";
     $res_query = mysqli_query($conexao,$sql_respot_coment);
+
+    $sql_post_inter = 'SELECT * FROM publicacoes WHERE id_publi='.$id_interagida;
+    $res_post_inter = mysqli_query($conexao, $sql_post_inter);
+    $ass_post_inter = mysqli_fetch_assoc($res_post_inter);
+    $cal = intval($ass_post_inter['num_compartilha'])+1;
+    $upd_num = "UPDATE publicacoes SET num_compartilha=$cal WHERE id_publi=".$id_interagida;
+    $res_num = mysqli_query($conexao, $upd_num);
     if($res_query) {
         $json = [
             'error' => false,
-            'mensage' => 'Postagem compartilhada com sucesso!'
+            'mensage' => 'Postagem compartilhada com sucesso!',
          ];
          echo json_encode($json);
          die;
