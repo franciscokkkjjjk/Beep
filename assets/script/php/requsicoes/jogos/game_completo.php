@@ -4,14 +4,15 @@ require_once '../../conecta.php';
 if(isset($_GET['id_game'])) {
     $sql_ = "SELECT * FROM jogos WHERE id_jogos=" . $_GET['id_game'];
     $res_ = mysqli_query($conexao, $sql_);
+    $assoc_ = mysqli_fetch_assoc($res_);
     if($res_) {
-        $assoc_ = mysqli_fetch_assoc($res_);
+       
         $json = [
             'id_game' => $assoc_['id_jogos'],
-            'nome_game' => $assoc_['nome_jogo'],
+            'nome_game' => utf8_encode($assoc_['nome_jogo']),
             'img_game' => $assoc_['img_jogo'],
-            'desc_jogo' => $assoc_['desc_jogo'],
-            'loja' => $assoc_['loja'],
+            'desc_jogo' =>  utf8_encode($assoc_['desc_jogo']),
+            'loja' => utf8_encode($assoc_['loja']),
             'class_etaria' => $assoc_['class_etaria']
         ];
         echo json_encode($json);

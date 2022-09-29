@@ -13,7 +13,7 @@ async function game(pag) {
 async function show_game(json, button) {//mostra informações completa de um determinado jogo
     let m_ = document.querySelector('.modal_game_area');
     if(modal_game_status) {
-        let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/game_completo.php', {
+        let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/game_completo.php?id_game='+json.id_game, {
             method:"GET"
         })
         let res_json = await show_game_req.json();
