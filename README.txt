@@ -13,7 +13,7 @@ criada para o compartilhamento
 -
 
 ------------------------- implementações -----------------------
-
+--colocar utf8_encode() em todas as requisições que tenham a possibilidade de caracteres especiais
 -deixar o user editar a data de nascimento apenas uma vez
 -uma area para aparecer novos post quando o scrollTop estiver em 0 
 -na area post completo colocar uma area para o type 2{
