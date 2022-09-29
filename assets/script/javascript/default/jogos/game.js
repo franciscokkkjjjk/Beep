@@ -13,25 +13,29 @@ async function game(pag) {
 async function show_game(json, button) {//mostra informações completa de um determinado jogo
     let m_ = document.querySelector('.modal_game_area');
     if(modal_game_status) {
-        let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/game_completo.php?id_game=' + json.id_game, {
+        let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/game_completo.php', {
             method:"GET"
         })
         let res_json = await show_game_req.json();
         console.log(res_json);
-        m_.style.display = '';
-        setTimeout(()=>{
-            m_.querySelector('.modal_game').style.marginTop = '';
-        },100);
-        m_.querySelector('.modal_game_event').onclick = show_game;
-        m_.querySelector('.exit_area_modal_game').onclick = show_game;
-        m_.querySelector('.title_modal_game').innerHTML = res_json.nome_game;
-        m_.querySelector('.aux_area').style.display = 'none';
-        m_.querySelector('.capa_modal_game').style.backgroundImage = `url(../assets/imgs/games/${res_json.img_game})`;
-        m_.querySelector('.capa_modal_game').style.display = '';
-        m_.querySelector('.descri_modal_game').innerHTML = res_json.desc_jogo;
-        m_.querySelector('.loja_game').innerHTML = res_json.loja;//esse estilo de mostrar lojas será alterado futuramente
-        modal_game_status = false;
-        document.querySelector('html').style.overflow = 'hidden';
+        if(res_json.error) {
+            alert_mensage(res_json);
+        } else {    
+            m_.style.display = '';
+            setTimeout(()=>{
+                m_.querySelector('.modal_game').style.marginTop = '';
+            },100);
+            m_.querySelector('.modal_game_event').onclick = show_game;
+            m_.querySelector('.exit_area_modal_game').onclick = show_game;
+            m_.querySelector('.title_modal_game').innerHTML = res_json.nome_game;
+            m_.querySelector('.aux_area').style.display = 'none';
+            m_.querySelector('.capa_modal_game').style.backgroundImage = `url(../assets/imgs/games/${res_json.img_game})`;
+            m_.querySelector('.capa_modal_game').style.display = '';
+            m_.querySelector('.descri_modal_game').innerHTML = res_json.desc_jogo;
+            m_.querySelector('.loja_game').innerHTML = res_json.loja;//esse estilo de mostrar lojas será alterado futuramente
+            modal_game_status = false;
+            document.querySelector('html').style.overflow = 'hidden';
+        }
     } else {
         let creat_event = document.createElement('div');
         creat_event.setAttribute('class', 'event event-block');

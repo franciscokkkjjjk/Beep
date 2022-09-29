@@ -107,6 +107,9 @@ function alert_mensage(json) {
             if (json.error) {
                 qs('.mensagem_alert').style.backgroundColor = '#f00';
                 qs('.mensagem_alert').style.color = '#fff';
+            } else {
+                qs('.mensagem_alert').style.backgroundColor = '';
+                qs('.mensagem_alert').style.color = '';
             }
             clearTimeout(timer);
             

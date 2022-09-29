@@ -14,18 +14,18 @@ if(isset($_GET['id_game'])) {
             'loja' => $assoc_['loja'],
             'class_etaria' => $assoc_['class_etaria']
         ];
-        // estrutura futura
-        // a loga terá uma tabela solo onde poderão ter diversas lojas
-    } else {
+        echo json_encode($json);
+        } else {
         $json = [
             'error' => true,
             'mensage' => 'Algo deu errado! Recarregue a pagina, e tente novamente!'
         ];
+        echo json_encode($json);
     }
 } else {
     $json = [
         'error' => true,
         'mensage' => 'O id_game para o post completo não existe. Tente novamente.'
     ];
+    echo json_encode($json);
 }
-echo json_encode($json);
