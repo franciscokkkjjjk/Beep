@@ -6,14 +6,6 @@ if(isset($_POST['cC_xd30'])) {
     $sql_verify = "SELECT * FROM `publicacoes` WHERE `id_publi_interagida`=$id_interagida AND type=2 AND user_publi=".$_SESSION['id_user']."";
     $sql_verify = mysqli_query($conexao, $sql_verify);
     $array_verify = mysqli_fetch_all($sql_verify, 1);
-    if(count($array_verify) >= 1) {
-            $res = [
-                'error' => true,
-                'mensage' => '<a href="https://youtu.be/DzMo-EhGqG4">click aqui</a>'
-            ];
-            echo json_encode($res);
-            die;
-    }
 
     $text_post = addslashes($_POST['cC_xd30']);
     date_default_timezone_set('America/Sao_Paulo');
