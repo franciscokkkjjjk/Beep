@@ -8,4 +8,17 @@ input_ac(qs('.input_div_desc'), qs('.input_desc_solicita_area'));
  qs('.input_div').onclick = ()=> {
     qs('.input_div_desc').focus();
  }
- input_div_puts('.input_div_puts')
+ input_div_puts(qs('.input_div_desc'), qs('.hidden_iD'));
+ qs('.form_event').addEventListener('submit', (e)=>{
+    
+    let input_h = qs('.hidden_iD').value.trim();
+    let img_ = qs('.img_input_s').value;
+    if(input_h == '' || img_ == '')  {
+        e.preventDefault();
+        let alert__ = {
+            'error': true, 
+            'mensage': 'Imagem ou descrição faltando'
+        }
+       alert_mensage(alert__)
+    }
+ })

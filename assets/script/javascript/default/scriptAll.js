@@ -161,8 +161,11 @@ function input_ac(e, a) {
    })
    return;
 }
-function input_div_puts(input_div ) {
-    qs(input_div).addEventListener('blur', ()=>{  
-        alert('a')
-    },true)  
+function input_div_puts(input_div, input_hidden) {
+    input_div.addEventListener('blur', ()=>{  
+        let value_input = input_div.innerText;
+        console.log(value_input);
+        input_hidden.value = value_input;
+        console.log(value_input);
+    })  
 }
