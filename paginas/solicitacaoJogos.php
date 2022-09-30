@@ -77,31 +77,36 @@
                         <input type="file" name="img_input_s" id="img_input_s" class="img_input_s" required style="display: none;">
                      </div>
                      <div class="inputs_area">
-                        <div class="input_name_solicita_area">
-                            <input type="text" class="input_name_solicita" required name="name_input_s">
+                        <div class="input_name_solicita_area input_default_soli">
+                            <label for="name_input_s">Nome do jogo</label>
+                                <input type="text" id="name_input_s" class="input_name_solicita" required name="name_input_s">
                         </div>
                         <div class="input_desc_solicita_area">
                             <div class="plachehold_inpdiv">
                                 ....descrição
                             </div>
-                            <div class="input_div_desc" contenteditable="true"></div>
+                            <div class="input_div_desc input_default_soli" contenteditable="true"></div>
                             <input type="hidden" value="" name="des_cap_solicita">
                         </div>
                         <div class="area_loja">
                             <div class="loja_inputs">
-                                <div class="name_loja">
-                                    <input required type="text" value="" name="name_loja_cap_solicita">
+                                <div class="name_loja input_default_soli">
+                                    <label for="name_loja_cap_solicita">Nome da loja</label>
+                                    <input required type="text" id="name_loja_cap_solicita" value="" name="name_loja_cap_solicita">
                                 </div>
                                 <div class="link_loja">
-                                    <input required type="text" value="" name="name_loja_cap_solicita">
+                                    <label for="link_loja">Link da loja</label>
+                                    <input required type="text" value="" id="link_loja" name="name_loja_cap_solicita">
                                 </div>
                             </div>
                         </div>
                      </div>
-                     <label for="checkBox">
+                     <label for="checkBox" class="check_area">
                         <input id="checkBox" type="checkbox" name="checkBox">
-                        Deseja reber notificação por email, caso seu jogo seja cadastrado?
-                     </label>
+                        <div class="check_box_text">
+                            Deseja reber notificação por email, caso seu jogo seja cadastrado?
+                        </div>
+                    </label>
                      <button type="submit">Enviar</button>
                     </form>
                 </div>

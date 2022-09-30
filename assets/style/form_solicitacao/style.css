@@ -94,3 +94,27 @@ body {
 .remove {
     margin-left: 15px;
 }
+.area_loja .loja_inputs {
+    display: flex;
+    flex-direction: row;
+}
+.input_default_soli {
+    margin: auto;
+    width: 90%;
+    height: 40px;
+}
+.check_area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    word-break: break-all;
+    margin: auto;
+    width: 90%;
+}
+.check_area input {
+    width: 15px;
+    height: 15px;
+}
+.check_box_text {
+    display: inline-block;
+}
