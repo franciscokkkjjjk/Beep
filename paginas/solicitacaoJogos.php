@@ -90,7 +90,14 @@
                                     <label for="classI">
                                         <span class='title_area'>Classificação Indicativa</span>
                                     </label>
-                                    <input required type="number" value="" id="classI" name="class_etaria">
+                                    <select   required  id="classI" name="class_etaria">
+                                        <option value="0">L</option>
+                                        <option>10</option>
+                                        <option>12</option>
+                                        <option>14</option>
+                                        <option>16</option>
+                                        <option>18</option>
+                                    </select>
                                 </div>
                         <div class="area_loja">
                             <div class="loja_inputs">
