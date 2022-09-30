@@ -60,7 +60,7 @@
             </div>
             <div class="feed-body-post">
                 <div class="form_solicitacao_area">
-                    <form action="../assets/script/php/solicita_game.php" class="form_event" method="post">
+                    <form enctype="multipart/form-data"  action="../assets/script/php/solicita_game.php" class="form_event" method="post">
                      <div class="cap_area">
                             <div class="img_cap_solicita">
                                 <label for="img_input_s">
@@ -86,6 +86,12 @@
                             <div class="input_div_desc"  contenteditable="true"></div>
                             <input type="hidden" value=""  class='hidden_iD' name="des_cap_solicita">
                         </div>
+                        <div class="classInd input_default_soli">
+                                    <label for="classI">
+                                        <span class='title_area'>Classificação Indicativa</span>
+                                    </label>
+                                    <input required type="number" value="" id="classI" name="class_etaria">
+                                </div>
                         <div class="area_loja">
                             <div class="loja_inputs">
                                 <div class="name_loja input_default_soli">
@@ -100,10 +106,11 @@
                                         <span class='title_area'>Link da loja</span>
                                         <span class="num_carecter"><span>0</span>/300</span>
                                     </label>
-                                    <input required type="text" value="" id="link_loja" name="name_loja_cap_solicita">
+                                    <input required type="text" value="" id="link_loja" name="name_link_cap_solicita">
                                 </div>
                             </div>
                         </div>
+                        
                      </div>
                      <label for="checkBox" class="check_area">
                         <input id="checkBox" type="checkbox" name="checkBox">
@@ -116,6 +123,28 @@
                 </div>
             </div>
         </div>
+        <?php 
+                 if(isset($_SESSION['menssagem'])) {
+                    if(isset($_SESSION['fal'])){  unset($_SESSION['fal']);
+                ?>
+                <div class="mensagem_alert remove_tmp" style="background-color: #f00; color:#fff;"><?= $_SESSION['menssagem']?></div>
+                <?php 
+                    } else {
+                ?>
+                <div class="mensagem_alert remove_tmp"><?= $_SESSION['menssagem']?></div>
+                <?php }?>
+                <script>
+                    function remove() {
+                    setTimeout(()=>{
+                        document.querySelector('.remove_tmp').remove();
+                    },4500)
+                }
+                remove();
+                </script>
+                <?php 
+                unset($_SESSION['menssagem']);
+                 }
+                ?>
     </div>
     
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
