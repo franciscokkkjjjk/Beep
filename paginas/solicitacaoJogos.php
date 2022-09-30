@@ -78,24 +78,34 @@
                      </div>
                      <div class="inputs_area">
                         <div class="input_name_solicita_area input_default_soli">
-                            <label for="name_input_s">Nome do jogo</label>
+                            <label for="name_input_s">
+                                <span class='title_area'>Nome do jogo</span>
+                                <span class="num_carecter"><span>50</span>/300</span>
+                            </label>
                                 <input type="text" id="name_input_s" class="input_name_solicita" required name="name_input_s">
                         </div>
-                        <div class="input_desc_solicita_area">
-                            <div class="plachehold_inpdiv">
-                                ....descrição
-                            </div>
-                            <div class="input_div_desc input_default_soli" contenteditable="true"></div>
+                        <div class="input_desc_solicita_area input_default_soli">
+                            <label class="input_div" >
+                                 <span class='title_area'>Descrição do jogo</span>
+                                 <span class="num_carecter"><span>50</span>/300</span>
+                            </label>
+                            <div class="input_div_desc"  contenteditable="true"></div>
                             <input type="hidden" value="" name="des_cap_solicita">
                         </div>
                         <div class="area_loja">
                             <div class="loja_inputs">
                                 <div class="name_loja input_default_soli">
-                                    <label for="name_loja_cap_solicita">Nome da loja</label>
-                                    <input required type="text" id="name_loja_cap_solicita" value="" name="name_loja_cap_solicita">
+                                    <label for="name_loja_cap_solicita">
+                                        <span class='title_area'>Nome da loja do jogo</span>
+                                        <span class="num_carecter"><span>50</span>/300</span>
+                                    </label>
+                                    <input class="name_loja_event" required type="text" id="name_loja_cap_solicita" value="" name="name_loja_cap_solicita">
                                 </div>
-                                <div class="link_loja">
-                                    <label for="link_loja">Link da loja</label>
+                                <div class="link_loja input_default_soli">
+                                    <label for="name_loja_cap_solicita">
+                                        <span class='title_area'>Link da loja</span>
+                                        <span class="num_carecter"><span>50</span>/300</span>
+                                    </label>
                                     <input required type="text" value="" id="link_loja" name="name_loja_cap_solicita">
                                 </div>
                             </div>
@@ -104,10 +114,10 @@
                      <label for="checkBox" class="check_area">
                         <input id="checkBox" type="checkbox" name="checkBox">
                         <div class="check_box_text">
-                            Deseja reber notificação por email, caso seu jogo seja cadastrado?
+                            Deseja receber notificação por email, caso seu jogo seja cadastrado?
                         </div>
                     </label>
-                     <button type="submit">Enviar</button>
+                     <button class="button_submit" type="submit">Enviar</button>
                     </form>
                 </div>
             </div>

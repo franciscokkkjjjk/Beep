@@ -1,6 +1,7 @@
 body {
     overflow-x: hidden;
 }
+
 .feed-header-body {
     width: 75% !important;
     display: flex;
@@ -27,11 +28,12 @@ body {
 }
 .form_solicitacao_area {
     display: flex;
+    color: #fff;
     justify-content: center;
-    margin-top: 150px;
+    margin-top: 120px;
 }
 .form_solicitacao_area form {
-    width: 50%;
+    width: 47%;
     border-radius: 15px;
     padding: 20px 0px;
     background-color: #202020;
@@ -100,8 +102,35 @@ body {
 }
 .input_default_soli {
     margin: auto;
-    width: 90%;
+    width: 100%;
     height: 40px;
+    border: 1.5px solid rgb(0, 0, 0);
+    font-size: 13px;
+    padding: 2px 7px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    color: #d3d3d3dc;
+    transition: all ease 0.25s;
+}
+.input_default_soli span {
+    transition: all ease 0.25s;
+}
+.input_default_soli label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.input_default_soli input {
+    background-color: transparent;
+    color: #fff;
+    width: 100%;
+    border: none;
+}
+.input_default_soli input:focus {
+    outline: none;
+}
+.link_loja {
+    margin-left: 10px;
 }
 .check_area {
     display: flex;
@@ -117,4 +146,37 @@ body {
 }
 .check_box_text {
     display: inline-block;
+    font-size: 14px;
+
+}
+.check_area {
+    margin: 5px 10px;
+    color: #999999;
+}
+.input_desc_solicita_area {
+    height: auto;
+}
+.input_div_desc {
+    color: #fff;
+}
+.input_div_desc:focus {
+    outline: none;
+}
+.input_div_desc span, .input_div_desc div, .input_div_desc a {
+    background-color: transparent;
+    color: #fff;
+    background-image: none;
+    text-align: left;
+} 
+.button_submit {
+    padding: 10px 50px;
+    background-color: #0fa8b3;
+    border: none;
+    border-radius: 5px;
+    color: #fbfbfb;
+}
+.button_submit:hover {
+    cursor: pointer;
+    background-color: #0cc7d5;
+    transition: all linear 0.25s;
 }

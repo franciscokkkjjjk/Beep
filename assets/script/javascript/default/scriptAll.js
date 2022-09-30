@@ -150,3 +150,19 @@ function img_viw_modal(area_add, input_file, remove_a) {
         }
     } 
 }
+function input_ac(e, a) {
+    e.addEventListener('focus', ()=>{
+        a.classList.add('active--input');//
+        a.classList.add('color_font_input_act');
+   })
+    e.addEventListener('blur', ()=>{
+        a.classList.remove('active--input');
+        a.classList.remove('color_font_input_act');
+   })
+   return;
+}
+function input_div_puts(input_div ) {
+    qs(input_div).addEventListener('blur', ()=>{  
+        alert('a')
+    },true)  
+}

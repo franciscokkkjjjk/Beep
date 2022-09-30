@@ -309,8 +309,8 @@ function creatFormEdit(){
         let scriptFun = dC('script');
         scriptFun.setAttribute('type', 'text/javascript');
 
-        document.body.insertBefore(form, qs('script'));
-        document.body.insertBefore(scriptFun, qs('script'));
+        document.querySelector('.feed-area').append(form);
+        document.querySelector('.feed-area').append(scriptFun);
 
         qs('.button-exit-event').onclick = creatFormEdit;
         qs('.event--menu').onclick = creatFormEdit;
