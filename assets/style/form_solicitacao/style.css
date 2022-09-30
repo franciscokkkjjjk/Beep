@@ -30,12 +30,12 @@ body {
     display: flex;
     color: #fff;
     justify-content: center;
-    margin-top: 120px;
+    margin-top: 100px;
 }
 .form_solicitacao_area form {
-    width: 47%;
+    width: 45%;
     border-radius: 15px;
-    padding: 20px 0px;
+    padding: 20px 7px;
     background-color: #202020;
     box-shadow: 0px 0px 7px 3px #000;
     display: flex;
@@ -128,6 +128,7 @@ body {
 }
 .input_default_soli input:focus {
     outline: none;
+    box-shadow: none;
 }
 .link_loja {
     margin-left: 10px;
@@ -161,6 +162,7 @@ body {
 }
 .input_div_desc:focus {
     outline: none;
+    box-shadow: none;
 }
 .input_div_desc span, .input_div_desc div, .input_div_desc a {
     background-color: transparent;
