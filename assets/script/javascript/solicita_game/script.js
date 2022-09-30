@@ -1,0 +1,1 @@
+img_viw_modal('.img_cap_solicita', document.querySelector('.img_input_s'), '.remove-imagem')

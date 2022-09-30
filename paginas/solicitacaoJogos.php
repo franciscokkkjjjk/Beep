@@ -72,9 +72,9 @@
                                 <label for="img_input_s">
                                     <div class="img_buttons add-imagem"></div>
                                 </label>
-                                <div class="img_buttons remove-imagem "></div>
+                                <div class="img_buttons remove-imagem" style="display: none;"></div>
                             </div>
-                        <input type="file" name="img_input_s" id="img_input_s" required style="display: none;">
+                        <input type="file" name="img_input_s" id="img_input_s" class="img_input_s" required style="display: none;">
                      </div>
                      <div class="inputs_area">
                         <div class="input_name_solicita_area">
@@ -112,8 +112,6 @@
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
-    <script type="text/javascript">
-        
-    </script>
+    <script type="text/javascript" src="../assets/script/javascript/solicita_game/script.js">alert('dsasda')</script>
 </body>
 </html>

@@ -121,18 +121,31 @@ function alert_mensage(json) {
         }, 4000);
     }
 } 
-function img_viw_modal(button_add, input_file) {
+function img_viw_modal(area_add, input_file, remove_a) {
     let file_input = input_file;
-    file_input.onchange = (e)=>{
+    file_input.onchange = ()=>{
         let seguir = false;
-        let img = e.files[0];
+        console.log(input_file);
+        console.log(input_file.files[0]);
+        let img = input_file.files[0];
+        let src = URL.createObjectURL(img);
         if (img.type == 'image/jpeg' || img.type == 'image/gif' || img.type == 'image/png' || img.type == 'image/jfif') {
             seguir = true
         }
         if(seguir) {
-         let area_img = docuemnt.querySelector('.img_cap_solicita');
+         let area_img = document.querySelector(area_add);
          if(area_img != undefined) {
-            area_img.style.backgroundImage = `url(${e.files[0]})`;
+            area_img.style.backgroundImage = `url(${src})`;
+            let remove = qs(remove_a);
+            if(remove != undefined) {
+                remove.style.display = 'block';
+                remove.onclick = ()=>{
+                    remove.style.display = 'none';
+                    input_file.value = '';
+                    qs(area_add).style.backgroundImage = '';
+                
+                }
+            }
          }   
         }
     } 
