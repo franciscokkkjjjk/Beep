@@ -60,13 +60,7 @@
             </div>
             <div class="feed-body-post">
                 <div class="form_solicitacao_area">
-                    <form action="" class="form_event" method="post">
-                    <!-- 
-                        --adicionar fotos 
-                        --adicionar nomes
-                        --adicionar lojas e seus respectivos links
-                        --adicionar descriçoes
-                     -->
+                    <form action="../assets/script/php/solicita_game.php" class="form_event" method="post">
                      <div class="cap_area">
                             <div class="img_cap_solicita">
                                 <label for="img_input_s">
