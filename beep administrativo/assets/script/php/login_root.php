@@ -7,7 +7,7 @@
     $assoc_verify = mysqli_fetch_assoc($res_verify);
     $senha = mysqli_escape_string($conexao, $_POST['senha--user']);
     if(is_null($assoc_verify)) {
-        $_SESSION['mensagem'] = 'Você não possui cadastro no sistema.';
+        $_SESSION['mensagem'] = 'Email ou senha invalidos.';
         $_SESSION['erro_email'] = true;
         $_SESSION['email_root'] = $email;
         header('location:../../../');
@@ -17,7 +17,7 @@
             if(password_verify($senha, $assoc_verify['senha'])) {
                 $_SESSION['id_root'] = $assoc_verify['id_adm'];
                 $_SESSION['nome_adm'] = $assoc_verify['nome_adm'];
-                
+                header('location:../../../paginas/inicial.php');
                 die;
             } else {
                 $_SESSION['mensagem'] = 'Email ou senha invalidos.';
@@ -31,6 +31,14 @@
                 $_SESSION['ative'] = true;
                 $_SESSION['id_root'] = $assoc_verify['id_adm'];
                 $_SESSION['nome_adm'] = $assoc_verify['nome_adm'];
+                header('location:../../../paginas/inicial.php');
+                die;
+            } else {
+                $_SESSION['mensagem'] = 'Email ou senha invalidos.';
+                $_SESSION['erro_email'] = true;
+                $_SESSION['email_root'] = $email;
+                header('location:../../../');
+                die;
             }
         }
     }

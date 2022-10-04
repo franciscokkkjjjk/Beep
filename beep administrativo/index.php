@@ -51,7 +51,7 @@
                 </div>
                 <div class="text--beep">
                     <p>
-                        Nossos profissionais trabalham dia e noite para garantir a melhor melhor experiência para os usuários.
+                        Nossos profissionais trabalham dia e noite para garantir a melhor experiência para os usuários.
                     </p>
                 </div>
             </div>
