@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto';
+    background-color: #f1f1f1!important;
 }
 .body_active {
     position: fixed;
@@ -13,5 +14,44 @@ body {
     padding: 45px 25px;
     border-radius: 5px;
     box-shadow: 0px 0px 7px 0px #000;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+.title_active {
+    text-align: center;
+}
+.underline_title {
+    margin: auto;
+    width: 85%;
+    background-color: #02b8c5;
+    height: 4px;
+    margin-bottom: 15px;
+}
+.inputs_active input {
+    height: 30px;
+    width: 250px;
+    border-radius: 5px;
+    border: 0.5px solid #afafaf;
+}
+.inputs_active input:hover {
     background-color: #f0f0f0;
+    transition: all linear 0.25s;
+    border: 0.5px solid #02b8c5;
+}
+.senha_ {
+    margin-bottom: 10px;
+}
+.button_ative {
+    padding: 10px 108px;
+    margin-top: 15px;
+    background-color: #02b8c5;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+.button_ative:hover {
+    background-color: #04d5e4; 
+    cursor: pointer;
+    transition: all linear 0.25s;
 }

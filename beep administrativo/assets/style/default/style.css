@@ -3,3 +3,8 @@ body {
     padding: 0px;
     font-family: 'Roboto';
 }
+:focus-visible {
+    box-shadow: 0px 0px 7px 4px #00adb9;
+    outline: #00adb9 solid 2px;
+    border-radius: 5px;
+}
