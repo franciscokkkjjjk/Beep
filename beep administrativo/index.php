@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        <form action="assets/script/php/login.php" method="POST">
+        <form action="assets/script/php/login_root.php" method="POST">
         <div class="body--form">
             <div class="form--area">
                 <div class="tutulo--area--form">
