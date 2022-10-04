@@ -7,7 +7,7 @@
                 <input type='password' name='senha_'>
             </div>
             <div class="senha_confirm">
-                <input type='password' name='senha_'>
+                <input type='password' name='senha_confirm'>
             </div>
             <button type="submit">Enviar</button>
         </div>
