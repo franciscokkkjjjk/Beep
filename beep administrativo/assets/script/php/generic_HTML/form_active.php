@@ -1,5 +1,5 @@
 <div class="body_active">
-    <form method="POST">
+    <form method="POST" action="">
     <div class="area_input">
         <div class="title_active">defina</div>
         <div class="inputs_active">
