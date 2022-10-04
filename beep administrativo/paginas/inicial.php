@@ -3,7 +3,12 @@
     session_start();
     if(!isset($_SESSION['id_root'])) {
         header('location:../');
+        die;
     }
+    // if(isset($_SESSION['ative']) and isset($_SESSION['id_root'])) { 
+    //     header('location:inicial.php');
+    //     die;
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -16,6 +21,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="icon" href="../../assets/imgs/default/beep_logo.png">
     <link rel="stylesheet" href="../assets/style/default/style.css">
+    <link rel="stylesheet" href="../assets/style/inicial_root/style.css">
     <title>Inicial | Beep Administrativo</title>
 </head>
 <body>
