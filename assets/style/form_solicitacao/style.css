@@ -51,6 +51,21 @@ body {
     flex-direction: column;
     margin: auto;
 }
+.inputs_area select {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+}
+.inputs_area select:focus {
+    box-shadow:none;
+    border: none; 
+}
+.inputs_area select:focus-visible {
+    box-shadow:none;
+    outline: none;
+    border: none; 
+}
 .form_solicitacao_area input {
     width: 95%;
 }
