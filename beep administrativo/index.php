@@ -120,7 +120,9 @@
     <script src="assets/style/bibliotecas/materialize/js/materialize.js" text="text/javasctipt"></script> 
     -->
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
+    <?php if(!isset($_SESSION['ative'])) {?>
     <script type="text/javascript" src="../assets/script/javascript/default/form_script.js"></script>
+    <?php }?>
     <script type="text/javascript" src="assets/script/javascript/validar_form.js"></script>
 </body>
 </html>

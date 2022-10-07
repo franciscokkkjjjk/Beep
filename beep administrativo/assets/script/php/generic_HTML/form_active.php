@@ -6,10 +6,10 @@
                 </div>
                 <div class="input--area--form">
                     <div class="input--form">
-                        <input id="pass_key" required placeholder="Senha" type="password" name="pass--root">
+                        <input id="pass_key" class="input--passoword" required value='' placeholder="Senha" type="password" name="pass--root">
                     </div>
                     <div class="input--form passoword--form">
-                        <input id="passoword--root_c" required class='input--passoword' placeholder="Confirmar senha" type="password" name="senha--root_c">
+                        <input id="passoword--root_c" value='' required class='input--passoword' placeholder="Confirmar senha" type="password" name="senha--root_c">
                     </div>
                     <?php 
                         if(isset($_SESSION['error_pass'])) {
@@ -21,6 +21,8 @@
                         ?>
                     </div>
                     <?php }?>
+                    <div class="mensagem--erro" style="display: none;">
+                    </div>
                 </div>
                 <div class="buttons--area">
                     <div class="entrar--area">
