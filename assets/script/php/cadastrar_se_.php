@@ -21,7 +21,7 @@
     $pass = password_hash($_POST['senha_user'], PASSWORD_DEFAULT);
 
     $email = $_POST['email_user'];
-    $nome = $_POST['nome_user'];
+    $nome = mysqli_escape_string($conexao, $_POST['nome_user']);
     $dia_nas = intval($_POST['dia']);
     $mes_nas = $_POST['mes'];
     $ano_nas = intval($_POST['ano']);
@@ -100,7 +100,7 @@
            var_dump($perfi);
             $id_user = $perfi['id_user'];
            $sql_segui_s = "INSERT INTO seguidores(user_seguin, user_seguido) VALUE (".intval($id_user).", ".intval($id_user).")";
-           $resultado_segui_s = mysqli_query($conexao,$sql_segui_s);
+           $resultado_segui_s = mysqli_query($conexao, $sql_segui_s);
            if($resultado_cadastro and $resultado_segui_s) {
             session_destroy();
             header('location:../../../');
