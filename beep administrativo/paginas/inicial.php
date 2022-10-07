@@ -5,6 +5,10 @@
         header('location:../');
         die;
     }
+    if(isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
+        header('location:../');
+        die;
+    }
     // if(isset($_SESSION['ative']) and isset($_SESSION['id_root'])) { 
     //     header('location:inicial.php');
     //     die;
@@ -25,14 +29,6 @@
     <title>Inicial | Beep Administrativo</title>
 </head>
 <body>
-    <?php 
-        if(isset($_SESSION['ative'])) {
-            require_once '../assets/script/php/generic_HTML/form_active.php';
-        } else {
-    ?>
-    teste
-    <?php
-        }
-    ?>
+    
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    if(isset($_SESSION['id_root'])){
+    if(isset($_SESSION['id_root']) && !isset($_SESSION['ative'])){
         header('location:paginas/inicial.php');
     } else {
     $erro = '';
@@ -56,6 +56,11 @@
                 </div>
             </div>
         </div>
+        <?php 
+            if(isset($_SESSION['ative'])) {
+                require_once 'assets/script/php/generic_HTML/form_active.php';
+        ?>
+        <?php } else {?>
         <form action="assets/script/php/login_root.php" method="POST">
         <div class="body--form">
             <div class="form--area">
@@ -102,6 +107,9 @@
         </div>
         
     </form>
+    <?php 
+        }
+    ?>
     </div>
     </main>
     <footer>
@@ -113,5 +121,6 @@
     -->
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/form_script.js"></script>
+    <script type="text/javascript" src="assets/script/javascript/validar_form.js"></script>
 </body>
 </html>

@@ -1,20 +1,35 @@
-<div class="body_active">
-    <form method="POST" action="">
-    <div class="area_input">
-        <div class="title_active">Criar uma senha.</div>
-        <div class="underline_title"></div>
-        <div class="inputs_active">
-            <div class="senha_">
-                <input placeholder="Nova senha" type='password' name='senha_'>
-            </div>
-            <div class="senha_confirm">
-                <input placeholder="Confirmar senha" type='password' name='senha_confirm'>
-                <div class="mensagem error_mensagem">
-                    adssda
+<form action="assets/script/php/login_root.php" method="POST">
+        <div class="body--form">
+            <div class="form--area">
+                <div class="tutulo--area--form">
+                    Cadastrar uma senha
+                </div>
+                <div class="input--area--form">
+                    <div class="input--form">
+                        <input id="pass_key" required placeholder="Senha" type="password" name="pass--root">
+                    </div>
+                    <div class="input--form passoword--form">
+                        <input id="passoword--root_c" required class='input--passoword' placeholder="Confirmar senha" type="password" name="senha--root_c">
+                    </div>
+                    <?php 
+                        if(isset($_SESSION['error_pass'])) {
+                    ?>
+                    <div class="mensagem--erro">
+                        <?php echo $_SESSION['mensagem'];
+                            unset($_SESSION['mensagem']);
+                            unset($_SESSION['error_pass'])
+                        ?>
+                    </div>
+                    <?php }?>
+                </div>
+                <div class="buttons--area">
+                    <div class="entrar--area">
+                        <button type="submit">Entrar</button>
+                    </div>
+                    <div class="area--button--eC">
+                    </div>
                 </div>
             </div>
-            <button class="button_ative" type="submit">Enviar</button>
         </div>
-    </div>
+        
     </form>
-</div>
