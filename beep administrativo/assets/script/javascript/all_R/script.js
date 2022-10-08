@@ -44,6 +44,7 @@ function creat_list(list, img_dir, url_reqs, aux) {
                 let res = await req.json();
                 alert_mensage(res)
             }
+
         }
     document.querySelector('.corpo_list').append(list_clone);
 }
