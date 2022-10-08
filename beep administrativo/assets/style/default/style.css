@@ -9,7 +9,82 @@ body {
     border-radius: 5px;
 }
 header {
-    background-color: red;
+    background-color: #a7f9ff;
     width: 100vw;
     height: 55px;
+    display: flex;
+    justify-content: space-between;
+}
+.logo_beep {
+    margin-left: 25px;
+    background-image: url(../../../../assets/imgs/default/Beep_logo.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: contain;
+}
+.menu_name_root {
+    display: flex;
+    flex-direction: row;
+}
+.name_adm {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    font-size:18px;
+}
+
+.body_button_menu {
+    background-color: #00eeff;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    padding: 0px 20px;
+    margin-left: 5px;
+}
+.body_button_menu:hover {
+    background-color:#02d3e2 ;
+    cursor: pointer;
+    transition: all linear 0.25s;
+}
+.seta_body {
+    border-radius: 100%;
+    width: 25px;
+    height: 25px;
+    padding: 5px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.color_96f {
+    background-color: #96f8ff;
+}
+.seta_body:hover {
+    cursor: pointer;
+    background-color: #424242;    
+    transition: all linear 0.2s;
+}
+.seta {
+    margin-top: -5px;
+    width: 38%;
+    height: 38%;
+    border:2px solid transparent;
+    border-left-color:#00a2ad ;
+    border-bottom-color:#00a2ad ;
+}
+.down_seta {
+    transform: rotate(314deg);
+}
+.menu_show {
+    width: 70px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu_show .seta_body {
+    background-color: #000;
 }

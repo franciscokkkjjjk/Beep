@@ -30,7 +30,37 @@
 </head>
 <body>
     <header>
-        <div class="log_beep"></div>
+        <div class="logo_beep"></div>
+        <div class="menu_name_root">
+            <div class="menu_jogos_area body_button_menu">
+                <div class="menu_title_button">
+                    Jogos
+                </div>
+                <a href="">
+                    <div class="seta_body color_96f">
+                        <div class="seta down_seta"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="menu_usuarios_area body_button_menu">
+                <div class="menu_title_button">
+                    Denúncias
+                </div>
+                <a href="">
+                    <div class="seta_body color_96f">
+                        <div class="seta down_seta"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="menu_show">
+            <a href="">
+                <div class="seta_body ">
+                    <div class="seta down_seta"></div>
+                </div>
+            </a>
+                <div class="menu_area"></div>
+            </div>
+        </div>
     </header>
 </body>
 </html>
