@@ -36,7 +36,7 @@
                 <div class="menu_title_button">
                     Jogos
                 </div>
-                <a href="">
+                <a href="" class="a_nav">
                     <div class="seta_body color_96f">
                         <div class="seta down_seta"></div>
                     </div>
@@ -46,14 +46,14 @@
                 <div class="menu_title_button">
                     Denúncias
                 </div>
-                <a href="">
+                <a href="" class="a_nav">
                     <div class="seta_body color_96f">
                         <div class="seta down_seta"></div>
                     </div>
                 </a>
             </div>
             <div class="menu_show">
-            <a href="">
+            <a href="" class="a_nav">
                 <div class="seta_body ">
                     <div class="seta down_seta"></div>
                 </div>
@@ -76,9 +76,13 @@
                     </div>
                 </div>
                 <div class="area_list_info_2">
-                    <div class="button_a button_int">
-                        <div class="img_"></div>
-                    </div>
+                    <nav>
+                        <a href="" class="a_nav">
+                            <div class="button_a button_int">
+                                <div class="img_"></div>
+                            </div>
+                        </a>
+                    </nav>
                     <div class="button_b button_int">
                         <div class="img_"></div>
                     </div>
@@ -89,5 +93,9 @@
             </div>
         </div>
     </main>
+    <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
+    <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/all_R/script.js">
+    </script>
 </body>
 </html>

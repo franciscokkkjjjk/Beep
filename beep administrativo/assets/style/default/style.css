@@ -4,6 +4,11 @@ body {
     font-family: 'Roboto';
     background-color: #585858 !important;
 }
+.a_nav {
+    width: auto;
+    height: auto;
+    display: block;
+}
 :focus-visible {
     box-shadow: 0px 0px 7px 4px #00adb9;
     outline: #00adb9 solid 2px;
