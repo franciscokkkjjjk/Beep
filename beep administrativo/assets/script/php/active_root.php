@@ -5,7 +5,18 @@
     $senha2 = mysqli_escape_string($conexao, $_POST['senha--root_c']);
     if($senha1 == $senha2) {
         $senha1 = password_hash($senha1, PASSWORD_DEFAULT);
-        $sql_redifine = 'UPDATE adms SET senha=';
+        $sql_redefine = "UPDATE adms SET senha='" . $senha1 . "', ativo=1 WHERE id_adm=" . $_SESSION['id_root'];
+        $res_redefine = mysqli_query($conexao, $sql_redefine);
+        if($res_redefine) {
+            unset($_SESSION['ative']);
+            header('location: ../../../');
+            die;
+        } else {
+            $_SESSION['error_pass'] = true;
+            $_SESSION['mensagem'] = 'Erro ao criar uma senha.';
+            header('location: ../../../');
+            die;
+        }
     } else {
         $_SESSION['error_pass'] = true;
         $_SESSION['mensagem'] = 'Senhas diferentes.';
