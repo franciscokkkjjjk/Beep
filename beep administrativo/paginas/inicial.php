@@ -36,27 +36,21 @@
                 <div class="menu_title_button">
                     Jogos
                 </div>
-                <a href="" class="a_nav">
-                    <div class="seta_body color_96f">
+                <a href="" class="a_nav seta_body color_96f">
                         <div class="seta down_seta"></div>
-                    </div>
                 </a>
             </div>
             <div class="menu_usuarios_area body_button_menu">
                 <div class="menu_title_button">
                     Denúncias
                 </div>
-                <a href="" class="a_nav">
-                    <div class="seta_body color_96f">
+                <a href="" class="a_nav seta_body color_96f">
                         <div class="seta down_seta"></div>
-                    </div>
                 </a>
             </div>
             <div class="menu_show">
-            <a href="" class="a_nav">
-                <div class="seta_body ">
+            <a href="" class="a_nav seta_body">
                     <div class="seta down_seta"></div>
-                </div>
             </a>
                 <div class="menu_area"></div>
             </div>
@@ -77,18 +71,21 @@
                 </div>
                 <div class="area_list_info_2">
                     <nav>
-                        <a href="" class="a_nav">
-                            <div class="button_a button_int">
+                        <a href="" class="a_nav button_a button_int">
                                 <div class="img_"></div>
+                        </a>
+                    </nav>
+                    <nav>
+                        <a href="" class="a_nav button_b button_int">
+                            <div class="img_"></div>
+                        </a>
+                    </nav>
+                    <nav>
+                        <a href="" class="a_nav button_c button_int">
+                            <div class=" img_">
                             </div>
                         </a>
                     </nav>
-                    <div class="button_b button_int">
-                        <div class="img_"></div>
-                    </div>
-                    <div class="button_c button_int">
-                        <div class="img_"></div>
-                    </div>
                 </div>
             </div>
         </div>
