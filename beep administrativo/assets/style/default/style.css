@@ -144,6 +144,9 @@ header {
     align-items: center;
     justify-content: center;
 }
+.b_color {
+    background-color: #4b4a4a;
+}
 .button_a {
     background-color: #5dff56c4;
 }
@@ -156,5 +159,17 @@ header {
     background-size: contain;
 }
 .button_b {
+    margin-left: 10px;
     background-color: #ff5454;
+}
+.button_b .img_ {
+    background-image: url(../../../../assets/imgs/default/remove.png);
+}
+.button_c {
+    background-color: #ffe554;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+.button_c .img_ {
+    background-image: url(../../../../assets/imgs/default/generic_lupa_black.png);
 }
