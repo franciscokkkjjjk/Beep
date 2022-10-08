@@ -10,6 +10,7 @@ async function so_game() {
         creat_list(res[i], 'games', null, aux); 
     e++;
     }
+    document.querySelector('.list_area').style.display = 'none';
     console.log(e);
 }
 function creat_list(list, img_dir, url_reqs, aux) {
@@ -19,12 +20,15 @@ function creat_list(list, img_dir, url_reqs, aux) {
     } else {
         list_clone.style.backgroundColor = '';
     }
+        list_clone.querySelectorAll('.event').forEach((e) => {
+            e.remove();
+        });
         list_clone.querySelector('.list_img').style.backgroundImage = `url(../../assets/imgs/${img_dir}/${list.img})`
         list_clone.querySelector('.list_title').innerHTML = list.title;
         list_clone.querySelector('.button_a').onclick = async (e)=>{
             e.preventDefault();
             if(url_reqs != null) {
-                let req = await fetch(url_reqs[0]);
+                let req = await fetch(url_reqs[0]+list.id);
                 let res = await req.json();
                 alert_mensage(res)
             }
@@ -32,7 +36,7 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.button_b').onclick = async (e)=>{
             e.preventDefault();
             if(url_reqs != null) {
-                let req = await fetch(url_reqs[1]);
+                let req = await fetch(url_reqs[1]+list.id);
                 let res = await req.json();
                 alert_mensage(res)
             }
@@ -40,11 +44,10 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.button_c').onclick = async (e)=>{
             e.preventDefault(); 
             if(url_reqs != null) {
-                let req = await fetch(url_reqs[2]);
+                let req = await fetch(url_reqs[2]+list.id);
                 let res = await req.json();
                 alert_mensage(res)
             }
-
         }
     document.querySelector('.corpo_list').append(list_clone);
 }

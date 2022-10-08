@@ -64,9 +64,10 @@
             <div class="list_area">
                 <div class="area_list_info_1">
                     <div class="list_img">
+                        <div class="event"></div>
                     </div>
                     <div class="list_title">
-                        Red Dead Redempition
+                        <div class="event"></div>
                     </div>
                 </div>
                 <div class="area_list_info_2">

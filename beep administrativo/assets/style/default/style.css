@@ -123,7 +123,6 @@ header {
 .list_img {
     width: 50px;
     height: 50px;
-    background-image: url(../../../../assets/imgs/games/r.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -180,4 +179,24 @@ header {
 }
 .button_c .img_ {
     background-image: url(../../../../assets/imgs/default/generic_lupa_black.png);
+}
+.min-event {
+    width: 20px!important;
+    height: 20px!important;
+}
+.event-block {
+    display: inline-block;
+}
+.event { /*Bolinha de carregamento*/
+    width: 30px;
+    height: 30px ;
+    border: 3px solid #545454;
+    border-left-color:#53ffff ;
+    border-radius: 100%;
+    animation: 1s loading linear infinite;
+}
+@keyframes loading {
+    to {
+        transform: rotate(360deg);
+    }
 }
