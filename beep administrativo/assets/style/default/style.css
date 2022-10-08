@@ -109,7 +109,8 @@ header {
     flex-direction: column;
 }
 .list_area {
-    width: 100%;
+    width: 99.5%;
+    margin-left: 0.5%;
     height: 50px;
     display: flex;
     justify-content: space-between;
@@ -125,6 +126,8 @@ header {
     background-image: url(../../../../assets/imgs/games/r.png);
     background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
+    background-color: #202020;
     border-left-color:#00eeff ;
     border-left-style: solid;
     border-left-width:5px ;

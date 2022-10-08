@@ -11,7 +11,9 @@
         foreach($all_game_l as $v) {
             $json[] = [
                 'erro' => false,
-                '' 
+                'id' => $v['id_solicita'],
+                'title' =>  $v['nome_jogo'],
+                'img' => $v['img_jogo'],
             ];
 
         }

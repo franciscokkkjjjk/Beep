@@ -27,10 +27,10 @@
         }
         if($up) {
             if(move_uploaded_file($_FILES['img_input_s']['tmp_name'], $local . $novoNome)) {
-                $name = addslashes($_POST['name_input_s']);
-                $desc = addslashes($_POST['des_cap_solicita']);
-                $loja = addslashes($_POST['name_loja_cap_solicita']);
-                $linkLoja = addslashes($_POST['name_link_cap_solicita']);
+                $name = mysqli_escape_string($conexao,  $_POST['name_input_s']);
+                $desc = mysqli_escape_string($conexao,  $_POST['des_cap_solicita']);
+                $loja = mysqli_escape_string($conexao, $_POST['name_loja_cap_solicita']);
+                $linkLoja = mysqli_escape_string($conexao, $_POST['name_link_cap_solicita']);
                 if(isset($_POST['checkBox'])) {
                     $check = true;
                 } else {
