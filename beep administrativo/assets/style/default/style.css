@@ -88,3 +88,6 @@ header {
 .menu_show .seta_body {
     background-color: #000;
 }
+.menu_show .seta_body:hover {
+    background-color: #4d4d4d;
+}
