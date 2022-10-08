@@ -29,6 +29,8 @@
     <title>Inicial | Beep Administrativo</title>
 </head>
 <body>
-    
+    <header>
+        <div class="log_beep"></div>
+    </header>
 </body>
 </html>
