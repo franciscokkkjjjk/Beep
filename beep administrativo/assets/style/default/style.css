@@ -92,5 +92,69 @@ header {
 .menu_show .seta_body:hover {
     background-color: #4d4d4d;
 }
-body {
+.title_main {
+    font-size: 25px;
+    color: #f0f0f0;
+    margin-left: 8%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.corpo_list {
+    display: flex;
+    flex-direction: column;
+}
+.list_area {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #3b3b3b;
+}
+.area_list_info_1 {
+    display: flex;
+    flex-direction: row;
+}
+.list_img {
+    width: 50px;
+    height: 50px;
+    background-image: url(../../../../assets/imgs/games/r.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-left-color:#00eeff ;
+    border-left-style: solid;
+    border-left-width:5px ;
+}
+.list_title {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    color: #fff;
+}
+.area_list_info_2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.button_int {
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button_a {
+    background-color: #5dff56c4;
+}
+.button_a .img_ {
+    background-image: url(../../../../assets/imgs/default/aceitar.png);
+}
+.img_ {
+    width: 50%;
+    height: 50%;
+    background-size: contain;
+}
+.button_b {
+    background-color: #ff5454;
 }
