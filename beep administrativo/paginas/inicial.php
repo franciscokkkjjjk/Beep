@@ -33,11 +33,11 @@
         <div class="event_modal_confirm"></div>
         <div class="modal_">    
             <div class="modal_mensage">
-
+                Você realmente quer adicionar o jogo sem nenhuma verificação?
             </div>
             <div class="modal_buttons">
                 <div class="confirm_modal">
-
+                    
                 </div>
                 <div class="reject_modal">
                     

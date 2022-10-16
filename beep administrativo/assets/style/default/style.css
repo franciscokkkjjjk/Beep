@@ -236,3 +236,7 @@ header {
     width: 80%;
     z-index: 998;
 }
+.modal_ {
+    display: flex;
+    flex-direction: column;
+}
