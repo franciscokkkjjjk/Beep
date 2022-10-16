@@ -29,6 +29,22 @@
     <title>Inicial | Beep Administrativo</title>
 </head>
 <body>
+<div class="modal_confirm">
+        <div class="event_modal_confirm"></div>
+        <div class="modal_">    
+            <div class="modal_mensage">
+
+            </div>
+            <div class="modal_buttons">
+                <div class="confirm_modal">
+
+                </div>
+                <div class="reject_modal">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     <header>
         <div class="logo_beep"></div>
         <div class="menu_name_root">
@@ -60,7 +76,7 @@
         <div class="title_main">
             Jogos
         </div>
-        <div class="corpo_list">
+        <div class="corpo_list feed-area">
             <div class="list_area">
                 <div class="area_list_info_1">
                     <div class="list_img">
@@ -91,6 +107,7 @@
             </div>
         </div>
     </main>
+   
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js">

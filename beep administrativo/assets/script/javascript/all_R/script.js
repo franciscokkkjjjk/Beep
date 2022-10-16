@@ -2,17 +2,23 @@ async function so_game() {
     let req = await fetch('../assets/script/php/requisicoes/game_solic.php');
     let res = await req.json();
     let e = 1;
+    
     for(var i in res) {
         let aux = false;
         if(e % 2 == 0){
              aux = true;
         }
-        creat_list(res[i], 'games', null, aux); 
+        let urls = [
+            '../assets/script/php/solicitacao_jogos/adicionar_jogos.php?id_jogos=',
+            '../assets/script/php/solicitacao_jogos/reje_jogos.php?id_jogos='
+        ];
+        creat_list(res[i], 'games', urls, aux); 
     e++;
     }
     document.querySelector('.list_area').style.display = 'none';
     console.log(e);
 }
+// creat_list(lista de coisas, diretorio da imagem, url da requisicao, define dois tipos de cores);
 function creat_list(list, img_dir, url_reqs, aux) {
     let list_clone = document.querySelector('.list_area').cloneNode(true);
     if(aux) {
