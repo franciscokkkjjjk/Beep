@@ -9,10 +9,10 @@ if(isset($_GET['id_game'])) {
        
         $json = [
             'id_game' => $assoc_['id_jogos'],
-            'nome_game' => utf8_encode($assoc_['nome_jogo']),
+            'nome_game' => $assoc_['nome_jogo'],
             'img_game' => $assoc_['img_jogo'],
-            'desc_jogo' =>  utf8_encode($assoc_['desc_jogo']),
-            'loja' => utf8_encode($assoc_['loja']),
+            'desc_jogo' =>  $assoc_['desc_jogo'],
+            'loja' => $assoc_['loja'],
             'class_etaria' => $assoc_['class_etaria']
         ];
         echo json_encode($json);
