@@ -239,4 +239,38 @@ header {
 .modal_ {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+
+}
+.modal_mensage {
+    color: #FFF;
+    padding: 15px 0px;
+    font-size: 16px;
+    margin-left: 5%;
+}
+.modal_buttons {
+    margin-bottom: -20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.confirm_modal::before {
+    content: 'Sim';
+    color: #fff;
+}
+.confirm_modal {
+    background-color: #8b1c00;
+    padding:  1% 3%;
+    border-radius: 10px;
+}
+.reject_modal::before {
+    content: 'Não';
+    color: #fff;
+}
+.reject_modal {
+    background-color: #338b00;
+    padding: 1% 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
 }
