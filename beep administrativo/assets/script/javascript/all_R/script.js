@@ -1,3 +1,5 @@
+let modal_ = document.querySelector('.modal_confirm');
+modal_ = modal_.cloneNode(true);
 async function so_game() {
     let req = await fetch('../assets/script/php/requisicoes/game_solic.php');
     let res = await req.json();
@@ -9,9 +11,9 @@ async function so_game() {
              aux = true;
         }
         let urls = [
-            '../assets/script/php/solicitacao_jogos/adicionar_jogos.php?id_jogos=',
-            '../assets/script/php/solicitacao_jogos/reje_jogos.php?id_jogos=',
-            '../assets/script/php/requisicoes/game_completo.php?id_jogos='
+            '../assets/script/php/solicitacao_jogos/adicionar_jogos.php?id_game=',
+            '../assets/script/php/solicitacao_jogos/reje_jogos.php?id_game=',
+            '../assets/script/php/requisicoes/game_completo.php?id_game='
         ];
         creat_list(res[i], 'games', urls, aux); 
     e++;
@@ -35,9 +37,7 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.button_a').onclick = async (e)=>{
             e.preventDefault();
             if(url_reqs != null) {
-                let req = await fetch(url_reqs[0]+list.id);
-                let res = await req.json();
-                alert_mensage(res)
+                show_modal("Realmente quer adicionar esse jogo aos sistema sem verificação?", url_reqs[0]+list.id);
             }
         }
         list_clone.querySelector('.button_b').onclick = async (e)=>{
@@ -57,6 +57,33 @@ function creat_list(list, img_dir, url_reqs, aux) {
             }
         }
     document.querySelector('.corpo_list').append(list_clone);
+}
+function show_modal(mensage, url_req) { 
+    modal_.querySelector('.modal_mensage').innerHTML = mensage;
+    modal_.querySelector('.confirm_modal').onclick = async (e)=>{
+        e.preventDefault();
+        if(url_req != null) {
+            let req = await fetch(url_req);
+            let res = await req.json();
+            alert_mensage(res)
+            modal_.style.opacity = '';
+            setTimeout(()=>{
+                modal_.remove();
+            }, 250)
+            e.onclick = '';
+        }
+    }
+    modal_.querySelector('.reject_modal').onclick = ()=>{
+        modal_.style.opacity = '';
+    setTimeout(()=>{
+        modal_.remove();
+    }, 250)
+    }
+    modal_.style.display = '';
+    setTimeout(()=>{
+        modal_.style.opacity = '1';
+    })
+    document.querySelector('.a_xd30').appendChild(modal_);
 }
 so_game();
 

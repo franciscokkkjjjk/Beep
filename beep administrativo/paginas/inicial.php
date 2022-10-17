@@ -29,22 +29,24 @@
     <title>Inicial | Beep Administrativo</title>
 </head>
 <body>
-<div class="modal_confirm">
-        <div class="event_modal_confirm"></div>
-        <div class="modal_">    
-            <div class="modal_mensage">
-                Você realmente quer adicionar o jogo sem nenhuma verificação?
-            </div>
-            <div class="modal_buttons">
-                <div class="confirm_modal">
-                    
+<div class="a_xd30">
+    <div class="modal_confirm" style="display: none;">
+            <div class="event_modal_confirm"></div>
+            <div class="modal_">    
+                <div class="modal_mensage">
+                    Você realmente quer adicionar o jogo sem nenhuma verificação?
                 </div>
-                <div class="reject_modal">
-                    
+                <div class="modal_buttons">
+                    <div class="confirm_modal">
+                        
+                    </div>
+                    <div class="reject_modal">
+                        
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
+</div>
     <header>
         <div class="logo_beep"></div>
         <div class="menu_name_root">

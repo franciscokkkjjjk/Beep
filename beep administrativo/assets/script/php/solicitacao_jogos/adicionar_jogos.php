@@ -1,6 +1,6 @@
 <?php
 $json = [
     'error' => false,
-    'mensage' => "esse é foda"
+    'mensage' => $_GET['id_game']
 ];
 echo json_encode($json);

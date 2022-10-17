@@ -217,6 +217,8 @@ header {
     width: 100vw;
     height: 100vh;
     display: flex;
+    opacity: 0;
+    transition: all ease 0.25s;
     align-items: center;
 }
 .event_modal_confirm {
