@@ -11,9 +11,9 @@ async function so_game() {
              aux = true;
         }
         let urls = [
-            '../assets/script/php/solicitacao_jogos/adicionar_jogos.php?id_game=',
-            '../assets/script/php/solicitacao_jogos/reje_jogos.php?id_game=',
-            '../assets/script/php/requisicoes/game_completo.php?id_game='
+            '../assets/script/php/solicitacao_jogos/adicionar_jogos.php',
+            '../assets/script/php/solicitacao_jogos/reje_jogos.php',
+            '../assets/script/php/requisicoes/game_completo.php'
         ];
         creat_list(res[i], 'games', urls, aux); 
     e++;
@@ -37,13 +37,13 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.button_a').onclick = async (e)=>{
             e.preventDefault();
             if(url_reqs != null) {
-                show_modal("Realmente quer adicionar esse jogo aos sistema sem verificação?", url_reqs[0]+list.id);
+                show_modal("Realmente quer adicionar esse jogo aos sistema sem verificação?", url_reqs[0], list.id);
             }
         }
         list_clone.querySelector('.button_b').onclick = async (e)=>{
             e.preventDefault();
             if(url_reqs != null) {
-                let req = await fetch(url_reqs[1]+list.id);
+                let req = await fetch(url_reqs[1], list.id);
                 let res = await req.json();
                 alert_mensage(res)
             }
@@ -58,11 +58,16 @@ function creat_list(list, img_dir, url_reqs, aux) {
         }
     document.querySelector('.corpo_list').append(list_clone);
 }
-function show_modal(mensage, url_req) { 
+function show_modal(mensage, url_req, value) { 
     modal_.querySelector('.modal_mensage').innerHTML = mensage;
     modal_.querySelector('.confirm_modal').onclick = async (e)=>{
         e.preventDefault();
         if(url_req != null) {
+            let form = document.createElement('form');
+            let input = document.createElement('input');
+            input.setAttribute('name', 'p_adm305');
+            input.setAttribute('value', value)
+            form.appendChild(input);
             let req = await fetch(url_req);
             let res = await req.json();
             alert_mensage(res)
