@@ -59,17 +59,22 @@ function creat_list(list, img_dir, url_reqs, aux) {
     document.querySelector('.corpo_list').append(list_clone);
 }
 function show_modal(mensage, url_req, value) { 
-    modal_.querySelector('.modal_mensage').innerHTML = mensage;
+    modal_.querySelector('.modal_mensage').textContent = mensage;
     modal_.querySelector('.confirm_modal').onclick = async (e)=>{
         e.preventDefault();
         if(url_req != null) {
             let form = document.createElement('form');
-            let input = document.createElement('input');
+            const input = document.createElement('input');
             input.setAttribute('name', 'p_adm305');
-            input.setAttribute('value', value)
+            input.setAttribute('value', value);
             form.appendChild(input);
-            let req = await fetch(url_req);
+            form = new FormData(form);
+            let req = await fetch(url_req, {
+                method: "POST",
+                body: form,
+            });
             let res = await req.json();
+            console.log(res);
             alert_mensage(res)
             modal_.style.opacity = '';
             setTimeout(()=>{
