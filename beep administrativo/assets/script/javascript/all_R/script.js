@@ -2,7 +2,7 @@ async function so_game() {
     let req = await fetch('../assets/script/php/requisicoes/game_solic.php');
     let res = await req.json();
     let e = 1;
-    
+
     for(var i in res) {
         let aux = false;
         if(e % 2 == 0){
@@ -10,7 +10,8 @@ async function so_game() {
         }
         let urls = [
             '../assets/script/php/solicitacao_jogos/adicionar_jogos.php?id_jogos=',
-            '../assets/script/php/solicitacao_jogos/reje_jogos.php?id_jogos='
+            '../assets/script/php/solicitacao_jogos/reje_jogos.php?id_jogos=',
+            '../assets/script/php/requisicoes/game_completo.php?id_jogos='
         ];
         creat_list(res[i], 'games', urls, aux); 
     e++;
