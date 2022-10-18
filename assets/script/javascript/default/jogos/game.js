@@ -53,6 +53,8 @@ async function show_game(json, button) {//mostra informações completa de um de
         m_.querySelector('.loja_game').innerHTML = '';
         m_.querySelector('.loja_game').appendChild(creat_event02);
         m_.querySelector('.modal_game').style.marginTop = '58%';
+        document.querySelector('html').style.overflow = '';
+
         setTimeout(()=>{
             m_.style.display = 'none';
         }, 100)

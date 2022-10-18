@@ -18,7 +18,7 @@ require $d.'PHPMailer-master/src/SMTP.php';
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'luis.2020316527@aluno.iffar.edu.br';
+        $mail->Username = 'luis.2020316527@aluno.iffar.edu.br';//mudar para o email da beep
         $mail->Password = 'tfpdfidrjocetasu';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;

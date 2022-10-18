@@ -12,7 +12,7 @@
     }
     $json = array();
 
-    $limit = 4;
+    $limit = 40;//mudar isso ai kkkkkkkkkkkkkkkkkkk
     $offset = $limit * ($pag - 1);
     
     $sql_game = "SELECT * FROM jogos LIMIT $limit OFFSET $offset";
