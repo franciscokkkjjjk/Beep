@@ -81,7 +81,9 @@ function show_modal(mensage, url_req, value, event) {
                 modal_.remove();
             }, 250)
             e.onclick = '';
-            event.remove();
+            if((res.error != undefined) && res.error == false) { 
+                event.remove();
+            }
         }
     }
     modal_.querySelector('.reject_modal').onclick = ()=>{
