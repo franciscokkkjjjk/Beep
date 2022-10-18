@@ -12,7 +12,7 @@ if(isset($_POST['p_adm305'])) {
         if(is_null($array_solic)) {
             $json = [
                 'error' => true,
-                'mensage' =>'A solicitação não existe ou já foi aprovada/rejeitada por outro administrador.'
+                'mensage' =>'A solicitação não existe ou já foi aprovada/rejeitada.'
             ];
         } else {
             $id_user = $array_solic['id_user_solicita'];

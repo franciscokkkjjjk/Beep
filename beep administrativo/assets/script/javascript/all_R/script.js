@@ -37,7 +37,7 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.button_a').onclick = async (e)=>{
             e.preventDefault();
             if(url_reqs != null) {
-                show_modal("Realmente quer adicionar esse jogo aos sistema sem verificação?", url_reqs[0], list.id);
+                show_modal("Realmente quer adicionar esse jogo aos sistema sem verificação?", url_reqs[0], list.id, list_clone);
             }
         }
         list_clone.querySelector('.button_b').onclick = async (e)=>{
@@ -58,7 +58,7 @@ function creat_list(list, img_dir, url_reqs, aux) {
         }
     document.querySelector('.corpo_list').append(list_clone);
 }
-function show_modal(mensage, url_req, value) { 
+function show_modal(mensage, url_req, value, event) { 
     modal_.querySelector('.modal_mensage').textContent = mensage;
     modal_.querySelector('.confirm_modal').onclick = async (e)=>{
         e.preventDefault();
@@ -81,6 +81,7 @@ function show_modal(mensage, url_req, value) {
                 modal_.remove();
             }, 250)
             e.onclick = '';
+            event.remove();
         }
     }
     modal_.querySelector('.reject_modal').onclick = ()=>{
