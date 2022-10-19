@@ -29,6 +29,9 @@
     <title>Inicial | Beep Administrativo</title>
 </head>
 <body>
+    <div class="loading">
+        <div class="img_lo"></div>
+    </div>
 <div class="a_xd30">
     <div class="modal_confirm" style="display: none;">
             <div class="event_modal_confirm"></div>
@@ -87,7 +90,7 @@
                 <div class="buttons_area">
                     <div class="buttons_acpt button_a buttons_d border_c"></div>
                     <div class="buttons_rej button_b buttons_d  border_c"></div>
-                    <div class="buttons_edit button_b buttons_d border_c"></div>
+                    <div class="buttons_edit button_d buttons_d border_c"></div>
                 </div>
             </div>
             <div class="info_cont">

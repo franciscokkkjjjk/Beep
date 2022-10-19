@@ -381,3 +381,20 @@ main .container {
 .conteudo_C {
     margin: 0px 19px 30px 2px;
 }
+.loading {
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img_lo {
+    width: calc(100vh / 3);
+    height: calc(100vh /3);
+    background-image: url(../../../../assets/imgs/default/Beep_logo_white.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}

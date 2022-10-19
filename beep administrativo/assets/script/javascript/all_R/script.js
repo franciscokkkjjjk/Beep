@@ -66,12 +66,8 @@ function show_modal(mensage, url_req, value, event) {
     modal_.querySelector('.confirm_modal').onclick = async (e)=>{
         e.preventDefault();
         if(url_req != null) {
-            let form = document.createElement('form');
-            const input = document.createElement('input');
-            input.setAttribute('name', 'p_adm305');
-            input.setAttribute('value', value);
-            form.appendChild(input);
-            form = new FormData(form);
+            let form = new FormData();
+            form.append('p_adm305', value)
             let req = await fetch(url_req, {
                 method: "POST",
                 body: form,
