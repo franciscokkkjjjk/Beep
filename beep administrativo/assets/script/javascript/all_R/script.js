@@ -43,9 +43,7 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.button_b').onclick = async (e)=>{
             e.preventDefault();
             if(url_reqs != null) {
-                let req = await fetch(url_reqs[1], list.id);
-                let res = await req.json();
-                alert_mensage(res)
+                show_modal("Realmente quer adicionar esse jogo aos sistema sem verificação?", url_reqs[1], list.id, list_clone);
             }
             }
         list_clone.querySelector('.button_c').onclick = async (e)=>{
