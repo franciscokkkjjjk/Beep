@@ -58,7 +58,7 @@
                         </div>
                 </div>
             </a>
-            <div class="menu_usuarios_area body_button_menu">
+            <div class="menu_usuarios_area body_button_menu feed-area">
                 <div class="menu_title_button">
                     Denúncias
                 </div>
