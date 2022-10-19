@@ -75,45 +75,12 @@
         </div>
     </header>
     <main>
-        <div class="title_main">
-            Jogos
-        </div>
-        <div class="corpo_list feed-area">
-            <div class="list_area">
-                <div class="area_list_info_1">
-                    <div class="list_img">
-                        <div class="event"></div>
-                    </div>
-                    <div class="list_title">
-                        <div class="event"></div>
-                    </div>
-                </div>
-                <div class="area_list_info_2">
-                    <nav>
-                        <a href="" class="a_nav button_a button_int">
-                                <div class="img_"></div>
-                        </a>
-                    </nav>
-                    <nav>
-                        <a href="" class="a_nav button_b button_int">
-                            <div class="img_"></div>
-                        </a>
-                    </nav>
-                    <nav>
-                        <a href="" class="a_nav button_c button_int">
-                            <div class=" img_">
-                            </div>
-                        </a>
-                    </nav>
-                </div>
-            </div>
-        </div>
+      
     </main>
    
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
-    <script type="text/javascript" src="../assets/script/javascript/inicial/script.js"></script>
-    </script>
+    <script type="text/javascript" src="../assets/script/javascript/visualizar/script.js"></script>
 </body>
 </html>

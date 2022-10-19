@@ -1,5 +1,8 @@
 let modal_ = document.querySelector('.modal_confirm');
 modal_ = modal_.cloneNode(true);
+if(window.localStorage.length > 4) {
+    window.localStorage.clear();
+}
 async function so_game() {
     let req = await fetch('../assets/script/php/requisicoes/game_solic.php');
     let res = await req.json();
@@ -13,7 +16,6 @@ async function so_game() {
         let urls = [
             '../assets/script/php/solicitacao_jogos/adicionar_jogos.php',
             '../assets/script/php/solicitacao_jogos/reje_jogos.php',
-            '../assets/script/php/requisicoes/game_completo.php'
         ];
         creat_list(res[i], 'games', urls, aux); 
     e++;
@@ -49,13 +51,13 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.button_c').onclick = async (e)=>{
             e.preventDefault(); 
             if(url_reqs != null) {
-                let req = await fetch(url_reqs[2]+list.id);
-                let res = await req.json();
-                alert_mensage(res)
+                window.localStorage.setItem('id_solici', list.id);
+                window.location.href = 'visualizar.php';
             }
         }
     document.querySelector('.corpo_list').append(list_clone);
 }
+
 function show_modal(mensage, url_req, value, event) { 
     modal_.querySelector('.modal_mensage').textContent = mensage;
     modal_.querySelector('.confirm_modal').onclick = async (e)=>{
@@ -96,7 +98,7 @@ function show_modal(mensage, url_req, value, event) {
     })
     document.querySelector('.a_xd30').appendChild(modal_);
 }
-so_game();
+
 
 //  <div class="corpo_list">
 //             <div class="list_area">
