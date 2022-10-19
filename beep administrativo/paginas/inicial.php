@@ -54,7 +54,7 @@
                 <div class="menu_title_button">
                     Jogos
                 </div>
-                <a href="" class="a_nav seta_body color_96f">
+                <a href="" class="a_nav seta_body">
                         <div class="seta down_seta"></div>
                 </a>
             </div>
@@ -62,7 +62,7 @@
                 <div class="menu_title_button">
                     Denúncias
                 </div>
-                <a href="" class="a_nav seta_body color_96f">
+                <a href="" class="a_nav seta_body">
                         <div class="seta down_seta"></div>
                 </a>
             </div>

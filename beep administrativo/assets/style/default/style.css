@@ -15,7 +15,7 @@ body {
     border-radius: 5px;
 }
 header {
-    background-color: #a7f9ff;
+    background-color: #5b5b5b;
     width: 100vw;
     height: 55px;
     display: flex;
@@ -42,8 +42,9 @@ header {
 }
 
 .body_button_menu {
-    background-color: #00eeff;
+    background-color: #4e4d4d;
     height: 100%;
+    color: #d5d5d5;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -52,7 +53,7 @@ header {
     margin-left: 5px;
 }
 .body_button_menu:hover {
-    background-color:#02d3e2 ;
+    background-color:#424242 ;
     cursor: pointer;
     transition: all linear 0.25s;
 }
@@ -65,13 +66,15 @@ header {
     align-items: center;
     justify-content: center;
 }
-.color_96f {
-    background-color: #96f8ff;
-}
+
 .seta_body:hover {
     cursor: pointer;
-    background-color: #424242;    
+    background-color: #252525;    
     transition: all linear 0.2s;
+}
+.body_button_menu .seta {
+    border-left-color:#ffffff ;
+    border-bottom-color:#ffffff ;
 }
 .seta {
     margin-top: -5px;
@@ -90,9 +93,6 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.menu_show .seta_body {
-    background-color: #000;
 }
 .menu_show .seta_body:hover {
     background-color: #4d4d4d;
@@ -233,7 +233,8 @@ header {
     border-radius: 5px;
     background-color: #313131;
     box-shadow: 0px 0px 7px 3px #464646f6;
-    min-height: 30%;
+    height: auto;
+    padding: 10px 0px;
     margin: auto;
     width: 80%;
     z-index: 998;
@@ -251,7 +252,6 @@ header {
     margin-left: 5%;
 }
 .modal_buttons {
-    margin-bottom: -20px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
