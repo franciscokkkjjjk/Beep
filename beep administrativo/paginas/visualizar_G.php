@@ -75,7 +75,49 @@
         </div>
     </header>
     <main>
-      
+      <div class="container">
+            <div class="title_solicitacao">
+                Beep testes
+            </div>
+            <div class="conteudo_b_I">
+                <div class="img_area">
+                    <img src="../../assets/imgs/games/a3e4873d56e7515f234696440f73cd0946d9e7dd.png">
+                </div>
+                <div class="buttons_area">
+                    
+                </div>
+            </div>
+            <div class="info_cont">
+                <div class="C_1">
+                    <div class="descricao_game conteudo_C">
+                        <div class="title_C">Teste D</div>
+                        <div class="text_C">
+                            ....
+                        </div>
+                    </div>
+                    <div class="lojas_game conteudo_C">
+                        <div class="title_C">Teste D</div>
+                        <div class="text_C">
+                            ....
+                        </div>
+                    </div>
+                </div>
+                <div class="C_1">
+                <div class="quem_game conteudo_C">
+                        <div class="title_C">Teste D</div>
+                        <div class="text_C">
+                            ....
+                        </div>
+                    </div>
+                    <div class="not_game conteudo_C">
+                        <div class="title_C">Teste D</div>
+                        <div class="text_C">
+                            true
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
     </main>
    
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>

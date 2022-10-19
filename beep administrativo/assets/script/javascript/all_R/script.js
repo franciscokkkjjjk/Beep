@@ -51,8 +51,8 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.button_c').onclick = async (e)=>{
             e.preventDefault(); 
             if(url_reqs != null) {
-                window.localStorage.setItem('id_solici', list.id);
-                window.location.href = 'visualizar.php';
+                window.sessionStorage.setItem('x5edS', list.id);
+                window.location.href = 'visualizar_G.php';
             }
         }
     document.querySelector('.corpo_list').append(list_clone);
