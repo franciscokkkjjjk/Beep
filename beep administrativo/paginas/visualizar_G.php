@@ -48,16 +48,16 @@
     </div>
 </div>
     <header>
+      <div class="container row">
         <div class="logo_beep"></div>
         <div class="menu_name_root">
-            <div class="menu_jogos_area body_button_menu">
-                <div class="menu_title_button">
-                    Jogos
+            <a href="inicial.php" class="a_nav">
+                <div class="menu_jogos_area body_button_menu">
+                        <div class="menu_title_button">
+                            Jogos
+                        </div>
                 </div>
-                <a href="" class="a_nav seta_body">
-                        <div class="seta down_seta"></div>
-                </a>
-            </div>
+            </a>
             <div class="menu_usuarios_area body_button_menu">
                 <div class="menu_title_button">
                     Denúncias
@@ -73,18 +73,21 @@
                 <div class="menu_area"></div>
             </div>
         </div>
+      </div>
     </header>
     <main>
-      <div class="container">
+      <div class="container border_c">
             <div class="title_solicitacao">
                 Beep testes
             </div>
             <div class="conteudo_b_I">
                 <div class="img_area">
-                    <img src="../../assets/imgs/games/a3e4873d56e7515f234696440f73cd0946d9e7dd.png">
+                    <img src="../../assets/imgs/posts/62cb2ec3e077e.jpg">
                 </div>
                 <div class="buttons_area">
-                    
+                    <div class="buttons_acpt button_a buttons_d border_c"></div>
+                    <div class="buttons_rej button_b buttons_d  border_c"></div>
+                    <div class="buttons_edit button_b buttons_d border_c"></div>
                 </div>
             </div>
             <div class="info_cont">

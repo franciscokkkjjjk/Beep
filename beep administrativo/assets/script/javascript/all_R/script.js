@@ -52,6 +52,9 @@ function creat_list(list, img_dir, url_reqs, aux) {
             e.preventDefault(); 
             if(url_reqs != null) {
                 window.sessionStorage.setItem('x5edS', list.id);
+                if(window.sessionStorage.x5edP != undefined) {
+                    window.sessionStorage.removeItem('x5edP');
+                }
                 window.location.href = 'visualizar_G.php';
             }
         }
@@ -75,7 +78,7 @@ function show_modal(mensage, url_req, value, event) {
             });
             let res = await req.json();
             console.log(res);
-            alert_mensage(res)
+            alert_mensage(res);
             modal_.style.opacity = '';
             setTimeout(()=>{
                 modal_.remove();

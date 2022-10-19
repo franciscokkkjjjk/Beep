@@ -1,7 +1,7 @@
 <?php
 $json = [
     'error' => false,
-    'mensage' => 'esse é foda'
+    'mensage' => $_POST['x_25_SP']
 ];
 echo json_encode($json);
 ?>

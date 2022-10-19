@@ -47,17 +47,17 @@
             </div>
     </div>
 </div>
-    <header>
+ <header>
+      <div class="container row">
         <div class="logo_beep"></div>
         <div class="menu_name_root">
-            <div class="menu_jogos_area body_button_menu">
-                <div class="menu_title_button">
-                    Jogos
-                </div>
-                <a href="" class="a_nav seta_body">
-                        <div class="seta down_seta"></div>
+            <a href="inicial.php" class="a_nav">
+                    <div class="menu_jogos_area body_button_menu">
+                            <div class="menu_title_button">
+                                Jogos
+                            </div>
+                    </div>
                 </a>
-            </div>
             <div class="menu_usuarios_area body_button_menu">
                 <div class="menu_title_button">
                     Denúncias
@@ -73,40 +73,43 @@
                 <div class="menu_area"></div>
             </div>
         </div>
+      </div>
     </header>
     <main>
-        <div class="title_main">
-            Jogos
-        </div>
-        <div class="corpo_list feed-area">
-            <div class="list_area">
-                <div class="area_list_info_1">
-                    <div class="list_img">
-                        <div class="event"></div>
+        <div class="container"> 
+            <div class="title_main">
+                Jogos
+            </div>    
+            <div class="corpo_list feed-area">
+                <div class="list_area">
+                    <div class="area_list_info_1">
+                        <div class="list_img">
+                            <div class="event"></div>
+                        </div>
+                        <div class="list_title">
+                            <div class="event"></div>
+                        </div>
                     </div>
-                    <div class="list_title">
-                        <div class="event"></div>
-                    </div>
-                </div>
-                <div class="area_list_info_2">
-                    <nav>
-                        <a href="" class="a_nav button_a button_int">
+                    <div class="area_list_info_2">
+                        <nav>
+                            <a href="" class="a_nav button_a button_int">
+                                    <div class="img_"></div>
+                            </a>
+                        </nav>
+                        <nav>
+                            <a href="" class="a_nav button_b button_int">
                                 <div class="img_"></div>
-                        </a>
-                    </nav>
-                    <nav>
-                        <a href="" class="a_nav button_b button_int">
-                            <div class="img_"></div>
-                        </a>
-                    </nav>
-                    <nav>
-                        <a href="" class="a_nav button_c button_int">
-                            <div class=" img_">
-                            </div>
-                        </a>
-                    </nav>
+                            </a>
+                        </nav>
+                        <nav>
+                            <a href="" class="a_nav button_c button_int">
+                                <div class=" img_">
+                                </div>
+                            </a>
+                        </nav>
+                    </div>
                 </div>
-            </div>
+                </div>
         </div>
     </main>
    
