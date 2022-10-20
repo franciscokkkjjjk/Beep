@@ -14,12 +14,11 @@ input_ac(qs('.input_div_desc'), qs('.input_desc_solicita_area'));
     
     let input_h = qs('.hidden_iD').value.trim();
     let img_ = qs('.img_input_s').value;
-    if(input_h == '' || img_ == '')  {
+    if(input_h == '')  {
         e.preventDefault();
-        let alert__ = {
-            'error': true, 
-            'mensage': 'Imagem ou descrição faltando'
-        }
-       alert_mensage(alert__)
+        mensagem_element(qs('.input_div_desc'), "Por favor informe uma descrição.");
+    } if(img_ == '') {
+      e.preventDefault();
+      mensagem_element(qs('.add-imagem'), "Por favor adicione uma imagem.");
     }
  })

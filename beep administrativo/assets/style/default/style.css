@@ -398,6 +398,7 @@ main .container {
     background-size: contain;
     background-repeat: no-repeat;
 }
+/* essencial para o mensagem_element */
 .error_custom {
     width: auto;
     height: auto;
@@ -406,8 +407,7 @@ main .container {
     color: #dddddd;
     position: absolute;
     padding: 15px;
-}
-.error_custom:after {
+}.error_custom:after {
     content: "";
     width: 0px;
     height: 0px;
