@@ -36,52 +36,9 @@
     <div class="loading">
         <div class="img_lo"></div>
     </div>
-    <div class="a_xd30">
-        <div class="modal_confirm" style="display: none;">
-            <div class="event_modal_confirm"></div>
-            <div class="modal_">
-                <div class="modal_mensage">
-                    Você realmente quer adicionar o jogo sem nenhuma verificação?
-                </div>
-                <div class="modal_buttons">
-                    <a href="" class="a_nav confirm_modal">
-
-                    </a>
-                    <a href="" class="a_nav reject_modal">
-
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <header>
-        <div class="container row">
-            <div class="logo_beep"></div>
-            <div class="menu_name_root">
-                <a href="inicial.php" class="a_nav">
-                    <div class="menu_jogos_area body_button_menu">
-                        <div class="menu_title_button">
-                            Jogos
-                        </div>
-                    </div>
-                </a>
-                <div class="menu_usuarios_area body_button_menu feed-area">
-                    <div class="menu_title_button">
-                        Denúncias
-                    </div>
-                    <a href="" class="a_nav seta_body">
-                        <div class="seta down_seta"></div>
-                    </a>
-                </div>
-                <div class="menu_show">
-                    <a href="" class="a_nav seta_body">
-                        <div class="seta down_seta"></div>
-                    </a>
-                    <div class="menu_area"></div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <?php 
+        require_once '../assets/script/php/generic_HTML/header_default.php';
+    ?> 
     <main>
         <div class="container border_c">
             <div class="title_solicitacao">
