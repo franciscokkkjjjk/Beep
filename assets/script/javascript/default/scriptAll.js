@@ -161,11 +161,29 @@ function input_ac(e, a) {
    })
    return;
 }
+
 function input_div_puts(input_div, input_hidden) {
-    input_div.addEventListener('blur', ()=>{  
-        let value_input = input_div.innerText;
+    input_div.addEventListener('blur', (e)=>{  
+        let value_input = e.target.innerText;
         console.log(value_input);
         input_hidden.value = value_input;
         console.log(value_input);
     })  
+}
+function mensagem_element(elementDom, mensagem) {
+    let area = document.createElement('div');
+    area.classList.add('error_custom');
+
+    area.textContent = mensagem;
+    let heightA = area.getBoundingClientRect().height;
+    const ele = elementDom.getBoundingClientRect();
+    const yE = ele.y;
+    const heightE = ele.height;
+    let scroll = window.scrollY;
+    const position = yE+scroll+heightE+10;
+    area.style.top = position+'px'; 
+    area.style.left = ele.left+'px'; 
+    
+    document.body.appendChild(area);
+    return ele;
 }

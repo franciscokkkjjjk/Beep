@@ -398,3 +398,24 @@ main .container {
     background-size: contain;
     background-repeat: no-repeat;
 }
+.error_custom {
+    width: auto;
+    height: auto;
+    border-radius: 3px;
+    background-color: #474747f5;
+    color: #dddddd;
+    position: absolute;
+    padding: 15px;
+}
+.error_custom:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left:15px solid transparent;
+    border-right:15px solid transparent;
+    border-top:15px solid transparent;
+    border-bottom: 15px solid #474747f3;
+    top: -30px;
+    left: 2px;
+}

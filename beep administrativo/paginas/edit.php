@@ -84,7 +84,7 @@
                                     </select>
                                 </label>
                             </div>
-                            <label class="inputdiv">
+                            <label class="inputdiv" id='inputdiv'>
                                 <div class="input_div_area desc_area">
                                         <div class="header_area_input">
                                             <span class="name">Descrição do jogo</span>
@@ -94,7 +94,7 @@
                                     <div class="input_div_desc" contenteditable="true"></div>
                                 </div>
                             </label>
-                            <input class="input_default" type="hidden" value="" class='hidden_iD'
+                            <input class="input_default hidden_iD" required type="hidden" value=""
                                 name="des_cap_solicita">
                             <div class="area_loja">
                             <label for="loja" class="input_div_area loja_area">
@@ -105,7 +105,7 @@
                                     </div>
                                 <input required class="input_default" id='loja' type="text" name="loja">
                             </label>
-                            <label for='l_loja' class="input_div_area">
+                            <label for='l_loja' class="input_div_area l_loja">
                                     <div class="header_area_input">
                                         <span class="name">Link da loja</span>
                                         <div class="number_v"><span class='user'>0</span><span
@@ -120,7 +120,9 @@
                 </div>
             </form>
         </div>
-
+        <div class="error_custom">
+            kkkkkkk to doido
+        </div>
     </main>
 
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
