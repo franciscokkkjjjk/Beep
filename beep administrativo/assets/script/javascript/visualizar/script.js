@@ -100,10 +100,15 @@ function creat_complete(json_list, url_req) {
     }
     if (info != undefined) {
         qs('.conteudo3 .title_C').textContent = 'Classificação indicativa:'
+        
     } else {
         qs('.conteudo3 .title_C').textContent = 'Jogo da publicação:'
     }
-    qs('.conteudo3 .text_C').textContent = json_list.conteudo3;
+    if(json_list.conteudo3 == 0) {
+     qs('.conteudo3 .text_C').textContent = 'L';
+    } else {
+        qs('.conteudo3 .text_C').textContent = json_list.conteudo3;
+    }
     if (info != undefined) {
         qs('.conteudo4 .title_C').textContent = 'Data de solicitação:'
 

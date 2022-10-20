@@ -31,24 +31,27 @@
     <link rel="stylesheet" href="../assets/style/edit/style.css">
     <title>Formulário de edição | Beep Administrativo</title>
 </head>
+
 <body>
+    <div class="loading">
+        <div class="img_lo"></div>
+    </div>
     <?php 
         require_once '../assets/script/php/generic_HTML/header_default.php';
     ?>
     <main>
         <div class="container">
-        <a class="back_p" href="visualizar_G.php"></a>   
+            <a class="back_p" href="visualizar_G.php"></a>
             <div class="title_main">
                 Formulário de edição
             </div>
             <form action="" method="" enctype="multipart/form-data">
-                <input type="hidden" name="x5Hidden" value="">
+                <input type="hidden" name="x5Hidden" class="x5Hidden" value="">
                 <div class="corpo_list feed-area">
                     <div class="body_area_f">
                         <div class="area_1">
                             <div class="img_area">
-                                <div class="img_"
-                                    >
+                                <div class="img_">
                                     <div class='img_edit_area'>
                                         <label for="img_edit">
                                             <div class="event_form_edit add_img"></div>
@@ -67,7 +70,8 @@
                                         <div class="number_v"><span class='user'>0</span><span
                                                 class='sistem'>/300</span></div>
                                     </div>
-                                    <input type="text" required value="" name="nome_j" id="nome_j" class="nome_j input_default">
+                                    <input type="text" required value="" name="nome_j" id="nome_j"
+                                        class="nome_j input_default">
                                 </label>
                                 <label for="cass_d" class="input_div_area cass_d">
                                     <div class="header_area_input">
@@ -87,35 +91,35 @@
                             </div>
                             <label class="inputdiv" id='inputdiv'>
                                 <div class="input_div_area desc_area">
-                                        <div class="header_area_input">
-                                            <span class="name">Descrição do jogo</span>
-                                            <div class="number_v"><span class='user'>0</span><span
-                                                    class='sistem'>/300</span></div>
-                                        </div>
+                                    <div class="header_area_input">
+                                        <span class="name">Descrição do jogo</span>
+                                        <div class="number_v"><span class='user'>0</span><span
+                                                class='sistem'>/300</span></div>
+                                    </div>
                                     <div class="input_div_desc" contenteditable="true">
 
                                     </div>
                                 </div>
                             </label>
-                            <input class="input_default hidden_iD"  type="hidden" value=""
-                                name="des_cap_solicita">
+                            <input class="input_default hidden_iD" type="hidden" value="" name="des_cap_solicita">
                             <div class="area_loja">
-                            <label for="loja" class="input_div_area loja_area">
+                                <label for="loja" class="input_div_area loja_area">
                                     <div class="header_area_input">
                                         <span class="name">Loja</span>
                                         <div class="number_v"><span class='user'>0</span><span
                                                 class='sistem'>/300</span></div>
                                     </div>
-                                <input value="" required class="input_default" id='loja' type="text" name="loja">
-                            </label>
-                            <label for='l_loja' class="input_div_area l_loja">
+                                    <input value="" required class="input_default" id='loja' type="text" name="loja">
+                                </label>
+                                <label for='l_loja' class="input_div_area l_loja">
                                     <div class="header_area_input">
                                         <span class="name">Link da loja</span>
                                         <div class="number_v"><span class='user'>0</span><span
                                                 class='sistem'>/300</span></div>
                                     </div>
-                                <input value="" class="input_default" required id='l_loja' type="text" name="loja_link">
-                            </label>
+                                    <input value="" class="input_default" required id='l_loja' type="text"
+                                        name="loja_link">
+                                </label>
                             </div>
                             <button type="submit">Enviar</button>
                         </div>

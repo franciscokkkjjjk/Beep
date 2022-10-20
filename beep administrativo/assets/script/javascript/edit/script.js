@@ -14,7 +14,7 @@ if (window.sessionStorage.x5edS == undefined) {
         let res_ = await req_.json();
         console.log(res_);
         alert_mensage(res_);
-        document.getElementsByName('x5Hidden').value = res_.id;
+        qs('.x5Hidden').value = res_.id;
         qs('.img_').style.backgroundImage = `url(../../assets/imgs/games/${res_.midia})`;
         qs('.nome_j').value = res_.title;
         let op = qs('select').options;
@@ -25,8 +25,11 @@ if (window.sessionStorage.x5edS == undefined) {
             }
         }
         qs('.input_div_desc').innerText = res_.conteudo1;
+        qs('.hidden_iD').value = res_.conteudo1;
         qs('#loja').value = res_.loja;
         qs('#l_loja').value = res_.link_l
+        qs('.loading').remove();
+
     }
     aux();
 }
