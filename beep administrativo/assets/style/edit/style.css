@@ -51,3 +51,81 @@
 .add_img {
     background-image: url(../../../../assets/imgs/default/add-photo.png);
 }
+.area_2 {
+    margin: auto;
+    width: 80%;
+    margin-top: 15px;
+}
+.area_loja {
+    display: flex;
+    flex-direction: row;
+}
+.nome_slec {
+    display: flex;
+    flex-direction: row;
+}
+.input_default {
+    width: 100%;
+    margin: auto;
+    flex: 1;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+
+}
+.input_default option {
+    background-color: #3f3f3f;
+}
+.header_area_input {
+    color: #919191;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 8px;    
+}
+.input_div_area {
+    flex: 1;
+    margin: 3px 5px;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #424242;
+    transition: all ease 0.25s;
+}
+.input_default:focus-visible {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+.input_div_desc:focus-visible {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.input_div_area span {
+    transition: all ease 0.25s;
+}
+.input_div_area:hover {
+    cursor: text;
+    transition: all linear 0.25s;
+
+}
+.right_input {
+    margin-left: 10px;
+}
+button {
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+    background-color: #55ffff;
+    border: none;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #44d3d3;
+    transition: all linear 0.25s;
+}
+.active--input {
+    box-shadow: 0px 0px 7px 3px #00adb9;
+}.color_font_input_act span{
+    color: #00adb9!important;
+}
