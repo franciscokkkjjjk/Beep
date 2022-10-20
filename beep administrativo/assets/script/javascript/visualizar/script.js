@@ -105,22 +105,22 @@ function creat_complete(json_list, url_req) {
     }
     qs('.conteudo3 .text_C').textContent = json_list.conteudo3;
     if (info != undefined) {
-        qs('.conteudo4 .title_C').textContent = 'Solicitou a notificação?:'
-        if (json_list.conteudo4) {
-            qs('.conteudo4 .text_C').textContent = 'Sim'
-        } else {
-            qs('.conteudo4 .text_C').textContent = 'Não'
-        }
-    } else {
-        //ainda pendente
-    }
-    if (info != undefined) {
         qs('.conteudo4 .title_C').textContent = 'Data de solicitação:'
 
     } else {
         //ainda pendente
     }
     qs('.conteudo4 .text_C').textContent = json_list.conteudo5;
+    if (info != undefined) {
+        qs('.conteudo5 .title_C').textContent = 'Solicitou a notificação?:'
+        if (json_list.conteudo4 == 1) {
+            qs('.conteudo5 .text_C').textContent = 'Sim'
+        } else {
+            qs('.conteudo5 .text_C').textContent = 'Não'
+        }
+    } else {
+        //ainda pendente
+    }
     qs('.loading').remove();
 
 }

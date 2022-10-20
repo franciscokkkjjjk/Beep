@@ -31,20 +31,32 @@ if(isset($_POST['p_adm305'])) {
                 if($res_user) {
                     $ass_user = mysqli_fetch_assoc($res_user);
                     if(!is_null($ass_user)) {
-                        $mensagem = "
-                        <div style='padding:50px;background-color:#f00; font-size:25px;'>
-                            Salve " . $ass_user['nome'] .",
-                        </div>
-                        <div>
-                         o jogo que você solicitou foi cadastrado no sistema.<br>
-                         <br>
-                         jogo solicitado: $nome_jogo
-                        </div>
-                        ";
-                        $sendemail = email_send('../', $mensagem, "Sucesso! O jogo solicitado foi cadastrado.", $ass_user['email']); 
-                        if($sendemail[0]) {
+                        $sendemail = false;
+                        if($array_solic['notificar']) {
+                            $mensagem = "
+                            <div style='padding:50px;background-color:#f00; font-size:25px;'>
+                                Salve " . $ass_user['nome'] .",
+                            </div>
+                            <div>
+                            o jogo que você solicitou foi cadastrado no sistema.<br>
+                            <br>
+                            jogo solicitado: $nome_jogo
+                            </div>
+                            ";
+                            $sendemail = email_send('../', $mensagem, "Sucesso! O jogo solicitado foi cadastrado.", $ass_user['email']); 
+                            $sendemail = $sendemail[0];
+                        }
+                        if($sendemail or (!($array_solic['notificar']))) {
                             $sql_delete_soli = "DELETE FROM `solicita_list` WHERE id_solicita =" . $id_solicita;
                             $res_delete_soli = mysqli_query($conexao, $sql_delete_soli);
+                            if(!($array_solic['notificar'])) {
+                                $json = [
+                                    'error' => false,
+                                    'mensage' => "Jogo foi cadastrado."
+                                ];
+                                echo json_encode($json);
+                                die;
+                            }
                             if($res_delete_soli) {
                                 $json = [
                                     'error' => false,

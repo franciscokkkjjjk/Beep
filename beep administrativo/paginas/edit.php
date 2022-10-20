@@ -39,19 +39,38 @@
     <main>
         <div class="container">
             <div class="title_main">
-                Jogos
+                Formulário de edição
             </div>
-            <div class="corpo_list feed-area">
-
-            </div>
+            <form action="" method="" enctype="multipart/form-data">
+                <div class="corpo_list feed-area">
+                    <div class="body_area_f">
+                        <div class="area_1">
+                            <div class="img_area">
+                                <div class="img_"
+                                    style='background-image:url(../../assets/imgs/games/a7ff90157a71005aa1e43832e637d3b0a862a361.png);'>
+                                    <div class='img_edit_area'>
+                                        <label for="img_edit">
+                                            <div class="event_form_edit add_img"></div>
+                                        </label>
+                                        <div class="event_form_edit rm_img"></div>
+                                        <input required type="file" name="img_edit" id='img_edit'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="area_2">
+                            
+                        </div>
+                    </div>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
+
     </main>
 
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
-    <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
-    <script type="text/javascript" src="../assets/script/javascript/inicial/script.js"></script>
-    </script>
 </body>
 
 </html>

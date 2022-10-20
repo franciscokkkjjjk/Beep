@@ -40,7 +40,7 @@
         require_once '../assets/script/php/generic_HTML/header_default.php';
     ?> 
     <main>
-        <div class="container border_c">
+        <div class="container border_c feed-area">
             <div class="title_solicitacao">
                 Beep testes
             </div>

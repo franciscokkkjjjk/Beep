@@ -65,7 +65,9 @@ function show_modal(mensage, url_req, value, event) {
             if((res.error != undefined) && (res.error == false) && (event != 'href')) { 
                 event.remove();
             } else if(event == 'href' && ((res.error != undefined) && (res.error == false))){
-                window.location.href = 'inicial.php';
+                setTimeout(()=>{
+                    window.location.href = 'inicial.php';
+                }, 800)
             }
         }
     }
