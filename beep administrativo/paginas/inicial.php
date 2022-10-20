@@ -26,7 +26,7 @@
     <link rel="icon" href="../../assets/imgs/default/beep_logo.png">
     <link rel="stylesheet" href="../assets/style/default/style.css">
     <link rel="stylesheet" href="../assets/style/inicial_root/style.css">
-    <title>Inicial | Beep Administrativo</title>
+    <title>Lista | Beep Administrativo</title>
 </head>
 <body>
     <?php 

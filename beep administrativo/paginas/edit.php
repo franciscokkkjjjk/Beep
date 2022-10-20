@@ -29,7 +29,7 @@
     <link rel="icon" href="../../assets/imgs/default/beep_logo.png">
     <link rel="stylesheet" href="../assets/style/default/style.css">
     <link rel="stylesheet" href="../assets/style/edit/style.css">
-    <title>Inicial | Beep Administrativo</title>
+    <title>Formulário de edição | Beep Administrativo</title>
 </head>
 
 <body>
@@ -52,8 +52,8 @@
                                         <label for="img_edit">
                                             <div class="event_form_edit add_img"></div>
                                         </label>
-                                        <div class="event_form_edit rm_img"></div>
-                                        <input required type="file" name="img_edit" id='img_edit'>
+                                        <div style="display: none;" class="event_form_edit rm_img"></div>
+                                        <input type="file" name="img_edit" id='img_edit'>
                                     </div>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     <div class="input_div_desc" contenteditable="true"></div>
                                 </div>
                             </label>
-                            <input class="input_default hidden_iD" required type="hidden" value=""
+                            <input class="input_default hidden_iD"  type="hidden" value=""
                                 name="des_cap_solicita">
                             <div class="area_loja">
                             <label for="loja" class="input_div_area loja_area">
@@ -119,9 +119,6 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="error_custom">
-            kkkkkkk to doido
         </div>
     </main>
 

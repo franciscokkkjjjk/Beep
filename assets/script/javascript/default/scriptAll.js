@@ -121,7 +121,7 @@ function alert_mensage(json) {
         }, 4000);
     }
 } 
-function img_viw_modal(area_add, input_file, remove_a) {
+function img_viw_modal(area_add, input_file, remove_a) {//adiciona uma imagem em algum lugar
     let file_input = input_file;
     file_input.onchange = ()=>{
         let seguir = false;
@@ -129,9 +129,17 @@ function img_viw_modal(area_add, input_file, remove_a) {
         console.log(input_file.files[0]);
         let img = input_file.files[0];
         let src = URL.createObjectURL(img);
+        console.log(img.type);
         if (img.type == 'image/jpeg' || img.type == 'image/gif' || img.type == 'image/png' || img.type == 'image/jfif') {
             seguir = true
+        } else {
+            let res = {
+                'error': true,
+                'mensage':"A beep não aceita o formato do arquivo que foi inserido."
+            }
+            alert_mensage(res);
         }
+
         if(seguir) {
          let area_img = document.querySelector(area_add);
          if(area_img != undefined) {
@@ -170,10 +178,9 @@ function input_div_puts(input_div, input_hidden) {
         console.log(value_input);
     })  
 }
-function mensagem_element(elementDom, mensagem) {
+function mensagem_element(elementDom, mensagem) { //gera uma caixa de dialago customizada kkkkk ele segue a mesma logica da caixa de dialago do compartilhar
     let area = document.createElement('div');
     area.classList.add('error_custom');
-
     area.textContent = mensagem;
     let heightA = area.getBoundingClientRect().height;
     const ele = elementDom.getBoundingClientRect();
@@ -183,7 +190,9 @@ function mensagem_element(elementDom, mensagem) {
     const position = yE+scroll+heightE+10;
     area.style.top = position+'px'; 
     area.style.left = ele.left+'px'; 
-    
+    setTimeout(()=>{
+        area.remove();
+    }, 3000)
     document.body.appendChild(area);
     return ele;
 }
