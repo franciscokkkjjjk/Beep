@@ -36,18 +36,6 @@ function creat_list(list, img_dir, url_reqs, aux) {
         });
         list_clone.querySelector('.list_img').style.backgroundImage = `url(../../assets/imgs/${img_dir}/${list.img})`
         list_clone.querySelector('.list_title').innerHTML = list.title;
-        list_clone.querySelector('.button_a').onclick = async (e)=>{
-            e.preventDefault();
-            if(url_reqs != null) {
-                show_modal("Realmente quer adicionar esse jogo ao sistema sem verificação?", url_reqs[0], list.id, list_clone);
-            }
-        }
-        list_clone.querySelector('.button_b').onclick = async (e)=>{
-            e.preventDefault();
-            if(url_reqs != null) {
-                show_modal("Realmente quer rejeitar esse jogo sem verificação?", url_reqs[1], list.id, list_clone);
-            }
-            }
         list_clone.querySelector('.button_c').onclick = async (e)=>{
             e.preventDefault(); 
             if(url_reqs != null) {
@@ -80,8 +68,10 @@ function show_modal(mensage, url_req, value, event) {
                 modal_.remove();
             }, 250)
             e.onclick = '';
-            if((res.error != undefined) && res.error == false) { 
+            if((res.error != undefined) && (res.error == false) && (event != 'href')) { 
                 event.remove();
+            } else if(event == 'href'){
+                window.location.href = 'inicial.php';
             }
         }
     }

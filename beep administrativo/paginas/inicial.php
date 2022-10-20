@@ -92,16 +92,6 @@
                     </div>
                     <div class="area_list_info_2">
                         <nav>
-                            <a href="" class="a_nav button_a button_int">
-                                    <div class="img_"></div>
-                            </a>
-                        </nav>
-                        <nav>
-                            <a href="" class="a_nav button_b button_int">
-                                <div class="img_"></div>
-                            </a>
-                        </nav>
-                        <nav>
                             <a href="" class="a_nav button_c button_int">
                                 <div class=" img_">
                                 </div>

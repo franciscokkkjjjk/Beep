@@ -15,14 +15,15 @@ if(isset($_POST['x_25_SP'])) {
         }  else {
             $json = [
                 'error' => false,
-                'id_S' => $ass_game['id_user_solicita'],
-                'nome_S' => $ass_game['nome_jogo'],
-                'desc_jogo_S' => $ass_game['desc_jogo'],
-                'n_loja_S' => $ass_game['loja'],
-                'l_loja_S' => $ass_game['link_loja'],
-                'clas_eta_S' => $ass_game['class_etaria'],
-                'd_solicita' => date('d/m/Y', strtotime($ass_game['data_solicitado'])),
-                'not_S' => $ass_game['notificar']
+                'id' => $ass_game['id_user_solicita'],
+                'conteudo1' => $ass_game['nome_jogo'],
+                'conteudo2' => $ass_game['desc_jogo'],
+                'loja' => $ass_game['loja'],
+                'midia' => $ass_game['img_jogo'],
+                'link_l' => $ass_game['link_loja'],
+                'conteudo3' => $ass_game['class_etaria'],
+                'conteudo5' => date('d/m/Y', strtotime($ass_game['data_solicitado'])),
+                'conteudo4' => $ass_game['notificar']
             ];
         }
      } else {

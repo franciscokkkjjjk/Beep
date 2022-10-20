@@ -85,7 +85,7 @@
             </div>
             <div class="conteudo_b_I">
                 <div class="img_area">
-                    <img src="../../assets/imgs/posts/62cb2ec3e077e.jpg">
+                    
                 </div>
                 <div class="buttons_area">
                     <div class="buttons_acpt button_a buttons_d border_c"></div>
@@ -95,30 +95,36 @@
             </div>
             <div class="info_cont">
                 <div class="C_1">
-                    <div class="descricao_game conteudo_C">
-                        <div class="title_C">Teste D</div>
+                    <div class="conteudo_1 conteudo_C">
+                        <div class="title_C"></div>
                         <div class="text_C">
-                            ....
+                  
                         </div>
                     </div>
-                    <div class="lojas_game conteudo_C">
-                        <div class="title_C">Teste D</div>
+                    <div class="conteudo2 conteudo_C">
+                        <div class="title_C"></div>
                         <div class="text_C">
-                            ....
+                 
                         </div>
                     </div>
                 </div>
                 <div class="C_1">
-                <div class="quem_game conteudo_C">
-                        <div class="title_C">Teste D</div>
+                <div class="conteudo3 conteudo_C">
+                        <div class="title_C"></div>
                         <div class="text_C">
-                            ....
+                            
                         </div>
                     </div>
-                    <div class="not_game conteudo_C">
-                        <div class="title_C">Teste D</div>
+                    <div class="conteudo4 conteudo_C">
+                        <div class="title_C"></div>
                         <div class="text_C">
-                            true
+
+                        </div>
+                    </div>
+                    <div class="conteudo5 conteudo_C">
+                        <div class="title_C"></div>
+                        <div class="text_C">
+                       
                         </div>
                     </div>
                 </div>
