@@ -13,18 +13,14 @@ async function so_game() {
         if(e % 2 == 0){
              aux = true;
         }
-        let urls = [
-            '../assets/script/php/solicitacao_jogos/adicionar_jogos.php',
-            '../assets/script/php/solicitacao_jogos/reje_jogos.php',
-        ];
-        creat_list(res[i], 'games', urls, aux); 
+        creat_list(res[i], 'games', aux); 
     e++;
     }
     document.querySelector('.list_area').style.display = 'none';
     console.log(e);
 }
 // creat_list(lista de coisas, diretorio da imagem, url da requisicao, define dois tipos de cores);
-function creat_list(list, img_dir, url_reqs, aux) {
+function creat_list(list, img_dir, aux) {
     let list_clone = document.querySelector('.list_area').cloneNode(true);
     if(aux) {
         list_clone.style.backgroundColor = '#292929';
@@ -38,13 +34,11 @@ function creat_list(list, img_dir, url_reqs, aux) {
         list_clone.querySelector('.list_title').innerHTML = list.title;
         list_clone.querySelector('.button_c').onclick = async (e)=>{
             e.preventDefault(); 
-            if(url_reqs != null) {
                 window.sessionStorage.setItem('x5edS', list.id);
                 if(window.sessionStorage.x5edP != undefined) {
                     window.sessionStorage.removeItem('x5edP');
                 }
                 window.location.href = 'visualizar_G.php';
-            }
         }
     document.querySelector('.corpo_list').append(list_clone);
 }
@@ -70,12 +64,18 @@ function show_modal(mensage, url_req, value, event) {
             e.onclick = '';
             if((res.error != undefined) && (res.error == false) && (event != 'href')) { 
                 event.remove();
-            } else if(event == 'href'){
+            } else if(event == 'href' && ((res.error != undefined) && (res.error == false))){
                 window.location.href = 'inicial.php';
             }
         }
     }
     modal_.querySelector('.reject_modal').onclick = ()=>{
+        modal_.style.opacity = '';
+    setTimeout(()=>{
+        modal_.remove();
+    }, 250)
+    }
+    modal_.querySelector('.event_modal_confirm').onclick = ()=>{
         modal_.style.opacity = '';
     setTimeout(()=>{
         modal_.remove();

@@ -15,7 +15,8 @@ if(isset($_POST['x_25_SP'])) {
         }  else {
             $json = [
                 'error' => false,
-                'id' => $ass_game['id_user_solicita'],
+                'id_user_solictante' => $ass_game['id_user_solicita'],
+                'id' => $ass_game['id_solicita'],
                 'conteudo1' => $ass_game['nome_jogo'],
                 'conteudo2' => $ass_game['desc_jogo'],
                 'loja' => $ass_game['loja'],

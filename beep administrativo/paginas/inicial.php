@@ -37,6 +37,7 @@
                     Você realmente quer adicionar o jogo sem nenhuma verificação?
                 </div>
                 <div class="modal_buttons">
+                    <div class="event min-event event-block" style="display: none;"></div>
                     <div class="confirm_modal">
                         
                     </div>
