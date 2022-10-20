@@ -69,7 +69,7 @@ function creat_complete(json_list, url_req) {
             show_modal(mensage, url_req[1], json_list.id, 'href');
         }
         if (window.sessionStorage.x5edS != undefined) {
-            qs('.button_d').onclick = (e)=>{
+            qs('.button_d').onclick = (e)=>{//paremos aqui
                 e.preventDefault();
                 window.location.href = 'edit.php';
             }
