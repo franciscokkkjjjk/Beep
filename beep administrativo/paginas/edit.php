@@ -45,7 +45,7 @@
             <div class="title_main">
                 Formulário de edição
             </div>
-            <form action="" method="" enctype="multipart/form-data">
+            <form action="../assets/script/php/solicitacao_jogos/edit_games.php" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="x5Hidden" class="x5Hidden" value="">
                 <div class="corpo_list feed-area">
                     <div class="body_area_f">
@@ -97,7 +97,6 @@
                                                 class='sistem'>/300</span></div>
                                     </div>
                                     <div class="input_div_desc" contenteditable="true">
-
                                     </div>
                                 </div>
                             </label>
@@ -128,7 +127,20 @@
             </form>
         </div>
     </main>
-
+    <?php 
+        if(isset($_SESSION['mensagem'])) {
+    ?>
+        <div class="session mensagem_alert" style='<?= isset($_SESSION['error']) ? 'background-color: #B22222;' : '' ?>'><?=$_SESSION['mensagem']?></div>
+        <script>
+            setTimeout(()=>{
+                document.querySelector('.session').remove();
+            }, 2500)
+        </script>
+    <?php
+    unset($_SESSION['mensagem']);
+    unset($_SESSION['error']);
+        } 
+    ?>
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/edit/script.js"></script>
