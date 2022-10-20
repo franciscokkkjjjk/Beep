@@ -18,8 +18,8 @@ if (window.sessionStorage.x5edS == undefined) {
         qs('.img_').style.backgroundImage = `url(../../assets/imgs/games/${res_.midia})`;
         qs('.nome_j').value = res_.title;
         let op = qs('select').options;
-        for(let i = 0; i < op.length; i++) {
-            if(res_.conteudo3 == op[i].value) {
+        for (let i = 0; i < op.length; i++) {
+            if (res_.conteudo3 == op[i].value) {
                 op[i].selected = true;
                 break;
             }
