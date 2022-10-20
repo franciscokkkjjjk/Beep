@@ -123,16 +123,26 @@ function alert_mensage(json) {
 } 
 function img_viw_modal(area_add, input_file, remove_a) {//adiciona uma imagem em algum lugar
     let file_input = input_file;
+    let anterior_;
     file_input.onchange = ()=>{
         let seguir = false;
-        console.log(input_file);
-        console.log(input_file.files[0]);
         let img = input_file.files[0];
         let src = URL.createObjectURL(img);
         console.log(img.type);
         if (img.type == 'image/jpeg' || img.type == 'image/gif' || img.type == 'image/png' || img.type == 'image/jfif') {
-            seguir = true
+            seguir = true;
         } else {
+            console.log('o de')
+            console.log(anterior_);
+            if(anterior_ == undefined) {
+                input_file.value = '';
+            } else {
+                qs(remove_a).style.display = 'none';
+                input_file.value = '';
+                qs(area_add).style.backgroundImage = '';
+                console.log(input_file.files[0]);
+            }
+            seguir = false;
             let res = {
                 'error': true,
                 'mensage':"A beep não aceita o formato do arquivo que foi inserido."
@@ -141,6 +151,8 @@ function img_viw_modal(area_add, input_file, remove_a) {//adiciona uma imagem em
         }
 
         if(seguir) {
+         anterior_ = input_file.files[0];
+         console.log(anterior_);
          let area_img = document.querySelector(area_add);
          if(area_img != undefined) {
             area_img.style.backgroundImage = `url(${src})`;
