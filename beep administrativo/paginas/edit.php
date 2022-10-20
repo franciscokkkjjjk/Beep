@@ -31,29 +31,30 @@
     <link rel="stylesheet" href="../assets/style/edit/style.css">
     <title>Formulário de edição | Beep Administrativo</title>
 </head>
-
 <body>
     <?php 
         require_once '../assets/script/php/generic_HTML/header_default.php';
     ?>
     <main>
         <div class="container">
+        <a class="back_p" href="visualizar_G.php"></a>   
             <div class="title_main">
                 Formulário de edição
             </div>
             <form action="" method="" enctype="multipart/form-data">
+                <input type="hidden" name="x5Hidden" value="">
                 <div class="corpo_list feed-area">
                     <div class="body_area_f">
                         <div class="area_1">
                             <div class="img_area">
                                 <div class="img_"
-                                    style='background-image:url(../../assets/imgs/games/a7ff90157a71005aa1e43832e637d3b0a862a361.png);'>
+                                    >
                                     <div class='img_edit_area'>
                                         <label for="img_edit">
                                             <div class="event_form_edit add_img"></div>
                                         </label>
                                         <div style="display: none;" class="event_form_edit rm_img"></div>
-                                        <input type="file" name="img_edit" id='img_edit'>
+                                        <input type="file" value="" name="img_edit" id='img_edit'>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +67,7 @@
                                         <div class="number_v"><span class='user'>0</span><span
                                                 class='sistem'>/300</span></div>
                                     </div>
-                                    <input type="text" required name="nome_j" id="nome_j" class="nome_j input_default">
+                                    <input type="text" required value="" name="nome_j" id="nome_j" class="nome_j input_default">
                                 </label>
                                 <label for="cass_d" class="input_div_area cass_d">
                                     <div class="header_area_input">
@@ -91,7 +92,9 @@
                                             <div class="number_v"><span class='user'>0</span><span
                                                     class='sistem'>/300</span></div>
                                         </div>
-                                    <div class="input_div_desc" contenteditable="true"></div>
+                                    <div class="input_div_desc" contenteditable="true">
+
+                                    </div>
                                 </div>
                             </label>
                             <input class="input_default hidden_iD"  type="hidden" value=""
@@ -103,7 +106,7 @@
                                         <div class="number_v"><span class='user'>0</span><span
                                                 class='sistem'>/300</span></div>
                                     </div>
-                                <input required class="input_default" id='loja' type="text" name="loja">
+                                <input value="" required class="input_default" id='loja' type="text" name="loja">
                             </label>
                             <label for='l_loja' class="input_div_area l_loja">
                                     <div class="header_area_input">
@@ -111,7 +114,7 @@
                                         <div class="number_v"><span class='user'>0</span><span
                                                 class='sistem'>/300</span></div>
                                     </div>
-                                <input class="input_default" required id='l_loja' type="text" name="loja_link">
+                                <input value="" class="input_default" required id='l_loja' type="text" name="loja_link">
                             </label>
                             </div>
                             <button type="submit">Enviar</button>

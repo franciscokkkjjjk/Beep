@@ -129,3 +129,22 @@ button:hover {
 }.color_font_input_act span{
     color: #00adb9!important;
 }
+.back_p {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    background-color: #141414;
+}.back_p:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-bottom: 3px solid #55ffff;
+    border-left: 3px solid #55ffff;
+    transform: rotate(calc(90deg/2));
+    margin-top: 10px;
+    margin-left: 10px;
+    display: block;
+}.back_p:hover{
+    background-color: #2b2b2b;
+    transition: all linear .25s;
+}
