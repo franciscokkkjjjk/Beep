@@ -104,6 +104,9 @@ function criarPosts(lista) {
         if (lista[i]['type'] == "3") {//postagem normal
             let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
             post_body.id = lista[i]['id_publi'] + 'pt-xD30';
+            post_body.querySelector('.elipse-img').onclick = (e)=>{
+                posts_modal(aux_clone, lista[i]['id_publi'],  '',post_body.querySelector('.elipse-img'));
+            }
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
             post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
             post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];

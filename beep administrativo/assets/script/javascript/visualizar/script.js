@@ -69,7 +69,7 @@ function creat_complete(json_list, url_req) {
             show_modal(mensage, url_req[1], json_list.id, 'href');
         }
         if (window.sessionStorage.x5edS != undefined) {
-            qs('.button_d').onclick = (e)=>{//paremos aqui
+            qs('.button_d').onclick = (e) => { //paremos aqui
                 e.preventDefault();
                 window.location.href = 'edit.php';
             }
@@ -100,12 +100,12 @@ function creat_complete(json_list, url_req) {
     }
     if (info != undefined) {
         qs('.conteudo3 .title_C').textContent = 'Classificação indicativa:'
-        
+
     } else {
         qs('.conteudo3 .title_C').textContent = 'Jogo da publicação:'
     }
-    if(json_list.conteudo3 == 0) {
-     qs('.conteudo3 .text_C').textContent = 'L';
+    if (json_list.conteudo3 == 0) {
+        qs('.conteudo3 .text_C').textContent = 'L';
     } else {
         qs('.conteudo3 .text_C').textContent = json_list.conteudo3;
     }
