@@ -6,8 +6,8 @@ if(isset($_POST['cC_xd30'])) {
     $sql_verify = "SELECT * FROM `publicacoes` WHERE `id_publi_interagida`=$id_interagida AND type=2 AND user_publi=".$_SESSION['id_user']."";
     $sql_verify = mysqli_query($conexao, $sql_verify);
     $array_verify = mysqli_fetch_all($sql_verify, 1);
-
-    $text_post = addslashes($_POST['cC_xd30']);
+    //falta verificar se é type 2 ou não 
+    $text_post = mysqli_escape_string($conexao, $_POST['cC_xd30']);
     date_default_timezone_set('America/Sao_Paulo');
     date_default_timezone_get();
     $data_publi = date('Y-m-d H:i:s');
@@ -27,6 +27,12 @@ if(isset($_POST['cC_xd30'])) {
              die;
         }
     }
+    $type_sql = "SELECT * FROM publicacoes WHERE id_publi=". $id_interagida;
+    $res_sql = mysqli_query($conexao, $type_sql);
+    $ass_sql = mysqli_fetch_assoc($res_sql);
+    if($ass_sql['type'] == 4) {
+        $id_interagida = $ass_sql['id_publi_interagida'];
+    } 
     $sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",2, ".$id_interagida.",'$text_post','$name_banco', 0, 0, '$data_publi', 0)";
     $res_query = mysqli_query($conexao,$sql_respot_coment);
 

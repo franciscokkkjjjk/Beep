@@ -1,7 +1,6 @@
 ----------- problemas conhecidos-------------------------------
 
 -não reconhece anos bissextos.
--O programador colocou para o compartilhar com comentario para compartilhar o compartilhar direto em vez do raiz kkkkkkkkkkkkkkkkkkkk
 -caso usuario de uma quebra de linha o textArea buga o banco de dados.
 -o comentario gera mais de uma imagem (possivel problema= no clone)
 
