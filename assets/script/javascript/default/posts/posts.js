@@ -183,11 +183,12 @@ function criarPosts(lista) {
                 post_body.querySelector('.post--text_comp').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
             }
             post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
-            let aux = lista[i]['compartilhador_info']['id_da_compartilhada'];
             post_body.querySelector('.elipse-img').onclick = (e)=>{
                 e.preventDefault();
                 posts_modal(aux_clone, lista[i]['id_publi'],  url,post_body.querySelector('.elipse-img'));
-            }            
+            }   
+            let aux = lista[i]['compartilhador_info']['id_da_compartilhada'];
+
             post_body.querySelector('.area--post-com .elipse-img').onclick = (e)=>{
                 e.preventDefault();
                 posts_modal(aux_clone, aux,  url, post_body.querySelector('.area--post-com .elipse-img'));
