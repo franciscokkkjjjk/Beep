@@ -9,7 +9,7 @@ async function posts() {
     let posts = await fetch('../assets/script/php/requsicoes/posts.php');
     post_d = await posts.json();
     load.style.display = 'none';
-    console.log(post_d); 
+    console.log(post_d);
     if (post_d.nada == undefined) {
         criarPosts(post_d);
         curtir_post();
@@ -25,7 +25,7 @@ async function posts() {
         coment();
     } else {
         post_not(0);
-    } 
+    }
 }
 function curtir_post() {
     qsAll('.p-xD30').forEach((e) => {
@@ -37,7 +37,7 @@ function curtir_post() {
             let moio;
             console.log(num_click);
             if (num_click <= 3) {
-                    moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
+                moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
                     method: 'POST',
                     body: curtida,
                 })
@@ -45,7 +45,7 @@ function curtir_post() {
                 console.log(res);
                 alert_mensage(res);
                 let num_curtidas = e.querySelector('.area_num');
-                if ((num_curtidas != undefined) &&  (res.curtidas != undefined)) {
+                if ((num_curtidas != undefined) && (res.curtidas != undefined)) {
                     let num = res.curtidas;
                     e.querySelector('.area_num').innerHTML = num;
                 }
@@ -75,7 +75,7 @@ async function user_(active) {
     qsAll('.back--event').forEach((e) => { e.remove() });
     console.log(user_v)
     user_seguidores(user_v.user);
-    if(active) {
+    if (active) {
         if (user_v.publi.nada == undefined) {
             criarPosts(user_v.publi)
             curtir_post();
@@ -108,9 +108,9 @@ function criarPosts(lista) {
         if (lista[i]['type'] == "3") {//postagem normal
             let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
             post_body.id = lista[i]['id_publi'] + 'pt-xD30';
-            post_body.querySelector('.elipse-img').onclick = (e)=>{
+            post_body.querySelector('.elipse-img').onclick = (e) => {
                 e.preventDefault();
-                posts_modal(aux_clone, lista[i]['id_publi'],  url,post_body.querySelector('.elipse-img'));
+                posts_modal(aux_clone, lista[i]['id_publi'], url, post_body.querySelector('.elipse-img'));
             }
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
             post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
@@ -183,16 +183,16 @@ function criarPosts(lista) {
                 post_body.querySelector('.post--text_comp').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
             }
             post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
-            post_body.querySelector('.elipse-img').onclick = (e)=>{
+            post_body.querySelector('.elipse-img').onclick = (e) => {
                 e.preventDefault();
-                posts_modal(aux_clone, lista[i]['id_publi'],  url,post_body.querySelector('.elipse-img'));
-            }   
+                posts_modal(aux_clone, lista[i]['id_publi'], url, post_body.querySelector('.elipse-img'));
+            }
             let aux = lista[i]['compartilhador_info']['id_da_compartilhada'];
 
-            post_body.querySelector('.area--post-com .elipse-img').onclick = (e)=>{
+            post_body.querySelector('.area--post-com .elipse-img').onclick = (e) => {
                 e.preventDefault();
-                posts_modal(aux_clone, aux,  url, post_body.querySelector('.area--post-com .elipse-img'));
-            }      
+                posts_modal(aux_clone, aux, url, post_body.querySelector('.area--post-com .elipse-img'));
+            }
             post_body.querySelector('.date--post-comp_').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
             post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
             post_body.querySelector('.perfil-link-comp').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
@@ -301,15 +301,15 @@ function criarPosts(lista) {
                     post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }
             }//p-xD30
-            post_body.querySelector('.elipse-img').onclick = (e)=>{
+            post_body.querySelector('.elipse-img').onclick = (e) => {
                 e.preventDefault();
-                posts_modal(aux_clone, lista[i]['id_publi'],  url,post_body.querySelector('.elipse-img'));
-            } 
+                posts_modal(aux_clone, lista[i]['id_publi'], url, post_body.querySelector('.elipse-img'));
+            }
             post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
             post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['compartilhador_info']['id_da_compartilhada'];
-            
-            
-            
+
+
+
             post_body.querySelector('.comentar .post_comentadas').innerHTML = lista[i]['num_comentario'];
             num_coment_dinamic(post_body.querySelector('.comentar'), lista[i]['compartilhador_info']['id_da_compartilhada']);
 
@@ -773,7 +773,7 @@ async function compartilhar_comentario() {//All_xD30
             clone_MD_RC.style.opacity = 1;
         }, 15);
         //acaba com o modal-shared aberto
-        if(qs('.modal--shared') != undefined) {
+        if (qs('.modal--shared') != undefined) {
             let modal = qs('.modal--shared');
             modal.style.opacity = 0;
             modal.style = '';
@@ -1340,40 +1340,40 @@ async function user__curtidas() {
     }
 }
 async function game_perfil(user) {
-    let req_game = await fetch('../assets/script/php/requsicoes/jogos/users_game.php?username='+user, {
-        method:'GET', 
+    let req_game = await fetch('../assets/script/php/requsicoes/jogos/users_game.php?username=' + user, {
+        method: 'GET',
     });
     let res_game = await req_game.json();
-    if(qs('.back--event') != undefined) {
+    if (qs('.back--event') != undefined) {
         qs('.back--event').remove();
     }
-    if(res_game.nada == undefined) {
+    if (res_game.nada == undefined) {
         creat_game(res_game);
     } else {
         post_not(4);
     }
     console.log(res_game);
-} 
+}
 
-function num_coment_dinamic(div,id) {
-    if((qs('.post_comentadas') != undefined)){
-        let inter = setInterval(async ()=>{
-          if((div != undefined) && (div.querySelector('.post_comentadas') != undefined)) {
-            let input = document.createElement('input');
-            input.setAttribute('name', 'All_xD30');
-            input.setAttribute('value', id);
-            let form = document.createElement('form');
-            form.appendChild(input);
-            let formnew = new FormData(form);
-            let coment_req = await fetch('../assets/script/php/requsicoes/post_completo.php', {
-                method:"POST",
-                body: formnew
-            })
-            let res_coment = await coment_req.json();
-            if((div != undefined) && (div.querySelector('.post_comentadas') != undefined) && (res_coment.error == undefined)) {
-                div.querySelector('.post_comentadas').innerHTML = res_coment.publicacao.num_comentario;
+function num_coment_dinamic(div, id) {
+    if ((qs('.post_comentadas') != undefined)) {
+        let inter = setInterval(async () => {
+            if ((div != undefined) && (div.querySelector('.post_comentadas') != undefined)) {
+                let input = document.createElement('input');
+                input.setAttribute('name', 'All_xD30');
+                input.setAttribute('value', id);
+                let form = document.createElement('form');
+                form.appendChild(input);
+                let formnew = new FormData(form);
+                let coment_req = await fetch('../assets/script/php/requsicoes/post_completo.php', {
+                    method: "POST",
+                    body: formnew
+                })
+                let res_coment = await coment_req.json();
+                if ((div != undefined) && (div.querySelector('.post_comentadas') != undefined) && (res_coment.error == undefined)) {
+                    div.querySelector('.post_comentadas').innerHTML = res_coment.publicacao.num_comentario;
+                }
             }
-          }
         }, 950)
     }
 }

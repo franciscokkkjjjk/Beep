@@ -219,19 +219,40 @@ function mensagem_element(elementDom, mensagem) { //gera uma caixa de dialago cu
     return ele;
 }
 
+//pega a posição relativa de um elemento e coloca outro elemento em baixo. -------o modal de denuncias depende disso-----
+function relativ_a_b(relative, modal_, remover, raiz) {
+    remover.onclick = () => {
+        modal_.style.opacity = '0';
+        setTimeout(() => {
+            raiz.remove();
+        })
+    }
+    let button = relative.getBoundingClientRect();
+    let posiY = window.scrollY + button.y + button.height;
+    let posi_x = button.left + window.scrollX - (button.width * 2);
 
-// gera o modal de denuncia; obs: pode ser usado para outro modal
-//  se ele tiver a mesma estrutura desse.
+
+    modal_.style.left = posi_x + "px";
+    modal_.style.top = posiY + "px";
+    setTimeout(() => {
+        modal_.style.opacity = '1';
+
+    }, 25);
+    qs('.feed-area').appendChild(raiz);
+}
+// gera o modal de denuncia; 
+//  se ele tiver a mesma estrutura desse. ----ultra importante-----
 let modal_clone = qs('.modal_area_dP');
 let aux_clone = modal_clone.cloneNode(true);
 modal_clone.remove();
+
 function posts_modal(modal_show, id_publi, url_g, button_show) {
     let modal_b = modal_show.querySelector('.dP_post');
     let opt = modal_show.querySelectorAll('.opt_dP');
     for (let i = 0; i < opt.length; i++) {
         opt[i].onclick = async () => {
             console.log('denuncia ' + id_publi);
-            if (url_g[i] != undefined && url_g[i] != '') {
+            if (url_g[i] != undefined && url_g[i] != '') { // isso irá para outro luga kkkkk programador burro
                 let info_s = new FormData();
                 info_s.append('dP_xd30', id_publi);
                 let req_ = await fetch(url_g[i], {
@@ -239,38 +260,21 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
                     body: info_s
                 })
                 let res_ = await req_.json();
-                console.log(req_);
-                console.log('asd');
-                if (res_.error != true) {
+                if (res_.error == true) {
                     modal_b.style.opacity = '0';
                     setTimeout(() => {
                         modal_show.remove();
-                    })
+                    }, 150)
                 }
                 alert_mensage(res_);
             }
         }
     }
-    modal_show.querySelector('.modal_exit_dP').onclick = () => {
-        modal_b.style.opacity = '0';
-        setTimeout(() => {
-            modal_show.remove();
-        })
-    }
-    let buttonB = modal_b;
-    let button = button_show.getBoundingClientRect();
-    let posiY = window.scrollY + button.y + button.height;
-    console.log(buttonB)
-    let posi_x = button.left + window.scrollX - (button.width * 2);
-
-    console.log(modal_b);
-    console.log(modal_b.getBoundingClientRect())
-    modal_b.style.left =  posi_x + "px";
-    modal_b.style.top = posiY + "px";
-    setTimeout(() => {
-        modal_b.style.opacity = '1';
-
-    },25);
-    qs('.feed-area').appendChild(modal_show);
+    relativ_a_b(
+        button_show,
+        modal_show.querySelector('.dP_post'),
+        modal_show.querySelector('.modal_exit_dP'),
+        modal_show
+    )
 
 }
