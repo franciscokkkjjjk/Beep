@@ -10,6 +10,7 @@ function coment() {
     if(comentar.length > 0) {
         comentar.forEach((e) => {
             e.addEventListener('click', async (element)=>{
+                element.preventDefault();
                 creat_div.id = 'inputdiv';
                 creat_div.contentEditable = 'true';
                 creat_div.classList.add('inputdiv--form--post-coment');

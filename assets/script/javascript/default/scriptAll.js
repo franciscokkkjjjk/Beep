@@ -228,10 +228,10 @@ modal_clone.remove();
 function posts_modal(modal_show, id_publi, url_g, button_show) {
     let modal_b = modal_show.querySelector('.dP_post');
     let opt = modal_show.querySelectorAll('.opt_dP');
-    for (i = 0; i < opt.length; i++) {
+    for (let i = 0; i < opt.length; i++) {
         opt[i].onclick = async () => {
             console.log('denuncia ' + id_publi);
-            if (url_g[i] != undefined) {
+            if (url_g[i] != undefined && url_g[i] != '') {
                 let info_s = new FormData();
                 info_s.append('dP_xd30', id_publi);
                 let req_ = await fetch(url_g[i], {
@@ -239,6 +239,8 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
                     body: info_s
                 })
                 let res_ = await req_.json();
+                console.log(req_);
+                console.log('asd');
                 if (res_.error != true) {
                     modal_b.style.opacity = '0';
                     setTimeout(() => {
@@ -259,9 +261,8 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
     let button = button_show.getBoundingClientRect();
     let posiY = window.scrollY + button.y + button.height;
     console.log(buttonB)
-    let posi_x = button.left + window.scrollX - (button.width * 2) ;
+    let posi_x = button.left + window.scrollX - (button.width * 2);
 
-   
     console.log(modal_b);
     console.log(modal_b.getBoundingClientRect())
     modal_b.style.left =  posi_x + "px";
