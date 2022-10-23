@@ -38,14 +38,17 @@
                     </a>
                 </div>
                 <div class="modal_opt_user_area">
-                    <div class="exit_event"></div>
-                    <div class="modal_user">
-                        <div class="opts_user publica_img">
-                            Postagens
-                        </div>
-                        <div class="opts_user user_exit">
-                            Usuários 
-                        </div>
+                    <div class="modal_user" style="display:none;">
+                        <nav>
+                            <a href="" class="a_nav opts_user publica_img">
+                                Postagens
+                            </a>
+                        </nav>
+                        <nav>
+                            <a href="" class="a_nav opts_user user_exit">
+                                Usuários
+                            </a>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -53,7 +56,11 @@
                 <a href="" class="a_nav seta_body">
                     <div class="seta down_seta"></div>
                 </a>
-                <div class="menu_area"></div>
+                <div class="menu_area">
+                    <div class="menu_show_" style="display: none;">
+                        <div class="opts_user logout_exit">Sair</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

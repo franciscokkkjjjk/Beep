@@ -426,10 +426,12 @@ main .container {
 .modal_user {
     height: auto;
     position: absolute;
+    opacity: 0;
     width: 190px;
     box-shadow: 0px 0px 7px 3px #232324;
     margin-top: 55px;
     background-color: #232324;
+    transition: all ease 0.15s;
 }
 .modal_opt_user_area {
     position: absolute;
@@ -465,4 +467,15 @@ main .container {
     cursor: pointer;
     background-color: #333335b6;
     transition: all linear 0.25s;
+}
+.menu_area {
+    position: absolute;
+}
+.menu_show_ {
+    position: absolute;
+    width: 150px;
+    margin-left: -100px;
+    margin-top: 27px;
+    background-color: #232324;
+    box-shadow: 0px 0px 7px 3px #232324;
 }
