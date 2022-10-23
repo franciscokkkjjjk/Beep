@@ -355,7 +355,7 @@ if (isset($_SESSION['menssagem'])) {
         <div class="opt_dP">Salvar Postagem</div>
     </div>
 </div>
-<div class="q_D_modal_area">
+<div class="q_D_modal_area" style="display: none;">
     <div class="q_D_modal_exit q_D_exit"></div>
     <div class="q_D_modal">
         <div class="header-coment">
@@ -364,7 +364,6 @@ if (isset($_SESSION['menssagem'])) {
             <div class="q_D_header_button">
                 <button class="q_D_button_body">Enviar</button>
             </div>
-            <!-- o modal deve ter algumas etapas (1) ele escolhe o motivo (2) ele escreve o que ocorreu se quiser -->
         </div>
         <div class="q_D_body">
             <div class="conteudo_check">

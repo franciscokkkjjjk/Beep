@@ -278,5 +278,7 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
         modal_show.querySelector('.modal_exit_dP'),
         modal_show
     )
-
+}
+function q_D_modal_show() {
+    let modal_q_D = qs('.')
 }
