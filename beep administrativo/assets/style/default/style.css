@@ -423,21 +423,39 @@ main .container {
     display: flex;
     flex-direction: column;
 }
-.modal_opt_user_area {
-    height: 150px;
+.modal_user {
+    height: auto;
     position: absolute;
     width: 190px;
     box-shadow: 0px 0px 7px 3px #232324;
     margin-top: 55px;
     background-color: #232324;
 }
-.img_exit {
+.modal_opt_user_area {
+    position: absolute;
+}
+.logout_exit {
     padding-left: 50px !important;
     background-image: url(../../../../assets/imgs/default/logout.png);
     background-repeat: no-repeat;
     background-size: 15%;
     background-position:10px ;
 
+}
+.user_exit {
+    padding-left: 50px !important;
+    background-image: url(../../../../assets/imgs/default/perfil-de-usuario.png);
+    background-repeat: no-repeat;
+    background-size: 15%;
+    background-position:10px ;
+
+}
+.publica_img {
+    padding-left: 50px !important;
+    background-image: url(../../../../assets/imgs/default/publicacao_d.png);
+    background-repeat: no-repeat;
+    background-size: 15%;
+    background-position:10px ;
 }
 .opts_user {
     background-color: transparent;

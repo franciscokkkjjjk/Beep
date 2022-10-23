@@ -40,8 +40,11 @@
                 <div class="modal_opt_user_area">
                     <div class="exit_event"></div>
                     <div class="modal_user">
-                        <div class="opts_user img_exit">
-                            Sair
+                        <div class="opts_user publica_img">
+                            Postagens
+                        </div>
+                        <div class="opts_user user_exit">
+                            Usuários 
                         </div>
                     </div>
                 </div>
