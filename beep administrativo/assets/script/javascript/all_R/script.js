@@ -104,9 +104,9 @@ function header_modal(modal, button) {
             setTimeout(() => {
                 modal.style.opacity = '1';
                 modal.style.display = '';
-                qs('body').onclick =  ()=>{
+                qs('body').onclick = () => {
                     modal.style.opacity = '0';
-                     modal.style.display = 'none';
+                    modal.style.display = 'none';
                     open = false;
                 }
             })
@@ -115,8 +115,8 @@ function header_modal(modal, button) {
             console.log('a')
             document.body.onclick = '';
             modal.style.opacity = '0';
-                     modal.style.display = 'none';
-                    open = false;
+            modal.style.display = 'none';
+            open = false;
             open = false;
 
         }
