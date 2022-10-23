@@ -243,9 +243,11 @@ function relativ_a_b(relative, modal_, remover, raiz) {
 // gera o modal de denuncia; 
 //  se ele tiver a mesma estrutura desse. ----ultra importante-----
 let modal_clone = qs('.modal_area_dP');
-let aux_clone = modal_clone.cloneNode(true);
-modal_clone.remove();
-
+let aux_clone;
+if(modal_clone != undefined) {
+    aux_clone = modal_clone.cloneNode(true);
+    modal_clone.remove();
+}
 function posts_modal(modal_show, id_publi, url_g, button_show) {
     let modal_b = modal_show.querySelector('.dP_post');
     let opt = modal_show.querySelectorAll('.opt_dP');
