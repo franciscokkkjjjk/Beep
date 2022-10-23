@@ -363,6 +363,7 @@ if (isset($_SESSION['menssagem'])) {
         </div>
     </div>
 </div>
+
 <div class="modal_area_dP">
     <div class="modal_exit_dP"></div>
     <div class="dP_post">
@@ -370,6 +371,7 @@ if (isset($_SESSION['menssagem'])) {
         <div class="opt_dP">Salvar Postagem</div>
     </div>
 </div>
+
 <div class="q_D_modal_area" style="display: none;">
     <div class="q_D_modal_exit q_D_exit"></div>
     <div class="q_D_modal">

@@ -240,37 +240,69 @@ function relativ_a_b(relative, modal_, remover, raiz) {
     }, 25);
     qs('.feed-area').appendChild(raiz);
 }
+
+// Abre o modal de denúncia
+let modal_aux_q_D_c;
+if (qs('.q_D_modal_area') != undefined) {
+    let modal_aux_q_D = qs('.q_D_modal_area');
+    modal_aux_q_D_c = modal_aux_q_D.cloneNode(true);
+    modal_aux_q_D.remove();
+}
+//fecha modals
+function ext(area_hidden) {
+    area_hidden.style.opacity = '0';
+    setTimeout(() => {
+        area_hidden.style.display = 'none';
+        area_hidden.remove();
+        qs('html').style = '';
+    }, 250)
+}
+function q_D_modal_show(id, url) {
+    let modal_q_D = modal_aux_q_D_c;
+    
+    // modal_q_D.querySelector('.q_D_button_body').onclick = async (e)=>{
+    //     e.preventDefault();
+    //     let f = new FormData();
+    //     f.append('dP_xd30', id);
+    //     let req_ = await fetch(url, {
+    //         method:"POST",
+    //         headers: [
+
+    //         ],
+    //         body:''
+    //     }) 
+    // };
+
+    modal_q_D.querySelectorAll('.q_D_modal_exit').forEach((e) => {
+        e.onclick = () => { ext(modal_q_D) };
+    })
+    qs('.feed-area').appendChild(modal_q_D);
+    console.log('chamou')
+    console.log(id)
+    modal_q_D.style.display = '';
+    qs('html').style.overflow = 'hidden';
+    setTimeout(() => {
+        modal_q_D.style.opacity = '1';
+    })
+}
+
+
+
 // gera o modal de denuncia; 
 //  se ele tiver a mesma estrutura desse. ----ultra importante-----
 let modal_clone = qs('.modal_area_dP');
 let aux_clone;
-if(modal_clone != undefined) {
+if (modal_clone != undefined) {
     aux_clone = modal_clone.cloneNode(true);
     modal_clone.remove();
 }
+
 function posts_modal(modal_show, id_publi, url_g, button_show) {
+    console.log(id_publi);
     let modal_b = modal_show.querySelector('.dP_post');
     let opt = modal_show.querySelectorAll('.opt_dP');
     for (let i = 0; i < opt.length; i++) {
-        opt[i].onclick = async () => {
-            console.log('denuncia ' + id_publi);
-            if (url_g[i] != undefined && url_g[i] != '') { // isso irá para outro luga kkkkk programador burro
-                let info_s = new FormData();
-                info_s.append('dP_xd30', id_publi);
-                let req_ = await fetch(url_g[i], {
-                    method: 'POST',
-                    body: info_s
-                })
-                let res_ = await req_.json();
-                if (res_.error == true) {
-                    modal_b.style.opacity = '0';
-                    setTimeout(() => {
-                        modal_show.remove();
-                    }, 150)
-                }
-                alert_mensage(res_);
-            }
-        }
+        opt[i].onclick = () => { q_D_modal_show(id_publi, url_g[i]) };
     }
     relativ_a_b(
         button_show,
@@ -278,23 +310,4 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
         modal_show.querySelector('.modal_exit_dP'),
         modal_show
     )
-}
-if(qs('.q_D_modal_area') != undefined) {
-    let modal_aux_q_D = qs('.q_D_modal_area');
-    let modal_aux_q_D_c = modal_aux_q_D.cloneNode(true);
-    modal_aux_q_D.remove(); 
-}
-function q_D_modal_show(id, url) {
-    let modal_q_D = modal_aux_q_D_c;
-    modal_q_D.querySelector('.q_D_button_body').onclick = async (e)=>{
-        e.preventDefault();
-        let req_ = await fetch(url, {
-            method:"POST",
-            headers: [
-                
-            ],
-            body:''
-        }) 
-        
-    };
 }

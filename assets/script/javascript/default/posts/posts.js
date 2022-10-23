@@ -125,9 +125,10 @@ function criarPosts(lista) {
         if (lista[i]['type'] == "3") {//postagem normal
             let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
             post_body.id = lista[i]['id_publi'] + 'pt-xD30';
+            let aux_id = lista[i]['id_publi'];
             post_body.querySelector('.elipse-img').onclick = (e) => {
                 e.preventDefault();
-                posts_modal(aux_clone, lista[i]['id_publi'], url, post_body.querySelector('.elipse-img'));
+                posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
             }
             coment(post_body.querySelector('.comentar'));
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
@@ -201,10 +202,11 @@ function criarPosts(lista) {
             } else {
                 post_body.querySelector('.post--text_comp').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
             }
+            let aux_id = lista[i]['id_publi'];
             post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
             post_body.querySelector('.elipse-img').onclick = (e) => {
                 e.preventDefault();
-                posts_modal(aux_clone, lista[i]['id_publi'], url, post_body.querySelector('.elipse-img'));
+                posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
             }
             let aux = lista[i]['compartilhador_info']['id_da_compartilhada'];
 
@@ -320,9 +322,10 @@ function criarPosts(lista) {
                     post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }
             }//p-xD30
+            let aux_id = lista[i]['id_publi'];
             post_body.querySelector('.elipse-img').onclick = (e) => {
                 e.preventDefault();
-                posts_modal(aux_clone, lista[i]['id_publi'], url, post_body.querySelector('.elipse-img'));
+                posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
             }
             post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
             post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['compartilhador_info']['id_da_compartilhada'];
