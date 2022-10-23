@@ -2,13 +2,19 @@
     session_start();
     require_once '../conecta.php';
     require_once '../function/funcoes.php';
-    $perfil = $_GET['username'];
+    $perfil = mysqli_escape_string($conexao, $_GET['username']);
     $perfil_visit = array();
 
     $sql_s_perfil = "SELECT * FROM users WHERE username='$perfil'";
     $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
     $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-
+    if(is_null($array_s_perfil)) {
+        $json=  [
+            'error' => true,
+        ];
+        echo json_encode($json);
+        die;
+    }
     $sql_posts = "SELECT * FROM publicacoes WHERE user_publi=".$array_s_perfil['id_user']." AND publicacoes.type <> 1 ORDER BY publicacoes.date_publi DESC";
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);

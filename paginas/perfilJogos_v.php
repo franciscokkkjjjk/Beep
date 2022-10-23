@@ -140,9 +140,9 @@ if($perfil == $_SESSION['username']) {
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/jogos/game.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
-    <script type="text/javascript">
-        user_(false);
-        seguidores_user();
+    <script type="">
+        user_(true);
+        game_perfil('<?=$_GET['username']?>');
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>

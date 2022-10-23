@@ -3,7 +3,6 @@ session_start();
 if(!isset($_SESSION['id_user'])) {
     header('location:../');
 }
-require_once '../../assets/script/php/historico.php';    
 require_once '../../assets/script/php/conecta.php';
 require_once '../../assets/script/php/function/funcoes.php';
 $user_vist = isset($_GET['id_user']);
@@ -32,7 +31,7 @@ if(!$user_vist) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../assets/imgs/default/beep_logo.png">
+    <link rel="icon" href="../../assets/imgs/default/beep_logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/style/generic/style.css">
     <link rel="stylesheet" href="../../assets/style/feed/style.css">
@@ -102,7 +101,7 @@ if(!$user_vist) {
     </div>
     
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
-    <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
+    <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../assets/script/javascript/default/session_storage.js"></script>-->

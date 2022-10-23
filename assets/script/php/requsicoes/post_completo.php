@@ -3,7 +3,7 @@
     if(isset($_POST['All_xD30'])) {
         require_once '../conecta.php';
         require_once '../function/funcoes.php';
-        $id_post = $_POST['All_xD30'];
+        $id_post = mysqli_escape_string($conexao, $_POST['All_xD30']);
         $sql_post = 'SELECT * FROM publicacoes WHERE id_publi='.$id_post;
         $res_post = mysqli_query($conexao, $sql_post);
         $assoc_post = mysqli_fetch_assoc($res_post);
@@ -36,6 +36,7 @@
 
 
         if($assoc_post['type'] == '3') {
+            $postagem_completa['error'] = false;
             $user_compartilhou = false;
             $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
@@ -44,6 +45,7 @@
                     $user_compartilhou = true;
                 }
             $postagem_completa['publicacao'] = [
+                'error' => false,
                 'id_publi' => $assoc_post['id_publi'],
                 'type' => $assoc_post['type'],
                 'id_interacao' => $assoc_post['id_publi_interagida'],
@@ -89,6 +91,7 @@
                 $res_quem_comentou = mysqli_query($conexao, $sql_quem_comentou);
                 $assoc_quem_comentou = mysqli_fetch_assoc($res_quem_comentou);
                 $postagem_completa['comentarios'][] = [
+                    'error' => false,
                     'id_publi' => $valueC['id_publi'],
                     'type' => $valueC['type'],
                     'id_interacao' => $valueC['id_publi_interagida'],
@@ -111,6 +114,7 @@
             echo json_encode($postagem_completa);
         } elseif($assoc_post['type'] == '2' or $assoc_post['type'] == '1') {
             $user_compartilhou = false;
+            $postagem_completa['error'] = false;
             $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$assoc_post['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
@@ -163,6 +167,7 @@
                 $res_quem_comentou = mysqli_query($conexao, $sql_quem_comentou);
                 $assoc_quem_comentou = mysqli_fetch_assoc($res_quem_comentou);
                 $postagem_completa['comentarios'][] = [
+                    'error' => false,
                     'id_publi' => $valueC['id_publi'],
                     'type' => $valueC['type'],
                     'id_interacao' => $valueC['id_publi_interagida'],
@@ -189,8 +194,10 @@
             $sql_us_C_comentada = 'SELECT * FROM users WHERE id_user='.$ass_C_comentada['user_publi'];
             $res_us_C_comentada = mysqli_query($conexao, $sql_us_C_comentada);
             $ass_us_C_comentada = mysqli_fetch_assoc($res_us_C_comentada);
+            $postagem_completa['error'] = false;
 
             $postagem_completa['publicacao']['c_comentada'] = [
+                'error' => false,
                 'id_publi' => $ass_C_comentada['id_publi'],
                 'type' => $ass_C_comentada['type'],
                 'id_interacao' => $ass_C_comentada['id_publi_interagida'],
@@ -206,6 +213,7 @@
             ];
             echo json_encode($postagem_completa);
         } elseif ($assoc_post['type'] == 4) {
+            $postagem_completa['error'] = false;
             $user_compartilhou = false;
             $sql_raiz_publi = "SELECT * FROM publicacoes WHERE publicacoes.id_publi=".$assoc_post['id_publi_interagida'];
             $res_raiz_publi = mysqli_query($conexao, $sql_raiz_publi);

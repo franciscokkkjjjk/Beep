@@ -20,7 +20,7 @@ async function posts() {
         qs('.event-direct').onclick = compartilhar;
         setInterval(() => {
             post_num_curtida();
-        }, 950);
+        }, 9000);
         post_num_compartilhamento();
     } else {
         post_not(0);
@@ -70,30 +70,48 @@ async function user_(active) {
     let username_vist = window.location.href.split('=');
     let user_vist = await fetch('../assets/script/php/requsicoes/posts_users.php?username=' + username_vist[1]);
     let user_v = await user_vist.json();
-    qsAll('.event').forEach((e) => { e.remove() });
-    qsAll('.back--event').forEach((e) => { e.remove() });
-    console.log(user_v)
-    user_seguidores(user_v.user);
-    if (active) {
-        if (user_v.publi.nada == undefined) {
-            criarPosts(user_v.publi)
-            curtir_post();
-            desCurtir();
-            viwimg();
-            show_CM();
-            descompartilhar();
-            qs('.event-direct').onclick = compartilhar;
-            setInterval(() => {
-                post_num_curtida();
-            }, 500);
-            post_num_compartilhamento();
-            seguidores_session();
+    if (user_v.error == undefined) {
+        qsAll('.event').forEach((e) => { e.remove() });
+        qsAll('.back--event').forEach((e) => { e.remove() });
+        console.log(user_v)
+        if (active) {
+            seguidores_user();
+            user_seguidores(user_v.user);
+            if (user_v.publi.nada == undefined) {
+                criarPosts(user_v.publi)
+                curtir_post();
+                desCurtir();
+                viwimg();
+                show_CM();
+                descompartilhar();
+                qs('.event-direct').onclick = compartilhar;
+                setInterval(() => {
+                    post_num_curtida();
+                }, 9000);
+                post_num_compartilhamento();
+                // seguidores_session();
+            } else {
+                post_not(1);
+                if(qs('.back--event') != undefined){
+                    qs('.back--event').remove();
+                }
+                if(qs('.event') != undefined) {
+                    qsAll('.event').forEach((e) => {
+                        e.remove();
+                    })
+                }
+            }
+
         } else {
-            post_not(1);
+            let username_vist = window.location.href.split('=');
+            game_perfil(username_vist[1]);
         }
     } else {
-        let username_vist = window.location.href.split('=');
-        game_perfil(username_vist[1]);
+        not_requi(0);
+        qs('.back--event').remove();
+        qsAll('.event').forEach((e) => {
+            e.remove();
+        })
     }
 }
 
@@ -388,7 +406,7 @@ function verficar_posts() {
                 }
                 return json.length;
             })
-    }, 1000);
+    }, 9000);
 
 }
 function user_seguidores(list_user) {
@@ -428,6 +446,8 @@ function seguidores_user() {
             .then(function (json) {
                 qs('.num_seguindo').innerHTML = json.user.t_seguindo;
                 qs('.num_seguidores').innerHTML = json.user.t_seguidores;
+
+
             })
     }, 300)
 }
@@ -448,7 +468,7 @@ async function user_session() {//adaptar para parece com os da timeline
         qs('.event-direct').onclick = compartilhar;
         setInterval(() => {
             post_num_curtida();
-        }, 500);
+        }, 9000);
         post_num_compartilhamento();
     } else {
         post_not(1);
@@ -459,7 +479,21 @@ function seguidores_session() {
     let url_perfil = window.location.href.split('=');
     let atual_pag = window.location.href.split('paginas/');
     setInterval(() => {
-        if (atual_pag[1] == 'perfil.php' || atual_pag[1] == 'curtidas.php' || atual_pag[1] == 'perfilJogos.php') {
+        let aux = atual_pag[1].substring(0, 10);
+        if (aux != 'perfil.php') {
+            aux = atual_pag[1].substring(0, 12);
+            if (aux != 'curtidas.php') {
+                aux = atual_pag[1].substring(0, 15);
+                if (aux == 'perfilJogos.php') {
+                    aux = true;
+                }
+            } else {
+                aux = true;
+            }
+        } else {
+            aux = true;
+        }
+        if (aux) {
             fetch('../assets/script/php/requsicoes/posts_users.php?username=' + username)
                 .then(function (res) {
                     return res.json()
@@ -537,7 +571,7 @@ async function postsCurtidos_session() {//mesma coisa da session
         qs('.event-direct').onclick = compartilhar;
         setInterval(() => {
             post_num_curtida();
-        }, 500);
+        }, 9000);
         post_num_compartilhamento();
         coment();
     } else {
@@ -913,8 +947,9 @@ function post_num_compartilhamento() {
     setInterval(async () => {
         let url_perfil = window.location.href.split('=');
         let url_push_v = window.location.href.split('paginas/');
+        let a = url_push_v[1].substring(0, 11);
 
-        if (url_push_v[1] == 'inicial.php') {
+        if (a == 'inicial.php') {
             let prom = await fetch('../assets/script/php/requsicoes/posts.php');
             let res_pom = await prom.json();
             for (let l in res_pom) {
@@ -955,7 +990,8 @@ function post_num_compartilhamento() {
                 }
             }
         } else {
-            if (url_push_v[1] == 'perfil.php') {
+            a = url_push_v[1].substring(0, 10);
+            if (a == 'perfil.php') {
                 req_ = await fetch('../assets/script/php/requsicoes/posts_users.php?username=' + username);
                 res_pom = await req_.json();
                 if (res_pom.publi.nada == undefined) {
@@ -1044,47 +1080,47 @@ function post_num_compartilhamento() {
             } else {
                 req_ = await fetch('../assets/script/php/requsicoes/posts_users.php?username=' + url_perfil[1]);
                 res_pom = await req_.json();
-                if (res_pom.publi.nada == undefined) {
-                    for (let l in res_pom.publi) {
-                        if (res_pom.publi[l]["type"] == "3") {
-                            let repostArea = document.getElementById(res_pom.publi[l]['id_publi'] + 'c-xD30');
-                            repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom.publi[l]['beepadas'];
-                            if (res_pom.publi[l]['user_compartilhou']) {
-                                repostArea.classList.remove();
-                                repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
-                                repostArea.querySelector('button').classList.remove();
-                                repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar');
-                                descompartilhar()
-                            } else {
-                                repostArea.classList.remove();
-                                repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
-                                repostArea.querySelector('button').classList.remove();
-                                repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
-                                show_CM()
-                            }
-                        } else {
-                            let repostArea = document.getElementById(res_pom.publi[l]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30');
-                            if (repostArea != undefined) {
+                if (res_pom.error == undefined) {
+                    if (res_pom.publi.nada == undefined) {
+                        for (let l in res_pom.publi) {
+                            if (res_pom.publi[l]["type"] == "3") {
+                                let repostArea = document.getElementById(res_pom.publi[l]['id_publi'] + 'c-xD30');
                                 repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom.publi[l]['beepadas'];
                                 if (res_pom.publi[l]['user_compartilhou']) {
                                     repostArea.classList.remove();
                                     repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
                                     repostArea.querySelector('button').classList.remove();
                                     repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar');
-                                    descompartilhar();
+                                    descompartilhar()
                                 } else {
                                     repostArea.classList.remove();
                                     repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                                     repostArea.querySelector('button').classList.remove();
                                     repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
-                                    show_CM();
+                                    show_CM()
+                                }
+                            } else {
+                                let repostArea = document.getElementById(res_pom.publi[l]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30');
+                                if (repostArea != undefined) {
+                                    repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom.publi[l]['beepadas'];
+                                    if (res_pom.publi[l]['user_compartilhou']) {
+                                        repostArea.classList.remove();
+                                        repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
+                                        repostArea.querySelector('button').classList.remove();
+                                        repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar');
+                                        descompartilhar();
+                                    } else {
+                                        repostArea.classList.remove();
+                                        repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
+                                        repostArea.querySelector('button').classList.remove();
+                                        repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-off');
+                                        show_CM();
 
+                                    }
                                 }
                             }
                         }
                     }
-                } else {
-
                 }
             }
         }
@@ -1311,28 +1347,38 @@ async function user__curtidas() {
     let username_vist = window.location.href.split('=');
     let user_vist = await fetch('../assets/script/php/requsicoes/posts_users.php?username=' + username_vist[1]);
     let user_v = await user_vist.json();
-    let user_vist_post = await fetch('../assets/script/php/requsicoes/curtidas_posts.php?username=' + username_vist[1]);
-    let res_vist_post = await user_vist_post.json();
-    console.log(res_vist_post)
-    qsAll('.event').forEach((e) => { e.remove() });
-    qsAll('.back--event').forEach((e) => { e.remove() });
-    console.log(user_v)
-    user_seguidores(user_v.user);
-    if (res_vist_post.nada == undefined) {
-        res_vist_post.reverse();
-        criarPosts(res_vist_post);
-        curtir_post();
-        desCurtir();
-        viwimg();
-        show_CM();
-        descompartilhar();
-        qs('.event-direct').onclick = compartilhar;
-        setInterval(() => {
-            post_num_curtida();
-        }, 500);
-        post_num_compartilhamento();
+    console.log(user_v);
+    if (user_v.error == undefined) {
+        let user_vist_post = await fetch('../assets/script/php/requsicoes/curtidas_posts.php?username=' + username_vist[1]);
+        let res_vist_post = await user_vist_post.json();
+        console.log(res_vist_post)
+        qsAll('.event').forEach((e) => { e.remove() });
+        qsAll('.back--event').forEach((e) => { e.remove() });
+        console.log(user_v)
+        user_seguidores(user_v.user);
+        seguidores_user();
+        if (res_vist_post.nada == undefined) {
+            res_vist_post.reverse();
+            criarPosts(res_vist_post);
+            curtir_post();
+            desCurtir();
+            viwimg();
+            show_CM();
+            descompartilhar();
+            qs('.event-direct').onclick = compartilhar;
+            setInterval(() => {
+                post_num_curtida();
+            }, 9000);
+            post_num_compartilhamento();
+        } else {
+            post_not(2);
+        }
     } else {
-        post_not(2);
+        not_requi(0);
+        qs('.back--event').remove();
+        qsAll('.event').forEach((e) => {
+            e.remove();
+        })
     }
 }
 async function game_perfil(user) {
@@ -1363,15 +1409,22 @@ function num_coment_dinamic(div, id) {
                     body: formnew
                 })
                 let res_coment = await coment_req.json();
-                if ((div != undefined) && (div.querySelector('.post_comentadas') != undefined) && (res_coment.error == undefined) && (res_coment.publicacao.num_comentario > anterior)) {
-                    div.querySelector('.post_comentadas').innerHTML = res_coment.publicacao.num_comentario;
-                } 
-                if(res_coment.publicacao.num_comentario == undefined) {
-                    clearInterval(inter);
-                } else {
-                    anterior = res_coment.publicacao.num_comentario;
+                if (res_coment.error == false) {
+                    if ((div != undefined) && (div.querySelector('.post_comentadas') != undefined) && (anterior < res_coment.publicacao.num_comentario || anterior > res_coment.publicacao.num_comentario)) {
+                        div.querySelector('.post_comentadas').innerHTML = res_coment.publicacao.num_comentario;
+                    }
+                    if (res_coment.publicacao.num_comentario == undefined) {
+                        clearInterval(inter);
+                    } else {
+                        anterior = res_coment.publicacao.num_comentario;
+                    }
                 }
             }
-        }, 3000)
+        }, 9000)
+    }
+}
+function not_requi(a) {
+    if (a == 0) {
+        qs('.info--perfil').innerHTML = '<p class=\'nada\'>Esse usuário não existe.</p>';
     }
 }

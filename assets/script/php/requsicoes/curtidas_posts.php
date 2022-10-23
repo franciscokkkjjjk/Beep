@@ -3,14 +3,15 @@
     require_once '../conecta.php';
     require_once '../function/funcoes.php';
     if(isset($_GET['username'])) {
-        $user_push = $_GET['username'];
+        $user_push = mysqli_escape_string($conexao, $_GET['username']);
     } else {
-        $user_push = $_SESSION['username'];
+        $user_push = mysqli_escape_string($conexao, $_SESSION['username']);
     }
     $posi = 0;
     $sql_req = "SELECT * FROM users WHERE username='$user_push'";
     $res_requ = mysqli_query($conexao, $sql_req);
     $assoc_user_req = mysqli_fetch_assoc($res_requ);
+
 
     $sql_curtidas = 'SELECT * FROM curtidas WHERE id_user_curti='.$_SESSION['id_user'];
     $res_curtidas = mysqli_query($conexao, $sql_curtidas);
