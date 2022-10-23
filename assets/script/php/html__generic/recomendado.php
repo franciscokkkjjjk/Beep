@@ -359,16 +359,39 @@ if (isset($_SESSION['menssagem'])) {
     <div class="q_D_modal_exit q_D_exit"></div>
     <div class="q_D_modal">
         <div class="header-coment">
-            <div class="exit-img"></div>
-            <div class="q_D_header_title"></div>
+            <div class="exit_img q_D_modal_exit menu--exit-img"></div>
+            <div class="q_D_header_title">Denunciar Postagem</div>
             <div class="q_D_header_button">
                 <button class="q_D_button_body">Enviar</button>
             </div>
-            <!-- tava fazendo um modal de denuncia -->
             <!-- o modal deve ter algumas etapas (1) ele escolhe o motivo (2) ele escreve o que ocorreu se quiser -->
         </div>
         <div class="q_D_body">
-            
+            <div class="conteudo_check">
+                <div class="q_D_body_R_area">
+                    <input type="radio" id="q_D_r0" name="den_a" value="1" class="q_D_radio">
+                    <label for="q_D_r0">Conteúdo explícito.</label>
+                </div>
+                <div class="q_D_body_R_area">
+                    <input type="radio" id="q_D_r1" name="den_a" value="2" class="q_D_radio">
+                    <label for="q_D_r1">Discurso de ódio(corredor?)</label>
+                </div>
+                <div class="q_D_body_R_area">
+                    <input type="radio" id="q_D_r2" name="den_a" value="3" class="q_D_radio">
+                    <label for="q_D_r2">Assédio</label>
+                </div>
+                <div class="q_D_body_R_area">
+                    <input type="radio" id="q_D_r3" name="den_a" value="4" class="q_D_radio">
+                    <label for="q_D_r3">
+                        Spam
+                    </label>
+                </div>
+                <div class="info_text">
+                    <div class="input_div_info_title">Conte-nos o que aconteceu</div>
+                    <div class="input_div" contenteditable="true">oh meu deus o pedrinha é doido</div>
+                    <input type="hidden" class="hidden_in_info_">
+                </div>
+            </div>
         </div>
     </div>
 </div>

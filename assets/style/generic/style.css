@@ -1770,7 +1770,9 @@ select option {
 .top_opt_dP {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-} .bottom_opt_dP {
+}
+
+.bottom_opt_dP {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -1778,8 +1780,10 @@ select option {
 .opt_dP {
     padding: 10px 10px;
     color: #fbfbfb;
-    
-}.opt_dP:hover {
+
+}
+
+.opt_dP:hover {
     cursor: pointer;
     background-color: #313131;
     transition: all linear 0.25s;
@@ -1790,13 +1794,107 @@ select option {
     width: 100%;
     height: 100%;
     z-index: 1;
-} 
+}
 
 .modal_area_dP {
     position: absolute;
 }
+
 .a_nav {
     display: block;
-    color:inherit;
+    color: inherit;
     text-decoration: none;
+}
+
+.q_D_modal_area {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.q_D_modal {
+    position: relative;
+    width: 50vw;
+    min-height: 150px;
+    font-size: 20px;
+    border-radius: 20px;
+    background-color: #000;
+}
+
+.header-coment {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    background-color: #090909;
+    /* background-color: #090909; */
+}
+
+.q_D_exit {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #585858ab;
+}
+
+.exit_img {
+    border-radius: 100%;
+    height: 32px;
+    width: 32px;
+}
+
+.exit_img:hover {
+    background-color: #464646;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    transition: all linear 0.25s;
+}
+
+.q_D_header_title {
+    color: #fff;
+}
+
+
+.q_D_button_body {
+    border: none;
+    cursor: pointer;
+    background-color: #0fa8b3;
+    padding: 5px 13px;
+    border-radius: 10px;
+    color: #fbfbfb;
+}
+
+.q_D_button_body:hover {
+    background-color: #13ccda;
+    transition: all linear 0.25s;
+}
+
+.conteudo_check {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-size: 16px;
+}
+.q_D_body {
+    padding: 25px 35px;
+}
+.q_D_body_R_area {
+    margin-top: 15px;
+}
+.info_text {
+    margin-top: 20px;
+    border-top: 0.5px solid #393939;
+    padding-top: 15px;
+}
+.input_div {
+    border: 0.7px solid #414141;
+    padding: 10px 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    transition: all ease 0.25s;
 }
