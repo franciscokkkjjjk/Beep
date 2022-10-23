@@ -96,11 +96,7 @@ function header_modal(modal, button) {
         e.preventDefault();
         if (open == false) {
             e.preventDefault();
-            console.log(modal);
-
             modal.style.display = '';
-            console.log('tamo aq');
-
             setTimeout(() => {
                 modal.style.opacity = '1';
                 modal.style.display = '';
