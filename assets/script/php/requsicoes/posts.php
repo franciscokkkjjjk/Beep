@@ -12,7 +12,7 @@
     $res_curtidas = mysqli_query($conexao, $sql_curtidas);
     $arra_curtida = mysqli_fetch_all($res_curtidas, 1);
 
-    $sql_all_compartilhada = 'SELECT * FROM publicacoes WHERE user_publi='.$_SESSION['id_user'].' AND type=4';
+    $sql_all_compartilhada = 'SELECT * FROM publicacoes WHERE user_publi=' . $_SESSION['id_user'] . ' AND type=4';
     $res_all_compartilhada = mysqli_query($conexao, $sql_all_compartilhada);
     $array_all_compartilhada = mysqli_fetch_all($res_all_compartilhada, 1);
     $posi = 0;

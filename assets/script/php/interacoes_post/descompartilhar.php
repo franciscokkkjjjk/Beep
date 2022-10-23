@@ -4,11 +4,12 @@
      require_once '../function/funcoes.php';
      if($_POST['c-pXD30']) {
       $publi_des = $_POST['c-pXD30'];
-
+   
         $sql_post_compartilhado = 'SELECT * FROM publicacoes WHERE id_publi='.$publi_des;
         $res_post_compartilhado = mysqli_query($conexao, $sql_post_compartilhado);
         $assoc_post = mysqli_fetch_assoc($res_post_compartilhado);
          if($assoc_post['type'] == '4') {
+            
             if($assoc_post['user_publi'] == $_SESSION['id_user']) {
                $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$publi_des;
                $res_delet = mysqli_query($conexao, $sql_delet);
@@ -31,12 +32,12 @@
                } else {
                   $descompatilha = [
                      'error' => true,
-                     'error' => 'erro no deletar'
+                     'error' => 'erro ao deletar'
                   ];
                   echo json_encode($descompatilha);
                }
           } else {
-            $em_busca_de_nemo = 'SELECT * FROM publicacoes WHERE id_publi_interagida='.$assoc_post['id_publi_interagida'].' AND user_publi='.$_SESSION['id_user'];
+            $em_busca_de_nemo = 'SELECT * FROM publicacoes WHERE id_publi_interagida='.$assoc_post['id_publi_interagida'].' AND user_publi='.$_SESSION['id_user'] .' AND publicacoes.type=4';
             $nossa_achamos_o_nemo = mysqli_query($conexao, $em_busca_de_nemo);
             $olha_o_nemo_ai = mysqli_fetch_assoc($nossa_achamos_o_nemo);
             $nemo = $olha_o_nemo_ai['id_publi'];
@@ -67,12 +68,14 @@
             }
           }
          }else {
-            $sql_post_des = 'SELECT * FROM publicacoes WHERE user_publi='.$_SESSION['id_user'].' AND id_publi_interagida='.$publi_des;
+            
+            $sql_post_des = 'SELECT * FROM publicacoes WHERE user_publi='.$_SESSION['id_user'].' AND id_publi_interagida='.$publi_des .' AND  publicacoes.type=4';
             $res_post_des = mysqli_query($conexao, $sql_post_des);
             $assoc_post_des = mysqli_fetch_assoc($res_post_des);
+
             if($assoc_post_des != NULL){
                $id_post_comp = $assoc_post_des['id_publi'];
-               $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$assoc_post_des['id_publi'];
+               $sql_delet = 'DELETE FROM publicacoes WHERE id_publi='.$assoc_post_des['id_publi'] . ' AND publicacoes.type=4';
                $res_delet = mysqli_query($conexao, $sql_delet);
                if($res_delet) {
                   $sql_interagida = 'SELECT * FROM publicacoes WHERE id_publi='.$publi_des;

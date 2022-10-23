@@ -22,7 +22,6 @@ async function posts() {
             post_num_curtida();
         }, 950);
         post_num_compartilhamento();
-        coment();
     } else {
         post_not(0);
     }
@@ -82,7 +81,6 @@ async function user_(active) {
             desCurtir();
             viwimg();
             show_CM();
-            coment()
             descompartilhar();
             qs('.event-direct').onclick = compartilhar;
             setInterval(() => {
@@ -112,6 +110,7 @@ function criarPosts(lista) {
                 e.preventDefault();
                 posts_modal(aux_clone, lista[i]['id_publi'], url, post_body.querySelector('.elipse-img'));
             }
+            coment(post_body.querySelector('.comentar'));
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
             post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
             post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
@@ -171,6 +170,7 @@ function criarPosts(lista) {
             document.querySelector('.feed-body-post').append(post_body);
         } else if (lista[i]['type'] == "2") {//repostagem com comentario 
             let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
+            coment(post_body.querySelector('.comentar'));
             post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'pt-xD30';
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
             post_body.querySelector('.name--comp .perfil-link').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
@@ -268,7 +268,7 @@ function criarPosts(lista) {
         } else if (lista[i]['type'] == "4") {//compartilhamento direto 
             let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
             post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'pt-xD30';
-
+            coment(post_body.querySelector('.comentar'));
             post_body.querySelector('.info-compartilhador').style.display = '';
             post_body.querySelector('.user_respost').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
             post_body.querySelector('.user_respost').innerHTML = `${lista[i]['compartilhador_info']['nome_user']}(${lista[i]['compartilhador_info']['username_user']})`;
@@ -337,7 +337,7 @@ function criarPosts(lista) {
             }
             post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
 
-            post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + lista[i]['compartilhador_info']['id_da_compartilhada'];
+            post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + lista[i]['id_publi'];
             document.querySelector('.feed-body-post').append(post_body);
         }
     }
@@ -439,7 +439,7 @@ async function user_session() {//adaptar para parece com os da timeline
     console.log(user_s)
     if (user_s.publi.nada == undefined) {
         criarPosts(user_s.publi)
-        coment();
+
         curtir_post();
         desCurtir();
         viwimg();
@@ -892,13 +892,10 @@ qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, 
 function descompartilhar() {
     qsAll('.descompartilhar-event').forEach((e) => {
         e.onclick = async () => {
-            let form_ = document.createElement('form');
-            let input_a = document.createElement('input');
-            input_a.setAttribute('name', 'c-pXD30');
             let id_button = e.id.replace('c-xD30', '');
-            input_a.setAttribute('value', id_button);
-            form_.appendChild(input_a);
-            let value_pomisse = new FormData(form_);
+            let value_pomisse = new FormData();
+            value_pomisse.append('c-pXD30', id_button)
+            console.log(id_button)
             let promisse = await fetch('../assets/script/php/interacoes_post/descompartilhar.php', {
                 method: 'POST',
                 body: value_pomisse
@@ -1116,7 +1113,6 @@ async function post_all() {
         post_all_creat(res_aux);
         curtir_post();
         desCurtir();
-        coment();
 
     }
 }
@@ -1126,6 +1122,7 @@ function post_all_creat(obj) {
     area_post_completo.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username=' + obj.publicacao.user_info.username_user);
     area_post_completo.querySelector('.name--name-perfil').innerHTML = obj.publicacao.user_info.nome_user;
     area_post_completo.querySelector('.name--username-perfil').innerHTML = obj.publicacao.user_info.username_user;
+    coment(area_post_completo.querySelector('.comentar'));
     if (obj.publicacao.text_post == '' || obj.publicacao.text_post == null) {
         area_post_completo.querySelector('.post--text').remove();
     } else {
@@ -1334,7 +1331,6 @@ async function user__curtidas() {
             post_num_curtida();
         }, 500);
         post_num_compartilhamento();
-        coment();
     } else {
         post_not(2);
     }
@@ -1356,24 +1352,26 @@ async function game_perfil(user) {
 }
 
 function num_coment_dinamic(div, id) {
+    let anterior;
     if ((qs('.post_comentadas') != undefined)) {
         let inter = setInterval(async () => {
             if ((div != undefined) && (div.querySelector('.post_comentadas') != undefined)) {
-                let input = document.createElement('input');
-                input.setAttribute('name', 'All_xD30');
-                input.setAttribute('value', id);
-                let form = document.createElement('form');
-                form.appendChild(input);
-                let formnew = new FormData(form);
+                let formnew = new FormData();
+                formnew.append('All_xD30', id);
                 let coment_req = await fetch('../assets/script/php/requsicoes/post_completo.php', {
                     method: "POST",
                     body: formnew
                 })
                 let res_coment = await coment_req.json();
-                if ((div != undefined) && (div.querySelector('.post_comentadas') != undefined) && (res_coment.error == undefined)) {
+                if ((div != undefined) && (div.querySelector('.post_comentadas') != undefined) && (res_coment.error == undefined) && (res_coment.publicacao.num_comentario > anterior)) {
                     div.querySelector('.post_comentadas').innerHTML = res_coment.publicacao.num_comentario;
+                } 
+                if(res_coment.publicacao.num_comentario == undefined) {
+                    clearInterval(inter);
+                } else {
+                    anterior = res_coment.publicacao.num_comentario;
                 }
             }
-        }, 950)
+        }, 3000)
     }
 }

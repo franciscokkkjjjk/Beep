@@ -279,6 +279,11 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
         modal_show
     )
 }
+if(qs('.q_D_modal_area') != undefined) {
+    let modal_aux_q_D = qs('.q_D_modal_area');
+    let modal_aux_q_D_c = modal_aux_q_D.cloneNode(true);
+    modal_aux_q_D.remove(); 
+}
 function q_D_modal_show() {
-    let modal_q_D = qs('.')
+    let modal_q_D = qs('.q_D_modal_area')
 }
