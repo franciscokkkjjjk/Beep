@@ -2,6 +2,8 @@
 if (isset($_POST['dP_xd30'])) {
     session_start();
     require_once '../conecta.php';
+    $id_denunciador = $_SESSION['id_user'];
+
     if (!isset($_POST['dP_xd30'])) {
         $json = [
             'error' => true,
@@ -23,6 +25,8 @@ if (isset($_POST['dP_xd30'])) {
     if (isset($_POST['dP_xd30_mT'])) { //não faz sentido mas fds
         if ($_POST['dP_xd30_mT'] != null) {
             $motivo_text = mysqli_escape_string($conexao, $_POST['dP_xd30_mT']);
+        } else {
+            $motivo_text = null;
         }
     } else {
         $motivo_text = null;
@@ -46,26 +50,17 @@ if (isset($_POST['dP_xd30'])) {
         $error = true;
         $json['mensage'] .= 'Algo deu errado. O motivo não foi enviado.';
     } elseif ($_POST['dp_xd30_m'] >= 0  and $_POST['dp_xd30_m'] < 9) { //rever quantos motivos de denuncias terá 
-        $motivo = $_POST['dp_xd30_m'];
+        $motivo = mysqli_escape_string($conexao, $_POST['dp_xd30_m']);
     } else {
         $error = true;
         $json['mensage'] .= "<br>Algo deu errado com o a denúncia."; //não informar direito para o user
-    }
-    if (!isset($_POST['dp_xd30_u'])) {
-        $error = true;
-        $json['mensage'] .= '<br>Algo de errado. O id do usuários não foi enviado.';
-    } elseif ($id_denunciador == '') {
-        $error = true;
-        $json['mensage'] .= '<br>Algo de errado. O id do usuários não foi enviado.';
-    } else {
-        $id_denunciador = mysqli_escape_string($conexao, $_POST['dp_xd30_u']);
     }
     if ($error) {
         $json['error'] = true;
         echo json_encode($json);
     } else {
         //continua
-        $alo_policia = "INSERT INTO publicacoes(post_denunciado, denunciador, motivo, motivo_text) VALUES ($id_post, $id_denunciador, $motivo, '" . $motivo_text . "')";
+        $alo_policia = "INSERT INTO denuncias(post_denunciado, denunciador, motivo, motivo_text) VALUES ($id_post, $id_denunciador, $motivo, '$motivo_text')";
         $oq_ocorreu = mysqli_query($conexao, $alo_policia);
         if($oq_ocorreu) {
             $json = [

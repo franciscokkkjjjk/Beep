@@ -192,12 +192,12 @@ function input_ac(e, a) {
 }
 
 function input_div_puts(input_div, input_hidden) {
-    input_div.addEventListener('blur', (e) => {
+    input_div.onblur = (e) => {
         let value_input = e.target.innerText;
         console.log(value_input);
         input_hidden.value = value_input;
         console.log(value_input);
-    })
+    }
 }
 
 function mensagem_element(elementDom, mensagem) { //gera uma caixa de dialago customizada kkkkk ele segue a mesma logica da caixa de dialago do compartilhar
@@ -214,7 +214,7 @@ function mensagem_element(elementDom, mensagem) { //gera uma caixa de dialago cu
     area.style.left = ele.left + 'px';
     setTimeout(() => {
         area.remove();
-    }, 3000)
+    }, 1500)
     document.body.appendChild(area);
     return ele;
 }
@@ -241,7 +241,7 @@ function relativ_a_b(relative, modal_, remover, raiz) {
     qs('.feed-area').appendChild(raiz);
 }
 
-// Abre o modal de denúncia
+// gera o modal de denuncia
 let modal_aux_q_D_c;
 if (qs('.q_D_modal_area') != undefined) {
     let modal_aux_q_D = qs('.q_D_modal_area');
@@ -257,24 +257,54 @@ function ext(area_hidden) {
         qs('html').style = '';
     }, 250)
 }
+
+// modal de denuncia + requisição
 function q_D_modal_show(id, url) {
     let modal_q_D = modal_aux_q_D_c;
-    
-    // modal_q_D.querySelector('.q_D_button_body').onclick = async (e)=>{
-    //     e.preventDefault();
-    //     let f = new FormData();
-    //     f.append('dP_xd30', id);
-    //     let req_ = await fetch(url, {
-    //         method:"POST",
-    //         headers: [
-
-    //         ],
-    //         body:''
-    //     }) 
-    // };
+    input_div_puts(modal_q_D.querySelector('.input_div'), modal_q_D.querySelector('.hidden_in_info_'));
+    modal_q_D.querySelector('.q_D_button_body').onclick = async (e) => {
+        e.preventDefault();
+        let f = new FormData();
+        f.append('dP_xd30', id);
+        let valueF;
+        qsAll('.q_D_radio').forEach(e => {
+            if (e.checked == true) {
+                valueF = e.value;
+            }
+        })
+        if (valueF == undefined) {
+            mensagem_element(qsAll('.q_D_body_R_area')[0], "Por favor marque um destes campos.")
+        } else {
+            f.append('dp_xd30_m', valueF);
+            f.append('dP_xd30_mT', qs('.hidden_in_info_').value);
+            let req_ = await fetch(url, {
+                method: "POST",
+                body: f
+            })
+            let res = await req_.json();
+            qsAll('.q_D_radio').forEach(e => {
+                if (e.checked == true) {
+                    e.checked  = false;
+                }
+            });
+            qs('.input_div').innerHTML = '';
+            qs('.hidden_in_info_').value = '';
+            ext(modal_q_D);
+            alert_mensage(res);
+        }
+    };
 
     modal_q_D.querySelectorAll('.q_D_modal_exit').forEach((e) => {
-        e.onclick = () => { ext(modal_q_D) };
+        e.onclick = () => { 
+            qsAll('.q_D_radio').forEach(e => {
+                if (e.checked == true) {
+                    e.checked  = false;
+                }
+            });
+            qs('.input_div').innerHTML = '';
+            qs('.hidden_in_info_').value = '';
+             ext(modal_q_D) 
+        };
     })
     qs('.feed-area').appendChild(modal_q_D);
     console.log('chamou')

@@ -44,49 +44,50 @@
                 $resul_seguidores_user = mysqli_query($conexao, $sql_seguidores_user);
                 $array_seguidores_user = mysqli_fetch_all($resul_seguidores_user, 1);
 
-                
+
                 $array_ante = array();
                 $quantidade = 0;
                 foreach ($array_seguidores_seguidores as $value01) {
                     $seguindo = false;
-                    if($quantidade < 4) {
-                    foreach ($array_seguidores_user as $value02) {
-                        if ($value01['username'] == $value02['username']) {
-                            $seguindo = true;
+                    if ($quantidade < 4) {
+                        foreach ($array_seguidores_user as $value02) {
+                            if ($value01['username'] == $value02['username']) {
+                                $seguindo = true;
+                            }
                         }
-                    }
-                    
-                    if (!$seguindo) {echo "entrou"; ?>
-                        <div class="opt--recomedado--area">
-                            <div class="perfil--area">
-                                <div class="img--perfil menu--pag--img--area area--recomendado" style="<?= perfilDefault($value01['foto_perfil'], pagAtual('caminho')) ?>">
+
+                        if (!$seguindo) {
+                            echo "entrou"; ?>
+                            <div class="opt--recomedado--area">
+                                <div class="perfil--area">
+                                    <div class="img--perfil menu--pag--img--area area--recomendado" style="<?= perfilDefault($value01['foto_perfil'], pagAtual('caminho')) ?>">
+                                    </div>
+                                    <div class="name--area">
+                                        <a class="perfil-link" href="<?= pagAtual('caminho'); ?>perfil_user_v.php?username=<?= $value01['username'] ?>">
+                                            <div class="name--name-perfil perfil-link-hover">
+                                                <?= $value01['nome'] ?>
+                                            </div>
+                                            <div class="name--username-perfil perfil-link-hover">
+                                                <?= $value01['username'] ?>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="name--area">
-                                    <a class="perfil-link" href="<?= pagAtual('caminho'); ?>perfil_user_v.php?username=<?= $value01['username'] ?>">
-                                        <div class="name--name-perfil perfil-link-hover">
-                                            <?= $value01['nome'] ?>
-                                        </div>
-                                        <div class="name--username-perfil perfil-link-hover">
-                                            <?= $value01['username'] ?>
-                                        </div>
-                                    </a>
+                                <div class="buttom-recomendado-area">
+                                    <div class="buttom--body">
+                                        <form action="<?= pagAtual('caminho'); ?>../assets/script/php/seguir.php" method="post">
+                                            <button type="submit" class="button--seguir"></button>
+                                            <input type="hidden" value="<?= $value01['id_user'] ?>" name="iD_x30">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="buttom-recomendado-area">
-                                <div class="buttom--body">
-                                    <form action="<?= pagAtual('caminho'); ?>../assets/script/php/seguir.php" method="post">
-                                        <button type="submit" class="button--seguir"></button>
-                                        <input type="hidden" value="<?= $value01['id_user'] ?>" name="iD_x30">
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        $quantidade++;
-                        $array_ante[]['username'] = $value01['username'];
-                        ?>
+                            <?php
+                            $quantidade++;
+                            $array_ante[]['username'] = $value01['username'];
+                            ?>
                         <?php }
-                 }
+                    }
                 }
                 foreach ($array_all_users as $value03) {
                     if ($quantidade < 4) {
@@ -97,18 +98,18 @@
                                 $seguindo_01 = true;
                             }
                         }
-                        foreach ($array_seguidores_user as $v_aux ) {
-                            if($v_aux['username'] == $aux) {
+                        foreach ($array_seguidores_user as $v_aux) {
+                            if ($v_aux['username'] == $aux) {
                                 $seguindo_01 = true;
                             }
                         }
-                        
-                        if (!$seguindo_01) {?>
+
+                        if (!$seguindo_01) { ?>
                             <div class="opt--recomedado--area">
                                 <div class="perfil--area">
-                                    <div class="img--perfil menu--pag--img--area area--recomendado" style="<?= perfilDefault($value03['foto_perfil'], pagAtual('caminho')) ?>"> 
+                                    <div class="img--perfil menu--pag--img--area area--recomendado" style="<?= perfilDefault($value03['foto_perfil'], pagAtual('caminho')) ?>">
                                     </div>
-                 
+
                                     <div class="name--area">
                                         <a class="perfil-link" href="<?= pagAtual('caminho'); ?>perfil_user_v.php?username=<?= $value03['username'] ?>">
                                             <div class="name--name-perfil perfil-link-hover">
@@ -130,9 +131,9 @@
                                 </div>
                             </div>
                             <?php $quantidade++;
-                            } 
+                        }
                     }
-                } 
+                }
                 if ($quantidade == 0) {
                     foreach ($array_all_users as $value05) {
                         if ($quantidade < 4) {
@@ -384,20 +385,33 @@ if (isset($_SESSION['menssagem'])) {
         </div>
         <div class="q_D_body">
             <div class="conteudo_check">
+                <span class="aviso_m">campos obrigatórios estão marcados com "*"</span>
+                <div class="title_modal_check">Motivo da denúncia:*</div>
                 <div class="q_D_body_R_area">
-                    <input type="radio" id="q_D_r0" name="den_a" value="1" class="q_D_radio">
+                    <div class="area_radio">
+                        <input type="radio" id="q_D_r0" name="den_a" value="1" class="q_D_radio">
+                    </div>
                     <label for="q_D_r0">Conteúdo explícito.</label>
                 </div>
                 <div class="q_D_body_R_area">
-                    <input type="radio" id="q_D_r1" name="den_a" value="2" class="q_D_radio">
+                    <div class="area_radio">
+                        <input type="radio" id="q_D_r1" name="den_a" value="2" class="q_D_radio">
+                    </div>
+
                     <label for="q_D_r1">Discurso de ódio(corredor?)</label>
                 </div>
                 <div class="q_D_body_R_area">
-                    <input type="radio" id="q_D_r2" name="den_a" value="3" class="q_D_radio">
+                    <div class="area_radio">
+                        <input type="radio" id="q_D_r2" name="den_a" value="3" class="q_D_radio">
+                    </div>
+
                     <label for="q_D_r2">Assédio</label>
                 </div>
                 <div class="q_D_body_R_area">
-                    <input type="radio" id="q_D_r3" name="den_a" value="4" class="q_D_radio">
+                    <div class="area_radio">
+                        <input type="radio" id="q_D_r3" name="den_a" value="4" class="q_D_radio">
+                    </div>
+
                     <label for="q_D_r3">
                         Spam
                     </label>
