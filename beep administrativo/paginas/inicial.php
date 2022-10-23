@@ -59,9 +59,11 @@
                 </div>
         </div>
     </main>
-   
-    <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
+    <?php 
+        require_once '../assets/script/php/generic_HTML/extras.php';
+    ?>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
+    <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/inicial/script.js"></script>
     </script>

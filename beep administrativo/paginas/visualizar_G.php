@@ -100,6 +100,9 @@
             </div>
         </div>
     </main>
+    <?php 
+        require_once '../assets/script/php/generic_HTML/extras.php';
+    ?>
         <?php 
             if(isset($_SESSION['mensagem'])) {
         ?>

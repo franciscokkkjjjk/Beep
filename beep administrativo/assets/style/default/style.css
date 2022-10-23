@@ -419,3 +419,32 @@ main .container {
     top: -30px;
     left: 2px;
 }
+.denuncias_area {
+    display: flex;
+    flex-direction: column;
+}
+.modal_opt_user_area {
+    height: 150px;
+    position: absolute;
+    width: 190px;
+    box-shadow: 0px 0px 7px 3px #232324;
+    margin-top: 55px;
+    background-color: #232324;
+}
+.img_exit {
+    padding-left: 50px !important;
+    background-image: url(../../../../assets/imgs/default/logout.png);
+    background-repeat: no-repeat;
+    background-size: 15%;
+    background-position:10px ;
+
+}
+.opts_user {
+    background-color: transparent;
+    padding: 15px 0px;
+}
+.opts_user:hover {
+    cursor: pointer;
+    background-color: #333335b6;
+    transition: all linear 0.25s;
+}
