@@ -18,6 +18,7 @@ async function posts() {
         show_CM();
         descompartilhar();
         qs('.event-direct').onclick = compartilhar;
+        post_num_curtida();
         setInterval(() => {
             post_num_curtida();
         }, 9000);
@@ -92,10 +93,10 @@ async function user_(active) {
                 // seguidores_session();
             } else {
                 post_not(1);
-                if(qs('.back--event') != undefined){
+                if (qs('.back--event') != undefined) {
                     qs('.back--event').remove();
                 }
-                if(qs('.event') != undefined) {
+                if (qs('.event') != undefined) {
                     qsAll('.event').forEach((e) => {
                         e.remove();
                     })
@@ -459,13 +460,13 @@ async function user_session() {//adaptar para parece com os da timeline
     console.log(user_s)
     if (user_s.publi.nada == undefined) {
         criarPosts(user_s.publi)
-
         curtir_post();
         desCurtir();
         viwimg();
         show_CM();
         descompartilhar();
         qs('.event-direct').onclick = compartilhar;
+        post_num_curtida();
         setInterval(() => {
             post_num_curtida();
         }, 9000);
@@ -569,11 +570,12 @@ async function postsCurtidos_session() {//mesma coisa da session
         show_CM();
         descompartilhar();
         qs('.event-direct').onclick = compartilhar;
+        post_num_curtida();
         setInterval(() => {
             post_num_curtida();
-        }, 9000);
+        }, 90000);
+
         post_num_compartilhamento();
-        coment();
     } else {
         post_not(1);
     }
@@ -1322,6 +1324,7 @@ function post_all_creat(obj) {
             } else {
                 areaPalhacada.querySelector('.post--text').innerHTML = obj.comentarios[bobSponja].text_post;
             }
+            coment(areaPalhacada.querySelector('.comentar'));
             areaPalhacada.querySelector('.event--curtida').id = obj.comentarios[bobSponja].id_publi;
             areaPalhacada.querySelector('.event--curtida input').value = obj.comentarios[bobSponja].id_publi;
             if (obj.comentarios[bobSponja].user_curtiu) {

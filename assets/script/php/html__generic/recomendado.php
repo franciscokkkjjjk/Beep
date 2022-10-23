@@ -25,32 +25,38 @@
             <div class="body--recomendado">
                 <?php
                 $sql_seguidores_user = "SELECT * 
-                                            FROM users 
-                                            WHERE id_user 
-                                                IN (SELECT seguidores.user_seguido 
-                                                    FROM seguidores WHERE user_seguin=" . $_SESSION['id_user'] . " AND seguidores.user_seguido <> " . $_SESSION['id_user'] . ")
-                                                    ORDER BY t_seguidores DESC";
-                $sql_seguidores_seguidores = "SELECT * FROM users WHERE id_user IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin = " . $_SESSION['id_user'] . " AND seguidores.user_seguido <> " . $_SESSION['id_user'] . ") AND seguidores.user_seguido <> " . $_SESSION['id_user'] . ") AND id_user <> " . $_SESSION['id_user'] . " LIMIT 4";
+                                        FROM users 
+                                        WHERE id_user 
+                                        IN (SELECT seguidores.user_seguido 
+                                            FROM seguidores 
+                                            WHERE user_seguin=" . $_SESSION['id_user'] . " AND seguidores.user_seguido <> " . $_SESSION['id_user'] . "
+                                            )
+                                            ORDER BY RAND()";
+                $sql_seguidores_seguidores = "SELECT * FROM users WHERE id_user IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin = " . $_SESSION['id_user'] . " AND seguidores.user_seguido <> " . $_SESSION['id_user'] . ") AND seguidores.user_seguido <> " . $_SESSION['id_user'] . ") AND id_user <> " . $_SESSION['id_user'] . " ORDER BY RAND()";
                 $all_users = 'SELECT * FROM users WHERE id_user <> ' . $_SESSION['id_user'] . ' ORDER BY t_seguidores DESC';
 
-                $resul_seguidores_user = mysqli_query($conexao, $sql_seguidores_user);
                 $resul_seguidores_seguidores = mysqli_query($conexao, $sql_seguidores_seguidores);
-                $resul_all_users = mysqli_query($conexao, $all_users);
-
-                $array_seguidores_user = mysqli_fetch_all($resul_seguidores_user, 1);
                 $array_seguidores_seguidores = mysqli_fetch_all($resul_seguidores_seguidores, 1);
+
+                $resul_all_users = mysqli_query($conexao, $all_users);
                 $array_all_users = mysqli_fetch_all($resul_all_users, 1);
+
+                $resul_seguidores_user = mysqli_query($conexao, $sql_seguidores_user);
+                $array_seguidores_user = mysqli_fetch_all($resul_seguidores_user, 1);
+
+                
                 $array_ante = array();
                 $quantidade = 0;
                 foreach ($array_seguidores_seguidores as $value01) {
                     $seguindo = false;
+                    if($quantidade < 4) {
                     foreach ($array_seguidores_user as $value02) {
                         if ($value01['username'] == $value02['username']) {
                             $seguindo = true;
                         }
                     }
-
-                    if (!$seguindo) { ?>
+                    
+                    if (!$seguindo) {echo "entrou"; ?>
                         <div class="opt--recomedado--area">
                             <div class="perfil--area">
                                 <div class="img--perfil menu--pag--img--area area--recomendado" style="<?= perfilDefault($value01['foto_perfil'], pagAtual('caminho')) ?>">
@@ -77,30 +83,39 @@
                         </div>
                         <?php
                         $quantidade++;
-                        $array_ante['username'] = $value01['username'];
+                        $array_ante[]['username'] = $value01['username'];
                         ?>
                         <?php }
+                 }
                 }
-                foreach ($array_ante as $value03) {
+                foreach ($array_all_users as $value03) {
                     if ($quantidade < 4) {
                         $seguindo_01 = false;
-                        foreach ($array_all_users as $value04) {
-                            if ($array_ante['username'] == $value04['username']) {
+                        $aux = $value03['username'];
+                        foreach ($array_ante as $value04) {
+                            if ($value04['username'] == $aux) {
                                 $seguindo_01 = true;
                             }
                         }
-                        if ($seguindo_01) { ?>
+                        foreach ($array_seguidores_user as $v_aux ) {
+                            if($v_aux['username'] == $aux) {
+                                $seguindo_01 = true;
+                            }
+                        }
+                        
+                        if (!$seguindo_01) {?>
                             <div class="opt--recomedado--area">
                                 <div class="perfil--area">
-                                    <div class="img--perfil menu--pag--img--area area--recomendado" style="<?= perfilDefault($value04['foto_perfil'], pagAtual('caminho')) ?>">
+                                    <div class="img--perfil menu--pag--img--area area--recomendado" style="<?= perfilDefault($value03['foto_perfil'], pagAtual('caminho')) ?>"> 
                                     </div>
+                 
                                     <div class="name--area">
-                                        <a class="perfil-link" href="<?= pagAtual('caminho'); ?>perfil_user_v.php?username=<?= $value04['username'] ?>">
+                                        <a class="perfil-link" href="<?= pagAtual('caminho'); ?>perfil_user_v.php?username=<?= $value03['username'] ?>">
                                             <div class="name--name-perfil perfil-link-hover">
-                                                <?= $value04['nome'] ?>
+                                                <?= $value03['nome'] ?>
                                             </div>
                                             <div class="name--username-perfil perfil-link-hover">
-                                                <?= $value04['username'] ?>
+                                                <?= $value03['username'] ?>
                                             </div>
                                         </a>
                                     </div>
@@ -109,15 +124,15 @@
                                     <div class="buttom--body">
                                         <form action="../assets/script/php/seguir.php" method="post">
                                             <button type="submit" class="button--seguir"></button>
-                                            <input type="hidden" value="<?= $value04['id_user'] ?>" name="iD_x30">
+                                            <input type="hidden" value="<?= $value03['id_user'] ?>" name="iD_x30">
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                            <?php }
-                        $quantidade++;
+                            <?php $quantidade++;
+                            } 
                     }
-                }
+                } 
                 if ($quantidade == 0) {
                     foreach ($array_all_users as $value05) {
                         if ($quantidade < 4) {

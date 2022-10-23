@@ -284,6 +284,17 @@ if(qs('.q_D_modal_area') != undefined) {
     let modal_aux_q_D_c = modal_aux_q_D.cloneNode(true);
     modal_aux_q_D.remove(); 
 }
-function q_D_modal_show() {
-    let modal_q_D = qs('.q_D_modal_area')
+function q_D_modal_show(id, url) {
+    let modal_q_D = modal_aux_q_D_c;
+    modal_q_D.querySelector('.q_D_button_body').onclick = async (e)=>{
+        e.preventDefault();
+        let req_ = await fetch(url, {
+            method:"POST",
+            headers: [
+                
+            ],
+            body:''
+        }) 
+        
+    };
 }

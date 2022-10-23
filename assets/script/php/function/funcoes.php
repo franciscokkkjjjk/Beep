@@ -46,11 +46,11 @@ function dateCalc($array_user){
     }
 }
 function perfilDefault($array_user, $diretorio) {
-    if($array_user == '' and $diretorio == '') {
+    if($array_user == '' and $diretorio == NULL) {
         return "background-image:url('../assets/imgs/default/perfil-de-usuario-black.png');";
     } elseif ($array_user == '' and $diretorio != '') {
         return "background-image:url('../../assets/imgs/default/perfil-de-usuario-black.png');";
-    } elseif ($array_user != '' and $diretorio == '') {
+    } elseif ($array_user != '' and $diretorio == NULL) {
         return "background-image:url('../assets/imgs/profile/$array_user');". $diretorio;
     } elseif ($array_user != '' and $diretorio != '') {
         return "background-image:url('../../assets/imgs/profile/$array_user');";
@@ -62,6 +62,8 @@ function pagAtual($area) {
         return 'active--tem';
     } elseif ($pagina_atual == 'seguindo.php' or $pagina_atual == 'seguidores.php'  and $area == 'caminho') {
         return '../';
+    } else {
+        return '';
     }
 }
 ?>
