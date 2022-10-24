@@ -19,6 +19,9 @@ talvez aumentar e mudar a logica para ele adicionar um novo valor no html resolv
     adicionar uma area para mostrar para quem foi a resposta para o type 4
 }
 -aparecer post na timeline com menos de uma semana;
+--------------------------cadastrar-se----------------------
+--O cadastro de usuario tava bugado e ja foi arrumado: 
+-INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas, status_) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt', false)
 
 ----------------------------erros--------------------------------
 --a img não renicia com o modal - (rever a maneira de fechar o modal);
