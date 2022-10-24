@@ -13,14 +13,14 @@ async function so_game() {
         if (e % 2 == 0) {
             aux = true;
         }
-        creat_list(res[i], 'games', aux);
+        creat_list(res[i], 'games', null,aux);
         e++;
     }
     document.querySelector('.list_area').style.display = 'none';
     console.log(e);
 }
 // creat_list(lista de coisas, diretorio da imagem, url da requisicao, define dois tipos de cores);
-function creat_list(list, img_dir, aux) {
+function creat_list(list, img_dir, num_aux = null, aux) {
     let list_clone = document.querySelector('.list_area').cloneNode(true);
     if (aux) {
         list_clone.style.backgroundColor = '#292929';
@@ -30,7 +30,14 @@ function creat_list(list, img_dir, aux) {
     list_clone.querySelectorAll('.event').forEach((e) => {
         e.remove();
     });
-    list_clone.querySelector('.list_img').style.backgroundImage = `url(../../assets/imgs/${img_dir}/${list.img})`
+    if (img_dir != null) {
+        list_clone.querySelector('.list_img').style.backgroundImage = `url(../../assets/imgs/${img_dir}/${list.img})`
+    }
+    if(num_aux != null) {
+        list_clone.querySelector('.num_list').innerHTML = list.num;
+    } else {
+        list_clone.querySelector('.num_list').innerHTML = "";
+    }
     list_clone.querySelector('.list_title').innerHTML = list.title;
     list_clone.querySelector('.button_c').onclick = async (e) => {
         e.preventDefault();

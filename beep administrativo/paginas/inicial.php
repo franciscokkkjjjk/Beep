@@ -1,21 +1,22 @@
 <!-- <a href="../assets/script/php/logout_root.php">s</a> -->
-<?php 
-    session_start();
-    if(!isset($_SESSION['id_root'])) {
-        header('location:../');
-        die;
-    }
-    if(isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
-        header('location:../');
-        die;
-    }
-    // if(isset($_SESSION['ative']) and isset($_SESSION['id_root'])) { 
-    //     header('location:inicial.php');
-    //     die;
-    // }
+<?php
+session_start();
+if (!isset($_SESSION['id_root'])) {
+    header('location:../');
+    die;
+}
+if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
+    header('location:../');
+    die;
+}
+// if(isset($_SESSION['ative']) and isset($_SESSION['id_root'])) { 
+//     header('location:inicial.php');
+//     die;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,15 +29,16 @@
     <link rel="stylesheet" href="../assets/style/inicial_root/style.css">
     <title>Lista | Beep Administrativo</title>
 </head>
+
 <body>
-    <?php 
-        require_once '../assets/script/php/generic_HTML/header_default.php';
-    ?> 
+    <?php
+    require_once '../assets/script/php/generic_HTML/header_default.php';
+    ?>
     <main>
-        <div class="container"> 
+        <div class="container">
             <div class="title_main">
                 Jogos
-            </div>    
+            </div>
             <div class="corpo_list feed-area">
                 <div class="list_area">
                     <div class="area_list_info_1">
@@ -48,6 +50,9 @@
                         </div>
                     </div>
                     <div class="area_list_info_2">
+                        <div class="num_list">
+                            <div class="event"></div>
+                        </div>
                         <nav>
                             <a href="" class="a_nav button_c button_int">
                                 <div class=" img_">
@@ -56,13 +61,15 @@
                         </nav>
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
     </main>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/generic_/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/inicial/script.js"></script>
     </script>
 </body>
+
 </html>
