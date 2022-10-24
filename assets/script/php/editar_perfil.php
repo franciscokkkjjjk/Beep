@@ -5,12 +5,12 @@ if(!isset($_SESSION['id_user'])) {
     header('location:../');
 }
 require_once 'conecta.php';
-$nome_user = trim($_POST['nome_edit']);
-$username_user = $_POST['username_edit'];
-$bio_user = trim($_POST['bio_edit']);
-$mes_user = $_POST['mes'];
-$ano_user = intval($_POST['ano']);
-$dia_user = intval($_POST['dia']);
+$nome_user = trim(mysqli_escape_string($conexao, $_POST['nome_edit']));
+$username_user = mysqli_escape_string($conexao, $_POST['username_edit']);
+$bio_user = trim(mysqli_escape_string($conexao, $_POST['bio_edit']));
+$mes_user = mysqli_escape_string($conexao, $_POST['mes']);
+$ano_user = intval(mysqli_escape_string($conexao, $_POST['ano']));
+$dia_user = intval(mysqli_escape_string($conexao, $_POST['dia']));
 $meses = [
     'Janeiro',//0
     'Fevereiro',

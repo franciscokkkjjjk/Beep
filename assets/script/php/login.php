@@ -4,8 +4,8 @@
     $sql = 'SELECT * FROM users';
     $resultado = mysqli_query($conexao, $sql);
     $user = mysqli_fetch_all($resultado, 1);
-    $email = $_POST['email--user'];
-    $senha = $_POST['senha--user'];
+    $email = mysqli_escape_string($conexao, $_POST['email--user']);
+    $senha = mysqli_escape_string($conexao, $_POST['senha--user']);
     $emailError = true;
     foreach($user as $user_aux){
         if($email == $user_aux['email']) {

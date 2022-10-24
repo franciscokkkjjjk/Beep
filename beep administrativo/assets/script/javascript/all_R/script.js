@@ -7,7 +7,7 @@ async function so_game() {
     let req = await fetch('../assets/script/php/requisicoes/game_solic.php');
     let res = await req.json();
     let e = 1;
-
+    console.log(res);
     for (var i in res) {
         let aux = false;
         if (e % 2 == 0) {
@@ -42,6 +42,8 @@ function creat_list(list, img_dir, aux) {
     }
     document.querySelector('.corpo_list').append(list_clone);
 }
+
+
 
 function show_modal(mensage, url_req, value, event) {
     modal_.querySelector('.modal_mensage').textContent = mensage;
@@ -117,9 +119,8 @@ function header_modal(modal, button) {
 
         }
     }
-
-
 }
+
 //  <div class="corpo_list">
 //             <div class="list_area">
 //                 <div class="area_list_info_1">
