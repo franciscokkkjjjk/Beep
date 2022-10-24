@@ -37,7 +37,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <main>
         <div class="container">
             <div class="title_main">
-                Jogos
+                Denuncias
             </div>
             <div class="corpo_list feed-area">
                 <div class="list_area">
@@ -68,7 +68,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/generic_/script.js"></script>
-    <script type="text/javascript" src="../assets/script/javascript/inicial/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/denuncias/script.js"></script>
     </script>
 </body>
 

@@ -40,7 +40,7 @@
                 <div class="modal_opt_user_area">
                     <div class="modal_user" style="display:none;">
                         <nav>
-                            <a href="" class="a_nav opts_user publi publica_img">
+                            <a href="dununcias.php" class="a_nav opts_user publi publica_img">
                                 Postagens
                             </a>
                         </nav>

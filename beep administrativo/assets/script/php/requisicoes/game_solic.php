@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_SESSION['id_root'])) {
         die;
-    }
+    } else {
     require_once '../conecta.php';
     $sql_game_l = "SELECT * FROM solicita_list";
     $res_game_l = mysqli_query($conexao, $sql_game_l);
@@ -33,4 +33,5 @@
         ];
     }
     echo json_encode($json);
+}
 ?>

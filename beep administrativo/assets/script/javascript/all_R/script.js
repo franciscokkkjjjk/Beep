@@ -17,9 +17,9 @@ async function so_game() {
         e++;
     }
     document.querySelector('.list_area').style.display = 'none';
-    console.log(e);
 }
 // creat_list(lista de coisas, diretorio da imagem, url da requisicao, define dois tipos de cores);
+
 function creat_list(list, img_dir, num_aux = null, aux) {
     let list_clone = document.querySelector('.list_area').cloneNode(true);
     if (aux) {
@@ -102,7 +102,6 @@ function show_modal(mensage, url_req, value, event) {
 let open = false;
 function header_modal(modal, button) {
     button.onclick = (e) => {
-        e.preventDefault();
         if (open == false) {
             e.preventDefault();
             modal.style.display = '';
