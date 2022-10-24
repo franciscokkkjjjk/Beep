@@ -5,7 +5,6 @@
         $_SESSION['menssagem'] = 'Por favor insira uma imagem real.';
         $_SESSION['fal'] = true;
         header('location: ../../../paginas/solicitacaoJogos.php');
-        die;
     } else {
         $up = true;
         $local = '../../imgs/games/';
@@ -32,7 +31,11 @@
                 $loja = mysqli_escape_string($conexao, $_POST['name_loja_cap_solicita']);
                 $linkLoja = mysqli_escape_string($conexao, $_POST['name_link_cap_solicita']);
                 if(isset($_POST['checkBox'])) {
-                    $check = true;
+                    if($_POST['checkBox'] == 'on') {
+                        $check = true;
+                    } else {
+                        $check = true;
+                    }
                 } else {
                     $check = false;
                 }
@@ -40,7 +43,7 @@
                 date_default_timezone_set('America/Sao_Paulo');
                 date_default_timezone_get();
                 $data_expedido = date('Y-m-d H:i:s');
-                $sql_add = "INSERT INTO solicita_list( id_user_solicita, nome_jogo, img_jogo, desc_jogo, loja, link_loja, class_etaria, data_solicitado, notificar) VALUES (". $_SESSION['id_user'].",'$name','$novoNome','$desc','$loja','$linkLoja','$classI','$data_expedido', '$check' )";
+                $sql_add = "INSERT INTO solicita_list( id_user_solicita, nome_jogo, img_jogo, desc_jogo, loja, link_loja, class_etaria, data_solicitado, notificar) VALUES (". $_SESSION['id_user'].",'$name','$novoNome','$desc','$loja','$linkLoja', $classI,'$data_expedido', $check )";
                 $res_add = mysqli_query($conexao, $sql_add);
                 if($res_add) {
                     $_SESSION['menssagem'] = 'Viva! Sua solicitação foi enviada com sucesso.';

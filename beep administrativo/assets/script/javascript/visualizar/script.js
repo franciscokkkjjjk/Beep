@@ -127,5 +127,7 @@ function creat_complete(json_list, url_req) {
         //ainda pendente
     }
     qs('.loading').remove();
-
+}
+function creat_denuncia() {
+    
 }
