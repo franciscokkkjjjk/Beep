@@ -45,8 +45,6 @@
                 date_default_timezone_get();
                 $data_expedido = date('Y-m-d H:i:s');
                 $sql_add = "INSERT INTO solicita_list( id_user_solicita, nome_jogo, img_jogo, desc_jogo, loja, link_loja, class_etaria, data_solicitado, notificar) VALUES (". $_SESSION['id_user'].",'$name','$novoNome','$desc','$loja','$linkLoja', ". $classI .",'$data_expedido', " . $check . ")";
-                var_dump($sql_add);
-                die;
                 $res_add = mysqli_query($conexao, $sql_add);
                 if($res_add) {
                     $_SESSION['menssagem'] = 'Viva! Sua solicitação foi enviada com sucesso.';
