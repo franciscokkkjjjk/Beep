@@ -37,7 +37,14 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <main>
         <div class="container">
             <div class="title_main">
-                Denuncias
+                Denúncias
+            </div>
+            <div class="title_list">
+                <div class="area_1">
+                    <div class="col_title_list">Imagem</div>
+                    <div class="col_title_list">Postagem denúnciada</div>
+                </div>
+                <div class="col_title_list">Numero de denúncias</div>
             </div>
             <div class="corpo_list feed-area">
                 <div class="list_area">
@@ -62,6 +69,8 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                     </div>
                 </div>
             </div>
+
+
         </div>
     </main>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>

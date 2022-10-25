@@ -34,7 +34,7 @@ if(isset($_SESSION['id_root'])) {
             'title' => $v['post_denunciado'],
             'num' => $num_d,
             'img' => null
-        ];
-        echo json_encode($json);
+        ]; 
     }
+    echo json_encode($json);
 }

@@ -13,7 +13,7 @@ async function so_game() {
         if (e % 2 == 0) {
             aux = true;
         }
-        creat_list(res[i], 'games', null,aux);
+        creat_list(res[i], 'games', null, aux);
         e++;
     }
     document.querySelector('.list_area').style.display = 'none';
@@ -33,19 +33,30 @@ function creat_list(list, img_dir, num_aux = null, aux) {
     if (img_dir != null) {
         list_clone.querySelector('.list_img').style.backgroundImage = `url(../../assets/imgs/${img_dir}/${list.img})`
     }
-    if(num_aux != null) {
+    if (num_aux != null) {
         list_clone.querySelector('.num_list').innerHTML = list.num;
     } else {
         list_clone.querySelector('.num_list').innerHTML = "";
     }
     list_clone.querySelector('.list_title').innerHTML = list.title;
-    list_clone.querySelector('.button_c').onclick = async (e) => {
-        e.preventDefault();
-        window.sessionStorage.setItem('x5edS', list.id);
-        if (window.sessionStorage.x5edP != undefined) {
-            window.sessionStorage.removeItem('x5edP');
+    if (num_aux == null) {
+        list_clone.querySelector('.button_c').onclick = (e) => {
+            e.preventDefault();
+            window.sessionStorage.setItem('x5edS', list.id);
+            if (window.sessionStorage.x5edP != undefined) {
+                window.sessionStorage.removeItem('x5edP');
+            }
+            window.location.href = 'visualizar_G.php';
         }
-        window.location.href = 'visualizar_G.php';
+    } else {
+        list_clone.querySelector('.button_c').onclick = (e) => {
+            e.preventDefault();
+            window.sessionStorage.setItem('x5edP', list.id);
+            if (window.sessionStorage.x5edS != undefined) {
+                window.sessionStorage.removeItem('x5edP');
+            }
+            window.location.href = 'visualizar_D.php';
+        }
     }
     document.querySelector('.corpo_list').append(list_clone);
 }
