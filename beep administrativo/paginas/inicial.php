@@ -39,6 +39,12 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
             <div class="title_main">
                 Jogos
             </div>
+            <div class="title_list">
+                <div class="area_1">
+                    <div class="col_title_list">Imagem</div>
+                    <div class="col_title_list">Titulo do jogo</div>
+                </div>
+            </div>
             <div class="corpo_list feed-area">
                 <div class="list_area">
                     <div class="area_list_info_1">

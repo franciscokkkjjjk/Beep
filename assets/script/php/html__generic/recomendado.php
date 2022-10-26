@@ -57,7 +57,7 @@
                         }
 
                         if (!$seguindo) {
-                            echo "entrou"; ?>
+                ?>
                             <div class="opt--recomedado--area">
                                 <div class="perfil--area">
                                     <div class="img--perfil menu--pag--img--area area--recomendado" style="<?= perfilDefault($value01['foto_perfil'], pagAtual('caminho')) ?>">

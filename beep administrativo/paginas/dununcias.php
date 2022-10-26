@@ -41,7 +41,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
             </div>
             <div class="title_list">
                 <div class="area_1">
-                    <div class="col_title_list">Imagem</div>
+                    <div class="col_title_list"></div>
                     <div class="col_title_list">Postagem denúnciada</div>
                 </div>
                 <div class="col_title_list">Numero de denúncias</div>
