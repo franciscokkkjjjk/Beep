@@ -43,18 +43,12 @@ function creat_list(list, img_dir, num_aux = null, aux) {
         list_clone.querySelector('.button_c').onclick = (e) => {
             e.preventDefault();
             window.sessionStorage.setItem('x5edS', list.id);
-            if (window.sessionStorage.x5edP != undefined) {
-                window.sessionStorage.removeItem('x5edP');
-            }
             window.location.href = 'visualizar_G.php';
         }
     } else {
         list_clone.querySelector('.button_c').onclick = (e) => {
             e.preventDefault();
             window.sessionStorage.setItem('x5edP', list.id);
-            if (window.sessionStorage.x5edS != undefined) {
-                window.sessionStorage.removeItem('x5edP');
-            }
             window.location.href = 'visualizar_D.php';
         }
     }

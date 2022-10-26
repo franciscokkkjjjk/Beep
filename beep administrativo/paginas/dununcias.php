@@ -37,7 +37,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <main>
         <div class="container">
             <div class="title_main">
-                Denúncias
+                Lista de postagens denúnciadas
             </div>
             <div class="title_list">
                 <div class="area_1">

@@ -5,7 +5,7 @@ if (window.sessionStorage.x5edS == "null") {
 if (window.sessionStorage.x5edP == "null") {
     window.sessionStorage.removeItem('x5edP');
 }
-if (window.sessionStorage.x5edS != undefined || window.sessionStorage.x5edP != undefined) {
+if (window.sessionStorage.x5edS != undefined) {
     let url_s;
     let reqs_ = [
         '../assets/script/php/solicitacao_jogos/adicionar_jogos.php',
