@@ -1,3 +1,6 @@
 .motivos_area  .text_C{
     margin: 0px 19px 30px 2px;
 }
+.motivos_area {
+    border: 1px solid #000;
+}

@@ -1,18 +1,18 @@
 <!-- <a href="../assets/script/php/logout_root.php">s</a> -->
-<?php 
-    session_start();
-    if(!isset($_SESSION['id_root'])) {
-        header('location:../');
-        die;
-    }
-    if(isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
-        header('location:../');
-        die;
-    }
-    // if(isset($_SESSION['ative']) and isset($_SESSION['id_root'])) { 
-    //     header('location:inicial.php');
-    //     die;
-    // }
+<?php
+session_start();
+if (!isset($_SESSION['id_root'])) {
+    header('location:../');
+    die;
+}
+if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
+    header('location:../');
+    die;
+}
+// if(isset($_SESSION['ative']) and isset($_SESSION['id_root'])) { 
+//     header('location:inicial.php');
+//     die;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -23,9 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="icon" href="../../assets/imgs/default/beep_logo.png">
     <link rel="stylesheet" href="../assets/style/default/style.css">
     <link rel="stylesheet" href="../assets/style/inicial_root/style.css">
@@ -42,9 +40,9 @@
     <div class="loading">
         <div class="img_lo"></div>
     </div>
-    <?php 
-        require_once '../assets/script/php/generic_HTML/header_default.php';
-    ?> 
+    <?php
+    require_once '../assets/script/php/generic_HTML/header_default.php';
+    ?>
     <main>
         <div class="container border_c feed-area post_d">
             <div class="title_solicitacao">
@@ -90,7 +88,7 @@
                     </div>
                 </div>
                 <div class="C_1">
-                    
+
                     <div class="conteudo4 conteudo_C">
                         <div class="title_C">Usuário que fez a publicação.</div>
                         <div class="text_C">
@@ -137,11 +135,11 @@
                     </div>
                 </div>
                 <div class="C_1">
-                    
+
                     <div class="conteudo4 conteudo_C">
                         <div class="title_C">Usuário que fez a publicação.</div>
                         <div class="text_C">
-                                
+
                         </div>
                     </div>
                     <div class="conteudo5 conteudo_C">
@@ -184,11 +182,11 @@
                     </div>
                 </div>
                 <div class="C_1">
-                    
+
                     <div class="conteudo4 conteudo_C">
                         <div class="title_C">Data de nascimento</div>
                         <div class="text_C">
-                                
+
                         </div>
                     </div>
                     <div class="conteudo5 conteudo_C">
@@ -223,37 +221,41 @@
 
                         </div>
                     </div>
-                    
+
                     <div class="motivos_area">
                         <div class="motivo_ conteudo_C">
-                            <div class="title_C">Motivo selecionado</div>
-                            <div class="text_C">aaaaaaaaaaaaaaaa
+                            <div class="title_C motivo_title00">Usuário que denúnciou:</div>
+                            <div class="text_C motivo_text00">
+                            </div>
+                            <div class="title_C motivo_title01">Motivo selecionado</div>
+                            <div class="text_C motivo_text01">aaaaaaaaaaaaaaaa
 
                             </div>
-                            <div class="title_C">O que aconteceu:</div>
-                            <div class="text_C">
+                            <div class="title_C motivo_title02">O que aconteceu:</div>
+                            <div class="text_C motivo_text02">
                             </div>
+
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </main>
-        <?php 
-            if(isset($_SESSION['mensagem'])) {
-        ?>
-            <div class="session mensagem_alert" style='<?= isset($_SESSION['error']) ? 'background-color: #B22222;' : '' ?>'><?=$_SESSION['mensagem']?></div>
-            <script>
-                setTimeout(()=>{
-                    document.querySelector('.session').remove();
-                }, 2500)
-            </script>
-        <?php
+    <?php
+    if (isset($_SESSION['mensagem'])) {
+    ?>
+        <div class="session mensagem_alert" style='<?= isset($_SESSION['error']) ? 'background-color: #B22222;' : '' ?>'><?= $_SESSION['mensagem'] ?></div>
+        <script>
+            setTimeout(() => {
+                document.querySelector('.session').remove();
+            }, 2500)
+        </script>
+    <?php
         unset($_SESSION['mensagem']);
         unset($_SESSION['error']);
-            } 
-        ?>
+    }
+    ?>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
