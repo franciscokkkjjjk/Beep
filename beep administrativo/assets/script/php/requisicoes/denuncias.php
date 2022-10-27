@@ -8,7 +8,7 @@
 session_start();
 if(isset($_SESSION['id_root'])) {
     require_once '../conecta.php';
-    $sql_denuncia = "select  distinct *, CONCAT(`post_denunciado`, '(',count(`post_denunciado`),')') as `post_denunciado` from denuncias group by `post_denunciado` ORDER BY count(`post_denunciado`) DESC;";
+    $sql_denuncia = "select  distinct *, count(`post_denunciado`) as `qts_denunciado` from denuncias group by `post_denunciado` ORDER BY count(`post_denunciado`) DESC;";
     $res_denuncia = mysqli_query($conexao, $sql_denuncia);
     $array_list = mysqli_fetch_all($res_denuncia, 1);
     if(empty($array_list)) {
@@ -31,8 +31,8 @@ if(isset($_SESSION['id_root'])) {
         $json[] = [
             'erro' => false, 
             'id' => $v['id_denuncia'],
-            'title' => substr($v['post_denunciado'],0, -3),
-            'num' =>   substr($v['post_denunciado'],-2, -1),
+            'title' => $v['post_denunciado'],
+            'num' =>   $v['qts_denunciado'],
             'img' => null
         ]; 
     }
