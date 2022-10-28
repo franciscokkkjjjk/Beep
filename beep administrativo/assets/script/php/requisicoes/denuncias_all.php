@@ -44,20 +44,28 @@ if ($_POST['x5edP']) {
         echo json_encode($json);
         die;
     } else {
+        $user_publi = $pdo->query("SELECT * FROM users WHERE id_user='" . $post['user_publi'] . "'")->fetch_assoc();
         $json['posts_info']['postagem_denunciada'] = [
-            ''
+            'id_publicacao' => $post['id_publi'],
+            'date_p' => $post['date_publi'],
+            'user_publi' => $user_publi['username'],
+            'text_publi' => $post['text_publi'],
+            'midia_publi' => $post['img_publi']
         ];
         if($post['type'] == 2 or $post['type'] == 1) {
+            $query_inter = $pdo->query("SELECT * FROM publicacoes WHERE id_publi='" . $post['id_publi_interagida'] . "'")->fetch_assoc();
+            $user_publi_ = $pdo->query("SELECT * FROM users WHERE id_user='" . $query_inter['user_publi'] . "'")->fetch_assoc();
+            $json['posts_info']['postagem_denunciada']['id_interagida'] = $post['id_publi_interagida'];
             $json['posts_info']['postagem_interagida'] = [
-                ''
+                'id_I' => $query_inter['id_publi'],
+                'date_I' => $query_inter['date_publi'],
+                'user_publi_I' => $user_publi_['username'],
+                'text_publi_I' => $query_inter['text_publi'],
+                'midia_publi_I' => $query_inter['img_publi']
             ];
         }
         
     }
 
-    $json = [
-        'error' => false,
-        'mensage' => $postagem_d->fetch_assoc()
-    ];
     echo json_encode($json);
 }
