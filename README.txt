@@ -50,3 +50,11 @@ talvez aumentar e mudar a logica para ele adicionar um novo valor no html resolv
 -type 2 = repost com comentario 
 -type 3 = post normal
 -type 4 = repost direto
+
+
+-----------------------------------------DENUNCIAS TYPE--------------------------------------
+1 = Conteúdo explícito;
+2 = Discurso de ódio;
+3 = Assédio;
+4  = Spam;
+

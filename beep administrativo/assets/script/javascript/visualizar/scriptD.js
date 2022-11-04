@@ -24,7 +24,25 @@ if (window.sessionStorage.x5edP != undefined) {
             document.querySelector('.loading').remove();
             let info_post_d = document.querySelector('.info_cont');
             console.log(info_post_d);
-            info_post_d.querySelector('.conteudo_1 .text_C').innerHTML;
+            let midia;
+            if(res.posts_info.postagem_denunciada.midia_publi != "") {
+                if(res.posts_info.postagem_denunciada.midia_publi.split(".")[1] == "mp4"){
+                    midia = document.createElement("video");
+                    midia.setAttribute("controls", "on");
+                    midia.setAttribute("src", `../../assets/imgs/posts/${res.posts_info.postagem_denunciada.midia_publi}`);
+                    document.querySelector(".img_area").append(midia);
+                }
+            }
+            info_post_d.querySelector('.conteudo_1 .text_C').innerHTML = res.posts_info.postagem_denunciada.text_publi;
+            info_post_d.querySelector('.conteudo2  .text_C').innerHTML = res.posts_info.postagem_denunciada.date_p;
+            info_post_d.querySelector(".conteudo3 .text_C").innerHTML = res.posts_info.postagem_denunciada.id_publicacao;
+            info_post_d.querySelector(".conteudo4 .text_C").innerHTML = res.posts_info.postagem_denunciada.user_publi;
+            if(res.posts_info.postagem_interagida == undefined) {
+                qs(".info_cont").remove();
+            } else {
+                //continua com a minha aberração
+            }
+            
         }
     }
     creat_list_post_D();

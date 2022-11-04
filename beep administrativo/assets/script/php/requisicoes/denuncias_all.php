@@ -1,9 +1,15 @@
 <?php
 session_start();
 if ($_POST['x5edP']) {
+    $motivos_values = [ // colocar em uma tabela no banco;
+        "Conteúdo explícito",
+        "Discurso de ódio", 
+        "Assédio",
+        "Spam"
+    ];
     $json = array();
-    //pegar todas as denuncias com as suas motivações (Foreach)
-    //pegar a publicação que foi denunciada
+    //pegar todas as denuncias com as suas motivações (Foreach)X
+    //pegar a publicação que foi denunciadaX
     //pegar informações da publicação interagida (caso haja) (type 4 pega a original (mas não há))
     //pegar informações completas do usuário que foi denunciado;
     //pegar o username do usuário que realizou a publicação interagida (caso haja)  
@@ -21,10 +27,21 @@ if ($_POST['x5edP']) {
         echo json_encode($json);
         die;
     }
+    foreach($dun as $m) {
+        $motivos[] = $m['motivo'];
+    }
+    $selecionada = key(array_count_values($motivos));
+    for($i = 0; $i < 4; $i++) {
+        if($i + 1 == $selecionada) {
+            $selecionada = $motivos_values[$i];
+        }
+    }
     $json['motivos'] = [
-        'mais selecionados' => 1, //fazer uma query para verificar isso
-        'qt_denuncias' => 1, //fazer uma query para verificar isso
+        //fazer uma query para verificar isso
+        'mais_selecionados' => $selecionada,
+        'qt_denuncias' => count($dun), //fazer uma query para verificar isso
     ];
+    //verifica quais denuncias foram mais selecionadas
     foreach($dun as $v0) {
         $denunciador = $pdo->query("SELECT * FROM users WHERE id_user=" . $v0['denunciador']);
         $json['motivos']['info_motivo'][] = [
