@@ -38,11 +38,14 @@ if (window.sessionStorage.x5edP != undefined) {
             info_post_d.querySelector(".conteudo3 .text_C").innerHTML = res.posts_info.postagem_denunciada.id_publicacao;
             info_post_d.querySelector(".conteudo4 .text_C").innerHTML = res.posts_info.postagem_denunciada.user_publi;
             if(res.posts_info.postagem_interagida == undefined) {
-                qs(".info_cont").remove();
+                qs(".areaInter").remove();
             } else {
                 //continua com a minha aberração
             }
-            
+            let area_user_D = document.querySelector(".user_info");
+            let img_ = document.createElement("div");
+            img_.setAttribute("style", `background-image(url(../../assets/imgs/profile/${res.posts_info.userPubliDenunciada.foto_perfil}))`);
+            area_user_D.querySelector(".img_area").append(img_);
         }
     }
     creat_list_post_D();

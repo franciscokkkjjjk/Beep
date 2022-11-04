@@ -69,6 +69,12 @@ if ($_POST['x5edP']) {
             'text_publi' => $post['text_publi'],
             'midia_publi' => $post['img_publi']
         ];
+        $json['posts_info']['userPubliDenunciada'] = [
+            "id_user" => $user_publi['id_user'],
+            'username' => $user_publi['username'],
+            "bio" => $user_publi['data_nas'],
+            "foto_perfil" => $user_publi["foto_perfil"]
+        ];
         if($post['type'] == 2 or $post['type'] == 1) {
             $query_inter = $pdo->query("SELECT * FROM publicacoes WHERE id_publi='" . $post['id_publi_interagida'] . "'")->fetch_assoc();
             $user_publi_ = $pdo->query("SELECT * FROM users WHERE id_user='" . $query_inter['user_publi'] . "'")->fetch_assoc();
