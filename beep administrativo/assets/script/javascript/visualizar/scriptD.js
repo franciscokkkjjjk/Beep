@@ -45,7 +45,7 @@ if (window.sessionStorage.x5edP != undefined) {
             let area_user_D = document.querySelector(".user_info");
             let img_ = document.createElement("div");
             img_.setAttribute("style", `background-image:url(../../assets/imgs/profile/${res.posts_info.userPubliDenunciada.foto_perfil})`);
-            area_user_D.querySelector(".img_area").append(img_);
+            area_user_D.querySelector(".img_area").append(img_); // parei no usuário
         }
     }
     creat_list_post_D();
