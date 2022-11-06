@@ -28,6 +28,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <link rel="stylesheet" href="../assets/style/default/style.css">
     <link rel="stylesheet" href="../assets/style/inicial_root/style.css">
     <link rel="stylesheet" href="../assets/style/visualizar/style.css">
+    <link rel="stylesheet" href="../assets/style/visualizar/d_style.css">
     <style>
         .container {
             min-height: auto !important;

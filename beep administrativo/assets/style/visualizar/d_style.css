@@ -1,0 +1,13 @@
+.buttons_acpt::after {
+    content: "Colocar em quarentena";
+
+}
+.buttons_area {
+    width: 190px;
+}
+.buttons_rej::after {
+    content: "Excluir publicação";
+}
+.buttons_edit::after {
+    content: "Tudo ok";
+}

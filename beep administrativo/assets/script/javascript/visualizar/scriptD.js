@@ -20,6 +20,10 @@ if (window.sessionStorage.x5edP != undefined) {
         if (res.error) {
             window.location.href = 'dununcias.php';
         } else {
+            document.querySelector(".buttons_acpt").addEventListener("click", (e)=>{
+                e.preventDefault();
+                window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao;
+            }, true)
             console.log(res);
             document.querySelector('.loading').remove();
             let info_post_d = document.querySelector('.info_cont');
@@ -45,7 +49,7 @@ if (window.sessionStorage.x5edP != undefined) {
             let area_user_D = document.querySelector(".user_info");
             let img_ = document.createElement("div");
             img_.setAttribute("style", `background-image:url(../../assets/imgs/profile/${res.posts_info.userPubliDenunciada.foto_perfil})`);
-            area_user_D.querySelector(".img_area").append(img_); // parei no usuário
+            area_user_D.querySelector(".img_area").append(img_); 
             area_user_D.querySelector(".text_C").innerHTML = res.posts_info.userPubliDenunciada.nome;
             area_user_D.querySelector(".conteudo2 .text_C").innerHTML = res.posts_info.userPubliDenunciada.username;
             area_user_D.querySelector(".conteudo3 .text_C").innerHTML = res.posts_info.userPubliDenunciada.bio;
