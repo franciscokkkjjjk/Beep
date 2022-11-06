@@ -41,7 +41,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
         <div class="img_lo"></div>
     </div>
     <?php
-    require_once '../assets/script/php/generic_HTML/header_default.php';
+        require_once '../assets/script/php/generic_HTML/header_default.php';
     ?>
     <main>
         <div class="container border_c feed-area post_d">
@@ -254,6 +254,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/generic_/script.js"></script>
     <script type='text/javascript' src="../assets/script/javascript/visualizar/scriptD.js"></script>
 </body>
 
