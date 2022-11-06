@@ -30,6 +30,7 @@ if (window.sessionStorage.x5edP != undefined) {
             console.log(info_post_d);
             let midia;
             if (res.posts_info.postagem_denunciada.midia_publi != "") {
+                //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
                 if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] == "mp4") {
                     midia = document.createElement("video");
                     midia.setAttribute("controls", "on");

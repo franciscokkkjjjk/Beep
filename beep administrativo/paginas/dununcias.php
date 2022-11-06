@@ -73,6 +73,20 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
 
         </div>
     </main>
+    <?php
+    if (isset($_SESSION['mensagem'])) {
+    ?>
+        <div class="session mensagem_alert" style='<?= isset($_SESSION['error']) ? 'background-color: #B22222;' : '' ?>'><?= $_SESSION['mensagem'] ?></div>
+        <script>
+            setTimeout(() => {
+                document.querySelector('.session').remove();
+            }, 2500)
+        </script>
+    <?php
+        unset($_SESSION['mensagem']);
+        unset($_SESSION['error']);
+    }
+    ?>
     <script type="text/javascript" src="../../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
