@@ -198,16 +198,11 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                 </div>
             </div>
         </div>
-        <div class="container border_c feed-area user_info">
+        <div class="container border_c feed-area motivos_info">
             <div class="title_solicitacao">
                 Motivos pelo quais foi denúnciado
             </div>
-            <div class="conteudo_b_I">
-                <div class="img_area">
-
-                </div>
-            </div>
-            <div class="info_cont">
+            <div class="info_cont m_area">
                 <div class="C_1">
                     <div class="conteudo_1 conteudo_C">
                         <div class="title_C">Motivo mais selecionado</div>

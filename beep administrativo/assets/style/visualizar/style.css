@@ -2,7 +2,10 @@
     margin: 0px 19px 30px 2px;
 }
 .motivos_area {
-    border: 1px solid #000;
+    border: 1px solid #94949491;
+    padding: 10px;
+    margin: 20px 0px;
+    border-radius: 2px;
 }
 .img_area div {
     background-repeat: no-repeat;

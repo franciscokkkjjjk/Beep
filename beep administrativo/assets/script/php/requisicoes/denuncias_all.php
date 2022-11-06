@@ -36,6 +36,7 @@ if ($_POST['x5edP']) {
             $selecionada = $motivos_values[$i];
         }
     }
+    
     $json['motivos'] = [
         //fazer uma query para verificar isso
         'mais_selecionados' => $selecionada,
@@ -43,9 +44,15 @@ if ($_POST['x5edP']) {
     ];
     //verifica quais denuncias foram mais selecionadas
     foreach($dun as $v0) {
+        $selecionado_ind = 0;
+        for($i = 0; $i < 4; $i++) {//verfica o motivo que foi selecionado
+            if($i + 1 == $v0["motivo"]) {
+                $selecionado_ind = $motivos_values[$i];
+            }
+        }
         $denunciador = $pdo->query("SELECT * FROM users WHERE id_user=" . $v0['denunciador']);
         $json['motivos']['info_motivo'][] = [
-            'motivo' => $v0['motivo'],
+            'motivo' => $selecionado_ind,
             'motivo_text' => $v0['motivo_text'],
             'denunciador' => $denunciador->fetch_assoc()['username'] 
         ];
@@ -64,7 +71,7 @@ if ($_POST['x5edP']) {
         $user_publi = $pdo->query("SELECT * FROM users WHERE id_user='" . $post['user_publi'] . "'")->fetch_assoc();
         $json['posts_info']['postagem_denunciada'] = [
             'id_publicacao' => $post['id_publi'],
-            'date_p' => $post['date_publi'],
+            'date_p' => date("d-m-Y", strtotime($post['date_publi'])) ." as " . date("H:i:s", strtotime($post['date_publi'])),
             'user_publi' => $user_publi['username'],
             'text_publi' => $post['text_publi'],
             'midia_publi' => $post['img_publi']
@@ -72,8 +79,10 @@ if ($_POST['x5edP']) {
         $json['posts_info']['userPubliDenunciada'] = [
             "id_user" => $user_publi['id_user'],
             'username' => $user_publi['username'],
-            "bio" => $user_publi['data_nas'],
-            "foto_perfil" => $user_publi["foto_perfil"]
+            "bio" => $user_publi['bio'],
+            "data_nas" => date("d-m-Y", strtotime($user_publi['data_nas'])),
+            "foto_perfil" => $user_publi["foto_perfil"],
+            "nome" => $user_publi['nome']
         ];
         if($post['type'] == 2 or $post['type'] == 1) {
             $query_inter = $pdo->query("SELECT * FROM publicacoes WHERE id_publi='" . $post['id_publi_interagida'] . "'")->fetch_assoc();

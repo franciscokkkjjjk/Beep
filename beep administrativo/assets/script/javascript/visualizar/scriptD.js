@@ -25,8 +25,8 @@ if (window.sessionStorage.x5edP != undefined) {
             let info_post_d = document.querySelector('.info_cont');
             console.log(info_post_d);
             let midia;
-            if(res.posts_info.postagem_denunciada.midia_publi != "") {
-                if(res.posts_info.postagem_denunciada.midia_publi.split(".")[1] == "mp4"){
+            if (res.posts_info.postagem_denunciada.midia_publi != "") {
+                if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] == "mp4") {
                     midia = document.createElement("video");
                     midia.setAttribute("controls", "on");
                     midia.setAttribute("src", `../../assets/imgs/posts/${res.posts_info.postagem_denunciada.midia_publi}`);
@@ -37,7 +37,7 @@ if (window.sessionStorage.x5edP != undefined) {
             info_post_d.querySelector('.conteudo2  .text_C').innerHTML = res.posts_info.postagem_denunciada.date_p;
             info_post_d.querySelector(".conteudo3 .text_C").innerHTML = res.posts_info.postagem_denunciada.id_publicacao;
             info_post_d.querySelector(".conteudo4 .text_C").innerHTML = res.posts_info.postagem_denunciada.user_publi;
-            if(res.posts_info.postagem_interagida == undefined) {
+            if (res.posts_info.postagem_interagida == undefined) {
                 qs(".areaInter").remove();
             } else {
                 //continua com a minha aberração
@@ -46,6 +46,32 @@ if (window.sessionStorage.x5edP != undefined) {
             let img_ = document.createElement("div");
             img_.setAttribute("style", `background-image:url(../../assets/imgs/profile/${res.posts_info.userPubliDenunciada.foto_perfil})`);
             area_user_D.querySelector(".img_area").append(img_); // parei no usuário
+            area_user_D.querySelector(".text_C").innerHTML = res.posts_info.userPubliDenunciada.nome;
+            area_user_D.querySelector(".conteudo2 .text_C").innerHTML = res.posts_info.userPubliDenunciada.username;
+            area_user_D.querySelector(".conteudo3 .text_C").innerHTML = res.posts_info.userPubliDenunciada.bio;
+            area_user_D.querySelector(".conteudo4 .text_C").innerHTML = res.posts_info.userPubliDenunciada.data_nas;
+            let denuncias_area = document.querySelector(".motivos_info");
+            denuncias_area.querySelector(".conteudo_1 .text_C").innerHTML = res.motivos.mais_selecionados;
+            denuncias_area.querySelector(".conteudo2 .text_C").innerHTML = res.motivos.qt_denuncias;
+            let motivos_area = document.querySelector(".motivos_area");
+            if (motivos_area != undefined) {
+                motivos_area.remove()
+            }
+            for (let aux in res.motivos.info_motivo) {
+                let motivos_area_clone = motivos_area.cloneNode(true);
+                motivos_area_clone.querySelector(".motivo_text00").innerHTML = res.motivos.info_motivo[aux].denunciador;
+                motivos_area_clone.querySelector(".motivo_text01").innerHTML = res.motivos.info_motivo[aux].motivo;
+                if (res.motivos.info_motivo[aux].motivo_text != "") {
+                    motivos_area_clone.querySelector(".motivo_text02").style.display = '';
+                    motivos_area_clone.querySelector(".motivo_title02").style.display = '';
+                    motivos_area_clone.querySelector(".motivo_text02").innerHTML = res.motivos.info_motivo[aux].motivo_text;
+                } else {
+                    motivos_area_clone.querySelector(".motivo_text02").style.display = 'none';
+                    motivos_area_clone.querySelector(".motivo_title02").style.display = 'none';
+                }
+                motivos_area_clone.querySelector(".motivo_text01").innerHTML = res.motivos.info_motivo[aux].motivo;
+                document.querySelector(".m_area .C_1").append(motivos_area_clone);
+            }
         }
     }
     creat_list_post_D();
