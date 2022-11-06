@@ -33,7 +33,7 @@ if(isset($_POST['cC_xd30'])) {
     if($ass_sql['type'] == 4) {
         $id_interagida = $ass_sql['id_publi_interagida'];
     } 
-    $sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",2, ".$id_interagida.",'$text_post','$name_banco', 0, 0, '$data_publi', 0)";
+    $sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario, quarentena) VALUE (".$_SESSION['id_user'].",2, ".$id_interagida.",'$text_post','$name_banco', 0, 0, '$data_publi', 0, 0)";
     $res_query = mysqli_query($conexao,$sql_respot_coment);
 
     $sql_post_inter = 'SELECT * FROM publicacoes WHERE id_publi='.$id_interagida;

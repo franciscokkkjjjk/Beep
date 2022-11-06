@@ -27,7 +27,7 @@
         date_default_timezone_set('America/Sao_Paulo');
         date_default_timezone_get();
         $data_publi = date('Y-m-d H:i:s');
-        $sql_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUE (".$_SESSION['id_user'].",1, ".$id_publi.",'$text_post','$nome_banco_ar', 0, 0, '$data_publi', 0)";
+        $sql_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario, quarentena) VALUE (".$_SESSION['id_user'].",1, ".$id_publi.",'$text_post','$nome_banco_ar', 0, 0, '$data_publi', 0, 0)";
         $res_coment = mysqli_query($conexao, $sql_coment);
         if($res_coment) {
             $sql_upt = "UPDATE publicacoes SET num_comentario=".$num_comentario." WHERE id_publi=".$id_publi;
