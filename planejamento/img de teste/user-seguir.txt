@@ -1,1 +1,0 @@
-http://localhost/francisco/beep/paginas/perfil_user_v.php?username=@Dial168933

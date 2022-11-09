@@ -184,7 +184,7 @@
     }
     $posi++;
     }
-    if($postagens == null) {
+    if(empty($timeline)) {
         $timeline = [
             'nada' => 'nada por aqui'
         ];
