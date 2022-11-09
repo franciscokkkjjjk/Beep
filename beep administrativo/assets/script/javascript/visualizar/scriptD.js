@@ -20,27 +20,40 @@ if (window.sessionStorage.x5edP != undefined) {
         if (res.error) {
             window.location.href = 'dununcias.php';
         } else {
-            document.querySelector(".buttons_acpt").addEventListener("click", (e) => {
-                e.preventDefault();
-                window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p=" + res.posts_info.postagem_denunciada.id_publicacao;
-            }, true)
             console.log(res);
             document.querySelector('.loading').remove();
             let info_post_d = document.querySelector('.info_cont');
             console.log(info_post_d);
             let midia;
-            if (res.posts_info.postagem_denunciada.midia_publi != "") {
                 //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
+            if(res.posts_info.postagem_denunciada.querent) {
+                // document.querySelector(".quarentena").innerHTML = '(Em quarentena)';
+                // console.log(document.querySelector('.quarentena'))
+            } else {
+                document.querySelector(".buttons_acpt").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p=" + res.posts_info.postagem_denunciada.id_publicacao;
+                }, true)
+            }
+            if (res.posts_info.postagem_denunciada.midia_publi != "") {
+                
                 if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] == "mp4") {
                     midia = document.createElement("video");
                     midia.setAttribute("controls", "on");
                     midia.setAttribute("src", `../../assets/imgs/posts/${res.posts_info.postagem_denunciada.midia_publi}`);
                     document.querySelector(".img_area").append(midia);
+                    
                 } else if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] != '') {
                     let midia = document.createElement('img');
                     midia.setAttribute('src', `../../assets/imgs/posts/${res.posts_info.postagem_denunciada.midia_publi}`);
-                    document.querySelector(".img_area").append(midia);
+                    document.querySelector(".img_area").append(midia);  
                 }
+            } else {
+                let div_ = document.createElement('div');
+                div_.textContent = "Mídia não informada";
+                div_.classList.add("img_p");
+                div_.style.alignItems = "center";
+                document.querySelector(".img_area").append(div_);
             }
             info_post_d.querySelector('.conteudo_1 .text_C').innerHTML = res.posts_info.postagem_denunciada.text_publi;
             info_post_d.querySelector('.conteudo2  .text_C').innerHTML = res.posts_info.postagem_denunciada.date_p;

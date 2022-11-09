@@ -109,6 +109,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
             <div class="title_solicitacao">
                 Informações da Postagem Interagida
             </div>
+            
             <div class="conteudo_b_I">
                 <div class="img_area">
 

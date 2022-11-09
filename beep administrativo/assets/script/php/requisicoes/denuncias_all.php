@@ -74,7 +74,8 @@ if ($_POST['x5edP']) {
             'date_p' => date("d-m-Y", strtotime($post['date_publi'])) ." as " . date("H:i:s", strtotime($post['date_publi'])),
             'user_publi' => $user_publi['username'],
             'text_publi' => $post['text_publi'],
-            'midia_publi' => $post['img_publi']
+            'midia_publi' => $post['img_publi'],
+            'querent' => $post['quarentena']
         ];
         $json['posts_info']['userPubliDenunciada'] = [
             "id_user" => $user_publi['id_user'],
