@@ -125,12 +125,15 @@
                 ];
             } 
     } elseif ($post_segui['type'] == 4) {
-
+        
             $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi='.$post_segui['id_publi_interagida'];
             $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
             $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);       
-
             
+            if($array_compartilhada['quarentena'] > 0) {//pula pra proxima se o publicação compartilhada estiver em quarentena
+                continue;
+            }
+
             foreach($arra_curtida as $value_c) {
                 if($value_c['id_postagem'] == $post_segui['id_publi_interagida']) {
                     $user_curtiu = true;  

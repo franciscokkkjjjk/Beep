@@ -239,7 +239,7 @@ function criarPosts(lista) {
                 } else {
                     post_body.querySelector(".post--comp").innerHTML = '';
                     let mensagem = document.createElement('div');
-                    mensagem.setAttribute('class','mensagem_post_time');
+                    mensagem.setAttribute('class', 'mensagem_post_time');
                     mensagem.innerHTML = 'Essa publicação foi suspensa.';
                     post_body.querySelector(".post--comp").append(mensagem);
                 }
@@ -1242,40 +1242,49 @@ function post_all_creat(obj) {
         }
         area_post_completo.querySelector('.comentar').id = 'p_xD30_C' + obj.publicacao.id_publi;
         let conteudo_type_2 = area_post_completo.querySelector('.post_type2_conteudo');
+        console.log(obj);
         if (obj.publicacao.type == "2") {
             conteudo_type_2.style.display = '';
-            conteudo_type_2.querySelector('.menu--pag--img--area').setAttribute('style', obj.publicacao.c_comentada.user_info.img_user);
-            conteudo_type_2.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username=' + obj.publicacao.c_comentada.user_info.username_user);
-            conteudo_type_2.querySelector('.name--name-perfil').innerHTML = obj.publicacao.c_comentada.user_info.nome_user;
-            conteudo_type_2.querySelector('.name--username-perfil').innerHTML = obj.publicacao.c_comentada.user_info.username_user;
-            if (obj.publicacao.c_comentada.text_post == '' || obj.publicacao.c_comentada.text_post == null) {
-                conteudo_type_2.querySelector('.post--text').remove();
-            } else {
-                conteudo_type_2.querySelector('.post--text').innerHTML = obj.publicacao.c_comentada.text_post;
-            }
-            //nem sei para que serve lkkkkkkkkkkkkkkkkk (o pior que foi eu mesmo q fiz kkkkkkkkkkk)
-            let area_img = qs('.post--area-header .p-30d_10');
-            if (obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
-                area_img.remove()
-            } else {
-                let type_midia = obj.publicacao.c_comentada.img_publi.split('.');
-                console.log(type_midia);
-                if (type_midia[1] == 'mp4') {
-                    area_img.querySelector('.event').remove();
-                    area_img.querySelector('img').remove();
-                    let video_creat = document.createElement('video');
-                    video_creat.setAttribute('src', `../assets/imgs/posts/${obj.publicacao.c_comentada.img_publi}`);
-                    video_creat.setAttribute('controls', '');
-                    video_creat.setAttribute('class', 'post--img post--img-area');
-                    area_img.appendChild(video_creat);
+            if (obj.publicacao.c_comentada.quarentena < 1) {
+                conteudo_type_2.querySelector('.menu--pag--img--area').setAttribute('style', obj.publicacao.c_comentada.user_info.img_user);
+                conteudo_type_2.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username=' + obj.publicacao.c_comentada.user_info.username_user);
+                conteudo_type_2.querySelector('.name--name-perfil').innerHTML = obj.publicacao.c_comentada.user_info.nome_user;
+                conteudo_type_2.querySelector('.name--username-perfil').innerHTML = obj.publicacao.c_comentada.user_info.username_user;
+                if (obj.publicacao.c_comentada.text_post == '' || obj.publicacao.c_comentada.text_post == null) {
+                    conteudo_type_2.querySelector('.post--text').remove();
                 } else {
-                    area_img.querySelector('.event').remove();
-                    area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/' + obj.publicacao.c_comentada.img_publi);
-                    area_img.querySelector('img').style.display = '';
+                    conteudo_type_2.querySelector('.post--text').innerHTML = obj.publicacao.c_comentada.text_post;
                 }
+                //nem sei para que serve lkkkkkkkkkkkkkkkkk (o pior que foi eu mesmo q fiz kkkkkkkkkkk)
+                let area_img = qs('.post--area-header .p-30d_10');
+                if (obj.publicacao.c_comentada.img_publi == '' || obj.publicacao.c_comentada.img_publi == null) {
+                    area_img.remove()
+                } else {
+                    let type_midia = obj.publicacao.c_comentada.img_publi.split('.');
+                    console.log(type_midia);
+                    if (type_midia[1] == 'mp4') {
+                        area_img.querySelector('.event').remove();
+                        area_img.querySelector('img').remove();
+                        let video_creat = document.createElement('video');
+                        video_creat.setAttribute('src', `../assets/imgs/posts/${obj.publicacao.c_comentada.img_publi}`);
+                        video_creat.setAttribute('controls', '');
+                        video_creat.setAttribute('class', 'post--img post--img-area');
+                        area_img.appendChild(video_creat);
+                    } else {
+                        area_img.querySelector('.event').remove();
+                        area_img.querySelector('img').setAttribute('src', '../assets/imgs/posts/' + obj.publicacao.c_comentada.img_publi);
+                        area_img.querySelector('img').style.display = '';
+                    }
+                }
+                conteudo_type_2.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + obj.publicacao.c_comentada.id_publi;
+                conteudo_type_2.querySelector('.date--post').innerHTML = obj.publicacao.c_comentada.date_publi;
+            } else {
+                conteudo_type_2.innerHTML = '';
+                let mensagem = document.createElement('div');
+                mensagem.setAttribute('class', 'mensagem_post_time');
+                mensagem.innerHTML = 'Essa publicação foi suspensa.'
+                conteudo_type_2.append(mensagem);
             }
-            conteudo_type_2.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + obj.publicacao.c_comentada.id_publi;
-            conteudo_type_2.querySelector('.date--post').innerHTML = obj.publicacao.c_comentada.date_publi;
         } else {
             if (conteudo_type_2 != undefined) {
                 conteudo_type_2.remove()

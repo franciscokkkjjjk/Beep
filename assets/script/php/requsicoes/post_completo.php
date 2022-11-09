@@ -209,6 +209,7 @@ if (isset($_POST['All_xD30'])) {
             'error' => false,
             'id_publi' => $ass_C_comentada['id_publi'],
             'type' => $ass_C_comentada['type'],
+            'quarentena' => $ass_C_comentada['quarentena'],
             'id_interacao' => $ass_C_comentada['id_publi_interagida'],
             'text_post' => $ass_C_comentada['text_publi'],
             'img_publi' => $ass_C_comentada['img_publi'],
