@@ -1955,3 +1955,14 @@ select option {
     font-size: 14px;
     color: #757575c5;
 }
+.mensagem_post {
+    width: 100%;
+    margin: 150px 100px;
+    color: #a7a7a7;    
+}
+.mensagem_post_time {
+    color: #a7a7a7;    
+    width: 100%;
+    padding: 33px 30px;
+    text-align: center;
+}

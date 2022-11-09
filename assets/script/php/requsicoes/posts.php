@@ -2,8 +2,8 @@
     session_start();
     require_once '../conecta.php';
     require_once '../function/funcoes.php';
-
-    $sql_posts = "SELECT * FROM publicacoes WHERE publicacoes.user_publi IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin=".$_SESSION['id_user'].") AND publicacoes.type <> 1 ORDER BY publicacoes.date_publi DESC";
+    //pega publicação do usuário
+    $sql_posts = "SELECT * FROM publicacoes WHERE publicacoes.user_publi IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin=".$_SESSION['id_user'].") AND publicacoes.quarentena = 0 AND publicacoes.type <> 1 ORDER BY publicacoes.date_publi DESC";
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
 
@@ -34,7 +34,7 @@
                     $user_curtiu = true;  
                 } 
             }
-
+            //pega publicação raiz
             $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi='.$post_segui['id_publi_interagida'];
             $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
             $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
@@ -56,6 +56,7 @@
                 'beepadas' => $post_segui['num_compartilha'],
                 'date_publi' => dateCalc($array_compartilhada),
                 'num_comentario' => $post_segui['num_comentario'],
+                'quarentena' => $array_compartilhada['quarentena'],//quarentena da publicação raiz
                 'user_curtiu' => $user_curtiu,
                 'user_compartilhou'=> $user_compartilhou,
                 'user_info' => [
@@ -65,6 +66,7 @@
                     'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
                 ],
                 'compartilhador_info' => [
+                    'quarentena' => $post_segui['quarentena'],//quarentena a publicação que interage
                     'id_da_compartilhada' => $post_segui['id_publi'],
                     'id_interacao' => $post_segui['id_publi_interagida'],
                     'text_compartilhada' => $post_segui['text_publi'],

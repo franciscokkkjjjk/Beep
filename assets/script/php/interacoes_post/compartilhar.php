@@ -22,7 +22,7 @@
         $res_postI = mysqli_query($conexao, $sql_post);
         $ass_postI = mysqli_fetch_assoc($res_postI);
         if($ass_postI['type'] == '4') {
-            $sql_compart_direc = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUES (".$_SESSION['id_user'].", 4, ".$ass_postI['id_publi_interagida'].",NULL,'',0,0,'$data_publi',0)";
+            $sql_compart_direc = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario, id_game, quarentena) VALUES (".$_SESSION['id_user'].", 4, ".$ass_postI['id_publi_interagida'].",NULL,'',0,0,'$data_publi',0, NULL, 0)";
             $res_c_d = mysqli_query($conexao, $sql_compart_direc);
             if($res_c_d) {
                 $sql_post_inter = 'SELECT * FROM publicacoes WHERE id_publi='.$ass_postI['id_publi_interagida'];
@@ -39,7 +39,7 @@
                 }
             }
         } else {
-            $sql_compart_direc = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario) VALUES (".$_SESSION['id_user'].", 4, ".$_POST['direct'].",NULL,'',0,0,'$data_publi',0)";
+            $sql_compart_direc = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario, id_game, quarentena) VALUES (".$_SESSION['id_user'].", 4, ".$_POST['direct'].",NULL,'',0,0,'$data_publi',0, NULL, 0)";
             $res_c_d = mysqli_query($conexao, $sql_compart_direc);
 
             $sql_num_compatilhamento = 'SELECT * FROM publicacoes WHERE publicacoes.id_publi='.$_POST['direct'];
