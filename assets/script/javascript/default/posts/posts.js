@@ -196,6 +196,7 @@ function criarPosts(lista) {
             post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
             document.querySelector('.feed-body-post').append(post_body);
         } else if (lista[i]['type'] == "2") {//repostagem com comentario 
+            console.log('entrou');
             if (lista[i]['compartilhador_info']['quarentena'] == 0) { // verfica se ta em quarentena
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
                 coment(post_body.querySelector('.comentar'));
@@ -210,13 +211,13 @@ function criarPosts(lista) {
                 } else {
                     post_body.querySelector('.post--text_comp').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
                 }
-                let aux_id = lista[i]['id_publi'];
+                let aux_id = lista[i]['compartilhador_info']['id_da_compartilhada'];
                 post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
                 post_body.querySelector('.elipse-img').onclick = (e) => {
                     e.preventDefault();
                     posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
                 }
-                let aux = lista[i]['compartilhador_info']['id_da_compartilhada'];
+                let aux = lista[i]['id_publi'];
                 if (lista[i]['quarentena'] == 0) { // verifica se ta em quarentena
                     post_body.querySelector('.area--post-com .elipse-img').onclick = (e) => {
                         e.preventDefault();
@@ -259,7 +260,8 @@ function criarPosts(lista) {
                         post_body.querySelector('.post--img-area').style.display = 'block';
                         post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['compartilhador_info']['img_compartilhada']})`;
                     }
-                }//interagida
+                }
+                //interagida
                 if (lista[i]['quarentena'] == 0) {
                     if (lista[i]['img_publi'] == '' || lista[i]['img_publi'] == null) { } else {
                         let type_midia = lista[i]['img_publi'].split('.');
