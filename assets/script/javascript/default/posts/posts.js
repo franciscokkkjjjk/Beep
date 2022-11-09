@@ -223,7 +223,6 @@ function criarPosts(lista) {
                         e.preventDefault();
                         posts_modal(aux_clone, aux, url, post_body.querySelector('.area--post-com .elipse-img'));
                     }
-
                     post_body.querySelector('.date--post-comp_').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
                     post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
                     post_body.querySelector('.perfil-link-comp').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
