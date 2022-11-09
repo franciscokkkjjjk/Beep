@@ -47,7 +47,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <main>
         <div class="container border_c feed-area post_d">
             <div class="title_solicitacao">
-                Informações da Postagem denúnciada
+                Informações da Postagem denunciada <span class="quarentena"></span>
             </div>
             <div class="conteudo_b_I">
                 <div class="img_area">

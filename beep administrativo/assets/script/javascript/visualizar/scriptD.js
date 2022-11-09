@@ -26,8 +26,13 @@ if (window.sessionStorage.x5edP != undefined) {
             console.log(info_post_d);
             let midia;
                 //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
-            if(res.posts_info.postagem_denunciada.querent) {
-                // document.querySelector(".quarentena").innerHTML = '(Em quarentena)';
+            if(res.posts_info.postagem_denunciada.querent == 1) {
+                document.querySelector(".quarentena").innerHTML = '(Em quarentena)';
+                document.querySelector('.buttons_acpt').classList.add('buttons_qua');
+                document.querySelector(".buttons_acpt").addEventListener("click", (e) => {
+                    e.preventDefault();
+                    window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p_r=" + res.posts_info.postagem_denunciada.id_publicacao;
+                }, true)
                 // console.log(document.querySelector('.quarentena'))
             } else {
                 document.querySelector(".buttons_acpt").addEventListener("click", (e) => {
