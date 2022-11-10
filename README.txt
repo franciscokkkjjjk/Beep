@@ -2,10 +2,9 @@
 
 -não reconhece anos bissextos.
 -caso usuario de uma quebra de linha o textArea buga o banco de dados.
+
 -o comentario gera mais de uma imagem (possivel problema= no clone)
--Depois de um tempo a verificação de novos curtidas e etc começãm a deixar o sistema instavel
-isso se da pela auta quantidade de requisições em um curto periodo de tempo
-talvez aumentar e mudar a logica para ele adicionar um novo valor no html resolva  a charada
+
 
 -------------------ideias---------------------------------------
 
@@ -13,12 +12,10 @@ talvez aumentar e mudar a logica para ele adicionar um novo valor no html resolv
 -
 
 ------------------------- implementações -----------------------
--deixar o user editar a data de nascimento apenas uma vez
+-deixar o user editar a data de nascimento apenas uma vez <<prioridades>>
 -uma area para aparecer novos post quando o scrollTop estiver em 0 
--na area post completo colocar uma area para o type 2{
-    adicionar uma area para mostrar para quem foi a resposta para o type 4
-}
--aparecer post na timeline com menos de uma semana;
+
+-aparecer post na timeline com menos de uma semana; <<prioridades>>
 --------------------------cadastrar-se----------------------
 --O cadastro de usuario tava bugado e ja foi arrumado: 
 -INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas, status_) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt', false)
