@@ -1967,3 +1967,8 @@ select option {
     padding: 33px 30px;
     text-align: center;
 }
+.img--pag--pes {
+    background-image: url('../../imgs/default/generic_lupa_white.png');
+}.img--pag--sal {
+    background-image: url('../../imgs/default/salvos_generic.png');
+}
