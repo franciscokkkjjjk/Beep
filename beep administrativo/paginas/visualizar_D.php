@@ -130,7 +130,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                         </div>
                     </div>
                     <div class="conteudo3 conteudo_C">
-                        <div class="title_C">Id da publicação interagida</div>
+                        <div class="title_C">Id da publicação</div>
                         <div class="text_C">
 
                         </div>

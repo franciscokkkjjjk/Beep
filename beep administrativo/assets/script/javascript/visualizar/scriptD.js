@@ -42,7 +42,7 @@ if (window.sessionStorage.x5edP != undefined) {
             }
             document.querySelector(".buttons_rej").onclick =  (e)=>{
                 e.preventDefault();
-                modal_simples('Você realmente que excluir essa publicação?', "../assets/script/php/denuncias_posts/excluir_p.php");
+                modal_simples('Você realmente que excluir essa publicação?', "../assets/script/php/denuncias_posts/excluir_p.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao);
             }
             if (res.posts_info.postagem_denunciada.midia_publi != "") {
                 
