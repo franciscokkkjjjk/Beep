@@ -220,7 +220,7 @@ header .container {
     height: 100%;
     display: flex;
     opacity: 0;
-    transition: all ease 0.25s;
+    transition: all ease 0.15s;
     align-items: center;
 }
 .event_modal_confirm {

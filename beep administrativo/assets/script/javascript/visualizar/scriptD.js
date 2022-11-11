@@ -40,6 +40,10 @@ if (window.sessionStorage.x5edP != undefined) {
                     window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p=" + res.posts_info.postagem_denunciada.id_publicacao;
                 }, true)
             }
+            document.querySelector(".buttons_rej").onclick =  (e)=>{
+                e.preventDefault();
+                modal_simples('Você realmente que excluir essa publicação?', "../assets/script/php/denuncias_posts/excluir_p.php");
+            }
             if (res.posts_info.postagem_denunciada.midia_publi != "") {
                 
                 if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] == "mp4") {

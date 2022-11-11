@@ -8,11 +8,6 @@ if ($_POST['x5edP']) {
         "Spam"
     ];
     $json = array();
-    //pegar todas as denuncias com as suas motivações (Foreach)X
-    //pegar a publicação que foi denunciadaX
-    //pegar informações da publicação interagida (caso haja) (type 4 pega a original (mas não há))
-    //pegar informações completas do usuário que foi denunciado;
-    //pegar o username do usuário que realizou a publicação interagida (caso haja)  
     require_once '../conect_pdo.php';
     $id_denunciada = $pdo->escape_string($_POST['x5edP']);//passar o id da publi em vez do id da denuncia
     $denunciada = $pdo->query("SELECT * FROM denuncias WHERE id_denuncia= $id_denunciada");

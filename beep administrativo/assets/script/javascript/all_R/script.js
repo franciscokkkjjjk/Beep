@@ -103,6 +103,30 @@ function show_modal(mensage, url_req, value, event) {
     })
     document.querySelector('.a_xd30').appendChild(modal_);
 }
+let show_modal_simple = false;
+function modal_simples(mensagem, url = null) {
+    let modal_simples_ = document.querySelector(".a_xd30");
+    modal_simples_.querySelector('.modal_mensage').textContent = mensagem;
+    modal_simples_.querySelector('.confirm_modal').onclick = ()=>{
+        window.location.href = url;
+    }
+    modal_simples_.querySelector('.reject_modal').onclick = () => {
+        modal_simples_.querySelector(".modal_confirm").style.opacity = "0";
+        setTimeout(() => { modal_simples_.querySelector(".modal_confirm").style.display = 'none'; }, 250);
+        show_modal_simple = false;
+    }
+    if (show_modal_simple) {
+        modal_simples_.querySelector(".modal_confirm").style.opacity = "0";
+        setTimeout(() => { modal_simples_.querySelector(".modal_confirm").style.display = 'none'; }, 250);
+        show_modal_simple = false;
+    } else {
+        show_modal_simple = true;
+        modal_simples_.querySelector(".modal_confirm").style.display = '';
+        setTimeout(() => {
+            modal_simples_.querySelector(".modal_confirm").style.opacity = "1";
+        }, 250);
+    }
+}
 
 let open = false;
 function header_modal(modal, button) {
