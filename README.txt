@@ -43,9 +43,13 @@
 ------------------------------------descrição de elementos dentro do código---------------------
 -p_xD30 = na classe significa que o elemento cai chamar a função de curtir
 -p_xD29 = na classe significa que o elemento vai chamar a função de descurtir
+
 -type 1 = comentario
+
 -type 2 = repost com comentario 
+
 -type 3 = post normal
+
 -type 4 = repost direto
 
 
