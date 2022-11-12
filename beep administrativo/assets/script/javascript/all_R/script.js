@@ -112,12 +112,12 @@ function modal_simples(mensagem, url = null) {
     }
     modal_simples_.querySelector('.reject_modal').onclick = () => {
         modal_simples_.querySelector(".modal_confirm").style.opacity = "0";
-        setTimeout(() => { modal_simples_.querySelector(".modal_confirm").style.display = 'none'; }, 250);
+        setTimeout(() => { modal_simples_.querySelector(".modal_confirm").style.display = 'none'; }, 150);
         show_modal_simple = false;
     }
     if (show_modal_simple) {
         modal_simples_.querySelector(".modal_confirm").style.opacity = "0";
-        setTimeout(() => { modal_simples_.querySelector(".modal_confirm").style.display = 'none'; }, 250);
+        setTimeout(() => { modal_simples_.querySelector(".modal_confirm").style.display = 'none'; }, 150);
         show_modal_simple = false;
     } else {
         show_modal_simple = true;
