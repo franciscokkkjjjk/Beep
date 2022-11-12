@@ -7,15 +7,25 @@ if (isset($_POST['All_xD30'])) {
     $sql_post = 'SELECT * FROM publicacoes WHERE id_publi=' . $id_post;
     $res_post = mysqli_query($conexao, $sql_post);
     $assoc_post = mysqli_fetch_assoc($res_post);
+    //verfica se ela existe
+    $postagem_completa["excluida"] = false;
+    if (is_null($assoc_post)) {
+        $postagem_completa = [
+            "error" => true,
+            "mensage" => "Essa publicação não existe."
+        ];
+        echo json_encode($postagem_completa);
+        die;
+    }
     //verifica se ela ta em quarentena.
-        if ($assoc_post['quarentena'] > 0) {
-            $json = [
-                'error' => true,
-                'mensage' => 'A postagem foi suspensa.'
-            ];
-            echo json_encode($json);
-            die;
-        }
+    if ($assoc_post['quarentena'] > 0) {
+        $json = [
+            'error' => true,
+            'mensage' => 'A postagem foi suspensa.'
+        ];
+        echo json_encode($json);
+        die;
+    }
     if (is_null($assoc_post)) {
         $json = [
             'error' => true,
@@ -159,6 +169,10 @@ if (isset($_POST['All_xD30'])) {
             $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=" . $valueC['id_publi'] . " AND publicacoes.user_publi=" . $_SESSION['id_user'] . " AND publicacoes.type=4";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
+            //verfica se o comentario foi suspenso se for ele passa para a proxima repetição
+            if ($valueC['quarentena'] == 1) {
+                continue;
+            }
             if (!is_null($assoc_compartilhou)) {
                 $user_compartilhou_comet = true;
             } else {
@@ -199,35 +213,62 @@ if (isset($_POST['All_xD30'])) {
         $sql_C_comentada = 'SELECT * FROM publicacoes WHERE id_publi=' . $assoc_post['id_publi_interagida'];
         $res_C_comentada = mysqli_query($conexao, $sql_C_comentada);
         $ass_C_comentada = mysqli_fetch_assoc($res_C_comentada);
-
-        $sql_us_C_comentada = 'SELECT * FROM users WHERE id_user=' . $ass_C_comentada['user_publi'];
-        $res_us_C_comentada = mysqli_query($conexao, $sql_us_C_comentada);
-        $ass_us_C_comentada = mysqli_fetch_assoc($res_us_C_comentada);
         $postagem_completa['error'] = false;
 
-        $postagem_completa['publicacao']['c_comentada'] = [
-            'error' => false,
-            'id_publi' => $ass_C_comentada['id_publi'],
-            'type' => $ass_C_comentada['type'],
-            'quarentena' => $ass_C_comentada['quarentena'],
-            'id_interacao' => $ass_C_comentada['id_publi_interagida'],
-            'text_post' => $ass_C_comentada['text_publi'],
-            'img_publi' => $ass_C_comentada['img_publi'],
-            'date_publi' => dateCalc($ass_C_comentada),
-            'user_info' => [
-                'user_id' => $ass_C_comentada['user_publi'],
-                'nome_user' => $ass_us_C_comentada['nome'],
-                'username_user' => $ass_us_C_comentada['username'],
-                'img_user' => perfilDefault($ass_us_C_comentada['foto_perfil'], ''),
-            ]
-        ];
+        //------------------verifica se a publicação foi excluida-----------------
+        if (is_null($ass_C_comentada)) {
+            $postagem_completa['publicacao']['c_comentada'] = [
+                'id_publi' => NULL
+            ];
+        } else {
+            $sql_us_C_comentada = 'SELECT * FROM users WHERE id_user=' . $ass_C_comentada['user_publi'];
+            $res_us_C_comentada = mysqli_query($conexao, $sql_us_C_comentada);
+            $ass_us_C_comentada = mysqli_fetch_assoc($res_us_C_comentada);
+
+
+
+            $postagem_completa['publicacao']['c_comentada'] = [
+                'error' => false,
+                'id_publi' => $ass_C_comentada['id_publi'],
+                'type' => $ass_C_comentada['type'],
+                'quarentena' => $ass_C_comentada['quarentena'],
+                'id_interacao' => $ass_C_comentada['id_publi_interagida'],
+                'text_post' => $ass_C_comentada['text_publi'],
+                'img_publi' => $ass_C_comentada['img_publi'],
+                'date_publi' => dateCalc($ass_C_comentada),
+                'user_info' => [
+                    'user_id' => $ass_C_comentada['user_publi'],
+                    'nome_user' => $ass_us_C_comentada['nome'],
+                    'username_user' => $ass_us_C_comentada['username'],
+                    'img_user' => perfilDefault($ass_us_C_comentada['foto_perfil'], ''),
+                ]
+            ];
+        }
         echo json_encode($postagem_completa);
     } elseif ($assoc_post['type'] == 4) {
+
         $postagem_completa['error'] = false;
         $user_compartilhou = false;
         $sql_raiz_publi = "SELECT * FROM publicacoes WHERE publicacoes.id_publi=" . $assoc_post['id_publi_interagida'];
         $res_raiz_publi = mysqli_query($conexao, $sql_raiz_publi);
         $assc_raiz_publi = mysqli_fetch_assoc($res_raiz_publi);
+        if (is_null($assc_raiz_publi)) {
+            $json = [
+                "error" => true,
+                "mensage" => "Essa publicação não está mais disponível."
+            ];
+            echo json_encode($json);
+            die;
+        }
+        if ($assc_raiz_publi["quarentena"] == 1) {
+            $json = [
+                'error' => true,
+                "mensage" => "Essa publicação foi suspensa."
+            ];
+            echo json_encode($json);
+
+            die;
+        }
         $sql_user_raiz_publi = "SELECT * FROM users WHERE users.id_user=" . $assc_raiz_publi['user_publi'];
         $res_user_raiz_publi = mysqli_query($conexao, $sql_user_raiz_publi);
         $assoc_user_raiz_publi = mysqli_fetch_assoc($res_user_raiz_publi);
@@ -253,6 +294,7 @@ if (isset($_POST['All_xD30'])) {
             'num_curtidas' => $assc_raiz_publi['num_curtidas'],
             'beepadas' => $assc_raiz_publi['num_compartilha'],
             'date_publi' => dateCalc($assc_raiz_publi),
+            "quarentena" => $assc_raiz_publi['quarentena'],
             "date_publi_ca" => date('d/m/Y', strtotime($assc_raiz_publi['date_publi'])),
             "date_publi_hr" => date('H:i', strtotime($assc_raiz_publi['date_publi'])),
             'num_comentario' => $assc_raiz_publi['num_comentario'],

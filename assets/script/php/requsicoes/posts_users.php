@@ -44,7 +44,7 @@ foreach ($postagens as $post_segui) {
     $user_curtiu = false;
     $user_comp = false;
     if ($post_segui['type'] == 2) {
-        
+
         $user_compartilhou = false;
         $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=" . $post_segui['id_publi'] . " AND publicacoes.user_publi=" . $_SESSION['id_user'] . " AND  publicacoes.type=4";
         $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
@@ -61,22 +61,44 @@ foreach ($postagens as $post_segui) {
         $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi=' . $post_segui['id_publi_interagida'];
         $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
         $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
-
         $sql_s_compartilhador = 'SELECT * FROM users WHERE id_user=' . $post_segui['user_publi'];
         $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
         $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
 
+        $user_compartilhada_nome =  $array_s_compartilhador['nome'];
+        $usernameCompartilhada = $array_s_compartilhador['username'];
+        $foto_compartilhada = $array_s_compartilhador['foto_perfil'];
+        
+        if (!is_null($array_compartilhada)) {
+
+
+
+
+            $id_compartilhada = $array_compartilhada['id_publi'];
+            $text_compartilhada = $array_compartilhada['text_publi'];
+            $midia_compartilhada = $array_compartilhada['img_publi'];
+            $quarentena_compartilhada = $array_compartilhada['quarentena'];
+        } else {
+
+            $id_compartilhada = NULL;
+            $text_compartilhada = NULL;
+            $midia_compartilhada = NULL;
+            $quarentena_compartilhada = NULL;
+        }
+
+
+
         $perfil_visit['publi'][] = [
-            'id_publi' => $array_compartilhada['id_publi'],
+            'id_publi' => $id_compartilhada,
             'type' => $post_segui['type'],
-            'text_post' => $array_compartilhada['text_publi'],
-            'img_publi' => $array_compartilhada['img_publi'],
+            'text_post' => $text_compartilhada,
+            'img_publi' => $midia_compartilhada,
             'num_curtidas' => $post_segui['num_curtidas'],
             'beepadas' => $post_segui['num_compartilha'],
             'date_publi' => dateCalc($array_compartilhada),
             'num_comentario' => $post_segui['num_comentario'],
             'user_curtiu' => $user_curtiu,
-            'quarentena' => $array_compartilhada['quarentena'],
+            'quarentena' => $quarentena_compartilhada,
             'user_compartilhou' => $user_compartilhou,
             'compartilhador_info' => [
                 'quarentena' => $post_segui['quarentena'],
@@ -86,9 +108,9 @@ foreach ($postagens as $post_segui) {
                 'img_compartilhada' => $post_segui['img_publi'],
                 'date_publi_compartilhada' => dateCalc($post_segui),
                 'user_id' => $post_segui['user_publi'],
-                'nome_user' => $array_s_compartilhador['nome'],
-                'username_user' => $array_s_compartilhador['username'],
-                'img_user' => perfilDefault($array_s_compartilhador['foto_perfil'], ''),
+                'nome_user' => $user_compartilhada_nome,
+                'username_user' => $usernameCompartilhada,
+                'img_user' => perfilDefault($foto_compartilhada, ''),
             ],
             'user_info' => [
                 'user_id' => $array_s_perfil['id_user'],
@@ -141,12 +163,14 @@ foreach ($postagens as $post_segui) {
             ];
         }
     } elseif ($post_segui['type'] == 4) {
-        
+
         $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi=' . $post_segui['id_publi_interagida'];
         $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
         $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
-
-        if($array_compartilhada['quarentena'] == 1) {
+        if (is_null($array_compartilhada)) {
+            continue;
+        }
+        if ($array_compartilhada['quarentena'] == 1) {
             continue;
         }
 

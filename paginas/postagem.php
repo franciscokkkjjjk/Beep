@@ -242,12 +242,6 @@
                             <div class="comentar interacao--area">
                                 comentar
                             </div>
-                            <div  class="compartilhar-hover compartilhar-event-div interac-button  interac-button ">
-                                <button class="img-compartilhar-off compartilhar-event img--iteracao img--strong button--remove interacao--area ">    
-                                    compartilhar
-                                </button>
-                                <div class="post_compartilhadas area_num"><div class="event min-event"></div></div>  
-                            </div>
                         </div>
                     </div>
                     </div>

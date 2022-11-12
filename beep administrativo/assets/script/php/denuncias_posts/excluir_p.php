@@ -46,6 +46,7 @@ if (isset($_GET['id_p'])) {
                 $_SESSION['mensagem'] .= "<br> A mídia da publicação não pode ser excluida.";
             }
         }
+        $sql_delete_curtidas = $pdo->query("DELETE FROM curtidas WHERE id_postagem=" . $id_publi); // não terá mensagem ------------esse deleta as curtidas da publicação -------------
         $sql_delete_denuncia_all = $pdo->query("DELETE FROM denuncias WHERE post_denunciado=" . $id_publi);
         if (!$sql_delete_denuncia_all) {
             $_SESSION['mensagem'] .= "<br> As denunicias não puderam ser deletadas.";
