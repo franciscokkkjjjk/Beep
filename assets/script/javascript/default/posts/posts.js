@@ -196,7 +196,7 @@ function criarPosts(lista) {
             post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
             document.querySelector('.feed-body-post').append(post_body);
         } else if (lista[i]['type'] == "2") {//repostagem com comentario 
-            if (lista[i]['compartilhador_info']['quarentena'] == 0) { // verfica se ta em quarentena
+            if (lista[i]['compartilhador_info']['quarentena'] == "0") { // verfica se ta em quarentena
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
                 coment(post_body.querySelector('.comentar'));
                 post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'pt-xD30';
@@ -595,6 +595,7 @@ async function postsCurtidos_session() {//mesma coisa da session
     let curtida_req;
     curtida_req = await fetch(`../assets/script/php/requsicoes/curtidas_posts.php?username=` + username)
     let jso_c = await curtida_req.json();
+    console.log(jso_c);
     qsAll('.back--event').forEach((e) => { e.remove() });
     if (jso_c.nada == undefined) {
         jso_c.reverse();
@@ -689,6 +690,7 @@ async function post_num_curtida() {
                     }
                 }
             } else {
+                //tava arrumando o curtidas //
                 let curtidaArea = document.getElementById(json_[s]['compartilhador_info']['id_da_compartilhada']);
                 if (curtidaArea != undefined) {
                     curtidaArea.querySelector('.post_curtidas').innerHTML = json_[s]['num_curtidas'];

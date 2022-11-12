@@ -20,27 +20,48 @@
     $sql_post_curtidos = "SELECT * FROM publicacoes WHERE publicacoes.id_publi IN (SELECT curtidas.id_postagem FROM curtidas WHERE curtidas.id_user_curti=".$assoc_user_req['id_user']." ORDER BY curtida_date DESC)";
     $res_push = mysqli_query($conexao, $sql_post_curtidos);
     $array_push = mysqli_fetch_all($res_push, 1);
+
     foreach($array_push as $post_segui) {
         $user_curtiu = false;
         $user_comp = false;
     
         if($post_segui['type'] == 2) {
+
             $user_compartilhou = false;
-            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$post_segui['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND (publicacoes.type=4 OR publicacoes.type=2)";
+            $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=".$post_segui['id_publi']." AND publicacoes.user_publi=".$_SESSION['id_user']." AND publicacoes.type=4";
             $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
             $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
                 if(!is_null($assoc_compartilhou)) {
                     $user_compartilhou = true;
                 } 
 
-            $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi='.$post_segui['id_publi_interagida'];
-            $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
-            $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
-
-            $sql_s_perfil = 'SELECT * FROM users WHERE id_user='.$array_compartilhada['user_publi'];
+            //pega publicação raiz
+        $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi=' . $post_segui['id_publi_interagida'];
+        $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
+        $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
+        if (!is_null($array_compartilhada)) {
+            $sql_s_perfil = 'SELECT * FROM users WHERE id_user=' . $array_compartilhada['user_publi'];
             $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
             $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-            
+
+            $id_publi_compartilhada = $array_compartilhada['id_publi'];
+            $text_publi_compartilhada =  $array_compartilhada['text_publi'];
+            $midia_compartilhada = $array_compartilhada['img_publi'];
+            $quarentena_compartilhada = $array_compartilhada['quarentena'];
+            $user_compartilhada = $array_compartilhada['user_publi'];
+            $nome_user_compartilhada = $array_s_perfil['nome'];
+            $username_compartilhada = $array_s_perfil['username'];
+            $mida_user_compartilhada = $array_s_perfil['foto_perfil'];
+        } else {
+            $id_publi_compartilhada = NULL;
+            $text_publi_compartilhada = NULL;
+            $midia_compartilhada = NULL;
+            $quarentena_compartilhada = 1; // falta verificar se o post 4 ta excluido ou não; o post completo tbm deve ser verificado
+            $user_compartilhada =        NULL;
+            $nome_user_compartilhada =  NULL;
+            $username_compartilhada =   NULL;
+            $mida_user_compartilhada = NULL;
+        }
             foreach($arra_curtida as $value_c) {
                 if($value_c['id_postagem'] == $post_segui['id_publi_interagida']) {
                     $user_curtiu = true;  
@@ -52,26 +73,28 @@
             $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
 
             $post_curtidos[] = [
-                'id_publi' => $array_compartilhada['id_publi'],
+                'id_publi' => $id_publi_compartilhada,
                 'type' => $post_segui['type'],
-                'text_post' => $array_compartilhada['text_publi'],
-                'img_publi' => $array_compartilhada['img_publi'],
+                'text_post' => $text_publi_compartilhada,
+                'img_publi' => $midia_compartilhada,
                 'num_curtidas' => $post_segui['num_curtidas'],
+                'quarentena' => $quarentena_compartilhada,
                 'beepadas' => $post_segui['num_compartilha'],
                 'date_publi' => dateCalc($array_compartilhada),
                 'num_comentario' => $post_segui['num_comentario'],
                 'user_curtiu' => $user_curtiu,
                 'user_compartilhou'=> $user_compartilhou,
                 'user_info' => [
-                    'user_id' => $array_compartilhada['user_publi'],
-                    'nome_user' => $array_s_perfil['nome'],
-                    'username_user' => $array_s_perfil['username'],
+                    'user_id' => $user_compartilhada,
+                    'nome_user' => $nome_user_compartilhada,
+                    'username_user' => $username_compartilhada,
                     'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
                 ],
                 'compartilhador_info' => [
                     'id_da_compartilhada' => $post_segui['id_publi'],
                     'id_interacao' => $post_segui['id_publi_interagida'],
                     'text_compartilhada' => $post_segui['text_publi'],
+                    "quarentena"=> $post_segui['quarentena'],
                     'img_compartilhada' => $post_segui['img_publi'],
                     'date_publi_compartilhada' => dateCalc($post_segui),
                     'user_id' => $post_segui['user_publi'],
