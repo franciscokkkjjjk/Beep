@@ -55,7 +55,7 @@ foreach ($postagens as $post_segui) {
             $id_publi_compartilhada = NULL;
             $text_publi_compartilhada = NULL;
             $midia_compartilhada = NULL;
-            $quarentena_compartilhada = 1;// falta verificar se o post 4 ta excluido ou não; o post completo tbm deve ser verificado
+            $quarentena_compartilhada = 1; // falta verificar se o post 4 ta excluido ou não; o post completo tbm deve ser verificado
             $user_compartilhada =        NULL;
             $nome_user_compartilhada =  NULL;
             $username_compartilhada =   NULL;
