@@ -42,10 +42,14 @@ if (window.sessionStorage.x5edP != undefined) {
             }
             document.querySelector(".buttons_rej").onclick =  (e)=>{
                 e.preventDefault();
-                modal_simples('Você realmente que excluir essa publicação?', "../assets/script/php/denuncias_posts/excluir_p.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao);
+                modal_simples('Você realmente que excluir essa publicação? Essa ação é irreversível.', "../assets/script/php/denuncias_posts/excluir_p.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao);
+            }
+            document.querySelector(".buttons_edit").onclick = (e)=>{
+                e.preventDefault();
+                modal_simples('Essa publicação realmente está tudo ok? Essa ação resultará na exclusão de todas denúncias referentes a essa publicação.', "../assets/script/php/denuncias_posts/tudoOk.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao);
+
             }
             if (res.posts_info.postagem_denunciada.midia_publi != "") {
-                
                 if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] == "mp4") {
                     midia = document.createElement("video");
                     midia.setAttribute("controls", "on");
