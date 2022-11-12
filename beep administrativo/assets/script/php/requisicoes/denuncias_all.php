@@ -3,18 +3,18 @@ session_start();
 if ($_POST['x5edP']) {
     $motivos_values = [ // colocar em uma tabela no banco;
         "Conteúdo explícito",
-        "Discurso de ódio", 
+        "Discurso de ódio",
         "Assédio",
         "Spam"
     ];
     $json = array();
     require_once '../conect_pdo.php';
-    $id_denunciada = $pdo->escape_string($_POST['x5edP']);//passar o id da publi em vez do id da denuncia
+    $id_denunciada = $pdo->escape_string($_POST['x5edP']); //passar o id da publi em vez do id da denuncia
     $denunciada = $pdo->query("SELECT * FROM denuncias WHERE id_denuncia= $id_denunciada");
     $denunciada =  $denunciada->fetch_assoc()['post_denunciado'];
     $denunciada = $pdo->query("SELECT * FROM denuncias WHERE post_denunciado=$denunciada");
     $dun = $denunciada->fetch_all(1);
-    if(is_null($dun)) {
+    if (is_null($dun)) {
         $json = [
             'error' => true,
             'mensage' => 'essa denuncia não existe mais.'
@@ -22,26 +22,26 @@ if ($_POST['x5edP']) {
         echo json_encode($json);
         die;
     }
-    foreach($dun as $m) {
+    foreach ($dun as $m) {
         $motivos[] = $m['motivo'];
     }
     $selecionada = key(array_count_values($motivos));
-    for($i = 0; $i < 4; $i++) {
-        if($i + 1 == $selecionada) {
+    for ($i = 0; $i < 4; $i++) {
+        if ($i + 1 == $selecionada) {
             $selecionada = $motivos_values[$i];
         }
     }
-    
+
     $json['motivos'] = [
         //fazer uma query para verificar isso
         'mais_selecionados' => $selecionada,
         'qt_denuncias' => count($dun), //fazer uma query para verificar isso
     ];
     //verifica quais denuncias foram mais selecionadas
-    foreach($dun as $v0) {
+    foreach ($dun as $v0) {
         $selecionado_ind = 0;
-        for($i = 0; $i < 4; $i++) {//verfica o motivo que foi selecionado
-            if($i + 1 == $v0["motivo"]) {
+        for ($i = 0; $i < 4; $i++) { //verfica o motivo que foi selecionado
+            if ($i + 1 == $v0["motivo"]) {
                 $selecionado_ind = $motivos_values[$i];
             }
         }
@@ -49,13 +49,13 @@ if ($_POST['x5edP']) {
         $json['motivos']['info_motivo'][] = [
             'motivo' => $selecionado_ind,
             'motivo_text' => $v0['motivo_text'],
-            'denunciador' => $denunciador->fetch_assoc()['username'] 
+            'denunciador' => $denunciador->fetch_assoc()['username']
         ];
     }
 
     $postagem_d = $pdo->query("SELECT * FROM publicacoes WHERE id_publi=" . $dun[0]['post_denunciado']);
     $post = $postagem_d->fetch_assoc();
-    if(is_null($post)) {
+    if (is_null($post)) {
         $json = [
             'error' => true,
             'mensage' => 'A postagem denúnciada requisitada não existe mais.'
@@ -66,7 +66,7 @@ if ($_POST['x5edP']) {
         $user_publi = $pdo->query("SELECT * FROM users WHERE id_user='" . $post['user_publi'] . "'")->fetch_assoc();
         $json['posts_info']['postagem_denunciada'] = [
             'id_publicacao' => $post['id_publi'],
-            'date_p' => date("d-m-Y", strtotime($post['date_publi'])) ." as " . date("H:i:s", strtotime($post['date_publi'])),
+            'date_p' => date("d-m-Y", strtotime($post['date_publi'])) . " as " . date("H:i:s", strtotime($post['date_publi'])),
             'user_publi' => $user_publi['username'],
             'text_publi' => $post['text_publi'],
             'midia_publi' => $post['img_publi'],
@@ -80,19 +80,22 @@ if ($_POST['x5edP']) {
             "foto_perfil" => $user_publi["foto_perfil"],
             "nome" => $user_publi['nome']
         ];
-        if($post['type'] == 2 or $post['type'] == 1) {
+        if ($post['type'] == 2 or $post['type'] == 1) {
             $query_inter = $pdo->query("SELECT * FROM publicacoes WHERE id_publi='" . $post['id_publi_interagida'] . "'")->fetch_assoc();
-            $user_publi_ = $pdo->query("SELECT * FROM users WHERE id_user='" . $query_inter['user_publi'] . "'")->fetch_assoc();
-            $json['posts_info']['postagem_denunciada']['id_interagida'] = $post['id_publi_interagida'];
-            $json['posts_info']['postagem_interagida'] = [
-                'id_I' => $query_inter['id_publi'],
-                'date_I' => $query_inter['date_publi'],
-                'user_publi_I' => $user_publi_['username'],
-                'text_publi_I' => $query_inter['text_publi'],
-                'midia_publi_I' => $query_inter['img_publi']
-            ];
+            if (is_null($query_inter)) {
+                $json['posts_info']['postagem_denunciada']['id_interagida'] = NULL;
+            } else {
+                $user_publi_ = $pdo->query("SELECT * FROM users WHERE id_user='" . $query_inter['user_publi'] . "'")->fetch_assoc();
+                $json['posts_info']['postagem_denunciada']['id_interagida'] = $post['id_publi_interagida'];
+                $json['posts_info']['postagem_interagida'] = [
+                    'id_I' => $query_inter['id_publi'],
+                    'date_I' => $query_inter['date_publi'],
+                    'user_publi_I' => $user_publi_['username'],
+                    'text_publi_I' => $query_inter['text_publi'],
+                    'midia_publi_I' => $query_inter['img_publi']
+                ];
+            }
         }
-        
     }
 
     echo json_encode($json);
