@@ -196,7 +196,6 @@ function criarPosts(lista) {
             post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
             document.querySelector('.feed-body-post').append(post_body);
         } else if (lista[i]['type'] == "2") {//repostagem com comentario 
-            console.log('entrou');
             if (lista[i]['compartilhador_info']['quarentena'] == 0) { // verfica se ta em quarentena
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
                 coment(post_body.querySelector('.comentar'));
@@ -218,29 +217,38 @@ function criarPosts(lista) {
                     posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
                 }
                 let aux = lista[i]['id_publi'];
-                if (lista[i]['quarentena'] == 0) { // verifica se ta em quarentena
-                    post_body.querySelector('.area--post-com .elipse-img').onclick = (e) => {
-                        e.preventDefault();
-                        posts_modal(aux_clone, aux, url, post_body.querySelector('.area--post-com .elipse-img'));
-                    }
-                    post_body.querySelector('.date--post-comp_').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
-                    post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
-                    post_body.querySelector('.perfil-link-comp').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
-                    post_body.querySelector('.name--name-perfil-comp').innerHTML = lista[i]['user_info']['nome_user'];
-                    post_body.querySelector('.name--username-perfil-comp').innerHTML = lista[i]['user_info']['username_user'];
-                    post_body.querySelector('.date--post-comp').innerHTML = lista[i]['date_publi'];
+                // -----------------------verifica se ta em quarentena ou excluida
+                if (aux != null) {
+                    if (lista[i]['quarentena'] == 0) {
+                        post_body.querySelector('.area--post-com .elipse-img').onclick = (e) => {
+                            e.preventDefault();
+                            posts_modal(aux_clone, aux, url, post_body.querySelector('.area--post-com .elipse-img'));
+                        }
+                        post_body.querySelector('.date--post-comp_').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
+                        post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
+                        post_body.querySelector('.perfil-link-comp').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
+                        post_body.querySelector('.name--name-perfil-comp').innerHTML = lista[i]['user_info']['nome_user'];
+                        post_body.querySelector('.name--username-perfil-comp').innerHTML = lista[i]['user_info']['username_user'];
+                        post_body.querySelector('.date--post-comp').innerHTML = lista[i]['date_publi'];
 
-                    if (lista[i]['text_post'] == "" || lista[i]['text_post'] == null) {
-                        post_body.querySelector('.post--text--comp_2').style.display = 'none';
+                        if (lista[i]['text_post'] == "" || lista[i]['text_post'] == null) {
+                            post_body.querySelector('.post--text--comp_2').style.display = 'none';
 
+                        } else {
+                            post_body.querySelector('.post--text--comp_2').innerHTML = lista[i]['text_post'];
+                        }
                     } else {
-                        post_body.querySelector('.post--text--comp_2').innerHTML = lista[i]['text_post'];
+                        post_body.querySelector(".post--comp").innerHTML = '';
+                        let mensagem = document.createElement('div');
+                        mensagem.setAttribute('class', 'mensagem_post_time');
+                        mensagem.innerHTML = 'Essa publicação foi suspensa.';
+                        post_body.querySelector(".post--comp").append(mensagem);
                     }
                 } else {
                     post_body.querySelector(".post--comp").innerHTML = '';
                     let mensagem = document.createElement('div');
                     mensagem.setAttribute('class', 'mensagem_post_time');
-                    mensagem.innerHTML = 'Essa publicação foi suspensa.';
+                    mensagem.innerHTML = 'Essa publicação não está mais disponível.';
                     post_body.querySelector(".post--comp").append(mensagem);
                 }
                 if (lista[i]['compartilhador_info']['img_compartilhada'] == '' || lista[i]['compartilhador_info']['img_compartilhada'] == null) { } else {
@@ -260,7 +268,7 @@ function criarPosts(lista) {
                         post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['compartilhador_info']['img_compartilhada']})`;
                     }
                 }
-                //interagida
+                //-----------------------------interagida----------------
                 if (lista[i]['quarentena'] == 0) {
                     if (lista[i]['img_publi'] == '' || lista[i]['img_publi'] == null) { } else {
                         let type_midia = lista[i]['img_publi'].split('.');

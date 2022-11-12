@@ -147,7 +147,9 @@ foreach ($postagens as $post_segui) {
         $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi=' . $post_segui['id_publi_interagida'];
         $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
         $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
-
+        if(is_null($array_compartilhada)) {
+            continue;
+        }
         if ($array_compartilhada['quarentena'] > 0) { //pula pra proxima se o publicação compartilhada estiver em quarentena
             continue;
         }
