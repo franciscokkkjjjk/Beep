@@ -208,7 +208,11 @@ foreach ($array_push as $post_segui) {
     }
     $posi++;
 }
-if ($array_push == null) {
+if (is_null($array_push)) {
+    $post_curtidos = [
+        'nada' => 'nada por aqui!'
+    ];
+} elseif(empty($post_curtidos)) {
     $post_curtidos = [
         'nada' => 'nada por aqui!'
     ];
