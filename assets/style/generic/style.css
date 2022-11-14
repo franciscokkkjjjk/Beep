@@ -1968,3 +1968,33 @@ select option {
 }.img--pag--sal {
     background-image: url('../../imgs/default/salvos_generic.png');
 }
+.area--opt {
+    width: auto;
+    height: 30px;
+    border-radius: 100%;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: row;
+}
+.opt--menu--item {
+    width: 30px;
+    height: 30px;
+    padding: 15px;
+    border-radius: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 63%;
+}
+.opt--menu--item--margin-left {
+    margin-left: 15px;
+}
+.opt--menu--item:hover {
+    background-color: #444444;
+    cursor: pointer;
+    transition: 0.15s linear all;
+}
+
+.game_img {
+    background-image: url("../../imgs/default/opt_generic_game.png");
+    background-size: 70%;
+}

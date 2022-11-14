@@ -297,22 +297,7 @@
     border-radius: 6px;
     border: none;
 }
-.opt--menu--item {
-    width: 30px;
-    height: 30px;
-    padding: 15px;
-    border-radius: 100%;
-}
-.area--opt {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    margin-right: 15px;
-}
-.opt--menu--item:hover {
-    background-color: #444444;
-    cursor: pointer;
-}
+
 .menu--post--item {
     border: 0.5px solid #3b3b3b;
     display: flex;
