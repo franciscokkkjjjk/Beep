@@ -2080,7 +2080,7 @@ select option {
     top: 110%;
     left: 0px;
     opacity: 0;
-    z-index: -1;
+    z-index:unset;
     padding: 8px 10px;
     text-decoration: none;
     font-size: 14px;
