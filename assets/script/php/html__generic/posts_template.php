@@ -93,7 +93,7 @@
             </div>
 
             <div class="post--area--menu ">
-                <a class="a_nav elipse-img-hover elipse-img" aria-label="Menu"></a>
+                <a href="" class="a_nav elipse-img-hover elipse-img" aria-label="Menu"></a>
             </div>
 
             <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
@@ -129,7 +129,7 @@
                         </div>
 
                         <div class="post--area--menu ">
-                            <a class="a_nav elipse-img-hover elipse-img" aria-label="Menu"></a>
+                            <a href="" class="a_nav elipse-img-hover elipse-img" aria-label="Menu"></a>
                         </div>
 
                         <!--deve ter o nome e @ do usuario e o menu de denuncia de cada usuario-->
