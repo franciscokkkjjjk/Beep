@@ -74,6 +74,9 @@
                                         <div class="opt--menu--item pic" title="Adicionar uma imagem"></div>
                                     <input id="img--post" type="file" style="display: none;" class="input_img_event" name="img_post">
                                     </label>
+                                    <div class="add_games_button img_games">
+                                        
+                                    </div>
                                 </div>
                             </div>
                         </div>

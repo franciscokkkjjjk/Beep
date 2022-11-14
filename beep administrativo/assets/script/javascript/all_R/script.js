@@ -156,6 +156,10 @@ function header_modal(modal, button) {
     }
 }
 
+function show_modal_games() {
+    
+}
+
 //  <div class="corpo_list">
 //             <div class="list_area">
 //                 <div class="area_list_info_1">
