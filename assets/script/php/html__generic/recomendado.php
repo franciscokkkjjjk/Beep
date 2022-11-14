@@ -425,3 +425,25 @@ if (isset($_SESSION['menssagem'])) {
         </div>
     </div>
 </div>
+
+<?php 
+//modal de adicionar jogos nas publi//
+?>
+
+<div class="modal_game_area_publi" style="display:none" >
+    <div class="exit--modal--game--add"></div>
+    <div class="area--modal--game--repost">
+        <div class="header--modal--game--repost">
+            <div class="exit--area--body_game">
+                <div class="menu--exit-img"></div>
+            </div>
+            <div class="title--coment--repost">Adicionar jogo na publicação.</div>
+            <div class="submit--button--comet--area">
+                <button type="submit" >Adicionar</button>
+            </div>
+        </div>
+        <div class="body--repost--coment">
+
+        </div>
+    </div>
+</div>

@@ -71,10 +71,10 @@
                             <div class="menu--post--item">
                                 <div class="area--opt">
                                     <label for="img--post">
-                                        <div class="opt--menu--item pic" title="Adicionar uma imagem"></div>
+                                        <div class="opt--menu--item pic" aria-label="Adicionar uma imagem."></div>
                                     <input id="img--post" type="file" style="display: none;" class="input_img_event" name="img_post">
                                     </label>
-                                    <div class="opt--menu--item game_img opt--menu--item--margin-left event_modal_game" title="Adicionar um jogo na publicação.">
+                                    <div class="opt--menu--item game_img opt--menu--item--margin-left event_modal_game" aria-label="Adicionar um jogo.">
                                         
                                     </div>
                                 </div>

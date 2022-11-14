@@ -7,8 +7,8 @@
                     <div class="jogo_area_bottom">
                         <div class="jogo_area_titulo"></div>
                         <div class="jogo_area_comando">
-                            <div class="icon_add button_para button_A_"></div>
-                            <div class="icon_lupa button_para g1 button_B_"></div>
+                            <div class="icon_add button_para button_A_" aria-label="Adicionar na conta."></div>
+                            <div class="icon_lupa button_para g1 button_B_" aria-label="Visualizar informações."></div>
                         </div>
                     </div>
                 </div>

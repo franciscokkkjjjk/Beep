@@ -1895,11 +1895,13 @@ select option {
     border-top: 0.5px solid #393939;
     padding-top: 15px;
 }
+
 .input_default_soli .input_div {
-    border:none;
+    border: none;
     padding: 3px 5px;
     margin-top: none !important;
 }
+
 .input_div {
     border: 0.7px solid #414141;
     padding: 10px 10px;
@@ -1952,22 +1954,28 @@ select option {
     font-size: 14px;
     color: #757575c5;
 }
+
 .mensagem_post {
     width: 100%;
     margin: 150px 100px;
-    color: #a7a7a7;    
+    color: #a7a7a7;
 }
+
 .mensagem_post_time {
-    color: #a7a7a7;    
+    color: #a7a7a7;
     width: 100%;
     padding: 33px 30px;
     text-align: center;
 }
+
 .img--pag--pes {
     background-image: url('../../imgs/default/generic_lupa_white.png');
-}.img--pag--sal {
+}
+
+.img--pag--sal {
     background-image: url('../../imgs/default/salvos_generic.png');
 }
+
 .area--opt {
     width: auto;
     height: 30px;
@@ -1976,6 +1984,7 @@ select option {
     display: flex;
     flex-direction: row;
 }
+
 .opt--menu--item {
     width: 30px;
     height: 30px;
@@ -1985,9 +1994,11 @@ select option {
     background-repeat: no-repeat;
     background-size: 63%;
 }
+
 .opt--menu--item--margin-left {
     margin-left: 15px;
 }
+
 .opt--menu--item:hover {
     background-color: #444444;
     cursor: pointer;
@@ -1997,4 +2008,129 @@ select option {
 .game_img {
     background-image: url("../../imgs/default/opt_generic_game.png");
     background-size: 70%;
+}
+
+.modal_game_area_publi {
+    position: fixed;
+    height: 100vh;
+    overflow: auto;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    z-index: 1;
+    transition: all ease 0.25s;
+}
+
+.exit--modal--game--add {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #6666664b;
+}
+
+.exit--area--body_game {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%
+}
+
+.exit--area--body_game:hover {
+    background-color: #363636;
+    cursor: pointer;
+    transition: all linear 0.25s;
+}
+
+.area--modal--game--repost {
+    background-color: #0a0a0a;
+    width: 65%;
+    margin: auto;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    position: relative;
+    color: #fff;
+    height: auto;
+    box-shadow: 0px 0px 14px 0px #7a7a7a;
+}
+
+
+.header--modal--game--repost {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 10px 18px;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 10px;
+    background-color: #000000;
+    width: auto;
+    align-items: center;
+}
+
+[aria-label] {
+    position: relative;
+}
+
+[aria-label]::after {
+    content: attr(aria-label); /*pega o texto*/
+    position: absolute;
+    border-radius: 5px;
+    top: 110%;
+    left: 0px;
+    opacity: 0;
+    z-index: -1;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    width: max-content;
+    color: #fff;
+}
+
+[aria-label]:hover::after {
+    background-color: #464646;
+    z-index: 999;
+    opacity: 1;
+    transition: all linear 0.15s 1s;
+}
+
+.icon_add::after {
+    content: "adicionar na conta"; /*pega o texto*/
+    position: absolute;
+    border-radius: 5px;
+    top: 110%;
+    left: 0px;
+    z-index: -1;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: transparent;
+    width: max-content;
+    color: #fff;
+
+}
+.icon_add:hover::after {
+    background-color: #464646;
+    z-index: 999;
+    transition: all linear 0.25s .5s;
+}
+.icon_remove::after {
+    content: "Remover da conta"; /*pega o texto*/
+    position: absolute;
+    border-radius: 5px;
+    top: 110%;
+    left: 0px;
+    z-index: -1;
+    padding: 8px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    background-color: transparent;
+    width: max-content;
+    color: #fff;
+}
+.icon_remove:hover::after {
+    background-color: #464646;
+    z-index: 999;
+    transition: all linear 0.25s .5s;
 }
