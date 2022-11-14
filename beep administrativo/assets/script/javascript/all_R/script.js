@@ -157,7 +157,7 @@ function header_modal(modal, button) {
 }
 
 function show_modal_games() {
-    
+
 }
 
 //  <div class="corpo_list">
