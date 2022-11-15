@@ -70,7 +70,7 @@ function curtir_post() {
         }
     })
 }
-async function user_(active) {
+async function user_(active, username = null) {
     let username_vist = window.location.href.split('=');
     let user_vist = await fetch('../assets/script/php/requsicoes/posts_users.php?username=' + username_vist[1]);
     let user_v = await user_vist.json();
@@ -110,8 +110,9 @@ async function user_(active) {
             }
 
         } else {
-            let username_vist = window.location.href.split('=');
-            game_perfil(username_vist[1]);
+            seguidores_user();
+            user_seguidores(user_v.user);
+            game_perfil(username);
         }
     } else {
         not_requi(0);

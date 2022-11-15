@@ -141,8 +141,7 @@ if($perfil == $_SESSION['username']) {
     <script type="text/javascript" src="../assets/script/javascript/default/jogos/game.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="">
-        user_(true);
-        game_perfil('<?=$_GET['username']?>');
+        user_(false, '<?= $_GET['username']?>');
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>
@@ -164,7 +163,6 @@ if($perfil == $_SESSION['username']) {
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js">
     </script>       
-    <script src="../assets/script/javascript/default/jogos/game.js"></script>
 
 </body>
 </html>
