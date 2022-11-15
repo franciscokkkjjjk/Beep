@@ -101,7 +101,7 @@
                                 Publicações
                             </a>
                             <a class="button--opt--info active_menu_info" href="perfilJogos.php">
-                                Jogos do usuario                                
+                            Jogos do usuário                             
                             </a>
                             <a class="button--opt--info" href="curtidas.php" href="curtidas.php">
                                 Curtidas  

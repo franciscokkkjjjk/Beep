@@ -98,7 +98,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
                                 Publicações
                             </a>
                             <a class="button--opt--info" href="perfilJogos.php">
-                                Jogos do usuario                                
+                            Jogos do usuário                              
                             </a>
                             <a class="button--opt--info active_menu_info">
                                 Curtidas  

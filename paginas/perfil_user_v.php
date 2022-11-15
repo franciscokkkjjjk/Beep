@@ -107,7 +107,7 @@ if($perfil == $_SESSION['username']) {
                                 Publicações
                             </a>
                             <a class="button--opt--info game_opt ">
-                                Jogos do usuario                                
+                            Jogos do usuário                              
                             </a>
                             <a class="button--opt--info curtidas_user">
                                 Curtidas  
