@@ -284,7 +284,7 @@ function q_D_modal_show(id, url) {
             let res = await req_.json();
             qsAll('.q_D_radio').forEach(e => {
                 if (e.checked == true) {
-                    e.checked  = false;
+                    e.checked = false;
                 }
             });
             qs('.input_div').innerHTML = '';
@@ -295,15 +295,15 @@ function q_D_modal_show(id, url) {
     };
 
     modal_q_D.querySelectorAll('.q_D_modal_exit').forEach((e) => {
-        e.onclick = () => { 
+        e.onclick = () => {
             qsAll('.q_D_radio').forEach(e => {
                 if (e.checked == true) {
-                    e.checked  = false;
+                    e.checked = false;
                 }
             });
             qs('.input_div').innerHTML = '';
             qs('.hidden_in_info_').value = '';
-             ext(modal_q_D) 
+            ext(modal_q_D)
         };
     })
     qs('.feed-area').appendChild(modal_q_D);
@@ -340,4 +340,20 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
         modal_show.querySelector('.modal_exit_dP'),
         modal_show
     )
+}
+
+let openModalGame = false;
+function show_modal_games(modal_game) {
+    if (openModalGame) {
+
+        modal_game.style.display = '';
+        setTimeout(() => { modal_game.style.opacity = ''; }, 250)
+        return openModalGame = true;
+
+    } else {
+
+        modal_game.style.opacity = '';
+        setTimeout(() => { modal_game.style.display = ''; }, 250)
+        return openModalGame = false;
+    }
 }

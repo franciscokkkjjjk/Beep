@@ -430,7 +430,7 @@ if (isset($_SESSION['menssagem'])) {
 //modal de adicionar jogos nas publi//
 ?>
 
-<div class="modal_game_area_publi" style="">
+<div class="modal_game_area_publi" style="display:none; opacity:0;">
     <div class="exit--modal--game--add"></div>
     <div class="area--modal--game--repost">
         <div class="header--modal--game--repost">
@@ -442,13 +442,12 @@ if (isset($_SESSION['menssagem'])) {
                 <button type="submit">Adicionar</button>
             </div>
         </div>
-        <div class="body--repost--coment">
+        <div class="body--repost--coment area_game_user_modal">
             <div class="area_game_user">
-
+                <?php 
+                    require_once "game_templet.php";
+                ?>
             </div>
-            <?php 
-                require_once "game_templet.php";
-            ?>
         </div>
     </div>
 </div>

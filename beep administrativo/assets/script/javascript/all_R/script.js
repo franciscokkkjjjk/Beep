@@ -107,7 +107,7 @@ let show_modal_simple = false;
 function modal_simples(mensagem, url = null) {
     let modal_simples_ = document.querySelector(".a_xd30");
     modal_simples_.querySelector('.modal_mensage').textContent = mensagem;
-    modal_simples_.querySelector('.confirm_modal').onclick = ()=>{
+    modal_simples_.querySelector('.confirm_modal').onclick = () => {
         window.location.href = url;
     }
     modal_simples_.querySelector('.reject_modal').onclick = () => {
@@ -156,9 +156,7 @@ function header_modal(modal, button) {
     }
 }
 
-function show_modal_games() {
 
-}
 
 //  <div class="corpo_list">
 //             <div class="list_area">

@@ -1395,10 +1395,19 @@ select option {
     background-color: #0a0a0a;
     width: 50%;
     margin: auto;
+    color: #fff;
     border-radius: 10px;
     position: relative;
     height: auto;
     box-shadow: 0px 0px 14px 0px #7a7a7a;
+}
+[contenteditable]:focus-visible {
+    box-shadow: none;
+}
+[contenteditable] {
+    max-width: 84%;
+    height: auto;
+    word-break: break-all;
 }
 
 .body--post--comp {
@@ -1580,6 +1589,10 @@ select option {
     display: flex;
     justify-content: center;
     overflow-y: auto;
+}
+
+.area_game_user_modal {
+    padding: 22px;
 }
 
 .modal_game_event {
@@ -2082,7 +2095,7 @@ select option {
     top: 110%;
     left: 0px;
     opacity: 0;
-    z-index:unset;
+    z-index:-5000;
     padding: 8px 10px;
     text-decoration: none;
     font-size: 14px;
@@ -2094,7 +2107,7 @@ select option {
     background-color: #464646;
     z-index: 999;
     opacity: 1;
-    transition: all linear 0.15s 1s;
+    transition: all linear 0.05s 1s;
 }
 
 .icon_add::after {
