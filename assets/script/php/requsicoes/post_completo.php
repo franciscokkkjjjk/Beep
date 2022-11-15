@@ -8,6 +8,7 @@ if (isset($_POST['All_xD30'])) {
     $sql_post = 'SELECT * FROM publicacoes WHERE id_publi=' . $id_post;
     $res_post = mysqli_query($conexao, $sql_post);
     $assoc_post = mysqli_fetch_assoc($res_post);
+
     //verfica se ela existe
     $postagem_completa["excluida"] = false;
     if (is_null($assoc_post)) {
@@ -34,6 +35,24 @@ if (isset($_POST['All_xD30'])) {
         ];
         echo json_encode($json);
         die;
+    }
+
+    //valida a classifcação indicativa
+    if ($assoc_post['id_game'] != NULL) {
+        $sql_game_ = "SELECT * FROM jogos WHERE jogos.id_jogos=" . $assoc_post['id_game'];
+        $res_game_ = mysqli_query($conexao, $sql_game_);
+        $ass_game_ = mysqli_fetch_assoc($res_game_);
+        if ((!is_null($ass_game_)) or (!empty($ass_game_))) {
+            if (!valid_class_ind($_SESSION['data_nas'], $ass_game_['class_etaria'])) {
+                $json = [
+                    'error' => true,
+                    "mensage" => "Você não tem idade suficiente para visualizar este conteúdo."
+                ];
+                echo json_encode($json);
+
+                die;
+            }
+        }
     }
     $sql_info_user_publi = 'SELECT * FROM users WHERE id_user=' . $assoc_post['user_publi'];
     $res_info_user_publi = mysqli_query($conexao, $sql_info_user_publi);
@@ -300,6 +319,7 @@ if (isset($_POST['All_xD30'])) {
 
             die;
         }
+
         $sql_user_raiz_publi = "SELECT * FROM users WHERE users.id_user=" . $assc_raiz_publi['user_publi'];
         $res_user_raiz_publi = mysqli_query($conexao, $sql_user_raiz_publi);
         $assoc_user_raiz_publi = mysqli_fetch_assoc($res_user_raiz_publi);

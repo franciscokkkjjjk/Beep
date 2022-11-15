@@ -43,6 +43,19 @@ foreach ($array_seguidor as $value) {
 foreach ($postagens as $post_segui) {
     $user_curtiu = false;
     $user_comp = false;
+
+    //valida a classifcação indicativa
+    if ($post_segui['id_game'] != NULL) {
+        $sql_game_ = "SELECT * FROM jogos WHERE jogos.id_jogos=" . $post_segui['id_game'];
+        $res_game_ = mysqli_query($conexao, $sql_game_);
+        $ass_game_ = mysqli_fetch_assoc($res_game_);
+        if ((!is_null($ass_game_)) or (!empty($ass_game_))) {
+            if (!valid_class_ind($_SESSION['data_nas'], $ass_game_['class_etaria'])) {
+                continue;
+            }
+        }
+    }
+
     if ($post_segui['type'] == 2) {
 
         $user_compartilhou = false;
@@ -261,7 +274,7 @@ foreach ($postagens as $post_segui) {
     }
     $posi++;
 }
-if ($postagens == null) {
+if ($perfil_visit == null or empty($perfil_visit)) {
     $perfil_visit['publi'] = [
         'nada' => 'nada por aqui'
     ];

@@ -12,7 +12,6 @@ $sql_req = "SELECT * FROM users WHERE username='$user_push'";
 $res_requ = mysqli_query($conexao, $sql_req);
 $assoc_user_req = mysqli_fetch_assoc($res_requ);
 
-
 $sql_curtidas = 'SELECT * FROM curtidas WHERE id_user_curti=' . $_SESSION['id_user'];
 $res_curtidas = mysqli_query($conexao, $sql_curtidas);
 $arra_curtida = mysqli_fetch_all($res_curtidas, 1);
@@ -24,6 +23,18 @@ $array_push = mysqli_fetch_all($res_push, 1);
 foreach ($array_push as $post_segui) {
     $user_curtiu = false;
     $user_comp = false;
+
+    //valida a classifcação indicativa
+    if ($post_segui['id_game'] != NULL) {
+        $sql_game_ = "SELECT * FROM jogos WHERE jogos.id_jogos=" . $post_segui['id_game'];
+        $res_game_ = mysqli_query($conexao, $sql_game_);
+        $ass_game_ = mysqli_fetch_assoc($res_game_);
+        if ((!is_null($ass_game_)) or (!empty($ass_game_))) {
+            if (!valid_class_ind($_SESSION['data_nas'], $ass_game_['class_etaria'])) {
+                continue;
+            }
+        }
+    }
 
     if ($post_segui['type'] == 2) {
 

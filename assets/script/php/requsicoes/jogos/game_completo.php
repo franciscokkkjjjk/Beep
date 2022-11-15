@@ -1,12 +1,22 @@
-<?php 
+<?php
 session_start();
 require_once '../../conecta.php';
-if(isset($_GET['id_game'])) {
+require_once '../../function/funcoes.php';
+if (isset($_GET['id_game'])) {
     $sql_ = "SELECT * FROM jogos WHERE id_jogos=" . $_GET['id_game'];
     $res_ = mysqli_query($conexao, $sql_);
     $assoc_ = mysqli_fetch_assoc($res_);
-    if($res_) {
-       
+
+    if ($res_) {
+        //valida a classifcação indicativa
+        if (!valid_class_ind($_SESSION['data_nas'], $assoc_['class_etaria'])) {
+            $json = [
+                'error' => true,
+                'mensage' => 'Você não tem idade o suficiente para acessar esse jogo.'
+            ];
+            echo json_encode($json);
+            die;
+        }
         $json = [
             'id_game' => $assoc_['id_jogos'],
             'nome_game' => $assoc_['nome_jogo'],
@@ -16,7 +26,7 @@ if(isset($_GET['id_game'])) {
             'class_etaria' => $assoc_['class_etaria']
         ];
         echo json_encode($json);
-        } else {
+    } else {
         $json = [
             'error' => true,
             'mensage' => 'Algo deu errado! Recarregue a pagina, e tente novamente!'
