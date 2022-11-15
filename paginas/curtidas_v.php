@@ -158,6 +158,8 @@ if($perfil == $_SESSION['username']) {
     <script src="../assets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js">
-    </script>       
+    </script>     
+    <script src="../assets/script/javascript/default/jogos/game.js"></script>
+
 </body>
 </html>

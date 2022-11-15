@@ -164,5 +164,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
             }
         ?> 
     </script>
+    <script src="../assets/script/javascript/default/jogos/game.js"></script>
+
     </body>
 </html>

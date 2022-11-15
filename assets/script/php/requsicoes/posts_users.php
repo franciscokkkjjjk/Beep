@@ -57,10 +57,11 @@ foreach ($postagens as $post_segui) {
                 $user_curtiu = true;
             }
         }
-
+        //pega a publicação raiz
         $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi=' . $post_segui['id_publi_interagida'];
         $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
         $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
+
         $sql_s_compartilhador = 'SELECT * FROM users WHERE id_user=' . $post_segui['user_publi'];
         $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
         $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
@@ -68,12 +69,8 @@ foreach ($postagens as $post_segui) {
         $user_compartilhada_nome =  $array_s_compartilhador['nome'];
         $usernameCompartilhada = $array_s_compartilhador['username'];
         $foto_compartilhada = $array_s_compartilhador['foto_perfil'];
-        
+
         if (!is_null($array_compartilhada)) {
-
-
-
-
             $id_compartilhada = $array_compartilhada['id_publi'];
             $text_compartilhada = $array_compartilhada['text_publi'];
             $midia_compartilhada = $array_compartilhada['img_publi'];
@@ -86,6 +83,15 @@ foreach ($postagens as $post_segui) {
             $quarentena_compartilhada = NULL;
         }
 
+        //-------------------verfica os jogos da publicação------------
+        $assoc_game = valid_game($array_compartilhada['id_game'], $conexao);
+        if ($assoc_game != false) {
+            $nome_game_publi = $assoc_game['nome_jogo'];
+            $id_game_publi = $assoc_game['id_jogos'];
+        } else {
+            $nome_game_publi = NULL;
+            $id_game_publi = NULL;
+        }
 
 
         $perfil_visit['publi'][] = [
@@ -117,6 +123,10 @@ foreach ($postagens as $post_segui) {
                 'nome_user' => $array_s_perfil['nome'],
                 'username_user' => $array_s_perfil['username'],
                 'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+            ],
+            "game_publi" => [
+                'game_id' => $id_game_publi,
+                'game_nome' => $nome_game_publi
             ]
         ];
     } elseif ($post_segui['type'] == 3) {
@@ -134,6 +144,17 @@ foreach ($postagens as $post_segui) {
                 $user_curtiu = true;
             }
         }
+
+        //-------------------verfica os jogos da publicação------------
+        $assoc_game = valid_game($post_segui['id_game'], $conexao);
+        if ($assoc_game != false) {
+            $nome_game_publi = $assoc_game['nome_jogo'];
+            $id_game_publi = $assoc_game['id_jogos'];
+        } else {
+            $nome_game_publi = NULL;
+            $id_game_publi = NULL;
+        }
+
         $perfil_visit['publi'][] = [
             'id_publi' => $post_segui['id_publi'],
             'type' => $post_segui['type'],
@@ -151,6 +172,10 @@ foreach ($postagens as $post_segui) {
                 'nome_user' => $array_s_perfil['nome'],
                 'username_user' => $array_s_perfil['username'],
                 'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+            ],
+            "game_publi" => [
+                'game_id' => $id_game_publi,
+                'game_nome' => $nome_game_publi
             ]
         ];
         $sql_user_curtiram = "SELECT * FROM curtidas WHERE curtidas.id_postagem=" . $post_segui['id_publi'];
@@ -192,6 +217,16 @@ foreach ($postagens as $post_segui) {
         $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
         $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
 
+        //-------------------verfica os jogos da publicação------------
+        $assoc_game = valid_game($array_compartilhada['id_game'], $conexao);
+        if ($assoc_game != false) {
+            $nome_game_publi = $assoc_game['nome_jogo'];
+            $id_game_publi = $assoc_game['id_jogos'];
+        } else {
+            $nome_game_publi = NULL;
+            $id_game_publi = NULL;
+        }
+
         $perfil_visit['publi'][] = [
             'id_publi' => $array_compartilhada['id_publi'],
             'type' => $post_segui['type'],
@@ -217,6 +252,10 @@ foreach ($postagens as $post_segui) {
                 'nome_user' => $array_s_compartilhador['nome'],
                 'username_user' => $array_s_compartilhador['username'],
                 'img_user' => perfilDefault($array_s_compartilhador['foto_perfil'], ''),
+            ],
+            "game_publi" => [
+                'game_id' => $id_game_publi,
+                'game_nome' => $nome_game_publi
             ]
         ];
     }
