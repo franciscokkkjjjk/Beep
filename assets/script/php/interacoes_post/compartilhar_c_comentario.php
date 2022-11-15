@@ -32,6 +32,7 @@ if (isset($_POST['cC_xd30'])) {
     if ($ass_sql['type'] == 4) {
         $id_interagida = $ass_sql['id_publi_interagida'];
     }
+    //pega a publicação raiz antes de cadastrar para cadastrar o id do jogo
     $sql_post_raiz = "SELECT * FROM publicacoes WHERE publicacoes.id_publi=".$id_interagida;
     $res_post_raiz = mysqli_query($conexao, $sql_post_raiz);
     $ass_post_raiz = mysqli_fetch_assoc($res_post_raiz);
