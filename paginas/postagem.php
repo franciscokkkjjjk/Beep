@@ -269,7 +269,7 @@
         const username = <?php echo '"'.$_SESSION['username'].'"';?>;
         const img_perfil = <?php echo '"'.$_SESSION['img'].'"';?>;
         const img_banner = <?php echo '"'.$_SESSION['img_banner'].'"';?>;
-        const bio = <?php echo '"'.$_SESSION['bio_user'].'"';?>;
+        const bio = <?php echo '`'.$_SESSION['bio_user'].'`';?>;
         const dateC = <?php echo '"'.date('d/m/Y', strtotime($_SESSION['data_nas'])).'"';?>;
         const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
         const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;

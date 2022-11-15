@@ -345,15 +345,16 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
 let openModalGame = false;
 function show_modal_games(modal_game) {
     if (openModalGame) {
-
-        modal_game.style.display = '';
-        setTimeout(() => { modal_game.style.opacity = ''; }, 250)
+        
+        modal_game.style.opacity = '0';
+        setTimeout(() => { modal_game.style.display = 'none'; }, 350)
         return openModalGame = true;
 
     } else {
 
-        modal_game.style.opacity = '';
-        setTimeout(() => { modal_game.style.display = ''; }, 250)
+
+        modal_game.style.display = '';
+        setTimeout(() => { modal_game.style.opacity = ''; }, 250)
         return openModalGame = false;
     }
 }

@@ -34,4 +34,7 @@
         },true)
     },true)
     showImg_form(qs('.input_img_event'), qs('.img--post'), true);
+    qs('.event_modal_game').onclick = ()=>{
+        show_modal_games(qs('.modal_game_area_publi'));
+    }
 

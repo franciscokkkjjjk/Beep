@@ -149,7 +149,7 @@
         const img_perfil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img'].'"';} else {echo 'null';}?>;
         const img_banner = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img_banner'].'"';} else{echo 'null';}?>;
         console.log(img_banner);
-        const bio = <?php echo '"'.$_SESSION['bio_user'].'"';?>;
+        const bio = <?php echo '`'.$_SESSION['bio_user'].'`';?>;
         const dateC = <?php echo '"'.date('d/m/Y', strtotime($_SESSION['data_nas'])).'"';?>;
         const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
         const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;
