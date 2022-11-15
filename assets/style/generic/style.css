@@ -1401,9 +1401,11 @@ select option {
     height: auto;
     box-shadow: 0px 0px 14px 0px #7a7a7a;
 }
+
 [contenteditable]:focus-visible {
     box-shadow: none;
 }
+
 [contenteditable] {
     max-width: 84%;
     height: auto;
@@ -2037,6 +2039,20 @@ select option {
     transition: all ease 0.15s;
 }
 
+.add_game_publi {
+    background-image: url("../../imgs/default/add_game_p.png");
+    background-size: 52%;
+}
+
+.add_game_publi:hover {
+    background-image: url("../../imgs/default/add_game_p_hover.png");
+
+}
+
+.add_game_publi::after {
+    content: "Adicionar jogo a publicação" !important;
+}
+
 .exit--modal--game--add {
     position: fixed;
     width: 100vw;
@@ -2089,13 +2105,14 @@ select option {
 }
 
 [aria-label]::after {
-    content: attr(aria-label); /*pega o texto*/
+    content: attr(aria-label);
+    /*pega o texto*/
     position: absolute;
     border-radius: 5px;
     top: 110%;
     left: 0px;
     opacity: 0;
-    z-index:-5000;
+    z-index: -5000;
     padding: 8px 10px;
     text-decoration: none;
     font-size: 14px;
@@ -2111,7 +2128,8 @@ select option {
 }
 
 .icon_add::after {
-    content: "adicionar na conta"; /*pega o texto*/
+    content: "adicionar na conta";
+    /*pega o texto*/
     position: absolute;
     border-radius: 5px;
     top: 110%;
@@ -2125,13 +2143,16 @@ select option {
     color: #fff;
 
 }
+
 .icon_add:hover::after {
     background-color: #464646;
     z-index: 999;
     transition: all linear 0.25s .5s;
 }
+
 .icon_remove::after {
-    content: "Remover da conta"; /*pega o texto*/
+    content: "Remover da conta";
+    /*pega o texto*/
     position: absolute;
     border-radius: 5px;
     top: 110%;
@@ -2144,8 +2165,19 @@ select option {
     width: max-content;
     color: #fff;
 }
+
 .icon_remove:hover::after {
     background-color: #464646;
     z-index: 999;
     transition: all linear 0.25s .5s;
+}
+
+.area_game_publi {
+    font-size: 0.9em;
+    color: #a0a0a0;
+    white-space: nowrap;
+    width: 12em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #000000;
 }

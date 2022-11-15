@@ -1475,7 +1475,7 @@ async function user__curtidas() {
         })
     }
 }
-async function game_perfil(user) {
+async function game_perfil(user, add = true) {
     let req_game = await fetch('../assets/script/php/requsicoes/jogos/users_game.php?username=' + user, {
         method: 'GET',
     });
@@ -1484,7 +1484,11 @@ async function game_perfil(user) {
         qs('.back--event').remove();
     }
     if (res_game.nada == undefined) {
-        creat_game(res_game);
+        if(add) {
+            creat_game(res_game);
+        } else {
+            creat_game(res_game, add);
+        }
     } else {
         post_not(4);
     }

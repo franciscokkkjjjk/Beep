@@ -443,7 +443,7 @@ if (isset($_SESSION['menssagem'])) {
             </div>
         </div>
         <div class="body--repost--coment area_game_user_modal">
-            <div class="area_game_user">
+            <div class="area_game">
                 <?php 
                     require_once "game_templet.php";
                 ?>

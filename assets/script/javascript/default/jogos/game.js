@@ -12,19 +12,19 @@ async function game(pag) {
 }
 async function show_game(json, button) {//mostra informações completa de um determinado jogo
     let m_ = document.querySelector('.modal_game_area');
-    if(modal_game_status) {
-        let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/game_completo.php?id_game='+json.id_game, {
-            method:"GET"
+    if (modal_game_status) {
+        let show_game_req = await fetch('../assets/script/php/requsicoes/jogos/game_completo.php?id_game=' + json.id_game, {
+            method: "GET"
         })
         let res_json = await show_game_req.json();
         console.log(res_json);
-        if(res_json.error) {
+        if (res_json.error) {
             alert_mensage(res_json);
-        } else {    
+        } else {
             m_.style.display = '';
-            setTimeout(()=>{
+            setTimeout(() => {
                 m_.querySelector('.modal_game').style.marginTop = '';
-            },100);
+            }, 100);
             m_.querySelector('.modal_game_event').onclick = show_game;
             m_.querySelector('.exit_area_modal_game').onclick = show_game;
             m_.querySelector('.title_modal_game').innerHTML = res_json.nome_game;
@@ -55,7 +55,7 @@ async function show_game(json, button) {//mostra informações completa de um de
         m_.querySelector('.modal_game').style.marginTop = '58%';
         document.querySelector('html').style.overflow = '';
 
-        setTimeout(()=>{
+        setTimeout(() => {
             m_.style.display = 'none';
         }, 100)
         modal_game_status = true;
@@ -68,7 +68,7 @@ async function add_game(json, button) {//adiciona um jogo da conta do usuario
     let res_add = await requisicao_add.json();
     console.log(res_add);
     alert_mensage(res_add);
-    button.onclick = ()=>{rm_game(json, button)};
+    button.onclick = () => { rm_game(json, button) };
     return true;
 }
 async function rm_game(json, button) {//remove um jogo da conta do usuario
@@ -78,11 +78,15 @@ async function rm_game(json, button) {//remove um jogo da conta do usuario
     let resp_rm = await requisicao_rm.json();
     console.log(resp_rm);
     alert_mensage(resp_rm);
-    button.onclick = ()=>{add_game(json, button)};
+    button.onclick = () => { add_game(json, button) };
     return true;
 }
 
-function creat_game(json) {
+function add_game_publi() {
+    
+}
+
+function creat_game(json, add = true) {
     let m_game_clone;
     let m_game = document.querySelector('.area_jogo_body');
     for (let ax in json) {
@@ -92,18 +96,28 @@ function creat_game(json) {
         m_game_clone.querySelector('.jogo_area_img').style.backgroundImage = `url(../assets/imgs/games/${json[ax].capa_game})`;
         m_game_clone.querySelector('.jogo_area_titulo').innerHTML = json[ax].nome_jogo;
         let button_a = m_game_clone.querySelector('.button_A_');
-        if (json[ax].possui) {
-            button_a.classList.remove('icon_add');
-            button_a.classList.add('icon_remove');
-            button_a.onclick = ()=>{
-                rm_game(json[ax], button_a);
+        if (add) {
+            if (json[ax].possui) {
+                button_a.classList.remove('icon_add');
+                button_a.classList.add('icon_remove');
+                button_a.onclick = () => {
+                    rm_game(json[ax], button_a);
+                }
+            } else {
+                button_a.onclick = async () => {
+                    add_game(json[ax], button_a);
+                }
             }
         } else {
-            button_a.onclick = async ()=>{
-                add_game(json[ax], button_a);
+            button_a.classList.remove('icon_add');
+            button_a.classList.remove('icon_remove');
+
+            button_a.classList.add('add_game_publi');
+            button_a.onclick = () => {
+                
             }
         }
-        m_game_clone.querySelector('.button_B_').onclick = ()=>{
+        m_game_clone.querySelector('.button_B_').onclick = () => {
             show_game(json[ax], m_game_clone.querySelector('.button_B_'));
         };
         m_game_clone.querySelector('.button_B_').id = `g_xD30D${json[ax].id_game}`;

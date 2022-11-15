@@ -345,16 +345,20 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
 let openModalGame = false;
 function show_modal_games(modal_game) {
     if (openModalGame) {
-        
+
+        qs('html').style.overflow = ''
         modal_game.style.opacity = '0';
-        setTimeout(() => { modal_game.style.display = 'none'; }, 350)
-        return openModalGame = true;
+        setTimeout(() => { modal_game.style.display = 'none'; }, 150)
+        return openModalGame = false;
 
     } else {
-
+        qs('html').style.overflow = 'hidden'
+        modal_game.querySelector('.exit--area--body_game').onclick = () => show_modal_games(modal_game);
+        modal_game.querySelector('.exit--modal--game--add').onclick = () => show_modal_games(modal_game);
 
         modal_game.style.display = '';
-        setTimeout(() => { modal_game.style.opacity = ''; }, 250)
-        return openModalGame = false;
+        game_perfil(username, false);
+        setTimeout(() => { modal_game.style.opacity = ''; }, 150)
+        return openModalGame = true;
     }
 }

@@ -78,6 +78,9 @@
                                         
                                     </div>
                                 </div>
+                                <div class="area_game_publi">
+                                    Red Dead redemption 2  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,6 +100,7 @@
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js">
+    
     </script>
     <script>
         posts();
@@ -119,5 +123,6 @@
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js">
     </script>
+    <script src="../assets/script/javascript/default/jogos/game.js"></script>
     </body>
 </html>
