@@ -1,18 +1,21 @@
 .elipse--menu {
     background-image: url(../../imgs/default/elipse.png);
 }
+
 .feed-body-post {
     min-height: 150vh;
 }
+
 .banner--perfil {
     height: 200px;
     width: 100%;
     background-color: #000000;
-    background-image: linear-gradient(360deg, #06060691,#9c9c9c38,#b2b2b233);
+    background-image: linear-gradient(360deg, #06060691, #9c9c9c38, #b2b2b233);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
 .banner--perfil img {
     width: 100%;
     height: 170px;
@@ -22,25 +25,30 @@
     height: auto;
 
 }
+
 .info--perfil--img {
-    width:165px ;
+    width: 165px;
     height: auto;
     border-radius: 100%;
 }
+
 .info--perfil--img--position {
     margin-top: -45px;
     margin-left: 20px;
 }
+
 .info--perfil--img--position {
     width: 145px;
     height: 145px;
     border-radius: 100%;
     box-shadow: 0px 0px 12px 0px #4ee8e845;
 }
+
 .info--perfil--area {
     display: flex;
     flex-direction: row;
 }
+
 .info--perfil--user {
     height: auto;
     padding-left: 10px;
@@ -48,20 +56,24 @@
     color: #f1f1f1;
     flex: 1;
 }
+
 .info--perfil--user--nome {
     font-size: 21px;
     word-break: break-all;
 }
+
 .info--perfil--user--username {
     color: #a7a7a7b0;
 }
+
 .info--button {
-    width: 150px;
+    min-width: 150px;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .button--editar {
     border: solid 0.5px #53ffff;
     color: #fff;
@@ -70,60 +82,71 @@
     font-size: 14px;
     text-decoration: none;
 }
+
 .button--editar::before {
     content: 'Editar perfil';
 }
+
 .button--editar:hover {
     background-color: #474747b0;
     transition: all linear 0.25s;
     cursor: pointer;
 }
+
 .info--bio--perfil {
     margin-top: 25px;
     margin-left: 15px;
 }
-.bio{
+
+.bio {
     color: #fff;
     white-space: pre-line;
     font-size: 16px;
     min-height: 18px;
 }
+
 .data_nasc {
     font-size: 13px;
     color: #c7c7c7;
     background-image: url(../../imgs/default/bolo-de-aniversario.png);
     background-position: left;
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;
     padding: 5px 0px;
     background-size: 18px;
     padding-left: 25px;
     margin-top: 11px;
     margin-bottom: 11px;
 }
+
 .segui--indo {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
 }
+
 .area--segui {
     color: #fff;
     text-decoration: none;
     font-size: 15px;
     text-decoration: underline transparent;
 }
+
 .area--segui:hover {
     text-decoration: underline;
     transition: all linear 0.25s;
 }
+
 .seguidor--info {
     margin-left: 20px;
 }
+
 .menu--info--perfil--area {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 30px;
 }
+
 .button--opt--info {
     flex: 1;
     text-decoration: none;
@@ -131,20 +154,24 @@
     padding: 10px 0px;
     text-align: center;
     color: #fff;
-    border-bottom:2px solid #000000 ;
+    border-bottom: 2px solid #000000;
 }
+
 .button--opt--info:hover {
     background-color: #505050;
     cursor: pointer;
     transition: all linear 0.25s;
-    border-bottom:2px solid #53ffff ;
+    border-bottom: 2px solid #53ffff;
 }
+
 .active_menu_info {
-    border-bottom:2px solid #53ffff ;
+    border-bottom: 2px solid #53ffff;
 }
+
 .posts--ara--perfil {
     margin-top: 5px;
 }
+
 .button--seguir {
     border: solid 0.5px #53ffff;
     color: #fff;
@@ -154,30 +181,53 @@
     text-decoration: none;
     cursor: pointer;
 }
+
 .button--seguir:hover {
     background-color: #505050;
 }
+
 .button--seguir::before {
     content: 'Seguir';
 }
+
 .button--seguindo {
-       /* border: solid 0.5px #53ffff; */
-       color: #fff;
-       box-shadow: inset 0px 0px 7px 3px #000;
-       padding: 12px 19px;
-       border-radius: 10px;
-       font-size: 14px;
-       text-decoration: none;
+    /* border: solid 0.5px #53ffff; */
+    color: #fff;
+    box-shadow: inset 0px 0px 7px 3px #000;
+    padding: 12px 19px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
 }
+
 .button--seguindo:hover {
     background-color: #505050;
 }
+
 .button--seguindo::before {
     content: 'Seguindo';
 }
+
 .area_game {
     display: grid;
     grid-template-columns: calc(100%/2) calc(100%/2);
     justify-items: center;
     align-items: center;
+}
+
+.button_perfil_ {
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    margin: 0px 10px;
+}
+
+.button_perfil_:hover {
+    cursor: pointer;
+    background-color: #505050;
+    transition: all linear 0.25s;
+}
+
+.info--button .elipse-img {
+    background-size: 50%;
 }

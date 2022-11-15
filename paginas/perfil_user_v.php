@@ -88,6 +88,7 @@ if($perfil == $_SESSION['username']) {
                                         <div class="event"></div>
                                     <input type="hidden" value="" name='iD_x30' class="input_segui_id_x30">
                                     </form>
+                                    <div class="button_perfil_ elipse-img" aria-label="Menu"></div>
                             </div>
                         </div>
                         <div class="info--bio--perfil">

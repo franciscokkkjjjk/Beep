@@ -6,7 +6,7 @@ function showMH(){
         qs('.menu--header--body').style.opacity = '1';
         qs('.event--header').classList.add('dimensoes--seta');
         setTimeout(()=>{
-            qs('.menu--header--body').style.height = '300px';
+            qs('.menu--header--body').style.height = 1*45+'px';
         },50)
         setTimeout(()=>{
             qs('body').addEventListener('click', showMH, false);
