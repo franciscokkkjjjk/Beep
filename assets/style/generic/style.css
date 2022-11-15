@@ -1297,6 +1297,7 @@ select option {
 
 .coment--menu {
     flex-direction: column !important;
+    align-items: flex-start !important;
 }
 
 .area--reposta {
@@ -2191,8 +2192,31 @@ select option {
     border-radius: 5px;
     margin-left: 5px;
 }
+
 .remove_game_publi:hover {
     background-color: #3dc7d1;
     cursor: pointer;
+    transition: all linear 0.25s;
+}
+
+.post--area--game {
+    display: flex;
+    padding: 0px 15px;
+    align-items: center;
+    font-size: 12px;
+    color: #a0a0a0;
+}
+
+.post--area--game div {
+    white-space: nowrap;
+    max-width: 12em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: underline transparent;
+
+}
+.post--area--game div:hover {
+    cursor: pointer;
+    text-decoration: underline;
     transition: all linear 0.25s;
 }

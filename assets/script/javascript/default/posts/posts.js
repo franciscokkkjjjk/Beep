@@ -142,6 +142,15 @@ function criarPosts(lista) {
             post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
             post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['user_info']['username_user'];
             post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
+            //gera os jogos nas publicações
+            if (lista[i]['game_publi']['game_id'] != null) {
+                post_body.querySelector('.game--post').innerHTML = lista[i]['game_publi']['game_nome'];
+                let aux_game = {
+                    'id_game': lista[i]['game_publi']['game_id']
+                }
+                post_body.querySelector('.game--post').onclick = (e) => show_game(aux_game, e);;
+            }
+
             if (lista[i]['text_post'] == '' || lista[i]['text_post'] == null) {
                 post_body.querySelector('.post--text').style.display = 'none';
             } else {
@@ -215,6 +224,16 @@ function criarPosts(lista) {
                 post_body.querySelector('.elipse-img').onclick = (e) => {
                     e.preventDefault();
                     posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
+                }
+                //-------------pega o jogo da publicação-----------
+                if (lista[i]['game_publi']['game_id'] != null) {
+                    post_body.querySelector('.game--post').innerHTML = lista[i]['game_publi']['game_nome'];
+                    post_body.querySelector('.game--post-comp').innerHTML = lista[i]['game_publi']['game_nome'];
+                    let aux_game = {
+                        'id_game': lista[i]['game_publi']['game_id']
+                    }
+                    post_body.querySelector('.game--post').onclick = (e) => show_game(aux_game, e);;
+                    post_body.querySelector('.game--post-comp').onclick = (e) => show_game(aux_game, e);;
                 }
                 let aux = lista[i]['id_publi'];
                 // -----------------------verifica se ta em quarentena ou excluida
@@ -1484,7 +1503,7 @@ async function game_perfil(user, add = true) {
         qs('.back--event').remove();
     }
     if (res_game.nada == undefined) {
-        if(add) {
+        if (add) {
             creat_game(res_game);
         } else {
             creat_game(res_game, add);

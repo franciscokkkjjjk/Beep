@@ -19,6 +19,11 @@
                     </a>
                 </div>
             </div>
+            <div class="post--area--game">
+                <div class="game--post">
+                    
+                </div>
+            </div>
             <div class="post--area--date ">
                 <div class="date--post">
                 </div>
@@ -87,6 +92,13 @@
                     </a>
                 </div>
             </div>
+
+            <div class="post--area--game">
+                <div class="game--post">
+                 
+                </div>
+            </div>
+
             <div class="post--area--date">
                 <div class="date--post date--post-comp_">
                 </div>
@@ -122,6 +134,13 @@
                                 </a>
                             </div>
                         </div>
+
+                        <div class="post--area--game">
+                            <div class="game--post-comp">
+                                
+                            </div>
+                        </div>
+
                         <div class="post--area--date">
                             <div class="date--post-comp ">
 

@@ -441,11 +441,11 @@ if (isset($_SESSION['menssagem'])) {
         </div>
         <div class="body--repost--coment area_game_user_modal">
             <div class="area_game">
-
             </div>
-            <?php
-            require_once "game_templet.php";
-            ?>
         </div>
     </div>
 </div>
+
+<?php
+require_once "game_templet.php";
+?>
