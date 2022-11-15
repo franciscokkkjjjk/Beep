@@ -59,7 +59,7 @@ function perfilDefault($array_user, $diretorio)
         return "background-image:url('../assets/imgs/profile/$array_user');" . $diretorio;
     } elseif ($array_user != '' and $diretorio != '') {
         return "background-image:url('../../assets/imgs/profile/$array_user');";
-    } elseif($array_user == null) {
+    } elseif ($array_user == null) {
         return null;
     }
 }
@@ -76,14 +76,31 @@ function pagAtual($area)
 }
 
 function valid_game($sql, $conexao)
-    {
-        $sql_game_post = "SELECT * FROM jogos WHERE jogos.id_jogos ='" . $sql . "'";
-        $res_game_post = mysqli_query($conexao, $sql_game_post);
-        $ass_game_post = mysqli_fetch_assoc($res_game_post);
+{
+    $sql_game_post = "SELECT * FROM jogos WHERE jogos.id_jogos ='" . $sql . "'";
+    $res_game_post = mysqli_query($conexao, $sql_game_post);
+    $ass_game_post = mysqli_fetch_assoc($res_game_post);
 
-        if (is_null($ass_game_post) or empty($ass_game_post)) {
-            return false;
-        } else {
-            return $ass_game_post;
-        }
+    if (is_null($ass_game_post) or empty($ass_game_post)) {
+        return false;
+    } else {
+        return $ass_game_post;
     }
+}
+
+function valid_class_ind($data_user, $data_game) : bool
+{
+    $data_g = $data_game;
+    $data_user = strtotime($data_user);
+    $hoje = mktime(date('m'), date('d'), date('Y'));
+    $data_ = $hoje - $data_user;
+    $minutos = ($data_ / 60);
+    $horas = $minutos / 60;
+    $dias = $horas / 24;
+    $anos = $dias / 365.25;
+    if(floor($anos) >= $data_g) {
+        return true;
+    } else {
+        return false;
+    }
+}

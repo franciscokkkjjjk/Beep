@@ -149,7 +149,7 @@ function criarPosts(lista) {
                 let aux_game = {
                     'id_game': lista[i]['game_publi']['game_id']
                 }
-                post_body.querySelector('.game--post').onclick = (e) => show_game(aux_game, e);;
+                post_body.querySelector('.game--post').onclick = (e) => show_game(aux_game, e);
             }
 
             if (lista[i]['text_post'] == '' || lista[i]['text_post'] == null) {
@@ -352,6 +352,14 @@ function criarPosts(lista) {
                 post_body.querySelector('.post--text').style.display = 'none';
             } else {
                 post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
+            }
+            //gera os jogos nas publicações
+            if (lista[i]['game_publi']['game_id'] != null) {
+                post_body.querySelector('.game--post').innerHTML = lista[i]['game_publi']['game_nome'];
+                let aux_game = {
+                    'id_game': lista[i]['game_publi']['game_id']
+                }
+                post_body.querySelector('.game--post').onclick = (e) => show_game(aux_game, e);
             }
             if (lista[i]['img_publi'] == "") {
 

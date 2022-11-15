@@ -19,6 +19,7 @@ $array_all_compartilhada = mysqli_fetch_all($res_all_compartilhada, 1);
 $posi = 0;
 $pos_aux = 0;
 
+
 foreach ($postagens as $post_segui) {
     $user_curtiu = false;
     $user_comp = false;
@@ -42,9 +43,13 @@ foreach ($postagens as $post_segui) {
 
         //verfica o jogo da publicação
         $assoc_game = valid_game($array_compartilhada['id_game'], $conexao);
-        if($assoc_game != false) {
+        if ($assoc_game != false) {
             $nome_game_publi = $assoc_game['nome_jogo'];
             $id_game_publi = $assoc_game['id_jogos'];
+            //valida a classifcação indicativa
+            if (!valid_class_ind($_SESSION['data_nas'], $assoc_game['class_etaria'])) {
+                continue;
+            }
         } else {
             $nome_game_publi = NULL;
             $id_game_publi = NULL;
@@ -120,22 +125,30 @@ foreach ($postagens as $post_segui) {
         if (!is_null($assoc_compartilhou)) {
             $user_compartilhou = true;
         }
+
         //pega o usuário que fez a publicação
         $sql_s_perfil = 'SELECT * FROM users WHERE id_user=' . $post_segui['user_publi'];
         $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
         $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
+
 
         //pega informações do jogo do usuário
         $sql_game_post = "SELECT * FROM jogos WHERE jogos.id_jogos ='" . $post_segui['id_game'] . "'";
         $res_game_post = mysqli_query($conexao, $sql_game_post);
         $ass_game_post = mysqli_fetch_assoc($res_game_post);
 
+
         if (is_null($ass_game_post) or empty($ass_game_post)) {
             $id_game_publi = null;
             $nome_game_publi = null;
+            //a classifcação indicativa só serve para jogos, publicações sem jogos não são verificadas
         } else {
             $id_game_publi = $ass_game_post['id_jogos'];
             $nome_game_publi = $ass_game_post['nome_jogo'];
+            //valida a classifcação indicativa
+            if (!valid_class_ind($_SESSION['data_nas'], $ass_game_post['class_etaria'])) {
+                continue;
+            }
         }
         foreach ($arra_curtida as $value_c) {
             if ($value_c['id_postagem'] == $post_segui['id_publi']) {
@@ -209,9 +222,14 @@ foreach ($postagens as $post_segui) {
 
         //verfica o jogo da publicação raiz //as subpublicações serão sempre do jogo raiz (preguiça do dev kkkk)
         $assoc_game = valid_game($array_compartilhada['id_game'], $conexao);
-        if($assoc_game != false) {
+        if ($assoc_game != false) {
             $nome_game_publi = $assoc_game['nome_jogo'];
             $id_game_publi = $assoc_game['id_jogos'];
+
+            //valida a classifcação indicativa
+            if (!valid_class_ind($_SESSION['data_nas'], $assoc_game['class_etaria'])) {
+                continue;
+            }
         } else {
             $nome_game_publi = NULL;
             $id_game_publi = NULL;

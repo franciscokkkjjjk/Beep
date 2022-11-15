@@ -709,6 +709,7 @@ select option {
     width: 100vw;
     height: 100vh;
     top: 0px;
+    z-index: 9999;
     background-color: #080808b0;
     display: flex;
     justify-content: center;
@@ -1374,7 +1375,7 @@ select option {
 }
 
 .modal--coment--repost--area {
-    position: absolute;
+    position: fixed;
     height: 100%;
     overflow: auto;
     width: 100%;
