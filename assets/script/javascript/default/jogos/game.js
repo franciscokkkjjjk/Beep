@@ -82,16 +82,17 @@ async function rm_game(json, button) {//remove um jogo da conta do usuario
     return true;
 }
 
-function add_game_publi() {
-    
+let m_game_clone;
+let m_game;
+if (document.querySelector('.area_jogo_body') != undefined) {
+    m_game = document.querySelector('.area_jogo_body');
 }
-
 function creat_game(json, add = true) {
-    let m_game_clone;
-    let m_game = document.querySelector('.area_jogo_body');
     for (let ax in json) {
         m_game_clone = m_game.cloneNode(true);
-        m_game.remove();
+        if (m_game != undefined) {
+            m_game.remove();
+        }
         m_game_clone.style.display = '';
         m_game_clone.querySelector('.jogo_area_img').style.backgroundImage = `url(../assets/imgs/games/${json[ax].capa_game})`;
         m_game_clone.querySelector('.jogo_area_titulo').innerHTML = json[ax].nome_jogo;
@@ -111,10 +112,17 @@ function creat_game(json, add = true) {
         } else {
             button_a.classList.remove('icon_add');
             button_a.classList.remove('icon_remove');
-
             button_a.classList.add('add_game_publi');
             button_a.onclick = () => {
-                
+                document.querySelector('.area_game_publi').innerHTML = json[ax].nome_jogo;
+                document.querySelector('.game_publi').value = json[ax].id_game;
+                document.querySelector(".remove_game_publi").style.display = "";
+                document.querySelector(".remove_game_publi").onclick = () => {
+                    document.querySelector('.area_game_publi').innerHTML = "";
+                    document.querySelector('.game_publi').value = "";
+                    document.querySelector(".remove_game_publi").style.display = "none";
+                }
+                show_modal_games(qs('.modal_game_area_publi'));
             }
         }
         m_game_clone.querySelector('.button_B_').onclick = () => {

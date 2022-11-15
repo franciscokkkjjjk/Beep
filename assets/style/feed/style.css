@@ -339,3 +339,9 @@
     background-color: #53ffff;
     color: #545454;    
 }
+
+.area_game {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+}

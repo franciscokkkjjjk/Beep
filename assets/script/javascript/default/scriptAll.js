@@ -345,7 +345,7 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
 let openModalGame = false;
 function show_modal_games(modal_game) {
     if (openModalGame) {
-
+        qs('.area_game').innerHTML= '';
         qs('html').style.overflow = ''
         modal_game.style.opacity = '0';
         setTimeout(() => { modal_game.style.display = 'none'; }, 150)

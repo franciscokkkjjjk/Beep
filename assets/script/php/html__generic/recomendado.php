@@ -438,16 +438,14 @@ if (isset($_SESSION['menssagem'])) {
                 <div class="menu--exit-img"></div>
             </div>
             <div class="title--coment--repost">Adicionar jogo na publicação.</div>
-            <div class="submit--button--comet--area">
-                <button type="submit">Adicionar</button>
-            </div>
         </div>
         <div class="body--repost--coment area_game_user_modal">
             <div class="area_game">
-                <?php 
-                    require_once "game_templet.php";
-                ?>
+
             </div>
+            <?php
+            require_once "game_templet.php";
+            ?>
         </div>
     </div>
 </div>

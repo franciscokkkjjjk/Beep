@@ -2076,6 +2076,8 @@ select option {
 }
 
 .area--modal--game--repost {
+    overflow-y: scroll;
+    max-height: 80vh;
     background-color: #0a0a0a;
     width: 65%;
     margin: auto;
@@ -2180,4 +2182,17 @@ select option {
     overflow: hidden;
     text-overflow: ellipsis;
     border: 1px solid #000000;
+}
+
+.remove_game_publi {
+    background-color: #0fa8b3;
+    padding: 3px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+.remove_game_publi:hover {
+    background-color: #3dc7d1;
+    cursor: pointer;
+    transition: all linear 0.25s;
 }

@@ -79,7 +79,11 @@
                                     </div>
                                 </div>
                                 <div class="area_game_publi">
-                                    Red Dead redemption 2  aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                                    
+                                </div>
+                                <input type="hidden" value="" class="game_publi" name="game_">
+                                <div class="remove_game_publi" style="display:none;">
+                                    Remover
                                 </div>
                             </div>
                         </div>
