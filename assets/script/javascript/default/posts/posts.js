@@ -232,11 +232,11 @@ function criarPosts(lista) {
                     let aux_game = {
                         'id_game': lista[i]['game_publi']['game_id']
                     }
-                    post_body.querySelector('.game--post').onclick = (e) => show_game(aux_game, e);;
+                    post_body.querySelector('.game--post').onclick = (e) => show_game(aux_game, e);
                     post_body.querySelector('.game--post-comp').onclick = (e) => show_game(aux_game, e);;
                 }
                 let aux = lista[i]['id_publi'];
-                // -----------------------verifica se ta em quarentena ou excluida
+                // -----------------------verifica se ta em quarentena ou excluida---------
                 if (aux != null) {
                     if (lista[i]['quarentena'] == 0) {
                         post_body.querySelector('.area--post-com .elipse-img').onclick = (e) => {
@@ -1252,10 +1252,19 @@ function post_all_creat(obj) {
         area_post_completo.querySelector('.num--curtidas').innerHTML = obj.publicacao.num_curtidas;
         area_post_completo.querySelector('.num--coment').innerHTML = obj.publicacao.num_comentario;
         area_post_completo.querySelector('.num--compartilha').innerHTML = obj.publicacao.beepadas;
-        if (obj.publicacao.game == undefined || obj.publicacao.game == "" || obj.publicacao.game == null) {
-            area_post_completo.querySelector('.game').remove();
-        } else {
-            area_post_completo.querySelector('.game').innerHTML = obj.publicacao.game;
+        //-------------------------gera o jogo na tela----------------
+        if (obj.publicacao.game_publi.game_id != "" || obj.publicacao.game_publi.game_id != null) {
+            area_post_completo.querySelector('.game').innerHTML = obj.publicacao.game_publi.game_nome;
+            let aux_game = {
+                "id_game": obj.publicacao.game_publi.game_id
+            }
+            area_post_completo.querySelector('.game').onclick = (e) => show_game(aux_game, e);;
+        }
+        //-------------------gera a quem foi respondido a publicação----------
+        if (obj.publicacao.type == "1" || obj.publicacao.type == "2") {
+            area_post_completo.querySelector('.resposta--area-post_all').style.display = '';
+            area_post_completo.querySelector('.resposta--area-post_all .resposta-link').href = `perfil_user_v.php?username=${obj.publicacao.c_comentada.user_info.username_user}`;
+            area_post_completo.querySelector('.resposta--area-post_all .resposta-link').innerHTML = obj.publicacao.c_comentada.user_info.username_user;
         }
         area_post_completo.querySelector('.info--post--complete .date--complete').innerHTML = `${obj.publicacao.date_publi_ca} as ${obj.publicacao.date_publi_hr}`;
         area_post_completo.querySelector('.info--post--complete .date--post').innerHTML = obj.publicacao.date_publi;

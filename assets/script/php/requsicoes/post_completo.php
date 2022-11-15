@@ -3,6 +3,7 @@ session_start();
 if (isset($_POST['All_xD30'])) {
     require_once '../conecta.php';
     require_once '../function/funcoes.php';
+
     $id_post = mysqli_escape_string($conexao, $_POST['All_xD30']);
     $sql_post = 'SELECT * FROM publicacoes WHERE id_publi=' . $id_post;
     $res_post = mysqli_query($conexao, $sql_post);
@@ -63,6 +64,16 @@ if (isset($_POST['All_xD30'])) {
         if (!is_null($assoc_compartilhou)) {
             $user_compartilhou = true;
         }
+        //verfica os jogos da publicação
+        $assoc_game = valid_game($assoc_post['id_game'], $conexao);
+        if ($assoc_game != false) {
+            $nome_game_publi = $assoc_game['nome_jogo'];
+            $id_game_publi = $assoc_game['id_jogos'];
+        } else {
+            $nome_game_publi = NULL;
+            $id_game_publi = NULL;
+        }
+
         $postagem_completa['publicacao'] = [
             'error' => false,
             'id_publi' => $assoc_post['id_publi'],
@@ -83,6 +94,10 @@ if (isset($_POST['All_xD30'])) {
                 'nome_user' => $assoc_info_user_publi['nome'],
                 'username_user' => $assoc_info_user_publi['username'],
                 'img_user' => perfilDefault($assoc_info_user_publi['foto_perfil'], ''),
+            ],
+            "game_publi" => [
+                'game_id' => $id_game_publi,
+                'game_nome' => $nome_game_publi
             ]
         ];
         $sql_comentarios = 'SELECT * FROM publicacoes WHERE id_publi_interagida=' . $assoc_post['id_publi'] . ' AND type=1 ORDER BY num_curtidas DESC';
@@ -137,9 +152,21 @@ if (isset($_POST['All_xD30'])) {
         $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=" . $assoc_post['id_publi'] . " AND publicacoes.user_publi=" . $_SESSION['id_user'] . " AND publicacoes.type=4";
         $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
         $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
+
         if (!is_null($assoc_compartilhou)) {
             $user_compartilhou = true;
         }
+
+        //-------------------verfica os jogos da publicação
+        $assoc_game = valid_game($assoc_post['id_game'], $conexao);
+        if ($assoc_game != false) {
+            $nome_game_publi = $assoc_game['nome_jogo'];
+            $id_game_publi = $assoc_game['id_jogos'];
+        } else {
+            $nome_game_publi = NULL;
+            $id_game_publi = NULL;
+        }
+
         $postagem_completa['publicacao'] = [
             'id_publi' => $assoc_post['id_publi'],
             'type' => $assoc_post['type'],
@@ -159,6 +186,10 @@ if (isset($_POST['All_xD30'])) {
                 'nome_user' => $assoc_info_user_publi['nome'],
                 'username_user' => $assoc_info_user_publi['username'],
                 'img_user' => perfilDefault($assoc_info_user_publi['foto_perfil'], ''),
+            ],
+            "game_publi" => [
+                'game_id' => $id_game_publi,
+                'game_nome' => $nome_game_publi
             ]
         ];
         $sql_comentarios = 'SELECT * FROM publicacoes WHERE id_publi_interagida=' . $assoc_post['id_publi'] . ' AND type=1 ORDER BY num_curtidas DESC';
@@ -285,6 +316,16 @@ if (isset($_POST['All_xD30'])) {
                 $user_curtiu = true;
             }
         }
+        //-------------------verfica os jogos da publicação------------
+        $assoc_game = valid_game($assc_raiz_publi['id_game'], $conexao);
+        if ($assoc_game != false) {
+            $nome_game_publi = $assoc_game['nome_jogo'];
+            $id_game_publi = $assoc_game['id_jogos'];
+        } else {
+            $nome_game_publi = NULL;
+            $id_game_publi = NULL;
+        }
+
         $postagem_completa['publicacao'] = [
             'id_publi' => $assc_raiz_publi['id_publi'],
             'type' => $assc_raiz_publi['type'],
@@ -305,6 +346,10 @@ if (isset($_POST['All_xD30'])) {
                 'nome_user' => $assoc_user_raiz_publi['nome'],
                 'username_user' => $assoc_user_raiz_publi['username'],
                 'img_user' => perfilDefault($assoc_user_raiz_publi['foto_perfil'], ''),
+            ],
+            "game_publi" => [
+                'game_id' => $id_game_publi,
+                'game_nome' => $nome_game_publi
             ]
         ];
         $sql_comentarios = 'SELECT * FROM publicacoes WHERE id_publi_interagida=' . $assc_raiz_publi['id_publi'] . ' AND type=1 ORDER BY num_curtidas DESC';

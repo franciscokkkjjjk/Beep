@@ -74,3 +74,16 @@ function pagAtual($area)
         return '';
     }
 }
+
+function valid_game($sql, $conexao)
+    {
+        $sql_game_post = "SELECT * FROM jogos WHERE jogos.id_jogos ='" . $sql . "'";
+        $res_game_post = mysqli_query($conexao, $sql_game_post);
+        $ass_game_post = mysqli_fetch_assoc($res_game_post);
+
+        if (is_null($ass_game_post) or empty($ass_game_post)) {
+            return false;
+        } else {
+            return $ass_game_post;
+        }
+    }

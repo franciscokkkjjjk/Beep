@@ -2220,3 +2220,12 @@ select option {
     text-decoration: underline;
     transition: all linear 0.25s;
 }
+
+.game {
+    text-decoration: underline transparent;
+}
+.game:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    transition: all linear 0.25s;
+}

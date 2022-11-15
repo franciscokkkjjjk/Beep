@@ -8,19 +8,6 @@ $res_posts = mysqli_query($conexao, $sql_posts);
 $postagens = mysqli_fetch_all($res_posts, 1);
 $id_game_publi;
 $nome_game_publi;
-function valid_game($sql, $conexao)
-{
-    $sql_game_post = "SELECT * FROM jogos WHERE jogos.id_jogos ='" . $sql . "'";
-    $res_game_post = mysqli_query($conexao, $sql_game_post);
-    $ass_game_post = mysqli_fetch_assoc($res_game_post);
-
-    if (is_null($ass_game_post) or empty($ass_game_post)) {
-        return false;
-        
-    } else {
-        return $ass_game_post;
-    }
-}
 
 $sql_curtidas = 'SELECT * FROM curtidas WHERE id_user_curti=' . $_SESSION['id_user'];
 $res_curtidas = mysqli_query($conexao, $sql_curtidas);

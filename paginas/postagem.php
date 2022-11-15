@@ -162,7 +162,7 @@
                                     </div>
                                 </div>
                                 <div class="resposta--area-post_all" style="display: none;">
-                                    Em resposta a <a class="resposta-link" href="">(@fran_pedrinhas)</a>
+                                    Em resposta a (<a class="resposta-link" href=""></a>)
                                 </div>
                                 <div class="post--game-area">
                                     <div class="game">
@@ -277,9 +277,7 @@
     </script>
     <script src="../assets/script/javascript/default/edit_form.js">
     </script>
-    <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js">
-        
-    </script>
-     
+    <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js"></script>
+    <script src="../assets/script/javascript/default/jogos/game.js"></script>
     </body>
 </html>
