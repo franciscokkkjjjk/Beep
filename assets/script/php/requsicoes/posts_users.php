@@ -88,20 +88,21 @@ foreach ($postagens as $post_segui) {
             $text_compartilhada = $array_compartilhada['text_publi'];
             $midia_compartilhada = $array_compartilhada['img_publi'];
             $quarentena_compartilhada = $array_compartilhada['quarentena'];
+            //-------------------verfica os jogos da publicação------------
+            $assoc_game = valid_game($array_compartilhada['id_game'], $conexao);
+            if ($assoc_game != false) {
+                $nome_game_publi = $assoc_game['nome_jogo'];
+                $id_game_publi = $assoc_game['id_jogos'];
+            } else {
+                $nome_game_publi = NULL;
+                $id_game_publi = NULL;
+            }
         } else {
 
             $id_compartilhada = NULL;
             $text_compartilhada = NULL;
             $midia_compartilhada = NULL;
             $quarentena_compartilhada = NULL;
-        }
-
-        //-------------------verfica os jogos da publicação------------
-        $assoc_game = valid_game($array_compartilhada['id_game'], $conexao);
-        if ($assoc_game != false) {
-            $nome_game_publi = $assoc_game['nome_jogo'];
-            $id_game_publi = $assoc_game['id_jogos'];
-        } else {
             $nome_game_publi = NULL;
             $id_game_publi = NULL;
         }

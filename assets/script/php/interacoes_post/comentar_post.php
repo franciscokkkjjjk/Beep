@@ -32,7 +32,10 @@
         date_default_timezone_set('America/Sao_Paulo');
         date_default_timezone_get();
         $data_publi = date('Y-m-d H:i:s');
-        $sql_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario, id_game, quarentena) VALUE (".$_SESSION['id_user'].",1, ".$id_publi.",'$text_post','$nome_banco_ar', 0, 0, '$data_publi', 0, '" . $ass_raiz['id_game'] . "', 0)";
+        if (is_null($ass_raiz['id_game'])) {
+            $ass_raiz['id_game'] = "NULL";
+        }
+        $sql_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario, id_game, quarentena) VALUE (".$_SESSION['id_user'].",1, ".$id_publi.",'$text_post','$nome_banco_ar', 0, 0, '$data_publi', 0, " . $ass_raiz['id_game'] . ", 0)";
         $res_coment = mysqli_query($conexao, $sql_coment);
         if($res_coment) {
             $sql_upt = "UPDATE publicacoes SET num_comentario=".$num_comentario." WHERE id_publi=".$id_publi;
@@ -40,6 +43,12 @@
             if($res_upt){
                 $json = [
                     'mensage' => 'Comentário enviado com sucesso.'
+                ];
+                echo json_encode($json);
+            } else {
+                $json = [
+                    'error' => true,
+                    'mensage' => 'Programador está dormindo. Falha ao comentar.'
                 ];
                 echo json_encode($json);
             }

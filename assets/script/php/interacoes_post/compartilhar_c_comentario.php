@@ -33,20 +33,22 @@ if (isset($_POST['cC_xd30'])) {
         $id_interagida = $ass_sql['id_publi_interagida'];
     }
     //pega a publicação raiz antes de cadastrar para cadastrar o id do jogo
-    $sql_post_raiz = "SELECT * FROM publicacoes WHERE publicacoes.id_publi=".$id_interagida;
+    $sql_post_raiz = "SELECT * FROM publicacoes WHERE publicacoes.id_publi=" . $id_interagida;
     $res_post_raiz = mysqli_query($conexao, $sql_post_raiz);
     $ass_post_raiz = mysqli_fetch_assoc($res_post_raiz);
-
-    $sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario, id_game, quarentena) VALUE (" . $_SESSION['id_user'] . ",2, " . $id_interagida . ",'$text_post','$name_banco', 0, 0, '$data_publi', 0, '".$ass_post_raiz['id_game']."', 0)";
+    if (is_null($ass_post_raiz['id_game'])) {
+        $ass_post_raiz['id_game'] = "NULL";
+    }
+    $sql_respot_coment = "INSERT INTO publicacoes(user_publi, type, id_publi_interagida, text_publi, img_publi, num_curtidas, num_compartilha, date_publi, num_comentario, id_game, quarentena) VALUE (" . $_SESSION['id_user'] . ",2, " . $id_interagida . ",'$text_post','$name_banco', 0, 0, '$data_publi', 0, " . $ass_post_raiz['id_game'] . ", 0)";
     $res_query = mysqli_query($conexao, $sql_respot_coment);
 
     $sql_post_inter = 'SELECT * FROM publicacoes WHERE id_publi=' . $id_interagida;
     $res_post_inter = mysqli_query($conexao, $sql_post_inter);
     $ass_post_inter = mysqli_fetch_assoc($res_post_inter);
     $cal = intval($ass_post_inter['num_compartilha']) + 1;
-    $upd_num = "UPDATE publicacoes SET num_compartilha=$cal WHERE id_publi=" . $id_interagida;
-    $res_num = mysqli_query($conexao, $upd_num);
     if ($res_query) {
+        $upd_num = "UPDATE publicacoes SET num_compartilha=$cal WHERE id_publi=" . $id_interagida;
+        $res_num = mysqli_query($conexao, $upd_num);
         $json = [
             'error' => false,
             'mensage' => 'Postagem compartilhada com sucesso!',

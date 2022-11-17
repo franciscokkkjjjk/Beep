@@ -49,11 +49,11 @@ if (isset($_POST['All_xD30'])) {
                     "mensage" => "Você não tem idade suficiente para visualizar este conteúdo."
                 ];
                 echo json_encode($json);
-
                 die;
             }
         }
     }
+    
     $sql_info_user_publi = 'SELECT * FROM users WHERE id_user=' . $assoc_post['user_publi'];
     $res_info_user_publi = mysqli_query($conexao, $sql_info_user_publi);
     $assoc_info_user_publi = mysqli_fetch_assoc($res_info_user_publi);

@@ -42,7 +42,11 @@ foreach ($postagens as $post_segui) {
         $array_compartilhada = mysqli_fetch_assoc($res_compartilhada);
 
         //verfica o jogo da publicação
-        $assoc_game = valid_game($array_compartilhada['id_game'], $conexao);
+        if (!(is_null($array_compartilhada)) or !(empty($array_compartilhada))) {
+            $assoc_game = valid_game($array_compartilhada['id_game'], $conexao);
+        } else {
+            $assoc_game = false;
+        }
         if ($assoc_game != false) {
             $nome_game_publi = $assoc_game['nome_jogo'];
             $id_game_publi = $assoc_game['id_jogos'];
@@ -55,7 +59,7 @@ foreach ($postagens as $post_segui) {
             $id_game_publi = NULL;
         }
 
-        if (!is_null($array_compartilhada)) {
+        if (!is_null($array_compartilhada) OR !empty($array_compartilhada)) {
             $sql_s_perfil = 'SELECT * FROM users WHERE id_user=' . $array_compartilhada['user_publi'];
             $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
             $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);

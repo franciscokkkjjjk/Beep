@@ -205,7 +205,9 @@ function criarPosts(lista) {
             post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + lista[i]['id_publi'];
             post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
             document.querySelector('.feed-body-post').append(post_body);
+
         } else if (lista[i]['type'] == "2") {//repostagem com comentario 
+
             if (lista[i]['compartilhador_info']['quarentena'] == "0") { // verfica se ta em quarentena
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
                 coment(post_body.querySelector('.comentar'));
@@ -1271,9 +1273,11 @@ function post_all_creat(obj) {
         }
         //-------------------gera a quem foi respondido a publicação----------
         if (obj.publicacao.type == "1" || obj.publicacao.type == "2") {
-            area_post_completo.querySelector('.resposta--area-post_all').style.display = '';
-            area_post_completo.querySelector('.resposta--area-post_all .resposta-link').href = `perfil_user_v.php?username=${obj.publicacao.c_comentada.user_info.username_user}`;
-            area_post_completo.querySelector('.resposta--area-post_all .resposta-link').innerHTML = obj.publicacao.c_comentada.user_info.username_user;
+            if (obj.publicacao.c_comentada.id_publi != null) {
+                area_post_completo.querySelector('.resposta--area-post_all').style.display = '';
+                area_post_completo.querySelector('.resposta--area-post_all .resposta-link').href = `perfil_user_v.php?username=${obj.publicacao.c_comentada.user_info.username_user}`;
+                area_post_completo.querySelector('.resposta--area-post_all .resposta-link').innerHTML = obj.publicacao.c_comentada.user_info.username_user;
+            }
         }
         area_post_completo.querySelector('.info--post--complete .date--complete').innerHTML = `${obj.publicacao.date_publi_ca} as ${obj.publicacao.date_publi_hr}`;
         area_post_completo.querySelector('.info--post--complete .date--post').innerHTML = obj.publicacao.date_publi;
@@ -1547,7 +1551,9 @@ function num_coment_dinamic() {
                     let aux_ = res_coment[a]['compartilhador_info']['id_da_compartilhada'];
                     let aux = document.getElementById('p_xD30_C' + aux_);
                     if (aux != undefined) {
-                        aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
+                        if (aux.querySelector('.area_num') != undefined) {
+                            aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
+                        }
                     }
                 }
             }
