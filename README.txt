@@ -1,7 +1,6 @@
 ----------- problemas conhecidos-------------------------------
 
--não reconhece anos bissextos.
--caso usuario de uma quebra de linha o textArea buga o banco de dados.
+-não reconhece anos bissextos
 
 -o comentario gera mais de uma imagem (possivel problema= no clone)
 
@@ -16,24 +15,15 @@
 -uma area para aparecer novos post quando o scrollTop estiver em 0 
 
 -aparecer post na timeline com menos de uma semana; <<prioridades>>
---------------------------cadastrar-se----------------------
---O cadastro de usuario tava bugado e ja foi arrumado: 
--INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas, status_) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt', false)
 
 ----------------------------erros--------------------------------
 --a img não renicia com o modal - (rever a maneira de fechar o modal);
---o modal está imcompleto
---o descompartilhar do type 2 exclui a postagem errada 
-    possivel solução
-        verificar no descompartilhar isso
----clicar no botão de curtir varias vezes torna o valor negativo;
 ---------------------------------futuros-------------------------
 
--filtração dos posts pela classificação de idade dos jogos
--a pag de curtidas deve ser adaptada para o novo padrão
 -criar uma function para mostrar img quando o post esta aberto completo na tela 
 
 ----------------------------ideias feitas----------------------------
+-filtração dos posts pela classificação de indicativas dos jogos
 --no json de pefils criar a posição 0 e 1
 -0: fica todas as postagens do user 
 -1:fica informações de seu perfil
