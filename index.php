@@ -76,7 +76,7 @@
                     </div>
                     <?php }?>
                     <div class="input--form passoword--form">
-                        <input id="passoword--user" required class='input--passoword<?= $erro?>' placeholder="Senha" type="password" name="senha--user">
+                        <input id="passoword--user" required class='input--passoword <?= $erro?>' placeholder="Senha" type="password" name="senha--user">
                         <label for="passoword--user">
                             <div class="olho--senha"></div>
                         </label>

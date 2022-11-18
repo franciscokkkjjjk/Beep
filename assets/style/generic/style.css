@@ -1001,6 +1001,8 @@ select option {
 .modal-area {
     display: none;
     position: absolute;
+    top: 0px;
+    left: 0px;
     width: 100%;
     height: 100%;
 }
@@ -1170,6 +1172,8 @@ select option {
 
 .modal-coment {
     position: fixed;
+    top: 0px;
+    left: 0px;
     height: 100vh;
     overflow: auto;
     width: 100vw;
@@ -1379,6 +1383,8 @@ select option {
     height: 100%;
     overflow: auto;
     width: 100%;
+    top: 0px;
+    left: 0px;
     display: flex;
     align-items: center;
     opacity: 1;
@@ -2216,6 +2222,7 @@ select option {
     text-decoration: underline transparent;
 
 }
+
 .post--area--game div:hover {
     cursor: pointer;
     text-decoration: underline;
@@ -2225,8 +2232,208 @@ select option {
 .game {
     text-decoration: underline transparent;
 }
+
 .game:hover {
     cursor: pointer;
     text-decoration: underline;
     transition: all linear 0.25s;
+}
+
+.menu--pag-perfil--area {
+    width: 92% !important;
+}
+
+.body--menu-pag {
+    overflow-y: auto;
+}
+
+@media only screen and (max-width:1025px) {
+    .menu--pag--name-perfil--area {
+        font-size: 13px;
+    }
+
+    .convite--body .name--area {
+        font-size: 12px;
+    }
+
+    .button--seguir {
+        padding: 7px 22px !important;
+        font-size: 12px !important;
+
+    }
+}
+
+@media only screen and (max-width:1025px) and (min-width:970px) {
+    .convite--body .perfil--area {
+        display: flex;
+        flex: 1;
+    }
+
+    .convite--body .perfil--area .name--area {
+        flex: 1;
+    }
+}
+
+@media only screen and (max-width:970px) and (min-width:0px) {
+    .text_title_nav {
+        display: none;
+    }
+
+    .menu--pag-perfil--area .menu--pag--name-perfil--area {
+        display: none;
+    }
+
+    .menu--pag--area {
+        width: 10% !important;
+    }
+
+    .menu--pag-perfil--area {
+        width: 60px !important;
+        height: 60px !important;
+        border-radius: 100% !important;
+    }
+
+    .img--opt-feed {
+        background-size: 60% !important;
+        background-position: center !important;
+    }
+
+    .menu--pag--opt--section {
+        width: 30px !important;
+        height: 30px;
+        padding: 24px 23px !important;
+    }
+
+    .menu--pag--opt {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .timeline--area {
+        width: 60% !important;
+        margin-left: 11% !important;
+        margin-right: 1% !important;
+    }
+
+    .feed-header-body {
+        width: 60% !important;
+    }
+
+    .area--convite {
+        width: 28.5% !important;
+    }
+}
+
+
+/* daqui para baixo é apenas responsividade */
+@media screen and (max-width:860px) {
+    .Recomendados-body {
+        display: none !important;
+    }
+
+    .area--convite {
+        width: 9.5% !important;
+    }
+
+    .menu--header {
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu {
+        margin-right: 0px !important;
+    }
+
+    .feed-header-body {
+        width: 78.5% !important;
+    }
+
+    .timeline--area {
+        width: 78.5% !important;
+    }
+}
+
+@media screen and (max-width:582px) {
+    .feed-area {
+        flex-direction: column-reverse !important;
+    }
+
+    .menu--pag--area {
+        bottom: 0px;
+        width: 100% !important;
+        height: 9% !important;
+        background-color: red !important;
+        z-index: 50;
+        overflow-y: hidden !important;
+    }
+
+    .menu--pag-perfil--area {
+        display: flex;
+        margin: 0px !important;
+        flex-direction: row;
+        
+    }
+
+    .menu--pag--opt {
+        flex-direction: row !important;
+        height: 100% !important;
+        width: 100% !important;
+    }
+
+    .feed-logo-body {
+        display: none;
+    }
+
+    .menu--pag--opt--menu--area {
+        margin-top: 0px !important;
+        align-items: center;
+        display: flex;
+        width: 100% !important;
+    }
+
+    .menu--pag--opt {
+        padding: 0px !important;
+        
+        justify-content: space-evenly !important;
+    }
+
+    .menu--pag--opt--section {
+        padding: 23px 22px !important;
+        
+    }
+
+    .menu--pag--opt--menu--area {
+        flex: 1 !important;
+        width: 100%;
+    }
+    .body--menu-pag {
+        overflow-y: hidden !important;
+    }
+
+    .menu--pag-perfil--area {
+        width: 100% !important;
+    }
+
+    .menu--pag-perfil--area .menu--pag--img--area {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .menu--pag-perfil--area {
+        background-color: transparent !important;
+    }
+    .timeline--area {
+        width: 100% !important;
+        margin-left: 0px !important;
+        margin: 0px !important;
+        padding-bottom: 9%;
+        overflow-y: hidden;
+    }
+    .feed-header-body {
+        width: 100% !important;
+    }
+    .area--convite  {
+        display: none !important;
+    }
 }
