@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../conecta.php';
-require_once '../function/funcoes.php';
+require_once '../../../../../assets/script/php/function/funcoes.php';
 $perfil = mysqli_escape_string($conexao, mysqli_real_escape_string($conexao, $_GET['username']));
 $perfil_visit = array();
 
@@ -19,57 +19,14 @@ $sql_posts = "SELECT * FROM publicacoes WHERE user_publi=" . $array_s_perfil['id
 $res_posts = mysqli_query($conexao, $sql_posts);
 $postagens = mysqli_fetch_all($res_posts, 1);
 
-$sql_all_compartilhada = 'SELECT * FROM publicacoes WHERE user_publi=' . $_SESSION['id_user'] . ' AND type=4';
-$res_all_compartilhada = mysqli_query($conexao, $sql_all_compartilhada);
-$array_all_compartilhada = mysqli_fetch_all($res_all_compartilhada, 1);
 $posi = 0;
 
 
-
-$sql_seguir = 'SELECT * FROM seguidores WHERE user_seguin=' . $_SESSION['id_user'];
-$res_seguir = mysqli_query($conexao, $sql_seguir);
-$array_seguidor = mysqli_fetch_all($res_seguir, 1);
-$seguindo = false;
-
-$sql_curtidas = 'SELECT * FROM curtidas WHERE id_user_curti=' . $_SESSION['id_user'];
-$res_curtidas = mysqli_query($conexao, $sql_curtidas);
-$arra_curtida = mysqli_fetch_all($res_curtidas, 1);
-
-foreach ($array_seguidor as $value) {
-    if ($value['user_seguido'] == $array_s_perfil['id_user']) {
-        $seguindo = true;
-    }
-}
 foreach ($postagens as $post_segui) {
     $user_curtiu = false;
     $user_comp = false;
 
-    //valida a classifcação indicativa
-    if ($post_segui['id_game'] != NULL) {
-        $sql_game_ = "SELECT * FROM jogos WHERE jogos.id_jogos=" . $post_segui['id_game'];
-        $res_game_ = mysqli_query($conexao, $sql_game_);
-        $ass_game_ = mysqli_fetch_assoc($res_game_);
-        if ((!is_null($ass_game_)) or (!empty($ass_game_))) {
-            if (!valid_class_ind($_SESSION['data_nas'], $ass_game_['class_etaria'])) {
-                continue;
-            }
-        }
-    }
-
     if ($post_segui['type'] == 2) {
-
-        $user_compartilhou = false;
-        $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=" . $post_segui['id_publi'] . " AND publicacoes.user_publi=" . $_SESSION['id_user'] . " AND  publicacoes.type=4";
-        $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
-        $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
-        if (!is_null($assoc_compartilhou)) {
-            $user_compartilhou = true;
-        }
-        foreach ($arra_curtida as $value_c) {
-            if ($value_c['id_postagem'] == $post_segui['id_publi']) {
-                $user_curtiu = true;
-            }
-        }
         //pega a publicação raiz
         $sql_compartilhad = 'SELECT * FROM publicacoes WHERE id_publi=' . $post_segui['id_publi_interagida'];
         $res_compartilhada = mysqli_query($conexao, $sql_compartilhad);
@@ -117,9 +74,8 @@ foreach ($postagens as $post_segui) {
             'beepadas' => $post_segui['num_compartilha'],
             'date_publi' => dateCalc($array_compartilhada),
             'num_comentario' => $post_segui['num_comentario'],
-            'user_curtiu' => $user_curtiu,
+            'user_curtiu' => false,
             'quarentena' => $quarentena_compartilhada,
-            'user_compartilhou' => $user_compartilhou,
             'compartilhador_info' => [
                 'quarentena' => $post_segui['quarentena'],
                 'id_da_compartilhada' => $post_segui['id_publi'],
@@ -145,20 +101,6 @@ foreach ($postagens as $post_segui) {
         ];
     } elseif ($post_segui['type'] == 3) {
 
-        $user_compartilhou = false;
-        $sql_compartilhou = "SELECT * FROM publicacoes WHERE publicacoes.id_publi_interagida=" . $post_segui['id_publi'] . " AND publicacoes.user_publi=" . $_SESSION['id_user'] . " AND publicacoes.type=4 ";
-        $res_compartilhou = mysqli_query($conexao, $sql_compartilhou);
-        $assoc_compartilhou = mysqli_fetch_assoc($res_compartilhou);
-        if (!is_null($assoc_compartilhou)) {
-            $user_compartilhou = true;
-        }
-
-        foreach ($arra_curtida as $value_c) {
-            if ($value_c['id_postagem'] == $post_segui['id_publi']) {
-                $user_curtiu = true;
-            }
-        }
-
         //-------------------verfica os jogos da publicação------------
         $assoc_game = valid_game($post_segui['id_game'], $conexao);
         if ($assoc_game != false) {
@@ -179,8 +121,7 @@ foreach ($postagens as $post_segui) {
             'beepadas' => $post_segui['num_compartilha'],
             'date_publi' => dateCalc($post_segui),
             'num_comentario' => $post_segui['num_comentario'],
-            'user_curtiu' => $user_curtiu,
-            'user_compartilhou' => $user_compartilhou,
+            'user_curtiu' => false,
             'user_info' => [
                 'user_id' => $array_s_perfil['id_user'],
                 'nome_user' => $array_s_perfil['nome'],
@@ -250,7 +191,6 @@ foreach ($postagens as $post_segui) {
             'beepadas' => $array_compartilhada['num_compartilha'],
             'date_publi' => dateCalc($array_compartilhada),
             'num_comentario' => $array_compartilhada['num_comentario'],
-            'user_curtiu' => $user_curtiu,
             'user_compartilhou' => $user_comp,
             'user_info' => [
                 'user_id' => $array_compartilhada['user_publi'],
@@ -290,7 +230,7 @@ $perfil_visit['user'] = [
     'banner_pefil' => $array_s_perfil['banner_pefil'],
     't_seguindo' => $array_s_perfil['t_seguindo'],
     't_seguidores' => $array_s_perfil['t_seguidores'],
-    'seguindo' => $seguindo
+    'seguindo' => false
 ];
 
 echo json_encode($perfil_visit);

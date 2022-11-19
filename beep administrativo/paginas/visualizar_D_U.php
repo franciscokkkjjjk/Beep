@@ -54,7 +54,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                     <div class='title_midia'>Foto de perfil </div>
                 </div>
                 <div class="img_area banner_">
-                <div class='title_midia'>Banner de perfil </div>
+                    <div class='title_midia'>Banner de perfil </div>
 
                 </div>
                 <div class="buttons_area">
@@ -111,53 +111,6 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                 </div>
             </div>
         </div>
-        <div class="container border_c feed-area user_info">
-            <div class="title_solicitacao">
-                Informações do usuário denúnciado
-            </div>
-            <div class="conteudo_b_I">
-                <div class="img_area">
-
-                </div>
-            </div>
-            <div class="info_cont">
-                <div class="C_1">
-                    <div class="conteudo_1 conteudo_C">
-                        <div class="title_C">Nome do usuário</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                    <div class="conteudo2 conteudo_C">
-                        <div class="title_C">Username</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                    <div class="conteudo3 conteudo_C">
-                        <div class="title_C">Bio do usuário</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="C_1">
-
-                    <div class="conteudo4 conteudo_C">
-                        <div class="title_C">Data de nascimento</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                    <div class="conteudo5 conteudo_C">
-                        <div class="title_C"></div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="container border_c feed-area motivos_info">
             <div class="title_solicitacao">
                 Motivos pelo quais foi denúnciado
@@ -196,7 +149,20 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                 </div>
             </div>
         </div>
+        <div class="area_publicações_user">
+
+        </div>
     </main>
+    <div class="area_publicação">
+        <div class="header_ultra_pag">
+            <div class="close_pag"></div>
+        </div>
+        <div class="feed-body-post">
+            <?php
+            require_once '../../assets/script/php/html__generic/posts_template.php';
+            ?>
+        </div>
+    </div>
     <?php
     if (isset($_SESSION['mensagem'])) {
     ?>
@@ -215,6 +181,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/generic_/script.js"></script>
+    <script type="text/javscript" src="../assets/script/javascript/visualizar/posts_.js"></script>
     <script type='text/javascript' src="../assets/script/javascript/visualizar/scriptD_U.js"></script>
 </body>
 

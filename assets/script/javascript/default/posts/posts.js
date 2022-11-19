@@ -123,7 +123,7 @@ async function user_(active, username = null) {
     }
 }
 
-function criarPosts(lista) {
+function criarPosts(lista, coment_ = true) {
     let url = [
         '../assets/script/php/interacoes_post/denunciar_p.php',
         '',//salvar posts
@@ -420,6 +420,8 @@ function criarPosts(lista) {
 
             post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + lista[i]['id_publi'];
             document.querySelector('.feed-body-post').append(post_body);
+        } else if (lista[i]['type'] == "1" && coment_) {
+            //gera comentario
         }
     }
     atual = parseInt(i) + 1;
@@ -866,8 +868,10 @@ async function compartilhar() {
 }
 
 let modal_repost_coment = document.querySelector('.modal--coment--repost--area');
-let clone_MD_RC = modal_repost_coment.cloneNode(true);
-modal_repost_coment.remove();
+if (modal_repost_coment != undefined) {
+    let clone_MD_RC = modal_repost_coment.cloneNode(true);
+    modal_repost_coment.remove();
+}
 let modal_repost = false;
 async function compartilhar_comentario() {//All_xD30
     //criar modal antes da requisição
@@ -997,9 +1001,9 @@ function input_div_valid() {
         }
     })
 }
-
-qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, true);
-
+if (qs('.event--repost--coment') != undefined) {
+    qs('.event--repost--coment').addEventListener('click', compartilhar_comentario, true);
+}
 function descompartilhar() {
     qsAll('.descompartilhar-event').forEach((e) => {
         e.onclick = async () => {
@@ -1543,30 +1547,35 @@ function num_coment_dinamic() {
     let anterior;
     let inter = setInterval(async () => {
         let coment_req = await fetch('../assets/script/php/requsicoes/posts.php');
-        let res_coment = await coment_req.json();
-        if (res_coment.error == undefined) {
-            for (let a in res_coment) {
-                if (res_coment[a]["type"] == 3) {
-                    let aux = qs('#p_xD30_C' + res_coment[a]['id_publi']);
-                    if (aux != undefined) {
-                        aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
-                    }
-                } else {
-                    let aux_ = res_coment[a]['compartilhador_info']['id_da_compartilhada'];
-                    let aux = document.getElementById('p_xD30_C' + aux_);
-                    if (aux != undefined) {
-                        if (aux.querySelector('.area_num') != undefined) {
+        if (coment_req.status != 404) {
+            let res_coment = await coment_req.json();
+            if (res_coment.error == undefined) {
+                for (let a in res_coment) {
+                    if (res_coment[a]["type"] == 3) {
+                        let aux = qs('#p_xD30_C' + res_coment[a]['id_publi']);
+                        if (aux != undefined) {
                             aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
+                        }
+                    } else {
+                        let aux_ = res_coment[a]['compartilhador_info']['id_da_compartilhada'];
+                        let aux = document.getElementById('p_xD30_C' + aux_);
+                        if (aux != undefined) {
+                            if (aux.querySelector('.area_num') != undefined) {
+                                aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
+                            }
                         }
                     }
                 }
+
+            } else {
+                clearInterval(inter);
             }
         } else {
             clearInterval(inter);
         }
     }, 9000)
 }
-num_coment_dinamic()
+num_coment_dinamic();
 function not_requi(a) {
     if (a == 0) {
         qs('.info--perfil').innerHTML = '<p class=\'nada\'>Esse usuário não existe.</p>';

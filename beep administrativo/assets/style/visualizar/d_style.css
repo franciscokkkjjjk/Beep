@@ -53,3 +53,17 @@
 .conteudo_b_I {
     align-items: center;
 } 
+
+.area_publicação {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background-color: rebeccapurple;
+}
+.header_ultra_pag {
+    height: 45px;
+    width: 100%;
+    background-color: blue;
+}
