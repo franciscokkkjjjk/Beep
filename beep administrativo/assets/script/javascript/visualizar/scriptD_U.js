@@ -3,7 +3,7 @@ if (window.sessionStorage.x5edS == "null") {
     window.sessionStorage.removeItem('x5edS');
 }
 if (window.sessionStorage.x5edU == "null") {
-    window.sessionStorage.removeItem('x5edS');
+    window.sessionStorage.removeItem('x5edU');
 }
 if (window.sessionStorage.x5edP == "null") {
     window.sessionStorage.removeItem('x5edP');
@@ -14,8 +14,8 @@ const auxF = (var_, lugar) => {
 if (window.sessionStorage.x5edU != undefined) {
     async function creat_list_post_D() {
         let req_aux = new FormData();
-        req_aux.append('x5edP', window.sessionStorage.x5edU);
-        let req = await fetch('../assets/script/php/requisicoes/denuncias_all.php', {
+        req_aux.append('x5edU', window.sessionStorage.x5edU);
+        let req = await fetch('../assets/script/php/requisicoes/denuncia_user_all.php', {
             method: 'POST',
             body: req_aux
         });

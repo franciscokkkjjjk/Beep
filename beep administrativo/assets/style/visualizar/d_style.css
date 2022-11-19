@@ -14,3 +14,10 @@
 .buttons_qua::after {
     content: "Retirar da quarentena";
 }
+.buttons_visualizar_p::after {
+    content: "Visualizar publicações";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

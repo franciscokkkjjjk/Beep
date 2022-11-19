@@ -65,24 +65,23 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                             <div class="buttons_edit button_d buttons_d border_c"></div>
                         </a>
                     </nav>
+                    <nav>
+                        <a href="" class="a_nav">
+                            <div class="buttons_visualizar_p button_d buttons_d border_c"></div>
+                        </a>
+                    </nav>
                 </div>
             </div>
             <div class="info_cont ">
                 <div class="C_1">
                     <div class="conteudo_1 conteudo_C">
-                        <div class="title_C">Texto da Postagem</div>
+                        <div class="title_C">Nome do usuário</div>
                         <div class="text_C">
 
                         </div>
                     </div>
                     <div class="conteudo2 conteudo_C">
-                        <div class="title_C">Data de publicação</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                    <div class="conteudo3 conteudo_C">
-                        <div class="title_C">Id da publicação interagida</div>
+                        <div class="title_C">Data de nascimento</div>
                         <div class="text_C">
 
                         </div>
@@ -91,55 +90,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                 <div class="C_1">
 
                     <div class="conteudo4 conteudo_C">
-                        <div class="title_C">Usuário que fez a publicação.</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                    <div class="conteudo5 conteudo_C">
-                        <div class="title_C"></div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container border_c feed-area post_d areaInter">
-            <div class="title_solicitacao">
-                Informações da Postagem Interagida
-            </div>
-            
-            <div class="conteudo_b_I">
-                <div class="img_area">
-
-                </div>
-            </div>
-            <div class="info_cont">
-                <div class="C_1">
-                    <div class="conteudo_1 conteudo_C">
-                        <div class="title_C">Texto da Postagem</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                    <div class="conteudo2 conteudo_C">
-                        <div class="title_C">Data de publicação</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                    <div class="conteudo3 conteudo_C">
-                        <div class="title_C">Id da publicação</div>
-                        <div class="text_C">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="C_1">
-
-                    <div class="conteudo4 conteudo_C">
-                        <div class="title_C">Usuário que fez a publicação.</div>
+                        <div class="title_C">Bio do usuário.</div>
                         <div class="text_C">
 
                         </div>
@@ -257,7 +208,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <script type="text/javascript" src="../../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/all_R/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/generic_/script.js"></script>
-    <script type='text/javascript' src="../assets/script/javascript/visualizar/scriptD.js"></script>
+    <script type='text/javascript' src="../assets/script/javascript/visualizar/scriptD_U.js"></script>
 </body>
 
 </html>
