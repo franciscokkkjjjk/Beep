@@ -2,6 +2,9 @@ console.log(sessionStorage.x5edS);
 if (window.sessionStorage.x5edS == "null") {
     window.sessionStorage.removeItem('x5edS');
 }
+if (window.sessionStorage.x5edU == "null") {
+    window.sessionStorage.removeItem('x5edS');
+}
 if (window.sessionStorage.x5edP == "null") {
     window.sessionStorage.removeItem('x5edP');
 }
@@ -129,5 +132,5 @@ function creat_complete(json_list, url_req) {
     qs('.loading').remove();
 }
 function creat_denuncia() {
-    
+
 }
