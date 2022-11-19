@@ -45,7 +45,13 @@ function creat_list(list, img_dir, num_aux = null, aux) {
             window.sessionStorage.setItem('x5edS', list.id);
             window.location.href = 'visualizar_G.php';
         }
-    } else {
+    } else if (num_aux == true) {
+        list_clone.querySelector('.button_c').onclick = (e) => {
+            e.preventDefault();
+            window.sessionStorage.setItem('x5edU', list.id);
+            window.location.href = 'visualizar_D_U.php';
+        }
+     } else {
         list_clone.querySelector('.button_c').onclick = (e) => {
             e.preventDefault();
             window.sessionStorage.setItem('x5edP', list.id);

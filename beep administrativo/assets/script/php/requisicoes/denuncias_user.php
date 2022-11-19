@@ -8,14 +8,14 @@
 session_start();
 if(isset($_SESSION['id_root'])) {
     require_once '../conecta.php';
-    $sql_denuncia = "select  distinct *, count(`post_denunciado`) as `qts_denunciado` from denuncias group by `post_denunciado` ORDER BY count(`post_denunciado`) DESC;";
+    $sql_denuncia = "SELECT distinct *, count(`id_user_denunciado`) as `qts_denunciado` from denuncias_user group by `id_user_denunciado` ORDER BY count(`id_user_denunciado`) DESC;";
     $res_denuncia = mysqli_query($conexao, $sql_denuncia);
     $array_list = mysqli_fetch_all($res_denuncia, 1);
     if(empty($array_list)) {
         $json[] = [
             'erro' => false, 
             'id' => null,
-            'title' => 'Não há nenhuma denúncia ainda.',
+            'title' => 'Não há nenhum usuário denunciado ainda.',
             'img' => null
         ];
         echo json_encode($json);
@@ -24,16 +24,22 @@ if(isset($_SESSION['id_root'])) {
     foreach($array_list as $v) {
         $num_d = 0;
         foreach($array_list as $v2) {
-            if($v['post_denunciado'] == $v2['post_denunciado']) {
+            if($v['id_user_denunciado'] == $v2['id_user_denunciado']) {
                 $num_d++;
             }
         }
+        $sql_user = "SELECT * FROM users WHERE id_user=". $v['id_user_denunciado'];
+        $res_user = mysqli_query($conexao, $sql_user);
+        $ass_user = mysqli_fetch_assoc($res_user);
+        if(empty($ass_user) OR is_null($ass_user)) {
+            continue;
+        }
         $json[] = [
             'erro' => false, 
-            'id' => $v['id_denuncia'],
-            'title' => $v['post_denunciado'],
+            'id' => $v['id_denuncia_'],
+            'title' => $v['id_user_denunciado'],
             'num' =>   $v['qts_denunciado'],
-            'img' => null
+            'img' => $ass_user['foto_perfil']
         ]; 
     }
     echo json_encode($json);

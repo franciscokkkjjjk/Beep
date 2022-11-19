@@ -8,7 +8,7 @@ async function so_denuncia() {
         if (a % 2 == 0) {
             aux = true;
         }
-        creat_list(res_d[i], null, aux);
+        creat_list(res_d[i], 'profile', true, aux);
     }
     document.querySelector('.list_area').style.display = 'none';
 }
