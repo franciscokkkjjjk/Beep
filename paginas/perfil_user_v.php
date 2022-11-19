@@ -69,68 +69,9 @@ if ($perfil == $_SESSION['username']) {
                 <div class="banner--perfil">
                     <div class="event"></div>
                 </div>
-                <div class="info--perfil">
-                    <div class="info--perfil--area">
-                        <div class="info--perfil--img">
-                            <div class="fot_user_visit info--perfil--img--position ">
-                                <div class="event" style="position:absolute; margin-top: 56px;margin-left: 59px;"></div>
-                            </div>
-                        </div>
-                        <div class="info--perfil--user">
-                            <div class="info--perfil--user--nome">
-                                <div class="event"></div>
-                            </div>
-                            <div class="info--perfil--user--username">
-
-                            </div>
-                        </div>
-                        <div class="info--button">
-                            <form method="post" class="form_id_x30">
-                                <div class="event"></div>
-                                <input type="hidden" value="" name='iD_x30' class="input_segui_id_x30">
-                            </form>
-                            <div class="button_perfil_ elipse-img" aria-label="Menu">
-                            </div>
-                            <div class="menu_perfil_" style="display: none; opacity:0.">
-                                <div class="exit_menu_perfil"></div>
-                                <div class="body_menu_perfil">
-                                    <div class="menu_perfil_opt menu_perfil_denuncia">Denunciar</div>
-                                    <div class="menu_perfil_opt menu_perfil_block" style="display: none;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info--bio--perfil">
-                        <div class="bio">
-                            <div class="event"></div>
-                        </div>
-                        <div class="data_nasc">
-                            <div class="event"></div>
-                        </div>
-                        <div class="segui--indo">
-                            <a class='seguidores--info area--segui' href="seguidore/seguindo.php?id_user="><span class="num_seguindo">
-                                    <div class="event min-event event-block"></div>
-                                </span> seguindo</a>
-                            <a class='seguidor--info area--segui' href="seguidore/seguidores.php?id_user="><span class="num_seguidores">
-                                    <div class="event min-event event-block"></div>
-                                </span> seguidores</a>
-                        </div>
-                    </div>
-                    <div class="menu--info--perfil--area">
-                        <a class="button--opt--info active_menu_info publicacoes_user">
-                            Publicações
-                        </a>
-                        <a class="button--opt--info game_opt ">
-                            Jogos do usuário
-                        </a>
-                        <a class="button--opt--info curtidas_user">
-                            Curtidas
-                        </a>
-                        <a class="button--opt--info">
-                            Sobre
-                        </a>
-                    </div>
-                </div>
+               <?php 
+                require_once '../assets/script/php/html__generic/user_v_generic.php';
+               ?>
 
                 <div class="posts--ara--perfil">
                     <div class="back--event" style="top:auto;    margin-top: 18px;">

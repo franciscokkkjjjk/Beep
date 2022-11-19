@@ -63,11 +63,15 @@ function perfilDefault($array_user, $diretorio)
         return null;
     }
 }
-function pagAtual($area)
+function pagAtual($area, $versao = false)
 {
     $pagina_atual = basename($_SERVER['SCRIPT_NAME']);
     if ($pagina_atual == $area) {
-        return 'active--tem';
+        if ($versao) {
+            return 'active_menu_info';
+        } else {
+            return 'active--tem';
+        }
     } elseif ($pagina_atual == 'seguindo.php' or $pagina_atual == 'seguidores.php'  and $area == 'caminho') {
         return '../';
     } else {
@@ -88,7 +92,7 @@ function valid_game($sql, $conexao)
     }
 }
 
-function valid_class_ind($data_user, $data_game) : bool
+function valid_class_ind($data_user, $data_game): bool
 {
     $data_g = $data_game;
     $data_user = strtotime($data_user);
@@ -98,7 +102,7 @@ function valid_class_ind($data_user, $data_game) : bool
     $horas = $minutos / 60;
     $dias = $horas / 24;
     $anos = $dias / 365.25;
-    if(floor($anos) >= $data_g) {
+    if (floor($anos) >= $data_g) {
         return true;
     } else {
         return false;

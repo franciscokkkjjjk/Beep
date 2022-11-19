@@ -374,7 +374,7 @@ function modal_denuncia_pefil(id_) {
         area_.querySelector('.menu_perfil_denuncia').onclick = () => {
             area_.style.opacity = '0';
             setTimeout(() => { area_.style.display = 'none'; }, 250);
-            q_D_modal_show(id, '')
+            q_D_modal_show(id, '../assets/script/php/ineteracao_perfil/denuncia_user.php');
         }
         area_.querySelector('.exit_menu_perfil').onclick = () => {
             area_.style.opacity = '0';
