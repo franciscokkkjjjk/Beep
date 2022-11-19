@@ -1821,7 +1821,7 @@ select option {
 }
 
 .modal_area_dP {
-    top:0px;
+    top: 0px;
     left: 0px;
     position: absolute;
 }
@@ -2254,6 +2254,46 @@ select option {
     overflow-y: auto;
 }
 
+.menu_perfil_ {
+    position: absolute;
+    margin-left: -100px;
+    opacity: 1;
+    margin-top: -5px;
+    transition: all ease 0.25s;
+}
+
+.exit_menu_perfil {
+    width: 100%;
+    z-index: 998;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: fixed;
+}
+
+.body_menu_perfil {
+    position: absolute;
+    margin-right: 35px;
+    width: auto;
+    z-index: 999;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 3px #707070;
+}
+
+.menu_perfil_opt {
+    padding: 8px 20px;
+    background-color: #0a0a0a;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.menu_perfil_opt:hover {
+    cursor: pointer;
+    background-color: #313131;
+    transition: all linear 0.25s;
+}
+
+/* ---------------------------------- responsivade para baixo------------------ */
 @media only screen and (max-width:1025px) {
     .menu--pag--name-perfil--area {
         font-size: 13px;
@@ -2379,7 +2419,7 @@ select option {
         display: flex;
         margin: 0px !important;
         flex-direction: row;
-        
+
     }
 
     .menu--pag--opt {
@@ -2401,19 +2441,20 @@ select option {
 
     .menu--pag--opt {
         padding: 0px !important;
-        
+
         justify-content: space-evenly !important;
     }
 
     .menu--pag--opt--section {
         padding: 23px 22px !important;
-        
+
     }
 
     .menu--pag--opt--menu--area {
         flex: 1 !important;
         width: 100%;
     }
+
     .body--menu-pag {
         overflow-y: hidden !important;
     }
@@ -2430,6 +2471,7 @@ select option {
     .menu--pag-perfil--area {
         background-color: transparent !important;
     }
+
     .timeline--area {
         width: 100% !important;
         margin-left: 0px !important;
@@ -2437,10 +2479,12 @@ select option {
         padding-bottom: 9%;
         overflow-y: hidden;
     }
+
     .feed-header-body {
         width: 100% !important;
     }
-    .area--convite  {
+
+    .area--convite {
         display: none !important;
     }
 }

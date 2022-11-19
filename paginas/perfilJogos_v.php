@@ -1,23 +1,24 @@
-<?php 
+<?php
 session_start();
-if(!isset($_SESSION['id_user'])) {
+if (!isset($_SESSION['id_user'])) {
     header('location:../');
 }
 $perfil = $_GET['username'];
-if($perfil == '') {
+if ($perfil == '') {
     header('location:inicial.php');
 }
-require_once '../assets/script/php/historico.php';    
+require_once '../assets/script/php/historico.php';
 require_once '../assets/script/php/conecta.php';
 require_once '../assets/script/php/function/funcoes.php';
 
 
-if($perfil == $_SESSION['username']) {
+if ($perfil == $_SESSION['username']) {
     header('location:perfil.php');
 }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,36 +28,36 @@ if($perfil == $_SESSION['username']) {
     <link rel="stylesheet" href="../assets/style/generic/style.css">
     <link rel="stylesheet" href="../assets/style/feed/style.css">
     <link rel="stylesheet" href="../assets/style/toca/style.css">
-    <title><?= $perfil?> | Beep</title>
+    <title><?= $perfil ?> | Beep</title>
     <style>
-        <?php 
-            if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
-        ?>
-        .menu--pag--img--area {
-            background-image: url('../assets/imgs/profile/<?=$_SESSION['img']?>');
+        <?php
+        if (!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
+        ?>.menu--pag--img--area {
+            background-image: url('../assets/imgs/profile/<?= $_SESSION['img'] ?>');
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
         }
-        <?php } else { ?>
-            .menu--pag--img--area {
+
+        <?php } else { ?>.menu--pag--img--area {
             background-image: url('../assets/imgs/default/perfil-de-usuario-black.png');
         }
-        <?php }?>
-        .fot_user_visit {
+
+        <?php } ?>.fot_user_visit {
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
         }
     </style>
 </head>
+
 <body>
-    <?php 
-        require_once '../assets/script/php/html__generic/game_templet.php';
+    <?php
+    require_once '../assets/script/php/html__generic/game_templet.php';
     ?>
     <div class="feed-area">
-        <?php 
-            require_once '../assets/script/php/html__generic/nav_menu.php';
+        <?php
+        require_once '../assets/script/php/html__generic/nav_menu.php';
         ?>
         <div class="timeline--area">
             <div class="feed-header-body">
@@ -68,101 +69,115 @@ if($perfil == $_SESSION['username']) {
                 </div>
             </div>
             <div class="feed-body-post">
-                <div class="banner--perfil" >
+                <div class="banner--perfil">
                     <div class="event"></div>
                 </div>
                 <div class="info--perfil">
-                        <div class="info--perfil--area">
-                            <div class="info--perfil--img">
-                                <div class="fot_user_visit info--perfil--img--position ">
-                                     <div class="event" style="position:absolute; margin-top: 56px;margin-left: 59px;"></div>
-                                </div>
-                            </div>
-                            <div class="info--perfil--user">
-                                <div class="info--perfil--user--nome">
-                                    <div class="event"></div>
-                                </div>
-                                <div class="info--perfil--user--username">
-                                
-                                </div>
-                            </div>
-                            <div class="info--button">
-                                    <form  method="post" class="form_id_x30">
-                                        <div class="event"></div>
-                                    <input type="hidden" value="" name='iD_x30' class="input_segui_id_x30">
-                                    </form>
+                    <div class="info--perfil--area">
+                        <div class="info--perfil--img">
+                            <div class="fot_user_visit info--perfil--img--position ">
+                                <div class="event" style="position:absolute; margin-top: 56px;margin-left: 59px;"></div>
                             </div>
                         </div>
-                        <div class="info--bio--perfil">
-                            <div class="bio">
+                        <div class="info--perfil--user">
+                            <div class="info--perfil--user--nome">
                                 <div class="event"></div>
                             </div>
-                            <div class="data_nasc">
-                                <div class="event"></div>
-                            </div>
-                            <div class="segui--indo">
-                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php?id_user="><span class="num_seguindo"><div class="event min-event event-block"></div></span> seguindo</a>
-                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php?id_user="><span class="num_seguidores"><div class="event min-event event-block"></div></span> seguidores</a>
+                            <div class="info--perfil--user--username">
+
                             </div>
                         </div>
-                        <div class="menu--info--perfil--area">
-                            <a  class="button--opt--info  publicacoes_user">
-                                Publicações
-                            </a>
-                            <a class="button--opt--info active_menu_info game_opt">
-                                Jogos do usuário                                
-                            </a>
-                            <a class="button--opt--info curtidas_user">
-                                Curtidas  
-                            </a>    
-                            <a class="button--opt--info">
-                                Sobre                                
-                            </a>
+                        <div class="info--button">
+                            <form method="post" class="form_id_x30">
+                                <div class="event"></div>
+                                <input type="hidden" value="" name='iD_x30' class="input_segui_id_x30">
+                            </form>
                         </div>
                     </div>
-                
-                <div class="posts--ara--perfil">
-                <div class="back--event" style="top:auto;    margin-top: 18px;">
-                    <div class="event"></div>
+                    <div class="info--bio--perfil">
+                        <div class="bio">
+                            <div class="event"></div>
+                        </div>
+                        <div class="data_nasc">
+                            <div class="event"></div>
+                        </div>
+                        <div class="segui--indo">
+                            <a class='seguidores--info area--segui' href="seguidore/seguindo.php?id_user="><span class="num_seguindo">
+                                    <div class="event min-event event-block"></div>
+                                </span> seguindo</a>
+                            <a class='seguidor--info area--segui' href="seguidore/seguidores.php?id_user="><span class="num_seguidores">
+                                    <div class="event min-event event-block"></div>
+                                </span> seguidores</a>
+                        </div>
+                    </div>
+                    <div class="menu--info--perfil--area">
+                        <a class="button--opt--info  publicacoes_user">
+                            Publicações
+                        </a>
+                        <a class="button--opt--info active_menu_info game_opt">
+                            Jogos do usuário
+                        </a>
+                        <a class="button--opt--info curtidas_user">
+                            Curtidas
+                        </a>
+                        <a class="button--opt--info">
+                            Sobre
+                        </a>
+                    </div>
                 </div>
-                <div class="area_game"></div>
+
+                <div class="posts--ara--perfil">
+                    <div class="back--event" style="top:auto;    margin-top: 18px;">
+                        <div class="event"></div>
+                    </div>
+                    <div class="area_game"></div>
                 </div>
             </div>
-            
-          </div>
-        
-          <?php 
-                require_once '../assets/script/php/html__generic/recomendado.php';
-            ?>
+
+        </div>
+
+        <?php
+        require_once '../assets/script/php/html__generic/recomendado.php';
+        ?>
     </div>
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
-    <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/jogos/game.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="">
-        user_(false, '<?= $_GET['username']?>');
+        user_(false, '<?= $_GET['username'] ?>');
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../assets/script/javascript/default/session_storage.js"></script>-->
     <script>
-        const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
-        const email = <?php echo '"'.$_SESSION['email'].'"';?>;
-        const username = <?php echo '"'.$_SESSION['username'].'"';?>;
-        const img_perfil = <?php if(isset($_SESSION['img'])){echo '"'.$_SESSION['img'].'"';} else {echo 'null';}?>;
-        const banner_pefil = <?php if(isset($_SESSION['banner_pefil'])){echo '"'.$_SESSION['banner_pefil'].'"';} else{echo 'null';}?>;
-        const bio = <?php echo '`'.$_SESSION['bio_user'].'`';?>;
-        const dateC = <?php echo '"'.date('d/m/Y', strtotime($_SESSION['data_nas'])).'"';?>;
-        const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
-        const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;
-        const y_nas = <?php echo '"'.date('Y', strtotime($_SESSION['data_nas'])).'"';?>;
+        const nome = <?php echo '"' . $_SESSION['nome'] . '"'; ?>;
+        const email = <?php echo '"' . $_SESSION['email'] . '"'; ?>;
+        const username = <?php echo '"' . $_SESSION['username'] . '"'; ?>;
+        const img_perfil = <?php if (isset($_SESSION['img'])) {
+                                echo '"' . $_SESSION['img'] . '"';
+                            } else {
+                                echo 'null';
+                            } ?>;
+        const banner_pefil = <?php if (isset($_SESSION['banner_pefil'])) {
+                                    echo '"' . $_SESSION['banner_pefil'] . '"';
+                                } else {
+                                    echo 'null';
+                                } ?>;
+        const bio = <?php echo '`' . $_SESSION['bio_user'] . '`'; ?>;
+        const dateC = <?php echo '"' . date('d/m/Y', strtotime($_SESSION['data_nas'])) . '"'; ?>;
+        const m_nas = <?php echo '"' . date('m', strtotime($_SESSION['data_nas'])) . '"'; ?>;
+        const d_nas = <?php echo '"' . date('d', strtotime($_SESSION['data_nas'])) . '"'; ?>;
+        const y_nas = <?php echo '"' . date('Y', strtotime($_SESSION['data_nas'])) . '"'; ?>;
     </script>
-    
+
     <script src="../assets/script/javascript/default/edit_form.js">
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js">
-    </script>       
+    </script>
+    <script src="../assets/script/javascript/toca/script_user_denuncia.js"></script>
 
 </body>
+
 </html>
