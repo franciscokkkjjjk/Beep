@@ -1129,7 +1129,8 @@ select option {
 
 .conteudo--all--post:hover {
     cursor: pointer;
-    background-color: #111111;
+    background-color: #1b1b1b;
+    transition: all linear 0.25s;
 }
 
 .menu--pag--button {
@@ -1820,6 +1821,8 @@ select option {
 }
 
 .modal_area_dP {
+    top:0px;
+    left: 0px;
     position: absolute;
 }
 
@@ -1831,6 +1834,8 @@ select option {
 
 .q_D_modal_area {
     opacity: 0;
+    top: 0px;
+    left: 0px;
     position: fixed;
     width: 100%;
     height: 100%;
@@ -2037,6 +2042,8 @@ select option {
 
 .modal_game_area_publi {
     position: fixed;
+    top: 0px;
+    left: 0px;
     height: 100vh;
     overflow: auto;
     width: 100vw;
