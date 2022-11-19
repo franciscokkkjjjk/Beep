@@ -64,15 +64,15 @@ if (isset($_POST['x5edU'])) {
         echo json_encode($json);
         die;
     } else {
-        $json['posts_info']['usuario_denunciado'] = [
+        $json['usuario_denunciado'] = [
             'id_usuario' => $post['id_user'],
             'date_nasc' => date("d-m-Y", strtotime($post['data_nas'])),
             'email' => $post['email'],
             'nome' => $post['nome'],
-            'username' => $user_publi['username'],
+            'username' => $post['username'],
             'bio' => $post['bio'],
             'midia_user' => $post['foto_perfil'],
-            'midia_publi' => $post['foto_perfil'],
+            'midia_banner' => $post['banner_pefil'],
             'status_' => $post['status_']
         ];
     }

@@ -12,7 +12,7 @@ const auxF = (var_, lugar) => {
     return var_.querySelector(lugar);
 }
 if (window.sessionStorage.x5edU != undefined) {
-    async function creat_list_post_D() {
+    async function creat_list_post_D_U() {
         let req_aux = new FormData();
         req_aux.append('x5edU', window.sessionStorage.x5edU);
         let req = await fetch('../assets/script/php/requisicoes/denuncia_user_all.php', {
@@ -20,6 +20,7 @@ if (window.sessionStorage.x5edU != undefined) {
             body: req_aux
         });
         let res = await req.json();
+        console.log(req);
         if (res.error) {
             window.location.href = 'dununcias.php';
         } else {
@@ -28,42 +29,37 @@ if (window.sessionStorage.x5edU != undefined) {
             let info_post_d = document.querySelector('.info_cont');
             console.log(info_post_d);
             let midia;
-                //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
-            if(res.posts_info.postagem_denunciada.querent == 1) {
-                document.querySelector(".quarentena").innerHTML = '(Em quarentena)';
-                document.querySelector('.buttons_acpt').classList.add('buttons_qua');
-                document.querySelector(".buttons_acpt").addEventListener("click", (e) => {
+            //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
+            if (res.usuario_denunciado.status_ == 1) {
+                document.querySelector(".quarentena").innerHTML = '(Conta suspensa)';
+                document.querySelector('.buttons_sus').classList.add('buttons_sus_r');
+                document.querySelector(".buttons_sus").addEventListener("click", (e) => {
                     e.preventDefault();
-                    window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p_r=" + res.posts_info.postagem_denunciada.id_publicacao;
+                    // window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p_r=" + res.usuario_denunciado.id_publicacao;
                 }, true)
                 // console.log(document.querySelector('.quarentena'))
             } else {
-                document.querySelector(".buttons_acpt").addEventListener("click", (e) => {
+                document.querySelector(".buttons_sus").addEventListener("click", (e) => {
                     e.preventDefault();
-                    window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p=" + res.posts_info.postagem_denunciada.id_publicacao;
+                    // modal_simples('Você realmente quer fazer isso?', "../assets/script/php/denuncias_posts/quarentena.php?id_p=" + res.usuario_denunciado.id_publicacao);
+                    // window.location.href = ";
                 }, true)
             }
-            document.querySelector(".buttons_rej").onclick =  (e)=>{
+            document.querySelector(".buttons_visualizar_p").onclick = (e) => {
                 e.preventDefault();
-                modal_simples('Você realmente que excluir essa publicação? Essa ação é irreversível.', "../assets/script/php/denuncias_posts/excluir_p.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao);
             }
-            document.querySelector(".buttons_edit").onclick = (e)=>{
+            document.querySelector(".buttons_visualizar_p").onclick = (e) => {
                 e.preventDefault();
-                modal_simples('Essa publicação realmente está tudo ok? Essa ação resultará na exclusão de todas denúncias referentes a essa publicação.', "../assets/script/php/denuncias_posts/tudoOk.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao);
+                // modal_simples('Essa publicação realmente está tudo ok? Essa ação resultará na exclusão de todas denúncias referentes a essa publicação.', "../assets/script/php/denuncias_posts/tudoOk.php?id_p=" + res.usuario_denunciado.id_publicacao);
 
             }
-            if (res.posts_info.postagem_denunciada.midia_publi != "") {
-                if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] == "mp4") {
-                    midia = document.createElement("video");
-                    midia.setAttribute("controls", "on");
-                    midia.setAttribute("src", `../../assets/imgs/posts/${res.posts_info.postagem_denunciada.midia_publi}`);
-                    document.querySelector(".img_area").append(midia);
-                    
-                } else if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] != '') {
-                    let midia = document.createElement('img');
-                    midia.setAttribute('src', `../../assets/imgs/posts/${res.posts_info.postagem_denunciada.midia_publi}`);
-                    document.querySelector(".img_area").append(midia);  
-                }
+            console.log(res.usuario_denunciado.midia_user)
+            if ((res.usuario_denunciado.midia_user != "") && (res.usuario_denunciado.midia_user != null)) {
+                let midia = document.createElement('img');
+                midia.setAttribute('class', 'img_p');
+                midia.setAttribute('src', `../../assets/imgs/profile/${res.usuario_denunciado.midia_user}`);
+                document.querySelector(".img_area").classList.add('img_p');
+                document.querySelector(".img_area").append(midia);
             } else {
                 let div_ = document.createElement('div');
                 div_.textContent = "Mídia não informada";
@@ -71,23 +67,22 @@ if (window.sessionStorage.x5edU != undefined) {
                 div_.style.alignItems = "center";
                 document.querySelector(".img_area").append(div_);
             }
-            info_post_d.querySelector('.conteudo_1 .text_C').innerHTML = res.posts_info.postagem_denunciada.text_publi;
-            info_post_d.querySelector('.conteudo2  .text_C').innerHTML = res.posts_info.postagem_denunciada.date_p;
-            info_post_d.querySelector(".conteudo3 .text_C").innerHTML = res.posts_info.postagem_denunciada.id_publicacao;
-            info_post_d.querySelector(".conteudo4 .text_C").innerHTML = res.posts_info.postagem_denunciada.user_publi;
-            if (res.posts_info.postagem_interagida == undefined) {
-                qs(".areaInter").remove();
+            if ((res.usuario_denunciado.midia_banner != "") && (res.usuario_denunciado.midia_banner != null)) {
+                let midia = document.createElement('img');
+                midia.setAttribute('src', `../../assets/imgs/profile/${res.usuario_denunciado.midia_banner}`);
+                document.querySelector(".banner_").append(midia);
             } else {
-                //continua com a minha aberração
+                let div_ = document.createElement('div');
+                div_.textContent = "Mídia não informada";
+                div_.classList.add("img_p");
+                div_.style.alignItems = "center";
+                document.querySelector(".img_area").append(div_);
             }
-            let area_user_D = document.querySelector(".user_info");
-            let img_ = document.createElement("div");
-            img_.setAttribute("style", `background-image:url(../../assets/imgs/profile/${res.posts_info.userPubliDenunciada.foto_perfil})`);
-            area_user_D.querySelector(".img_area").append(img_);
-            area_user_D.querySelector(".text_C").innerHTML = res.posts_info.userPubliDenunciada.nome;
-            area_user_D.querySelector(".conteudo2 .text_C").innerHTML = res.posts_info.userPubliDenunciada.username;
-            area_user_D.querySelector(".conteudo3 .text_C").innerHTML = res.posts_info.userPubliDenunciada.bio;
-            area_user_D.querySelector(".conteudo4 .text_C").innerHTML = res.posts_info.userPubliDenunciada.data_nas;
+            info_post_d.querySelector('.conteudo_1 .text_C').innerHTML = res.usuario_denunciado.nome;
+            info_post_d.querySelector(".conteudo3 .text_C").innerHTML = res.usuario_denunciado.email;
+            info_post_d.querySelector(".conteudo2 .text_C").innerHTML = res.usuario_denunciado.date_nasc;
+            info_post_d.querySelector(".conteudo4 .text_C").innerHTML = res.usuario_denunciado.bio;
+
             let denuncias_area = document.querySelector(".motivos_info");
             denuncias_area.querySelector(".conteudo_1 .text_C").innerHTML = res.motivos.mais_selecionados;
             denuncias_area.querySelector(".conteudo2 .text_C").innerHTML = res.motivos.qt_denuncias;
@@ -112,7 +107,7 @@ if (window.sessionStorage.x5edU != undefined) {
             }
         }
     }
-    creat_list_post_D();
+    creat_list_post_D_U();
 } else {
     window.location.href = 'dununcias.php';
 }

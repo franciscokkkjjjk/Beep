@@ -21,3 +21,35 @@
     justify-content: center;
     height: 100%;
 }
+.buttons_sus::after {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    content: "Suspender usuário";
+}
+.buttons_sus_r::after {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    content: "Retirar suspenção do usuário" !important;
+}
+.img_p {
+    width: 150px;
+    height: 150px;
+    padding: 0px !important;
+    border-radius: 100% !important;
+}
+.img_area .title_midia {
+    height: auto;
+    width: 100%;
+}
+.img_area {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.conteudo_b_I {
+    align-items: center;
+} 

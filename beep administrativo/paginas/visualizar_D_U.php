@@ -42,7 +42,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
         <div class="img_lo"></div>
     </div>
     <?php
-        require_once '../assets/script/php/generic_HTML/header_default.php';
+    require_once '../assets/script/php/generic_HTML/header_default.php';
     ?>
     <main>
         <div class="container border_c feed-area post_d">
@@ -51,14 +51,15 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
             </div>
             <div class="conteudo_b_I">
                 <div class="img_area">
+                    <div class='title_midia'>Foto de perfil </div>
+                </div>
+                <div class="img_area banner_">
+                <div class='title_midia'>Banner de perfil </div>
 
                 </div>
                 <div class="buttons_area">
                     <nav>
-                        <a href="" class="a_nav buttons_acpt button_a buttons_d border_c"></a>
-                    </nav>
-                    <nav>
-                        <a href="" class="a_nav buttons_rej button_b buttons_d  border_c"></a>
+                        <a href="" class="a_nav buttons_sus button_a buttons_d border_c"></a>
                     </nav>
                     <nav>
                         <a href="" class="a_nav">
@@ -82,6 +83,12 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                     </div>
                     <div class="conteudo2 conteudo_C">
                         <div class="title_C">Data de nascimento</div>
+                        <div class="text_C">
+
+                        </div>
+                    </div>
+                    <div class="conteudo3 conteudo_C">
+                        <div class="title_C">E-mail</div>
                         <div class="text_C">
 
                         </div>
@@ -110,7 +117,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
             </div>
             <div class="conteudo_b_I">
                 <div class="img_area">
-                        
+
                 </div>
             </div>
             <div class="info_cont">
