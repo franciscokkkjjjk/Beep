@@ -45,7 +45,7 @@
                             </a>
                         </nav>
                         <nav>
-                            <a href="" class="a_nav opts_user user user_exit">
+                            <a href="denuncias_usuario.php" class="a_nav opts_user user user_exit">
                                 Usuários
                             </a>
                         </nav>
