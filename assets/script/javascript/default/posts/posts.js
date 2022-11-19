@@ -483,6 +483,10 @@ function user_seguidores(list_user) {
     qs('.publicacoes_user').setAttribute('href', 'perfil_user_v.php?username=' + list_user.username_user);
     qs('.game_opt').setAttribute('href', 'perfilJogos_v.php?username=' + list_user.username_user);
     qs('.bio').innerHTML = list_user.bio;
+
+    //gera o modal de denuncia do usuario
+    modal_denuncia_pefil(list_user.user_id);
+
     qs('.nome--perfil').innerHTML = list_user.nome_user;
     qs('.data_nasc').innerHTML = list_user.data_nas;
     qs('.seguidores--info').href = qs('.seguidores--info').href + list_user.user_id;

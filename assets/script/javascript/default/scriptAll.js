@@ -342,6 +342,7 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
     )
 }
 
+//-------------------- abre o modal para escolher o game nas publicações ----------------
 let openModalGame = false;
 function show_modal_games(modal_game) {
     if (openModalGame) {
@@ -360,5 +361,24 @@ function show_modal_games(modal_game) {
         game_perfil(username, false);
         setTimeout(() => { modal_game.style.opacity = ''; }, 150)
         return openModalGame = true;
+    }
+}
+// -------------------------------- gera o modal de denuncia do usuario -----------------
+function modal_denuncia_pefil(id_) {
+    let id = id_;
+    qs('.button_perfil_').onclick = () => {
+        console.log(id);
+        let area_ = qs('.menu_perfil_');
+        area_.style.display = '';
+        setTimeout(() => { area_.style.opacity = ''; }, 250);
+        area_.querySelector('.menu_perfil_denuncia').onclick = () => {
+            area_.style.opacity = '0';
+            setTimeout(() => { area_.style.display = 'none'; }, 250);
+            q_D_modal_show(id, '')
+        }
+        area_.querySelector('.exit_menu_perfil').onclick = () => {
+            area_.style.opacity = '0';
+            setTimeout(() => { area_.style.display = 'none'; }, 250);
+        }
     }
 }
