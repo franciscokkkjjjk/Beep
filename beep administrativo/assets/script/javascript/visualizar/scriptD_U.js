@@ -20,11 +20,9 @@ if (window.sessionStorage.x5edU != undefined) {
             body: req_aux
         });
         let res = await req.json();
-        console.log(req);
         if (res.error) {
             window.location.href = 'dununcias.php';
         } else {
-            console.log(res);
             document.querySelector('.loading').remove();
             let info_post_d = document.querySelector('.info_cont');
             console.log(info_post_d);
@@ -49,9 +47,10 @@ if (window.sessionStorage.x5edU != undefined) {
             document.querySelector("body").onclick = async (e) => {
                 e.preventDefault();
                 alert('teste')
-                let req = await fetch('../assets/script/php/requisicoes/posts_all_users.php?username='+username_user);
+                let req = await fetch('../assets/script/php/requisicoes/posts_all_users.php?username=' + username_user);
                 let res = await req.json();
-                criarPosts(res);
+                criarPosts(res.publi, false);
+                console.log(res)
             }
             document.querySelector(".buttons_visualizar_p").onclick = (e) => {
                 e.preventDefault();
@@ -118,15 +117,19 @@ if (window.sessionStorage.x5edU != undefined) {
 }
 
 
-alert('yes')
 function criarPosts(lista, coment_ = true) {
     let url = [
         '../assets/script/php/interacoes_post/denunciar_p.php',
         '',//salvar posts
     ]
+    console.log('entrou');
+    console.log(lista)
     for (var i in lista) {
         if (lista[i]['type'] == "3") {//postagem normal
             let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
+            if (post_body.querySelector('.interacao--post--area') != undefined) {
+                post_body.querySelector('.interacao--post--area').remove();
+            }
             post_body.id = lista[i]['id_publi'] + 'pt-xD30';
             let aux_id = lista[i]['id_publi'];
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
@@ -148,7 +151,7 @@ function criarPosts(lista, coment_ = true) {
             } else {
                 post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
             }
-            if (lista[i]['img_publi'] == "") {
+            if (lista[i]['img_publi'] == "" || lista[i]['img_publi'] == null) {
 
             } else {
                 let type_midia = lista[i]['img_publi'].split('.');
@@ -166,55 +169,31 @@ function criarPosts(lista, coment_ = true) {
                     post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }
             }//p-xD30
-            post_body.querySelector('.event--curtida input').value = lista[i]['id_publi'];
-            post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
-            if (lista[i]['user_curtiu']) {
-                post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi']);
-                post_body.querySelector('.event--curtida').classList.add('p-xD29');
-                post_body.querySelector('.event--curtida .post_curtidas').innerHTML = lista[i]['num_curtidas'];
-                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
-            } else {
-                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
-                post_body.querySelector('.event--curtida').classList.add('p-xD30');
-                post_body.querySelector('.event--curtida .post_curtidas').innerHTML = lista[i]['num_curtidas'];
-                post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
-            }
-            if (lista[i]['user_compartilhou']) {
-                post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
-                post_body.querySelector('.compartilhar-event-div').classList.add('descompartilhar-event');
-                post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
-                post_body.querySelector('.descompartilhar-event').id = lista[i]['id_publi'] + 'c-xD30';
-            } else {
-                post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-off')
-                post_body.querySelector('.compartilhar-event-div').classList.add('compartilhar')
-                post_body.querySelector('.compartilhar').id = lista[i]['id_publi'] + 'c-xD30';
-            }
-            post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['id_publi'];
-            post_body.querySelector('.comentar .post_comentadas').innerHTML = lista[i]['num_comentario'];
+
             let aux = lista[i]['id_publi'];
 
-            post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + lista[i]['id_publi'];
-            post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['id_publi']);
+            if (post_body.querySelector('.conteudo--all--post') != undefined) {
+                post_body.querySelector('.conteudo--all--post').remove();
+            } console.log(post_body);
             document.querySelector('.feed-body-post').append(post_body);
 
         } else if (lista[i]['type'] == "2") {//repostagem com comentario 
-
             if (lista[i]['compartilhador_info']['quarentena'] == "0") { // verfica se ta em quarentena
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
-                coment(post_body.querySelector('.comentar'));
+                if (post_body.querySelector('.interacao--post--area') != undefined) {
+                    post_body.querySelector('.interacao--post--area').remove();
+                }
                 post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'pt-xD30';
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
                 post_body.querySelector('.name--comp .perfil-link').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
                 post_body.querySelector('.name--name-perfil-comp_').innerHTML = lista[i]['compartilhador_info']['nome_user'];
                 post_body.querySelector('.name--username-perfil-comp_').innerHTML = lista[i]['compartilhador_info']['username_user'];
-                post_body.querySelector('.event--curtida-comp input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
                 if (lista[i]['compartilhador_info']['text_compartilhada'] == '' || lista[i]['compartilhador_info']['text_compartilhada'] == null) {
                     post_body.querySelector('.post--text_comp').style.display = 'none';
                 } else {
                     post_body.querySelector('.post--text_comp').innerHTML = lista[i]['compartilhador_info']['text_compartilhada'];
                 }
                 let aux_id = lista[i]['compartilhador_info']['id_da_compartilhada'];
-                post_body.querySelector('.post_compartilhadas').innerHTML = lista[i]['beepadas'];
                 post_body.querySelector('.elipse-img').onclick = (e) => {
                     e.preventDefault();
                     posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
@@ -301,37 +280,22 @@ function criarPosts(lista, coment_ = true) {
                         }
                     }
                 }
-                if (lista[i]['user_curtiu']) {
-                    post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada']);
-                    post_body.querySelector('.event--curtida').classList.add('p-xD29');
-                    post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
-                } else {
-                    post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
-                    post_body.querySelector('.event--curtida').classList.add('p-xD30');
-                    post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
-                }
-                post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['compartilhador_info']['id_da_compartilhada'];
-                post_body.querySelector('.comentar .post_comentadas').innerHTML = lista[i]['num_comentario'];
+
                 let aux_d = lista[i]['compartilhador_info']['id_da_compartilhada'];
 
-                if (lista[i]['user_compartilhou']) {
-                    post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
-                    post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
-                    post_body.querySelector('.compartilhar-event-div').classList.add('descompartilhar-event');
-                    post_body.querySelector('.descompartilhar-event').id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30';
-                } else {
-                    post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-off');
-                    post_body.querySelector('.compartilhar-event-div').classList.add('compartilhar');
-                    post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30';
+                if (post_body.querySelector('.conteudo--all--post') != undefined) {
+                    post_body.querySelector('.conteudo--all--post').remove();
                 }
-                post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
-                post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + lista[i]['compartilhador_info']['id_da_compartilhada'];
+                console.log(post_body);
+
                 document.querySelector('.feed-body-post').append(post_body);
             }
         } else if (lista[i]['type'] == "4") {//compartilhamento direto 
             let post_body = document.querySelector('.type_1 .post--menu--area').cloneNode(true);
+            if (post_body.querySelector('.interacao--post--area') != undefined) {
+                post_body.querySelector('.interacao--post--area').remove();
+            }
             post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'pt-xD30';
-            coment(post_body.querySelector('.comentar'));
             post_body.querySelector('.info-compartilhador').style.display = '';
             post_body.querySelector('.user_respost').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
             post_body.querySelector('.user_respost').innerHTML = `${lista[i]['compartilhador_info']['nome_user']}(${lista[i]['compartilhador_info']['username_user']})`;
@@ -354,7 +318,7 @@ function criarPosts(lista, coment_ = true) {
                 }
                 post_body.querySelector('.game--post').onclick = (e) => show_game(aux_game, e);
             }
-            if (lista[i]['img_publi'] == "") {
+            if (lista[i]['img_publi'] == "" || lista[i]['img_publi'] == null) {
 
             } else {
                 let type_midia = lista[i]['img_publi'].split('.');
@@ -377,41 +341,17 @@ function criarPosts(lista, coment_ = true) {
                 e.preventDefault();
                 posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
             }
-            post_body.querySelector('.event--curtida input').value = lista[i]['compartilhador_info']['id_da_compartilhada'];
-            post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['compartilhador_info']['id_da_compartilhada'];
-
-
-
-            post_body.querySelector('.comentar .post_comentadas').innerHTML = lista[i]['num_comentario'];
-
-
-
-
-            if (lista[i]['user_curtiu']) {
-                post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada']);
-                post_body.querySelector('.event--curtida').classList.add('p-xD29');
-                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao p-evt-box-off img--iteracao-curtida-on img--curtida--on');
-            } else {
-                post_body.querySelector('.curtir').setAttribute('class', 'curtir interacao--area button--remove img--iteracao img--iteracao-curtida p-evt-box-off')
-                post_body.querySelector('.event--curtida').classList.add('p-xD30');
-                post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
+            if (post_body.querySelector('.interacao--post--area') != undefined) {
+                post_body.querySelector('.interacao--post--area').remove();
             }
-
-            if (lista[i]['user_compartilhou']) {
-                post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
-                post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
-                post_body.querySelector('.compartilhar-event-div').classList.add('descompartilhar-event');
-                post_body.querySelector('.descompartilhar-event').id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30';
-            } else {
-                post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-off')
-                post_body.querySelector('.compartilhar-event-div').classList.add('compartilhar')
-                post_body.querySelector('.compartilhar').id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'c-xD30';
+            if (post_body.querySelector('.conteudo--all--post') != undefined) {
+                post_body.querySelector('.conteudo--all--post').remove();
             }
-            post_body.querySelector('.event--curtida').setAttribute('id', lista[i]['compartilhador_info']['id_da_compartilhada']);
+            console.log(post_body);
 
-            post_body.querySelector('.conteudo--all--post').href = 'postagem.php?postagem=' + lista[i]['id_publi'];
             document.querySelector('.feed-body-post').append(post_body);
         } else if (lista[i]['type'] == "1" && coment_) {
+
             //gera comentario
         }
     }
