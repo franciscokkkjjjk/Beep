@@ -868,8 +868,9 @@ async function compartilhar() {
 }
 
 let modal_repost_coment = document.querySelector('.modal--coment--repost--area');
+let clone_MD_RC;
 if (modal_repost_coment != undefined) {
-    let clone_MD_RC = modal_repost_coment.cloneNode(true);
+    clone_MD_RC = modal_repost_coment.cloneNode(true);
     modal_repost_coment.remove();
 }
 let modal_repost = false;
