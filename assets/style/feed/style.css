@@ -151,7 +151,7 @@
 }
 .img--opt-feed {
     background-position: 5px;
-    background-size: 9%;
+    background-size: 8%;
     padding-left: 17% ;
     background-repeat: no-repeat;
 }
@@ -166,11 +166,11 @@
 }
 .img--pag--solic {
     background-image: url('../../imgs/default/solicitacao1.png');
-    background-size: 10%;
+    background-size: 7%;
 }
 .img--pag--perf {
     background-image: url('../../imgs/default/perfil-de-usuario.png');
-    background-size: 10%;
+    background-size: 8%;
 }
 @media screen and (max-width:1605px) {
    
