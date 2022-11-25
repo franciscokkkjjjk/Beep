@@ -44,11 +44,23 @@ if (window.sessionStorage.x5edU != undefined) {
                 }, true)
             }
             let username_user = res.usuario_denunciado.username;
-            document.querySelector("body").onclick = async (e) => {
+            document.querySelector(".button_C").onclick = async (e) => {
                 e.preventDefault();
                 alert('teste')
-                let req = await fetch('../assets/script/php/requisicoes/posts_all_users.php?username=' + username_user);
-                let res = await req.json();
+                let res;
+                try {
+                    let req = await fetch('../assets/script/php/requisicoes/posts_all_users.php?username=' + username_user);
+                    res = await req.json();
+                } catch {
+                    let msm = {
+                        "mensage": "Não foi possivel acessar as publicações desse usuário.",
+                        "error": true
+                    }
+                    alert_mensage(msm);
+                    
+                    return;
+                }
+
                 criarPosts(res.publi, false);
                 console.log(res)
             }

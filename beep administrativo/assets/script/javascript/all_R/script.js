@@ -109,6 +109,7 @@ function show_modal(mensage, url_req, value, event) {
     })
     document.querySelector('.a_xd30').appendChild(modal_);
 }
+
 let show_modal_simple = false;
 function modal_simples(mensagem, url = null) {
     let modal_simples_ = document.querySelector(".a_xd30");

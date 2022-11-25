@@ -68,7 +68,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                         </a>
                     </nav>
                     <nav>
-                        <a href="" class="a_nav">
+                        <a href="" class="a_nav button_C">
                             <div class="buttons_visualizar_p button_d buttons_d border_c"></div>
                         </a>
                     </nav>
@@ -154,7 +154,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
 
         </div>
     </main>
-    <div class="area_publicação">
+    <div class="area_publicação" style="display: none;">
         <div class="header_ultra_pag">
             <div class="close_pag"></div>
         </div>

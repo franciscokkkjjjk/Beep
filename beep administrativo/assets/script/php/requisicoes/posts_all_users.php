@@ -150,6 +150,7 @@ foreach ($postagens as $post_segui) {
         if (is_null($array_compartilhada)) {
             continue;
         }
+
         if ($array_compartilhada['quarentena'] == 1) {
             continue;
         }
