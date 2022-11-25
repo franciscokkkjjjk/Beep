@@ -69,11 +69,13 @@
     opacity: 1;
     transition: all ease 0.25s;
     border-bottom-left-radius: 5px;
+    box-shadow: 0px 0px 7px 2px #000;
     border-bottom-right-radius: 5px;
 }
 .area_publicação .feed-body-post {
     background-color: #252525;
-    height: 100%;
+    padding-top: 48px;
+    min-height: 100%;
 }
 .header_ultra_pag {
     height: 45px;
@@ -102,6 +104,10 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+.area_exit_:hover {
+    cursor: pointer;
+    background-color: #444444ea;
+}
 .area_fundo {
     top: 0px;
     left: 0px;
@@ -114,4 +120,15 @@
 }
 .post--menu--area {
     padding-bottom: 20px;
+}
+.img--perfil {
+    width: 45px;
+    height: 45px;
+    margin-left: 12px;
+    margin-right: 8px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }

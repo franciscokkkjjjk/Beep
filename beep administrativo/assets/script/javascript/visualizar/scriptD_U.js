@@ -56,13 +56,43 @@ if (window.sessionStorage.x5edU != undefined) {
                         "error": true
                     }
                     alert_mensage(msm);
-
                     return;
                 }
-                criarPosts(res.publi, false);
+                if (res.publi.nada == undefined) {
+                    criarPosts(res.publi, false);
+                } else {
+                    let div_ =  document.createElement('div');
+                    div_.setAttribute('class', 'post--menu--area');
+                    div_.innerHTML = 'Esse usuário não possui publicações.';
+                    div_.style.textAlign = 'center';
+                    div_.style.padding = '40px 0px';
+                    document.querySelector('.feed-body-post').append(div_);
+                }
                 document.querySelector("html").style.overflow = 'hidden';
                 document.querySelector('.area_publicação').style.display = '';
-                setTimeout(() => document.querySelector('.area_publicação').style.opacity = '1', 50)
+                setTimeout(() => document.querySelector('.area_publicação').style.opacity = '1', 50);
+                document.querySelector('.area_exit_').onclick = () => {
+                    document.querySelector('.area_publicação').style.opacity = '0'
+                    setTimeout(() => document.querySelector('.area_publicação').style.display = 'none', 50);
+                    let aux = 0;
+                    document.querySelectorAll('.post--menu--area').forEach((e) => {
+                        if (aux >= 2) {
+                            e.remove();
+                        }
+                        aux++;
+                    })
+                }
+                document.querySelector('.area_fundo').onclick = () => {
+                    document.querySelector('.area_publicação').style.opacity = '0'
+                    setTimeout(() => document.querySelector('.area_publicação').style.display = 'none', 50);
+                    let aux = 0;
+                    document.querySelectorAll('.post--menu--area').forEach((e) => {
+                        if (aux >= 2) {
+                            e.remove();
+                        }
+                        aux++;
+                    })
+                }
                 console.log(res)
             }
             document.querySelector(".buttons_visualizar_p").onclick = (e) => {
@@ -146,7 +176,7 @@ function criarPosts(lista, coment_ = true) {
             post_body.id = lista[i]['id_publi'] + 'pt-xD30';
             let aux_id = lista[i]['id_publi'];
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
-            post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
+            post_body.querySelector('.name--area a').setAttribute('href', `../../paginas/perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
             post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
             post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['user_info']['username_user'];
             post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
@@ -173,13 +203,13 @@ function criarPosts(lista, coment_ = true) {
                     post_body.querySelector('.post--img-area').style.display = '';
                     post_body.querySelector('.post--img-area').classList.add('area_midia_video');
                     let video_creat = document.createElement('video');
-                    video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['img_publi']}`);
+                    video_creat.setAttribute('src', `../../assets/imgs/posts/${lista[i]['img_publi']}`);
                     video_creat.setAttribute('controls', '');
                     post_body.querySelector('.post--img-area').appendChild(video_creat);
                 } else {
                     post_body.querySelector('.post--img-area').style.display = '';
                     post_body.querySelector('.post--img').style.display = 'block';
-                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }
             }//p-xD30
 
@@ -198,7 +228,7 @@ function criarPosts(lista, coment_ = true) {
                 }
                 post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'pt-xD30';
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
-                post_body.querySelector('.name--comp .perfil-link').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
+                post_body.querySelector('.name--comp .perfil-link').setAttribute('href', `../../paginas/perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
                 post_body.querySelector('.name--name-perfil-comp_').innerHTML = lista[i]['compartilhador_info']['nome_user'];
                 post_body.querySelector('.name--username-perfil-comp_').innerHTML = lista[i]['compartilhador_info']['username_user'];
                 if (lista[i]['compartilhador_info']['text_compartilhada'] == '' || lista[i]['compartilhador_info']['text_compartilhada'] == null) {
@@ -231,7 +261,7 @@ function criarPosts(lista, coment_ = true) {
                         }
                         post_body.querySelector('.date--post-comp_').innerHTML = lista[i]['compartilhador_info']['date_publi_compartilhada'];
                         post_body.querySelector('.img--perfil-comp').setAttribute('style', lista[i]['user_info']['img_user']);
-                        post_body.querySelector('.perfil-link-comp').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
+                        post_body.querySelector('.perfil-link-comp').setAttribute('href', `../../paginas/perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
                         post_body.querySelector('.name--name-perfil-comp').innerHTML = lista[i]['user_info']['nome_user'];
                         post_body.querySelector('.name--username-perfil-comp').innerHTML = lista[i]['user_info']['username_user'];
                         post_body.querySelector('.date--post-comp').innerHTML = lista[i]['date_publi'];
@@ -265,12 +295,12 @@ function criarPosts(lista, coment_ = true) {
                         post_body.querySelector('.post--img-area').style.display = '';
                         post_body.querySelector('.post--img-area').classList.add('area_midia_video');
                         let video_creat = document.createElement('video');
-                        video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['compartilhador_info']['img_compartilhada']}`);
+                        video_creat.setAttribute('src', `../../assets/imgs/posts/${lista[i]['compartilhador_info']['img_compartilhada']}`);
                         video_creat.setAttribute('controls', '');
                         post_body.querySelector('.post--img-area').appendChild(video_creat);
                     } else {
                         post_body.querySelector('.post--img-area').style.display = 'block';
-                        post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['compartilhador_info']['img_compartilhada']})`;
+                        post_body.querySelector('.post--img').style.backgroundImage = `url(../../assets/imgs/posts/${lista[i]['compartilhador_info']['img_compartilhada']})`;
                     }
                 }
                 //-----------------------------interagida----------------
@@ -284,12 +314,12 @@ function criarPosts(lista, coment_ = true) {
                             post_body.querySelector('.post--img-area-com').style.display = '';
                             post_body.querySelector('.post--img-area-com').classList.add('area_midia_video');
                             let video_creat = document.createElement('video');
-                            video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['img_publi']}`);
+                            video_creat.setAttribute('src', `../../assets/imgs/posts/${lista[i]['img_publi']}`);
                             video_creat.setAttribute('controls', '');
                             post_body.querySelector('.post--img-area-com').appendChild(video_creat);
                         } else {
                             post_body.querySelector('.post--img-area-com').style.display = 'block';
-                            post_body.querySelector('.img--comentada').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                            post_body.querySelector('.img--comentada').style.backgroundImage = `url(../../assets/imgs/posts/${lista[i]['img_publi']})`;
                         }
                     }
                 }
@@ -310,10 +340,10 @@ function criarPosts(lista, coment_ = true) {
             }
             post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'pt-xD30';
             post_body.querySelector('.info-compartilhador').style.display = '';
-            post_body.querySelector('.user_respost').setAttribute('href', `perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
+            post_body.querySelector('.user_respost').setAttribute('href', `../../paginas/perfil_user_v.php?username=${lista[i]['compartilhador_info']['username_user']}`);
             post_body.querySelector('.user_respost').innerHTML = `${lista[i]['compartilhador_info']['nome_user']}(${lista[i]['compartilhador_info']['username_user']})`;
             post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['user_info']['img_user']);
-            post_body.querySelector('.name--area a').setAttribute('href', `perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
+            post_body.querySelector('.name--area a').setAttribute('href', `../../paginas/perfil_user_v.php?username=${lista[i]['user_info']['username_user']}`)
             post_body.querySelector('.name--name-perfil').innerHTML = lista[i]['user_info']['nome_user'];
             post_body.querySelector('.name--username-perfil').innerHTML = lista[i]['user_info']['username_user'];
             post_body.querySelector('.date--post').innerHTML = lista[i]['date_publi'];
@@ -340,13 +370,13 @@ function criarPosts(lista, coment_ = true) {
                     post_body.querySelector('.post--img-area').style.display = '';
                     post_body.querySelector('.post--img-area').classList.add('area_midia_video');
                     let video_creat = document.createElement('video');
-                    video_creat.setAttribute('src', `../assets/imgs/posts/${lista[i]['img_publi']}`);
+                    video_creat.setAttribute('src', `../../assets/imgs/posts/${lista[i]['img_publi']}`);
                     video_creat.setAttribute('controls', '');
                     post_body.querySelector('.post--img-area').appendChild(video_creat);
                 } else {
                     post_body.querySelector('.post--img-area').style.display = '';
                     post_body.querySelector('.post--img').style.display = 'block';
-                    post_body.querySelector('.post--img').style.backgroundImage = `url(../assets/imgs/posts/${lista[i]['img_publi']})`;
+                    post_body.querySelector('.post--img').style.backgroundImage = `url(../../assets/imgs/posts/${lista[i]['img_publi']})`;
                 }
             }//p-xD30
             let aux_id = lista[i]['id_publi'];

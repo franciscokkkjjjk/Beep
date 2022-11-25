@@ -86,13 +86,13 @@ foreach ($postagens as $post_segui) {
                 'user_id' => $post_segui['user_publi'],
                 'nome_user' => $user_compartilhada_nome,
                 'username_user' => $usernameCompartilhada,
-                'img_user' => perfilDefault($foto_compartilhada, ''),
+                'img_user' => perfilDefault($foto_compartilhada, 'a'),
             ],
             'user_info' => [
                 'user_id' => $array_s_perfil['id_user'],
                 'nome_user' => $array_s_perfil['nome'],
                 'username_user' => $array_s_perfil['username'],
-                'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+                'img_user' => perfilDefault($array_s_perfil['foto_perfil'], 'a'),
             ],
             "game_publi" => [
                 'game_id' => $id_game_publi,
@@ -126,7 +126,7 @@ foreach ($postagens as $post_segui) {
                 'user_id' => $array_s_perfil['id_user'],
                 'nome_user' => $array_s_perfil['nome'],
                 'username_user' => $array_s_perfil['username'],
-                'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+                'img_user' => perfilDefault($array_s_perfil['foto_perfil'], 'a'),
             ],
             "game_publi" => [
                 'game_id' => $id_game_publi,
@@ -197,7 +197,7 @@ foreach ($postagens as $post_segui) {
                 'user_id' => $array_compartilhada['user_publi'],
                 'nome_user' => $array__info_raiz['nome'],
                 'username_user' => $array__info_raiz['username'],
-                'img_user' => perfilDefault($array__info_raiz['foto_perfil'], ''),
+                'img_user' => perfilDefault($array__info_raiz['foto_perfil'], 'a'),
             ],
             'compartilhador_info' => [
                 'id_da_compartilhada' => $post_segui['id_publi'],
@@ -206,7 +206,7 @@ foreach ($postagens as $post_segui) {
                 'user_id' => $post_segui['user_publi'],
                 'nome_user' => $array_s_compartilhador['nome'],
                 'username_user' => $array_s_compartilhador['username'],
-                'img_user' => perfilDefault($array_s_compartilhador['foto_perfil'], ''),
+                'img_user' => perfilDefault($array_s_compartilhador['foto_perfil'], 'a'),
             ],
             "game_publi" => [
                 'game_id' => $id_game_publi,
@@ -225,7 +225,7 @@ $perfil_visit['user'] = [
     'user_id' => $array_s_perfil['id_user'],
     'nome_user' => $array_s_perfil['nome'],
     'username_user' => $array_s_perfil['username'],
-    'img_user' => perfilDefault($array_s_perfil['foto_perfil'], ''),
+    'img_user' => perfilDefault($array_s_perfil['foto_perfil'], 'a'),
     'bio' => $array_s_perfil['bio'],
     'data_nas' => date('d/m/Y', strtotime($array_s_perfil['data_nas'])),
     'banner_pefil' => $array_s_perfil['banner_pefil'],
