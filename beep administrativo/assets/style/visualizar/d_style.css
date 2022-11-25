@@ -56,14 +56,62 @@
 
 .area_publicação {
     position: fixed;
-    width: 100%;
+    width: 80%;
+    overflow-y: auto;
+    z-index: 4;
     left: 0px;
     top: 0px;
+    margin:20px 10%;
+    bottom: 0px;
+    overflow-x: hidden;
+    max-height: 100%;
+    /* background-color: #; */
+    opacity: 1;
+    transition: all ease 0.25s;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.area_publicação .feed-body-post {
+    background-color: #252525;
     height: 100%;
-    background-color: rebeccapurple;
 }
 .header_ultra_pag {
     height: 45px;
+    width: 80%;
+    position: fixed;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #53ffff;
+}
+.close_pag {
+    height: 100%;
+    width: 50px;
+    margin: 0px 10px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.area_exit_ {
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    background-color: #252525;
+    border-radius: 100%;
+    background-image: url('../../../../assets/imgs/default/exit.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.area_fundo {
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    background-color: #0000008f;
+    position: fixed;
     width: 100%;
-    background-color: blue;
+    height:100%;
+    
+}
+.post--menu--area {
+    padding-bottom: 20px;
 }

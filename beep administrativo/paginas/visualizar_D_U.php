@@ -154,9 +154,12 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
 
         </div>
     </main>
-    <div class="area_publicação" style="display: none;">
+    <div class="area_publicação" style="display: none; opacity:0;">
+        <div class="area_fundo"></div>
         <div class="header_ultra_pag">
-            <div class="close_pag"></div>
+            <div class="close_pag">
+                <div class="area_exit_"></div>
+            </div>
         </div>
         <div class="feed-body-post">
             <?php

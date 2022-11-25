@@ -46,7 +46,6 @@ if (window.sessionStorage.x5edU != undefined) {
             let username_user = res.usuario_denunciado.username;
             document.querySelector(".button_C").onclick = async (e) => {
                 e.preventDefault();
-                alert('teste')
                 let res;
                 try {
                     let req = await fetch('../assets/script/php/requisicoes/posts_all_users.php?username=' + username_user);
@@ -57,11 +56,13 @@ if (window.sessionStorage.x5edU != undefined) {
                         "error": true
                     }
                     alert_mensage(msm);
-                    
+
                     return;
                 }
-
                 criarPosts(res.publi, false);
+                document.querySelector("html").style.overflow = 'hidden';
+                document.querySelector('.area_publicação').style.display = '';
+                setTimeout(() => document.querySelector('.area_publicação').style.opacity = '1', 50)
                 console.log(res)
             }
             document.querySelector(".buttons_visualizar_p").onclick = (e) => {
