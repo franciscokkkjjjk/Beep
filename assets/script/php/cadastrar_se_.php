@@ -20,7 +20,7 @@ $meses = [
 ];
 $pass = password_hash($_POST['senha_user'], PASSWORD_DEFAULT);
 
-$email = $_POST['email_user'];
+$email = mysqli_escape_string($conexao, $_POST['email_user']);
 $nome = mysqli_escape_string($conexao, $_POST['nome_user']);
 $dia_nas = intval($_POST['dia']);
 $mes_nas = $_POST['mes'];
@@ -94,7 +94,7 @@ if ($date_coverti >= 13) {
 
         $sql_cadastro = "INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt')";
         $resultado_cadastro = mysqli_query($conexao, $sql_cadastro);
-        
+
         var_dump($resultado_cadastro);
         if ($resultado_cadastro) {
             $sql_perfil = "SELECT * FROM users WHERE username='" . $username_DF . "'";

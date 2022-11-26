@@ -1,6 +1,8 @@
 <?php
 session_start();
 if (isset($_POST['x5edU'])) {
+    date_default_timezone_set('America/Sao_Paulo');
+    date_default_timezone_get();
     $motivos_values = [ // colocar em uma tabela no banco;
         "Conteúdo explícito",
         "Discurso de ódio",
@@ -64,6 +66,24 @@ if (isset($_POST['x5edU'])) {
         echo json_encode($json);
         die;
     } else {
+        if ($post['tempo_suspensao'] == null) {
+            $cal_t = 'Indeterminado.';
+        } else {
+            $cal_t = strtotime($post['tempo_suspensao']) - strtotime(date('Y-m-d H:i:s'));
+            if ($cal_t <= 0) {
+                if (!$pdo->query("UPDATE users SET tempo_suspensao=null, status_=0 WHERE id_user=" . $dun[0]['id_user_denunciado'])) {
+                    $cal_t = 'Está fora da supensão.';
+                }
+                $post['status_'] = 0;
+            } else {
+                $cal_t = floor(((($cal_t / 60) / 60) / 24));
+                if ($cal_t > 1) {
+                    $cal_t .= ' dias';
+                } else {
+                    $cal_t .= ' dia';
+                }
+            }
+        }
         $json['usuario_denunciado'] = [
             'id_usuario' => $post['id_user'],
             'date_nasc' => date("d-m-Y", strtotime($post['data_nas'])),
@@ -73,11 +93,12 @@ if (isset($_POST['x5edU'])) {
             'bio' => $post['bio'],
             'midia_user' => $post['foto_perfil'],
             'midia_banner' => $post['banner_pefil'],
-            'status_' => $post['status_']
+            'status_' => $post['status_'],
+            'temp_sus' => $cal_t
         ];
     }
 
-    
+
     echo json_encode($json);
 } else {
     $json = [
