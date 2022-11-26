@@ -11,6 +11,7 @@ $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
 if (is_null($array_s_perfil)) {
     $json =  [
         'error' => true,
+        'mensage' => 'Esse usuário não existe.'
     ];
     echo json_encode($json);
     die;
@@ -280,6 +281,7 @@ if ($perfil_visit == null or empty($perfil_visit)) {
         'nada' => 'nada por aqui'
     ];
 }
+
 $perfil_visit['user'] = [
     'user_id' => $array_s_perfil['id_user'],
     'nome_user' => $array_s_perfil['nome'],
@@ -292,5 +294,10 @@ $perfil_visit['user'] = [
     't_seguidores' => $array_s_perfil['t_seguidores'],
     'seguindo' => $seguindo
 ];
-
+if($array_s_perfil['status_']) {
+    $perfil_visit = [
+        'error' => true,
+        'mensage' => 'Esse usuário foi suspenso.'
+    ];
+}
 echo json_encode($perfil_visit);
