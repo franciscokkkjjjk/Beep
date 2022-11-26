@@ -433,7 +433,7 @@ main .container {
     position: absolute;
     opacity: 1;
     width: 190px;
-    box-shadow: 0px 0px 7px 3px #232324;
+    box-shadow: 0px 0px 7px 3px #4b4b4c;
     margin-top: 55px;
     background-color: #232324;
     transition: all ease 0.15s;
@@ -482,7 +482,7 @@ main .container {
     margin-left: -100px;
     margin-top: 27px;
     background-color: #232324;
-    box-shadow: 0px 0px 7px 3px #232324;
+    box-shadow: 0px 0px 7px 3px #4b4b4c;
 }
 .title_list {
     display: flex;
