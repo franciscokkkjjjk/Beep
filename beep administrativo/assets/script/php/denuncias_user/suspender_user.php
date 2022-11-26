@@ -1,13 +1,12 @@
 <?php
 session_start();
-//Deve colocar todas as publicações do magrao em quarentena
-//deve suspender o magrao até uma segunda ordem ou o tempo dele acabar
 if (isset($_SESSION['id_root'])) {
     date_default_timezone_set('America/Sao_Paulo');
     date_default_timezone_get();
     require_once '../conect_pdo.php';
     $id_user = $pdo->escape_string($_POST['x_ID30']);
     $verify = $pdo->query("SELECT * FROM users WHERE id_user=".$id_user)->fetch_assoc();
+    //verfica se o magrao existe
     if(is_null($verify) or empty($verify)) {
         $json = [
             'mensage'=>'esse usário não existe mais.',
