@@ -143,10 +143,10 @@ function header_modal(modal, button) {
             modal.style.opacity = '1';
         }, 50);
         console.log('entrou')
-        modal.querySelector('.modal_exit').onclick = () => {
+        modal.querySelectorAll('.modal_exit').forEach((e)=> e.onclick = () => {
             modal.style.opacity = '0';
             modal.style.display = 'none';
-        }
+        })
     }
 
 }

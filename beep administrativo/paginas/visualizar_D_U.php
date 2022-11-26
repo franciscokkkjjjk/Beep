@@ -162,6 +162,24 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
             ?>
         </div>
     </div>
+    <div class="modal_sus" style="">
+        <div class="modal_exit" style="position: fixed;width:100%;height:100%;top:0px;left:0px;"></div>
+        <div class="modal_sus_defato">
+            <div class="modal_sus_header">
+                <div class="modal_area_exit">
+                    <div class="button_exit modal_exit"></div>
+                </div>
+            </div>
+            <div class="modal_sus_body">
+                <div class="title_modal_sus">
+                    Tempo de suspenão
+                </div>
+                <select>
+                    <option>sdasd</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <?php
     if (isset($_SESSION['mensagem'])) {
     ?>

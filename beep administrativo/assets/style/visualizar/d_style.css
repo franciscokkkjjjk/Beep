@@ -2,18 +2,23 @@
     content: "Colocar em quarentena";
 
 }
+
 .buttons_area {
     width: 190px;
 }
+
 .buttons_rej::after {
     content: "Excluir publicação";
 }
+
 .buttons_edit::after {
     content: "Tudo ok";
 }
+
 .buttons_qua::after {
     content: "Retirar da quarentena";
 }
+
 .buttons_visualizar_p::after {
     content: "Visualizar publicações";
     display: flex;
@@ -21,6 +26,7 @@
     justify-content: center;
     height: 100%;
 }
+
 .buttons_sus::after {
     display: flex;
     height: 100%;
@@ -28,6 +34,7 @@
     justify-content: center;
     content: "Suspender usuário";
 }
+
 .buttons_sus_r::after {
     display: flex;
     height: 100%;
@@ -35,24 +42,28 @@
     justify-content: center;
     content: "Retirar suspenção do usuário" !important;
 }
+
 .img_p {
     width: 150px;
     height: 150px;
     padding: 0px !important;
     border-radius: 100% !important;
 }
+
 .img_area .title_midia {
     height: auto;
     width: 100%;
 }
+
 .img_area {
     text-align: center;
     display: flex;
     flex-direction: column;
 }
+
 .conteudo_b_I {
     align-items: center;
-} 
+}
 
 .area_publicação {
     position: fixed;
@@ -61,7 +72,7 @@
     z-index: 4;
     left: 0px;
     top: 0px;
-    margin:20px 10%;
+    margin: 20px 10%;
     bottom: 0px;
     overflow-x: hidden;
     max-height: 100%;
@@ -72,11 +83,13 @@
     box-shadow: 0px 0px 7px 2px #000;
     border-bottom-right-radius: 5px;
 }
+
 .area_publicação .feed-body-post {
     background-color: #252525;
     padding-top: 48px;
     min-height: 100%;
 }
+
 .header_ultra_pag {
     height: 45px;
     width: 80%;
@@ -85,14 +98,16 @@
     border-top-right-radius: 5px;
     background-color: #53ffff;
 }
+
 .close_pag {
     height: 100%;
     width: 50px;
-    margin: 0px 10px ;
+    margin: 0px 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .area_exit_ {
     width: 35px;
     height: 35px;
@@ -104,10 +119,13 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .area_exit_:hover {
     cursor: pointer;
     background-color: #444444ea;
+    transition: all linear 0.25s;
 }
+
 .area_fundo {
     top: 0px;
     left: 0px;
@@ -115,12 +133,14 @@
     background-color: #0000008f;
     position: fixed;
     width: 100%;
-    height:100%;
-    
+    height: 100%;
+
 }
+
 .post--menu--area {
     padding-bottom: 20px;
 }
+
 .img--perfil {
     width: 45px;
     height: 45px;
@@ -131,4 +151,59 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+}
+
+.modal_sus {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_sus_defato {
+    height: auto;
+    width: 45%;
+    background-color: #252525;
+    color: #fff;
+    border-radius: 5px 5px 0px 0px;
+    position: relative;
+    z-index: 999;
+
+}
+
+.modal_sus_header {
+    width: 100%;
+    height: auto;
+    background-color: #53ffff;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.modal_area_exit {
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_area_exit .button_exit {
+    width: 35px;
+    height: 35px;
+    margin: 3px;
+    border-radius: 100%;
+    background-color: #252525;
+    background-image: url('../../../../assets/imgs/default/exit.png');
+    background-size: 45%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.modal_area_exit .button_exit:hover {
+    cursor: pointer;
+    background-color: #444444ea;
+    transition: all linear 0.25s;
 }
