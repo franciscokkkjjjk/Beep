@@ -405,7 +405,6 @@ function criarPosts(lista, coment_ = true) {
                 post_body.querySelector('.event--curtida').classList.add('p-xD30');
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
             }
-
             if (lista[i]['user_compartilhou']) {
                 post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
                 post_body.querySelector('.compartilhar-event').classList.add('descompartilhar');
