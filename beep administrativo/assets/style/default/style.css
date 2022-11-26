@@ -431,7 +431,7 @@ main .container {
 .modal_user {
     height: auto;
     position: absolute;
-    opacity: 0;
+    opacity: 1;
     width: 190px;
     box-shadow: 0px 0px 7px 3px #232324;
     margin-top: 55px;

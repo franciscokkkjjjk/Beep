@@ -51,7 +51,7 @@ function creat_list(list, img_dir, num_aux = null, aux) {
             window.sessionStorage.setItem('x5edU', list.id);
             window.location.href = 'visualizar_D_U.php';
         }
-     } else {
+    } else {
         list_clone.querySelector('.button_c').onclick = (e) => {
             e.preventDefault();
             window.sessionStorage.setItem('x5edP', list.id);
@@ -135,32 +135,20 @@ function modal_simples(mensagem, url = null) {
     }
 }
 
-let open = false;
 function header_modal(modal, button) {
     button.onclick = (e) => {
-        if (open == false) {
-            e.preventDefault();
-            modal.style.display = '';
-            setTimeout(() => {
-                modal.style.opacity = '1';
-                modal.style.display = '';
-                qs('body').onclick = () => {
-                    modal.style.opacity = '0';
-                    modal.style.display = 'none';
-                    open = false;
-                }
-            })
-            open = true;
-        } else {
-            console.log('a')
-            document.body.onclick = '';
+        e.preventDefault()
+        modal.style.display = '';
+        setTimeout(() => {
+            modal.style.opacity = '1';
+        }, 50);
+        console.log('entrou')
+        modal.querySelector('.modal_exit').onclick = () => {
             modal.style.opacity = '0';
             modal.style.display = 'none';
-            open = false;
-            open = false;
-
         }
     }
+
 }
 
 

@@ -37,8 +37,9 @@
                         <div class="seta down_seta"></div>
                     </a>
                 </div>
-                <div class="modal_opt_user_area">
-                    <div class="modal_user" style="display:none;">
+                <div class="modal_opt_user_area" style="display:none;">
+                    <div class="modal_exit" style="position: fixed;width:100%;height:100%;top:0px;left:0px;"></div>
+                    <div class="modal_user">
                         <nav>
                             <a href="dununcias.php" class="a_nav opts_user publi publica_img">
                                 Postagens
@@ -53,11 +54,12 @@
                 </div>
             </div>
             <div class="menu_show">
-                <a href="" class="a_nav seta_body">
+                <a href="" class="a_nav seta_body area_log">
                     <div class="seta down_seta"></div>
                 </a>
-                <div class="menu_area">
-                    <div class="menu_show_" style="display: none;">
+                <div class="menu_area" style="display: none; opacity:0;">
+                    <div class="modal_exit" style="position: fixed;width:100%;height:100%;top:0px;left:0px;"></div>
+                    <div class="menu_show_">
                         <div class="opts_user logout_exit">Sair</div>
                     </div>
                 </div>

@@ -11,15 +11,22 @@ if (window.sessionStorage.x5edP == "null") {
 const auxF = (var_, lugar) => {
     return var_.querySelector(lugar);
 }
-if (window.sessionStorage.x5edU != undefined) {
+if (window.sessionStorage.x5edU != undefined && window.sessionStorage.x5edU != null) {
     async function creat_list_post_D() {
         let req_aux = new FormData();
         req_aux.append('x5edP', window.sessionStorage.x5edP);
-        let req = await fetch('../assets/script/php/requisicoes/denuncias_all.php', {
-            method: 'POST',
-            body: req_aux
-        });
-        let res = await req.json();
+        let res;
+        try {
+            let req = await fetch('../assets/script/php/requisicoes/denuncias_all.php', {
+                method: 'POST',
+                body: req_aux
+            });
+
+            res = await req.json();
+        } catch {
+            window.location.href = 'dununcias.php';
+            return;
+        }
         if (res.error) {
             window.location.href = 'dununcias.php';
         } else {
@@ -28,8 +35,8 @@ if (window.sessionStorage.x5edU != undefined) {
             let info_post_d = document.querySelector('.info_cont');
             console.log(info_post_d);
             let midia;
-                //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
-            if(res.posts_info.postagem_denunciada.querent == 1) {
+            //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
+            if (res.posts_info.postagem_denunciada.querent == 1) {
                 document.querySelector(".quarentena").innerHTML = '(Em quarentena)';
                 document.querySelector('.buttons_acpt').classList.add('buttons_qua');
                 document.querySelector(".buttons_acpt").addEventListener("click", (e) => {
@@ -43,13 +50,13 @@ if (window.sessionStorage.x5edU != undefined) {
                     window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p=" + res.posts_info.postagem_denunciada.id_publicacao;
                 }, true)
             }
-            document.querySelector(".buttons_rej").onclick =  (e)=>{
+            document.querySelector(".buttons_rej").onclick = (e) => {
                 e.preventDefault();
-                modal_simples('Você realmente que excluir essa publicação? Essa ação é irreversível.', "../assets/script/php/denuncias_posts/excluir_p.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao);
+                modal_simples('Você realmente que excluir essa publicação? Essa ação é irreversível.', "../assets/script/php/denuncias_posts/excluir_p.php?id_p=" + res.posts_info.postagem_denunciada.id_publicacao);
             }
-            document.querySelector(".buttons_edit").onclick = (e)=>{
+            document.querySelector(".buttons_edit").onclick = (e) => {
                 e.preventDefault();
-                modal_simples('Essa publicação realmente está tudo ok? Essa ação resultará na exclusão de todas denúncias referentes a essa publicação.', "../assets/script/php/denuncias_posts/tudoOk.php?id_p="+res.posts_info.postagem_denunciada.id_publicacao);
+                modal_simples('Essa publicação realmente está tudo ok? Essa ação resultará na exclusão de todas denúncias referentes a essa publicação.', "../assets/script/php/denuncias_posts/tudoOk.php?id_p=" + res.posts_info.postagem_denunciada.id_publicacao);
 
             }
             if (res.posts_info.postagem_denunciada.midia_publi != "") {
@@ -58,11 +65,11 @@ if (window.sessionStorage.x5edU != undefined) {
                     midia.setAttribute("controls", "on");
                     midia.setAttribute("src", `../../assets/imgs/posts/${res.posts_info.postagem_denunciada.midia_publi}`);
                     document.querySelector(".img_area").append(midia);
-                    
+
                 } else if (res.posts_info.postagem_denunciada.midia_publi.split(".")[1] != '') {
                     let midia = document.createElement('img');
                     midia.setAttribute('src', `../../assets/imgs/posts/${res.posts_info.postagem_denunciada.midia_publi}`);
-                    document.querySelector(".img_area").append(midia);  
+                    document.querySelector(".img_area").append(midia);
                 }
             } else {
                 let div_ = document.createElement('div');
@@ -115,4 +122,5 @@ if (window.sessionStorage.x5edU != undefined) {
     creat_list_post_D();
 } else {
     window.location.href = 'dununcias.php';
+    // console.log('teste')
 }
