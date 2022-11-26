@@ -7,6 +7,7 @@
     require_once '../assets/script/php/historico.php';    
     require_once '../assets/script/php/conecta.php';
     require_once '../assets/script/php/function/funcoes.php';
+    require_once '../assets/script/php/html__generic/suspenso_.php';
     if(!isset($_GET['postagem'])) {
         header('location:inicial.php');
     }

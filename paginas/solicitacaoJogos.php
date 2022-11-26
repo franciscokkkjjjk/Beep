@@ -5,6 +5,7 @@
     }  
     require_once '../assets/script/php/conecta.php';
     require_once '../assets/script/php/function/funcoes.php';
+    require_once '../assets/script/php/html__generic/suspenso_.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

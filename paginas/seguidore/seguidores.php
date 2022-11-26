@@ -5,6 +5,8 @@ if(!isset($_SESSION['id_user'])) {
 }
 require_once '../../assets/script/php/conecta.php';
 require_once '../../assets/script/php/function/funcoes.php';
+require_once '../assets/script/php/html__generic/suspenso_.php';
+
 $user_vist = isset($_GET['id_user']);
 if($user_vist) {
     $sql_pag_anterior = 'SELECT username FROM users WHERE id_user='.$_GET['id_user'];

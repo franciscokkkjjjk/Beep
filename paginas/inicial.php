@@ -7,6 +7,8 @@
     require_once '../assets/script/php/historico.php';    
     require_once '../assets/script/php/conecta.php';
     require_once '../assets/script/php/function/funcoes.php';
+    require_once '../assets/script/php/html__generic/suspenso_.php';
+
     $sql_posts = "SELECT * FROM publicacoes WHERE user_publi IN (SELECT user_seguido FROM seguidores WHERE user_seguin=".$_SESSION['id_user'].") ORDER BY date_publi DESC ";
     $res_posts = mysqli_query($conexao,$sql_posts);
     $postagens = mysqli_fetch_all($res_posts,1);
