@@ -15,11 +15,16 @@ if (window.sessionStorage.x5edU != undefined) {
     async function creat_list_post_D_U() {
         let req_aux = new FormData();
         req_aux.append('x5edU', window.sessionStorage.x5edU);
-        let req = await fetch('../assets/script/php/requisicoes/denuncia_user_all.php', {
-            method: 'POST',
-            body: req_aux
-        });
-        let res = await req.json();
+        let res;
+        try {
+            let req = await fetch('../assets/script/php/requisicoes/denuncia_user_all.php', {
+                method: 'POST',
+                body: req_aux
+            });
+            res = await req.json();
+        } catch {
+            window.location.href = 'denuncias_usuario.php';
+        }
         console.log(res)
         if (res.error) {
             window.location.href = 'dununcias.php';
@@ -28,8 +33,13 @@ if (window.sessionStorage.x5edU != undefined) {
             let info_post_d = document.querySelector('.info_cont');
             console.log(info_post_d);
             let midia;
-            //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
             let id_user = res.usuario_denunciado.id_usuario;
+            //define como 'tudo ok    
+            document.querySelector('.tudo_ok_user').addEventListener('click', (e) => {
+                e.preventDefault();
+                modal_simples('Essa denúncia realmente está tudo ok? Essa ação resultará na exclusão de todas denúncias referentes a esse usuário, e isso é irreversível.', "../assets/script/php/denuncias_user/tudo_ok_user.php?x_ID30=" + id_user);
+            }, true)
+            //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
             if (res.usuario_denunciado.status_ == 1) {
                 document.querySelector(".quarentena").innerHTML = `(Conta suspensa. Tempo: ${res.usuario_denunciado.temp_sus})`;
                 document.querySelector('.buttons_sus').classList.add('buttons_sus_r');
@@ -37,16 +47,24 @@ if (window.sessionStorage.x5edU != undefined) {
                     e.preventDefault();
                     let body_v = new FormData();
                     body_v.append('x_ID30', id_user);
-                    let req = await fetch('../assets/script/php/denuncias_user/retirar_suspensao.php', {
-                        method: "POST",
-                        body: body_v,
-                    });
-                    res = await req.json();
-                    alert_mensage(res);
-                    setTimeout(() => { window.location.reload() }, 1000);
+                    let res_;
+                    try {
+                        let req = await fetch('../assets/script/php/denuncias_user/retirar_suspensao.php', {
+                            method: "POST",
+                            body: body_v,
+                        });
+                        res_ = await req.json();
+                        alert_mensage(res);
+                        setTimeout(() => { window.location.reload() }, 1000);
+                    } catch {
+                        let msm = {
+                            'mensage': "Não foi possivel definir como 'Tudo ok'.",
+                            'error': true
+                        };
+                        alert_mensage(msm);
 
+                    }
                 }, true)
-                // console.log(document.querySelector('.quarentena'))
             } else {
                 header_modal(document.querySelector('.modal_sus'), document.querySelector(".buttons_sus"));
                 document.querySelector('.button_enviar_sus').addEventListener("click", async (e) => {

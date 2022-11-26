@@ -58,7 +58,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                         <a href="" class="a_nav buttons_sus button_a buttons_d border_c"></a>
                     </nav>
                     <nav>
-                        <a href="" class="a_nav">
+                        <a href="" class="a_nav tudo_ok_user">
                             <div class="buttons_edit button_d buttons_d border_c"></div>
                         </a>
                     </nav>
