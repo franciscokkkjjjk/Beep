@@ -37,9 +37,10 @@ if (window.sessionStorage.x5edU != undefined) {
                 }, true)
                 // console.log(document.querySelector('.quarentena'))
             } else {
-                document.querySelector(".buttons_sus").addEventListener("click", (e) => {
+                header_modal(document.querySelector('.modal_sus'), document.querySelector(".buttons_sus"));
+                document.querySelector('.button_enviar_sus').addEventListener("click", async (e) => {
                     e.preventDefault();
-                    
+                    let req = await fetch('..');
                     // modal_simples('Você realmente quer fazer isso?', "../assets/script/php/denuncias_posts/quarentena.php?id_p=" + res.usuario_denunciado.id_publicacao);
                     // window.location.href = ";
                 }, true)
