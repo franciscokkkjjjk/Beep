@@ -7,6 +7,16 @@ if (isset($_SESSION['id_root'])) {
     date_default_timezone_get();
     require_once '../conect_pdo.php';
     $id_user = $pdo->escape_string($_POST['x_ID30']);
+    $verify = $pdo->query("SELECT * FROM users WHERE id_user=".$id_user)->fetch_assoc();
+    if(is_null($verify) or empty($verify)) {
+        $json = [
+            'mensage'=>'esse usário não existe mais.',
+            'error' => true,
+            'reset' => true
+        ];
+        echo json_encode($json);
+        die;
+    }
     $tempo_supensao = $pdo->real_escape_string($_POST['x_U30']);
     $Date = date("d-m-Y");
     if ($tempo_supensao != NULL) {

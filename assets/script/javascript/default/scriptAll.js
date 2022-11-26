@@ -99,6 +99,11 @@ function showImg_form(e, a, c) {
 let timer;
 
 function alert_mensage(json) {
+    if(json.reset != undefined) {
+        window.location.reload()
+        console.log('enbtrou');
+        return;
+    }
     let creat_mensage = document.createElement('div');
     creat_mensage.classList.add('mensagem_alert');
     if (json.mensage != undefined) {

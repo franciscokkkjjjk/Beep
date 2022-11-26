@@ -29,7 +29,7 @@ if (window.sessionStorage.x5edU != undefined) {
             console.log(info_post_d);
             let midia;
             //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
-            if (res.usuario_denunciado.status_ ==1) {
+            if (res.usuario_denunciado.status_ == 1) {
                 document.querySelector(".quarentena").innerHTML = `(Conta suspensa. Tempo: ${res.usuario_denunciado.temp_sus})`;
                 document.querySelector('.buttons_sus').classList.add('buttons_sus_r');
                 document.querySelector(".buttons_sus").addEventListener("click", (e) => {
@@ -45,13 +45,23 @@ if (window.sessionStorage.x5edU != undefined) {
                     let body_v = new FormData();
                     body_v.append('x_U30', qs('.modal_sus_body select').value);
                     body_v.append('x_ID30', id_user);
-                    let req = await fetch('../assets/script/php/denuncias_user/suspender_user.php', {
-                        method: "POST",
-                        body: body_v,
-                    });
-                    let res = await req.json();
-                    alert_mensage(res);
+                    let res;
+                    try {
+                        let req = await fetch('../assets/script/php/denuncias_user/suspender_user.php', {
+                            method: "POST",
+                            body: body_v,
+                        });
+                        res = await req.json();
+                        alert_mensage(res);
 
+                    } catch {
+                        res = {
+                            'mensage': 'Não foi possive suspender o usuário.',
+                            'error': true
+                        }
+                        alert_mensage(res);
+                    }
+                    return;
                 }, true)
             }
             let username_user = res.usuario_denunciado.username;
