@@ -16,12 +16,15 @@ if (isset($_SESSION['id_root'])) {
         echo json_encode($json);
         die;
     }
-    $tempo_supensao = $pdo->real_escape_string($_POST['x_U30']);
+    $tempo_supensao = intval($pdo->real_escape_string($_POST['x_U30']));
     $Date = date("d-m-Y");
-    if ($tempo_supensao != NULL) {
-        $tempo_supensao = date('Y-m-d H:i:s', strtotime($Date . ' + ' . $tempo_supensao . ' days'));
+    if ($tempo_supensao > 0) {
+        $tempo_supensao = "'" . date('Y-m-d H:i:s', strtotime($Date . ' + ' . $tempo_supensao . ' days')) . "'";
+        $suspender_user = $pdo->query("UPDATE users SET users.tempo_suspensao=$tempo_supensao, users.status_=1 WHERE users.id_user=" . $id_user);
+    } else {
+        $suspender_user = $pdo->query("UPDATE users SET users.tempo_suspensao=NULL, users.status_=1 WHERE users.id_user=" . $id_user);
     }
-    $suspender_user = $pdo->query("UPDATE users SET users.tempo_suspensao='" . $tempo_supensao . "', users.status_=1 WHERE users.id_user=" . $id_user);
+
     $json = [
         "mensage" => '',
         'error' => false

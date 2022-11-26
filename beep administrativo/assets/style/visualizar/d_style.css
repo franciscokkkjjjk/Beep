@@ -38,9 +38,10 @@
 .buttons_sus_r::after {
     display: flex;
     height: 100%;
+    text-align: center;
     align-items: center;
     justify-content: center;
-    content: "Retirar suspenção do usuário" !important;
+    content: "Retirar usuário da suspenção" !important;
 }
 
 .img_p {

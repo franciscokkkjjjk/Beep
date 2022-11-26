@@ -43,6 +43,8 @@ if (window.sessionStorage.x5edU != undefined) {
                     });
                     res = await req.json();
                     alert_mensage(res);
+                    setTimeout(() => { window.location.reload() }, 1000);
+
                 }, true)
                 // console.log(document.querySelector('.quarentena'))
             } else {
@@ -60,7 +62,7 @@ if (window.sessionStorage.x5edU != undefined) {
                         });
                         res = await req.json();
                         alert_mensage(res);
-
+                        setTimeout(() => { window.location.reload() }, 1000);
                     } catch {
                         res = {
                             'mensage': 'Não foi possive suspender o usuário.',
