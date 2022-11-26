@@ -162,7 +162,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
             ?>
         </div>
     </div>
-    <div class="modal_sus" style="">
+    <div class="modal_sus" style="display:none; opacity:0;">
         <div class="modal_exit" style="background-color:#0000008f;position: fixed;width:100%;height:100%;top:0px;left:0px;"></div>
         <div class="modal_sus_defato">
             <div class="modal_sus_header">

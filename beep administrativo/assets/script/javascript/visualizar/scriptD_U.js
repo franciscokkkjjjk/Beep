@@ -39,6 +39,7 @@ if (window.sessionStorage.x5edU != undefined) {
             } else {
                 document.querySelector(".buttons_sus").addEventListener("click", (e) => {
                     e.preventDefault();
+                    
                     // modal_simples('Você realmente quer fazer isso?', "../assets/script/php/denuncias_posts/quarentena.php?id_p=" + res.usuario_denunciado.id_publicacao);
                     // window.location.href = ";
                 }, true)
