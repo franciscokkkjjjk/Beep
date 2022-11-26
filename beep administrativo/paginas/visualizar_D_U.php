@@ -163,19 +163,28 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
         </div>
     </div>
     <div class="modal_sus" style="">
-        <div class="modal_exit" style="position: fixed;width:100%;height:100%;top:0px;left:0px;"></div>
+        <div class="modal_exit" style="background-color:#0000008f;position: fixed;width:100%;height:100%;top:0px;left:0px;"></div>
         <div class="modal_sus_defato">
             <div class="modal_sus_header">
                 <div class="modal_area_exit">
                     <div class="button_exit modal_exit"></div>
                 </div>
+                <button class="button_enviar_sus">Suspender</button>
             </div>
             <div class="modal_sus_body">
                 <div class="title_modal_sus">
-                    Tempo de suspenão
+                    Tempo de suspenão:
                 </div>
                 <select>
-                    <option>sdasd</option>
+                    <option value="1">1 dia</option>
+                    <option value="15">15 dias</option>
+                    <option value="30">30 dias</option>
+                    <option value="60">60 dias</option>
+                    <option value="100">100 dias</option>
+                    <option value="200">200 dias</option>
+                    <option value="300">300 dias</option>
+                    <option value="365">365 dias</option>
+                    <option value="NULL">indeterminado</option>
                 </select>
             </div>
         </div>

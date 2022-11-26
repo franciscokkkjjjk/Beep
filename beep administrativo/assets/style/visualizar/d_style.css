@@ -169,7 +169,8 @@
     width: 45%;
     background-color: #252525;
     color: #fff;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 7px 2px #000;
     position: relative;
     z-index: 999;
 
@@ -179,6 +180,11 @@
     width: 100%;
     height: auto;
     background-color: #53ffff;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 10px;
     border-radius: 5px 5px 0px 0px;
 }
 
@@ -205,5 +211,33 @@
 .modal_area_exit .button_exit:hover {
     cursor: pointer;
     background-color: #444444ea;
+    transition: all linear 0.25s;
+}
+
+.modal_sus_body {
+    padding: 10px 30px;
+}
+
+.modal_sus_body select {
+    padding: 5px;
+    width: 45%;
+    margin: 7px 10px;
+}
+
+.modal_sus_body option {
+    font-size: 15px;
+    margin: 15px;
+}
+
+.button_enviar_sus {
+    padding: 8px 12px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px;
+}
+
+.button_enviar_sus:hover {
+    background-color: #333333;
+    cursor: pointer;
     transition: all linear 0.25s;
 }
