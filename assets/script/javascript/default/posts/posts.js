@@ -115,7 +115,7 @@ async function user_(active, username = null) {
             game_perfil(username);
         }
     } else {
-        not_requi(0);
+        not_requi(0, user_v.mensage);
         qs('.back--event').remove();
         qsAll('.event').forEach((e) => {
             e.remove();
@@ -1518,7 +1518,7 @@ async function user__curtidas() {
             post_not(2);
         }
     } else {
-        not_requi(0);
+        not_requi(0, user_v.mensage);
         qs('.back--event').remove();
         qsAll('.event').forEach((e) => {
             e.remove();
@@ -1577,8 +1577,10 @@ function num_coment_dinamic() {
     }, 9000)
 }
 num_coment_dinamic();
-function not_requi(a) {
-    if (a == 0) {
+function not_requi(a, mensage = null) {
+    if (a == 0 && mensage == null) {
         qs('.info--perfil').innerHTML = '<p class=\'nada\'>Esse usuário não existe.</p>';
+    } else {
+        qs('.info--perfil').innerHTML = `<p class=\'nada\'>${mensage}</p>`;
     }
 }
