@@ -1,4 +1,3 @@
-<!-- <a href="../assets/script/php/logout_root.php">s</a> -->
 <?php
 session_start();
 if (!isset($_SESSION['id_root'])) {
@@ -9,13 +8,10 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     header('location:../');
     die;
 }
-// if(isset($_SESSION['ative']) and isset($_SESSION['id_root'])) { 
-//     header('location:inicial.php');
-//     die;
-// }
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
