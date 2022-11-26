@@ -31,7 +31,7 @@ if (isset($_SESSION['id_root'])) {
         die;
     }
     $json = [
-        'Usuário foi tirado da supensão com sucesso.',
+        'mensage' => 'Usuário foi tirado da supensão com sucesso.',
         'error' => false
     ];
     echo json_encode($json);

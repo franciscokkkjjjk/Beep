@@ -29,16 +29,23 @@ if (window.sessionStorage.x5edU != undefined) {
             console.log(info_post_d);
             let midia;
             //verficar se o post ta em quarentena ou não. Caso estive, colocar uma mensagem que ele ta em quarentena e adicionar uma classe no botão, caso contrario, deixar como esta.
+            let id_user = res.usuario_denunciado.id_usuario;
             if (res.usuario_denunciado.status_ == 1) {
                 document.querySelector(".quarentena").innerHTML = `(Conta suspensa. Tempo: ${res.usuario_denunciado.temp_sus})`;
                 document.querySelector('.buttons_sus').classList.add('buttons_sus_r');
-                document.querySelector(".buttons_sus").addEventListener("click", (e) => {
+                document.querySelector(".buttons_sus").addEventListener("click", async (e) => {
                     e.preventDefault();
-                    // window.location.href = "../assets/script/php/denuncias_posts/quarentena.php?id_p_r=" + res.usuario_denunciado.id_publicacao;
+                    let body_v = new FormData();
+                    body_v.append('x_ID30', id_user);
+                    let req = await fetch('../assets/script/php/denuncias_user/retirar_suspensao.php', {
+                        method: "POST",
+                        body: body_v,
+                    });
+                    res = await req.json();
+                    alert_mensage(res);
                 }, true)
                 // console.log(document.querySelector('.quarentena'))
             } else {
-                let id_user = res.usuario_denunciado.id_usuario;
                 header_modal(document.querySelector('.modal_sus'), document.querySelector(".buttons_sus"));
                 document.querySelector('.button_enviar_sus').addEventListener("click", async (e) => {
                     e.preventDefault();

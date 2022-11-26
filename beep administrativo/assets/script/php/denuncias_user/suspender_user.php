@@ -5,11 +5,11 @@ if (isset($_SESSION['id_root'])) {
     date_default_timezone_get();
     require_once '../conect_pdo.php';
     $id_user = $pdo->escape_string($_POST['x_ID30']);
-    $verify = $pdo->query("SELECT * FROM users WHERE id_user=".$id_user)->fetch_assoc();
+    $verify = $pdo->query("SELECT * FROM users WHERE id_user=" . $id_user)->fetch_assoc();
     //verfica se o magrao existe
-    if(is_null($verify) or empty($verify)) {
+    if (is_null($verify) or empty($verify)) {
         $json = [
-            'mensage'=>'esse usário não existe mais.',
+            'mensage' => 'esse usário não existe mais.',
             'error' => true,
             'reset' => true
         ];
@@ -37,7 +37,7 @@ if (isset($_SESSION['id_root'])) {
         $json['mensage'] .= "Usuário suspenso com sucesso.";
         $json['error'] = false;
     }
-    $suspender_publi = $pdo->query("UPDATE publicacoes SET publicacoes.quarentena=1 WHERE publicacoes.user_publi=".$id_user);
+    $suspender_publi = $pdo->query("UPDATE publicacoes SET publicacoes.quarentena=1 WHERE publicacoes.user_publi=" . $id_user);
     if (!$suspender_publi) {
         $json["mensage"] .= "Não foi possivel colocar as publicações em quarentena.";
         $json['error'] = true;
