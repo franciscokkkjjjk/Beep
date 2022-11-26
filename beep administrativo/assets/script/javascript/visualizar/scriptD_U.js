@@ -63,7 +63,7 @@ if (window.sessionStorage.x5edU != undefined) {
                 if (res.publi.nada == undefined) {
                     criarPosts(res.publi, false);
                 } else {
-                    let div_ =  document.createElement('div');
+                    let div_ = document.createElement('div');
                     div_.setAttribute('class', 'post--menu--area');
                     div_.innerHTML = 'Esse usuário não possui publicações.';
                     div_.style.textAlign = 'center';
@@ -72,10 +72,15 @@ if (window.sessionStorage.x5edU != undefined) {
                 }
                 document.querySelector("html").style.overflow = 'hidden';
                 document.querySelector('.area_publicação').style.display = '';
-                setTimeout(() => document.querySelector('.area_publicação').style.opacity = '1', 50);
+                setTimeout(() => {
+                    document.querySelector('.area_publicação').style.opacity = '1';
+                }, 50);
                 document.querySelector('.area_exit_').onclick = () => {
-                    document.querySelector('.area_publicação').style.opacity = '0'
-                    setTimeout(() => document.querySelector('.area_publicação').style.display = 'none', 50);
+                    document.querySelector('.area_publicação').style.opacity = '0';
+                    document.querySelector("html").style.overflow = '';
+                    setTimeout(() => {
+                        document.querySelector('.area_publicação').style.display = 'none';
+                    }, 50);
                     let aux = 0;
                     document.querySelectorAll('.post--menu--area').forEach((e) => {
                         if (aux >= 2) {
@@ -86,7 +91,10 @@ if (window.sessionStorage.x5edU != undefined) {
                 }
                 document.querySelector('.area_fundo').onclick = () => {
                     document.querySelector('.area_publicação').style.opacity = '0'
-                    setTimeout(() => document.querySelector('.area_publicação').style.display = 'none', 50);
+                    setTimeout(() => {
+                        document.querySelector('.area_publicação').style.display = 'none'
+                        document.querySelector("html").style.overflow = '';
+                    }, 50);
                     let aux = 0;
                     document.querySelectorAll('.post--menu--area').forEach((e) => {
                         if (aux >= 2) {
