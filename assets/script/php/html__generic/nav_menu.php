@@ -29,7 +29,7 @@
                     <a href="<?= pagAtual('caminho'); ?>inicial.php" style="color: #fff;" class="<?= pagAtual('inicial.php') ?> img--opt-feed img--pag--inicial menu--pag--opt--section">
                         <span class="text_title_nav">Pagina inicial<span>
                     </a>
-                    <a class="img--opt-feed img--pag--pes menu--pag--opt--section">
+                    <a href="<?= pagAtual('caminho'); ?>pesquisa.php" class="<?= pagAtual('pesquisa.php') ?> img--opt-feed img--pag--pes menu--pag--opt--section">
                         <span class="text_title_nav">Pesquisar</span>
                     </a>
                     <a class="img--opt-feed img--pag--sal menu--pag--opt--section">

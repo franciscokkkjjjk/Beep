@@ -14,7 +14,7 @@
             </a>
         </div>
     </div>
-    <?php if (!(basename($_SERVER['SCRIPT_NAME']) == 'jogos.php' or basename($_SERVER['SCRIPT_NAME']) == 'pesquisa.php')) { ?>
+    <?php if (!(basename($_SERVER['SCRIPT_NAME']) == 'jogos.php' or !basename($_SERVER['SCRIPT_NAME']) == 'pesquisa.php')) { ?>
         <div class="convite--body">
 
         </div>
