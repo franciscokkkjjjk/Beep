@@ -7,7 +7,7 @@ if (isset($_POST['x_AUTO30'])) {
     $sql_auto_c_rand = $pdo->query("SELECT * FROM users WHERE users.username LIKE '%" . $pesquisa . "%' OR users.nome LIKE '%" . $pesquisa . "%' ORDER BY RAND() LIMIT 6")->fetch_all(1);
     foreach ($sql_auto_c_rand as $value) {
 ?>
-        <div class="area_users" id="<?= $value['username']?>">
+        <div class="area_users" id="<?= $value['username'] ?>">
             <div class="user_generic">
                 <div class="perfil-link" href="">
                     <div class="perfil--area">
@@ -38,10 +38,17 @@ if (isset($_POST['x_AUTO30'])) {
             </div>
         </div>
 
-<?php
+    <?php
     }
+    ?>
+    <div class="pesquisar_completa" aria-valuetext="<?= $pesquisa ?>">
+        Pesquisar por <span><?= $pesquisa ?></span>
+    </div>
+<?php
+}
+if (isset($_POST['x_POST30'])) {
+    $pesquisa = $pdo->escape_string($_POST['x_POST30']);
+?>
+<?php
 }
 ?>
-<div class="pesquisar_completa" aria-valuetext="<?= $pesquisa ?>">
-    Pesquisar por <span><?= $pesquisa ?></span>
-</div>
