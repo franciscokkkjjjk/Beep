@@ -52,7 +52,7 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                 <input placeholder="Pesquisar na beep" type="search" class="input_pesquisar">
             </div>
             <div class="feed-body-post">
-                <div class="modal_pesquisa_autocomplete">
+                <div class="modal_pesquisa_autocomplete" style="display: none; opacity:0;">
 
                     
                 </div>
