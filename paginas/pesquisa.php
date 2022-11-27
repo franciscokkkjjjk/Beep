@@ -24,6 +24,7 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/style/generic/style.css">
     <link rel="stylesheet" href="../assets/style/feed/style.css">
+    <link rel="stylesheet" href="../assets/style/pesquisar/style.css">
     <title>Pagina inicial | Beep</title>
     <style>
         <?php
@@ -48,16 +49,49 @@ $postagens = mysqli_fetch_all($res_posts, 1);
         ?>
         <div class="timeline--area">
             <div class="feed-header-body">
-                <h1>
-                    Inicio
-                </h1>
+                <input placeholder="Pesquisar na beep" type="search" class="input_pesquisar">
             </div>
             <div class="feed-body-post">
-                <div class="back--event">
-                    <div class="event"></div>
+                <div class="modal_pesquisa_autocomplete">
+                    <div class="area_users">
+                        <div class="user_generic">
+                            <div class="perfil--area">
+                                <div class="img--perfil menu--pag--img--area area--recomendado" style="background-image:url('../assets/imgs/profile/62cc4ffa7e1f5.jpg'); ">
+                                </div>
+                                <div class="name--area">
+                                    <a class="perfil-link">
+                                        <div class="name--name-perfil ">
+                                            <!-- nome -->sdsd
+                                        </div>
+                                        <div class="name--username-perfil">
+                                            <!-- username -->sdaasd
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="perfil_seguindo">
+                                seguindo
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pesquisar_completa">
+                        Pesquisar por <span>roberto</span>
+                    </div>
                 </div>
+                <!-- <div class="areas_select">
+                    <div class="area_buttons_pesquisar active_pesquisa publicacoes_area">
+                        Publicações
+                    </div>
+                    <div class="area_buttons_pesquisar publicacoes_area">
+                        Usuários
+                    </div>
+                    <div class="area_buttons_pesquisar publicacoes_area">
+                        Jogos
+                    </div>
+                </div> -->
                 <?php
-                require_once '../assets/script/php/html__generic/posts_template.php'; ?>
+                require_once '../assets/script/php/html__generic/posts_template.php';
+                ?>
             </div>
         </div>
         <?php
@@ -68,14 +102,7 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <script type="text/javascript" src="../assets/script/javascript/default/scriptAll.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
-    <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js">
-
-    </script>
-    <script>
-        posts();
-        verficar_posts();
-    </script>
-    <script type="text/javascript" src="../assets/script/javascript/feed/script.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script>
         const nome = <?php echo '"' . $_SESSION['nome'] . '"'; ?>;
         const email = <?php echo '"' . $_SESSION['email'] . '"'; ?>;
@@ -88,11 +115,10 @@ $postagens = mysqli_fetch_all($res_posts, 1);
         const d_nas = <?php echo '"' . date('d', strtotime($_SESSION['data_nas'])) . '"'; ?>;
         const y_nas = <?php echo '"' . date('Y', strtotime($_SESSION['data_nas'])) . '"'; ?>;
     </script>
-    <script src="../assets/script/javascript/default/edit_form.js">
-    </script>
-    <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js">
-    </script>
+    <script src="../assets/script/javascript/default/edit_form.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js"></script>
     <script src="../assets/script/javascript/default/jogos/game.js"></script>
+    <script type="text/javascript" src="../assets/script/javascript/default/pesquisar.js"></script>
 </body>
 
 </html>

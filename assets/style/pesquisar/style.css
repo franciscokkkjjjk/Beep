@@ -1,0 +1,122 @@
+.areas_select {
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.area_buttons_pesquisar {
+    background-color: #2424248e;
+    padding: 10px 0px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.area_buttons_pesquisar:hover {
+    background-color: #505050;
+    cursor: pointer;
+    transition: all linear 0.25s;
+    border-bottom: 2px solid #53ffff;
+}
+
+.active_pesquisa {
+    border-bottom: 2px solid #53ffff;
+}
+
+.input_pesquisar {
+    padding: 10px;
+    width: 80%;
+    padding-left: 40px;
+    background-color: #2d2d2d;
+    box-shadow: 0px 0px 4px 2px #464646;
+    border-radius: 20px;
+    color: #fff;
+    border: none;
+    background-image: url('../../imgs/default/generic_lupa_white.png');
+    background-position: 15px;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+.input_pesquisar:focus-visible {
+    background-image: url('../../imgs/default/generic_lupa_beep_hover.png');
+    background-size: 20px 20px;
+    transition: all linear 0.25s;
+}
+
+.input_pesquisar::placeholder {
+    color: #ffffff73;
+}
+
+.input_pesquisar::-webkit-search-cancel-button {
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 100%;
+    appearance: auto;
+    cursor: pointer;
+}
+
+.feed-header-body {
+    height: auto;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feed-body-post {
+    padding-top: 52px;
+}
+
+.modal_pesquisa_autocomplete {
+    min-height: 150px;
+    max-height: 300px;
+    color: #fff;
+    width: 80%;
+    margin-top: -6px !important;
+    background-color: #0c0c0c;
+    border-radius: 8px;
+    box-shadow: 0px 0px 7px 3px #ffffff62;
+    position: relative;
+    margin: auto;
+    z-index: 2;
+}
+
+.user_generic {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    border: 0.5px solid #50505079;
+    padding: 5px 2px;
+    padding-right: 8px;
+}
+
+.perfil_seguindo {
+    background-image: url('../../imgs/default/perfil-de-usuario.png');
+    background-size: 15px 15px;
+    background-position: 15px;
+    padding-left: 35px;
+    font-size: 0.9em;
+    background-repeat: no-repeat;
+}
+
+.user_generic:hover,
+.pesquisar_completa:hover {
+    cursor: pointer;
+    background-color: #31313150;
+    transition: all linear 0.25s;
+}
+
+.pesquisar_completa {
+    padding: 15px;
+    font-size: 14px;
+}
+
+.pesquisar_completa span {
+    color: #b2b2b2;
+}
