@@ -73,7 +73,7 @@
 }
 
 .modal_pesquisa_autocomplete {
-    min-height: 150px;
+    min-height: 80px;
     max-height: 300px;
     overflow: auto;
     color: #fff;
@@ -119,5 +119,7 @@
 }
 
 .pesquisar_completa span {
+    max-width: 100%;
+    word-break: break-all;
     color: #b2b2b2;
 }

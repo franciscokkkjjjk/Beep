@@ -13,7 +13,7 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
         try {
             let form_ = new FormData();
             form_.append('x_AUTO30', pesquisa);
-            let req_ = await fetch('../assets/script/php/requsicoes/pesquisar_auto.php', {
+            let req_ = await fetch('../assets/script/php/requsicoes/pesquisas/pesquisar_auto.php', {
                 method: 'POST',
                 body: form_
             });
@@ -35,7 +35,8 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
             });
             let pesquisa = document.querySelector('.pesquisar_completa').ariaValueText;
             document.querySelector('.pesquisar_completa').onclick = async (e) => {
-                let req_pes = await fetch('')
+                let pesquisaCompleta = e.target.ariaValueText;
+                let req_pes = await fetch('../');
             }
         })
         document.querySelector('.modal_pesquisa_autocomplete').innerHTML = res;

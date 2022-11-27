@@ -1,7 +1,7 @@
 <?php
-require_once '../conect_pdo.php';
+require_once '../../conect_pdo.php';
 session_start();
-require_once '../function/funcoes.php';
+require_once '../../function/funcoes.php';
 if (isset($_POST['x_AUTO30'])) {
     $pesquisa = $pdo->escape_string($_POST['x_AUTO30']);
     $sql_auto_c_rand = $pdo->query("SELECT * FROM users WHERE users.username LIKE '%" . $pesquisa . "%' OR users.nome LIKE '%" . $pesquisa . "%' ORDER BY RAND() LIMIT 6")->fetch_all(1);
