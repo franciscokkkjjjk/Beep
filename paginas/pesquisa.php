@@ -53,30 +53,8 @@ $postagens = mysqli_fetch_all($res_posts, 1);
             </div>
             <div class="feed-body-post">
                 <div class="modal_pesquisa_autocomplete">
-                    <div class="area_users">
-                        <div class="user_generic">
-                            <div class="perfil--area">
-                                <div class="img--perfil menu--pag--img--area area--recomendado" style="background-image:url('../assets/imgs/profile/62cc4ffa7e1f5.jpg'); ">
-                                </div>
-                                <div class="name--area">
-                                    <a class="perfil-link">
-                                        <div class="name--name-perfil ">
-                                            <!-- nome -->sdsd
-                                        </div>
-                                        <div class="name--username-perfil">
-                                            <!-- username -->sdaasd
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="perfil_seguindo">
-                                seguindo
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pesquisar_completa">
-                        Pesquisar por <span>roberto</span>
-                    </div>
+
+                    
                 </div>
                 <!-- <div class="areas_select">
                     <div class="area_buttons_pesquisar active_pesquisa publicacoes_area">

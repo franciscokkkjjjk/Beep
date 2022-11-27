@@ -101,7 +101,6 @@ let timer;
 function alert_mensage(json) {
     if(json.reset != undefined) {
         window.location.reload()
-        console.log('enbtrou');
         return;
     }
     let creat_mensage = document.createElement('div');
