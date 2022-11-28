@@ -1,27 +1,27 @@
 let key_anterior;
 let selecionada = 0;
-document.querySelector('.publicacoes_c').onclick = (e)=>{
+document.querySelector('.publicacoes_c').onclick = (e) => {
     selecionada = 0;
-    document.querySelectorAll('.publicacoes_area').forEach((e)=>{
-        e.classList.remove('active_pesquisa'); 
+    document.querySelectorAll('.publicacoes_area').forEach((e) => {
+        e.classList.remove('active_pesquisa');
     })
     document.querySelector('.blue_border_').classList.remove('blue_area_3');
     document.querySelector('.blue_border_').classList.remove('blue_area_2');
     document.querySelector('.blue_border_').classList.add('blue_area_1');
 }
-document.querySelector('.usuario_c').onclick = (e)=>{
+document.querySelector('.usuario_c').onclick = (e) => {
     selecionada = 1;
-    document.querySelectorAll('.publicacoes_area').forEach((e)=>{
-        e.classList.remove('active_pesquisa'); 
+    document.querySelectorAll('.publicacoes_area').forEach((e) => {
+        e.classList.remove('active_pesquisa');
     })
     document.querySelector('.blue_border_').classList.remove('blue_area_3');
     document.querySelector('.blue_border_').classList.add('blue_area_2');
     document.querySelector('.blue_border_').classList.remove('blue_area_1');
 }
-document.querySelector('.game_c').onclick = (e)=>{
+document.querySelector('.game_c').onclick = (e) => {
     selecionada = 2;
-    document.querySelectorAll('.publicacoes_area').forEach((e)=>{
-        e.classList.remove('active_pesquisa'); 
+    document.querySelectorAll('.publicacoes_area').forEach((e) => {
+        e.classList.remove('active_pesquisa');
     })
     document.querySelector('.blue_border_').classList.add('blue_area_3');
     document.querySelector('.blue_border_').classList.remove('blue_area_2');
@@ -40,7 +40,7 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
             pesquisa_form.append('x_POST30', pesquisaCompleta);
         } else if (selecionada == 1) {
             pesquisa_form.append('x_GAME30', pesquisaCompleta);
-        } else if(selecionada == 2){
+        } else if (selecionada == 2) {
             pesquisa_form.append('x_USUARIO30', pesquisaCompleta);
         } else {
             let msm = {
@@ -65,16 +65,21 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
                 method: "POST",
                 body: pesquisa_form,
             });
-            res_pes = await req_pes.json();
+            if (selecionada == 0 || selecionada == 1)
+                res_pes = await req_pes.json();
+            if (selecionada == 2) {
+                res_pes = await req_pes.text();
+            }
         } catch {
             post_not(5);
             return;
         }
         document.querySelector(".modal_pesquisa_autocomplete").style.opacity = '0';
         setTimeout(() => document.querySelector(".modal_pesquisa_autocomplete").style.display = 'none', 25)
+        document.querySelector('.modal_close_pesquisa').style.display = 'none';
 
         console.log(res_pes);
-        if (res_pes.nada == undefined) {
+        if (res_pes.nada == undefined && selecionada == 0) {
             console.log(res_pes);
             criarPosts(res_pes);
             curtir_post();
@@ -91,8 +96,13 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
             setInterval(async () => {
                 post_num_compartilhamento();
             }, 9000);
+        } else if (res_pes.nada == undefined && selecionada == 1) {
+
+        } else if (res_pes.nada == undefined && selecionada == 2) {
+
         } else {
             post_not(5);
+
         }
 
     }
@@ -187,6 +197,6 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
 }, true);
 document.querySelector('.modal_close_pesquisa').onclick = () => {
     document.querySelector('.modal_pesquisa_autocomplete').style.opacity = '0';
-    setTimeout(()=>document.querySelector('.modal_pesquisa_autocomplete').style.opacity = '0', 15)
+    setTimeout(() => document.querySelector('.modal_pesquisa_autocomplete').style.display = 'none', 15)
     document.querySelector('.modal_close_pesquisa').style.display = 'none';
 }

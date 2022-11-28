@@ -30,13 +30,15 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <link rel="stylesheet" href="../assets/style/pesquisar/style.css">
     <title>Pagina inicial | Beep</title>
     <style>
-        <?php if (!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
-        ?>.menu--pag--img--area {
+        <?php if ( !$_SESSION['img']=='' and !$_SESSION['img']==null) {
+            ?>.menu--pag--img--area {
                 background-image: url('../assets/imgs/profile/<?= $_SESSION['img'] ?>')
             }
 
             <?php
-        } else {
+        }
+
+        else {
             ?>.menu--pag--img--area {
                 background-image: url('../assets/imgs/default/perfil-de-usuario-black.png');
             }
@@ -44,7 +46,7 @@ $postagens = mysqli_fetch_all($res_posts, 1);
             <?php
         }
 
-            ?>
+        ?>
     </style>
 </head>
 
@@ -68,14 +70,13 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                     <div class="area_buttons_pesquisar publicacoes_c  publicacoes_area">
                         Publicações
                     </div>
-                    <div class="area_buttons_pesquisar usuario_c publicacoes_area">
-                        Usuários
-                    </div>
-               
                     <div class="area_buttons_pesquisar game_c publicacoes_area">
                         Jogos
                     </div>
-                    
+                    <div class="area_buttons_pesquisar usuario_c publicacoes_area">
+                        Usuários
+                    </div>
+
 
                 </div>
                 <div class="border_">
@@ -96,16 +97,16 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script>
-        const nome = <?php echo '"' . $_SESSION[' nome '] . '"'; ?>;
-        const email = <?php echo '"' . $_SESSION[' email '] . '"'; ?>;
-        const username = <?php echo '"' . $_SESSION[' username '] . '"'; ?>;
-        const img_perfil = <?php echo '"' . $_SESSION[' img '] . '"'; ?>;
-        const img_banner = <?php echo '"' . $_SESSION[' img_banner '] . '"'; ?>;
+        const nome = <?php echo '"' .$_SESSION[' nome ']. '"'; ?>;
+        const email = <?php echo '"' .$_SESSION[' email ']. '"'; ?>;
+        const username = <?php echo '"' .$_SESSION[' username ']. '"'; ?>;
+        const img_perfil = <?php echo '"' .$_SESSION[' img ']. '"'; ?>;
+        const img_banner = <?php echo '"' .$_SESSION[' img_banner ']. '"'; ?>;
         const bio = <?php echo '`' . $_SESSION['bio_user'] . '` '; ?>;
-        const dateC = <?php echo '"' . date('d / m / Y ', strtotime($_SESSION[' data_nas '])) . '"'; ?>;
-        const m_nas = <?php echo '"' . date('m ', strtotime($_SESSION[' data_nas '])) . '"'; ?>;
-        const d_nas = <?php echo '"' . date('d ', strtotime($_SESSION[' data_nas '])) . '"'; ?>;
-        const y_nas = <?php echo '"' . date('Y ', strtotime($_SESSION[' data_nas '])) . '"'; ?>;
+        const dateC = <?php echo '"' .date('d / m / Y ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
+        const m_nas = <?php echo '"' .date('m ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
+        const d_nas = <?php echo '"' .date('d ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
+        const y_nas = <?php echo '"' .date('Y ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
     </script>
     <script src="../assets/script/javascript/default/edit_form.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js"></script>
