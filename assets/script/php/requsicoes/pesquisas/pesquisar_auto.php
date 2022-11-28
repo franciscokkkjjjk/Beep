@@ -28,10 +28,17 @@ if (isset($_POST['x_AUTO30'])) {
         </div>
         <?php
         $sql_user_seguindo = $pdo->query("SELECT * FROM seguidores WHERE user_seguin=" . $_SESSION['id_user'] . " AND user_seguido=" . $value['id_user'] . "")->fetch_assoc();
-        if (!is_null($sql_user_seguindo) and !empty($sql_user_seguindo)) {
+        if (!is_null($sql_user_seguindo) and !empty($sql_user_seguindo) and $_SESSION['username'] != $value['username']) {
         ?>
         <div class="perfil_seguindo">
             seguindo
+        </div>
+        <?php
+        } elseif ($_SESSION['username'] == $value['username']) {
+
+        ?>
+        <div class="perfil_seguindo">
+            Você mesmo.
         </div>
         <?php
         }
@@ -51,7 +58,7 @@ if (isset($_POST['x_AUTO30'])) {
 }
 if (isset($_POST['x_POST30'])) {
     $pesquisa = $pdo->escape_string($_POST['x_POST30']);
-    $sql_pesquisa_post = $pdo->query("SELECT * FROM publicacoes WHERE publicacoes.text_publi LIKE '%" . $pesquisa . "%' OR publicacoes.id_game IN (SELECT jogos.id_jogos FROM jogos WHERE jogos.nome_jogo LIKE '%" . $pesquisa . "%')")->fetch_all(1);
+    $sql_pesquisa_post = $pdo->query("SELECT * FROM publicacoes WHERE publicacoes.text_publi LIKE '%" . $pesquisa . "%' OR publicacoes.id_game IN (SELECT jogos.id_jogos FROM jogos WHERE jogos.nome_jogo LIKE '%" . $pesquisa . "%') OR publicacoes.user_publi IN (SELECT id_user FROM users WHERE users.username LIKE '%" . $pesquisa . "%' OR users.nome LIKE '%" . $pesquisa . "%')")->fetch_all(1);
     require_once '../../conecta.php';
     require_once '../../function/funcoes.php';
 
@@ -296,5 +303,52 @@ if (isset($_POST['x_GAME30'])) {
         ];
     }
     echo json_encode($json);
+}
+if (isset($_POST['x_USUARIO30'])) {
+    $pesquisa_user = $pdo->real_escape_string($_POST['x_USUARIO30']);
+    $sql_auto_c_rand = $pdo->query("SELECT * FROM users WHERE users.username LIKE '%" . $pesquisa_user . "%' OR users.nome LIKE '%" . $pesquisa_user . "%' ORDER BY RAND() LIMIT 6")->fetch_all(1);
+    foreach ($sql_auto_c_rand as $value) {
+?>
+<div class="area_users" id="<?= $value['username'] ?>">
+    <div class="user_generic">
+        <div class="perfil-link" href="">
+            <div class="perfil--area">
+                <div class="img--perfil menu--pag--img--area area--recomendado"
+                    style="<?= perfilDefault($value['foto_perfil'], NULL) ?> ">
+                </div>
+                <div class="name--area">
+                    <a class="perfil-link">
+                        <div class="name--name-perfil ">
+                            <?= $value['nome'] ?>
+                        </div>
+                        <div class="name--username-perfil">
+                            <?= $value['username'] ?>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <?php
+        $sql_user_seguindo = $pdo->query("SELECT * FROM seguidores WHERE user_seguin=" . $_SESSION['id_user'] . " AND user_seguido=" . $value['id_user'] . "")->fetch_assoc();
+        if (!is_null($sql_user_seguindo) and !empty($sql_user_seguindo) and $_SESSION['username'] != $value['username']) {
+        ?>
+        <div class="perfil_seguindo">
+            seguindo
+        </div>
+        <?php
+        } elseif ($_SESSION['username'] == $value['username']) {
+
+        ?>
+        <div class="perfil_seguindo">
+            Você mesmo.
+        </div>
+        <?php
+        }
+        ?>
+    </div>
+</div>
+
+<?php
+    }
 }
 ?>

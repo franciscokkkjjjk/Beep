@@ -65,7 +65,6 @@ $postagens = mysqli_fetch_all($res_posts, 1);
             </div>
             <div class="modal_close_pesquisa" style="display: none;"></div>
             <div class="feed-body-post">
-
                 <div class="areas_select">
                     <div class="area_buttons_pesquisar publicacoes_c  publicacoes_area">
                         Publicações
@@ -85,6 +84,9 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                 require_once '../assets/script/php/html__generic/posts_template.php';
                 ?>
                 <div class="area_game">
+                </div>
+                <div class="users_area">
+                    
                 </div>
             </div>
 
