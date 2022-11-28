@@ -1,7 +1,58 @@
 let key_anterior;
 qs('.input_pesquisar').addEventListener('keyup', async (e) => {
+    console.log(e.which)
     let pesquisa = e.target.value.trim();
     let res;
+   
+    console.log(pesquisa);
+    if (e.which == 13 && e.target.value.trim() != '') {
+        console.log('entrou')
+        let pesquisaCompleta = pesquisa;
+        let pesquisa_form = new FormData();
+        pesquisa_form.append('x_POST30', pesquisaCompleta);
+        let res_pes;
+        let aux = 0;
+        if (document.querySelector('.nada') != undefined) {
+            document.querySelectorAll('.nada').forEach((e) => e.remove());
+        }
+        document.querySelectorAll('.post--menu--area').forEach((e) => {
+            if (aux > 1) {
+                e.remove();
+            }
+            aux++;
+        })
+        // try {
+            let req_pes = await fetch('../assets/script/php/requsicoes/pesquisas/pesquisar_auto.php', {
+                method: "POST",
+                body: pesquisa_form,
+            });
+            res_pes = await req_pes.json();
+        // } catch {
+        //     post_not(5);
+        //     return;
+        // }
+        console.log(res_pes);
+        if (res_pes.nada == undefined) {
+            criarPosts(res_pes);
+            curtir_post();
+            desCurtir();
+            viwimg();
+            show_CM();
+            descompartilhar();
+            qs('.event-direct').onclick = compartilhar;
+            post_num_curtida();
+            setInterval(() => {
+                post_num_curtida();
+            }, 9000);
+            post_num_compartilhamento();
+            setInterval(async () => {
+                post_num_compartilhamento();
+            }, 9000);
+        } else {
+            post_not(5);
+        }
+
+    }
     if (pesquisa == key_anterior) {
         return;
     }
@@ -39,6 +90,16 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
                 let pesquisa_form = new FormData();
                 pesquisa_form.append('x_POST30', pesquisaCompleta);
                 let res_pes;
+                let aux = 0;
+                if (document.querySelector('.nada') != undefined) {
+                    document.querySelectorAll('.nada').forEach((e) => e.remove());
+                }
+                document.querySelectorAll('.post--menu--area').forEach((e) => {
+                    if (aux > 1) {
+                        e.remove();
+                    }
+                    aux++;
+                })
                 try {
                     let req_pes = await fetch('../assets/script/php/requsicoes/pesquisas/pesquisar_auto.php', {
                         method: "POST",

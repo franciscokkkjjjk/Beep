@@ -136,7 +136,7 @@ if (isset($_POST['x_POST30'])) {
             $res_s_compartilhador = mysqli_query($conexao, $sql_s_compartilhador);
             $array_s_compartilhador = mysqli_fetch_assoc($res_s_compartilhador);
 
-            $timeline[$posi] = [
+            $timeline[] = [
                 'id_publi' => $id_publi_compartilhada,
                 'type' => $post_segui['type'],
                 'text_post' => $text_publi_compartilhada,
@@ -186,10 +186,9 @@ if (isset($_POST['x_POST30'])) {
             $sql_s_perfil = 'SELECT * FROM users WHERE id_user=' . $post_segui['user_publi'];
             $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
             $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-            if (is_null($array_s_perfil) or empty($array_s_perfil)) {
-                continue;
+            if(is_null($array_s_perfil) OR empty($array_s_perfil)) {
+               continue;
             }
-
             //pega informações do jogo do usuário
             $sql_game_post = "SELECT * FROM jogos WHERE jogos.id_jogos ='" . $post_segui['id_game'] . "'";
             $res_game_post = mysqli_query($conexao, $sql_game_post);
@@ -213,7 +212,7 @@ if (isset($_POST['x_POST30'])) {
                     $user_curtiu = true;
                 }
             }
-            $timeline[$posi] = [
+            $timeline[] = [
                 'id_publi' => $post_segui['id_publi'],
                 'type' => $post_segui['type'],
                 'id_interacao' => $post_segui['id_publi_interagida'],
