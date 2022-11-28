@@ -77,7 +77,6 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                         Usuários
                     </div>
 
-
                 </div>
                 <div class="border_">
                     <div class="blue_border_ blue_area_1"> </div>
@@ -85,7 +84,10 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                 <?php
                 require_once '../assets/script/php/html__generic/posts_template.php';
                 ?>
+                <div class="area_game">
+                </div>
             </div>
+
         </div>
         <?php
         require_once '../assets/script/php/html__generic/recomendado.php';

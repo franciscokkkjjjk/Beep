@@ -186,8 +186,8 @@ if (isset($_POST['x_POST30'])) {
             $sql_s_perfil = 'SELECT * FROM users WHERE id_user=' . $post_segui['user_publi'];
             $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
             $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-            if(is_null($array_s_perfil) OR empty($array_s_perfil)) {
-               continue;
+            if (is_null($array_s_perfil) or empty($array_s_perfil)) {
+                continue;
             }
             //pega informações do jogo do usuário
             $sql_game_post = "SELECT * FROM jogos WHERE jogos.id_jogos ='" . $post_segui['id_game'] . "'";
@@ -255,5 +255,46 @@ if (isset($_POST['x_POST30'])) {
     }
 
     echo json_encode($timeline);
+}
+if (isset($_POST['x_GAME30'])) {
+    $pesquisa_game = $pdo->real_escape_string($_POST['x_GAME30']);
+    $json = array();
+
+    $game_array = $pdo->query("SELECT * FROM jogos WHERE nome_jogo LIKE '%" . $pesquisa_game . "%'")->fetch_all(1);
+
+    $arra_game_user = $pdo->query("SELECT * FROM jogos_possui WHERE id_user=" . $_SESSION['id_user'])->fetch_all(1);
+    if ($game_array != NULL) {
+        foreach ($game_array as $value_game) {
+            $possui_ = false;
+            //valida a classifcação indicativa
+            if (!valid_class_ind($_SESSION['data_nas'], $value_game['class_etaria'])) {
+                continue;
+            }
+            foreach ($arra_game_user as $v_game) {
+                if ($v_game['id_game'] == $value_game['id_jogos']) {
+                    $possui = true;
+                }
+            }
+            $json[] = [
+                'id_game' => $value_game['id_jogos'],
+                'nome_jogo' => $value_game['nome_jogo'],
+                'capa_game' => $value_game['img_jogo'],
+                'faixa_etaria' => $value_game['class_etaria'],
+                'possui' => $possui
+            ];
+        }
+    } else {
+        $json = [
+            'erro' => false,
+            'nada' => 'nada por aqui'
+        ];
+    }
+    if (empty($json) or is_null($json)) {
+        $json = [
+            'erro' => false,
+            'nada' => 'nada por aqui'
+        ];
+    }
+    echo json_encode($json);
 }
 ?>

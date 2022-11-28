@@ -1,5 +1,9 @@
 let key_anterior;
 let selecionada = 0;
+function loading() {
+    //colocar para gerar um circulo girando
+    //chamar cada que tiver uma pesquisa
+}
 document.querySelector('.publicacoes_c').onclick = (e) => {
     selecionada = 0;
     document.querySelectorAll('.publicacoes_area').forEach((e) => {
@@ -10,21 +14,21 @@ document.querySelector('.publicacoes_c').onclick = (e) => {
     document.querySelector('.blue_border_').classList.add('blue_area_1');
 }
 document.querySelector('.usuario_c').onclick = (e) => {
-    selecionada = 1;
-    document.querySelectorAll('.publicacoes_area').forEach((e) => {
-        e.classList.remove('active_pesquisa');
-    })
-    document.querySelector('.blue_border_').classList.remove('blue_area_3');
-    document.querySelector('.blue_border_').classList.add('blue_area_2');
-    document.querySelector('.blue_border_').classList.remove('blue_area_1');
-}
-document.querySelector('.game_c').onclick = (e) => {
     selecionada = 2;
     document.querySelectorAll('.publicacoes_area').forEach((e) => {
         e.classList.remove('active_pesquisa');
     })
-    document.querySelector('.blue_border_').classList.add('blue_area_3');
     document.querySelector('.blue_border_').classList.remove('blue_area_2');
+    document.querySelector('.blue_border_').classList.add('blue_area_3');
+    document.querySelector('.blue_border_').classList.remove('blue_area_1');
+}
+document.querySelector('.game_c').onclick = (e) => {
+    selecionada = 1;
+    document.querySelectorAll('.publicacoes_area').forEach((e) => {
+        e.classList.remove('active_pesquisa');
+    })
+    document.querySelector('.blue_border_').classList.add('blue_area_2');
+    document.querySelector('.blue_border_').classList.remove('blue_area_3');
     document.querySelector('.blue_border_').classList.remove('blue_area_1');
 }
 qs('.input_pesquisar').addEventListener('keyup', async (e) => {
@@ -60,13 +64,16 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
             }
             aux++;
         })
+        document.querySelector('.area_game').innerHTML = '';
+
         try {
             let req_pes = await fetch('../assets/script/php/requsicoes/pesquisas/pesquisar_auto.php', {
                 method: "POST",
                 body: pesquisa_form,
             });
-            if (selecionada == 0 || selecionada == 1)
+            if (selecionada == 0 || selecionada == 1) {
                 res_pes = await req_pes.json();
+            }
             if (selecionada == 2) {
                 res_pes = await req_pes.text();
             }
@@ -97,7 +104,7 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
                 post_num_compartilhamento();
             }, 9000);
         } else if (res_pes.nada == undefined && selecionada == 1) {
-
+            creat_game(res_pes);
         } else if (res_pes.nada == undefined && selecionada == 2) {
 
         } else {
@@ -142,7 +149,19 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
             document.querySelector('.pesquisar_completa').onclick = async (e) => {
                 let pesquisaCompleta = e.target.ariaValueText;
                 let pesquisa_form = new FormData();
-                pesquisa_form.append('x_POST30', pesquisaCompleta);
+                if (selecionada == 0) {
+                    pesquisa_form.append('x_POST30', pesquisaCompleta);
+                } else if (selecionada == 1) {
+                    pesquisa_form.append('x_GAME30', pesquisaCompleta);
+                } else if (selecionada == 2) {
+                    pesquisa_form.append('x_USUARIO30', pesquisaCompleta);
+                } else {
+                    let msm = {
+                        "mensage": 'Não foi possivel fazer a pesquisa.',
+                        'error': true
+                    };
+                    alert_mensage(msm);
+                }
                 let res_pes;
                 let aux = 0;
                 if (document.querySelector('.nada') != undefined) {
@@ -153,18 +172,27 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
                         e.remove();
                     }
                     aux++;
-                })
+                });
+                document.querySelector('.area_game').innerHTML = '';
+
                 try {
                     let req_pes = await fetch('../assets/script/php/requsicoes/pesquisas/pesquisar_auto.php', {
                         method: "POST",
                         body: pesquisa_form,
                     });
-                    res_pes = await req_pes.json();
+                    if (selecionada == 0 || selecionada == 1) {
+                        res_pes = await req_pes.json();
+                    }
+                    if (selecionada == 2) {
+                        res_pes = await req_pes.text();
+                    }
                 } catch {
                     post_not(5);
                     return;
                 }
-                if (res_pes.nada == undefined) {
+                console.log(res_pes)
+                if (res_pes.nada == undefined && selecionada == 0) {
+                    console.log(res_pes);
                     criarPosts(res_pes);
                     curtir_post();
                     desCurtir();
@@ -180,8 +208,14 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
                     setInterval(async () => {
                         post_num_compartilhamento();
                     }, 9000);
+                } else if (res_pes.nada == undefined && selecionada == 1) {
+                    creat_game(res_pes);
+
+                } else if (res_pes.nada == undefined && selecionada == 2) {
+
                 } else {
                     post_not(5);
+
                 }
             }
         })
