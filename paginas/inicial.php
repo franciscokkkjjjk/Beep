@@ -60,8 +60,6 @@
                             <div class="form--post--text">
                                 <div class="form--inpudiv--event">
                                     <span class='placeholder--div event--placeholder'>O que ta rolando, <?=$_SESSION['nome']?>?</span>
-        
-                                    
                                 </div>
                                 <div class="img--post">
                                 </div>

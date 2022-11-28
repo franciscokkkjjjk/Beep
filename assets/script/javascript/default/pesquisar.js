@@ -1,7 +1,11 @@
 let key_anterior;
 let selecionada = 0;
 function loading() {
+    let fundo = document.createElement('div');
     let spin = document.createElement('div');
+    fundo.setAttribute('class', 'back--event');
+    spin.setAttribute('class', 'event')
+    fundo.appendChild(spin);
 }
 
 async function pesquisa_(pesquisa) {
