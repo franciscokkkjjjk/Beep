@@ -186,7 +186,7 @@ if (isset($_POST['x_POST30'])) {
             $sql_s_perfil = 'SELECT * FROM users WHERE id_user=' . $post_segui['user_publi'];
             $res_s_perfil = mysqli_query($conexao, $sql_s_perfil);
             $array_s_perfil = mysqli_fetch_assoc($res_s_perfil);
-            if(is_null($array_s_perfil) OR empty($array_s_perfil)) {
+            if (is_null($array_s_perfil) or empty($array_s_perfil)) {
                 continue;
             }
 
