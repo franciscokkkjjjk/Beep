@@ -33,10 +33,41 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
                     window.location.href = "perfil_user_v.php?username=" + id;
                 };
             });
-            let pesquisa = document.querySelector('.pesquisar_completa').ariaValueText;
+            let pesquisaCompleta = document.querySelector('.pesquisar_completa').ariaValueText;
             document.querySelector('.pesquisar_completa').onclick = async (e) => {
                 let pesquisaCompleta = e.target.ariaValueText;
-                let req_pes = await fetch('../');
+                let pesquisa_form = new FormData();
+                pesquisa_form.append('x_POST30', pesquisaCompleta);
+                let res_pes;
+                try {
+                    let req_pes = await fetch('../assets/script/php/requsicoes/pesquisas/pesquisar_auto.php', {
+                        method: "POST",
+                        body: pesquisa_form,
+                    });
+                    res_pes = await req_pes.json();
+                } catch {
+                    post_not(5);
+                    return;
+                }
+                if (res_pes.nada == undefined) {
+                    criarPosts(res_pes);
+                    curtir_post();
+                    desCurtir();
+                    viwimg();
+                    show_CM();
+                    descompartilhar();
+                    qs('.event-direct').onclick = compartilhar;
+                    post_num_curtida();
+                    setInterval(() => {
+                        post_num_curtida();
+                    }, 9000);
+                    post_num_compartilhamento();
+                    setInterval(async () => {
+                        post_num_compartilhamento();
+                    }, 9000);
+                } else {
+                    post_not(5);
+                }
             }
         })
         document.querySelector('.modal_pesquisa_autocomplete').innerHTML = res;
@@ -47,5 +78,4 @@ qs('.input_pesquisar').addEventListener('keyup', async (e) => {
         }, 15)
     }
     key_anterior = pesquisa;
-    console.log(key_anterior);
 }, true);

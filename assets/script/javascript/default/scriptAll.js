@@ -20,6 +20,9 @@ function post_not(timeline) {
     if (timeline == 4) {
         nada.innerHTML = "Esse usuário não possue nenhum jogo. :(";
     }
+    if(timeline == 5) {
+        nada.innerHTML = 'Nada foi encontrado. :(';
+    }
     document.querySelector('.feed-body-post').appendChild(nada);
 }
 
