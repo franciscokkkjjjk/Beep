@@ -157,7 +157,7 @@ function criarPosts(lista, coment_ = true) {
             } else {
                 post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
             }
-            if (lista[i]['img_publi'] == "") {
+            if (lista[i]['img_publi'] == "" || lista[i]['img_publi'] == null) {
 
             } else {
                 let type_midia = lista[i]['img_publi'].split('.');
@@ -210,6 +210,8 @@ function criarPosts(lista, coment_ = true) {
 
             if (lista[i]['compartilhador_info']['quarentena'] == "0") { // verfica se ta em quarentena
                 let post_body = document.querySelector('.type_2 .post--menu--area').cloneNode(true);
+                post_body.querySelector('.post_curtidas').innerHTML = lista[i]['num_curtidas'];
+
                 coment(post_body.querySelector('.comentar'));
                 post_body.id = lista[i]['compartilhador_info']['id_da_compartilhada'] + 'pt-xD30';
                 post_body.querySelector('.menu--pag--img--area').setAttribute('style', lista[i]['compartilhador_info']['img_user']);
@@ -423,6 +425,12 @@ function criarPosts(lista, coment_ = true) {
             //gera comentario
         }
     }
+    curtir_post();
+    desCurtir();
+    viwimg();
+    show_CM();
+    descompartilhar();
+    post_num_curtida();
     atual = parseInt(i) + 1;
     return;
 }

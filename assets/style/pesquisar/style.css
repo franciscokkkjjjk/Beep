@@ -5,7 +5,25 @@
     width: 100%;
     justify-content: space-between;
 }
-
+.border_ {
+   width: 100%;
+}
+.blue_border_ {
+    height: 2px;
+    width: calc(100%/3);
+    background-color: #53ffff;
+   transition: all ease 0.25s
+}
+.blue_area_1 {
+    margin-left: calc((100%/3) * 0);
+}.blue_area_2 {
+    margin-left: calc((100%/3) * 1);
+}.blue_area_3 {
+    margin-left: calc((100%/3) * 2);
+}
+.area_buttons_pesquisar:hover {
+    border-bottom: none !important;
+} 
 .area_buttons_pesquisar {
     background-color: #2424248e;
     padding: 10px 0px;
@@ -125,4 +143,12 @@
     max-width: 100%;
     word-break: break-all;
     color: #b2b2b2;
+}
+.modal_close_pesquisa {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
 }
