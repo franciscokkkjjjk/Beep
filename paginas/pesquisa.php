@@ -83,10 +83,11 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                 <?php
                 require_once '../assets/script/php/html__generic/posts_template.php';
                 ?>
+                <div class="area_loading"></div>
                 <div class="area_game">
                 </div>
                 <div class="users_area">
-                    
+
                 </div>
             </div>
 
