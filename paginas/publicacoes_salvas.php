@@ -47,48 +47,10 @@
         <div class="timeline--area">
             <div class="feed-header-body">
                 <h1>
-                    Inicio
+                    Publicações salvas
                 </h1>
             </div>
             <div class="feed-body-post">
-            <form action="../assets/script/php/posts.php" method="post" enctype="multipart/form-data">
-                    <div class="form--post--area">
-                        <div class="area--form01">
-                            <div class="form--post--perfil">
-                                <div class="img--perfil menu--pag--img--area"></div>
-                            </div>  
-                            <div class="form--post--text">
-                                <div class="form--inpudiv--event">
-                                    <span class='placeholder--div event--placeholder'>O que ta rolando, <?=$_SESSION['nome']?>?</span>
-                                </div>
-                                <div class="img--post">
-                                </div>
-                            </div>
-                            <button class="button--post--form" type="submit">Postar</button>    
-                            <input type="hidden" value="" class='form--event--diviput' name="post_text">
-                        </div>
-                        <div class="area--form02">
-                            <div class="menu--post--item">
-                                <div class="area--opt">
-                                    <label for="img--post">
-                                        <div class="opt--menu--item pic" aria-label="Adicionar uma imagem."></div>
-                                    <input id="img--post" type="file" style="display: none;" class="input_img_event" name="img_post">
-                                    </label>
-                                    <div class="opt--menu--item game_img opt--menu--item--margin-left event_modal_game" aria-label="Adicionar um jogo.">
-                                        
-                                    </div>
-                                </div>
-                                <div class="area_game_publi">
-                                    
-                                </div>
-                                <input type="hidden" value="" class="game_publi" name="game_">
-                                <div class="remove_game_publi" style="display:none;">
-                                    Remover
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
                 <div class="back--event">
                     <div class="event"></div>
                 </div>

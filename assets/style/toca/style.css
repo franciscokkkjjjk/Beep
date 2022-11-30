@@ -231,3 +231,6 @@
 .info--button .elipse-img {
     background-size: 50%;
 }
+.button--aceira--convite::before {
+    content: 'Aceitar Convite';
+}

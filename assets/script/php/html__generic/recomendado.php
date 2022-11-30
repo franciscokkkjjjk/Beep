@@ -1,8 +1,3 @@
-<style>
-    .button--aceira--convite::before {
-        content: 'Aceitar Convite';
-    }
-</style>
 <div class="area--convite">
     <div class="feed-logo-body menu--header">
         <div class="menu">
@@ -21,10 +16,13 @@
     </div>
     <?php if (!(basename($_SERVER['SCRIPT_NAME']) == 'jogos.php' or !basename($_SERVER['SCRIPT_NAME']) == 'pesquisa.php')) { ?>
     <div class="convite--body">
+        <div class="title--recomendados">
+            Convites para jogar
+        </div>
         <div class="opt--recomedado--area">
             <div class="perfil--area">
                 <div class="img--perfil menu--pag--img--area area--recomendado"
-                    style="background-image:url('../assets/imgs/profile/background.jpg62cb37f242313.jpg');">
+                    style="background-image:url('<?= pagAtual('caminho')?>../assets/imgs/profile/background.jpg62cb37f242313.jpg');">
                 </div>
                 <div class="name--area">
                     <a class="perfil-link" href="">
@@ -49,22 +47,24 @@
         <div class="opt--recomedado--area">
             <div class="perfil--area">
                 <div class="img--perfil menu--pag--img--area area--recomendado"
-                    style="background-image:url('../assets/imgs/profile/background.jpg62cb37f242313.jpg');">
+                    style="background-image:url('<?= pagAtual('caminho')?>../assets/imgs/profile/tumblr_5cd8d34827dfa6b0be3630995ae357ee_e777277e_1280.png62c78ae56cd20.png62cad38f2a9c1.png'); ">
                 </div>
                 <div class="name--area">
                     <a class="perfil-link" href="">
                         <div class="name--name-perfil perfil-link-hover" style="color: #fff;">
-                            miranddd
+
+                            matehux
+
                         </div>
                         <div class="name--username-perfil perfil-link-hover">
-                            @mira458170
+                            @mate261486
                         </div>
                     </a>
                 </div>
             </div>
             <div class="buttom-recomendado-area">
                 <div class="buttom--body">
-                    <form action="<?= pagAtual('caminho'); ?>../assets/script/php/seguir.php" method="post">
+                    <form action="<?= pagAtual('caminho');?>../assets/script/php/seguir.php" method="post">
                         <button type="submit" class="button--seguir button--aceira--convite"></button>
                         <input type="hidden" value="" name="iD_x30">
                     </form>
@@ -74,15 +74,15 @@
         <div class="opt--recomedado--area">
             <div class="perfil--area">
                 <div class="img--perfil menu--pag--img--area area--recomendado"
-                    style="background-image:url('../assets/imgs/profile/6373445738ab1.jpg');">
+                    style="background-image:url('<?= pagAtual('caminho')?>../assets/imgs/profile/6373445738ab1.jpg');">
                 </div>
                 <div class="name--area">
                     <a class="perfil-link" href="">
                         <div class="name--name-perfil perfil-link-hover" style="color: #fff;">
-                            mir_25
+                            Blue pen
                         </div>
                         <div class="name--username-perfil perfil-link-hover">
-                            @mir_180322
+                            @bluePin
                         </div>
                     </a>
                 </div>
@@ -96,6 +96,8 @@
                 </div>
             </div>
         </div>
+        <div class='button_convidar'>Convidar para jogar</div>
+
     </div>
     <?php if (basename($_SERVER['SCRIPT_NAME']) != 'recomendados.php') { ?>
     <div class="convite--body pessoas Recomendados-body">

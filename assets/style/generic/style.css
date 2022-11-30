@@ -2293,6 +2293,22 @@ select option {
     transition: all linear 0.25s;
 }
 
+.convite--body {
+    padding: 5px;
+    border-radius: 5px;
+    min-height: auto !important;
+}
+.button_convidar {
+    padding: 10px 5px;
+    width: 100%;
+    background-color: #53ffff;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+}
+.button--aceira--convite::before {
+    content: 'Aceitar Convite';
+}
 /* ---------------------------------- responsivade para baixo------------------ */
 @media only screen and (max-width:1025px) {
     .menu--pag--name-perfil--area {
