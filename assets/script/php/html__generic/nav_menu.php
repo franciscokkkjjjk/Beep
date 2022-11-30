@@ -32,7 +32,7 @@
                     <a href="<?= pagAtual('caminho'); ?>pesquisa.php" class="<?= pagAtual('pesquisa.php') ?> img--opt-feed img--pag--pes menu--pag--opt--section">
                         <span class="text_title_nav">Pesquisar</span>
                     </a>
-                    <a class="img--opt-feed img--pag--sal menu--pag--opt--section">
+                    <a class="img--opt-feed img--pag--sal menu--pag--opt--section <?= pagAtual('publicacoes_salvas.php') ?>" href='<?= pagAtual('caminho');?>publicacoes_salvas.php'>
                         <span class="text_title_nav">Publicações salvas</span>
                     </a>
                     <a href='<?= pagAtual('caminho'); ?>jogos.php' class="<?= pagAtual('jogos.php') ?> img--opt-feed img--pag--jogos menu--pag--opt--section">
