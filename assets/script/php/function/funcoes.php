@@ -72,8 +72,6 @@ function pagAtual($area, $versao = false)
         } else {
             return 'active--tem';
         }
-    } elseif ($pagina_atual == 'seguindo.php' or $pagina_atual == 'seguidores.php'  and $area == 'caminho') {
-        return '../';
     } else {
         return '';
     }

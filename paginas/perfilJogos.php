@@ -93,8 +93,8 @@
                                 <?=date('d/m/Y', strtotime($_SESSION['data_nas']))?>
                             </div>
                             <div class="segui--indo">
-                                <a class='seguidores--info area--segui'href="seguidore/seguindo.php"><span class="num_seguindo"><?=$array_info['t_seguindo']?></span> seguindo</a>
-                                <a class='seguidor--info area--segui'href="seguidore/seguidores.php"><span class="num_seguidores"><?=$array_info['t_seguidores']?></span> seguidores</a>
+                                <a class='seguidores--info area--segui'href="seguindo.php"><span class="num_seguindo"><?=$array_info['t_seguindo']?></span> seguindo</a>
+                                <a class='seguidor--info area--segui'href="seguidores.php"><span class="num_seguidores"><?=$array_info['t_seguidores']?></span> seguidores</a>
                             </div>
                         </div>
                         <div class="menu--info--perfil--area">
