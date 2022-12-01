@@ -20,7 +20,9 @@
             Convites para jogar
         </div>
         <div class='area_convites_games'>
-            
+            <div class="postion-no" style="padding:10px 5px ;">
+                <div class='event'></div>
+            </div>
         </div>
         <div class='button_convidar'>Convidar para jogar</div>
 

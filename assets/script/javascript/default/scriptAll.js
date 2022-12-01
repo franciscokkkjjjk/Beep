@@ -483,14 +483,35 @@ if (button_convidar != undefined) {
 async function verify_convite() {
     let form = new FormData();
     form.append('x_VERIFYD30', '');
-    let req = await fetch('../assets/script/php/requsicoes/convite_game/convite_game_list.php', {
-        method: "POST",
-        body: form
-    });
-    let res_ = await req.text();
+    let res_;
+    try {
+        let req = await fetch('../assets/script/php/requsicoes/convite_game/convite_game_list.php', {
+            method: "POST",
+            body: form
+        });
+        if (req.status == 200) {
+            res_ = await req.text();
+        } else {
+            return;
+        }
+    } catch {
+        return;
+    }
     if (document.querySelector('.area_convites_games') != undefined) {
         document.querySelector('.area_convites_games').innerHTML = res_;
     }
+    document.querySelectorAll('.button--aceira--convite').forEach((e) => {
+        e.onclick = async (b) => {
+            let ro = b.target.id.split('_');
+            let id_user = ro[2];
+            let form = new FormData();
+            form.append('x_ACEIRARD30', id_user);
+            let req = await fetch('../assets/script/php/requsicoes/convite_game/convite_game_list.php', {
+                method: "POST",
+                body: form
+            });
+        }
+    })
 }
 verify_convite();
 setInterval(async () => {

@@ -82,7 +82,7 @@ if (isset($_POST['x_CONVIDARXD_30_'])) {
         die;
     }
     $data_atual = date('Y-m-d H:i:s');
-    $sql = $pdo->query("INSERT INTO conviteparajogos(id_user_convidado, id_user_foi_convidado, data_convidado) VALUES (" . $_SESSION['id_user'] . ", " . $user['id_user'] . ", '$data_atual')");
+    $sql = $pdo->query("INSERT INTO conviteparajogos(id_user_convidado, id_user_foi_convidado, data_convidado, aceito) VALUES (" . $_SESSION['id_user'] . ", " . $user['id_user'] . ", '$data_atual', 0)");
     if (!$sql) {
         $json = [
             'mensage' => "Não foi possivel convidar o usuário para jogar.",
@@ -131,10 +131,10 @@ if (isset($_POST['x_VERIFYD30'])) {
 <div class="opt--recomedado--area">
     <div class="perfil--area">
         <div class="img--perfil menu--pag--img--area area--recomendado"
-            style="background-image:url('<?= pagAtual('caminho') ?>../assets/imgs/profile/background.jpg62cb37f242313.jpg');">
+            style="background-image:url('<?= pagAtual('caminho') ?>../assets/imgs/profile/<?= $sql_user['foto_perfil'] ?>')";>
         </div>
         <div class="name--area">
-            <a class="perfil-link" href="">
+            <a class="perfil-link" href="<?= pagAtual('caminho') ?>perfil_user_v.php?username=<?=$sql_user['username']?>">
                 <div class="name--name-perfil perfil-link-hover" style="color: #fff;">
                     <?= $sql_user['nome'] ?>
                 </div>
@@ -146,14 +146,14 @@ if (isset($_POST['x_VERIFYD30'])) {
     </div>
     <div class="buttom-recomendado-area">
         <div class="buttom--body">
-            <form action="<?= pagAtual('caminho'); ?>../assets/script/php/seguir.php" method="post">
-                <button type="submit" class="button--seguir button--aceira--convite"></button>
-                <input type="hidden" value="" name="iD_x30">
-            </form>
+                <button type="submit" class="button--seguir button--aceira--convite" id='x_ACEITAR30_<?=$sql_user['id_user']?>'></button>
         </div>
     </div>
 </div>
 <?php
     }
+}
+if(isset($_POST['x_ACEIRARD30'])) {
+    
 }
 ?>
