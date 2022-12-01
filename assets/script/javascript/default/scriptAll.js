@@ -506,12 +506,20 @@ async function verify_convite() {
             let id_user = ro[2];
             let form = new FormData();
             form.append('x_ACEIRARD30', id_user);
-            let req = await fetch('../assets/script/php/requsicoes/convite_game/convite_game_list.php', {
-                method: "POST",
-                body: form
-            });
-            let res_ = await req.json();
-            console.log(res_);
+            let res_;
+            try {
+                let req = await fetch('../assets/script/php/requsicoes/convite_game/convite_game_list.php', {
+                    method: "POST",
+                    body: form
+                });
+                 res_ = await req.json();
+            } catch {
+                let msm = {
+                    "mensage": 'Não foi possivel aceitar o convite.',
+                    "error": true
+                }
+                alert_mensage(msm);
+            }
             alert_mensage(res_);
         }
     })

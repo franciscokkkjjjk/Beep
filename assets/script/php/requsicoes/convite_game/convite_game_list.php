@@ -148,8 +148,13 @@ if (isset($_POST['x_VERIFYD30'])) {
     </div>
     <div class="buttom-recomendado-area">
         <div class="buttom--body">
+            <?php if (!$value06['aceito']) { ?>
             <button type="submit" class="button--seguir button--aceira--convite"
                 id='x_ACEITAR30_<?= $sql_user['id_user'] ?>'></button>
+            <?php } else { ?>
+            <button type="submit" class="button--seguir button--aceito--convite"
+                ></button>
+            <?php } ?>
         </div>
     </div>
 </div>
@@ -169,15 +174,15 @@ if (isset($_POST['x_ACEIRARD30'])) {
         $sql_del = $pdo->query("DELETE FROM conviteparajogos WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user");
         die;
     }
-    if($sql_convite['aceito']) {
+    if ($sql_convite['aceito']) {
         $json = [
             'mensage' => "Esse convite já foi aceito anteriormente.",
             'error' => true
         ];
         echo json_encode($json);
         die;
-    }else {
-     $sql_aceitar = $pdo->query("UPDATE conviteparajogos SET aceito=1 WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user");
+    } else {
+        $sql_aceitar = $pdo->query("UPDATE conviteparajogos SET aceito=1 WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user");
     }
     if ($sql_aceitar) {
         $json = [
@@ -190,7 +195,7 @@ if (isset($_POST['x_ACEIRARD30'])) {
             'error' => true
         ];
     }
-
     echo json_encode($json);
+    die;
 }
 ?>
