@@ -20,7 +20,7 @@ function post_not(timeline) {
     if (timeline == 4) {
         nada.innerHTML = "Esse usuário não possue nenhum jogo. :(";
     }
-    if(timeline == 5) {
+    if (timeline == 5) {
         nada.innerHTML = 'Nada foi encontrado. :(';
     }
     document.querySelector('.feed-body-post').appendChild(nada);
@@ -102,7 +102,7 @@ function showImg_form(e, a, c) {
 let timer;
 
 function alert_mensage(json) {
-    if(json.reset != undefined) {
+    if (json.reset != undefined) {
         window.location.reload()
         return;
     }
@@ -389,3 +389,110 @@ function modal_denuncia_pefil(id_) {
         }
     }
 }
+
+// --------------------------------------- convite de jogos --------------------------
+let button_convidar = document.querySelector('.button_convidar');
+if (button_convidar != undefined) {
+    let modal_ = document.querySelector('.modal_convite_game_');
+    button_convidar.addEventListener('click', async () => {
+        function exit_modal_convite() {
+            modal_.style.display = 'none';
+            modal_.style.opacity = '0';
+            modal_.querySelector('.area_users_convite').innerHTML = '';
+            modal_.querySelector('.postion-no').display = '';
+            document.querySelector('html').style.overflow = '';
+            setTimeout(() => modal_.style.opacity = "1", 150);
+        }
+        let fomr = new FormData();
+        fomr.append('x_USERID30', 'teste');
+        let res_;
+        modal_.style.display = '';
+        document.querySelector('html').style.overflow = 'hidden';
+        setTimeout(() => modal_.style.opacity = "1", 150);
+        try {
+            let req_ = await fetch('../assets/script/php/requsicoes/convite_game/convite_game_list.php', {
+                method: "POST",
+                body: fomr,
+            });
+            if (req_.status != 404) {
+                res_ = await req_.text();
+            } else {
+                exit_modal_convite();
+                return;
+            }
+
+        } catch {
+            exit_modal_convite()
+            let msm = {
+                'mensage': "Não foi possivel achar usuários",
+                'error': true
+            };
+            alert_mensage(msm);
+            return;
+        }
+        modal_.querySelectorAll('.exit_modal_convite').forEach((e) => {
+            e.onclick = () => {
+                exit_modal_convite()
+            }
+        });
+        modal_.querySelector('.area_users_convite').innerHTML = res_;
+        modal_.querySelector('.postion-no').style.display = 'none';
+
+        document.querySelector(".area_users_convite").querySelectorAll('.button--seguir').forEach((e) => {
+            e.onclick = async (b) => {
+                let form = new FormData();
+                let id_user = b.target.id;
+                let id_user_aux = id_user.split("_");
+                let id_aux = id_user_aux[3];
+                let xD;
+                if (id_user_aux[2] == '29') {
+                    form.append('x_CONVIDARXD_29_', id_aux);
+                    xD = 'x_CONVIDARXD_29_';
+                } else {
+                    form.append('x_CONVIDARXD_30_', id_aux);
+                    xD = 'x_CONVIDARXD_30_';
+                }
+                console.log(id_aux)
+                let req = await fetch('../assets/script/php/requsicoes/convite_game/convite_game_list.php', {
+                    method: "POST",
+                    body: form,
+                });
+                let res = await req.json();
+                console.log(res);
+                alert_mensage(res);
+                if (res.error != undefined && res.error == false) {
+                    console.log(id_user_aux[2]);
+                    if (id_user_aux[2] == '29') {
+                        b.target.classList.remove('button--convidar_fals');
+                        b.target.classList.remove('button--convidar');
+                        b.target.classList.add('button--convidar');
+                        b.target.id = 'x_CONVIDARXD_30_' + id_aux;
+                    } else {
+                        b.target.classList.remove('button--convidar_fals');
+                        b.target.classList.remove('button--convidar');
+                        b.target.classList.add('button--convidar_fals');
+                        b.target.id = 'x_CONVIDARXD_29_' + id_aux;
+                    }
+                }
+            }
+        })
+    }, true);
+}
+
+// -------------------------- gera convites do usuário ---------------------------
+async function verify_convite() {
+    let form = new FormData();
+    form.append('x_VERIFYD30', '');
+    let req = await fetch('../assets/script/php/requsicoes/convite_game/convite_game_list.php', {
+        method: "POST",
+        body: form
+    });
+    let res_ = await req.text();
+    if (document.querySelector('.area_convites_games') != undefined) {
+        document.querySelector('.area_convites_games').innerHTML = res_;
+    }
+}
+verify_convite();
+setInterval(async () => {
+    verify_convite();
+}, 2000);

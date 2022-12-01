@@ -19,82 +19,8 @@
         <div class="title--recomendados">
             Convites para jogar
         </div>
-        <div class="opt--recomedado--area">
-            <div class="perfil--area">
-                <div class="img--perfil menu--pag--img--area area--recomendado"
-                    style="background-image:url('<?= pagAtual('caminho')?>../assets/imgs/profile/background.jpg62cb37f242313.jpg');">
-                </div>
-                <div class="name--area">
-                    <a class="perfil-link" href="">
-                        <div class="name--name-perfil perfil-link-hover" style="color: #fff;">
-                            miranddd
-                        </div>
-                        <div class="name--username-perfil perfil-link-hover">
-                            @mira458170
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="buttom-recomendado-area">
-                <div class="buttom--body">
-                    <form action="<?= pagAtual('caminho'); ?>../assets/script/php/seguir.php" method="post">
-                        <button type="submit" class="button--seguir button--aceira--convite"></button>
-                        <input type="hidden" value="" name="iD_x30">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="opt--recomedado--area">
-            <div class="perfil--area">
-                <div class="img--perfil menu--pag--img--area area--recomendado"
-                    style="background-image:url('<?= pagAtual('caminho')?>../assets/imgs/profile/tumblr_5cd8d34827dfa6b0be3630995ae357ee_e777277e_1280.png62c78ae56cd20.png62cad38f2a9c1.png'); ">
-                </div>
-                <div class="name--area">
-                    <a class="perfil-link" href="">
-                        <div class="name--name-perfil perfil-link-hover" style="color: #fff;">
-
-                            matehux
-
-                        </div>
-                        <div class="name--username-perfil perfil-link-hover">
-                            @mate261486
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="buttom-recomendado-area">
-                <div class="buttom--body">
-                    <form action="<?= pagAtual('caminho');?>../assets/script/php/seguir.php" method="post">
-                        <button type="submit" class="button--seguir button--aceira--convite"></button>
-                        <input type="hidden" value="" name="iD_x30">
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="opt--recomedado--area">
-            <div class="perfil--area">
-                <div class="img--perfil menu--pag--img--area area--recomendado"
-                    style="background-image:url('<?= pagAtual('caminho')?>../assets/imgs/profile/6373445738ab1.jpg');">
-                </div>
-                <div class="name--area">
-                    <a class="perfil-link" href="">
-                        <div class="name--name-perfil perfil-link-hover" style="color: #fff;">
-                            Blue pen
-                        </div>
-                        <div class="name--username-perfil perfil-link-hover">
-                            @bluePin
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="buttom-recomendado-area">
-                <div class="buttom--body">
-                    <form action="<?= pagAtual('caminho'); ?>../assets/script/php/seguir.php" method="post">
-                        <button type="submit" class="button--seguir button--aceira--convite"></button>
-                        <input type="hidden" value="" name="iD_x30">
-                    </form>
-                </div>
-            </div>
+        <div class='area_convites_games'>
+            
         </div>
         <div class='button_convidar'>Convidar para jogar</div>
 
@@ -228,30 +154,28 @@
                         $array_query_user = mysqli_fetch_array($res_query_user);
                         $total = $array_query_user[0];
                         if ($total == 0) { ?>
-            <div class="opt--recomedado--area">
-                <div class="perfil--area">
-                    <div class="img--perfil menu--pag--img--area area--recomendado"
-                        style="<?= perfilDefault($value05['foto_perfil'], pagAtual('caminho')) ?>">
-                    </div>
-                    <div class="name--area">
-                        <a class="perfil-link"
-                            href="<?= pagAtual('caminho'); ?>perfil_user_v.php?username=<?= $value05['username'] ?>">
-                            <div class="name--name-perfil perfil-link-hover">
-                                <?= $value05['nome'] ?>
-                            </div>
-                            <div class="name--username-perfil perfil-link-hover">
-                                <?= $value05['username'] ?>
-                            </div>
-                        </a>
-                    </div>
+            <div class="perfil--area">
+                <div class="img--perfil menu--pag--img--area area--recomendado"
+                    style="<?= perfilDefault($value05['foto_perfil'], pagAtual('caminho')) ?>">
                 </div>
-                <div class="buttom-recomendado-area">
-                    <div class="buttom--body">
-                        <form action="../assets/script/php/seguir.php" method="post">
-                            <button type="submit" class="button--seguir"></button>
-                            <input type="hidden" value="<?= $value05['id_user'] ?>" name="iD_x30">
-                        </form>
-                    </div>
+                <div class="name--area">
+                    <a class="perfil-link"
+                        href="<?= pagAtual('caminho'); ?>perfil_user_v.php?username=<?= $value05['username'] ?>">
+                        <div class="name--name-perfil perfil-link-hover">
+                            <?= $value05['nome'] ?>
+                        </div>
+                        <div class="name--username-perfil perfil-link-hover">
+                            <?= $value05['username'] ?>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="buttom-recomendado-area">
+                <div class="buttom--body">
+                    <form action="../assets/script/php/seguir.php" method="post">
+                        <button type="submit" class="button--seguir"></button>
+                        <input type="hidden" value="<?= $value05['id_user'] ?>" name="iD_x30">
+                    </form>
                 </div>
             </div>
             <?php $quantidade++;
@@ -547,3 +471,26 @@ if (isset($_SESSION['menssagem'])) {
 <?php
 require_once "game_templet.php";
 ?>
+
+<div class='modal_convite_game_' style=' opacity:0;display:none; '>
+    <div class='exit_modal_convite_game exit_modal_convite'></div>
+    <div class='modal_body_convite_area'>
+        <div class='header--modal--game--repost'>
+            <div class='exit_modal_convite_area exit_modal_convite'>
+                <div class='menu--exit-img'></div>
+            </div>
+            <div class="title--coment--repost">Convidar para jogar.</div>
+        </div>
+        <div class='area_pefils'>
+            <div class='pesquisa_modal_convite'>
+                <input class='generic_input_search convite_modal_serch' type="search">
+            </div>
+            <div class="postion-no">
+                <div class="postion-no-event"></div>
+            </div>
+            <div class='area_users_convite'>
+
+            </div>
+        </div>
+    </div>
+</div>

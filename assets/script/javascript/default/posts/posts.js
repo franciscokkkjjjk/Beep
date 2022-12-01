@@ -38,7 +38,6 @@ function curtir_post() {
             num_click++;
             a.preventDefault();
             let moio;
-            console.log(num_click);
             if (num_click <= 3) {
                 moio = await fetch('../assets/script/php/interacoes_post/curtir.php', {
                     method: 'POST',
@@ -277,9 +276,9 @@ function criarPosts(lista, coment_ = true) {
                 }
                 if (lista[i]['compartilhador_info']['img_compartilhada'] == '' || lista[i]['compartilhador_info']['img_compartilhada'] == null) { } else {
                     let type_midia = lista[i]['compartilhador_info']['img_compartilhada'].split('.');
-                    console.log(type_midia);
+
                     if (type_midia[1] == 'mp4') {
-                        console.log('video')
+
                         post_body.querySelector('.post--img').remove();
                         post_body.querySelector('.post--img-area').style.display = '';
                         post_body.querySelector('.post--img-area').classList.add('area_midia_video');
@@ -296,9 +295,7 @@ function criarPosts(lista, coment_ = true) {
                 if (lista[i]['quarentena'] == 0) {
                     if (lista[i]['img_publi'] == '' || lista[i]['img_publi'] == null) { } else {
                         let type_midia = lista[i]['img_publi'].split('.');
-                        console.log(type_midia);
                         if (type_midia[1] == 'mp4') {
-                            console.log('video')
                             post_body.querySelector('.img--comentada').remove();
                             post_body.querySelector('.post--img-area-com').style.display = '';
                             post_body.querySelector('.post--img-area-com').classList.add('area_midia_video');
@@ -600,7 +597,7 @@ function desCurtir() {
         let desCurtida = new FormData(e);
         e.onclick = async function (a) {
             num_clic++;
-            console.log(num_clic);
+
             a.preventDefault();
             if (num_clic < 2) {
                 let moio_ = await fetch('../assets/script/php/interacoes_post/descurtir.php', {
@@ -638,7 +635,7 @@ async function postsCurtidos_session() {//mesma coisa da session
     let curtida_req;
     curtida_req = await fetch(`../assets/script/php/requsicoes/curtidas_posts.php?username=` + username)
     let jso_c = await curtida_req.json();
-    console.log(jso_c);
+
     qsAll('.back--event').forEach((e) => { e.remove() });
     if (jso_c.nada == undefined) {
         jso_c.reverse();
@@ -870,7 +867,7 @@ async function compartilhar() {
         modal.style.display = 'none';
     })
     alert_mensage(res);
-    console.log(res);
+
     post_num_compartilhamento();
 }
 
@@ -916,7 +913,7 @@ async function compartilhar_comentario() {//All_xD30
             body: info_aux
         });
         let resultado = await post_completo.json();
-        console.log(resultado);
+
         if (clone_MD_RC.querySelector('.back--event') != undefined) {
             clone_MD_RC.querySelector('.back--event').remove();
         }
@@ -936,7 +933,7 @@ async function compartilhar_comentario() {//All_xD30
         } else {
             clone_MD_RC.querySelector('.post--img-area').style = '';
             let extensao = resultado.publicacao.img_publi.split('.');
-            console.log(extensao);
+
             if (extensao[1] == 'mp4') {
                 clone_MD_RC.querySelector('.post--img').style = '';
                 clone_MD_RC.querySelector('.post--img').style.display = 'none';
@@ -964,7 +961,7 @@ async function compartilhar_comentario() {//All_xD30
                 formHtml.appendChild(input1);
                 formHtml.appendChild(input2);
                 formHtml.appendChild(input3);
-                console.log(formHtml);
+
                 let form = new FormData(formHtml);
                 let req_post = await fetch('../assets/script/php/interacoes_post/compartilhar_c_comentario.php', {
                     method: 'POST',
@@ -999,7 +996,6 @@ function input_div_valid() {
     }, true);
     let div_e = qs('.diveditable--coment--repost');
     div_e.addEventListener('blur', () => {
-        console.log(div_e.innerText.length);
         if (div_e.innerText.trim() == "") {
             qs('.diveditable--coment--repost').style.display = 'none';
             qs('.placeholder--editediv').style.display = 'block';
@@ -1018,7 +1014,7 @@ function descompartilhar() {
             let id_button = e.id.replace('c-xD30', '');
             let value_pomisse = new FormData();
             value_pomisse.append('c-pXD30', id_button)
-            console.log(id_button)
+
             let promisse = await fetch('../assets/script/php/interacoes_post/descompartilhar.php', {
                 method: 'POST',
                 body: value_pomisse
@@ -1235,7 +1231,7 @@ async function post_all() {
             body: info_aux
         });
         let res_aux = await post_completo.json();
-        console.log(res_aux);
+
         num_coment_dinamic();
         post_all_creat(res_aux);
         curtir_post();
@@ -1257,12 +1253,12 @@ function post_all_creat(obj) {
             area_post_completo.querySelector('.post--text').innerHTML = obj.publicacao.text_post;
         }
         let area_img = qs('.post--area-header .p-30d_10');
-        console.log(area_img);
+
         if (obj.publicacao.img_publi == '' || obj.publicacao.img_publi == null) {
             area_img.remove()
         } else {
             let type_midia = obj.publicacao.img_publi.split('.');
-            console.log(type_midia);
+
             if (type_midia[1] == 'mp4') {
                 area_img.querySelector('.event').remove();
                 area_img.querySelector('img').remove();
@@ -1311,7 +1307,6 @@ function post_all_creat(obj) {
         }
         area_post_completo.querySelector('.comentar').id = 'p_xD30_C' + obj.publicacao.id_publi;
         let conteudo_type_2 = area_post_completo.querySelector('.post_type2_conteudo');
-        console.log(obj);
         if (obj.publicacao.type == "2") {
             conteudo_type_2.style.display = '';
             // ------------------- verfica se a publicação existe --------------
@@ -1338,7 +1333,6 @@ function post_all_creat(obj) {
                         area_img.remove()
                     } else {
                         let type_midia = obj.publicacao.c_comentada.img_publi.split('.');
-                        console.log(type_midia);
                         if (type_midia[1] == 'mp4') {
                             area_img.querySelector('.event').remove();
                             area_img.querySelector('img').remove();
@@ -1550,7 +1544,6 @@ async function game_perfil(user, add = true) {
     } else {
         post_not(4);
     }
-    console.log(res_game);
 }
 function num_coment_dinamic() {
     let anterior;
@@ -1563,13 +1556,12 @@ function num_coment_dinamic() {
                     if (res_coment[a]["type"] == 3) {
                         let aux = qs('#p_xD30_C' + res_coment[a]['id_publi']);
                         if (aux != undefined) {
-                            if(aux.querySelector('.area_num') != undefined)
+                            if (aux.querySelector('.area_num') != undefined)
                                 aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
                         }
                     } else {
                         let aux_ = res_coment[a]['compartilhador_info']['id_da_compartilhada'];
                         let aux = document.getElementById('p_xD30_C' + aux_);
-                        console.log(aux_)
 
                         if (aux != undefined) {
                             if (aux.querySelector('.area_num') != undefined) {
@@ -1595,3 +1587,4 @@ function not_requi(a, mensage = null) {
         qs('.info--perfil').innerHTML = `<p class=\'nada\'>${mensage}</p>`;
     }
 }
+
