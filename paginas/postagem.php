@@ -49,7 +49,7 @@
                 <div class="menu--pag--button button--back">
                     <a href="inicial.php" class="seta--back"></a>
                 </div>
-                Postagem
+                Publicação
             </div>
             <div class="feed-body-post">
                 <div class="post-completo-area">
@@ -240,8 +240,9 @@
                                 </button>
                                 <div class="post_curtidas area_num" ><div class="event min-event"></div></div>
                             </form>
-                            <div class="comentar interacao--area">
-                                comentar
+                            <div class="comentar">
+                            <div class='interacao--area img--small img--iteracao'>comentar</div>
+                            <div class="area_num" ><div class="event min-event"></div></div>
                             </div>
                         </div>
                     </div>

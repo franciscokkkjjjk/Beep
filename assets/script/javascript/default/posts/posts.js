@@ -1236,6 +1236,7 @@ async function post_all() {
         });
         let res_aux = await post_completo.json();
         console.log(res_aux);
+        num_coment_dinamic();
         post_all_creat(res_aux);
         curtir_post();
         desCurtir();
@@ -1562,11 +1563,14 @@ function num_coment_dinamic() {
                     if (res_coment[a]["type"] == 3) {
                         let aux = qs('#p_xD30_C' + res_coment[a]['id_publi']);
                         if (aux != undefined) {
-                            aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
+                            if(aux.querySelector('.area_num') != undefined)
+                                aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
                         }
                     } else {
                         let aux_ = res_coment[a]['compartilhador_info']['id_da_compartilhada'];
                         let aux = document.getElementById('p_xD30_C' + aux_);
+                        console.log(aux_)
+
                         if (aux != undefined) {
                             if (aux.querySelector('.area_num') != undefined) {
                                 aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
@@ -1581,7 +1585,7 @@ function num_coment_dinamic() {
         } else {
             clearInterval(inter);
         }
-    }, 9000)
+    }, 2000)
 }
 num_coment_dinamic();
 function not_requi(a, mensage = null) {
