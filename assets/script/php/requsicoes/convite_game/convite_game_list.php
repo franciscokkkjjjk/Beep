@@ -131,10 +131,12 @@ if (isset($_POST['x_VERIFYD30'])) {
 <div class="opt--recomedado--area">
     <div class="perfil--area">
         <div class="img--perfil menu--pag--img--area area--recomendado"
-            style="background-image:url('<?= pagAtual('caminho') ?>../assets/imgs/profile/<?= $sql_user['foto_perfil'] ?>')";>
+            style="background-image:url('<?= pagAtual('caminho') ?>../assets/imgs/profile/<?= $sql_user['foto_perfil'] ?>')"
+            ;>
         </div>
         <div class="name--area">
-            <a class="perfil-link" href="<?= pagAtual('caminho') ?>perfil_user_v.php?username=<?=$sql_user['username']?>">
+            <a class="perfil-link"
+                href="<?= pagAtual('caminho') ?>perfil_user_v.php?username=<?= $sql_user['username'] ?>">
                 <div class="name--name-perfil perfil-link-hover" style="color: #fff;">
                     <?= $sql_user['nome'] ?>
                 </div>
@@ -146,14 +148,39 @@ if (isset($_POST['x_VERIFYD30'])) {
     </div>
     <div class="buttom-recomendado-area">
         <div class="buttom--body">
-                <button type="submit" class="button--seguir button--aceira--convite" id='x_ACEITAR30_<?=$sql_user['id_user']?>'></button>
+            <button type="submit" class="button--seguir button--aceira--convite"
+                id='x_ACEITAR30_<?= $sql_user['id_user'] ?>'></button>
         </div>
     </div>
 </div>
 <?php
     }
 }
-if(isset($_POST['x_ACEIRARD30'])) {
-    
+if (isset($_POST['x_ACEIRARD30'])) {
+    $id_user = $pdo->real_escape_string($_POST['x_ACEIRARD30']);
+    $sql_user = $pdo->query("SELECT * FROM users WHERE id_user=" . $id_user)->fetch_assoc();
+    if (is_null($sql_user) or empty($sql_user)) {
+        $json = [
+            'mensage' => "O usuário não existe mais.",
+            'error' => true
+        ];
+        echo json_encode($json);
+        $sql_del = $pdo->query("DELETE FROM conviteparajogos WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user");
+        die;
+    }
+    $sql_aceitar = $pdo->query("UPDATE conviteparajogos SET aceito=1 WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user");
+    if ($sql_aceitar) {
+        $json = [
+            'mensage' => "Convite aceito com sucesso.",
+            'error' => false
+        ];
+    } else {
+        $json = [
+            'mensage' => "Convite não pode ser aceito.",
+            'error' => true
+        ];
+    }
+
+    echo json_encode($json);
 }
 ?>

@@ -510,6 +510,9 @@ async function verify_convite() {
                 method: "POST",
                 body: form
             });
+            let res_ = await req.json();
+            console.log(res_);
+            alert_mensage(res_);
         }
     })
 }
