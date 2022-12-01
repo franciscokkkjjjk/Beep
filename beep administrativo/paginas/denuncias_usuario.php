@@ -37,7 +37,12 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
     <main>
         <div class="container">
             <div class="title_main">
+                <div class='text_title_main'>
                 Lista de usuários denúnciados
+                </div>
+                <div class="input_pesquisa">
+                    <input type="number" placeholder="Pesquisar" name="pesquisa" class="pesquisa">
+                </div>
             </div>
             <div class="title_list">
                 <div class="area_1">
