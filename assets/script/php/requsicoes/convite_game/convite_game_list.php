@@ -158,6 +158,7 @@ if (isset($_POST['x_VERIFYD30'])) {
 }
 if (isset($_POST['x_ACEIRARD30'])) {
     $id_user = $pdo->real_escape_string($_POST['x_ACEIRARD30']);
+    $sql_convite = $pdo->query("SELECT * FROM conviteparajogos WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user")->fetch_assoc();
     $sql_user = $pdo->query("SELECT * FROM users WHERE id_user=" . $id_user)->fetch_assoc();
     if (is_null($sql_user) or empty($sql_user)) {
         $json = [
@@ -168,7 +169,16 @@ if (isset($_POST['x_ACEIRARD30'])) {
         $sql_del = $pdo->query("DELETE FROM conviteparajogos WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user");
         die;
     }
-    $sql_aceitar = $pdo->query("UPDATE conviteparajogos SET aceito=1 WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user");
+    if($sql_convite['aceito']) {
+        $json = [
+            'mensage' => "Esse convite já foi aceito anteriormente.",
+            'error' => true
+        ];
+        echo json_encode($json);
+        die;
+    }else {
+     $sql_aceitar = $pdo->query("UPDATE conviteparajogos SET aceito=1 WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user");
+    }
     if ($sql_aceitar) {
         $json = [
             'mensage' => "Convite aceito com sucesso.",
