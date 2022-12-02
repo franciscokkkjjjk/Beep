@@ -41,7 +41,8 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                 Lista de usuários denúnciados
                 </div>
                 <div class="input_pesquisa">
-                    <input type="number" placeholder="Pesquisar" name="pesquisa" class="pesquisa">
+                    <input type="text" placeholder="Pesquisar" name="pesquisa" class="pesquisa_user">
+                    <button class="resetar">Resetar</button>
                 </div>
             </div>
             <div class="title_list">
@@ -66,7 +67,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                             <div class="event"></div>
                         </div>
                         <nav>
-                            <a href="" class="a_nav button_c button_int">
+                            <a href="" class="a_nav button_c button_int" >
                                 <div class=" img_">
                                 </div>
                             </a>

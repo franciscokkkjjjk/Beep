@@ -143,7 +143,7 @@ function header_modal(modal, button) {
             modal.style.opacity = '1';
         }, 50);
         console.log('entrou')
-        modal.querySelectorAll('.modal_exit').forEach((e)=> e.onclick = () => {
+        modal.querySelectorAll('.modal_exit').forEach((e) => e.onclick = () => {
             modal.style.opacity = '0';
             modal.style.display = 'none';
         })
@@ -151,8 +151,83 @@ function header_modal(modal, button) {
 
 }
 
-async function pesquisar() {
-    let req_ = await fetch('../assets/script/php/requisicoes/pesquisas/pesquisa.php');
-    let res = await req_.text(); 
-    document.body.innerHTML = res;
+async function pesquisar(pro, id) {
+    let form = new FormData();
+    form.append(pro, id);
+    let req_ = await fetch('../assets/script/php/requisicoes/pesquisas/pesquisa.php', {
+        method: "POST",
+        body: form
+    });
+    let res = await req_.text();
+    document.querySelector('.corpo_list').innerHTML = res;
+}
+
+let valorAnterio;
+let input_1 = document.querySelector('.pesquisa_game');
+if (input_1 != undefined) {
+    input_1.addEventListener("keyup", (e) => {
+        let value_p = e.target.value;
+        if (value_p.trim() != '') {
+            pesquisar('x_GAMEP30', value_p);
+            valorAnterio = value_p;
+        } else {
+            pesquisar('x_GAMEP30', '');
+        }
+        setTimeout(() => {
+            document.querySelectorAll(".button_int").forEach((b) => {
+                let id = b.id.split('_')[3];
+                b.onclick = (c) => {
+                    let id_aux = id;
+                    window.sessionStorage.setItem('x5edS', id_aux);
+                    window.location.href = 'visualizar_G.php';
+                }
+            })
+        }, 50)
+    })
+}
+
+let input_02 = document.querySelector('.pesquisa_user');
+if (input_02 != undefined) {
+    input_02.addEventListener('keyup', (e) => {
+        let id = e.target.value;
+        pesquisar('x_USERD30', id);
+
+        setTimeout(() => {
+            document.querySelectorAll(".button_int").forEach((b) => {
+                let id = b.id.split('_')[3];
+                b.onclick = (c) => {
+                    let id_aux = id;
+                    window.sessionStorage.setItem('x5edU', id_aux);
+                    window.location.href = 'visualizar_D_U.php';
+                }
+            })
+        }, 50)
+    })
+}
+
+let reset = document.querySelector('.resetar');
+if (reset != undefined) {
+    reset.addEventListener('click', () => {
+        window.location.reload();
+    })
+}
+
+let input03 = document.querySelector(".pesquisa_post");
+if (input03 != undefined) {
+    input03.addEventListener('keyup', (e) => {
+        console.log('adjxssd')
+        let id = e.target.value;
+        console.log(id);
+        pesquisar('x_POSTD30', id);
+        setTimeout(() => {
+            document.querySelectorAll(".button_int").forEach((b) => {
+                let id = b.id.split('_')[3];
+                b.onclick = (c) => {
+                    let id_aux = id;
+                    window.sessionStorage.setItem('x5edP', id_aux);
+                    window.location.href = 'visualizar_D.php';
+                }
+            })
+        }, 50)
+    })
 }

@@ -43,7 +43,9 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                     Lista de postagens denúnciadas
                 </div>
                 <div class="input_pesquisa">
-                    <input type="number" placeholder="Pesquisar" name="pesquisa" class="pesquisa">
+                    <input type="number" placeholder="Pesquisar" name="pesquisa" class="pesquisa_post">
+                    <button class="resetar">Resetar</button>
+
                 </div>
             </div>
             <div class="title_list">

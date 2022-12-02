@@ -626,3 +626,15 @@ main .container {
     color: #969696;
     font-size: 15px;
 }
+.resetar {
+    border: 1px solid #53ffff;
+    background-color: transparent;
+    color:#fff;
+    padding: 10px 20px;
+    border-radius:10px;
+}
+.resetar:hover {
+    background-color: #96969645;
+    transition: all linear 0.25s;
+    cursor: pointer;
+}
