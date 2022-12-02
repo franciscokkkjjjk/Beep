@@ -679,13 +679,17 @@ select option {
     color: inherit;
 
 }
+
 .link {
     text-decoration: none;
-}.link:hover {
+}
+
+.link:hover {
     text-decoration: underline #53ffff;
-    color:#000;
+    color: #000;
     transition: all linear .25s;
 }
+
 .perfil-link-hover:hover {
     text-decoration: underline;
 }
@@ -979,13 +983,13 @@ select option {
 .modal--shared {
     width: 300px;
     height: auto;
-    background-color: #101010;
-    color: #bbbbbb;
+    background-color: #0a0a0a;
+    color: #fff;
     position: absolute;
     border-radius: 10px;
     opacity: 0;
     transition: all ease 0.25s;
-    box-shadow: 0px 0px 12px 0px #4c4a4a;
+    box-shadow: 0px 0px 12px 0px #707070;
 }
 
 .modal--shared--opt {
@@ -2310,7 +2314,7 @@ select option {
 .button_convidar {
     padding: 10px 5px;
     width: 100%;
-    color:#000;
+    color: #000;
     background-color: #53ffff;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -2347,7 +2351,7 @@ select option {
     z-index: 1;
     background-color: #000;
     border-radius: 10px;
-    color:#fff;
+    color: #fff;
     box-shadow: 0px 0px 7px #222222;
 }
 
@@ -2359,11 +2363,13 @@ select option {
     justify-content: center;
     border-radius: 100%;
 }
+
 .exit_modal_convite_area:hover {
     background-color: #363636;
     cursor: pointer;
     transition: all linear 0.25s;
 }
+
 .exit_modal_convite_game {
     background-color: #6666664b;
     width: 100%;
@@ -2376,32 +2382,39 @@ select option {
 .button--convidar::before {
     content: 'Convidar para jogar' !important;
 }
+
 .button--convidar_fals::before {
     content: 'Retirar convite' !important;
 }
+
 .button--convidar_fals {
     border: solid 0.5px #f00 !important;
     margin-right: 15px;
 }
+
 .button--aceito--convite::before {
-    content: "Aceito" !important;    
+    content: "Aceito" !important;
 }
+
 .button--aceito--convite {
     box-shadow: 0px 0px 7px 3px #303030 inset;
-    border:  none !important;
+    border: none !important;
 }
+
 .button--aceito--convite:hover {
     background-color: transparent !important;
-    cursor:auto !important;
-} 
+    cursor: auto !important;
+}
+
 .postion-no div {
     width: 30px;
-    height: 30px ;
+    height: 30px;
     border: 3px solid #545454;
-    border-left-color:#53ffff ;
+    border-left-color: #53ffff;
     border-radius: 100%;
     animation: 1s loading linear infinite;
 }
+
 .postion-no {
     width: auto;
     border-radius: 0px !important;
@@ -2412,14 +2425,156 @@ select option {
     justify-content: center;
     position: static !important;
 }
+
 @keyframes loading {
     to {
         transform: rotate(360deg);
     }
 }
+
 .area_convites_games {
     display: flex;
     flex-direction: column;
+}
+
+.title_ {
+    font-size: 20px;
+    color: #fff;
+    padding: 20px 30px;
+}
+
+.area_sobre {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.redes_ {
+    background-size: 35px;
+    background-position: 0px center;
+    background-repeat: no-repeat;
+    padding: 5px 10px;
+    padding-left: 35px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #fff;
+    background-color: #000;
+    margin-left: 45px;
+    text-decoration: none;
+
+}
+
+.rede1 {
+    background-image: url('../../imgs/default/twitter.png');
+    background-color: #03a9f4;
+}
+
+.rede2 {
+    background-size: 25px;
+    background-position: 5px;
+    background-image: url('../../imgs/default/instagram.png');
+    background-color: transparent;
+}
+
+.rede3 {
+    background-image: url('../../imgs/default/facebook.png');
+    background-size: 25px;
+    background-position: 3px;
+    background-color: #1877f2;
+}
+
+.rede4 {
+    background-position: 3px;
+    background-size: 25px;
+    background-image: url('../../imgs/default/steam-logo.png');
+    background-color: #000000;
+}
+
+.button_area_add_rede {
+    padding: 10px 0px;
+    
+    text-align: center;
+    border: 2px solid #53ffff;
+} 
+.button_area_add_link {
+    display: block;
+    margin-top: 35px;
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+}
+
+.moda_fast, .exit_mopda_fast {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.exit_mopda_fast {
+    background-color: #6666664b;
+}
+
+.modal_fast_body {
+    box-shadow: 0px 0px 14px 0px #7a7a7a;
+    background-color: #0a0a0a;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    position: relative;
+    height: auto;
+    z-index: 1000;
+    min-height: auto;
+
+}
+.modal_fast_body option {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    min-height: 30px !important;
+}
+.modal_fast_body input {
+    width: 75%;
+}
+.modal_fast_body input,
+.modal_fast_body select {
+    font-size: 15px;
+}
+.button--postar-rede {
+    border: none;
+    background-color: #0fa8b3;
+    padding: 5px 13px;
+    border-radius: 10px;
+    color: #fbfbfb;
+}
+.button--postar-rede:hover {
+    background-color: #3dc7d1;
+    transition: all linear 0.25s;
+}
+
+.area_inputs {
+    padding: 30px 10px;
+}
+.area_inputs select, input {
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+.modal_fast_exit1 {
+    padding: 5px;
+    border-radius: 100%;
+
+}
+.modal_fast_exit1:hover {
+    background-color: #464646;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all linear 0.25s;
 }
 /* ---------------------------------- responsivade para baixo------------------ */
 @media only screen and (max-width:1025px) {

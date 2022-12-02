@@ -105,7 +105,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
                             <a class="button--opt--info active_menu_info">
                                 Curtidas  
                             </a>    
-                            <a class="button--opt--info">
+                            <a href="perfilSobre.php" class="button--opt--info">
                                 Sobre                                
                             </a>
                         </div>

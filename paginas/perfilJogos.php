@@ -107,7 +107,7 @@
                             <a class="button--opt--info" href="curtidas.php" href="curtidas.php">
                                 Curtidas  
                             </a>    
-                            <a class="button--opt--info">
+                            <a href="perfilSobre.php" class="button--opt--info">
                                 Sobre                                
                             </a>
                         </div>
