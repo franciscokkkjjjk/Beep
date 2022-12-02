@@ -670,7 +670,9 @@ async function postsCurtidos_session() {//mesma coisa da session
 let openIMG = false;
 function viwimg() {
     qsAll('.post--img').forEach(e => {
-        e.addEventListener('click', () => {
+        e.addEventListener('click', (b) => {
+            console.log()
+           
             let div00 = document.createElement('div');
             div00.setAttribute('class', 'img--modal');
             let event_exit = document.createElement('div');
@@ -685,9 +687,15 @@ function viwimg() {
             let div02 = document.createElement('div');
             div02.setAttribute('class', 'local--max--img');
             div00.appendChild(div02);
+            let  rem01;
+            let rem00;
+            if(b.srcElement.localName == 'img') {
+                rem01 = b.target.src;
+            } else {
             let rem = e.style.backgroundImage;
-            let rem00 = rem.replace('url("', ' ');
-            let rem01 = rem00.replace('")', '');
+            rem00 = rem.replace('url("', ' ');
+            rem01 = rem00.replace('")', '');
+            }
             let img = document.createElement('img');
             img.setAttribute('src', rem01);
             div02.appendChild(img);
@@ -1251,7 +1259,7 @@ async function post_all() {
             window.location.reload();
         })
         show_CM();
-
+        viwimg();
         curtir_post();
         desCurtir();
 
