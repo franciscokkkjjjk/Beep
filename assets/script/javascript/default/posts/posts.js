@@ -729,7 +729,7 @@ async function post_num_curtida() {
                         curtir_post();
                     }
                 }
-            } else if(json_[s]['type'] == "2" || json_[s]['type'] == "4"){
+            } else if (json_[s]['type'] == "2" || json_[s]['type'] == "4") {
                 //tava arrumando o curtidas //
                 let curtidaArea = document.getElementById(json_[s]['compartilhador_info']['id_da_compartilhada']);
                 if (curtidaArea != undefined) {
@@ -1014,7 +1014,7 @@ function descompartilhar() {
             let id_button = e.id.replace('c-xD30', '');
             let value_pomisse = new FormData();
             value_pomisse.append('c-pXD30', id_button)
-
+            console.log('entrou')
             let promisse = await fetch('../assets/script/php/interacoes_post/descompartilhar.php', {
                 method: 'POST',
                 body: value_pomisse
@@ -1231,9 +1231,16 @@ async function post_all() {
             body: info_aux
         });
         let res_aux = await post_completo.json();
-
         num_coment_dinamic();
+        console.log(res_aux);
         post_all_creat(res_aux);
+        descompartilhar();
+        qs('.event-direct').onclick = compartilhar;
+        qs('.event-direct').addEventListener('click', () => {
+            window.location.reload();
+        })
+        show_CM();
+
         curtir_post();
         desCurtir();
 
@@ -1241,11 +1248,20 @@ async function post_all() {
 }
 function post_all_creat(obj) {
     if (obj.error != true) {
+        let url = [
+            '../assets/script/php/interacoes_post/denunciar_p.php',
+            '',//salvar posts
+        ]
         let area_post_completo = qs('.post-completo-area .post--area-header');
         area_post_completo.querySelector('.menu--pag--img--area').setAttribute('style', obj.publicacao.user_info.img_user);
         area_post_completo.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username=' + obj.publicacao.user_info.username_user);
         area_post_completo.querySelector('.name--name-perfil').innerHTML = obj.publicacao.user_info.nome_user;
         area_post_completo.querySelector('.name--username-perfil').innerHTML = obj.publicacao.user_info.username_user;
+        let aux_id = obj.publicacao.id_publi;
+        area_post_completo.querySelector('.elipse-img').onclick = (e) => {
+            e.preventDefault();
+            posts_modal(aux_clone, aux_id, url, area_post_completo.querySelector('.elipse-img'));
+        }
         coment(area_post_completo.querySelector('.comentar'));
         if (obj.publicacao.text_post == '' || obj.publicacao.text_post == null) {
             area_post_completo.querySelector('.post--text').remove();
@@ -1273,6 +1289,23 @@ function post_all_creat(obj) {
                 area_img.querySelector('img').style.display = '';
             }
         }
+        //
+        if (obj.publicacao.user_compartilhou) {
+            area_post_completo.querySelector('.compartilhar-event-div').id = obj.publicacao.id_publi + 'c-xD30';
+            area_post_completo.querySelector('.compartilhar-event-div').classList = 'descompartilhar-event compartilhar-hover compartilhar-event-div interac-button';
+            area_post_completo.querySelector('.compartilhar-event-div button').classList = ' img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar';
+            descompartilhar();
+            qs('.compartilhar-hover').addEventListener('click', () => {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 250)
+            })
+        } else {
+            area_post_completo.querySelector('.compartilhar-event').id = obj.publicacao.id_publi + 'c-xD30';
+            area_post_completo.querySelector('.compartilhar-event-div').classList = 'compartilhar-hover compartilhar-event-div interac-button ';
+            area_post_completo.querySelector('.compartilhar-event-div button').classList = 'compartilhar-event img--iteracao img--strong button--remove interacao--area compartilhar img-compartilhar-off';
+            show_CM();
+        }
         area_post_completo.querySelector('.num--curtidas').innerHTML = obj.publicacao.num_curtidas;
         area_post_completo.querySelector('.num--coment').innerHTML = obj.publicacao.num_comentario;
         area_post_completo.querySelector('.num--compartilha').innerHTML = obj.publicacao.beepadas;
@@ -1290,6 +1323,11 @@ function post_all_creat(obj) {
                 area_post_completo.querySelector('.resposta--area-post_all').style.display = '';
                 area_post_completo.querySelector('.resposta--area-post_all .resposta-link').href = `perfil_user_v.php?username=${obj.publicacao.c_comentada.user_info.username_user}`;
                 area_post_completo.querySelector('.resposta--area-post_all .resposta-link').innerHTML = obj.publicacao.c_comentada.user_info.username_user;
+                let aux_id = obj.publicacao.c_comentada.id_publi;
+                area_post_completo.querySelector('.post_type2_conteudo .elipse-img').onclick = (e) => {
+                    e.preventDefault();
+                    posts_modal(aux_clone, aux_id, url, area_post_completo.querySelector('.post_type2_conteudo .elipse-img'));
+                }
             }
         }
         area_post_completo.querySelector('.info--post--complete .date--complete').innerHTML = `${obj.publicacao.date_publi_ca} as ${obj.publicacao.date_publi_hr}`;
@@ -1376,6 +1414,11 @@ function post_all_creat(obj) {
                 document.querySelector(".post--area--raiz").append(mensagem);
             } else {
                 if (obj.publicacao.c_comentada.quarentena == 0) {
+                    let aux_id = obj.publicacao.c_comentada.id_publi;
+                    conteudo_type_1.querySelector('.elipse-img').onclick = (e) => {
+                        e.preventDefault();
+                        posts_modal(aux_clone, aux_id, url, conteudo_type_1.querySelector('.elipse-img'));
+                    }
                     conteudo_type_1.querySelector('.menu--pag--img--area').setAttribute('style', obj.publicacao.c_comentada.user_info.img_user);
                     conteudo_type_1.querySelector('.perfil-link').setAttribute('href', 'perfil_user_v.php?username=' + obj.publicacao.c_comentada.user_info.username_user);
                     conteudo_type_1.querySelector('.name--name-perfil').innerHTML = obj.publicacao.c_comentada.user_info.nome_user;
@@ -1430,10 +1473,36 @@ function post_all_creat(obj) {
                 if (load != undefined) {
                     load.remove()
                 }
+                let aux_id = obj.comentarios[bobSponja].id_publi;
+                areaPalhacada.querySelector('.elipse-img').onclick = (e) => {
+                        e.preventDefault();
+                        posts_modal(aux_clone, aux_id, url, areaPalhacada.querySelector('.elipse-img'));
+                    }
                 areaPalhacada.querySelector('.perfil-link').setAttribute('href', `perfil_user_v.php?username=${obj.comentarios[bobSponja].user_info.username_user}`);
                 areaPalhacada.querySelector('.name--perfil--coment').innerHTML = obj.comentarios[bobSponja].user_info.nome_user;
                 areaPalhacada.querySelector('.username--perfil--coment').innerHTML = `(${obj.comentarios[bobSponja].user_info.username_user})`;
                 areaPalhacada.querySelector('.date--post').innerHTML = obj.comentarios[bobSponja].date_publi;
+                areaPalhacada.querySelector('.comentar .area_num').innerHTML = obj.comentarios[bobSponja].num_comentario;
+                //--------------verifica se foi compartilhada ou não--------------------
+                areaPalhacada.querySelector('.compartilhar-event-div .area_num').innerHTML = obj.comentarios[bobSponja].beepadas
+                if (obj.comentarios[bobSponja].user_compartilhou) {
+                    areaPalhacada.querySelector('.compartilhar-event-div').id = obj.comentarios[bobSponja].id_publi + 'c-xD30';
+                    areaPalhacada.querySelector('.compartilhar-event-div').classList = 'descompartilhar-event compartilhar-hover compartilhar-event-div interac-button';
+                    areaPalhacada.querySelector('.compartilhar-event-div button').classList = ' img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar';
+                    descompartilhar();
+                    areaPalhacada.querySelector('.compartilhar-hover').addEventListener('click', () => {
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 250)
+                    })
+                } else {
+                    areaPalhacada.querySelector('.compartilhar-event').id = obj.comentarios[bobSponja].id_publi + 'c-xD30';
+                    areaPalhacada.querySelector('.compartilhar-event-div').classList = 'compartilhar-hover compartilhar-event-div interac-button ';
+                    areaPalhacada.querySelector('.compartilhar-event-div button').classList = 'compartilhar-event img--iteracao img--strong button--remove interacao--area compartilhar img-compartilhar-off';
+                    show_CM();
+
+                }
+
                 if (obj.comentarios[bobSponja].img_publi == "" || obj.comentarios[bobSponja].img_publi == undefined || obj.comentarios[bobSponja].img_publi == null) {
                     areaPalhacada.querySelector('.post--img-area').remove();
                 } else {
@@ -1559,7 +1628,7 @@ function num_coment_dinamic() {
                             if (aux.querySelector('.area_num') != undefined)
                                 aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
                         }
-                    } else if(res_coment[a]['type'] == 4 || res_coment[a]['type'] == 2){
+                    } else if (res_coment[a]['type'] == 4 || res_coment[a]['type'] == 2) {
                         let aux_ = res_coment[a]['compartilhador_info']['id_da_compartilhada'];
                         let aux = document.getElementById('p_xD30_C' + aux_);
 

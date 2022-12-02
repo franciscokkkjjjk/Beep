@@ -2,9 +2,8 @@
      session_start();
      require_once '../conecta.php';
      require_once '../function/funcoes.php';
-     if($_POST['c-pXD30']) {
-      $publi_des = $_POST['c-pXD30'];
-   
+     if(isset($_POST['c-pXD30'])) {
+      $publi_des = intval($_POST['c-pXD30']);
         $sql_post_compartilhado = 'SELECT * FROM publicacoes WHERE id_publi='.$publi_des;
         $res_post_compartilhado = mysqli_query($conexao, $sql_post_compartilhado);
         $assoc_post = mysqli_fetch_assoc($res_post_compartilhado);

@@ -2303,6 +2303,7 @@ select option {
 .button_convidar {
     padding: 10px 5px;
     width: 100%;
+    color:#000;
     background-color: #53ffff;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
