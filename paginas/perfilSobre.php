@@ -135,19 +135,14 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                         if (is_null($sql_redes) or empty($sql_redes)) {
 
                         } else {
+                            foreach ($sql_redes as $sql_redes) {
                         ?>
-                        <a href="" class="rede1 redes_">@franciscokkkjjjk</a>
+                        <a target="_blank" href="<?= $sql_redes['username_rede'] ?>" class="rede<?= $sql_redes['type_r'] ?> redes_"> <?= $sql_redes['username_txt'] ?> </a>
 
                         <?php
+                            }
                         }
                             ?>
-                        <a href="" class="rede1 redes_">@franciscokkkjjjk</a>
-                        <a href="" class="rede2 redes_">@franciscokkkjjjk</a>
-                        <a href="" class="rede3 redes_">@franciscokkkjjjk</a>
-                        <a href="" class="rede4 redes_">@franciscokkkjjjk</a>
-                        <?php
-
-                        ?>
                     </div>
                     <a href="" class="button_area_add_rede button_area_add_link">
                         Adicionar rede social
