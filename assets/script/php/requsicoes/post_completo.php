@@ -132,6 +132,9 @@ if (isset($_POST['All_xD30'])) {
             } else {
                 $user_compartilhou_comet = false;
             }
+            if($valueC['quarentena'] == '1') {
+                continue;
+            }
             $sql_curtiu = 'SELECT * FROM curtidas WHERE curtidas.id_postagem =' . $valueC['id_publi'] . ' AND curtidas.id_user_curti=' . $_SESSION['id_user'];
             $res_curtiu = mysqli_query($conexao, $sql_curtiu);
             $assoc_curtiu = mysqli_fetch_assoc($res_curtiu);
