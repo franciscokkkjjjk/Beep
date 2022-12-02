@@ -26,7 +26,7 @@ $postagens = mysqli_fetch_all($res_posts,1);
     <link rel="stylesheet" href="../assets/style/generic/style.css">
     <link rel="stylesheet" href="../assets/style/feed/style.css">
     <link rel="stylesheet" href="../assets/style/toca/style.css">
-    <title><?= $_SESSION['nome']?> (curtidas) | Beep</title>
+    <title><?= $_SESSION['username']?> (curtidas) | Beep</title>
     <style>
         <?php 
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {

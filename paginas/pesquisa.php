@@ -28,7 +28,7 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <link rel="stylesheet" href="../assets/style/generic/style.css">
     <link rel="stylesheet" href="../assets/style/feed/style.css">
     <link rel="stylesheet" href="../assets/style/pesquisar/style.css">
-    <title>Pagina inicial | Beep</title>
+    <title>Pesquisa | Beep</title>
     <style>
         <?php if ( !$_SESSION['img']=='' and !$_SESSION['img']==null) {
             ?>.menu--pag--img--area {

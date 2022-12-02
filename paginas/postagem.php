@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="../assets/style/generic/style.css">
     <link rel="stylesheet" href="../assets/style/feed/style.css">
     <link rel="stylesheet" href="../assets/style/style_posts_completo/style.css">
-    <title>Postagem | Beep</title>
+    <title>Publicação | Beep</title>
     <style>
         <?php 
             if(!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {

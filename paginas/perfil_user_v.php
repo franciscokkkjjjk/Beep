@@ -29,7 +29,7 @@ if ($perfil == $_SESSION['username']) {
     <link rel="stylesheet" href="../assets/style/generic/style.css">
     <link rel="stylesheet" href="../assets/style/feed/style.css">
     <link rel="stylesheet" href="../assets/style/toca/style.css">
-    <title><?= $perfil ?> | Beep</title>
+    <title><?= $perfil ?>(Perfil) | Beep</title>
     <style>
         <?php
         if (!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {

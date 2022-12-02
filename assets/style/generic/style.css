@@ -675,11 +675,17 @@ select option {
 }
 
 .perfil-link {
-    text-decoration: none;
+    text-decoration: transparent;
     color: inherit;
 
 }
-
+.link {
+    text-decoration: none;
+}.link:hover {
+    text-decoration: underline #53ffff;
+    color:#000;
+    transition: all linear .25s;
+}
 .perfil-link-hover:hover {
     text-decoration: underline;
 }
