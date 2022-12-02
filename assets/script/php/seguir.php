@@ -20,7 +20,7 @@
         $res_user_seguindo = mysqli_query($conexao, $sql_tabela_s);
         $ass_seguidores = mysqli_fetch_all($res_user_seguindo,1);
 
-        $num_seguido = count($ass_seguidores)-1;
+        $num_seguido = count($ass_seguidores) -1;
 
         $sql_update_num0 = "UPDATE users SET t_seguindo='$num_seguindo' WHERE id_user=".$_SESSION['id_user'];
         $res_upt_num0 = mysqli_query($conexao, $sql_update_num0);
