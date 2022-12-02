@@ -699,7 +699,7 @@ function viwimg() {
             function exit_img() {
                 qs('.img--modal').style.opacity = '0';
                 setTimeout(() => {
-                    qs('.img--modal').remove();
+                    qsAll('.img--modal').forEach((e)=> e.remove()) ;
                 }, 50)
                 qs('html').style.overflow = '';
                 return true;
@@ -1059,7 +1059,7 @@ async function post_num_compartilhamento() {
                     repostArea.querySelector('button').classList.remove();
                     repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar');
                     descompartilhar()
-                } else if(repostArea != null){
+                } else if (repostArea != null) {
                     repostArea.classList.remove();
                     repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                     repostArea.querySelector('button').classList.remove();
@@ -1678,19 +1678,26 @@ async function post_salvos() {
     });
     res_ = await req.json();
     console.log(res_);
-    criarPosts(res_.reverse());
-    curtir_post();
-    desCurtir();
-    viwimg();
-    show_CM();
-    descompartilhar();
-    qs('.event-direct').onclick = compartilhar;
-    setInterval(() => {
-        post_num_curtida();
-    }, 9000);
-    post_num_compartilhamento();
-    setInterval(async () => {
+    if (res_.nada == undefined) {
+        criarPosts(res_.reverse());
+        curtir_post();
+        desCurtir();
+        viwimg();
+        show_CM();
+        descompartilhar();
+        qs('.event-direct').onclick = compartilhar;
+        setInterval(() => {
+            post_num_curtida();
+        }, 9000);
         post_num_compartilhamento();
-    }, 9000);
+        setInterval(async () => {
+            post_num_compartilhamento();
+        }, 9000);
+    } else {
+        let div = document.createElement('div');
+        div.setAttribute('class', 'nada');
+        div.innerHTML = 'Não há publicações salvas ainda.';
+        document.querySelector(".feed-body-post").append(div);
+    }
     document.querySelector(".back--event").style.display = 'none';
 }
