@@ -4,6 +4,7 @@ if (!isset($_SESSION['id_user'])) {
     header('location:../');
 }
 require_once '../assets/script/php/historico.php';
+require_once '../assets/script/php/conect_pdo.php';
 require_once '../assets/script/php/conecta.php';
 require_once '../assets/script/php/function/funcoes.php';
 require_once '../assets/script/php/html__generic/suspenso_.php';
@@ -33,9 +34,8 @@ $postagens = mysqli_fetch_all($res_posts, 1);
         <?= $_SESSION['nome'] ?> (<?= $_SESSION['username'] ?>)| Beep
     </title>
     <style>
-        <?php
-        if ( !$_SESSION['img']=='' and !$_SESSION['img']==null) {
-            ?>.menu--pag--img--area {
+        <?php if (!$_SESSION['img'] == '' and !$_SESSION['img'] == null) {
+        ?>.menu--pag--img--area {
                 background-image: url('../assets/imgs/profile/<?= $_SESSION['img'] ?>');
                 background-position: center;
                 background-size: cover;
@@ -43,16 +43,15 @@ $postagens = mysqli_fetch_all($res_posts, 1);
             }
 
             <?php
-        }
-
-        else {
+        } else {
             ?>.menu--pag--img--area {
                 background-image: url('../assets/imgs/default/perfil-de-usuario-black.png');
             }
 
             <?php
-        } ?>
-        ?>
+        }
+
+        ?>?>
     </style>
 </head>
 
@@ -131,6 +130,17 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                 <div class="posts--ara--perfil">
                     <div class="title_">Redes Sociais</div>
                     <div class="area_sobre">
+                        <?php
+                        $sql_redes = $pdo->query("SELECT * FROM sobre WHERE id_user=" . $_SESSION['id_user'])->fetch_all(1);
+                        if (is_null($sql_redes) or empty($sql_redes)) {
+
+                        } else {
+                        ?>
+                        <a href="" class="rede1 redes_">@franciscokkkjjjk</a>
+
+                        <?php
+                        }
+                            ?>
                         <a href="" class="rede1 redes_">@franciscokkkjjjk</a>
                         <a href="" class="rede2 redes_">@franciscokkkjjjk</a>
                         <a href="" class="rede3 redes_">@franciscokkkjjjk</a>
@@ -147,30 +157,33 @@ $postagens = mysqli_fetch_all($res_posts, 1);
             <div class="moda_fast" style="display: none; opacity: 0;">
                 <div class="exit_mopda_fast exit_event_rede"></div>
                 <div class="modal_fast_body">
-                    <div class="header-coment">
-                        <div class="modal_fast_exit1 exit_event_rede">
-                            <div class="menu--exit-img"></div>
+                    <form class="form_input" action="#" method="POST">
+                        <div class="header-coment">
+
+                            <div class="modal_fast_exit1 exit_event_rede">
+                                <div class="menu--exit-img"></div>
+                            </div>
+                            <div class="name--text-coment">
+                                Adicionar rede social
+                            </div>
+                            <button class="button--postar-rede button-remove">Adiconar</button>
                         </div>
-                        <div class="name--text-coment">
-                            Adicionar rede social
+                        <div class="area_inputs">
+                            <select name="rede_a">
+                                <option value="3">Facebook</option>
+                                <option value="2">Instagram</option>
+                                <option value="4">Steam</option>
+                                <option value="1">Twitter</option>
+                            </select>
+                            <input type="text" required placeholder="Nome de usuário" value="" name="username_rede">
                         </div>
-                        <button class="button--postar-rede button-remove">Adiconar</button>
-                    </div>
-                    <div class="area_inputs">
-                        <select name="rede_a"> 
-                            <option>Facebook</option>
-                            <option>Instagram</option>
-                            <option>Steam</option>
-                            <option>Twitter</option>
-                        </select>
-                        <input type="text" placeholder="Nome de usuário" value="" name="username_rede">
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
         <?php
-            require_once '../assets/script/php/html__generic/recomendado.php';
-            ?>
+        require_once '../assets/script/php/html__generic/recomendado.php';
+        ?>
     </div>
     </div>
     <script type="text/javascript" src="../assets/script/javascript/default/script.js"></script>
@@ -178,10 +191,10 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <script type="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script>
         const username = <?php if (isset($_SESSION[' error_username '])) {
-              echo "'" .$_SESSION[' username_temp ']. "'";
-          } else {
-              echo '"' . $_SESSION[' username '] . '"';
-          } ?>;
+          echo "'" . $_SESSION[' username_temp '] . "'";
+      } else {
+          echo '"' .$_SESSION[' username ']. '"';
+      } ?>;
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script type="text/javascript">
@@ -196,24 +209,24 @@ $postagens = mysqli_fetch_all($res_posts, 1);
         } else {
             echo "''";
         } ?>;
-        const nome = <?php echo '"' . $_SESSION[' nome '] . '"'; ?>;
-        const email = <?php echo '"' . $_SESSION[' email '] . '"'; ?>;
+        const nome = <?php echo '"' .$_SESSION[' nome ']. '"'; ?>;
+        const email = <?php echo '"' .$_SESSION[' email ']. '"'; ?>;
         const img_perfil = <?php if (isset($_SESSION[' img '])) {
-            echo '"' . $_SESSION[' img '] . '"';
+            echo '"' .$_SESSION[' img ']. '"';
         } else {
             echo ' null ';
         } ?>;
         const img_banner = <?php if (isset($_SESSION[' img '])) {
-            echo '"' . $_SESSION[' img_banner '] . '"';
+            echo '"' .$_SESSION[' img_banner ']. '"';
         } else {
             echo ' null ';
         } ?>;
         console.log(img_banner);
         const bio = <?php echo '`' . $_SESSION['bio_user'] . '` '; ?>;
-        const dateC = <?php echo '"' . date('d / m / Y ', strtotime($_SESSION[' data_nas '])) . '"'; ?>;
-        const m_nas = <?php echo '"' . date('m ', strtotime($_SESSION[' data_nas '])) . '"'; ?>;
-        const d_nas = <?php echo '"' . date('d ', strtotime($_SESSION[' data_nas '])) . '"'; ?>;
-        const y_nas = <?php echo '"' . date('Y ', strtotime($_SESSION[' data_nas '])) . '"'; ?>;
+        const dateC = <?php echo '"' .date('d / m / Y ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
+        const m_nas = <?php echo '"' .date('m ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
+        const d_nas = <?php echo '"' .date('d ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
+        const y_nas = <?php echo '"' .date('Y ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
 
     </script>
 
@@ -223,12 +236,12 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     </script>
     <script>
         <?php
-        if  (isset($_SESSION[' functionPHPJS '])) {
+        if(isset($_SESSION[' functionPHPJS '])) {
             echo $_SESSION[' functionPHPJS '];
-        unset($_SESSION[' functionPHPJS ']);
-        unset($_SESSION[' username_temp ']);
-        unset($_SESSION[' error_username ']);
-    }
+                unset($_SESSION[' functionPHPJS ']);
+                unset($_SESSION[' username_temp ']);
+                unset($_SESSION[' error_username ']);
+            }
         ?> 
     </script>
     <script src="../assets/script/javascript/default/jogos/game.js"></script>
