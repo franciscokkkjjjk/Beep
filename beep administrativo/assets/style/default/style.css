@@ -134,6 +134,12 @@ header .container {
 .title_main input::placeholder {
     color:#969696;
 }
+
+.menu_show_ a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .title_main input:focus {
     outline: none !important;
     box-shadow: none !important;

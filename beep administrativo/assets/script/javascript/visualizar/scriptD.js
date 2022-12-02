@@ -11,7 +11,7 @@ if (window.sessionStorage.x5edP == "null") {
 const auxF = (var_, lugar) => {
     return var_.querySelector(lugar);
 }
-if (window.sessionStorage.x5edU != undefined && window.sessionStorage.x5edU != null) {
+if (window.sessionStorage.x5edP != undefined && window.sessionStorage.x5edP != null) {
     async function creat_list_post_D() {
         let req_aux = new FormData();
         req_aux.append('x5edP', window.sessionStorage.x5edP);
@@ -21,7 +21,6 @@ if (window.sessionStorage.x5edU != undefined && window.sessionStorage.x5edU != n
                 method: 'POST',
                 body: req_aux
             });
-
             res = await req.json();
         } catch {
             window.location.href = 'dununcias.php';

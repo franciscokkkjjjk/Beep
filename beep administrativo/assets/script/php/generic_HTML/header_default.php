@@ -60,7 +60,9 @@
                 <div class="menu_area" style="display: none; opacity:0;">
                     <div class="modal_exit" style="position: fixed;width:100%;height:100%;top:0px;left:0px;"></div>
                     <div class="menu_show_">
-                        <div class="opts_user logout_exit">Sair</div>
+                        <a href="../assets/script/php/logout_root.php">
+                            <div class="opts_user logout_exit">Sair</div>
+                        </a>
                     </div>
                 </div>
             </div>

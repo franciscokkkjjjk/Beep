@@ -33,6 +33,10 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
         .container {
             min-height: auto !important;
         }
+        .conteudo_b_I  .img_area{
+            display: flex;
+            align-items: center;
+        }
     </style>
     <title>Inicial | Beep Administrativo</title>
 </head>
