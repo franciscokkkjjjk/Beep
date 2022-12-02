@@ -137,9 +137,9 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                         } else {
                             foreach ($sql_redes as $sql_redes) {
                         ?>
-                        <div class="rede_area">
+                        <div class="rede_area" id=<?="x_".$sql_redes['username_txt']."_".$sql_redes['type_r']."_r"?>>
                             <a target="_blank" href="<?= $sql_redes['username_rede'] ?>" class="rede<?= $sql_redes['type_r'] ?> redes_"> <?= $sql_redes['username_txt'] ?> </a>
-                            <a href="" class="button_remove" id='<?="x_".$sql_redes['username_txt']."_".$sql_redes['type_r']?>'>Remover</a>
+                            <a href="" class="button_remove" id=<?="x_".$sql_redes['username_txt']."_".$sql_redes['type_r']?>>Remover</a>
                         </div>
                         <?php
                             }
@@ -202,28 +202,28 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <!--<script type="text/javascript" src="../assets/script/javascript/default/session_storage.js"></script>-->
     <script>
         const error_php = <?php if (isset($_SESSION[' error_username '])) {
-            echo $_SESSION[' error_username '];
+            echo $_SESSION['error_username'];
         } else {
             echo "''";
         } ?>;
-        const nome = <?php echo '"' .$_SESSION[' nome ']. '"'; ?>;
-        const email = <?php echo '"' .$_SESSION[' email ']. '"'; ?>;
-        const img_perfil = <?php if (isset($_SESSION[' img '])) {
-            echo '"' .$_SESSION[' img ']. '"';
+        const nome = <?php echo '"' .$_SESSION['nome']. '"'; ?>;
+        const email = <?php echo '"' .$_SESSION['email']. '"'; ?>;
+        const img_perfil = <?php if (isset($_SESSION['img'])) {
+            echo '"' .$_SESSION['img']. '"';
         } else {
-            echo ' null ';
+            echo 'null';
         } ?>;
-        const img_banner = <?php if (isset($_SESSION[' img '])) {
-            echo '"' .$_SESSION[' img_banner ']. '"';
+        const img_banner = <?php if (isset($_SESSION['img'])) {
+            echo '"' .$_SESSION['img_banner']. '"';
         } else {
             echo ' null ';
         } ?>;
         console.log(img_banner);
         const bio = <?php echo '`' . $_SESSION['bio_user'] . '` '; ?>;
-        const dateC = <?php echo '"' .date('d / m / Y ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
-        const m_nas = <?php echo '"' .date('m ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
-        const d_nas = <?php echo '"' .date('d ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
-        const y_nas = <?php echo '"' .date('Y ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
+        const dateC = <?php echo '"' .date('d / m / Y ', strtotime($_SESSION['data_nas'])). '"'; ?>;
+        const m_nas = <?php echo '"' .date('m ', strtotime($_SESSION['data_nas'])). '"'; ?>;
+        const d_nas = <?php echo '"' .date('d ', strtotime($_SESSION['data_nas'])). '"'; ?>;
+        const y_nas = <?php echo '"' .date('Y ', strtotime($_SESSION['data_nas'])). '"'; ?>;
 
     </script>
 
@@ -233,11 +233,11 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     </script>
     <script>
         <?php
-        if(isset($_SESSION[' functionPHPJS '])) {
-            echo $_SESSION[' functionPHPJS '];
-                unset($_SESSION[' functionPHPJS ']);
-                unset($_SESSION[' username_temp ']);
-                unset($_SESSION[' error_username ']);
+        if(isset($_SESSION['functionPHPJS'])) {
+            echo $_SESSION['functionPHPJS'];
+                unset($_SESSION['functionPHPJS']);
+                unset($_SESSION['username_temp']);
+                unset($_SESSION['error_username']);
             }
         ?> 
     </script>

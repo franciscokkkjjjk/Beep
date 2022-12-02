@@ -49,6 +49,7 @@ if(isset($_POST['x_REMOVEXD30'])) {
     $type = $pdo->real_escape_string($_POST['x_TYPE30']);
     $username = $pdo->real_escape_string($_POST['x_REMOVEXD30']);
     $sql_ = $pdo->query("DELETE FROM sobre WHERE type_r=" . $type . " AND username_txt='" . $username . "'");
+    
     if($sql_) {
         $json = [
             'mensage' => "Rede social removida com sucesso.",

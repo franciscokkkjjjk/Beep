@@ -26,4 +26,31 @@ document.querySelector('.button_area_add_rede').addEventListener('click', (e)=>{
     }   
 })
 
-document.querySelectorAll(".button_remove")
+document.querySelectorAll(".button_remove").forEach((e)=>{
+    e.onclick = async (b)=>{
+        b.preventDefault();
+        let type_ = b.target.id.split('_')[2];
+        console.log(type_);
+        let username = b.target.id.split('_')[1];
+        let form = new FormData();
+        form.append('x_REMOVEXD30', username);
+        form.append('x_TYPE30', type_);
+        let res;
+        try {
+            let req_ = await fetch('../assets/script/php/sobre/adicionar_rede.php', {
+                method:"POST",
+                body: form
+            });
+            res = await req_.json();
+        } catch {
+            let msm = {
+                "mensage": "Não foi possivel realizar a operação.",
+                'error': true
+            };
+            alert_mensage(msm);
+            return;
+        }
+        alert_mensage(res);
+        document.querySelector("#"+b.target.id+"_r").remove();
+    }
+})
