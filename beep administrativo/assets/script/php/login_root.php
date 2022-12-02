@@ -42,5 +42,4 @@
             }
         }
     }
-    var_dump($email);
 ?>
