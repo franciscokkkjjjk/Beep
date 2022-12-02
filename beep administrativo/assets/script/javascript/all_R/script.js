@@ -151,31 +151,8 @@ function header_modal(modal, button) {
 
 }
 
-
-
-//  <div class="corpo_list">
-//             <div class="list_area">
-//                 <div class="area_list_info_1">
-//                     <div class="list_img">
-//                     </div>
-//                     <div class="list_title">
-//                         Red Dead Redempition
-//                     </div>
-//                 </div>
-//                 <div class="area_list_info_2">
-//                     <nav>
-//                         <a href="" class="a_nav">
-//                             <div class="button_a button_int">
-//                                 <div class="img_"></div>
-//                             </div>
-//                         </a>
-//                     </nav>
-//                     <div class="button_b button_int">
-//                         <div class="img_"></div>
-//                     </div>
-//                     <div class="button_c button_int">
-//                         <div class="img_"></div>
-//                     </div>
-//                 </div>
-//             </div>
-//         </div> 
+async function pesquisar() {
+    let req_ = await fetch('../assets/script/php/requisicoes/pesquisas/pesquisa.php');
+    let res = await req_.text(); 
+    document.body.innerHTML = res;
+}

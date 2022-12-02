@@ -43,7 +43,7 @@ if (isset($_SESSION['id_root']) && isset($_SESSION['ative'])) {
                     Jogos
                 </div>
                 <div class="input_pesquisa">
-                    <input type="number" placeholder="Pesquisar" name="pesquisa" class="pesquisa">
+                    <input type="text" placeholder="Pesquisar por jogo" name="pesquisa" class="pesquisa_game">
                 </div>
             </div>
             <div class="title_list">
