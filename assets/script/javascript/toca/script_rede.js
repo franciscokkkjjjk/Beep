@@ -25,3 +25,5 @@ document.querySelector('.button_area_add_rede').addEventListener('click', (e)=>{
 
     }   
 })
+
+document.querySelectorAll(".button_remove")

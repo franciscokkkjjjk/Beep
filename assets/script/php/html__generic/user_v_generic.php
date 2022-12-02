@@ -2,6 +2,7 @@
     $pag_c = pagAtual('curtidas_v.php', true);
     $pag_p = pagAtual('perfil_user_v.php', true);
     $pag_g = pagAtual('perfilJogos_v.php', true);
+$pag_s = pagAtual("perfilSobre_v.php", true);
 ?>
 <div class="info--perfil">
     <div class="info--perfil--area">
@@ -60,7 +61,7 @@
         <a class="button--opt--info curtidas_user <?= $pag_c?>">
             Curtidas
         </a>
-        <a class="button--opt--info">
+        <a class="button--opt--info sobre_user <?= $pag_s?>">
             Sobre
         </a>
     </div>

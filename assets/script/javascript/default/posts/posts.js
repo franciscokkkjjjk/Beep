@@ -496,6 +496,7 @@ function user_seguidores(list_user) {
     qs('.curtidas_user').setAttribute('href', 'curtidas_v.php?username=' + list_user.username_user);
     qs('.publicacoes_user').setAttribute('href', 'perfil_user_v.php?username=' + list_user.username_user);
     qs('.game_opt').setAttribute('href', 'perfilJogos_v.php?username=' + list_user.username_user);
+    qs('.sobre_user').setAttribute('href', 'perfilSobre_v.php?username=' + list_user.username_user);
     qs('.bio').innerHTML = list_user.bio;
 
     //gera o modal de denuncia do usuario

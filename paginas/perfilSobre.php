@@ -137,8 +137,10 @@ $postagens = mysqli_fetch_all($res_posts, 1);
                         } else {
                             foreach ($sql_redes as $sql_redes) {
                         ?>
-                        <a target="_blank" href="<?= $sql_redes['username_rede'] ?>" class="rede<?= $sql_redes['type_r'] ?> redes_"> <?= $sql_redes['username_txt'] ?> </a>
-
+                        <div class="rede_area">
+                            <a target="_blank" href="<?= $sql_redes['username_rede'] ?>" class="rede<?= $sql_redes['type_r'] ?> redes_"> <?= $sql_redes['username_txt'] ?> </a>
+                            <a href="" class="button_remove" id='<?="x_".$sql_redes['username_txt']."_".$sql_redes['type_r']?>'>Remover</a>
+                        </div>
                         <?php
                             }
                         }
