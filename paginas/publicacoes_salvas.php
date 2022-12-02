@@ -66,13 +66,11 @@
     <script type ="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js">
-    
     </script>
     <script>
-        posts();
-        verficar_posts();
+        post_salvos();
     </script>
-    <script type="text/javascript" src="../assets/script/javascript/feed/script.js"></script>
+
     <script>
         const nome = <?php echo '"'.$_SESSION['nome'].'"';?>;
         const email = <?php echo '"'.$_SESSION['email'].'"';?>;

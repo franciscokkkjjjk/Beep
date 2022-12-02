@@ -334,30 +334,57 @@ if (modal_clone != undefined) {
     modal_clone.remove();
 }
 
-function posts_modal(modal_show, id_publi, url_g, button_show) {
+async function posts_modal(modal_show, id_publi, url_g, button_show) {
     console.log(id_publi);
     let modal_b = modal_show.querySelector('.dP_post');
     let opt = modal_show.querySelectorAll('.opt_dP');
-    opt[0].onclick = () => { q_D_modal_show(id_publi, url_g[0]) };
-    opt[1].onclick = async (e) => {
-        let form = new FormData();
-        form.append('x_SALVAD30', id_publi);
-        let res_;
-        try {
-        let req = await fetch(url[1], {
-            method:"POST",
+    let form = new FormData();
+    form.append("verify_salva", id_publi);
+    let res_;
+    try {
+        let fetc = await fetch(url_g[1], {
+            method: "POST",
             body: form
         });
-        res_ = await req.json();
+        res_ = await fetc.json();
     } catch {
-        let msm = {
-            "mensage": "Não foi possivel salvar a publicação.",
-            'error': true
-        };
-        alert_mensage(msm);
-        return;
+        res_ = false;
     }
+    console.log(res_)
+    if (res_) {
+        opt[1].innerHTML = 'Retirar das publicações salvas';
+    } else {
+        opt[1].innerHTML = 'Salvar publicação';
+    }
+    opt[0].onclick = () => { q_D_modal_show(id_publi, url_g[0]) };
+
+    // --------------- salva/retira das publicações salvas -------------
+    let aux = res_;
+    opt[1].onclick = async (e) => {
+        let form = new FormData();
+        if (aux) {
+            form.append('x_REMOVED30', id_publi);
+        } else {
+            form.append('x_SALVAD30', id_publi);
+        }
+        let res_;
+        console.log(url_g)
+        try {
+            let req = await fetch(url_g[1], {
+                method: "POST",
+                body: form
+            });
+            res_ = await req.json();
+        } catch {
+            let msm = {
+                "mensage": "Não foi possivel salvar a publicação.",
+                'error': true
+            };
+            alert_mensage(msm);
+            return;
+        }
         alert_mensage(res_);
+        document.querySelector('.modal_exit_dP').click();
     };
 
     relativ_a_b(

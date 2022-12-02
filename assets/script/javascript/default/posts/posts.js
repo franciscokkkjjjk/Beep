@@ -125,7 +125,7 @@ async function user_(active, username = null) {
 function criarPosts(lista, coment_ = true) {
     let url = [
         '../assets/script/php/interacoes_post/denunciar_p.php',
-        '',//salvar posts
+        '../assets/script/php/interacoes_post/salvar_publi.php',
     ]
     for (var i in lista) {
         if (lista[i]['type'] == "3") {//postagem normal
@@ -187,6 +187,8 @@ function criarPosts(lista, coment_ = true) {
                 post_body.querySelector('.event--curtida .post_curtidas').innerHTML = lista[i]['num_curtidas'];
                 post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['id_publi'])
             }
+            post_body.querySelector('.area_num').innerHTML = lista[i]['num_curtidas'];
+
             if (lista[i]['user_compartilhou']) {
                 post_body.querySelector('.compartilhar-event').classList.add('img-compartilhar-on');
                 post_body.querySelector('.compartilhar-event-div').classList.add('descompartilhar-event');
@@ -229,6 +231,8 @@ function criarPosts(lista, coment_ = true) {
                     e.preventDefault();
                     posts_modal(aux_clone, aux_id, url, post_body.querySelector('.elipse-img'));
                 }
+                post_body.querySelector('.area_num').innerHTML = lista[i]['num_curtidas'];
+
                 //-------------pega o jogo da publicação-----------
                 if (lista[i]['game_publi']['game_id'] != null) {
                     post_body.querySelector('.game--post').innerHTML = lista[i]['game_publi']['game_nome'];
@@ -318,6 +322,8 @@ function criarPosts(lista, coment_ = true) {
                     post_body.querySelector('.event--curtida').classList.add('p-xD30');
                     post_body.querySelector('.event--curtida').setAttribute('data-key', lista[i]['compartilhador_info']['id_da_compartilhada'])
                 }
+                post_body.querySelector('.area_num').innerHTML = lista[i]['num_curtidas'];
+
                 post_body.querySelector('.comentar').id = 'p_xD30_C' + lista[i]['compartilhador_info']['id_da_compartilhada'];
                 post_body.querySelector('.comentar .post_comentadas').innerHTML = lista[i]['num_comentario'];
                 let aux_d = lista[i]['compartilhador_info']['id_da_compartilhada'];
@@ -354,6 +360,8 @@ function criarPosts(lista, coment_ = true) {
             } else {
                 post_body.querySelector('.post--text').innerHTML = lista[i]['text_post'];
             }
+            post_body.querySelector('.area_num').innerHTML = lista[i]['num_curtidas'];
+
             //gera os jogos nas publicações
             if (lista[i]['game_publi']['game_id'] != null) {
                 post_body.querySelector('.game--post').innerHTML = lista[i]['game_publi']['game_nome'];
@@ -1034,21 +1042,24 @@ async function post_num_compartilhamento() {
     let url_perfil = window.location.href.split('=');
     let url_push_v = window.location.href.split('paginas/');
     let a = url_push_v[1].substring(0, 11);
-
-    if (a == 'inicial.php') {
+    console.log(a);
+    if (a == 'inicial.php' || a == 'publicacoes') {
         let prom = await fetch('../assets/script/php/requsicoes/posts.php');
         let res_pom = await prom.json();
         for (let l in res_pom) {
             if (res_pom[l]['type'] == 3) {
                 let repostArea = document.getElementById(res_pom[l]['id_publi'] + 'c-xD30');
-                repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
-                if (res_pom[l]['user_compartilhou']) {
+                console.log(repostArea);
+                if (repostArea != null) {
+                    repostArea.querySelector('.post_compartilhadas').innerHTML = res_pom[l]['beepadas'];
+                }
+                if (res_pom[l]['user_compartilhou'] && repostArea != null) {
                     repostArea.classList.remove();
                     repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button descompartilhar-event');
                     repostArea.querySelector('button').classList.remove();
                     repostArea.querySelector('button').setAttribute('class', 'compartilhar-event img--iteracao img--strong button--remove interacao--area img-compartilhar-on descompartilhar');
                     descompartilhar()
-                } else {
+                } else if(repostArea != null){
                     repostArea.classList.remove();
                     repostArea.setAttribute('class', 'compartilhar-hover compartilhar-event-div interac-button compartilhar');
                     repostArea.querySelector('button').classList.remove();
@@ -1475,9 +1486,9 @@ function post_all_creat(obj) {
                 }
                 let aux_id = obj.comentarios[bobSponja].id_publi;
                 areaPalhacada.querySelector('.elipse-img').onclick = (e) => {
-                        e.preventDefault();
-                        posts_modal(aux_clone, aux_id, url, areaPalhacada.querySelector('.elipse-img'));
-                    }
+                    e.preventDefault();
+                    posts_modal(aux_clone, aux_id, url, areaPalhacada.querySelector('.elipse-img'));
+                }
                 areaPalhacada.querySelector('.perfil-link').setAttribute('href', `perfil_user_v.php?username=${obj.comentarios[bobSponja].user_info.username_user}`);
                 areaPalhacada.querySelector('.name--perfil--coment').innerHTML = obj.comentarios[bobSponja].user_info.nome_user;
                 areaPalhacada.querySelector('.username--perfil--coment').innerHTML = `(${obj.comentarios[bobSponja].user_info.username_user})`;
@@ -1657,3 +1668,29 @@ function not_requi(a, mensage = null) {
     }
 }
 
+async function post_salvos() {
+    let form = new FormData();
+    form.append('x_POSTD30', '');
+    let res_;
+    let req = await fetch('../assets/script/php/interacoes_post/salvar_publi.php', {
+        method: "POST",
+        body: form
+    });
+    res_ = await req.json();
+    console.log(res_);
+    criarPosts(res_.reverse());
+    curtir_post();
+    desCurtir();
+    viwimg();
+    show_CM();
+    descompartilhar();
+    qs('.event-direct').onclick = compartilhar;
+    setInterval(() => {
+        post_num_curtida();
+    }, 9000);
+    post_num_compartilhamento();
+    setInterval(async () => {
+        post_num_compartilhamento();
+    }, 9000);
+    document.querySelector(".back--event").style.display = 'none';
+}
