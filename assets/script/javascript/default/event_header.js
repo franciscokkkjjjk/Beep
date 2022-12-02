@@ -34,9 +34,8 @@ var mOpen = false;
 function show_CM() {
     if(mOpen == false) {
     qsAll('.compartilhar').forEach((e) => {
-        console.log(e);
         e.onclick = (a)=>{
-            let id = a.target.id;
+            let id = e.id;
             let modal = qs('.modal--shared');
             qs('.modal-area').style.display = 'block';
             modal.style.display = 'block';
