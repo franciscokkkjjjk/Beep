@@ -32,7 +32,7 @@
                } else {
                   $descompatilha = [
                      'error' => true,
-                     'error' => 'erro ao deletar'
+                     'mensage' => 'erro ao deletar'
                   ];
                   echo json_encode($descompatilha);
                }

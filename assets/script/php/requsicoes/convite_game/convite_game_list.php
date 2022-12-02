@@ -4,6 +4,7 @@ require_once '../../conect_pdo.php';
 require_once '../../function/funcoes.php';
 date_default_timezone_set('America/Sao_Paulo');
 date_default_timezone_get();
+// -------------- gera os usuários que seguem mutualmente o usuarios da sessão -------------
 if (isset($_POST['x_USERID30'])) {
     $sql_ = $pdo->query('SELECT * FROM users WHERE users.id_user IN (SELECT seguidores.user_seguido FROM seguidores WHERE seguidores.user_seguin = ' . $_SESSION['id_user'] . ' AND seguidores.user_seguido IN (SELECT seguidores.user_seguin FROM seguidores WHERE seguidores.user_seguido = ' . $_SESSION['id_user'] . ')) AND users.id_user <> ' . $_SESSION['id_user'] . ';');
     if ($sql_) {
@@ -18,8 +19,7 @@ if (isset($_POST['x_USERID30'])) {
             style="<?= perfilDefault($value05['foto_perfil'], pagAtual('caminho')) ?>">
         </div>
         <div class="name--area">
-            <a class="perfil-link"
-                href="<?= pagAtual('caminho'); ?>perfil_user_v.php?username=<?= $value05['username'] ?>">
+            <a class="perfil-link" href="perfil_user_v.php?username=<?= $value05['username'] ?>">
                 <div class="name--name-perfil perfil-link-hover">
                     <?= $value05['nome'] ?>
                 </div>
@@ -56,6 +56,7 @@ if (isset($_POST['x_USERID30'])) {
 <?php
     }
 }
+// ---------------------- evento de convidar o usuário para jogar----------
 if (isset($_POST['x_CONVIDARXD_30_'])) {
     $id_user = $pdo->real_escape_string($_POST['x_CONVIDARXD_30_']);
     $user = $pdo->query("SELECT * FROM users WHERE id_user=" . $id_user)->fetch_assoc();
@@ -91,6 +92,7 @@ if (isset($_POST['x_CONVIDARXD_30_'])) {
     }
     echo json_encode($json);
 }
+// ---------------------- evento de desconvidar o usuário para jogar----------
 if (isset($_POST['x_CONVIDARXD_29_'])) {
     $id_user = $pdo->real_escape_string($_POST['x_CONVIDARXD_29_']);
     $user = $pdo->query("SELECT * FROM users WHERE id_user=" . $id_user)->fetch_assoc();
@@ -110,12 +112,22 @@ if (isset($_POST['x_CONVIDARXD_29_'])) {
     $sql = $pdo->query("DELETE FROM conviteparajogos WHERE  id_user_convidado=" . $_SESSION['id_user'] . " AND id_user_foi_convidado=" . $user['id_user'] . "");
     echo json_encode($json);
 }
-
+// ------------------------------------- verifica se ha uma publicação nova --------- 
 if (isset($_POST['x_VERIFYD30'])) {
+    $verify_data = $pdo->query("SELECT * FROM conviteparajogos WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " OR id_user_convidado=" . $_SESSION['id_user'] . "")->fetch_all(1);
+    foreach ($verify_data as $v) {
+        // $to = dateCalc($v, "data_convidado") ;
+        $hoje = mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y'));
+        $sla = $hoje - strtotime($v['data_convidado']);
+        $to = (($sla / 60) / 60);
+        if (round($to) >= 1) {
+            $sql_d = $pdo->query("asd DELETE FROM conviteparajogos WHERE id_user_foi_convidado=" . $v['id_user_foi_convidado'] . " AND id_user_convidado=" . $v['id_user_convidado'] . "");
+        }
+    }
     if (!isset($_SESSION['num_verify_convite'])) {
         $_SESSION['num_verify_convite'] = 0;
     }
-    $sql_verify = $pdo->query("SELECT * FROM conviteparajogos WHERE id_user_foi_convidado=" . $_SESSION['id_user'])->fetch_all(1);
+    $sql_verify = $pdo->query("SELECT * FROM conviteparajogos WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " OR (id_user_foi_convidado= " . $_SESSION['id_user'] . " AND aceito=1) OR (id_user_convidado=" . $_SESSION['id_user'] . " AND aceito=1)")->fetch_all(1);
     if (is_null($sql_verify) or empty($sql_verify)) {
         echo '';
         die;
@@ -152,8 +164,7 @@ if (isset($_POST['x_VERIFYD30'])) {
             <button type="submit" class="button--seguir button--aceira--convite"
                 id='x_ACEITAR30_<?= $sql_user['id_user'] ?>'></button>
             <?php } else { ?>
-            <button type="submit" class="button--seguir button--aceito--convite"
-                ></button>
+            <button type="submit" class="button--seguir button--aceito--convite"></button>
             <?php } ?>
         </div>
     </div>
@@ -161,6 +172,9 @@ if (isset($_POST['x_VERIFYD30'])) {
 <?php
     }
 }
+
+
+// -------------------------------- aceita o convite -------------------
 if (isset($_POST['x_ACEIRARD30'])) {
     $id_user = $pdo->real_escape_string($_POST['x_ACEIRARD30']);
     $sql_convite = $pdo->query("SELECT * FROM conviteparajogos WHERE id_user_foi_convidado=" . $_SESSION['id_user'] . " AND id_user_convidado=$id_user")->fetch_assoc();

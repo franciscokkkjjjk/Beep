@@ -1,5 +1,5 @@
 <?php
-function dateCalc($array_user = null)
+function dateCalc($array_user = null, $a = 'date_publi')
 {
     if ($array_user == null) {
         return null;
@@ -7,7 +7,7 @@ function dateCalc($array_user = null)
         date_default_timezone_set('America/Sao_Paulo');
         date_default_timezone_get();
         $hoje = mktime(date('H'), date('i'), date('s'), date('m'), date('d'), date('Y'));
-        $sla = $hoje - strtotime($array_user['date_publi']);
+        $sla = $hoje - strtotime($array_user[$a]);
         $secund = $sla / 1000;
         $minutos = ($sla / 60);
         $horas = $minutos / 60;
