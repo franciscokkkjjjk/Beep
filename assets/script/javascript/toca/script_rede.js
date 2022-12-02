@@ -41,6 +41,7 @@ document.querySelectorAll(".button_remove").forEach((e)=>{
                 method:"POST",
                 body: form
             });
+            
             res = await req_.json();
         } catch {
             let msm = {
