@@ -121,7 +121,7 @@ if (isset($_POST['x_VERIFYD30'])) {
         $sla = $hoje - strtotime($v['data_convidado']);
         $to = (($sla / 60) / 60);
         if (round($to) >= 1) {
-            $sql_d = $pdo->query("asd DELETE FROM conviteparajogos WHERE id_user_foi_convidado=" . $v['id_user_foi_convidado'] . " AND id_user_convidado=" . $v['id_user_convidado'] . "");
+            $sql_d = $pdo->query("DELETE FROM conviteparajogos WHERE id_user_foi_convidado=" . $v['id_user_foi_convidado'] . " AND id_user_convidado=" . $v['id_user_convidado'] . "");
         }
     }
     if (!isset($_SESSION['num_verify_convite'])) {

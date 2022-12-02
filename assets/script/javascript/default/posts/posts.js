@@ -1250,7 +1250,7 @@ function post_all_creat(obj) {
     if (obj.error != true) {
         let url = [
             '../assets/script/php/interacoes_post/denunciar_p.php',
-            '',//salvar posts
+            '../assets/script/php/interacoes_post/salvar_publi.php',
         ]
         let area_post_completo = qs('.post-completo-area .post--area-header');
         area_post_completo.querySelector('.menu--pag--img--area').setAttribute('style', obj.publicacao.user_info.img_user);

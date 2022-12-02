@@ -338,9 +338,28 @@ function posts_modal(modal_show, id_publi, url_g, button_show) {
     console.log(id_publi);
     let modal_b = modal_show.querySelector('.dP_post');
     let opt = modal_show.querySelectorAll('.opt_dP');
-    for (let i = 0; i < opt.length; i++) {
-        opt[i].onclick = () => { q_D_modal_show(id_publi, url_g[i]) };
+    opt[0].onclick = () => { q_D_modal_show(id_publi, url_g[0]) };
+    opt[1].onclick = async (e) => {
+        let form = new FormData();
+        form.append('x_SALVAD30', id_publi);
+        let res_;
+        try {
+        let req = await fetch(url[1], {
+            method:"POST",
+            body: form
+        });
+        res_ = await req.json();
+    } catch {
+        let msm = {
+            "mensage": "Não foi possivel salvar a publicação.",
+            'error': true
+        };
+        alert_mensage(msm);
+        return;
     }
+        alert_mensage(res_);
+    };
+
     relativ_a_b(
         button_show,
         modal_show.querySelector('.dP_post'),
@@ -512,7 +531,7 @@ async function verify_convite() {
                     method: "POST",
                     body: form
                 });
-                 res_ = await req.json();
+                res_ = await req.json();
             } catch {
                 let msm = {
                     "mensage": 'Não foi possivel aceitar o convite.',
