@@ -729,7 +729,7 @@ async function post_num_curtida() {
                         curtir_post();
                     }
                 }
-            } else {
+            } else if(json_[s]['type'] == "2" || json_[s]['type'] == "4"){
                 //tava arrumando o curtidas //
                 let curtidaArea = document.getElementById(json_[s]['compartilhador_info']['id_da_compartilhada']);
                 if (curtidaArea != undefined) {
@@ -1559,7 +1559,7 @@ function num_coment_dinamic() {
                             if (aux.querySelector('.area_num') != undefined)
                                 aux.querySelector('.area_num').innerHTML = res_coment[a]['num_comentario'];
                         }
-                    } else {
+                    } else if(res_coment[a]['type'] == 4 || res_coment[a]['type'] == 2){
                         let aux_ = res_coment[a]['compartilhador_info']['id_da_compartilhada'];
                         let aux = document.getElementById('p_xD30_C' + aux_);
 

@@ -42,10 +42,10 @@
             <div class="event"></div>
         </div>
         <div class="segui--indo">
-            <a class='seguidores--info area--segui' href="seguidore/seguindo.php?id_user="><span class="num_seguindo">
+            <a class='seguidores--info area--segui' href="seguindo.php?id_user="><span class="num_seguindo">
                     <div class="event min-event event-block"></div>
                 </span> seguindo</a>
-            <a class='seguidor--info area--segui' href="seguidore/seguidores.php?id_user="><span class="num_seguidores">
+            <a class='seguidor--info area--segui' href="seguidores.php?id_user="><span class="num_seguidores">
                     <div class="event min-event event-block"></div>
                 </span> seguidores</a>
         </div>
