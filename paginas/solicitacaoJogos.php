@@ -109,10 +109,10 @@
                                     <input class="name_loja_event" required type="text" id="name_loja_cap_solicita" value="" name="name_loja_cap_solicita">
                                 </div>
                                 <div class="link_loja input_default_soli">
-                                    <label for="name_loja_cap_solicita_link">
+                                    <label for="link_loja">
                                         <span class='title_area'>Link da loja</span>
                                     </label>
-                                    <input id='name_loja_cap_solicita_link' placeholder="https://link_loja" required type="text" value="" id="link_loja" name="name_link_cap_solicita">
+                                    <input id='link_loja' placeholder="https://link_loja" required type="text" value="" id="link_loja" name="name_link_cap_solicita">
                                 </div>
                             </div>
                         </div>

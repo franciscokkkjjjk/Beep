@@ -188,9 +188,9 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <script type="text/javascript" src="../assets/script/javascript/default/coment-script.js"></script>
     <script>
         const username = <?php if (isset($_SESSION[' error_username '])) {
-          echo "'" . $_SESSION[' username_temp '] . "'";
+          echo "'" . $_SESSION['username_temp'] . "'";
       } else {
-          echo '"' .$_SESSION[' username ']. '"';
+          echo '"' .$_SESSION['username']. '"';
       } ?>;
     </script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
@@ -201,7 +201,7 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <script type="text/javascript" src="../assets/script/javascript/toca/script.js"></script>
     <!--<script type="text/javascript" src="../assets/script/javascript/default/session_storage.js"></script>-->
     <script>
-        const error_php = <?php if (isset($_SESSION[' error_username '])) {
+        const error_php = <?php if (isset($_SESSION['error_username'])) {
             echo $_SESSION['error_username'];
         } else {
             echo "''";

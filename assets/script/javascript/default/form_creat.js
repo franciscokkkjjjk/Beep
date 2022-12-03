@@ -1,4 +1,5 @@
 let creat = false;
+
 const dC = function(e) {
     return document.createElement(e);
 }
@@ -345,7 +346,7 @@ function creatFormEdit(){
                         clone.classList.add('event-dia');
                         qs('#dia').appendChild(clone);
                     }
-                    for(i=2022; i > 1900; i--){
+                    for(i=2009; i > 1900; i--){
                         let clone = opt_d.cloneNode(true);
                         clone.innerHTML = i;
                         clone.classList.add('event-ano');
@@ -366,11 +367,22 @@ function creatFormEdit(){
                         clone.classList.add('event-dia');
                         qs('#dia').appendChild(clone);
                     }
-                    for(i=2008; i > 1900; i = i-4){
-                        let clone = opt_d.cloneNode(true);
-                        clone.innerHTML = i;
-                        clone.classList.add('event-ano');
-                        qs('#ano').appendChild(clone);
+                    qs("#dia").onblur = (e) => {
+                        if (e.target.value == 29) {
+                            for (let i = 2008; i > 1900; i = i - 4) {
+                                let clone = opt_d.cloneNode(true);
+                                clone.innerHTML = i;
+                                clone.classList.add('event-ano');
+                                qs('#ano').appendChild(clone);
+                            }
+                        } else {
+                            for (let i = 2009; i > 1900; i--) {
+                                let clone = opt_d.cloneNode(true);
+                                clone.innerHTML = i;
+                                clone.classList.add('event-ano');
+                                qs('#ano').appendChild(clone);
+                            }
+                        }
                     }
                 } else {
                     let event_dia = qsAll('.event-dia');
