@@ -2799,3 +2799,9 @@ select option {
 .input_name_solicita {
     padding: 5px;
 }
+
+.aviso {
+    margin-left: 10px;
+    color: #afafaf;
+    font-size: 14px;
+}

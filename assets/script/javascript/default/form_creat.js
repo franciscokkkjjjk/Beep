@@ -183,7 +183,7 @@ async function creatFormEdit() {
         eS(div08, 'input--edit select--area');
         let div0801 = dC('div');
         eS(div0801, 'dat--title');
-        div0801.innerHTML = 'Data de nascimento';
+        div0801.innerHTML = 'Data de nascimento'+'<span class=\'aviso\'>Você só poderá mudar a data de nascimento uma vez.</span>';
         let div0802 = dC('div');
         eS(div0802, 'area--selection--date');
         let div080201 = dC('div');

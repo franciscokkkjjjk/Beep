@@ -37,6 +37,14 @@ for($i = 0;$i < 12;$i++){
 }
 $datOt = date('Y-m-d', $datIn);
 var_dump($datOt);
+$sql_ = "SELECT * FROM users WHERE id_user=" . $_SESSION['id_user'];
+$res_ = mysqli_query($conexao, $sql_);
+$ass = mysqli_fetch_assoc($res_);
+if($datOt == $ass['data_nas']) {
+    $active = 0;
+} else {
+    $active = 1;
+}
 $calc = $dat_in-$datIn;
 $cal_pross00 = $calc/60;
 $cal_pross0000 = $cal_pross00/60;
@@ -115,7 +123,7 @@ if($date_coverti >= 13){
             }
         }
         //
-        $sql_edit = "UPDATE users SET username='$usernameDE',nome='$nome_user',foto_perfil='$nome_banco_perfil',banner_pefil='$nome_banco_banner' ,bio='$bio_user', data_nas='$datOt' WHERE id_user=".$_SESSION['id_user'];
+        $sql_edit = "UPDATE users SET username='$usernameDE',nome='$nome_user',foto_perfil='$nome_banco_perfil',banner_pefil='$nome_banco_banner' ,bio='$bio_user', data_nas='$datOt', data_active=$active WHERE id_user=".$_SESSION['id_user'];
         $rest_edit = mysqli_query($conexao, $sql_edit);
         if($rest_edit) {
             $sql_user = 'SELECT * FROM users WHERE id_user='.$_SESSION['id_user'];
