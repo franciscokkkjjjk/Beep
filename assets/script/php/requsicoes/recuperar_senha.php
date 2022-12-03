@@ -65,7 +65,7 @@ if (!is_null($usuario)) { // caso o email exista no banco de dados
                 . "Para redefinir a sua senha clique neste "
                 . "<a href=\""
                 . filter_input(INPUT_SERVER, 'SERVER_NAME')
-                . "/beep/nova-senha.php?email=" . $email . "&token="
+                . "/beep/paginas/nova-senha.php?email=" . $email . "&token="
                 . $token . "\">link</a>.<br>"
                 . "Este link só funcionará uma única vez, e "
                 . "expirará em um dia.<br>"

@@ -79,20 +79,17 @@
                 </div>
                 <div class="buttons--area">
                     <div class="entrar--area">
-                        <button type="submit">Entrar</button>
+                        <button type="submit">Recuperar senha</button>
                     </div>
                     <div class="area--button--eC">
-                        <div class="button-e">
-                            <a href="" >Esqueceu a senha?</a>
-                        </div>
                         <div class="button-C">
-                            <a href="paginas/cadastrar_se.php">Criar conta</a>
+                            <a href="../index.php">Voltar</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-                
+                            
     </form>
     </div>
     </main>
