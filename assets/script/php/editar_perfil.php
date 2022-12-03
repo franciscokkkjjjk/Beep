@@ -40,7 +40,7 @@ var_dump($datOt);
 $sql_ = "SELECT * FROM users WHERE id_user=" . $_SESSION['id_user'];
 $res_ = mysqli_query($conexao, $sql_);
 $ass = mysqli_fetch_assoc($res_);
-if($datOt == $ass['data_nas']) {
+if($datOt == $ass['data_nas'] AND $ass['data_active'] == 0) {
     $active = 0;
 } else {
     $active = 1;
