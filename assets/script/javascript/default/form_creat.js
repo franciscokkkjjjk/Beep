@@ -121,11 +121,6 @@ function creatFormEdit(){
         div05010101.innerHTML = 'nome';
         let div05010102 = dC('div');
         eS(div05010102, 'cont--tam');
-        let div0501010201 = dC('span');
-        eS(div0501010201, 'numer--user nome_contL');
-        div0501010201.innerHTML = '0';
-        let div0501010202 = dC('span');
-        div0501010202.innerHTML = '/40';
         let input05 = dC('input');
         input05.setAttribute('id', 'nome');
         input05.value = nome;
@@ -142,11 +137,7 @@ function creatFormEdit(){
         div06010101.innerHTML = 'username';
         let div06010102 = dC('div');
         eS(div06010102, 'cont--tam');
-        let div0601010201 = dC('span');
-        eS(div0601010201, 'numer--user username_contL');
-        div0601010201.innerHTML = '0';
-        let div0601010202 = dC('span');
-        div0601010202.innerHTML = '/15';
+
         let input06 = dC('input');
         let user_dc = username.replace('@', '');
         input06.value = user_dc;
@@ -164,11 +155,7 @@ function creatFormEdit(){
         div07010101.innerHTML = 'bio';
         let div07010102 = dC('div');
         eS(div07010102, 'cont--tam');
-        let div0701010201 = dC('span');
-        eS(div0701010201, 'numer--user bio_contL');
-        div0701010201.innerHTML = '0';
-        let div0701010202 = dC('span');
-        div0701010202.innerHTML = '/120';
+
         let input07 = dC('textarea');
         input07.innerHTML = bio;
         input07.setAttribute('id', 'bio')
@@ -246,9 +233,7 @@ function creatFormEdit(){
         let opt1002 = dC('option');
         opt1002.disabled = true;
         opt1001.innerHTML = y_nas;
-        
-        aP(div05010102, div0501010201);
-        aP(div05010102, div0501010202);
+
         aP(div050101,div05010101);
         aP(div050101,div05010102);
         aP(div0501,div050101);
@@ -256,8 +241,6 @@ function creatFormEdit(){
         aP(div05, input05);
         aP(div01, div05);
 
-        aP(div06010102, div0601010201);
-        aP(div06010102, div0601010202);
         aP(div060101,div06010101);
         aP(div060101,div06010102);
         aP(div0601,div060101);
@@ -266,9 +249,7 @@ function creatFormEdit(){
         aP(div01, div06);
 
         aP(div01, div_error);
-
-        aP(div07010102, div0701010201);
-        aP(div07010102, div0701010202);
+        
         aP(div070101,div07010101);
         aP(div070101,div07010102);
         aP(div0701,div070101);
