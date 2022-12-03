@@ -484,9 +484,6 @@ require_once "game_templet.php";
             <div class="title--coment--repost">Convidar para jogar.</div>
         </div>
         <div class='area_pefils'>
-            <div class='pesquisa_modal_convite'>
-                <input class='generic_input_search convite_modal_serch' type="search">
-            </div>
             <div class="postion-no">
                 <div class="postion-no-event"></div>
             </div>
