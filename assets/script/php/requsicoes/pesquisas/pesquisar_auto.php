@@ -271,15 +271,15 @@ if (isset($_POST['x_GAME30'])) {
     $json = array();
 
     $game_array = $pdo->query("SELECT * FROM jogos WHERE nome_jogo LIKE '%" . $pesquisa_game . "%'")->fetch_all(1);
-
     $arra_game_user = $pdo->query("SELECT * FROM jogos_possui WHERE id_user=" . $_SESSION['id_user'])->fetch_all(1);
-    if ($game_array != NULL) {
+    if (!is_null($game_array) OR !empty($game_array)) {
         foreach ($game_array as $value_game) {
             $possui_ = false;
             //valida a classifcação indicativa
             if (!valid_class_ind($_SESSION['data_nas'], $value_game['class_etaria'])) {
                 continue;
             }
+            $possui = false;
             foreach ($arra_game_user as $v_game) {
                 if ($v_game['id_game'] == $value_game['id_jogos']) {
                     $possui = true;

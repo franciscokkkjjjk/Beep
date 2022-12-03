@@ -102,16 +102,16 @@ $postagens = mysqli_fetch_all($res_posts, 1);
     <script type="text/javascript" src="../assets/script/javascript/default/event_header.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/posts/posts.js"></script>
     <script>
-        const nome = <?php echo '"' .$_SESSION[' nome ']. '"'; ?>;
-        const email = <?php echo '"' .$_SESSION[' email ']. '"'; ?>;
-        const username = <?php echo '"' .$_SESSION[' username ']. '"'; ?>;
-        const img_perfil = <?php echo '"' .$_SESSION[' img ']. '"'; ?>;
-        const img_banner = <?php echo '"' .$_SESSION[' img_banner ']. '"'; ?>;
+        const nome = <?php echo '"'.$_SESSION['nome'].'"'; ?>;
+        const email = <?php echo '"'.$_SESSION['email'].'"'; ?>;
+        const username = <?php echo '"'.$_SESSION['username'].'"'; ?>;
+        const img_perfil = <?php echo '"'.$_SESSION['img'].'"'; ?>;
+        const img_banner = <?php echo '"'.$_SESSION['img_banner'].'"'; ?>;
         const bio = <?php echo '`' . $_SESSION['bio_user'] . '` '; ?>;
-        const dateC = <?php echo '"' .date('d / m / Y ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
-        const m_nas = <?php echo '"' .date('m ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
-        const d_nas = <?php echo '"' .date('d ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
-        const y_nas = <?php echo '"' .date('Y ', strtotime($_SESSION[' data_nas '])). '"'; ?>;
+        const dateC = <?php echo '"'.date('d / m / Y ', strtotime($_SESSION['data_nas'])).'"'; ?>;
+        const m_nas = <?php echo '"'.date('m ', strtotime($_SESSION['data_nas'])).'"'; ?>;
+        const d_nas = <?php echo '"'.date('d ', strtotime($_SESSION['data_nas'])).'"'; ?>;
+        const y_nas = <?php echo '"'.date('Y ', strtotime($_SESSION['data_nas'])).'"'; ?>;
     </script>
     <script src="../assets/script/javascript/default/edit_form.js"></script>
     <script type="text/javascript" src="../assets/script/javascript/default/form_creat.js"></script>

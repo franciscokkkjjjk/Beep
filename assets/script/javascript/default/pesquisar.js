@@ -60,6 +60,7 @@ async function pesquisa_(pesquisa) {
         post_not(5);
         return;
     }
+    console.log(res_pes);
     document.querySelector('.area_loading').innerHTML = '';
     document.querySelector(".modal_pesquisa_autocomplete").style.opacity = '0';
     setTimeout(() => document.querySelector(".modal_pesquisa_autocomplete").style.display = 'none', 25)
