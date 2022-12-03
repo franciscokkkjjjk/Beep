@@ -34,7 +34,7 @@ if(isset($_POST['p_adm305'])) {
                         $sendemail = false;
                         if($array_solic['notificar']) {
                             $mensagem = "
-                            <div style='padding:50px;background-color:#f00; font-size:25px;'>
+                            <div>
                                 Salve " . $ass_user['nome'] .",
                             </div>
                             <div>

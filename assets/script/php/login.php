@@ -22,7 +22,7 @@
                 $_SESSION['historyc'] = array();
                     header('location:../../../paginas/inicial.php');
             } else {
-                $_SESSION['mensagem'] = 'Senha incorreta. <a href="">você esqueceu a senha?</a>';
+                $_SESSION['mensagem'] = 'Senha incorreta. <a href="paginas/esqueceu_senha.php">você esqueceu a senha?</a>';
                 $_SESSION['email'] = $email;
                 header('location:../../../');
             }
