@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['id_user'])) {
-    header('location:paginas/inicial.php');
+    header('location: inicial.php');
 } else {
     $erro = '';
     $erro_email_s = '';
