@@ -23,12 +23,19 @@
         $img_diretorio_post = $diretorio . basename($_FILES["img_post"]["name"]);
         $extensao = pathinfo($_FILES["img_post"]["name"],PATHINFO_EXTENSION);
         if($extensao != "mp4" AND $extensao != "jpeg" and $extensao != "gif" and $extensao != "png" and $extensao != "jfif"  AND $extensao != "jpg") {
-            var_dump($extensao);
             $_SESSION['menssagem'] = 'O arquivo que você tentou inserir não atende os requsitos necessários.';
             $_SESSION['fal'] = true;
             header('location:../../../paginas/inicial.php');
             die;
         }
+    var_dump($_FILES);
+    die;
+    if($_FILES['img_post']['size'] > 200000) {
+        $_SESSION['menssagem'] = 'O arquivo que você tentou inserir é muito grande.';
+        $_SESSION['fal'] = true;
+        header('location:../../../paginas/inicial.php');
+        die;
+    }
         $novo_nome = uniqid().'.'.pathinfo($_FILES["img_post"]["name"],PATHINFO_EXTENSION);
         $nome_banco_perfil = $novo_nome;
         move_uploaded_file($_FILES["img_post"]["tmp_name"], $diretorio.$novo_nome);

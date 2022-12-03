@@ -1937,11 +1937,16 @@ select option {
     border-top: 0.5px solid #393939;
     padding-top: 15px;
 }
-
+.input_default_soli {
+    height: auto !important;
+}
+.input_default_soli input::placeholder {
+    color: #aaaaaa;
+}
 .input_default_soli .input_div {
     border: none;
     padding: 3px 5px;
-    margin-top: none !important;
+    margin-top: 0px !important;
 }
 
 .input_div {
@@ -2789,4 +2794,8 @@ select option {
     .area--convite {
         display: none !important;
     }
+}
+
+.input_name_solicita {
+    padding: 5px;
 }
