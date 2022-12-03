@@ -28,7 +28,7 @@
             header('location:../../../paginas/inicial.php');
             die;
         }
-    if($_FILES['img_post']['size'] > 200000) {
+    if($_FILES['img_post']['size'] >= 100000000) {
         $_SESSION['menssagem'] = 'O arquivo que você tentou inserir é muito grande.';
         $_SESSION['fal'] = true;
         header('location:../../../paginas/inicial.php');
