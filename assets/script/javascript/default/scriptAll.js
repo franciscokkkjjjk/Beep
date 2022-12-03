@@ -8,19 +8,7 @@
 // const m_nas = <?php echo '"'.date('m', strtotime($_SESSION['data_nas'])).'"';?>;
 // const d_nas = <?php echo '"'.date('d', strtotime($_SESSION['data_nas'])).'"';?>;
 // const y_nas = <?php echo '"'.date('Y', strtotime($_SESSION['data_nas'])).'"';?>;
-async function user_push() {
-    let res;
-    try {
-        let req = await fetch('../assets/script/php/requsicoes/userSe.php');
-        res = await req.json();
-    } catch {
-        console.log('ops')
-        return;
-    }
-    console.log(res);
 
-}
-user_push();
 function post_not(timeline) {
     let nada = document.createElement('div');
     nada.classList.add('nada');
