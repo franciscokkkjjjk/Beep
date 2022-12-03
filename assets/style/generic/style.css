@@ -2464,6 +2464,10 @@ select option {
     text-decoration: none;
 
 }
+.input--edit--pre:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+}
 .rede_area {
     min-height:auto !important;
     display: flex;

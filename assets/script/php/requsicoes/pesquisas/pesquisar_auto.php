@@ -1,6 +1,9 @@
 <?php
-require_once '../../conect_pdo.php';
 session_start();
+if(!isset($_SESSION['id_user'])) {
+    die;
+}
+require_once '../../conect_pdo.php';
 require_once '../../function/funcoes.php';
 if (isset($_POST['x_AUTO30'])) {
     $pesquisa = $pdo->escape_string($_POST['x_AUTO30']);

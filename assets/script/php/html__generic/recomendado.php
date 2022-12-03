@@ -422,7 +422,7 @@ if (isset($_SESSION['menssagem'])) {
                         <input type="radio" id="q_D_r1" name="den_a" value="2" class="q_D_radio">
                     </div>
 
-                    <label for="q_D_r1">Discurso de ódio(corredor?)</label>
+                    <label for="q_D_r1">Discurso de ódio</label>
                 </div>
                 <div class="q_D_body_R_area">
                     <div class="area_radio">
@@ -442,7 +442,7 @@ if (isset($_SESSION['menssagem'])) {
                 </div>
                 <div class="info_text">
                     <div class="input_div_info_title">Conte-nos o que aconteceu</div>
-                    <div class="input_div" contenteditable="true">oh meu deus o pedrinha é doido</div>
+                    <div class="input_div" contenteditable="true"></div>
                     <input type="hidden" class="hidden_in_info_">
                 </div>
             </div>

@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['id_user'])) {
+    die;
+}
 require_once '../../conect_pdo.php';
 require_once '../../function/funcoes.php';
 date_default_timezone_set('America/Sao_Paulo');

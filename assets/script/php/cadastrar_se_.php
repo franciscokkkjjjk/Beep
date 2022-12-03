@@ -92,7 +92,7 @@ if ($date_coverti >= 13) {
             }
         }
 
-        $sql_cadastro = "INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt')";
+        $sql_cadastro = "INSERT INTO users(username,t_seguidores,t_seguindo, email, nome, senha, foto_perfil, banner_pefil, bio, data_nas, data_active) VALUE ('$username_DF',0, 0,'$email', '$nome', '$pass',NULL,NULL,NULL,'$datOt', 0)";
         $resultado_cadastro = mysqli_query($conexao, $sql_cadastro);
 
         var_dump($resultado_cadastro);
