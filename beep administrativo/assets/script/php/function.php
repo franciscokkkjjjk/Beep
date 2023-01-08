@@ -18,8 +18,8 @@ require $d.'PHPMailer-master/src/SMTP.php';
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'luis.2020316527@aluno.iffar.edu.br';//mudar para o email da beep
-        $mail->Password = 'tfpdfidrjocetasu';
+        $mail->Username = '';//mudar para o email da beep
+        $mail->Password = '';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
@@ -35,9 +35,9 @@ require $d.'PHPMailer-master/src/SMTP.php';
 
         //Recipients = Quem vai enviar o email
 
-        $mail->setFrom('beep.contac@gmail.com', 'Por favor, não responda este email.');
+        $mail->setFrom('', 'Por favor, não responda este email.');
         $mail->addAddress($from);                            //Add a recipient
-        $mail->addReplyTo('beep.contac@gmail.com', 'Por favor, não responda este email.');
+        $mail->addReplyTo('', 'Por favor, não responda este email.');
 
         //Content
         $mail->isHTML(true);                                  //Set email format to HTML
