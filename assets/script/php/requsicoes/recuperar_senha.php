@@ -36,8 +36,8 @@ if (!is_null($usuario)) { // caso o email exista no banco de dados
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'luis.2020316527@aluno.iffar.edu.br';
-            $mail->Password = 'tfpdfidrjocetasu';
+            $mail->Username = '';
+            $mail->Password = '';
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
             // caso de erro de certificado ssl
@@ -50,9 +50,9 @@ if (!is_null($usuario)) { // caso o email exista no banco de dados
             );*/
 
             //Recipients
-            $mail->setFrom('beep.contac@gmail.com', 'Recuperar Senha');
+            $mail->setFrom('', 'Recuperar Senha');
             $mail->addAddress($email);                            //Add a recipient
-            $mail->addReplyTo('beep.contac@gmail.com', 'Recuperar Senha');
+            $mail->addReplyTo('', 'Recuperar Senha');
 
             //Content
             $mail->isHTML(true);                                  //Set email format to HTML
