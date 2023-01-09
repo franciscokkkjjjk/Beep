@@ -20,7 +20,8 @@ Esse projeto refere-se a um Trabalho de Conclusão de Curso (TCC) desenvolvido n
 </ul>
 
 # Importante
-É necessário configurar o servidor nos arquivos <i>conect_pdo.php</i> e <i>conecta.php</i> no diretório <i>assets/script/php/</i> e <i>beep administrativo/assets/script/php/</i>.
+</p>É necessário configurar o servidor nos arquivos <i>conect_pdo.php</i> e <i>conecta.php</i> no diretório <i>assets/script/php/</i> e <i>beep administrativo/assets/script/php/</i>.</p>
+<p>É de extrema importancia importar o banco de dados (beep.sql) localizado em <i>planejamento/banco de dados/</i>.</p>
 
 # Algumas telas do sistema
 <h2>Tela de login do usuário</h2>
