@@ -19,6 +19,9 @@ Esse projeto refere-se a um Trabalho de Conclusão de Curso (TCC) desenvolvido n
 <li>MySQL</li>
 </ul>
 
+# Importante
+É necessário configurar o servidor nos arquivos <i>conect_pdo.php</i> e <i>conecta.php</i> no diretório <i>assets/script/php/</i> e <i>beep administrativo/assets/script/php/</i>.
+
 # Algumas telas do sistema
 <h2>Tela de login do usuário</h2>
 <img src='https://user-images.githubusercontent.com/105812422/211375115-1312f9ab-08ba-451a-a900-e236c1b0e4b4.png'>
