@@ -13,7 +13,7 @@ if (isset($_GET['pag'])) {
 }
 $json = array();
 
-$limit = 50; //mudar isso ai kkkkkkkkkkkkkkkkkkk
+$limit = 50; 
 $offset = $limit * ($pag - 1);
 
 $sql_game = "SELECT * FROM jogos LIMIT $limit OFFSET $offset";
